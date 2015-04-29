@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  DigiGraff-IOS
+
+  Created by Georgi Christov on 03/12/2014.
+  Copyright (c) 2014 DigiGraff. All rights reserved.
+*/
+
+"NOTIF_COMMENT" = "%@ posted a comment on your graffiti";
+"NOTIF_FOLLOW" = "%@ started following you";
+"NOTIF_LIKE" = "%@ liked your graffiti";
+"NOTIF_MENTION" = "%@ mentioned you in a comment";
+"NOTIF_MESSAGE" = "%@: %@";
+"NOTIF_WELCOME" = "Welcome to GraffiTab, %@";

@@ -1,0 +1,19 @@
+//
+//  ViewControllerUtils.h
+//  GraffiTab-iOS
+//
+//  Created by Georgi Christov on 18/04/2015.
+//  Copyright (c) 2015 GraffiTab. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface ViewControllerUtils : NSObject
+
++ (void)showUserProfile:(Person *)user fromViewController:(UIViewController *)vc;
++ (void)showTag:(StreamableTag *)tag fromViewController:(UIViewController *)controller originFrame:(CGRect)frame transitionDelegate:(id <UIViewControllerTransitioningDelegate>)delegate;
+
++ (void)showSearchUserProfile:(NSString *)username fromViewController:(UIViewController *)controller;
++ (void)showSearchHashtag:(NSString *)hashtag fromViewController:(UIViewController *)controller;
+
+@end

@@ -1,0 +1,535 @@
+//
+//  CreateGroupViewController.m
+//  GraffiTab-iOS
+//
+//  Created by Georgi Christov on 11/04/2015.
+//  Copyright (c) 2015 GraffiTab. All rights reserved.
+//
+
+#import "CreateGroupViewController.h"
+#import "AutocompleteHashCell.h"
+#import "AutocompleteUserCell.h"
+#import "SearchUsers.h"
+#import "SearchHashtags.h"
+#import "CreateConversationTask.h"
+#import "UIActionSheet+Blocks.h"
+#import "ImageCropViewController.h"
+
+@interface CreateGroupViewController () {
+    
+    IBOutlet UITableView *toAutoCompleteTableView;
+    IBOutlet TITokenField *tokenField;
+    IBOutlet UIView *conversationNameView;
+    IBOutlet UIImageView *conversationImage;
+    IBOutlet UITextField *conversationNameField;
+    
+    UIImagePickerController *galleryPicker;
+    NSArray *searchResult;
+    NSMutableArray *autocompleteUsers;
+    NSMutableArray *autocompleteHashtags;
+}
+
+- (IBAction)onClickImage:(id)sender;
+
+@end
+
+@implementation CreateGroupViewController
+
+- (id)init {
+    self = [super initWithTableViewStyle:UITableViewStylePlain];
+    
+    if (self) {
+        // Register a subclass of SLKTextView, if you need any special appearance and/or behavior customisation.
+    }
+    
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    
+    if (self) {
+        // Register a subclass of SLKTextView, if you need any special appearance and/or behavior customisation.
+    }
+    
+    return self;
+}
+
++ (UITableViewStyle)tableViewStyleForCoder:(NSCoder *)decoder {
+    return UITableViewStylePlain;
+}
+
+#pragma mark - View lifecycle
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    autocompleteUsers = [NSMutableArray new];
+    autocompleteHashtags = [NSMutableArray new];
+    
+    [self setupTopBar];
+    [self setupSlackController];
+    [self setupAutocompleteTable];
+    [self setupToField];
+    [self setupConversationNameView];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)onClickImage:(id)sender {
+    [UIActionSheet showInView:self.view
+                    withTitle:@"Choose source"
+            cancelButtonTitle:@"Cancel"
+       destructiveButtonTitle:nil
+            otherButtonTitles:@[@"Take new", @"Choose from Library"]
+                     tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+                         if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Cancel"])
+                             return;
+                         
+                         if (buttonIndex == 0)
+                             [self doTakeNew];
+                         else if (buttonIndex == 1)
+                             [self doChooseFromGallery];
+                     }];
+}
+
+#pragma mark - Image picking
+
+- (void)doTakeNew {
+    if ( ![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] )
+        [Utils showMessage:APP_NAME message:@"No camera app was found on this device."];
+    else {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = NO;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        picker.mediaTypes = [NSArray arrayWithObjects:
+                             (NSString *) kUTTypeImage,
+                             nil];
+        
+        [self presentViewController:picker animated:YES completion:nil];
+        picker = nil;
+    }
+}
+
+- (void)doChooseFromGallery {
+    if ( ![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary] )
+        [Utils showMessage:APP_NAME message:@"No gallery app was found on this device."];
+    else {
+        galleryPicker = [[UIImagePickerController alloc] init];
+        galleryPicker.delegate = self;
+        galleryPicker.allowsEditing = NO;
+        galleryPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        galleryPicker.mediaTypes = [NSArray arrayWithObjects:
+                                    (NSString *) kUTTypeImage,
+                                    nil];
+        
+        [self presentViewController:galleryPicker animated:YES completion:nil];
+    }
+}
+
+#pragma mark - Overriden Methods
+
+- (void)didPressRightButton:(id)sender {
+    // This little trick validates any pending auto-correction or auto-spelling just after hitting the 'Send' button
+    [self.textView refreshFirstResponder];
+
+    if (tokenField.tokens.count <= 0)
+        [Utils showMessage:APP_NAME message:@"Please choose at least one recipient."];
+    else {
+        [self.view endEditing:YES];
+        
+        NSString *text = [self.textView.text copy];
+        
+        [[LoadingViewManager getInstance] addLoadingToView:self.navigationController.view withMessage:@"Processing"];
+        
+        NSMutableArray *receivers = [NSMutableArray new];
+        for (TIToken *token in tokenField.tokens)
+            [receivers addObject:@(((Person *)token.representedObject).userId)];
+        
+        CreateConversationTask *task = [CreateConversationTask new];
+        [task createConversationWithText:text title:conversationNameField.text receiverIds:receivers image:conversationImage.image successBlock:^(ResponseObject *response) {
+            [[LoadingViewManager getInstance] removeLoadingView];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                [self dismissViewControllerAnimated:YES completion:nil];
+            });
+        } failureBlock:^(ResponseObject *response) {
+            [[LoadingViewManager getInstance] removeLoadingView];
+            
+            if (response.reason == AUTHORIZATION_NEEDED) {
+                [Utils logoutUserAndShowLoginController];
+                [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
+            }
+            else if (response.reason == DATABASE_ERROR || response.reason == NOT_FOUND || response.reason == NETWORK || response.reason == OTHER)
+                [Utils showMessage:APP_NAME message:response.message];
+        }];
+        
+        [super didPressRightButton:sender];
+    }
+}
+
+- (BOOL)canShowAutoCompletion {
+    NSArray *array = nil;
+    NSString *prefix = self.foundPrefix;
+    NSString *word = self.foundWord;
+    
+    searchResult = nil;
+    
+    if ([prefix isEqualToString:@"@"]) {
+        if (word.length > 0) {
+            array = [autocompleteUsers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.username BEGINSWITH[c] %@", word]];
+            
+            if (array.count <= 0) {
+                SearchUsers *task = [SearchUsers new];
+                [task searchUsersWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+                    autocompleteUsers = response.object;
+                    searchResult = [[NSMutableArray alloc] initWithArray:autocompleteUsers];
+                    
+                    [self.autoCompletionView reloadData];
+                } failureBlock:^(ResponseObject *response) {}];
+            }
+        }
+        else
+            array = autocompleteUsers;
+    }
+    else if ([prefix isEqualToString:@"#"]) {
+        if (word.length > 0) {
+            array = [autocompleteHashtags filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self BEGINSWITH[c] %@", word]];
+            
+            if (array.count <= 0) {
+                SearchHashtags *task = [SearchHashtags new];
+                [task searchHashtagsWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+                    autocompleteHashtags = response.object;
+                    searchResult = [[NSMutableArray alloc] initWithArray:autocompleteHashtags];
+                    
+                    [self.autoCompletionView reloadData];
+                } failureBlock:^(ResponseObject *response) {}];
+            }
+        }
+        else
+            array = autocompleteHashtags;
+    }
+    
+    searchResult = [[NSMutableArray alloc] initWithArray:array];
+    
+    return YES;
+}
+
+- (CGFloat)heightForAutoCompletionView {
+    CGFloat cellHeight = [self.autoCompletionView.delegate tableView:self.autoCompletionView heightForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    return cellHeight * searchResult.count;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if ([tableView isEqual:toAutoCompleteTableView] || [tableView isEqual:self.autoCompletionView])
+        return searchResult.count;
+    else
+        return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([tableView isEqual:toAutoCompleteTableView])
+        return [self toAutoCompletionCellForRowAtIndexPath:indexPath];
+    else if ([tableView isEqual:self.autoCompletionView])
+        return [self autoCompletionCellForRowAtIndexPath:indexPath];
+    
+    return nil;
+}
+
+- (UITableViewCell *)toAutoCompletionCellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AutocompleteUserCell *cell = (AutocompleteUserCell *)[self.autoCompletionView dequeueReusableCellWithIdentifier:@"AutocompleteUserCell"];
+    
+    cell.item = searchResult[indexPath.row];
+    
+    return cell;
+}
+
+- (UITableViewCell *)autoCompletionCellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell;
+    
+    if ([self.foundPrefix isEqualToString:@"@"]) {
+        AutocompleteUserCell *c = (AutocompleteUserCell *)[self.autoCompletionView dequeueReusableCellWithIdentifier:@"AutocompleteUserCell"];
+        
+        c.item = searchResult[indexPath.row];
+        
+        cell = c;
+    }
+    else {
+        AutocompleteHashCell *c = (AutocompleteHashCell *)[self.autoCompletionView dequeueReusableCellWithIdentifier:@"AutocompleteHashCell"];
+        
+        c.item = searchResult[indexPath.row];
+        
+        cell = c;
+    }
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == toAutoCompleteTableView)
+        return [AutocompleteUserCell height];
+    else if (tableView == self.autoCompletionView) {
+        if ([self.foundPrefix isEqualToString:@"@"])
+            return [AutocompleteUserCell height];
+        else
+            return [AutocompleteHashCell height];
+    }
+    
+    return tableView.rowHeight;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if ([tableView isEqual:self.autoCompletionView]) {
+        UIView *topView = [UIView new];
+        topView.backgroundColor = self.autoCompletionView.separatorColor;
+        return topView;
+    }
+    
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if ([tableView isEqual:self.autoCompletionView])
+        return 0.5;
+    
+    return 0.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if ([tableView isEqual:self.autoCompletionView]) {
+        NSString *string;
+        if ([self.foundPrefix isEqualToString:@"@"])
+            string = ((Person *)searchResult[indexPath.row]).username;
+        else
+            string = searchResult[indexPath.row];
+        
+        NSMutableString *item = [string mutableCopy];
+        [item appendString:@" "];
+        
+        [self acceptAutoCompletionWithString:item keepPrefix:YES];
+    }
+    else if ([tableView isEqual:toAutoCompleteTableView]) {
+        Person *p = searchResult[indexPath.row];
+        
+        TIToken *token = [tokenField addTokenWithTitle:p.fullName representedObject:p];
+        token.tintColor = UIColorFromRGB(COLOR_ORANGE);
+    }
+}
+
+#pragma mark - UIScrollViewDelegate Methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    // Since SLKTextViewController uses UIScrollViewDelegate to update a few things, it is important that if you ovveride this method, to call super.
+    [super scrollViewDidScroll:scrollView];
+}
+
+/** UITextViewDelegate */
+- (BOOL)textView:(SLKTextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    return [super textView:textView shouldChangeTextInRange:range replacementText:text];
+}
+
+- (void)textViewDidChangeSelection:(SLKTextView *)textView {
+    [super textViewDidChangeSelection:textView];
+}
+
+#pragma mark - UITokenFieldDelegate
+
+- (void)calculateFrames {
+    CGRect rhs = CGRectZero;
+    rhs = CGRectUnion(rhs, conversationImage.frame);
+    rhs = CGRectUnion(rhs, tokenField.frame);
+    
+    CGRect f = conversationNameView.frame;
+    f.size.height = rhs.size.height;
+    conversationNameView.frame = f;
+    
+    f = toAutoCompleteTableView.frame;
+    f.origin.y = rhs.size.height + conversationNameView.frame.origin.y;
+    f.size.height = self.view.frame.size.height - KEYBOARD_HEIGHT_IPHONE_P - f.origin.y;
+    toAutoCompleteTableView.frame = f;
+}
+
+- (BOOL)tokenField:(TITokenField *)tf willAddToken:(TIToken *)token {
+    return [token.representedObject isKindOfClass:[Person class]];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    if (textField == conversationNameField)
+        return;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        toAutoCompleteTableView.alpha = 1.0;
+        
+        [self calculateFrames];
+    }];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if (textField == conversationNameField)
+        return;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        toAutoCompleteTableView.alpha = 0.0;
+        
+        CGRect f = toAutoCompleteTableView.frame;
+        f.size.height = self.view.frame.size.height - f.origin.y;
+        toAutoCompleteTableView.frame = f;
+    }];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.view endEditing:YES];
+    
+    return NO;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField == conversationNameField)
+        return YES;
+    
+    NSString *word = [textField.text stringByAppendingString:string];
+    word = [word substringFromIndex:1];
+    
+    NSArray *array;
+    if (word.length > 0) {
+        array = [autocompleteUsers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.username BEGINSWITH[c] %@ or self.fullName BEGINSWITH[c] %@", word, word]];
+        
+        if (array.count <= 0) {
+            SearchUsers *task = [SearchUsers new];
+            [task searchUsersWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+                autocompleteUsers = response.object;
+                searchResult = [[NSMutableArray alloc] initWithArray:autocompleteUsers];
+                
+                [toAutoCompleteTableView reloadData];
+            } failureBlock:^(ResponseObject *response) {}];
+        }
+    }
+    else
+        array = autocompleteUsers;
+    
+    searchResult = [[NSMutableArray alloc] initWithArray:array];
+    
+    [toAutoCompleteTableView reloadData];
+    
+    return YES;
+}
+
+- (void)tokenFieldFrameDidChange:(TITokenField *)tf {
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         [self calculateFrames];
+                     }
+                     completion:nil];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [picker dismissViewControllerAnimated:YES completion:^{
+        UIImage *i = [info objectForKey:UIImagePickerControllerOriginalImage];
+        
+        UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
+        UINavigationController *cropperNavigation = [mainStoryboard instantiateViewControllerWithIdentifier:@"ImageCropViewController"];
+        ImageCropViewController *cropper = cropperNavigation.viewControllers[0];
+        
+        cropper.checkBounds = YES;
+        cropper.rotateEnabled = YES;
+        cropper.doneCallback = ^(UIImage *editedImage, BOOL canceled) {
+            if (!canceled) {
+                conversationImage.image = editedImage;
+                conversationImage.layer.borderWidth = 0;
+            }
+            
+            [cropperNavigation dismissViewControllerAnimated:YES completion:nil];
+        };
+        
+        cropper.sourceImage = i;
+        cropper.previewImage = i;
+        
+        [self presentViewController:cropperNavigation animated:YES completion:NULL];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            int size = 300;
+            cropper.cropRect = CGRectMake(self.view.frame.size.width / 2 - size / 2, (self.view.frame.size.height - (STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT)) / 2 - size / 2, size, size);
+            [cropper reset:YES];
+        });
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    picker = nil;
+}
+
+#pragma mark - UINavigationControllerDelegate
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
+#pragma mark - Setup
+
+- (void)setupTopBar {
+    self.title = @"New group";
+}
+
+- (void)setupSlackController {
+    self.bounces = YES;
+    self.shakeToClearEnabled = YES;
+    self.keyboardPanningEnabled = YES;
+    self.shouldScrollToBottomAfterKeyboardShows = NO;
+    self.inverted = YES;
+    
+    self.tableView.hidden = YES;
+    
+    [self.rightButton setTitle:@"Send" forState:UIControlStateNormal];
+    
+    [self.textInputbar.editorTitle setTextColor:[UIColor darkGrayColor]];
+    [self.textInputbar.editortLeftButton setTintColor:[UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0]];
+    [self.textInputbar.editortRightButton setTintColor:[UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0]];
+    
+    self.textInputbar.autoHideRightButton = YES;
+    self.textView.placeholder = @"Write your message here";
+    self.shouldClearTextAtRightButtonPress = NO;
+    
+    self.typingIndicatorView.canResignByTouch = YES;
+    
+    [self.autoCompletionView registerNib:[UINib nibWithNibName:@"AutocompleteUserCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"AutocompleteUserCell"];
+    [self.autoCompletionView registerNib:[UINib nibWithNibName:@"AutocompleteHashCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"AutocompleteHashCell"];
+    [self registerPrefixesForAutoCompletion:@[@"@", @"#"]];
+}
+
+- (void)setupAutocompleteTable {
+    toAutoCompleteTableView.alpha = 0.0;
+}
+
+- (void)setupToField {
+    tokenField.delegate = self;
+    tokenField.backgroundColor = UIColorFromRGB(0xfbf3e8);
+    [tokenField addTarget:self action:@selector(tokenFieldFrameDidChange:) forControlEvents:TITokenFieldControlEventFrameDidChange];
+    [tokenField setTokenizingCharacters:[NSCharacterSet characterSetWithCharactersInString:@",;."]]; // Default is a comma
+    [tokenField setPromptText:@"To:"];
+    [tokenField setPlaceholder:@"Type people's names"];
+}
+
+- (void)setupConversationNameView {
+    conversationImage.layer.cornerRadius = conversationImage.frame.size.width / 2;
+    conversationImage.layer.borderWidth = 1;
+    conversationImage.layer.borderColor = UIColorFromRGB(COLOR_MAIN).CGColor;
+}
+
+@end

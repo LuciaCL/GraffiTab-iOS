@@ -1,0 +1,321 @@
+//
+//  TagDetailsViewController.m
+//  GraffiTab-iOS
+//
+//  Created by Georgi Christov on 30/03/2015.
+//  Copyright (c) 2015 GraffiTab. All rights reserved.
+//
+
+#import "TagDetailsViewController.h"
+#import "LikesViewController.h"
+#import "CommentsViewController.h"
+#import "RTSpinKitView.h"
+#import "UserProfileViewController.h"
+#import "UIWindow+PazLabs.h"
+#import "LikeItemTask.h"
+#import "UnlikeItemTask.h"
+#import "MZFormSheetController.h"
+
+@interface TagDetailsViewController () {
+    
+    IBOutlet UIImageView *avatarView;
+    IBOutlet UILabel *usernameLabel;
+    IBOutlet UILabel *dateLabel;
+    IBOutlet ZoomableNormalImageView *itemImage;
+    IBOutlet UILabel *likesLabel;
+    IBOutlet UILabel *commentsLabel;
+    IBOutlet UIView *gradientView;
+    IBOutlet UIView *topGradientView;
+    IBOutlet UIButton *closeBtn;
+    IBOutlet UIImageView *likeImage;
+    IBOutlet UIImageView *commentImage;
+    IBOutlet UIImageView *menuImage;
+    
+    RTSpinKitView *loadingIndicator;
+}
+
+- (IBAction)onClickClose:(id)sender;
+- (IBAction)onClickOwner:(id)sender;
+- (IBAction)onClickLabelComment:(id)sender;
+- (IBAction)onClickLabelLike:(id)sender;
+- (IBAction)onClickLike:(id)sender;
+
+@end
+
+@implementation TagDetailsViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    [self setupView];
+    [self setupImageViews];
+    [self setupLabels];
+    
+    [self loadItemInfo];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self setupLoadingIndicator];
+    
+    if (!self.navigationController.isNavigationBarHidden)
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)onClickLike:(id)sender {
+    if (self.item.isLiked) { // Unlike item.
+        self.item.likesCount--;
+        
+        UnlikeItemTask *task = [UnlikeItemTask new];
+        [task unlikeItemWithId:self.item.streamableId successBlock:^(ResponseObject *response) {
+            [self loadItemInfo];
+        } failureBlock:^(ResponseObject *response) {
+            if (response.reason == AUTHORIZATION_NEEDED) {
+                [Utils logoutUserAndShowLoginController];
+                [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
+            }
+            else if (response.reason == DATABASE_ERROR || response.reason == NOT_FOUND || response.reason == NETWORK || response.reason == OTHER)
+                [Utils showMessage:APP_NAME message:response.message];
+        }];
+    }
+    else { // Like item.
+        self.item.likesCount++;
+        
+        LikeItemTask *task = [LikeItemTask new];
+        [task likeItemWithId:self.item.streamableId successBlock:^(ResponseObject *response) {
+            [self loadItemInfo];
+        } failureBlock:^(ResponseObject *response) {
+            if (response.reason == AUTHORIZATION_NEEDED) {
+                [Utils logoutUserAndShowLoginController];
+                [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
+            }
+            else if (response.reason == DATABASE_ERROR || response.reason == NOT_FOUND || response.reason == NETWORK || response.reason == OTHER)
+                [Utils showMessage:APP_NAME message:response.message];
+        }];
+    }
+    
+    self.item.isLiked = !self.item.isLiked;
+    
+    [self loadItemInfo];
+}
+
+- (IBAction)onClickClose:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)onClickOwner:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [ViewControllerUtils showUserProfile:self.item.user fromViewController:[[UIApplication sharedApplication].keyWindow visibleViewController]];
+    });
+}
+
+- (IBAction)onClickLabelLike:(id)sender {
+    UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
+    LikesViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"LikesViewController"];
+    vc.item = self.item;
+    vc.embedded = YES;
+    
+    [self showFormSheet:vc];
+}
+
+- (IBAction)onClickLabelComment:(id)sender {
+    UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
+    CommentsViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"CommentsViewController"];
+    vc.item = self.item;
+    vc.embedded = YES;
+    
+    [self showFormSheet:vc];
+}
+
+- (void)onSwipeDown {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)showFormSheet:(UIViewController *)vc {
+    int w = 300;
+    int h = 350;
+    
+    [[MZFormSheetBackgroundWindow appearance] setBackgroundBlurEffect:YES];
+    [[MZFormSheetBackgroundWindow appearance] setBlurRadius:5.0];
+    [[MZFormSheetBackgroundWindow appearance] setBackgroundColor:[UIColor clearColor]];
+    
+    // Setup popup sheet.
+    MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithViewController:[[UINavigationController alloc] initWithRootViewController:vc]];
+    formSheet.shouldDismissOnBackgroundViewTap = YES;
+    formSheet.transitionStyle = MZFormSheetTransitionStyleDropDown;
+    formSheet.cornerRadius = 8.0;
+    formSheet.presentedFormSheetSize = CGSizeMake(w, h);
+    formSheet.shouldCenterVertically = YES;
+    
+    formSheet.willPresentCompletionHandler = ^(UIViewController *presentedFSViewController){
+        presentedFSViewController.view.autoresizingMask = presentedFSViewController.view.autoresizingMask | UIViewAutoresizingFlexibleWidth;
+    };
+    
+    [formSheet presentAnimated:YES completionHandler:^(UIViewController *presentedFSViewController) {
+        
+    }];
+}
+
+#pragma mark - Loading
+
+- (void)loadItemInfo {
+    dateLabel.text = [DateUtils timePassedSinceDate:self.item.date];
+    
+    // Setup labels.
+    usernameLabel.text = self.item.user.fullName;
+    likesLabel.text = [NSString stringWithFormat:@"%i", self.item.likesCount];
+    commentsLabel.text = [NSString stringWithFormat:@"%i", self.item.commentsCount];
+    
+    // Setup buttons.
+    if (self.item.isLiked)
+        likeImage.image = [UIImage imageNamed:@"unlike.png"];
+    else
+        likeImage.image = [UIImage imageNamed:@"like.png"];
+    
+    [self loadAvatar];
+    [self loadItem];
+    
+    [self layoutStats];
+}
+
+- (void)layoutStats {
+    [likesLabel sizeToFit];
+    [commentsLabel sizeToFit];
+    
+    CGRect f = likesLabel.frame;
+    f.origin.x = self.view.frame.size.width - f.size.width - 15;
+    likesLabel.frame = f;
+    
+    CGPoint c = likesLabel.center;
+    c.y = likeImage.center.y + 3;
+    likesLabel.center = c;
+    
+    f = likeImage.frame;
+    f.origin.x = likesLabel.frame.origin.x - f.size.width - 7;
+    likeImage.frame = f;
+    
+    f = commentsLabel.frame;
+    f.origin.x = likeImage.frame.origin.x - 25;
+    commentsLabel.frame = f;
+    
+    c = commentsLabel.center;
+    c.y = likeImage.center.y + 3;
+    commentsLabel.center = c;
+    
+    f = commentImage.frame;
+    f.origin.x = commentsLabel.frame.origin.x - f.size.width - 7;
+    commentImage.frame = f;
+}
+
+- (void)loadAvatar {
+    __strong typeof(self) weakSelf = self;
+    
+    if (self.item.user.avatarId > 0) {
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatar:self.item.user.avatarId]]];
+        request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
+        
+        avatarView.image = nil;
+        [avatarView setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"default_avatar.jpg"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            [UIView transitionWithView:weakSelf->avatarView
+                              duration:0.5f
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:^{
+                                weakSelf->avatarView.image = image;
+                            } completion:nil];
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+            weakSelf->avatarView.image = [UIImage imageNamed:@"default_avatar.jpg"];
+        }];
+    }
+    else
+        avatarView.image = [UIImage imageNamed:@"default_avatar.jpg"];
+}
+
+- (void)loadItem {
+    [loadingIndicator startAnimating];
+    
+    __strong typeof(self) weakSelf = self;
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetFullGraffiti:self.item.graffitiId]]];
+    request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
+    
+    itemImage.imageView.image = nil;
+    [itemImage.imageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        [UIView transitionWithView:weakSelf->itemImage.imageView
+                          duration:0.5f
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            weakSelf->itemImage.imageView.image = image;
+                        } completion:^(BOOL finished) {
+                            [weakSelf->loadingIndicator stopAnimating];
+                        }];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        weakSelf->itemImage.imageView.image = nil;
+        
+        [weakSelf->loadingIndicator stopAnimating];
+    }];
+}
+
+#pragma mark - ZoomableNormalImageViewDelegate
+
+- (void)didTapImageView:(ZoomableNormalImageView *)imageView {
+    if (topGradientView.alpha <= 0) {
+        [Utils showView:topGradientView];
+        [Utils showView:gradientView];
+    }
+    else {
+        [Utils hideView:topGradientView];
+        [Utils hideView:gradientView];
+    }
+}
+
+- (void)didZoomImageView:(ZoomableNormalImageView *)imageView {
+    [Utils hideView:topGradientView];
+    [Utils hideView:gradientView];
+}
+
+#pragma mark - Setup
+
+- (void)setupView {
+    UISwipeGestureRecognizer* rec = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeDown)];
+    rec.direction = UISwipeGestureRecognizerDirectionDown;
+    
+    [self.view addGestureRecognizer:rec];
+}
+
+- (void)setupImageViews {
+    itemImage.delegate = self;
+    
+    avatarView.layer.cornerRadius = avatarView.frame.size.width / 2;
+    avatarView.layer.borderWidth = 2;
+    avatarView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
+    likeImage.image = [likeImage.image imageWithTint:[UIColor lightGrayColor]];
+    menuImage.image = [menuImage.image imageWithTint:[UIColor lightGrayColor]];
+    [closeBtn setImage:[closeBtn.imageView.image imageWithTint:[UIColor lightGrayColor]] forState:UIControlStateNormal];
+}
+
+- (void)setupLabels {
+    usernameLabel.textColor = [UIColor lightGrayColor];
+    dateLabel.textColor = UIColorFromRGB(COLOR_ORANGE);
+}
+
+- (void)setupLoadingIndicator {
+    if (!loadingIndicator) {
+        loadingIndicator = [[RTSpinKitView alloc] initWithStyle:RTSpinKitViewStyleWave color:[UIColor whiteColor]];
+        loadingIndicator.autoresizingMask = UIViewAutoresizingNone;
+        [self.view addSubview:loadingIndicator];
+    }
+    
+    loadingIndicator.center = self.view.center;
+}
+
+@end

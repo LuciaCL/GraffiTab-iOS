@@ -1,0 +1,9 @@
+<h3><font color='gray'>Version 1.0.0</h3>
+    <ul>
+        <li>NEW* interface design and first release of the iPhone version;
+        <li>NEW* map clustering for graffiti at similar locations;
+        <li>NEW* support for iPad and iPhone devices;
+        <li>NEW* multi-touch drawing;
+        <li>bug fixes and improvements.
+            </ul>
+</font>
