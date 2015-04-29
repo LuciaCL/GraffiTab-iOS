@@ -823,8 +823,8 @@
 }
 
 - (void)setupTableView {
-    self.tableView.contentInset = UIEdgeInsetsMake(-STATUSBAR_HEIGHT, 0, 0, 0);
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.contentInset = UIEdgeInsetsMake(-STATUSBAR_HEIGHT, 0, -(STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT), 0);
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(-STATUSBAR_HEIGHT, 0, 0, 0);
     self.tableView.tableFooterView = [UIView new];
     
     [self.tableView registerNib:[UINib nibWithNibName:[STTagFullSizeTableCell reusableIdentifier] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[STTagFullSizeTableCell reusableIdentifier]];
@@ -854,7 +854,7 @@
     [self.tableView.ins_infiniteScrollBackgroundView addSubview:infinityIndicator];
     [infinityIndicator startAnimating];
     
-    self.tableView.ins_infiniteScrollBackgroundView.preserveContentInset = NO;
+    self.tableView.ins_infiniteScrollBackgroundView.preserveContentInset = YES;
 }
 
 - (void)setupHeader {

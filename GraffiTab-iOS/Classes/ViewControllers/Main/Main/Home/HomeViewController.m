@@ -116,20 +116,14 @@
         
         if (i == 0) {
             HomeStreamViewController *v = [mainStoryboard instantiateViewControllerWithIdentifier:@"HomeStreamViewController"];
-            v.embedded = YES;
-            
             vc = v;
         }
         else if (i == 1) {
             PopularViewController *v = [mainStoryboard instantiateViewControllerWithIdentifier:@"PopularViewController"];
-            v.embedded = YES;
-            
             vc = v;
         }
         else {
             NewestViewController *v = [mainStoryboard instantiateViewControllerWithIdentifier:@"NewestViewController"];
-            v.embedded = YES;
-            
             vc = v;
         }
         
@@ -137,9 +131,7 @@
     }
     
     self.viewControllers = viewControllers;
-    self.didChangedPageCompleted = ^(NSInteger cuurentPage, NSString *title) {
-//        NSLog(@"cuurentPage : %ld on title : %@", (long)cuurentPage, title);
-    };
+    self.didChangedPageCompleted = ^(NSInteger cuurentPage, NSString *title) {};
     
     [self reloadData];
 }

@@ -92,6 +92,12 @@
     [self loadItems:YES withOffset:offset];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self layoutComponents];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -376,25 +382,34 @@
         return UIEdgeInsetsZero;
 }
 
+#pragma mark - Layout
+
+- (void)layoutComponents {
+    if (![self.parentViewController isKindOfClass:[UINavigationController class]]) {
+        self.loadingIndicator.center = CGPointMake(self.view.frame.size.width/2, 60);
+        
+        CGRect f = self.collectionView.frame;
+        f.size.height = self.view.bounds.size.height - NAVIGATIONBAR_HEIGHT - STATUSBAR_HEIGHT;
+        self.collectionView.frame = f;
+    }
+    else {
+        self.loadingIndicator.center = CGPointMake(self.view.frame.size.width/2, 120);
+        
+        CGRect f = self.collectionView.frame;
+        f.size.height = self.view.bounds.size.height;
+        self.collectionView.frame = f;
+    }
+}
+
 #pragma mark - Setup
 
 - (void)setupLoadingIndicator {
     self.loadingIndicator = [[RTSpinKitView alloc] initWithStyle:RTSpinKitViewStyleChasingDots color:UIColorFromRGB(COLOR_MAIN)];
     self.loadingIndicator.autoresizingMask = UIViewAutoresizingNone;
     [self.view addSubview:self.loadingIndicator];
-
-    CGPoint c = self.view.center;
-    c.y = self.embedded ? 60 : 120;
-    self.loadingIndicator.center = c;
 }
 
 - (void)setupCollectionView {
-    if (self.embedded) {
-        CGRect f = self.collectionView.frame;
-        f.size.height = self.view.bounds.size.height - NAVIGATIONBAR_HEIGHT - STATUSBAR_HEIGHT;
-        self.collectionView.frame = f;
-    }
-    
     [self.collectionView registerNib:[UINib nibWithNibName:[STTagMediumCollectionCell reusableIdentifier] bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:[STTagMediumCollectionCell reusableIdentifier]];
     [self.collectionView registerNib:[UINib nibWithNibName:[STVideoMediumCollectionCell reusableIdentifier] bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:[STVideoMediumCollectionCell reusableIdentifier]];
     [self.collectionView registerNib:[UINib nibWithNibName:[STTagThumbnailCollectionCell reusableIdentifier] bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:[STTagThumbnailCollectionCell reusableIdentifier]];

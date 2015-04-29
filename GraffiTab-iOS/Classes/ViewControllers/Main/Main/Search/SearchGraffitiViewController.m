@@ -65,6 +65,20 @@
     }
 }
 
+#pragma mark - Layout
+
+- (void)layoutComponents {
+    [super layoutComponents];
+    
+    if ([self.parentViewController isKindOfClass:[UINavigationController class]])
+        self.loadingIndicator.center = CGPointMake(self.view.frame.size.width/2, 120);
+    else {
+        CGRect f = self.collectionView.frame;
+        f.size.height = self.view.bounds.size.height;
+        self.collectionView.frame = f;
+    }
+}
+
 #pragma mark - Setup
 
 - (void)setupTopBar {

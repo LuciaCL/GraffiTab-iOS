@@ -1,6 +1,6 @@
 //
 //  Constants.h
-//  MyBabyPOC
+//  GraffiTab-iOS
 //
 //  Created by Georgi Christov on 10/18/13.
 //  Copyright (c) 2013 GraffiTab. All rights reserved.

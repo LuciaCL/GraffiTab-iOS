@@ -1443,7 +1443,6 @@
 				E5D6F3B01AF02066009EA94C /* HomeStream */,
 				E5D6F3B31AF02066009EA94C /* Info */,
 				E5D6F3B61AF02066009EA94C /* Locations */,
-				E5D6F3BB1AF02066009EA94C /* MainStoryboard.storyboard */,
 				E5D6F3BC1AF02066009EA94C /* Menu */,
 				E5D6F3BF1AF02066009EA94C /* Messages */,
 				E5D6F3CE1AF02066009EA94C /* MostActiveUsers */,
@@ -1456,6 +1455,7 @@
 				E5D6F3ED1AF02066009EA94C /* Streamable */,
 				E5D6F3F91AF02066009EA94C /* UserProfile */,
 				E5D6F4051AF02066009EA94C /* UtilityControllers */,
+				E5D6F3BB1AF02066009EA94C /* MainStoryboard.storyboard */,
 			);
 			path = Main;
 			sourceTree = "<group>";

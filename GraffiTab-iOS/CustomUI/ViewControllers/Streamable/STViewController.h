@@ -21,11 +21,11 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 
 @property (nonatomic, strong) RTSpinKitView *loadingIndicator;
-@property (nonatomic, assign) BOOL embedded;
 @property (nonatomic, assign) STViewType viewType;
 
 - (void)basicInit;
 - (void)refresh;
+- (void)layoutComponents;
 
 - (void)showLoadingIndicator;
 - (void)removeLoadingIndicator;
