@@ -11,7 +11,7 @@
 
 @interface ConversationCell : MGSwipeTableCell
 
-@property (nonatomic, weak) Conversation *item;
+@property (nonatomic, weak) GTConversation *item;
 @property (nonatomic, weak) IBOutlet GLGroupChatPicView *avatarView;
 @property (nonatomic, weak) IBOutlet UILabel *usernameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *messageTextLabel;

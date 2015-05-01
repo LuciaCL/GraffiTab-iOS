@@ -18,7 +18,7 @@
     [self setupImageViews];
 }
 
-- (void)setItem:(Streamable *)item {
+- (void)setItem:(GTStreamable *)item {
     _item = item;
 }
 

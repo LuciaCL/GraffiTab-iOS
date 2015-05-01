@@ -9,9 +9,6 @@
 #import "CreateGroupViewController.h"
 #import "AutocompleteHashCell.h"
 #import "AutocompleteUserCell.h"
-#import "SearchUsers.h"
-#import "SearchHashtags.h"
-#import "CreateConversationTask.h"
 #import "UIActionSheet+Blocks.h"
 #import "ImageCropViewController.h"
 
@@ -149,16 +146,15 @@
         
         NSMutableArray *receivers = [NSMutableArray new];
         for (TIToken *token in tokenField.tokens)
-            [receivers addObject:@(((Person *)token.representedObject).userId)];
+            [receivers addObject:@(((GTPerson *)token.representedObject).userId)];
         
-        CreateConversationTask *task = [CreateConversationTask new];
-        [task createConversationWithText:text title:conversationNameField.text receiverIds:receivers image:conversationImage.image successBlock:^(ResponseObject *response) {
+        [GTConversationManager createConversationWithText:text title:conversationNameField.text receiverIds:receivers image:conversationImage.image successBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 [self dismissViewControllerAnimated:YES completion:nil];
             });
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == AUTHORIZATION_NEEDED) {
@@ -185,13 +181,12 @@
             array = [autocompleteUsers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.username BEGINSWITH[c] %@", word]];
             
             if (array.count <= 0) {
-                SearchUsers *task = [SearchUsers new];
-                [task searchUsersWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+                [GTSearchManager searchUsersWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(GTResponseObject *response) {
                     autocompleteUsers = response.object;
                     searchResult = [[NSMutableArray alloc] initWithArray:autocompleteUsers];
                     
                     [self.autoCompletionView reloadData];
-                } failureBlock:^(ResponseObject *response) {}];
+                } failureBlock:^(GTResponseObject *response) {}];
             }
         }
         else
@@ -202,13 +197,12 @@
             array = [autocompleteHashtags filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self BEGINSWITH[c] %@", word]];
             
             if (array.count <= 0) {
-                SearchHashtags *task = [SearchHashtags new];
-                [task searchHashtagsWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+                [GTSearchManager searchHashtagsWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(GTResponseObject *response) {
                     autocompleteHashtags = response.object;
                     searchResult = [[NSMutableArray alloc] initWithArray:autocompleteHashtags];
                     
                     [self.autoCompletionView reloadData];
-                } failureBlock:^(ResponseObject *response) {}];
+                } failureBlock:^(GTResponseObject *response) {}];
             }
         }
         else
@@ -313,7 +307,7 @@
     if ([tableView isEqual:self.autoCompletionView]) {
         NSString *string;
         if ([self.foundPrefix isEqualToString:@"@"])
-            string = ((Person *)searchResult[indexPath.row]).username;
+            string = ((GTPerson *)searchResult[indexPath.row]).username;
         else
             string = searchResult[indexPath.row];
         
@@ -323,7 +317,7 @@
         [self acceptAutoCompletionWithString:item keepPrefix:YES];
     }
     else if ([tableView isEqual:toAutoCompleteTableView]) {
-        Person *p = searchResult[indexPath.row];
+        GTPerson *p = searchResult[indexPath.row];
         
         TIToken *token = [tokenField addTokenWithTitle:p.fullName representedObject:p];
         token.tintColor = UIColorFromRGB(COLOR_ORANGE);
@@ -364,7 +358,7 @@
 }
 
 - (BOOL)tokenField:(TITokenField *)tf willAddToken:(TIToken *)token {
-    return [token.representedObject isKindOfClass:[Person class]];
+    return [token.representedObject isKindOfClass:[GTPerson class]];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
@@ -409,13 +403,12 @@
         array = [autocompleteUsers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.username BEGINSWITH[c] %@ or self.fullName BEGINSWITH[c] %@", word, word]];
         
         if (array.count <= 0) {
-            SearchUsers *task = [SearchUsers new];
-            [task searchUsersWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+            [GTSearchManager searchUsersWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(GTResponseObject *response) {
                 autocompleteUsers = response.object;
                 searchResult = [[NSMutableArray alloc] initWithArray:autocompleteUsers];
                 
                 [toAutoCompleteTableView reloadData];
-            } failureBlock:^(ResponseObject *response) {}];
+            } failureBlock:^(GTResponseObject *response) {}];
         }
     }
     else

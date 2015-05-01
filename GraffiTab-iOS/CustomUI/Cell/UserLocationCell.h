@@ -10,7 +10,7 @@
 
 @interface UserLocationCell : UITableViewCell
 
-@property (nonatomic, weak) UserLocation *item;
+@property (nonatomic, weak) GTUserLocation *item;
 @property (nonatomic, weak) IBOutlet UIImageView *locationImage;
 @property (nonatomic, weak) IBOutlet UILabel *addressLabel;
 

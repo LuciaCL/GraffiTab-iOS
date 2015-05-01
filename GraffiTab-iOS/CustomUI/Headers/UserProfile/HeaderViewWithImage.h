@@ -12,7 +12,7 @@
 @interface HeaderViewWithImage : UIView
 
 @property (nonatomic, assign) id <UserHeaderProtocol> delegate;
-@property (nonatomic, assign) Person *item;
+@property (nonatomic, assign) GTPerson *item;
 @property (nonatomic, weak) IBOutlet UIImageView *coverView;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarView;
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;

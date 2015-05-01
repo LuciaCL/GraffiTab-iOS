@@ -12,8 +12,6 @@
 #import "RTSpinKitView.h"
 #import "UserProfileViewController.h"
 #import "UIWindow+PazLabs.h"
-#import "LikeItemTask.h"
-#import "UnlikeItemTask.h"
 #import "MZFormSheetController.h"
 
 @interface TagDetailsViewController () {
@@ -73,10 +71,9 @@
     if (self.item.isLiked) { // Unlike item.
         self.item.likesCount--;
         
-        UnlikeItemTask *task = [UnlikeItemTask new];
-        [task unlikeItemWithId:self.item.streamableId successBlock:^(ResponseObject *response) {
+        [GTStreamableManager unlikeItemWithId:self.item.streamableId successBlock:^(GTResponseObject *response) {
             [self loadItemInfo];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             if (response.reason == AUTHORIZATION_NEEDED) {
                 [Utils logoutUserAndShowLoginController];
                 [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
@@ -88,10 +85,9 @@
     else { // Like item.
         self.item.likesCount++;
         
-        LikeItemTask *task = [LikeItemTask new];
-        [task likeItemWithId:self.item.streamableId successBlock:^(ResponseObject *response) {
+        [GTStreamableManager likeItemWithId:self.item.streamableId successBlock:^(GTResponseObject *response) {
             [self loadItemInfo];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             if (response.reason == AUTHORIZATION_NEEDED) {
                 [Utils logoutUserAndShowLoginController];
                 [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
@@ -220,7 +216,7 @@
     __strong typeof(self) weakSelf = self;
     
     if (self.item.user.avatarId > 0) {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatar:self.item.user.avatarId]]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:self.item.user.avatarId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
         avatarView.image = nil;
@@ -244,7 +240,7 @@
     
     __strong typeof(self) weakSelf = self;
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetFullGraffiti:self.item.graffitiId]]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetFullGraffiti:self.item.graffitiId]]];
     request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
     
     itemImage.imageView.image = nil;

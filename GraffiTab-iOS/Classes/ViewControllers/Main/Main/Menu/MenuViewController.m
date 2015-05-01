@@ -7,7 +7,6 @@
 //
 
 #import "MenuViewController.h"
-#import "LogoutTask.h"
 #import "HomeViewController.h"
 #import "UIBarButtonItem+Badge.h"
 #import "FollowersViewController.h"
@@ -59,12 +58,11 @@
 - (void)onClickLogout {
     [[LoadingViewManager getInstance] addLoadingToView:[SlideNavigationController sharedInstance].view withMessage:@"Processing"];
     
-    LogoutTask *task = [LogoutTask new];
-    [task logoutWithSuccessBlock:^(ResponseObject *response) {
+    [GTUserManager logoutWithSuccessBlock:^(GTResponseObject *response) {
         [[LoadingViewManager getInstance] removeLoadingView];
         
         [self doLogoutUser];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         [[LoadingViewManager getInstance] removeLoadingView];
         
         if (response.reason == AUTHORIZATION_NEEDED)
@@ -100,8 +98,8 @@
 #pragma mark - Load data
 
 - (void)loadData {
-    usernameField.text = [Settings getInstance].user.mentionUsername;
-    nameField.text = [Settings getInstance].user.fullName;
+    usernameField.text = [GTLifecycleManager user].mentionUsername;
+    nameField.text = [GTLifecycleManager user].fullName;
     
     [self loadAvatar];
 }
@@ -109,8 +107,8 @@
 - (void)loadAvatar {
     __strong typeof(self) weakSelf = self;
     
-    if ([Settings getInstance].user.avatarId > 0) {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatar:[Settings getInstance].user.avatarId]]];
+    if ([GTLifecycleManager user].avatarId > 0) {
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:[GTLifecycleManager user].avatarId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
         [avatarImage setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"default_avatar.jpg"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
@@ -155,7 +153,7 @@
         switch (indexPath.row) {
             case 0: { // Profile
                 [[SlideNavigationController sharedInstance] closeMenuWithCompletion:^{
-                    [ViewControllerUtils showUserProfile:[Settings getInstance].user fromViewController:[SlideNavigationController sharedInstance]];
+                    [ViewControllerUtils showUserProfile:[GTLifecycleManager user] fromViewController:[SlideNavigationController sharedInstance]];
                 }];
                 
                 break;
@@ -172,7 +170,7 @@
             }
             case 3: { // Graffiti
                 UserStreamablesViewController *streamables = [mainStoryboard instantiateViewControllerWithIdentifier:@"UserStreamablesViewController"];
-                streamables.user = [Settings getInstance].user;
+                streamables.user = [GTLifecycleManager user];
                 
                 vc = streamables;
                 
@@ -180,7 +178,7 @@
             }
             case 4: { // Favourites
                 FavouritesViewController *followers = [mainStoryboard instantiateViewControllerWithIdentifier:@"FavouritesViewController"];
-                followers.user = [Settings getInstance].user;
+                followers.user = [GTLifecycleManager user];
                 
                 vc = followers;
                 
@@ -188,7 +186,7 @@
             }
             case 5: { // Followers
                 FollowersViewController *followers = [mainStoryboard instantiateViewControllerWithIdentifier:@"FollowersViewController"];
-                followers.user = [Settings getInstance].user;
+                followers.user = [GTLifecycleManager user];
                 
                 vc = followers;
                 
@@ -196,7 +194,7 @@
             }
             case 6: { // Following
                 FollowingViewController *following = [mainStoryboard instantiateViewControllerWithIdentifier:@"FollowingViewController"];
-                following.user = [Settings getInstance].user;
+                following.user = [GTLifecycleManager user];
                 
                 vc = following;
                 

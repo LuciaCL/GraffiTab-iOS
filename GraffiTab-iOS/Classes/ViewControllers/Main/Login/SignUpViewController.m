@@ -7,7 +7,6 @@
 //
 
 #import "SignUpViewController.h"
-#import "SignUpTask.h"
 #import "InfoViewController.h"
 
 @interface SignUpViewController () {
@@ -61,14 +60,13 @@
     if ([InputValidator validateSignupInput:usernameField.text password:passwordField.text confirmPassword:confirmPasswordField.text email:emailField.text firstname:firstnameField.text lastname:lastnameField.text viewController:self]) {
         [[LoadingViewManager getInstance] addLoadingToView:self.navigationController.view withMessage:@"Processing"];
         
-        SignUpTask *task = [SignUpTask new];
-        [task signupWithUsername:usernameField.text password:passwordField.text email:emailField.text firstName:firstnameField.text lastName:lastnameField.text externalId:nil successBlock:^(ResponseObject *response) {
+        [GTUserManager signupWithUsername:usernameField.text password:passwordField.text email:emailField.text firstName:firstnameField.text lastName:lastnameField.text externalId:nil successBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOG_IN object:nil];
             });
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == ALREADY_EXISTS)

@@ -12,7 +12,7 @@
 @interface UserTitleHeader : UIView
 
 @property (nonatomic, assign) id <UserHeaderProtocol> delegate;
-@property (nonatomic, assign) Person *item;
+@property (nonatomic, assign) GTPerson *item;
 
 + (instancetype)instantiateFromNib;
 

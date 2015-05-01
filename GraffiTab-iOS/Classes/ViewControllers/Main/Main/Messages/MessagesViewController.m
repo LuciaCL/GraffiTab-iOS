@@ -11,18 +11,10 @@
 #import "INSCircleInfiniteIndicator.h"
 #import "INSDefaultPullToRefresh.h"
 #import "MessageCell.h"
-#import "PostMessageTask.h"
-#import "GetMessagesTask.h"
 #import "UIActionSheet+Blocks.h"
 #import "RTSpinKitView.h"
 #import "AutocompleteHashCell.h"
 #import "AutocompleteUserCell.h"
-#import "SearchUsers.h"
-#import "SearchHashtags.h"
-#import "EditMessageTask.h"
-#import "DeleteMessagesTask.h"
-#import "ShowTypingIndicatorTask.h"
-#import "HideTypingIndicatorTask.h"
 #import "ConversationSettingsViewController.h"
 
 #define TAG_TITLE 1
@@ -37,7 +29,7 @@
     BOOL isDownloading;
     NSMutableArray *items;
     int offset;
-    ConversationMessage *toEdit;
+    GTConversationMessage *toEdit;
     NSTimer *typingTimer;
     
     NSArray *searchResult;
@@ -131,7 +123,7 @@
 - (void)processShowTypingIndicatorNotification:(NSDictionary *)userInfo {
     long conversationId = [userInfo[@"conversationId"] longLongValue];
     long typingUserId = [userInfo[@"typingUserId"] longLongValue];
-    Person *typingUser = [self.conversation findMemberForId:typingUserId];
+    GTPerson *typingUser = [self.conversation findMemberForId:typingUserId];
     if (conversationId == self.conversation.conversationId) { // We're receiving something for the current chat so refresh the items.
         
         if (typingUser)
@@ -142,7 +134,7 @@
 - (void)processHideTypingIndicatorNotification:(NSDictionary *)userInfo {
     long conversationId = [userInfo[@"conversationId"] longLongValue];
     long typingUserId = [userInfo[@"typingUserId"] longLongValue];
-    Person *typingUser = [self.conversation findMemberForId:typingUserId];
+    GTPerson *typingUser = [self.conversation findMemberForId:typingUserId];
     
     if (conversationId == self.conversation.conversationId) { // We're receiving something for the current chat so refresh the items.
         if (typingUser)
@@ -167,9 +159,7 @@
     
     isDownloading = YES;
     
-    GetMessagesTask *task = [GetMessagesTask new];
-    task.isStart = isStart;
-    [task getMessagesWithConversationId:self.conversation.conversationId start:o numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+    [GTConversationManager getMessagesWithConversationId:self.conversation.conversationId start:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
         if (o == 0)
             [items removeAllObjects];
         
@@ -179,12 +169,12 @@
             canLoadMore = NO;
         
         [self finalizeLoad];
-    } cacheBlock:^(ResponseObject *response) {
+    } cacheBlock:^(GTResponseObject *response) {
         [items removeAllObjects];
         [items addObjectsFromArray:response.object];
         
         [self finalizeCacheLoad];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         canLoadMore = NO;
         
         [self finalizeLoad];
@@ -243,18 +233,17 @@
     NSString *text = [self.textView.text copy];
     
     // Create new message.
-    ConversationMessage *newMessage = [ConversationMessage new];
+    GTConversationMessage *newMessage = [GTConversationMessage new];
     newMessage.conversationId = self.conversation.conversationId;
-    newMessage.user = [Settings getInstance].user;
+    newMessage.user = [GTLifecycleManager user];
     newMessage.text = text;
     newMessage.date = [NSDate date];
-    newMessage.seenByUsers = [NSMutableArray arrayWithObject:[Settings getInstance].user];
+    newMessage.seenByUsers = [NSMutableArray arrayWithObject:[GTLifecycleManager user]];
     newMessage.state = ACTIVE;
 
-    PostMessageTask *task = [PostMessageTask new];
-    [task postMessageWithText:text conversationId:self.conversation.conversationId successBlock:^(ResponseObject *response) {
-        newMessage.messageId = ((ConversationMessage *) response.object).messageId;
-    } failureBlock:^(ResponseObject *response) {
+    [GTConversationManager postMessageWithText:text conversationId:self.conversation.conversationId successBlock:^(GTResponseObject *response) {
+        newMessage.messageId = ((GTConversationMessage *) response.object).messageId;
+    } failureBlock:^(GTResponseObject *response) {
         if (response.reason == AUTHORIZATION_NEEDED) {
             [Utils logoutUserAndShowLoginController];
             [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
@@ -294,10 +283,9 @@
     NSInteger index = [items indexOfObject:toEdit];
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
     
-    EditMessageTask *task = [EditMessageTask new];
-    [task editMessageWithId:toEdit.messageId text:text successBlock:^(ResponseObject *response) {
+    [GTConversationManager editMessageWithId:toEdit.messageId text:text successBlock:^(GTResponseObject *response) {
         
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         if (response.reason == AUTHORIZATION_NEEDED) {
             [Utils logoutUserAndShowLoginController];
             [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
@@ -323,13 +311,12 @@
             array = [autocompleteUsers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.username BEGINSWITH[c] %@", word]];
             
             if (array.count <= 0) {
-                SearchUsers *task = [SearchUsers new];
-                [task searchUsersWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+                [GTSearchManager searchUsersWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(GTResponseObject *response) {
                     autocompleteUsers = response.object;
                     searchResult = [[NSMutableArray alloc] initWithArray:autocompleteUsers];
                     
                     [self.autoCompletionView reloadData];
-                } failureBlock:^(ResponseObject *response) {}];
+                } failureBlock:^(GTResponseObject *response) {}];
             }
         }
         else
@@ -340,13 +327,12 @@
             array = [autocompleteHashtags filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self BEGINSWITH[c] %@", word]];
             
             if (array.count <= 0) {
-                SearchHashtags *task = [SearchHashtags new];
-                [task searchHashtagsWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+                [GTSearchManager searchHashtagsWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(GTResponseObject *response) {
                     autocompleteHashtags = response.object;
                     searchResult = [[NSMutableArray alloc] initWithArray:autocompleteHashtags];
                     
                     [self.autoCompletionView reloadData];
-                } failureBlock:^(ResponseObject *response) {}];
+                } failureBlock:^(GTResponseObject *response) {}];
             }
         }
         else
@@ -387,11 +373,11 @@
 - (MessageCell *)messageCellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MessageCell *cell = (MessageCell *)[self.tableView dequeueReusableCellWithIdentifier:@"MessageCell"];
     
-    ConversationMessage *current = [items objectAtIndex:indexPath.row];
+    GTConversationMessage *current = [items objectAtIndex:indexPath.row];
     
     // Configure author label visibility.
     if (indexPath.row < items.count - 1) {
-        ConversationMessage *next = [items objectAtIndex:indexPath.row + 1];
+        GTConversationMessage *next = [items objectAtIndex:indexPath.row + 1];
         
         cell.authorLabel.hidden = [current.user isEqual:next.user];
     }
@@ -399,7 +385,7 @@
     // Configure seen label visibility.
     if (self.conversation.members.count == 1)
         cell.seenByLabel.hidden = YES;
-    else if ([current.user isEqual:[Settings getInstance].user] && indexPath.row == 0)
+    else if ([current.user isEqual:[GTLifecycleManager user]] && indexPath.row == 0)
         cell.seenByLabel.hidden = NO;
     else {
         if (self.conversation.members.count > 2 && indexPath.row == 0)
@@ -496,7 +482,7 @@
     if ([tableView isEqual:self.autoCompletionView]) {
         NSString *string;
         if ([self.foundPrefix isEqualToString:@"@"])
-            string = ((Person *)searchResult[indexPath.row]).username;
+            string = ((GTPerson *)searchResult[indexPath.row]).username;
         else
             string = searchResult[indexPath.row];
         
@@ -515,15 +501,15 @@
     if ([tableView isEqual:self.autoCompletionView] || items.count <= 0)
         return NO;
     
-    ConversationMessage *c = [items objectAtIndex:indexPath.row];
+    GTConversationMessage *c = [items objectAtIndex:indexPath.row];
     
     return c.state != DELETED;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
 
-    ConversationMessage *c = [items objectAtIndex:indexPath.row];
-    Person *u = [Settings getInstance].user;
+    GTConversationMessage *c = [items objectAtIndex:indexPath.row];
+    GTPerson *u = [GTLifecycleManager user];
     
     if (action == @selector(copy:))
         return YES;
@@ -581,8 +567,7 @@
     if (!isTyping) {
         isTyping = YES;
         
-        ShowTypingIndicatorTask *task = [ShowTypingIndicatorTask new];
-        [task showTypingIndicatorForConversationId:self.conversation.conversationId successBlock:^(ResponseObject *response) {} failureBlock:^(ResponseObject *response) {}];
+        [GTConversationManager showTypingIndicatorForConversationId:self.conversation.conversationId successBlock:^(GTResponseObject *response) {} failureBlock:^(GTResponseObject *response) {}];
     }
 }
 
@@ -590,15 +575,14 @@
     if (isTyping) {
         isTyping = NO;
         
-        HideTypingIndicatorTask *task = [HideTypingIndicatorTask new];
-        [task hideTypingIndicatorForConversationId:self.conversation.conversationId successBlock:^(ResponseObject *response) {} failureBlock:^(ResponseObject *response) {}];
+        [GTConversationManager hideTypingIndicatorForConversationId:self.conversation.conversationId successBlock:^(GTResponseObject *response) {} failureBlock:^(GTResponseObject *response) {}];
     }
 }
 
 #pragma mark - EditCellProtocol
 
 - (void)onCopy:(id)sender {
-    ConversationMessage *c = sender;
+    GTConversationMessage *c = sender;
     
     [[UIPasteboard generalPasteboard] setString:c.text];
 }
@@ -614,14 +598,13 @@
 
 - (void)onDelete:(id)sender {
     [DialogBuilder buildYesNoDialogWithTitle:APP_NAME message:@"Are you sure you want to delete this message?" yesTitle:@"Yes" noTitle:@"No" yesBlock:^{
-        ConversationMessage *c = sender;
+        GTConversationMessage *c = sender;
         
         NSMutableArray *idsToDelete = [NSMutableArray arrayWithObject:@(c.messageId)];
         
-        DeleteMessagesTask *task = [DeleteMessagesTask new];
-        [task deleteMessages:idsToDelete successBlock:^(ResponseObject *response) {
+        [GTConversationManager deleteMessages:idsToDelete successBlock:^(GTResponseObject *response) {
             [self checkNoItemsHeader];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             if (response.reason == AUTHORIZATION_NEEDED) {
                 [Utils logoutUserAndShowLoginController];
                 [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
@@ -651,7 +634,7 @@
     [ViewControllerUtils showSearchUserProfile:username fromViewController:self];
 }
 
-- (void)didClickAvatar:(Person *)user {
+- (void)didClickAvatar:(GTPerson *)user {
     [ViewControllerUtils showUserProfile:user fromViewController:self];
 }
 

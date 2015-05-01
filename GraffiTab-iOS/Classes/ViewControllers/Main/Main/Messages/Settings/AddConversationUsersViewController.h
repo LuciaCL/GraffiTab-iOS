@@ -10,6 +10,6 @@
 
 @interface AddConversationUsersViewController : BackButtonViewController <TITokenFieldDelegate, UITextViewDelegate>
 
-@property (nonatomic, assign) Conversation *conversation;
+@property (nonatomic, assign) GTConversation *conversation;
 
 @end

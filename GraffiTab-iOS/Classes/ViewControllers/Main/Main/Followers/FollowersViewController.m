@@ -7,7 +7,6 @@
 //
 
 #import "FollowersViewController.h"
-#import "GetFollowersTask.h"
 
 @interface FollowersViewController ()
 
@@ -32,14 +31,12 @@
         [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
-- (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(ResponseObject *))successBlock cacheBlock:(void (^)(ResponseObject *))cacheBlock failureBlock:(void (^)(ResponseObject *))failureBlock {
-    GetFollowersTask *task = [GetFollowersTask new];
-    task.isStart = isStart;
-    [task getFollowersWithUserId:self.user.userId start:o numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+- (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(GTResponseObject *))successBlock cacheBlock:(void (^)(GTResponseObject *))cacheBlock failureBlock:(void (^)(GTResponseObject *))failureBlock {
+    [GTUserManager getFollowersWithUserId:self.user.userId start:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
         successBlock(response);
-    } cacheBlock:^(ResponseObject *response) {
+    } cacheBlock:^(GTResponseObject *response) {
         cacheBlock(response);
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         failureBlock(response);
     }];
 }

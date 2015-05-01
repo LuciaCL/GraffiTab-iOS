@@ -7,8 +7,6 @@
 //
 
 #import "AddConversationUsersViewController.h"
-#import "SearchUsers.h"
-#import "AddConversationUsersTask.h"
 #import "AutocompleteUserCell.h"
 
 @interface AddConversationUsersViewController () {
@@ -49,19 +47,18 @@
     
     NSMutableArray *receivers = [NSMutableArray new];
     for (TIToken *token in tokenField.tokens)
-        [receivers addObject:@(((Person *)token.representedObject).userId)];
+        [receivers addObject:@(((GTPerson *)token.representedObject).userId)];
     
-    AddConversationUsersTask *task = [AddConversationUsersTask new];
-    [task addConversationUsersWithConversationId:self.conversation.conversationId receiverIds:receivers successBlock:^(ResponseObject *response) {
+    [GTConversationManager addConversationUsersWithConversationId:self.conversation.conversationId receiverIds:receivers successBlock:^(GTResponseObject *response) {
         [[LoadingViewManager getInstance] removeLoadingView];
         
-        Conversation *c = response.object;
+        GTConversation *c = response.object;
         self.conversation.members = c.members;
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             [self.navigationController popViewControllerAnimated:YES];
         });
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         [[LoadingViewManager getInstance] removeLoadingView];
         
         if (response.reason == AUTHORIZATION_NEEDED) {
@@ -102,7 +99,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    Person *p = searchResult[indexPath.row];
+    GTPerson *p = searchResult[indexPath.row];
     
     [tokenField addTokenWithTitle:p.fullName representedObject:p];
 }
@@ -110,7 +107,7 @@
 #pragma mark - UITokenFieldDelegate
 
 - (BOOL)tokenField:(TITokenField *)tf willAddToken:(TIToken *)token {
-    return [token.representedObject isKindOfClass:[Person class]];
+    return [token.representedObject isKindOfClass:[GTPerson class]];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
@@ -149,13 +146,12 @@
         array = [autocompleteUsers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.username BEGINSWITH[c] %@ or self.fullName BEGINSWITH[c] %@", word, word]];
         
         if (array.count <= 0) {
-            SearchUsers *task = [SearchUsers new];
-            [task searchUsersWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+            [GTSearchManager searchUsersWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(GTResponseObject *response) {
                 autocompleteUsers = response.object;
                 searchResult = [[NSMutableArray alloc] initWithArray:autocompleteUsers];
                 
                 [toAutoCompleteTableView reloadData];
-            } failureBlock:^(ResponseObject *response) {}];
+            } failureBlock:^(GTResponseObject *response) {}];
         }
     }
     else

@@ -10,8 +10,6 @@
 #import "UIScrollView+INSPullToRefresh.h"
 #import "INSCircleInfiniteIndicator.h"
 #import "INSDefaultPullToRefresh.h"
-#import "FollowTask.h"
-#import "UnfollowTask.h"
 #import "UserCell.h"
 #import "UserProfileViewController.h"
 
@@ -107,7 +105,7 @@
     
     isDownloading = YES;
     
-    [self loadItems:isStart withOffset:o successBlock:^(ResponseObject *response) {
+    [self loadItems:isStart withOffset:o successBlock:^(GTResponseObject *response) {
         if (o == 0)
             [items removeAllObjects];
         
@@ -117,12 +115,12 @@
             canLoadMore = NO;
         
         [self finalizeLoad];
-    } cacheBlock:^(ResponseObject *response) {
+    } cacheBlock:^(GTResponseObject *response) {
         [items removeAllObjects];
         [items addObjectsFromArray:response.object];
         
         [self finalizeCacheLoad];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         canLoadMore = NO;
         
         [self finalizeLoad];
@@ -136,7 +134,7 @@
     }];
 }
 
-- (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(ResponseObject *))successBlock cacheBlock:(void (^)(ResponseObject *))cacheBlock failureBlock:(void (^)(ResponseObject *))failureBlock {
+- (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(GTResponseObject *))successBlock cacheBlock:(void (^)(GTResponseObject *))cacheBlock failureBlock:(void (^)(GTResponseObject *))failureBlock {
     NSLog(@"This should be overridden by subclasses");
 }
 
@@ -218,15 +216,14 @@
 #pragma mark - UserCellDelegate
 
 - (void)didTapFollow:(UserCell *)cell {
-    Person *p = cell.item;
+    GTPerson *p = cell.item;
     
     if (p.isFollowing) { // Unfollow user.
-        UnfollowTask *task = [UnfollowTask new];
-        [task unfollowUserWithId:p.userId successBlock:^(ResponseObject *response) {
-            Person *responsePerson = response.object;
+        [GTUserManager unfollowUserWithId:p.userId successBlock:^(GTResponseObject *response) {
+            GTPerson *responsePerson = response.object;
             
             p.isFollowing = responsePerson.isFollowing;
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [self.myTableView reloadData];
             
             if (response.reason == AUTHORIZATION_NEEDED) {
@@ -238,12 +235,11 @@
         }];
     }
     else { // Follow user.
-        FollowTask *task = [FollowTask new];
-        [task followUserWithId:p.userId successBlock:^(ResponseObject *response) {
-            Person *responsePerson = response.object;
+        [GTUserManager followUserWithId:p.userId successBlock:^(GTResponseObject *response) {
+            GTPerson *responsePerson = response.object;
             
             p.isFollowing = responsePerson.isFollowing;
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [self.myTableView reloadData];
             
             if (response.reason == AUTHORIZATION_NEEDED) {

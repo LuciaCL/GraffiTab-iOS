@@ -7,8 +7,6 @@
 //
 
 #import "HomeViewController.h"
-#import "GetUnseenNotificationsTask.h"
-#import "GetUnseenConversationsTask.h"
 #import "UIBarButtonItem+Badge.h"
 #import "NewestViewController.h"
 #import "PopularViewController.h"
@@ -62,17 +60,15 @@
 #pragma mark - Loading notifications
 
 - (void)loadUnseenNotificationCount {
-    GetUnseenNotificationsTask *task = [GetUnseenNotificationsTask new];
-    [task getUnseenNotificationsWithSuccessBlock:^(ResponseObject *response) {
+    [GTNotificationManager getUnseenNotificationsWithSuccessBlock:^(GTResponseObject *response) {
         self.unseenNotificationsCount = [response.object intValue];
         
-        GetUnseenConversationsTask *task = [GetUnseenConversationsTask new];
-        [task getUnseenConversationsCountWithSuccessBlock:^(ResponseObject *response) {
+        [GTConversationManager getUnseenConversationsCountWithSuccessBlock:^(GTResponseObject *response) {
             self.unseenMessagesCount = [response.object intValue];
             
             [self updateUnseenNotificationsBadge];
-        } failureBlock:^(ResponseObject *response) {}];
-    } failureBlock:^(ResponseObject *response) {}];
+        } failureBlock:^(GTResponseObject *response) {}];
+    } failureBlock:^(GTResponseObject *response) {}];
 }
 
 - (void)updateUnseenNotificationsBadge {

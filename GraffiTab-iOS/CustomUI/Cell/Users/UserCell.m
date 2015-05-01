@@ -41,7 +41,7 @@
     self.followButton.backgroundColor = backgroundColor;
 }
 
-- (void)setItem:(Person *)item {
+- (void)setItem:(GTPerson *)item {
     _item = item;
     
     self.usernameLabel.text = item.mentionUsername;
@@ -58,7 +58,7 @@
         self.followButton.image = [[UIImage imageNamed:@"ic_action_follow.png"] imageWithTint:UIColorFromRGB(COLOR_MAIN)];
     }
     
-    self.followButton.hidden = item.userId == [Settings getInstance].user.userId;
+    self.followButton.hidden = item.userId == [GTLifecycleManager user].userId;
     
     [self loadAvatar];
 }
@@ -67,7 +67,7 @@
     __weak typeof(self) weakSelf = self;
     
     if (self.item.avatarId > 0) {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatar:self.item.avatarId]]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:self.item.avatarId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
         self.avatarView.image = nil;

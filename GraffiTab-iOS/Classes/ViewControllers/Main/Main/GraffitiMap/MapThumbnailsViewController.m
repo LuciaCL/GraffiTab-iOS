@@ -8,7 +8,6 @@
 
 #import "MapThumbnailsViewController.h"
 #import "MZFormSheetController.h"
-#import "GetStreamablesForLocationTask.h"
 
 @interface MapThumbnailsViewController ()
 
@@ -38,14 +37,12 @@
     [self mz_dismissFormSheetControllerAnimated:YES completionHandler:nil];
 }
 
-- (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(ResponseObject *))successBlock cacheBlock:(void (^)(ResponseObject *))cacheBlock failureBlock:(void (^)(ResponseObject *))failureBlock {
-    GetStreamablesForLocationTask *task = [GetStreamablesForLocationTask new];
-    task.isStart = isStart;
-    [task getForLocationWithNECoordinate:self.neCoord SWCoordinate:self.swCoord start:o numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+- (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(GTResponseObject *))successBlock cacheBlock:(void (^)(GTResponseObject *))cacheBlock failureBlock:(void (^)(GTResponseObject *))failureBlock {
+    [GTStreamableManager getForLocationWithNECoordinate:self.neCoord SWCoordinate:self.swCoord start:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
         successBlock(response);
-    } cacheBlock:^(ResponseObject *response) {
+    } cacheBlock:^(GTResponseObject *response) {
         cacheBlock(response);
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         failureBlock(response);
     }];
 }

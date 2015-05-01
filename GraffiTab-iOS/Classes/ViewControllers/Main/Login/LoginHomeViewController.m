@@ -7,11 +7,7 @@
 //
 
 #import "LoginHomeViewController.h"
-#import "LoginTask.h"
 #import "AppDelegate.h"
-#import "VerifyExternalUserTask.h"
-#import "SignUpTask.h"
-#import "EditAvatarTask.h"
 
 @interface LoginHomeViewController () {
     
@@ -56,14 +52,13 @@
     if ([InputValidator validateLoginInput:usernameField.text password:passwordField.text viewController:self]) {
         [[LoadingViewManager getInstance] addLoadingToView:self.navigationController.view withMessage:@"Processing"];
         
-        LoginTask *task = [LoginTask new];
-        [task loginWithUsername:usernameField.text password:passwordField.text successBlock:^(ResponseObject *response) {
+        [GTUserManager loginWithUsername:usernameField.text password:passwordField.text successBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOG_IN object:nil];
             });
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == INCORRECT_CREDENTIALS)
@@ -144,15 +139,14 @@
              // 1.
              NSString *externalId = [aUser objectForKey:@"id"];
              
-             VerifyExternalUserTask *task = [VerifyExternalUserTask new];
-             [task verifyUserWithExternalId:externalId successBlock:^(ResponseObject *response) {
+             [GTUserManager verifyUserWithExternalId:externalId successBlock:^(GTResponseObject *response) {
                  // 1.1
                  [[LoadingViewManager getInstance] removeLoadingView];
                  
                  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                      [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOG_IN object:nil];
                  });
-             } failureBlock:^(ResponseObject *response) {
+             } failureBlock:^(GTResponseObject *response) {
                  [[LoadingViewManager getInstance] removeLoadingView];
                  
                  if (response.reason == NOT_FOUND) {
@@ -199,13 +193,12 @@
 
             [[LoadingViewManager getInstance] addLoadingToView:self.navigationController.view withMessage:@"Processing"];
             
-            SignUpTask *task = [SignUpTask new];
-            [task signupWithUsername:nameField.text password:nil email:email firstName:firstName lastName:lastName externalId:externalId successBlock:^(ResponseObject *response) {
+            [GTUserManager signupWithUsername:nameField.text password:nil email:email firstName:firstName lastName:lastName externalId:externalId successBlock:^(GTResponseObject *response) {
                 [[LoadingViewManager getInstance] removeLoadingView];
                 
                 // 1.2.1
                 [self askUserForAvatar:facebookuser];
-            } failureBlock:^(ResponseObject *response) {
+            } failureBlock:^(GTResponseObject *response) {
                 [[LoadingViewManager getInstance] removeLoadingView];
                 
                 if (response.reason == ALREADY_EXISTS) {
@@ -246,15 +239,14 @@
             UIImage *image = [UIImage imageWithData:imageData];
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                EditAvatarTask *task = [EditAvatarTask new];
-                [task editAvatarWithNewImage:image successBlock:^(ResponseObject *response) {
+                [GTUserManager editAvatarWithNewImage:image successBlock:^(GTResponseObject *response) {
                     // 1.2.1.2.2
                     [[LoadingViewManager getInstance] removeLoadingView];
                     
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOG_IN object:nil];
                     });
-                } failureBlock:^(ResponseObject *response) {
+                } failureBlock:^(GTResponseObject *response) {
                     // 1.2.1.2.2
                     [[LoadingViewManager getInstance] removeLoadingView];
                     

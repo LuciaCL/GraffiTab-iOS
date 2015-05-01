@@ -10,7 +10,6 @@
 #import "UIScrollView+INSPullToRefresh.h"
 #import "INSCircleInfiniteIndicator.h"
 #import "INSDefaultPullToRefresh.h"
-#import "GetNotificationsTask.h"
 #import "NotificationCellFactory.h"
 #import "HomeViewController.h"
 #import "TagDetailsViewController.h"
@@ -80,9 +79,7 @@
     
     isDownloading = YES;
     
-    GetNotificationsTask *task = [GetNotificationsTask new];
-    task.isStart = isStart;
-    [task getNotificationsWithStart:o numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+    [GTNotificationManager getNotificationsWithStart:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
         HomeViewController *vc = [SlideNavigationController sharedInstance].viewControllers[0];
         vc.unseenNotificationsCount = 0;
         [vc updateUnseenNotificationsBadge];
@@ -96,12 +93,12 @@
             canLoadMore = NO;
         
         [self finalizeLoad];
-    } cacheBlock:^(ResponseObject *response) {
+    } cacheBlock:^(GTResponseObject *response) {
         [items removeAllObjects];
         [items addObjectsFromArray:response.object];
         
         [self finalizeCacheLoad];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         canLoadMore = NO;
         
         [self finalizeLoad];
@@ -178,42 +175,42 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    Notification *n = items[indexPath.row];
+    GTNotification *n = items[indexPath.row];
     
     UIViewController *controllerToShow;
     BOOL presentModal = NO;
     
-    if ([n isKindOfClass:[NotificationComment class]]) {
-        NotificationComment *not = (NotificationComment *) n;
+    if ([n isKindOfClass:[GTNotificationComment class]]) {
+        GTNotificationComment *not = (GTNotificationComment *) n;
         
-        if ([not.item isKindOfClass:[StreamableTag class]]) {
-            [ViewControllerUtils showTag:(StreamableTag *) not.item fromViewController:self originFrame:CGRectNull transitionDelegate:transitioningDelegate];
+        if ([not.item isKindOfClass:[GTStreamableTag class]]) {
+            [ViewControllerUtils showTag:(GTStreamableTag *) not.item fromViewController:self originFrame:CGRectNull transitionDelegate:transitioningDelegate];
             
             return;
         }
     }
-    else if ([n isKindOfClass:[NotificationFollow class]]) {
+    else if ([n isKindOfClass:[GTNotificationFollow class]]) {
         
     }
-    else if ([n isKindOfClass:[NotificationLike class]]) {
-        NotificationLike *not = (NotificationLike *) n;
+    else if ([n isKindOfClass:[GTNotificationLike class]]) {
+        GTNotificationLike *not = (GTNotificationLike *) n;
         
-        if ([not.item isKindOfClass:[StreamableTag class]]) {
-            [ViewControllerUtils showTag:(StreamableTag *) not.item fromViewController:self originFrame:CGRectNull transitionDelegate:transitioningDelegate];
+        if ([not.item isKindOfClass:[GTStreamableTag class]]) {
+            [ViewControllerUtils showTag:(GTStreamableTag *) not.item fromViewController:self originFrame:CGRectNull transitionDelegate:transitioningDelegate];
             
             return;
         }
     }
-    else if ([n isKindOfClass:[NotificationMention class]]) {
-        NotificationMention *not = (NotificationMention *) n;
+    else if ([n isKindOfClass:[GTNotificationMention class]]) {
+        GTNotificationMention *not = (GTNotificationMention *) n;
         
-        if ([not.item isKindOfClass:[StreamableTag class]]) {
-            [ViewControllerUtils showTag:(StreamableTag *) not.item fromViewController:self originFrame:CGRectNull transitionDelegate:transitioningDelegate];
+        if ([not.item isKindOfClass:[GTStreamableTag class]]) {
+            [ViewControllerUtils showTag:(GTStreamableTag *) not.item fromViewController:self originFrame:CGRectNull transitionDelegate:transitioningDelegate];
             
             return;
         }
     }
-    else if ([n isKindOfClass:[NotificationWelcome class]]) {
+    else if ([n isKindOfClass:[GTNotificationWelcome class]]) {
         
     }
     
@@ -226,24 +223,24 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Notification *n = items[indexPath.row];
+    GTNotification *n = items[indexPath.row];
     
-    if ([n isKindOfClass:[NotificationComment class]])
+    if ([n isKindOfClass:[GTNotificationComment class]])
         return [NotificationCommentCell height];
-    else if ([n isKindOfClass:[NotificationFollow class]])
+    else if ([n isKindOfClass:[GTNotificationFollow class]])
         return [NotificationFollowCell height];
-    else if ([n isKindOfClass:[NotificationLike class]])
+    else if ([n isKindOfClass:[GTNotificationLike class]])
         return [NotificationLikeCell height];
-    else if ([n isKindOfClass:[NotificationMention class]])
+    else if ([n isKindOfClass:[GTNotificationMention class]])
         return [NotificationMentionCell height];
-    else if ([n isKindOfClass:[NotificationWelcome class]])
+    else if ([n isKindOfClass:[GTNotificationWelcome class]])
         return [NotificationWelcomeCell height];
     else
         return [NotificationCell height];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    Notification *n = items[indexPath.row];
+    GTNotification *n = items[indexPath.row];
     
     cell.backgroundColor = n.isRead ? [UIColor whiteColor] : [UIColor colorWithHexString:@"#F5EC89" alpha:0.3];
 }

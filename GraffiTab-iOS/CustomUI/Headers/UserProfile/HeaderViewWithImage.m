@@ -54,7 +54,7 @@
     }
 }
 
-- (void)setItem:(Person *)item {
+- (void)setItem:(GTPerson *)item {
     _item = item;
     
     [self setupDefaultImage];
@@ -81,7 +81,7 @@
     __weak typeof(self) weakSelf = self;
     
     if (self.item.avatarId > 0) {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatar:self.item.avatarId]]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:self.item.avatarId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
         [self.avatarView setImageWithURLRequest:request placeholderImage:self.avatarView.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
@@ -103,7 +103,7 @@
     __weak typeof(self) weakSelf = self;
     
     if (self.item.coverId > 0) {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetCover:self.item.coverId]]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetCover:self.item.coverId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
         [self.coverView setImageWithURLRequest:request placeholderImage:self.coverView.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
@@ -120,7 +120,7 @@
     else {
         if (self.item.avatarId > 0) { // Darken + blur the user's avatar and use it as cover.
             // Download avatar.
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatar:self.item.avatarId]]];
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:self.item.avatarId]]];
             request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
             
             [self.coverView setImageWithURLRequest:request placeholderImage:self.coverView.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
@@ -147,7 +147,7 @@
 }
 
 - (BOOL)canEdit {
-    return [self.item isEqual:[Settings getInstance].user];
+    return [self.item isEqual:[GTLifecycleManager user]];
 }
 
 #pragma mark - Setup

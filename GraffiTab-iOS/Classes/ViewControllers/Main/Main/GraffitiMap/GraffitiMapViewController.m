@@ -11,7 +11,6 @@
 #import "STTagThumbnail.h"
 #import "STTagAnnotation.h"
 #import "TSDemoClusteredAnnotationView.h"
-#import "GetStreamablesForLocationTask.h"
 #import "TagDetailsBounceTransitioningDelegate.h"
 #import "BlockActionSheet.h"
 #import <AddressBookUI/AddressBookUI.h>
@@ -227,13 +226,11 @@
     
     int o = 0;
     
-    GetStreamablesForLocationTask *task = [GetStreamablesForLocationTask new];
-    task.isStart = NO;
-    [task getForLocationWithNECoordinate:neCoord SWCoordinate:swCoord start:o numberOfItems:50 successBlock:^(ResponseObject *response) {
+    [GTStreamableManager getForLocationWithNECoordinate:neCoord SWCoordinate:swCoord start:o numberOfItems:50 useCache:NO successBlock:^(GTResponseObject *response) {
         [self processAnnotations:response.object];
         
         [self finalizeLoad];
-    } cacheBlock:^(ResponseObject *response) {
+    } cacheBlock:^(GTResponseObject *response) {
         [myMapView removeAnnotations:annotations];
         [items removeAllObjects];
         [annotations removeAllObjects];
@@ -241,7 +238,7 @@
         [self processAnnotations:response.object];
 
         [self finalizeCacheLoad];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         [self finalizeLoad];
 
         if (response.reason == AUTHORIZATION_NEEDED) {
@@ -265,10 +262,10 @@
 }
 
 - (void)processAnnotations:(NSMutableArray *)streamables {
-    for (Streamable *item in streamables) {
+    for (GTStreamable *item in streamables) {
         if (![items containsObject:item]) {
             if (item.type == TAG) {
-                StreamableTag *tag = (StreamableTag *) item;
+                GTStreamableTag *tag = (GTStreamableTag *) item;
                 
                 STTagThumbnail *thumbnail = [STTagThumbnail new];
                 thumbnail.title = tag.user.fullName;
@@ -292,7 +289,7 @@
 - (void)downloadImagesAndRefresh {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         for (STTagAnnotation *annotation in annotations) {
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetGraffiti:annotation.item.graffitiId]]];
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetGraffiti:annotation.item.graffitiId]]];
             request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
             
             NSURLResponse *response;

@@ -10,7 +10,7 @@
 
 @interface STVideoFullSizeTableCell () {
     
-    StreamableVideo *typedItem;
+    GTStreamableVideo *typedItem;
 }
 
 @end
@@ -25,10 +25,10 @@
     return 464;
 }
 
-- (void)setItem:(Streamable *)item {
+- (void)setItem:(GTStreamable *)item {
     super.item = item;
     
-    typedItem = (StreamableVideo *)item;
+    typedItem = (GTStreamableVideo *)item;
 }
 
 @end

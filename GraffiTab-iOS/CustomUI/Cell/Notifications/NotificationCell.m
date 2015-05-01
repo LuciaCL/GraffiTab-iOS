@@ -20,7 +20,7 @@
     [self setSelectedBackgroundView:bgColorView];
 }
 
-- (void)setItem:(Notification *)item {
+- (void)setItem:(GTNotification *)item {
     _item = item;
     
     self.dateLabel.text = [DateUtils timePassedSinceDate:item.date];

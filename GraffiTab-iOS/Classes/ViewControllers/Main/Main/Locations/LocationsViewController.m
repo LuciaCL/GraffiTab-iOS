@@ -11,9 +11,7 @@
 #import "INSCircleInfiniteIndicator.h"
 #import "INSDefaultPullToRefresh.h"
 #import "UserLocationCell.h"
-#import "GetUserLocationsTask.h"
 #import "UIActionSheet+Blocks.h"
-#import "DeleteUserLocationsTask.h"
 #import "RTSpinKitView.h"
 
 @interface LocationsViewController () {
@@ -123,10 +121,9 @@
         [indexPaths addIndex:selectionIndex.row];
     }
     
-    DeleteUserLocationsTask *task = [DeleteUserLocationsTask new];
-    [task deleteLocations:idsToDelete successBlock:^(ResponseObject *response) {
+    [GTLocationManager deleteLocations:idsToDelete successBlock:^(GTResponseObject *response) {
         
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         if (response.reason == AUTHORIZATION_NEEDED) {
             [Utils logoutUserAndShowLoginController];
             [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
@@ -222,9 +219,7 @@
     
     isDownloading = YES;
     
-    GetUserLocationsTask *task = [GetUserLocationsTask new];
-    task.isStart = isStart;
-    [task getLocationsWithStart:o numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+    [GTLocationManager getLocationsWithStart:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
         if (o == 0)
             [items removeAllObjects];
         
@@ -234,12 +229,12 @@
             canLoadMore = NO;
         
         [self finalizeLoad];
-    } cacheBlock:^(ResponseObject *response) {
+    } cacheBlock:^(GTResponseObject *response) {
         [items removeAllObjects];
         [items addObjectsFromArray:response.object];
         
         [self finalizeCacheLoad];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         canLoadMore = NO;
         
         [self finalizeLoad];

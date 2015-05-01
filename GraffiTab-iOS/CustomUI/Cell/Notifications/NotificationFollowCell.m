@@ -10,7 +10,7 @@
 
 @interface NotificationFollowCell () {
     
-    NotificationFollow *typedItem;
+    GTNotificationFollow *typedItem;
 }
 
 @end
@@ -25,10 +25,10 @@
     [self setupImageViews];
 }
 
-- (void)setItem:(Notification *)item {
+- (void)setItem:(GTNotification *)item {
     super.item = item;
     
-    typedItem = (NotificationFollow *)item;
+    typedItem = (GTNotificationFollow *)item;
     
     NSString *text = [NSString stringWithFormat:NSLocalizedString(@"NOTIF_FOLLOW", nil), typedItem.follower.fullName];
     NSRange range = [text rangeOfString:typedItem.follower.fullName];
@@ -46,7 +46,7 @@
     __weak typeof(self) weakSelf = self;
     
     if (typedItem.follower.avatarId > 0) {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatar:typedItem.follower.avatarId]]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:typedItem.follower.avatarId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
         self.avatarImage.image = nil;

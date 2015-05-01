@@ -7,20 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Person.h"
 
 @interface Settings : NSObject
 
-@property (nonatomic, strong) Person *user;
-
 + (Settings *)getInstance;
-
-- (BOOL)isLoggedIn;
 
 - (BOOL)showedTipMenu;
 - (void)setShowedTipMenu;
-
-- (NSString *)token;
-- (void)setToken:(NSString *)token;
 
 @end

@@ -12,7 +12,7 @@
 @protocol TweetProtocol <NSObject>
 
 @required
-- (void)didClickAvatar:(Person *)user;
+- (void)didClickAvatar:(GTPerson *)user;
 - (void)didClickUsername:(NSString *)username;
 - (void)didClickHashtag:(NSString *)hashtag;
 - (void)didClickLink:(NSString *)link;

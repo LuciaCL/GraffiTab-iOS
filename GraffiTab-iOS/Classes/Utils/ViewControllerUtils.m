@@ -13,7 +13,7 @@
 
 @implementation ViewControllerUtils
 
-+ (void)showUserProfile:(Person *)user fromViewController:(UIViewController *)controller {
++ (void)showUserProfile:(GTPerson *)user fromViewController:(UIViewController *)controller {
     UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
     UINavigationController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"UserProfileViewController"];
     UserProfileViewController *prof = vc.viewControllers[0];
@@ -41,7 +41,7 @@
     [controller presentViewController:nav animated:YES completion:nil];
 }
 
-+ (void)showTag:(StreamableTag *)tag fromViewController:(UIViewController *)controller originFrame:(CGRect)frame transitionDelegate:(id <UIViewControllerTransitioningDelegate>)delegate {
++ (void)showTag:(GTStreamableTag *)tag fromViewController:(UIViewController *)controller originFrame:(CGRect)frame transitionDelegate:(id <UIViewControllerTransitioningDelegate>)delegate {
     UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
     UINavigationController *tagDetailsNavigation = [mainStoryboard instantiateViewControllerWithIdentifier:@"TagDetailsViewController"];
     tagDetailsNavigation.modalPresentationStyle = UIModalPresentationCustom;

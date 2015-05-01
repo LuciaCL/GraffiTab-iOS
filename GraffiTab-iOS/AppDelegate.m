@@ -9,8 +9,6 @@
 #import "AppDelegate.h"
 #import "MenuViewController.h"
 #import "SlideNavigationContorllerAnimatorSlide.h"
-#import "CheckLoginStatus.h"
-#import "RegisterDeviceTask.h"
 #import "MyLocationManager.h"
 #import "MessagesViewController.h"
 #import "NotificationsViewController.h"
@@ -55,7 +53,7 @@
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     
-    [CookieManager saveCookies];
+    [GTLifecycleManager applicationWillResignActive];
     
     [[MyLocationManager sharedInstance] stopLocationUpdates];
 }
@@ -75,7 +73,7 @@
     // Handle the user leaving the app while the Facebook login dialog is being shown
     // For example: when the user presses the iOS "home" button while the login dialog is active
     [FBAppCall handleDidBecomeActive];
-    [CookieManager loadCookies];
+    [GTLifecycleManager applicationDidBecomeActive];
     
     [[MyLocationManager sharedInstance] startLocationUpdates];
 }
@@ -113,12 +111,11 @@
                           ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
                           ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
     
-    [[Settings getInstance] setToken:hexToken];
+    [GTLifecycleManager setToken:hexToken];
     
-    RegisterDeviceTask *task = [RegisterDeviceTask new];
-    [task registerDeviceWithToken:hexToken successBlock:^(ResponseObject *response) {
+    [GTDeviceManager registerDeviceWithToken:hexToken successBlock:^(GTResponseObject *response) {
         NSLog(@"Token registered");
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         NSLog(@"Failed to register token");
     }];
 }
@@ -194,14 +191,13 @@
 }
 
 - (void)checkLoginStatus {
-    CheckLoginStatus *task = [CheckLoginStatus new];
-    [task checkLoginStatusWithSuccessBlock:^(ResponseObject *response) {
+    [GTUserManager checkLoginStatusWithSuccessBlock:^(GTResponseObject *response) {
         [self checkLocalLoginStatus];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         if (response.reason == NETWORK)
             [self checkLocalLoginStatus];
         else {
-            [Settings getInstance].user = nil;
+            [GTLifecycleManager setUser:nil];
             
             [self showStoryboardWithName:@"LoginStoryboard" options:UIViewAnimationOptionTransitionCrossDissolve duration:0.7];
         }
@@ -217,7 +213,7 @@
                                       completionHandler:handler];
     }
     else { // No Facebook session, so check if the user has logged in at all.
-        if ([[Settings getInstance] isLoggedIn])
+        if ([GTLifecycleManager isLoggedIn])
             [self userDidLogin];
         else
             [self showStoryboardWithName:@"LoginStoryboard" options:UIViewAnimationOptionTransitionCrossDissolve duration:0.7];

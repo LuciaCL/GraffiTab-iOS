@@ -7,7 +7,6 @@
 //
 
 #import "RecoverPasswordViewController.h"
-#import "ResetPasswordTask.h"
 
 @interface RecoverPasswordViewController () {
     
@@ -39,8 +38,7 @@
     if ([InputValidator validateResetPasswordInput:emailField.text viewController:self]) {
         [[LoadingViewManager getInstance] addLoadingToView:self.navigationController.view withMessage:@"Processing"];
         
-        ResetPasswordTask *task = [ResetPasswordTask new];
-        [task resetPasswordWithEmail:emailField.text successBlock:^(ResponseObject *response) {
+        [GTUserManager resetPasswordWithEmail:emailField.text successBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             SCLAlertView *alert = [[SCLAlertView alloc] init];
@@ -51,7 +49,7 @@
             }];
             
             [alert showTitle:self.navigationController title:APP_NAME subTitle:@"Your password has been reset successfully. Please check your email and login." style:Success closeButtonTitle:nil duration:0.0f];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == NOT_FOUND)

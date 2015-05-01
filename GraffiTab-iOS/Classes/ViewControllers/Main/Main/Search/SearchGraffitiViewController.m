@@ -7,8 +7,6 @@
 //
 
 #import "SearchGraffitiViewController.h"
-#import "GetPopularItemsTask.h"
-#import "SearchHashtag.h"
 
 @interface SearchGraffitiViewController ()
 
@@ -42,24 +40,21 @@
     _searchString = hashtag;
 }
 
-- (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(ResponseObject *))successBlock cacheBlock:(void (^)(ResponseObject *))cacheBlock failureBlock:(void (^)(ResponseObject *))failureBlock {
+- (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(GTResponseObject *))successBlock cacheBlock:(void (^)(GTResponseObject *))cacheBlock failureBlock:(void (^)(GTResponseObject *))failureBlock {
     if (!self.searchString || self.searchString.length <= 0) {
-        GetPopularItemsTask *task = [GetPopularItemsTask new];
-        task.isStart = isStart;
-        [task getPopularItemsWithStart:o numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+        [GTStreamableManager getPopularItemsWithStart:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
             successBlock(response);
-        } cacheBlock:^(ResponseObject *response) {
+        } cacheBlock:^(GTResponseObject *response) {
             cacheBlock(response);
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             failureBlock(response);
         }];
     }
     else {
         // Perform search.
-        SearchHashtag *task = [SearchHashtag new];
-        [task searchHashtagWithQuery:self.searchString offset:o numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+        [GTSearchManager searchHashtagWithQuery:self.searchString offset:o numberOfItems:MAX_ITEMS successBlock:^(GTResponseObject *response) {
             successBlock(response);
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             failureBlock(response);
         }];
     }

@@ -10,7 +10,7 @@
 
 @interface AutocompleteUserCell : UITableViewCell
 
-@property (nonatomic, weak) Person *item;
+@property (nonatomic, weak) GTPerson *item;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarView;
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *usernameLabel;

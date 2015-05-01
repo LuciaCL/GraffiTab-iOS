@@ -25,7 +25,7 @@
     [self setSelectedBackgroundView:bgColorView];
 }
 
-- (void)setItem:(Person *)item {
+- (void)setItem:(GTPerson *)item {
     _item = item;
     
     self.nameLabel.text = item.fullName;
@@ -37,7 +37,7 @@
 - (void)loadAvatar {
     __weak typeof(self) weakSelf = self;
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatarForUsername:self.item.username]]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatarForUsername:self.item.username]]];
     request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
     
     self.avatarView.image = nil;

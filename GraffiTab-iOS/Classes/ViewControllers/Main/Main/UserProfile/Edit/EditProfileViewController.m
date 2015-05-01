@@ -11,12 +11,9 @@
 #import "UIActionSheet+Blocks.h"
 #import "EXPhotoViewer.h"
 #import "UIWindow+PazLabs.h"
-#import "EditAvatarTask.h"
-#import "EditCoverTask.h"
 #import "ImageCropViewController.h"
 #import "EditTextFieldViewController.h"
 #import "EditTextViewViewController.h"
-#import "EditProfileTask.h"
 
 #define IMAGE_PICKER_MODE_AVATAR 0
 #define IMAGE_PICKER_MODE_COVER 1
@@ -33,7 +30,7 @@
     IBOutlet UILabel *websiteLabel;
     
     int imagePickerMode;
-    Person *user;
+    GTPerson *user;
     UIImage *defaultBlurredImage;
     UIImagePickerController *galleryPicker;
 }
@@ -46,7 +43,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    user = [Settings getInstance].user;
+    user = [GTLifecycleManager user];
     
     [self setupTopBar];
     [self setupDefaultImage];
@@ -77,17 +74,16 @@
     if ([InputValidator validateProfileEditInput:fn lastName:ln email:em about:ab website:we viewController:self.navigationController]) {
         [[LoadingViewManager getInstance] addLoadingToView:self.navigationController.view withMessage:@"Processing"];
         
-        EditProfileTask *task = [EditProfileTask new];
-        [task editProfileWithFirstName:fn lastName:ln email:em about:ab website:we successBlock:^(ResponseObject *response) {
+        [GTUserManager editProfileWithFirstName:fn lastName:ln email:em about:ab website:we successBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
-            user = [Settings getInstance].user;
+            user = [GTLifecycleManager user];
             
             [self loadData];
             
             SCLAlertView *alert = [[SCLAlertView alloc] init];
             [alert showTitle:self.navigationController title:APP_NAME subTitle:@"Profile saved!" style:Success closeButtonTitle:@"OK" duration:0.0f];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == ALREADY_EXISTS)
@@ -167,14 +163,13 @@
     [[LoadingViewManager getInstance] addLoadingToView:self.navigationController.view withMessage:@"Processing"];
     
     if (imagePickerMode == IMAGE_PICKER_MODE_AVATAR) {
-        EditAvatarTask *task = [EditAvatarTask new];
-        [task editAvatarWithNewImage:image successBlock:^(ResponseObject *response) {
+        [GTUserManager editAvatarWithNewImage:image successBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
-            user = [Settings getInstance].user;
+            user = [GTLifecycleManager user];
             
             [self loadAvatar];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == AUTHORIZATION_NEEDED) {
@@ -186,14 +181,13 @@
         }];
     }
     else if (imagePickerMode == IMAGE_PICKER_MODE_COVER) {
-        EditCoverTask *task = [EditCoverTask new];
-        [task editCoverWithNewImage:image successBlock:^(ResponseObject *response) {
+        [GTUserManager editCoverWithNewImage:image successBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
-            user = [Settings getInstance].user;
+            user = [GTLifecycleManager user];
             
             [self loadCover];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == AUTHORIZATION_NEEDED) {
@@ -227,7 +221,7 @@
     __strong typeof(self) weakSelf = self;
     
     if (user.avatarId > 0) {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatar:user.avatarId]]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:user.avatarId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
         [avatarImage setImageWithURLRequest:request placeholderImage:avatarImage.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
@@ -249,7 +243,7 @@
     __strong typeof(self) weakSelf = self;
     
     if (user.coverId > 0) {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetCover:user.coverId]]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetCover:user.coverId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
         [coverImage setImageWithURLRequest:request placeholderImage:coverImage.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
@@ -266,7 +260,7 @@
     else {
         if (user.avatarId > 0) { // Darken + blur the user's avatar and use it as cover.
             // Download avatar.
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatar:user.avatarId]]];
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:user.avatarId]]];
             request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
             
             [coverImage setImageWithURLRequest:request placeholderImage:coverImage.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {

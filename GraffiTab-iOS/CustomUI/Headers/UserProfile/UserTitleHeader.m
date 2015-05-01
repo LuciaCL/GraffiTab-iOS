@@ -43,7 +43,7 @@
     }
 }
 
-- (void)setItem:(Person *)item {
+- (void)setItem:(GTPerson *)item {
     _item = item;
     
     [self setupImageViews];
@@ -61,7 +61,7 @@
 }
 
 - (BOOL)canEdit {
-    return [self.item isEqual:[Settings getInstance].user];
+    return [self.item isEqual:[GTLifecycleManager user]];
 }
 
 #pragma mark - Setup

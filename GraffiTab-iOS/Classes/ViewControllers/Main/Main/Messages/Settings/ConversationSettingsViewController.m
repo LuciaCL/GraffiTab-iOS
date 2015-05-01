@@ -7,12 +7,9 @@
 //
 
 #import "ConversationSettingsViewController.h"
-#import "LeaveConversationTask.h"
-#import "EditConversationNameTask.h"
 #import "AddConversationUsersViewController.h"
 #import "UIActionSheet+Blocks.h"
 #import "ImageCropViewController.h"
-#import "EditConversationImageTask.h"
 
 @interface ConversationSettingsViewController () {
     
@@ -112,15 +109,14 @@
         if (conversationTitle.text.length > 0) {
             [[LoadingViewManager getInstance] addLoadingToView:self.navigationController.view withMessage:@"Processing"];
             
-            EditConversationNameTask *task = [EditConversationNameTask new];
-            [task editConversationTitleWithId:self.conversation.conversationId text:conversationTitle.text successBlock:^(ResponseObject *response) {
+            [GTConversationManager editConversationTitleWithId:self.conversation.conversationId text:conversationTitle.text successBlock:^(GTResponseObject *response) {
                 [[LoadingViewManager getInstance] removeLoadingView];
                 
-                Conversation *c = response.object;
+                GTConversation *c = response.object;
                 self.conversation.name = c.name;
                 
                 [self.tableView reloadData];
-            } failureBlock:^(ResponseObject *response) {
+            } failureBlock:^(GTResponseObject *response) {
                 [[LoadingViewManager getInstance] removeLoadingView];
                 
                 if (response.reason == AUTHORIZATION_NEEDED) {
@@ -137,15 +133,14 @@
 - (void)changeImage:(UIImage *)image {
     [[LoadingViewManager getInstance] addLoadingToView:self.navigationController.view withMessage:@"Processing"];
     
-    EditConversationImageTask *task = [EditConversationImageTask new];
-    [task editConversationImageWithConversationId:self.conversation.conversationId image:image successBlock:^(ResponseObject *response) {
+    [GTConversationManager editConversationImageWithConversationId:self.conversation.conversationId image:image successBlock:^(GTResponseObject *response) {
         [[LoadingViewManager getInstance] removeLoadingView];
         
-        Conversation *c = response.object;
+        GTConversation *c = response.object;
         self.conversation.imageId = c.imageId;
         
         [self.tableView reloadData];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         [[LoadingViewManager getInstance] removeLoadingView];
         
         if (response.reason == AUTHORIZATION_NEEDED) {
@@ -243,7 +238,7 @@
             if (self.conversation.imageId > 0) {
                 editView.hidden = YES;
                 
-                NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetConversationImage:self.conversation.imageId]]];
+                NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetConversationImage:self.conversation.imageId]]];
                 request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
                 
                 conversationImage.image = nil;
@@ -290,7 +285,7 @@
                 cell.textLabel.textColor = [UIColor blackColor];
                 cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
                 
-                Person *p = self.conversation.members[indexPath.row];
+                GTPerson *p = self.conversation.members[indexPath.row];
                 cell.textLabel.text = p.fullName;
                 cell.detailTextLabel.text = p.mentionUsername;
                 
@@ -298,7 +293,7 @@
                 __weak typeof(UITableViewCell *) weakSelf = cell;
                 
                 if (p.avatarId > 0) {
-                    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatar:p.avatarId]]];
+                    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:p.avatarId]]];
                     request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
                     
                     cell.imageView.image = nil;
@@ -366,12 +361,11 @@
         [DialogBuilder buildYesNoDialogWithTitle:APP_NAME message:@"Are you sure you want to leave this group?" yesTitle:@"Yes" noTitle:@"No" yesBlock:^{
             [[LoadingViewManager getInstance] addLoadingToView:self.navigationController.view withMessage:@"Processing"];
             
-            LeaveConversationTask *task = [LeaveConversationTask new];
-            [task leaveConversation:self.conversation.conversationId successBlock:^(ResponseObject *response) {
+            [GTConversationManager leaveConversation:self.conversation.conversationId successBlock:^(GTResponseObject *response) {
                 [[LoadingViewManager getInstance] removeLoadingView];
                 
                 [self.navigationController popToRootViewControllerAnimated:YES];
-            } failureBlock:^(ResponseObject *response) {
+            } failureBlock:^(GTResponseObject *response) {
                 [[LoadingViewManager getInstance] removeLoadingView];
                 
                 if (response.reason == AUTHORIZATION_NEEDED) {

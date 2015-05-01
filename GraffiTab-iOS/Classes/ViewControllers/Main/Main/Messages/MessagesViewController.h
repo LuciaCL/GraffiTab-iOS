@@ -11,7 +11,7 @@
 
 @interface MessagesViewController : BackButtonSLKTextViewController <TweetProtocol, EditCellProtocol>
 
-@property (nonatomic, assign) Conversation *conversation;
+@property (nonatomic, assign) GTConversation *conversation;
 
 - (void)processMessageNotification:(NSDictionary *)userInfo;
 - (void)processShowTypingIndicatorNotification:(NSDictionary *)userInfo;

@@ -22,6 +22,7 @@
     #import <AFNetworking/UIImageView+AFNetworking.h>
     #import <FacebookSDK/FacebookSDK.h>
     #import <AviarySDK/AviarySDK.h>
+    #import <GraffiTab_iOS_SDK/GraffiTab_iOS_SDK.h>
 
     #import "UIImage+Tint.h"
 
@@ -33,41 +34,13 @@
     #import "SlideNavigationController.h"
     #import "HexColor.h"
     #import "Constants.h"
-    #import "JSONSerializable.h"
-    #import "ViewControllerCache.h"
-    #import "APIConstants.h"
-    #import "JSONRequestConstants.h"
-    #import "JSONResponseConstants.h"
-    #import "JSONModelConstants.h"
-    #import "RequestBuilder.h"
-    #import "ResponseObject.h"
     #import "Utils.h"
     #import "DialogBuilder.h"
     #import "InputValidator.h"
     #import "SCLAlertView.h"
-    #import "SessionManager.h"
     #import "Settings.h"
     #import "LoadingViewManager.h"
-    #import "CookieManager.h"
     #import "DateUtils.h"
-
-    #import "Person.h"
-    #import "ConversationMessage.h"
-    #import "Conversation.h"
-    #import "Comment.h"
-    #import "Streamable.h"
-    #import "StreamableTag.h"
-    #import "StreamableVideo.h"
-    #import "Notification.h"
-    #import "NotificationWelcome.h"
-    #import "NotificationMention.h"
-    #import "NotificationLike.h"
-    #import "NotificationFollow.h"
-    #import "NotificationComment.h"
-    #import "UserLocation.h"
-
-    #import "NotificationFactory.h"
-    #import "StreamableFactory.h"
 
     #import "ViewControllerUtils.h"
 #endif

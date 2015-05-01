@@ -10,7 +10,7 @@
 
 @interface STTagMediumCollectionCell () {
     
-    StreamableTag *typedItem;
+    GTStreamableTag *typedItem;
 }
 
 @end
@@ -21,10 +21,10 @@
     return @"STTagMediumCollectionCell";
 }
 
-- (void)setItem:(Streamable *)item {
+- (void)setItem:(GTStreamable *)item {
     super.item = item;
     
-    typedItem = (StreamableTag *)item;
+    typedItem = (GTStreamableTag *)item;
     
     [self loadItem];
 }
@@ -32,7 +32,7 @@
 - (void)loadItem {
     __weak typeof(self) weakSelf = self;
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetGraffiti:typedItem.graffitiId]]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetGraffiti:typedItem.graffitiId]]];
     request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
     
     self.itemImage.image = nil;

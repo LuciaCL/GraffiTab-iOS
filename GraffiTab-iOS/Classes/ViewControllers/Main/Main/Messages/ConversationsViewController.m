@@ -10,12 +10,10 @@
 #import "UIScrollView+INSPullToRefresh.h"
 #import "INSCircleInfiniteIndicator.h"
 #import "INSDefaultPullToRefresh.h"
-#import "GetConversationsTask.h"
 #import "ConversationCell.h"
 #import "MessagesViewController.h"
 #import "RTSpinKitView.h"
 #import "MGSwipeButton.h"
-#import "LeaveConversationTask.h"
 
 @interface ConversationsViewController () {
     
@@ -65,12 +63,11 @@
 
 - (void)onClickLeaveConversation:(NSIndexPath *)indexPath {
     [DialogBuilder buildYesNoDialogWithTitle:APP_NAME message:@"Are you sure you want to leave this conversation?" yesTitle:@"Yes" noTitle:@"No" yesBlock:^{
-        Conversation *c = [items objectAtIndex:indexPath.row];
+        GTConversation *c = [items objectAtIndex:indexPath.row];
         
-        LeaveConversationTask *task = [LeaveConversationTask new];
-        [task leaveConversation:c.conversationId successBlock:^(ResponseObject *response) {
+        [GTConversationManager leaveConversation:c.conversationId successBlock:^(GTResponseObject *response) {
             [self checkNoItemsHeader];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             if (response.reason == AUTHORIZATION_NEEDED) {
                 [Utils logoutUserAndShowLoginController];
                 [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
@@ -123,9 +120,7 @@
     
     isDownloading = YES;
     
-    GetConversationsTask *task = [GetConversationsTask new];
-    task.isStart = isStart;
-    [task getConversationsWithStart:o numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+    [GTConversationManager getConversationsWithStart:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
         if (o == 0)
             [items removeAllObjects];
         
@@ -135,12 +130,12 @@
             canLoadMore = NO;
         
         [self finalizeLoad];
-    } cacheBlock:^(ResponseObject *response) {
+    } cacheBlock:^(GTResponseObject *response) {
         [items removeAllObjects];
         [items addObjectsFromArray:response.object];
         
         [self finalizeCacheLoad];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         canLoadMore = NO;
         
         [self finalizeLoad];
@@ -229,7 +224,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    Conversation *m = items[indexPath.row];
+    GTConversation *m = items[indexPath.row];
 
     if (m.unseenMessagesCount > 0)
         cell.backgroundColor = [UIColor colorWithHexString:@"#f2f2f2"];
@@ -240,7 +235,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    Conversation *m = items[indexPath.row];
+    GTConversation *m = items[indexPath.row];
     
     [self performSegueWithIdentifier:@"SEGUE_SHOW_MESSAGES" sender:m];
     

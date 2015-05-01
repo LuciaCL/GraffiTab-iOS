@@ -7,7 +7,6 @@
 //
 
 #import "SettingsViewController.h"
-#import "LogoutTask.h"
 #import "FacebookUtils.h"
 #import "UIActionSheet+Blocks.h"
 
@@ -38,12 +37,11 @@
 - (void)onClickLogout {
     [[LoadingViewManager getInstance] addLoadingToView:[SlideNavigationController sharedInstance].view withMessage:@"Processing"];
     
-    LogoutTask *task = [LogoutTask new];
-    [task logoutWithSuccessBlock:^(ResponseObject *response) {
+    [GTUserManager logoutWithSuccessBlock:^(GTResponseObject *response) {
         [[LoadingViewManager getInstance] removeLoadingView];
         
         [self doLogoutUser];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         [[LoadingViewManager getInstance] removeLoadingView];
         
         if (response.reason == AUTHORIZATION_NEEDED)

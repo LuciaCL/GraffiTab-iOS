@@ -8,7 +8,6 @@
 
 #import "CreateLocationViewController.h"
 #import <AddressBookUI/AddressBookUI.h>
-#import "CreateUserLocationTask.h"
 
 @interface CreateLocationViewController () {
     
@@ -48,8 +47,7 @@
     else {
         [[LoadingViewManager getInstance] addLoadingToView:self.view withMessage:@"Processing..."];
         
-        CreateUserLocationTask *task = [CreateUserLocationTask new];
-        [task createLocationWithPlacemark:lastPlacemark successBlock:^(ResponseObject *response) {
+        [GTLocationManager createLocationWithPlacemark:lastPlacemark successBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             [Utils showMessage:APP_NAME message:@"Your location was created successfully."];
@@ -60,7 +58,7 @@
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 [self.navigationController popViewControllerAnimated:YES];
             });
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == AUTHORIZATION_NEEDED) {

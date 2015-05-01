@@ -47,7 +47,7 @@
         [self.delegate didTapOwner:self.item];
 }
 
-- (void)setItem:(Streamable *)item {
+- (void)setItem:(GTStreamable *)item {
     _item = item;
     
     // Setup labels.
@@ -70,7 +70,7 @@
     __weak typeof(self) weakSelf = self;
     
     if (self.item.user.avatarId > 0) {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatar:self.item.user.avatarId]]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:self.item.user.avatarId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
         self.avatarView.image = nil;

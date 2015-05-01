@@ -10,6 +10,6 @@
 
 @interface ConversationSettingsViewController : BackButtonTableViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (nonatomic, assign) Conversation *conversation;
+@property (nonatomic, assign) GTConversation *conversation;
 
 @end

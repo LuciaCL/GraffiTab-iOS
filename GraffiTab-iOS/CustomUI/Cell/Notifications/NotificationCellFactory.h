@@ -16,6 +16,6 @@
 
 @interface NotificationCellFactory : NSObject
 
-+ (NotificationCell *)createNotificationCellForNotification:(Notification *)notification tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
++ (NotificationCell *)createNotificationCellForNotification:(GTNotification *)notification tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
 
 @end

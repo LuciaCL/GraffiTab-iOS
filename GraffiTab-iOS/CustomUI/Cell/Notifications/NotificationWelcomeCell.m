@@ -18,7 +18,7 @@
     // Initialization code
 }
 
-- (void)setItem:(Notification *)item {
+- (void)setItem:(GTNotification *)item {
     super.item = item;
     
     NSString *text = [NSString stringWithFormat:NSLocalizedString(@"NOTIF_WELCOME", nil), item.user.firstname];

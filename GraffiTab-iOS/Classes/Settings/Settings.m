@@ -30,27 +30,7 @@ static Settings *sharedInstance = nil;
 }
 
 - (void)baseInit {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    if ([defaults objectForKey:KEY_LOGGED_IN_USER])
-        self.user = [[Person alloc] initFromJson:[defaults objectForKey:KEY_LOGGED_IN_USER]];
-}
-
-- (BOOL)isLoggedIn {
-    return self.user != nil;
-}
-
-- (void)setUser:(Person *)p {
-    _user = p;
-    
-    if (p) {
-        [[NSUserDefaults standardUserDefaults] setObject:p.asDictionary forKey:KEY_LOGGED_IN_USER];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-    else {
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:KEY_LOGGED_IN_USER];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
 }
 
 - (BOOL)showedTipMenu {
@@ -59,15 +39,6 @@ static Settings *sharedInstance = nil;
 
 - (void)setShowedTipMenu {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:KEY_TIP_MENU];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (NSString *)token {
-    return [[NSUserDefaults standardUserDefaults] stringForKey:KEY_TOKEN];
-}
-
-- (void)setToken:(NSString *)token {
-    [[NSUserDefaults standardUserDefaults] setValue:token forKey:KEY_TOKEN];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

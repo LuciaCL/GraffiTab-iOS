@@ -10,7 +10,7 @@
 
 @interface ProfileAboutCell : UITableViewCell
 
-@property (nonatomic, assign) Person *item;
+@property (nonatomic, assign) GTPerson *item;
 @property (nonatomic, assign) IBOutlet UILabel *descriptionLabel;
 
 + (NSString *)reusableIdentifier;

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		609A56238531C60BEF5C6721 /* Pods_GraffiTab_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A009B6B9FAC641B4B823435B /* Pods_GraffiTab_iOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E581D92F1AF3D53B00FD67C8 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E581D92E1AF3D53B00FD67C8 /* GraffiTab_iOS_SDK.framework */; };
 		E5D6F27D1AF01D06009EA94C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F27C1AF01D06009EA94C /* main.m */; };
 		E5D6F2801AF01D06009EA94C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F27F1AF01D06009EA94C /* AppDelegate.m */; };
 		E5D6F2881AF01D06009EA94C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D6F2871AF01D06009EA94C /* Images.xcassets */; };
@@ -15,87 +16,7 @@
 		E5D6F2A21AF01FBC009EA94C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D6F2A01AF01FBC009EA94C /* Default-568h@2x.png */; };
 		E5D6F4F31AF02066009EA94C /* DialogBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2AD1AF02065009EA94C /* DialogBuilder.m */; };
 		E5D6F4F41AF02066009EA94C /* MyLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2B01AF02065009EA94C /* MyLocationManager.m */; };
-		E5D6F4F51AF02066009EA94C /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2B31AF02065009EA94C /* Comment.m */; };
-		E5D6F4F61AF02066009EA94C /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2B61AF02065009EA94C /* Conversation.m */; };
-		E5D6F4F71AF02066009EA94C /* ConversationMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2B81AF02065009EA94C /* ConversationMessage.m */; };
-		E5D6F4F81AF02066009EA94C /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2BB1AF02065009EA94C /* Notification.m */; };
-		E5D6F4F91AF02066009EA94C /* NotificationComment.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2BD1AF02065009EA94C /* NotificationComment.m */; };
-		E5D6F4FA1AF02066009EA94C /* NotificationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2BF1AF02065009EA94C /* NotificationFactory.m */; };
-		E5D6F4FB1AF02066009EA94C /* NotificationFollow.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2C11AF02065009EA94C /* NotificationFollow.m */; };
-		E5D6F4FC1AF02066009EA94C /* NotificationLike.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2C31AF02065009EA94C /* NotificationLike.m */; };
-		E5D6F4FD1AF02066009EA94C /* NotificationMention.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2C51AF02065009EA94C /* NotificationMention.m */; };
-		E5D6F4FE1AF02066009EA94C /* NotificationWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2C71AF02065009EA94C /* NotificationWelcome.m */; };
-		E5D6F4FF1AF02066009EA94C /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2C91AF02065009EA94C /* Person.m */; };
-		E5D6F5001AF02066009EA94C /* Streamable.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2CC1AF02065009EA94C /* Streamable.m */; };
-		E5D6F5011AF02066009EA94C /* StreamableFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2CE1AF02065009EA94C /* StreamableFactory.m */; };
-		E5D6F5021AF02066009EA94C /* StreamableTag.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2D01AF02065009EA94C /* StreamableTag.m */; };
-		E5D6F5031AF02066009EA94C /* StreamableVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2D21AF02065009EA94C /* StreamableVideo.m */; };
-		E5D6F5041AF02066009EA94C /* UserLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2D41AF02065009EA94C /* UserLocation.m */; };
-		E5D6F5051AF02066009EA94C /* ViewControllerCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2D91AF02065009EA94C /* ViewControllerCache.m */; };
-		E5D6F5061AF02066009EA94C /* RequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2DB1AF02065009EA94C /* RequestBuilder.m */; };
-		E5D6F5071AF02066009EA94C /* ResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2DD1AF02065009EA94C /* ResponseObject.m */; };
-		E5D6F5081AF02066009EA94C /* CookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2E01AF02065009EA94C /* CookieManager.m */; };
-		E5D6F5091AF02066009EA94C /* JSONResponseSerializerWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2E21AF02065009EA94C /* JSONResponseSerializerWithData.m */; };
-		E5D6F50A1AF02066009EA94C /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2E41AF02065009EA94C /* SessionManager.m */; };
 		E5D6F50B1AF02066009EA94C /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2EC1AF02065009EA94C /* Settings.m */; };
-		E5D6F50C1AF02066009EA94C /* AddConversationUsersTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2F11AF02065009EA94C /* AddConversationUsersTask.m */; };
-		E5D6F50D1AF02066009EA94C /* CreateConversationTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2F31AF02065009EA94C /* CreateConversationTask.m */; };
-		E5D6F50E1AF02066009EA94C /* EditConversationImageTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2F51AF02065009EA94C /* EditConversationImageTask.m */; };
-		E5D6F50F1AF02066009EA94C /* EditConversationNameTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2F71AF02065009EA94C /* EditConversationNameTask.m */; };
-		E5D6F5101AF02066009EA94C /* GetConversationsTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2F91AF02065009EA94C /* GetConversationsTask.m */; };
-		E5D6F5111AF02066009EA94C /* GetMessagesTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2FB1AF02065009EA94C /* GetMessagesTask.m */; };
-		E5D6F5121AF02066009EA94C /* GetUnseenConversationsTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2FD1AF02065009EA94C /* GetUnseenConversationsTask.m */; };
-		E5D6F5131AF02066009EA94C /* HideTypingIndicatorTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2FF1AF02065009EA94C /* HideTypingIndicatorTask.m */; };
-		E5D6F5141AF02066009EA94C /* LeaveConversationTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3011AF02065009EA94C /* LeaveConversationTask.m */; };
-		E5D6F5151AF02066009EA94C /* DeleteMessagesTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3041AF02065009EA94C /* DeleteMessagesTask.m */; };
-		E5D6F5161AF02066009EA94C /* EditMessageTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3061AF02065009EA94C /* EditMessageTask.m */; };
-		E5D6F5171AF02066009EA94C /* PostMessageTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3081AF02065009EA94C /* PostMessageTask.m */; };
-		E5D6F5181AF02066009EA94C /* ShowTypingIndicatorTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F30A1AF02065009EA94C /* ShowTypingIndicatorTask.m */; };
-		E5D6F5191AF02066009EA94C /* RegisterDeviceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F30D1AF02065009EA94C /* RegisterDeviceTask.m */; };
-		E5D6F51A1AF02066009EA94C /* UnregisterDeviceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F30F1AF02065009EA94C /* UnregisterDeviceTask.m */; };
-		E5D6F51B1AF02066009EA94C /* NetworkTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3111AF02065009EA94C /* NetworkTask.m */; };
-		E5D6F51C1AF02066009EA94C /* SendFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3141AF02065009EA94C /* SendFeedback.m */; };
-		E5D6F51D1AF02066009EA94C /* CreateUserLocationTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3171AF02065009EA94C /* CreateUserLocationTask.m */; };
-		E5D6F51E1AF02066009EA94C /* DeleteUserLocationsTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3191AF02065009EA94C /* DeleteUserLocationsTask.m */; };
-		E5D6F51F1AF02066009EA94C /* GetUserLocationsTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F31B1AF02066009EA94C /* GetUserLocationsTask.m */; };
-		E5D6F5201AF02066009EA94C /* GetNotificationsTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F31E1AF02066009EA94C /* GetNotificationsTask.m */; };
-		E5D6F5211AF02066009EA94C /* GetUnseenNotificationsTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3201AF02066009EA94C /* GetUnseenNotificationsTask.m */; };
-		E5D6F5221AF02066009EA94C /* SearchHashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3231AF02066009EA94C /* SearchHashtag.m */; };
-		E5D6F5231AF02066009EA94C /* SearchHashtags.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3251AF02066009EA94C /* SearchHashtags.m */; };
-		E5D6F5241AF02066009EA94C /* SearchUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3271AF02066009EA94C /* SearchUsers.m */; };
-		E5D6F5251AF02066009EA94C /* DeleteCommentsTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F32B1AF02066009EA94C /* DeleteCommentsTask.m */; };
-		E5D6F5261AF02066009EA94C /* EditCommentTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F32D1AF02066009EA94C /* EditCommentTask.m */; };
-		E5D6F5271AF02066009EA94C /* GetCommentsTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F32F1AF02066009EA94C /* GetCommentsTask.m */; };
-		E5D6F5281AF02066009EA94C /* PostCommentTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3311AF02066009EA94C /* PostCommentTask.m */; };
-		E5D6F5291AF02066009EA94C /* GetNewestItemsTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3331AF02066009EA94C /* GetNewestItemsTask.m */; };
-		E5D6F52A1AF02066009EA94C /* GetPopularItemsTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3351AF02066009EA94C /* GetPopularItemsTask.m */; };
-		E5D6F52B1AF02066009EA94C /* GetUserFavouritesTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3371AF02066009EA94C /* GetUserFavouritesTask.m */; };
-		E5D6F52C1AF02066009EA94C /* GetUserHomeStreamTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3391AF02066009EA94C /* GetUserHomeStreamTask.m */; };
-		E5D6F52D1AF02066009EA94C /* GetUserItemsTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F33B1AF02066009EA94C /* GetUserItemsTask.m */; };
-		E5D6F52E1AF02066009EA94C /* GetLikersTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F33E1AF02066009EA94C /* GetLikersTask.m */; };
-		E5D6F52F1AF02066009EA94C /* LikeItemTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3401AF02066009EA94C /* LikeItemTask.m */; };
-		E5D6F5301AF02066009EA94C /* UnlikeItemTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3421AF02066009EA94C /* UnlikeItemTask.m */; };
-		E5D6F5311AF02066009EA94C /* CreateStreamableTagTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3451AF02066009EA94C /* CreateStreamableTagTask.m */; };
-		E5D6F5321AF02066009EA94C /* GetStreamablesForLocationTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3471AF02066009EA94C /* GetStreamablesForLocationTask.m */; };
-		E5D6F5331AF02066009EA94C /* CheckLoginStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F34A1AF02066009EA94C /* CheckLoginStatus.m */; };
-		E5D6F5341AF02066009EA94C /* EditAvatarTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F34C1AF02066009EA94C /* EditAvatarTask.m */; };
-		E5D6F5351AF02066009EA94C /* EditCoverTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F34E1AF02066009EA94C /* EditCoverTask.m */; };
-		E5D6F5361AF02066009EA94C /* EditPasswordTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3501AF02066009EA94C /* EditPasswordTask.m */; };
-		E5D6F5371AF02066009EA94C /* EditProfileTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3521AF02066009EA94C /* EditProfileTask.m */; };
-		E5D6F5381AF02066009EA94C /* FindUserForUsernameTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3541AF02066009EA94C /* FindUserForUsernameTask.m */; };
-		E5D6F5391AF02066009EA94C /* FollowTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3561AF02066009EA94C /* FollowTask.m */; };
-		E5D6F53A1AF02066009EA94C /* GetFollowersTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3581AF02066009EA94C /* GetFollowersTask.m */; };
-		E5D6F53B1AF02066009EA94C /* GetFollowingTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F35A1AF02066009EA94C /* GetFollowingTask.m */; };
-		E5D6F53C1AF02066009EA94C /* GetMostActiveUsersTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F35C1AF02066009EA94C /* GetMostActiveUsersTask.m */; };
-		E5D6F53D1AF02066009EA94C /* GetSocialFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F35E1AF02066009EA94C /* GetSocialFriends.m */; };
-		E5D6F53E1AF02066009EA94C /* GetUserProfileTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3601AF02066009EA94C /* GetUserProfileTask.m */; };
-		E5D6F53F1AF02066009EA94C /* LinkExternalIdTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3621AF02066009EA94C /* LinkExternalIdTask.m */; };
-		E5D6F5401AF02066009EA94C /* LoginTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3641AF02066009EA94C /* LoginTask.m */; };
-		E5D6F5411AF02066009EA94C /* LogoutTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3661AF02066009EA94C /* LogoutTask.m */; };
-		E5D6F5421AF02066009EA94C /* ResetPasswordTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3681AF02066009EA94C /* ResetPasswordTask.m */; };
-		E5D6F5431AF02066009EA94C /* SignUpTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F36A1AF02066009EA94C /* SignUpTask.m */; };
-		E5D6F5441AF02066009EA94C /* UnfollowTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F36C1AF02066009EA94C /* UnfollowTask.m */; };
-		E5D6F5451AF02066009EA94C /* VerifyExternalUserTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F36E1AF02066009EA94C /* VerifyExternalUserTask.m */; };
 		E5D6F5461AF02066009EA94C /* TagDetailsBounceDismissAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3731AF02066009EA94C /* TagDetailsBounceDismissAnimationController.m */; };
 		E5D6F5471AF02066009EA94C /* TagDetailsBouncePresentAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3751AF02066009EA94C /* TagDetailsBouncePresentAnimationController.m */; };
 		E5D6F5481AF02066009EA94C /* TagDetailsBounceTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3771AF02066009EA94C /* TagDetailsBounceTransitioningDelegate.m */; };
@@ -292,10 +213,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E581D7241AF3BC4200FD67C8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6324B106F77245E0971638B6 /* Pods-GraffiTab-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab-iOS/Pods-GraffiTab-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		79BD38D90CD21E770F019901 /* Pods-GraffiTab-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab-iOS/Pods-GraffiTab-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A009B6B9FAC641B4B823435B /* Pods_GraffiTab_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraffiTab_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E581D92E1AF3D53B00FD67C8 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "../GraffiTab_iOS_SDK/Output/GraffiTab_iOS_SDK-Debug-iphoneuniversal/GraffiTab_iOS_SDK.framework"; sourceTree = "<group>"; };
 		E5D6F2771AF01D06009EA94C /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D6F27B1AF01D06009EA94C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5D6F27C1AF01D06009EA94C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -307,182 +242,17 @@
 		E5D6F2961AF01D06009EA94C /* GraffiTab_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraffiTab_iOSTests.m; sourceTree = "<group>"; };
 		E5D6F2A01AF01FBC009EA94C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E5D6F2A11AF01FBC009EA94C /* GraffiTab-iOS-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GraffiTab-iOS-Prefix.pch"; sourceTree = "<group>"; };
-		E5D6F2A51AF02065009EA94C /* APIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIConstants.h; sourceTree = "<group>"; };
 		E5D6F2A61AF02065009EA94C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		E5D6F2A71AF02065009EA94C /* JSONModelConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelConstants.h; sourceTree = "<group>"; };
-		E5D6F2A81AF02065009EA94C /* JSONRequestConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRequestConstants.h; sourceTree = "<group>"; };
-		E5D6F2A91AF02065009EA94C /* JSONResponseConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONResponseConstants.h; sourceTree = "<group>"; };
-		E5D6F2AA1AF02065009EA94C /* JSONSerializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONSerializable.h; sourceTree = "<group>"; };
 		E5D6F2AC1AF02065009EA94C /* DialogBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogBuilder.h; sourceTree = "<group>"; };
 		E5D6F2AD1AF02065009EA94C /* DialogBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogBuilder.m; sourceTree = "<group>"; };
 		E5D6F2AF1AF02065009EA94C /* MyLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLocationManager.h; sourceTree = "<group>"; };
 		E5D6F2B01AF02065009EA94C /* MyLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLocationManager.m; sourceTree = "<group>"; };
-		E5D6F2B21AF02065009EA94C /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
-		E5D6F2B31AF02065009EA94C /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
-		E5D6F2B51AF02065009EA94C /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
-		E5D6F2B61AF02065009EA94C /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
-		E5D6F2B71AF02065009EA94C /* ConversationMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationMessage.h; sourceTree = "<group>"; };
-		E5D6F2B81AF02065009EA94C /* ConversationMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationMessage.m; sourceTree = "<group>"; };
-		E5D6F2BA1AF02065009EA94C /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
-		E5D6F2BB1AF02065009EA94C /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
-		E5D6F2BC1AF02065009EA94C /* NotificationComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationComment.h; sourceTree = "<group>"; };
-		E5D6F2BD1AF02065009EA94C /* NotificationComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationComment.m; sourceTree = "<group>"; };
-		E5D6F2BE1AF02065009EA94C /* NotificationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationFactory.h; sourceTree = "<group>"; };
-		E5D6F2BF1AF02065009EA94C /* NotificationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationFactory.m; sourceTree = "<group>"; };
-		E5D6F2C01AF02065009EA94C /* NotificationFollow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationFollow.h; sourceTree = "<group>"; };
-		E5D6F2C11AF02065009EA94C /* NotificationFollow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationFollow.m; sourceTree = "<group>"; };
-		E5D6F2C21AF02065009EA94C /* NotificationLike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationLike.h; sourceTree = "<group>"; };
-		E5D6F2C31AF02065009EA94C /* NotificationLike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationLike.m; sourceTree = "<group>"; };
-		E5D6F2C41AF02065009EA94C /* NotificationMention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationMention.h; sourceTree = "<group>"; };
-		E5D6F2C51AF02065009EA94C /* NotificationMention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationMention.m; sourceTree = "<group>"; };
-		E5D6F2C61AF02065009EA94C /* NotificationWelcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationWelcome.h; sourceTree = "<group>"; };
-		E5D6F2C71AF02065009EA94C /* NotificationWelcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationWelcome.m; sourceTree = "<group>"; };
-		E5D6F2C81AF02065009EA94C /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		E5D6F2C91AF02065009EA94C /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
-		E5D6F2CB1AF02065009EA94C /* Streamable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Streamable.h; sourceTree = "<group>"; };
-		E5D6F2CC1AF02065009EA94C /* Streamable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Streamable.m; sourceTree = "<group>"; };
-		E5D6F2CD1AF02065009EA94C /* StreamableFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamableFactory.h; sourceTree = "<group>"; };
-		E5D6F2CE1AF02065009EA94C /* StreamableFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamableFactory.m; sourceTree = "<group>"; };
-		E5D6F2CF1AF02065009EA94C /* StreamableTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamableTag.h; sourceTree = "<group>"; };
-		E5D6F2D01AF02065009EA94C /* StreamableTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamableTag.m; sourceTree = "<group>"; };
-		E5D6F2D11AF02065009EA94C /* StreamableVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamableVideo.h; sourceTree = "<group>"; };
-		E5D6F2D21AF02065009EA94C /* StreamableVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamableVideo.m; sourceTree = "<group>"; };
-		E5D6F2D31AF02065009EA94C /* UserLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLocation.h; sourceTree = "<group>"; };
-		E5D6F2D41AF02065009EA94C /* UserLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLocation.m; sourceTree = "<group>"; };
-		E5D6F2D81AF02065009EA94C /* ViewControllerCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerCache.h; sourceTree = "<group>"; };
-		E5D6F2D91AF02065009EA94C /* ViewControllerCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerCache.m; sourceTree = "<group>"; };
-		E5D6F2DA1AF02065009EA94C /* RequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestBuilder.h; sourceTree = "<group>"; };
-		E5D6F2DB1AF02065009EA94C /* RequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestBuilder.m; sourceTree = "<group>"; };
-		E5D6F2DC1AF02065009EA94C /* ResponseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseObject.h; sourceTree = "<group>"; };
-		E5D6F2DD1AF02065009EA94C /* ResponseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseObject.m; sourceTree = "<group>"; };
-		E5D6F2DF1AF02065009EA94C /* CookieManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookieManager.h; sourceTree = "<group>"; };
-		E5D6F2E01AF02065009EA94C /* CookieManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieManager.m; sourceTree = "<group>"; };
-		E5D6F2E11AF02065009EA94C /* JSONResponseSerializerWithData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONResponseSerializerWithData.h; sourceTree = "<group>"; };
-		E5D6F2E21AF02065009EA94C /* JSONResponseSerializerWithData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONResponseSerializerWithData.m; sourceTree = "<group>"; };
-		E5D6F2E31AF02065009EA94C /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManager.h; sourceTree = "<group>"; };
-		E5D6F2E41AF02065009EA94C /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
 		E5D6F2E61AF02065009EA94C /* EditCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCellProtocol.h; sourceTree = "<group>"; };
 		E5D6F2E71AF02065009EA94C /* TweetProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetProtocol.h; sourceTree = "<group>"; };
 		E5D6F2E81AF02065009EA94C /* UserHeaderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHeaderProtocol.h; sourceTree = "<group>"; };
 		E5D6F2E91AF02065009EA94C /* UserProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProtocol.h; sourceTree = "<group>"; };
 		E5D6F2EB1AF02065009EA94C /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		E5D6F2EC1AF02065009EA94C /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
-		E5D6F2F01AF02065009EA94C /* AddConversationUsersTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddConversationUsersTask.h; sourceTree = "<group>"; };
-		E5D6F2F11AF02065009EA94C /* AddConversationUsersTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddConversationUsersTask.m; sourceTree = "<group>"; };
-		E5D6F2F21AF02065009EA94C /* CreateConversationTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateConversationTask.h; sourceTree = "<group>"; };
-		E5D6F2F31AF02065009EA94C /* CreateConversationTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateConversationTask.m; sourceTree = "<group>"; };
-		E5D6F2F41AF02065009EA94C /* EditConversationImageTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditConversationImageTask.h; sourceTree = "<group>"; };
-		E5D6F2F51AF02065009EA94C /* EditConversationImageTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditConversationImageTask.m; sourceTree = "<group>"; };
-		E5D6F2F61AF02065009EA94C /* EditConversationNameTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditConversationNameTask.h; sourceTree = "<group>"; };
-		E5D6F2F71AF02065009EA94C /* EditConversationNameTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditConversationNameTask.m; sourceTree = "<group>"; };
-		E5D6F2F81AF02065009EA94C /* GetConversationsTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetConversationsTask.h; sourceTree = "<group>"; };
-		E5D6F2F91AF02065009EA94C /* GetConversationsTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetConversationsTask.m; sourceTree = "<group>"; };
-		E5D6F2FA1AF02065009EA94C /* GetMessagesTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetMessagesTask.h; sourceTree = "<group>"; };
-		E5D6F2FB1AF02065009EA94C /* GetMessagesTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetMessagesTask.m; sourceTree = "<group>"; };
-		E5D6F2FC1AF02065009EA94C /* GetUnseenConversationsTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUnseenConversationsTask.h; sourceTree = "<group>"; };
-		E5D6F2FD1AF02065009EA94C /* GetUnseenConversationsTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUnseenConversationsTask.m; sourceTree = "<group>"; };
-		E5D6F2FE1AF02065009EA94C /* HideTypingIndicatorTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HideTypingIndicatorTask.h; sourceTree = "<group>"; };
-		E5D6F2FF1AF02065009EA94C /* HideTypingIndicatorTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HideTypingIndicatorTask.m; sourceTree = "<group>"; };
-		E5D6F3001AF02065009EA94C /* LeaveConversationTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaveConversationTask.h; sourceTree = "<group>"; };
-		E5D6F3011AF02065009EA94C /* LeaveConversationTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaveConversationTask.m; sourceTree = "<group>"; };
-		E5D6F3031AF02065009EA94C /* DeleteMessagesTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteMessagesTask.h; sourceTree = "<group>"; };
-		E5D6F3041AF02065009EA94C /* DeleteMessagesTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteMessagesTask.m; sourceTree = "<group>"; };
-		E5D6F3051AF02065009EA94C /* EditMessageTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMessageTask.h; sourceTree = "<group>"; };
-		E5D6F3061AF02065009EA94C /* EditMessageTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMessageTask.m; sourceTree = "<group>"; };
-		E5D6F3071AF02065009EA94C /* PostMessageTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostMessageTask.h; sourceTree = "<group>"; };
-		E5D6F3081AF02065009EA94C /* PostMessageTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostMessageTask.m; sourceTree = "<group>"; };
-		E5D6F3091AF02065009EA94C /* ShowTypingIndicatorTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowTypingIndicatorTask.h; sourceTree = "<group>"; };
-		E5D6F30A1AF02065009EA94C /* ShowTypingIndicatorTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowTypingIndicatorTask.m; sourceTree = "<group>"; };
-		E5D6F30C1AF02065009EA94C /* RegisterDeviceTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterDeviceTask.h; sourceTree = "<group>"; };
-		E5D6F30D1AF02065009EA94C /* RegisterDeviceTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterDeviceTask.m; sourceTree = "<group>"; };
-		E5D6F30E1AF02065009EA94C /* UnregisterDeviceTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnregisterDeviceTask.h; sourceTree = "<group>"; };
-		E5D6F30F1AF02065009EA94C /* UnregisterDeviceTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnregisterDeviceTask.m; sourceTree = "<group>"; };
-		E5D6F3101AF02065009EA94C /* NetworkTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTask.h; sourceTree = "<group>"; };
-		E5D6F3111AF02065009EA94C /* NetworkTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkTask.m; sourceTree = "<group>"; };
-		E5D6F3131AF02065009EA94C /* SendFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendFeedback.h; sourceTree = "<group>"; };
-		E5D6F3141AF02065009EA94C /* SendFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendFeedback.m; sourceTree = "<group>"; };
-		E5D6F3161AF02065009EA94C /* CreateUserLocationTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateUserLocationTask.h; sourceTree = "<group>"; };
-		E5D6F3171AF02065009EA94C /* CreateUserLocationTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateUserLocationTask.m; sourceTree = "<group>"; };
-		E5D6F3181AF02065009EA94C /* DeleteUserLocationsTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteUserLocationsTask.h; sourceTree = "<group>"; };
-		E5D6F3191AF02065009EA94C /* DeleteUserLocationsTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteUserLocationsTask.m; sourceTree = "<group>"; };
-		E5D6F31A1AF02065009EA94C /* GetUserLocationsTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserLocationsTask.h; sourceTree = "<group>"; };
-		E5D6F31B1AF02066009EA94C /* GetUserLocationsTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserLocationsTask.m; sourceTree = "<group>"; };
-		E5D6F31D1AF02066009EA94C /* GetNotificationsTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetNotificationsTask.h; sourceTree = "<group>"; };
-		E5D6F31E1AF02066009EA94C /* GetNotificationsTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetNotificationsTask.m; sourceTree = "<group>"; };
-		E5D6F31F1AF02066009EA94C /* GetUnseenNotificationsTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUnseenNotificationsTask.h; sourceTree = "<group>"; };
-		E5D6F3201AF02066009EA94C /* GetUnseenNotificationsTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUnseenNotificationsTask.m; sourceTree = "<group>"; };
-		E5D6F3221AF02066009EA94C /* SearchHashtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHashtag.h; sourceTree = "<group>"; };
-		E5D6F3231AF02066009EA94C /* SearchHashtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHashtag.m; sourceTree = "<group>"; };
-		E5D6F3241AF02066009EA94C /* SearchHashtags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHashtags.h; sourceTree = "<group>"; };
-		E5D6F3251AF02066009EA94C /* SearchHashtags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHashtags.m; sourceTree = "<group>"; };
-		E5D6F3261AF02066009EA94C /* SearchUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchUsers.h; sourceTree = "<group>"; };
-		E5D6F3271AF02066009EA94C /* SearchUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchUsers.m; sourceTree = "<group>"; };
-		E5D6F32A1AF02066009EA94C /* DeleteCommentsTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteCommentsTask.h; sourceTree = "<group>"; };
-		E5D6F32B1AF02066009EA94C /* DeleteCommentsTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteCommentsTask.m; sourceTree = "<group>"; };
-		E5D6F32C1AF02066009EA94C /* EditCommentTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCommentTask.h; sourceTree = "<group>"; };
-		E5D6F32D1AF02066009EA94C /* EditCommentTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCommentTask.m; sourceTree = "<group>"; };
-		E5D6F32E1AF02066009EA94C /* GetCommentsTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCommentsTask.h; sourceTree = "<group>"; };
-		E5D6F32F1AF02066009EA94C /* GetCommentsTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCommentsTask.m; sourceTree = "<group>"; };
-		E5D6F3301AF02066009EA94C /* PostCommentTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCommentTask.h; sourceTree = "<group>"; };
-		E5D6F3311AF02066009EA94C /* PostCommentTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCommentTask.m; sourceTree = "<group>"; };
-		E5D6F3321AF02066009EA94C /* GetNewestItemsTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetNewestItemsTask.h; sourceTree = "<group>"; };
-		E5D6F3331AF02066009EA94C /* GetNewestItemsTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetNewestItemsTask.m; sourceTree = "<group>"; };
-		E5D6F3341AF02066009EA94C /* GetPopularItemsTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPopularItemsTask.h; sourceTree = "<group>"; };
-		E5D6F3351AF02066009EA94C /* GetPopularItemsTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPopularItemsTask.m; sourceTree = "<group>"; };
-		E5D6F3361AF02066009EA94C /* GetUserFavouritesTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserFavouritesTask.h; sourceTree = "<group>"; };
-		E5D6F3371AF02066009EA94C /* GetUserFavouritesTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserFavouritesTask.m; sourceTree = "<group>"; };
-		E5D6F3381AF02066009EA94C /* GetUserHomeStreamTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserHomeStreamTask.h; sourceTree = "<group>"; };
-		E5D6F3391AF02066009EA94C /* GetUserHomeStreamTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserHomeStreamTask.m; sourceTree = "<group>"; };
-		E5D6F33A1AF02066009EA94C /* GetUserItemsTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserItemsTask.h; sourceTree = "<group>"; };
-		E5D6F33B1AF02066009EA94C /* GetUserItemsTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserItemsTask.m; sourceTree = "<group>"; };
-		E5D6F33D1AF02066009EA94C /* GetLikersTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetLikersTask.h; sourceTree = "<group>"; };
-		E5D6F33E1AF02066009EA94C /* GetLikersTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetLikersTask.m; sourceTree = "<group>"; };
-		E5D6F33F1AF02066009EA94C /* LikeItemTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeItemTask.h; sourceTree = "<group>"; };
-		E5D6F3401AF02066009EA94C /* LikeItemTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeItemTask.m; sourceTree = "<group>"; };
-		E5D6F3411AF02066009EA94C /* UnlikeItemTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnlikeItemTask.h; sourceTree = "<group>"; };
-		E5D6F3421AF02066009EA94C /* UnlikeItemTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnlikeItemTask.m; sourceTree = "<group>"; };
-		E5D6F3441AF02066009EA94C /* CreateStreamableTagTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateStreamableTagTask.h; sourceTree = "<group>"; };
-		E5D6F3451AF02066009EA94C /* CreateStreamableTagTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateStreamableTagTask.m; sourceTree = "<group>"; };
-		E5D6F3461AF02066009EA94C /* GetStreamablesForLocationTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetStreamablesForLocationTask.h; sourceTree = "<group>"; };
-		E5D6F3471AF02066009EA94C /* GetStreamablesForLocationTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetStreamablesForLocationTask.m; sourceTree = "<group>"; };
-		E5D6F3491AF02066009EA94C /* CheckLoginStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckLoginStatus.h; sourceTree = "<group>"; };
-		E5D6F34A1AF02066009EA94C /* CheckLoginStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckLoginStatus.m; sourceTree = "<group>"; };
-		E5D6F34B1AF02066009EA94C /* EditAvatarTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAvatarTask.h; sourceTree = "<group>"; };
-		E5D6F34C1AF02066009EA94C /* EditAvatarTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAvatarTask.m; sourceTree = "<group>"; };
-		E5D6F34D1AF02066009EA94C /* EditCoverTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCoverTask.h; sourceTree = "<group>"; };
-		E5D6F34E1AF02066009EA94C /* EditCoverTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCoverTask.m; sourceTree = "<group>"; };
-		E5D6F34F1AF02066009EA94C /* EditPasswordTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPasswordTask.h; sourceTree = "<group>"; };
-		E5D6F3501AF02066009EA94C /* EditPasswordTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPasswordTask.m; sourceTree = "<group>"; };
-		E5D6F3511AF02066009EA94C /* EditProfileTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileTask.h; sourceTree = "<group>"; };
-		E5D6F3521AF02066009EA94C /* EditProfileTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileTask.m; sourceTree = "<group>"; };
-		E5D6F3531AF02066009EA94C /* FindUserForUsernameTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindUserForUsernameTask.h; sourceTree = "<group>"; };
-		E5D6F3541AF02066009EA94C /* FindUserForUsernameTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindUserForUsernameTask.m; sourceTree = "<group>"; };
-		E5D6F3551AF02066009EA94C /* FollowTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowTask.h; sourceTree = "<group>"; };
-		E5D6F3561AF02066009EA94C /* FollowTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowTask.m; sourceTree = "<group>"; };
-		E5D6F3571AF02066009EA94C /* GetFollowersTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetFollowersTask.h; sourceTree = "<group>"; };
-		E5D6F3581AF02066009EA94C /* GetFollowersTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetFollowersTask.m; sourceTree = "<group>"; };
-		E5D6F3591AF02066009EA94C /* GetFollowingTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetFollowingTask.h; sourceTree = "<group>"; };
-		E5D6F35A1AF02066009EA94C /* GetFollowingTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetFollowingTask.m; sourceTree = "<group>"; };
-		E5D6F35B1AF02066009EA94C /* GetMostActiveUsersTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetMostActiveUsersTask.h; sourceTree = "<group>"; };
-		E5D6F35C1AF02066009EA94C /* GetMostActiveUsersTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetMostActiveUsersTask.m; sourceTree = "<group>"; };
-		E5D6F35D1AF02066009EA94C /* GetSocialFriends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetSocialFriends.h; sourceTree = "<group>"; };
-		E5D6F35E1AF02066009EA94C /* GetSocialFriends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetSocialFriends.m; sourceTree = "<group>"; };
-		E5D6F35F1AF02066009EA94C /* GetUserProfileTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserProfileTask.h; sourceTree = "<group>"; };
-		E5D6F3601AF02066009EA94C /* GetUserProfileTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserProfileTask.m; sourceTree = "<group>"; };
-		E5D6F3611AF02066009EA94C /* LinkExternalIdTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkExternalIdTask.h; sourceTree = "<group>"; };
-		E5D6F3621AF02066009EA94C /* LinkExternalIdTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkExternalIdTask.m; sourceTree = "<group>"; };
-		E5D6F3631AF02066009EA94C /* LoginTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTask.h; sourceTree = "<group>"; };
-		E5D6F3641AF02066009EA94C /* LoginTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTask.m; sourceTree = "<group>"; };
-		E5D6F3651AF02066009EA94C /* LogoutTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutTask.h; sourceTree = "<group>"; };
-		E5D6F3661AF02066009EA94C /* LogoutTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoutTask.m; sourceTree = "<group>"; };
-		E5D6F3671AF02066009EA94C /* ResetPasswordTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordTask.h; sourceTree = "<group>"; };
-		E5D6F3681AF02066009EA94C /* ResetPasswordTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordTask.m; sourceTree = "<group>"; };
-		E5D6F3691AF02066009EA94C /* SignUpTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpTask.h; sourceTree = "<group>"; };
-		E5D6F36A1AF02066009EA94C /* SignUpTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpTask.m; sourceTree = "<group>"; };
-		E5D6F36B1AF02066009EA94C /* UnfollowTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnfollowTask.h; sourceTree = "<group>"; };
-		E5D6F36C1AF02066009EA94C /* UnfollowTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnfollowTask.m; sourceTree = "<group>"; };
-		E5D6F36D1AF02066009EA94C /* VerifyExternalUserTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyExternalUserTask.h; sourceTree = "<group>"; };
-		E5D6F36E1AF02066009EA94C /* VerifyExternalUserTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyExternalUserTask.m; sourceTree = "<group>"; };
 		E5D6F3721AF02066009EA94C /* TagDetailsBounceDismissAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDetailsBounceDismissAnimationController.h; sourceTree = "<group>"; };
 		E5D6F3731AF02066009EA94C /* TagDetailsBounceDismissAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagDetailsBounceDismissAnimationController.m; sourceTree = "<group>"; };
 		E5D6F3741AF02066009EA94C /* TagDetailsBouncePresentAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDetailsBouncePresentAnimationController.h; sourceTree = "<group>"; };
@@ -822,6 +592,7 @@
 				E5D6F5F41AF020A6009EA94C /* Foundation.framework in Frameworks */,
 				E5D6F5F21AF0209E009EA94C /* MessageUI.framework in Frameworks */,
 				E5D6F5F01AF02096009EA94C /* OpenGLES.framework in Frameworks */,
+				E581D92F1AF3D53B00FD67C8 /* GraffiTab_iOS_SDK.framework in Frameworks */,
 				E5D6F5EE1AF0208F009EA94C /* QuartzCore.framework in Frameworks */,
 				E5D6F5EC1AF02087009EA94C /* StoreKit.framework in Frameworks */,
 				609A56238531C60BEF5C6721 /* Pods_GraffiTab_iOS.framework in Frameworks */,
@@ -852,6 +623,7 @@
 		BC42DC8C4A61E7637B4579EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E581D92E1AF3D53B00FD67C8 /* GraffiTab_iOS_SDK.framework */,
 				E5D6F6111AF09FB8009EA94C /* FacebookSDK.framework */,
 				E5D6F60D1AF02125009EA94C /* MobileCoreServices.framework */,
 				E5D6F60B1AF0211C009EA94C /* SystemConfiguration.framework */,
@@ -946,11 +718,8 @@
 				E5D6F2A41AF02065009EA94C /* Constants */,
 				E5D6F2AB1AF02065009EA94C /* DialogBuilder */,
 				E5D6F2AE1AF02065009EA94C /* LocationManager */,
-				E5D6F2B11AF02065009EA94C /* Model */,
-				E5D6F2D51AF02065009EA94C /* Network */,
 				E5D6F2E51AF02065009EA94C /* Protocols */,
 				E5D6F2EA1AF02065009EA94C /* Settings */,
-				E5D6F2ED1AF02065009EA94C /* Tasks */,
 				E5D6F36F1AF02066009EA94C /* Transitions */,
 				E5D6F37F1AF02066009EA94C /* Utils */,
 				E5D6F38E1AF02066009EA94C /* ViewControllers */,
@@ -961,12 +730,7 @@
 		E5D6F2A41AF02065009EA94C /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				E5D6F2A51AF02065009EA94C /* APIConstants.h */,
 				E5D6F2A61AF02065009EA94C /* Constants.h */,
-				E5D6F2A71AF02065009EA94C /* JSONModelConstants.h */,
-				E5D6F2A81AF02065009EA94C /* JSONRequestConstants.h */,
-				E5D6F2A91AF02065009EA94C /* JSONResponseConstants.h */,
-				E5D6F2AA1AF02065009EA94C /* JSONSerializable.h */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -989,112 +753,6 @@
 			path = LocationManager;
 			sourceTree = "<group>";
 		};
-		E5D6F2B11AF02065009EA94C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F2B41AF02065009EA94C /* Conversation */,
-				E5D6F2B91AF02065009EA94C /* Notifications */,
-				E5D6F2CA1AF02065009EA94C /* Streamable */,
-				E5D6F2B21AF02065009EA94C /* Comment.h */,
-				E5D6F2B31AF02065009EA94C /* Comment.m */,
-				E5D6F2C81AF02065009EA94C /* Person.h */,
-				E5D6F2C91AF02065009EA94C /* Person.m */,
-				E5D6F2D31AF02065009EA94C /* UserLocation.h */,
-				E5D6F2D41AF02065009EA94C /* UserLocation.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E5D6F2B41AF02065009EA94C /* Conversation */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F2B51AF02065009EA94C /* Conversation.h */,
-				E5D6F2B61AF02065009EA94C /* Conversation.m */,
-				E5D6F2B71AF02065009EA94C /* ConversationMessage.h */,
-				E5D6F2B81AF02065009EA94C /* ConversationMessage.m */,
-			);
-			path = Conversation;
-			sourceTree = "<group>";
-		};
-		E5D6F2B91AF02065009EA94C /* Notifications */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F2BA1AF02065009EA94C /* Notification.h */,
-				E5D6F2BB1AF02065009EA94C /* Notification.m */,
-				E5D6F2BC1AF02065009EA94C /* NotificationComment.h */,
-				E5D6F2BD1AF02065009EA94C /* NotificationComment.m */,
-				E5D6F2BE1AF02065009EA94C /* NotificationFactory.h */,
-				E5D6F2BF1AF02065009EA94C /* NotificationFactory.m */,
-				E5D6F2C01AF02065009EA94C /* NotificationFollow.h */,
-				E5D6F2C11AF02065009EA94C /* NotificationFollow.m */,
-				E5D6F2C21AF02065009EA94C /* NotificationLike.h */,
-				E5D6F2C31AF02065009EA94C /* NotificationLike.m */,
-				E5D6F2C41AF02065009EA94C /* NotificationMention.h */,
-				E5D6F2C51AF02065009EA94C /* NotificationMention.m */,
-				E5D6F2C61AF02065009EA94C /* NotificationWelcome.h */,
-				E5D6F2C71AF02065009EA94C /* NotificationWelcome.m */,
-			);
-			path = Notifications;
-			sourceTree = "<group>";
-		};
-		E5D6F2CA1AF02065009EA94C /* Streamable */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F2CB1AF02065009EA94C /* Streamable.h */,
-				E5D6F2CC1AF02065009EA94C /* Streamable.m */,
-				E5D6F2CD1AF02065009EA94C /* StreamableFactory.h */,
-				E5D6F2CE1AF02065009EA94C /* StreamableFactory.m */,
-				E5D6F2CF1AF02065009EA94C /* StreamableTag.h */,
-				E5D6F2D01AF02065009EA94C /* StreamableTag.m */,
-				E5D6F2D11AF02065009EA94C /* StreamableVideo.h */,
-				E5D6F2D21AF02065009EA94C /* StreamableVideo.m */,
-			);
-			path = Streamable;
-			sourceTree = "<group>";
-		};
-		E5D6F2D51AF02065009EA94C /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F2D61AF02065009EA94C /* Cache */,
-				E5D6F2DE1AF02065009EA94C /* Session */,
-				E5D6F2DA1AF02065009EA94C /* RequestBuilder.h */,
-				E5D6F2DB1AF02065009EA94C /* RequestBuilder.m */,
-				E5D6F2DC1AF02065009EA94C /* ResponseObject.h */,
-				E5D6F2DD1AF02065009EA94C /* ResponseObject.m */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		E5D6F2D61AF02065009EA94C /* Cache */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F2D71AF02065009EA94C /* ViewControllerCache */,
-			);
-			path = Cache;
-			sourceTree = "<group>";
-		};
-		E5D6F2D71AF02065009EA94C /* ViewControllerCache */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F2D81AF02065009EA94C /* ViewControllerCache.h */,
-				E5D6F2D91AF02065009EA94C /* ViewControllerCache.m */,
-			);
-			path = ViewControllerCache;
-			sourceTree = "<group>";
-		};
-		E5D6F2DE1AF02065009EA94C /* Session */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F2DF1AF02065009EA94C /* CookieManager.h */,
-				E5D6F2E01AF02065009EA94C /* CookieManager.m */,
-				E5D6F2E11AF02065009EA94C /* JSONResponseSerializerWithData.h */,
-				E5D6F2E21AF02065009EA94C /* JSONResponseSerializerWithData.m */,
-				E5D6F2E31AF02065009EA94C /* SessionManager.h */,
-				E5D6F2E41AF02065009EA94C /* SessionManager.m */,
-			);
-			path = Session;
-			sourceTree = "<group>";
-		};
 		E5D6F2E51AF02065009EA94C /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -1113,225 +771,6 @@
 				E5D6F2EC1AF02065009EA94C /* Settings.m */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		E5D6F2ED1AF02065009EA94C /* Tasks */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F2EF1AF02065009EA94C /* Conversations */,
-				E5D6F30B1AF02065009EA94C /* Device */,
-				E5D6F3121AF02065009EA94C /* Feedback */,
-				E5D6F3151AF02065009EA94C /* LocationTasks */,
-				E5D6F31C1AF02066009EA94C /* Notifications */,
-				E5D6F3211AF02066009EA94C /* Search */,
-				E5D6F3281AF02066009EA94C /* Streamable */,
-				E5D6F3481AF02066009EA94C /* UserTasks */,
-				E5D6F3101AF02065009EA94C /* NetworkTask.h */,
-				E5D6F3111AF02065009EA94C /* NetworkTask.m */,
-			);
-			path = Tasks;
-			sourceTree = "<group>";
-		};
-		E5D6F2EF1AF02065009EA94C /* Conversations */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F3021AF02065009EA94C /* Messages */,
-				E5D6F2F01AF02065009EA94C /* AddConversationUsersTask.h */,
-				E5D6F2F11AF02065009EA94C /* AddConversationUsersTask.m */,
-				E5D6F2F21AF02065009EA94C /* CreateConversationTask.h */,
-				E5D6F2F31AF02065009EA94C /* CreateConversationTask.m */,
-				E5D6F2F41AF02065009EA94C /* EditConversationImageTask.h */,
-				E5D6F2F51AF02065009EA94C /* EditConversationImageTask.m */,
-				E5D6F2F61AF02065009EA94C /* EditConversationNameTask.h */,
-				E5D6F2F71AF02065009EA94C /* EditConversationNameTask.m */,
-				E5D6F2F81AF02065009EA94C /* GetConversationsTask.h */,
-				E5D6F2F91AF02065009EA94C /* GetConversationsTask.m */,
-				E5D6F2FA1AF02065009EA94C /* GetMessagesTask.h */,
-				E5D6F2FB1AF02065009EA94C /* GetMessagesTask.m */,
-				E5D6F2FC1AF02065009EA94C /* GetUnseenConversationsTask.h */,
-				E5D6F2FD1AF02065009EA94C /* GetUnseenConversationsTask.m */,
-				E5D6F2FE1AF02065009EA94C /* HideTypingIndicatorTask.h */,
-				E5D6F2FF1AF02065009EA94C /* HideTypingIndicatorTask.m */,
-				E5D6F3001AF02065009EA94C /* LeaveConversationTask.h */,
-				E5D6F3011AF02065009EA94C /* LeaveConversationTask.m */,
-				E5D6F3071AF02065009EA94C /* PostMessageTask.h */,
-				E5D6F3081AF02065009EA94C /* PostMessageTask.m */,
-				E5D6F3091AF02065009EA94C /* ShowTypingIndicatorTask.h */,
-				E5D6F30A1AF02065009EA94C /* ShowTypingIndicatorTask.m */,
-			);
-			path = Conversations;
-			sourceTree = "<group>";
-		};
-		E5D6F3021AF02065009EA94C /* Messages */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F3031AF02065009EA94C /* DeleteMessagesTask.h */,
-				E5D6F3041AF02065009EA94C /* DeleteMessagesTask.m */,
-				E5D6F3051AF02065009EA94C /* EditMessageTask.h */,
-				E5D6F3061AF02065009EA94C /* EditMessageTask.m */,
-			);
-			path = Messages;
-			sourceTree = "<group>";
-		};
-		E5D6F30B1AF02065009EA94C /* Device */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F30C1AF02065009EA94C /* RegisterDeviceTask.h */,
-				E5D6F30D1AF02065009EA94C /* RegisterDeviceTask.m */,
-				E5D6F30E1AF02065009EA94C /* UnregisterDeviceTask.h */,
-				E5D6F30F1AF02065009EA94C /* UnregisterDeviceTask.m */,
-			);
-			path = Device;
-			sourceTree = "<group>";
-		};
-		E5D6F3121AF02065009EA94C /* Feedback */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F3131AF02065009EA94C /* SendFeedback.h */,
-				E5D6F3141AF02065009EA94C /* SendFeedback.m */,
-			);
-			path = Feedback;
-			sourceTree = "<group>";
-		};
-		E5D6F3151AF02065009EA94C /* LocationTasks */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F3161AF02065009EA94C /* CreateUserLocationTask.h */,
-				E5D6F3171AF02065009EA94C /* CreateUserLocationTask.m */,
-				E5D6F3181AF02065009EA94C /* DeleteUserLocationsTask.h */,
-				E5D6F3191AF02065009EA94C /* DeleteUserLocationsTask.m */,
-				E5D6F31A1AF02065009EA94C /* GetUserLocationsTask.h */,
-				E5D6F31B1AF02066009EA94C /* GetUserLocationsTask.m */,
-			);
-			path = LocationTasks;
-			sourceTree = "<group>";
-		};
-		E5D6F31C1AF02066009EA94C /* Notifications */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F31D1AF02066009EA94C /* GetNotificationsTask.h */,
-				E5D6F31E1AF02066009EA94C /* GetNotificationsTask.m */,
-				E5D6F31F1AF02066009EA94C /* GetUnseenNotificationsTask.h */,
-				E5D6F3201AF02066009EA94C /* GetUnseenNotificationsTask.m */,
-			);
-			path = Notifications;
-			sourceTree = "<group>";
-		};
-		E5D6F3211AF02066009EA94C /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F3221AF02066009EA94C /* SearchHashtag.h */,
-				E5D6F3231AF02066009EA94C /* SearchHashtag.m */,
-				E5D6F3241AF02066009EA94C /* SearchHashtags.h */,
-				E5D6F3251AF02066009EA94C /* SearchHashtags.m */,
-				E5D6F3261AF02066009EA94C /* SearchUsers.h */,
-				E5D6F3271AF02066009EA94C /* SearchUsers.m */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		E5D6F3281AF02066009EA94C /* Streamable */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F3291AF02066009EA94C /* Comments */,
-				E5D6F33C1AF02066009EA94C /* Likes */,
-				E5D6F3431AF02066009EA94C /* Tags */,
-				E5D6F3321AF02066009EA94C /* GetNewestItemsTask.h */,
-				E5D6F3331AF02066009EA94C /* GetNewestItemsTask.m */,
-				E5D6F3341AF02066009EA94C /* GetPopularItemsTask.h */,
-				E5D6F3351AF02066009EA94C /* GetPopularItemsTask.m */,
-				E5D6F3361AF02066009EA94C /* GetUserFavouritesTask.h */,
-				E5D6F3371AF02066009EA94C /* GetUserFavouritesTask.m */,
-				E5D6F3381AF02066009EA94C /* GetUserHomeStreamTask.h */,
-				E5D6F3391AF02066009EA94C /* GetUserHomeStreamTask.m */,
-				E5D6F33A1AF02066009EA94C /* GetUserItemsTask.h */,
-				E5D6F33B1AF02066009EA94C /* GetUserItemsTask.m */,
-			);
-			path = Streamable;
-			sourceTree = "<group>";
-		};
-		E5D6F3291AF02066009EA94C /* Comments */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F32A1AF02066009EA94C /* DeleteCommentsTask.h */,
-				E5D6F32B1AF02066009EA94C /* DeleteCommentsTask.m */,
-				E5D6F32C1AF02066009EA94C /* EditCommentTask.h */,
-				E5D6F32D1AF02066009EA94C /* EditCommentTask.m */,
-				E5D6F32E1AF02066009EA94C /* GetCommentsTask.h */,
-				E5D6F32F1AF02066009EA94C /* GetCommentsTask.m */,
-				E5D6F3301AF02066009EA94C /* PostCommentTask.h */,
-				E5D6F3311AF02066009EA94C /* PostCommentTask.m */,
-			);
-			path = Comments;
-			sourceTree = "<group>";
-		};
-		E5D6F33C1AF02066009EA94C /* Likes */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F33D1AF02066009EA94C /* GetLikersTask.h */,
-				E5D6F33E1AF02066009EA94C /* GetLikersTask.m */,
-				E5D6F33F1AF02066009EA94C /* LikeItemTask.h */,
-				E5D6F3401AF02066009EA94C /* LikeItemTask.m */,
-				E5D6F3411AF02066009EA94C /* UnlikeItemTask.h */,
-				E5D6F3421AF02066009EA94C /* UnlikeItemTask.m */,
-			);
-			path = Likes;
-			sourceTree = "<group>";
-		};
-		E5D6F3431AF02066009EA94C /* Tags */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F3441AF02066009EA94C /* CreateStreamableTagTask.h */,
-				E5D6F3451AF02066009EA94C /* CreateStreamableTagTask.m */,
-				E5D6F3461AF02066009EA94C /* GetStreamablesForLocationTask.h */,
-				E5D6F3471AF02066009EA94C /* GetStreamablesForLocationTask.m */,
-			);
-			path = Tags;
-			sourceTree = "<group>";
-		};
-		E5D6F3481AF02066009EA94C /* UserTasks */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F3491AF02066009EA94C /* CheckLoginStatus.h */,
-				E5D6F34A1AF02066009EA94C /* CheckLoginStatus.m */,
-				E5D6F34B1AF02066009EA94C /* EditAvatarTask.h */,
-				E5D6F34C1AF02066009EA94C /* EditAvatarTask.m */,
-				E5D6F34D1AF02066009EA94C /* EditCoverTask.h */,
-				E5D6F34E1AF02066009EA94C /* EditCoverTask.m */,
-				E5D6F34F1AF02066009EA94C /* EditPasswordTask.h */,
-				E5D6F3501AF02066009EA94C /* EditPasswordTask.m */,
-				E5D6F3511AF02066009EA94C /* EditProfileTask.h */,
-				E5D6F3521AF02066009EA94C /* EditProfileTask.m */,
-				E5D6F3531AF02066009EA94C /* FindUserForUsernameTask.h */,
-				E5D6F3541AF02066009EA94C /* FindUserForUsernameTask.m */,
-				E5D6F3551AF02066009EA94C /* FollowTask.h */,
-				E5D6F3561AF02066009EA94C /* FollowTask.m */,
-				E5D6F3571AF02066009EA94C /* GetFollowersTask.h */,
-				E5D6F3581AF02066009EA94C /* GetFollowersTask.m */,
-				E5D6F3591AF02066009EA94C /* GetFollowingTask.h */,
-				E5D6F35A1AF02066009EA94C /* GetFollowingTask.m */,
-				E5D6F35B1AF02066009EA94C /* GetMostActiveUsersTask.h */,
-				E5D6F35C1AF02066009EA94C /* GetMostActiveUsersTask.m */,
-				E5D6F35D1AF02066009EA94C /* GetSocialFriends.h */,
-				E5D6F35E1AF02066009EA94C /* GetSocialFriends.m */,
-				E5D6F35F1AF02066009EA94C /* GetUserProfileTask.h */,
-				E5D6F3601AF02066009EA94C /* GetUserProfileTask.m */,
-				E5D6F3611AF02066009EA94C /* LinkExternalIdTask.h */,
-				E5D6F3621AF02066009EA94C /* LinkExternalIdTask.m */,
-				E5D6F3631AF02066009EA94C /* LoginTask.h */,
-				E5D6F3641AF02066009EA94C /* LoginTask.m */,
-				E5D6F3651AF02066009EA94C /* LogoutTask.h */,
-				E5D6F3661AF02066009EA94C /* LogoutTask.m */,
-				E5D6F3671AF02066009EA94C /* ResetPasswordTask.h */,
-				E5D6F3681AF02066009EA94C /* ResetPasswordTask.m */,
-				E5D6F3691AF02066009EA94C /* SignUpTask.h */,
-				E5D6F36A1AF02066009EA94C /* SignUpTask.m */,
-				E5D6F36B1AF02066009EA94C /* UnfollowTask.h */,
-				E5D6F36C1AF02066009EA94C /* UnfollowTask.m */,
-				E5D6F36D1AF02066009EA94C /* VerifyExternalUserTask.h */,
-				E5D6F36E1AF02066009EA94C /* VerifyExternalUserTask.m */,
-			);
-			path = UserTasks;
 			sourceTree = "<group>";
 		};
 		E5D6F36F1AF02066009EA94C /* Transitions */ = {
@@ -1454,7 +893,6 @@
 				E5D6F3EA1AF02066009EA94C /* SocialFriends */,
 				E5D6F3ED1AF02066009EA94C /* Streamable */,
 				E5D6F3F91AF02066009EA94C /* UserProfile */,
-				E5D6F4051AF02066009EA94C /* UtilityControllers */,
 				E5D6F3BB1AF02066009EA94C /* MainStoryboard.storyboard */,
 			);
 			path = Main;
@@ -1567,12 +1005,12 @@
 		E5D6F3BF1AF02066009EA94C /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				E5D6F3C21AF02066009EA94C /* Create */,
+				E5D6F3C91AF02066009EA94C /* Settings */,
 				E5D6F3C01AF02066009EA94C /* ConversationsViewController.h */,
 				E5D6F3C11AF02066009EA94C /* ConversationsViewController.m */,
-				E5D6F3C21AF02066009EA94C /* Create */,
 				E5D6F3C71AF02066009EA94C /* MessagesViewController.h */,
 				E5D6F3C81AF02066009EA94C /* MessagesViewController.m */,
-				E5D6F3C91AF02066009EA94C /* Settings */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -1736,13 +1174,6 @@
 			path = Edit;
 			sourceTree = "<group>";
 		};
-		E5D6F4051AF02066009EA94C /* UtilityControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UtilityControllers;
-			sourceTree = "<group>";
-		};
 		E5D6F4061AF02066009EA94C /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -1863,9 +1294,9 @@
 			isa = PBXGroup;
 			children = (
 				E5D6F4321AF02066009EA94C /* FullSIze */,
-				E5D6F44D1AF02066009EA94C /* FullSizeCellProtocol.h */,
 				E5D6F44E1AF02066009EA94C /* Medium */,
 				E5D6F45B1AF02066009EA94C /* Thumbnails */,
+				E5D6F44D1AF02066009EA94C /* FullSizeCellProtocol.h */,
 			);
 			path = Streamables;
 			sourceTree = "<group>";
@@ -2357,6 +1788,7 @@
 				E5D6F2751AF01D06009EA94C /* Resources */,
 				E16868A3C217357165BB6F47 /* Embed Pods Frameworks */,
 				B6D0B5DC447BDE3248DE2BB5 /* Copy Pods Resources */,
+				E581D7241AF3BC4200FD67C8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2531,154 +1963,98 @@
 			files = (
 				E5D6F5E41AF02066009EA94C /* shaderUtil.c in Sources */,
 				E5D6F55A1AF02066009EA94C /* FollowersViewController.m in Sources */,
-				E5D6F5241AF02066009EA94C /* SearchUsers.m in Sources */,
 				E5D6F5601AF02066009EA94C /* InfoViewController.m in Sources */,
 				E5D6F5C11AF02066009EA94C /* BackButtonSLKTextViewController.m in Sources */,
 				E5D6F5C01AF02066009EA94C /* INSCircleInfiniteIndicator.m in Sources */,
 				E5D6F5781AF02066009EA94C /* LikesViewController.m in Sources */,
 				E5D6F5501AF02066009EA94C /* InputValidator.m in Sources */,
-				E5D6F5221AF02066009EA94C /* SearchHashtag.m in Sources */,
 				E5D6F5611AF02066009EA94C /* CreateLocationViewController.m in Sources */,
 				E5D6F5CA1AF02066009EA94C /* USRViewController.m in Sources */,
-				E5D6F5371AF02066009EA94C /* EditProfileTask.m in Sources */,
-				E5D6F4F81AF02066009EA94C /* Notification.m in Sources */,
 				E5D6F5BD1AF02066009EA94C /* TSDemoClusteredAnnotationView.m in Sources */,
 				E5D6F55B1AF02066009EA94C /* FollowingViewController.m in Sources */,
 				E5D6F56B1AF02066009EA94C /* MostActiveUsersViewController.m in Sources */,
-				E5D6F4F61AF02066009EA94C /* Conversation.m in Sources */,
 				E5D6F5D41AF02066009EA94C /* UILabel+Boldify.m in Sources */,
-				E5D6F5131AF02066009EA94C /* HideTypingIndicatorTask.m in Sources */,
-				E5D6F5191AF02066009EA94C /* RegisterDeviceTask.m in Sources */,
 				E5D6F5931AF02066009EA94C /* NotificationWelcomeCell.m in Sources */,
 				E5D6F50B1AF02066009EA94C /* Settings.m in Sources */,
 				E5D6F5C81AF02066009EA94C /* STToggleViewController.m in Sources */,
-				E5D6F5161AF02066009EA94C /* EditMessageTask.m in Sources */,
-				E5D6F52B1AF02066009EA94C /* GetUserFavouritesTask.m in Sources */,
-				E5D6F5171AF02066009EA94C /* PostMessageTask.m in Sources */,
 				E5D6F5681AF02066009EA94C /* MessagesViewController.m in Sources */,
 				E5D6F5B01AF02066009EA94C /* UserCell.m in Sources */,
 				E5D6F5891AF02066009EA94C /* ConversationSettingsCell.m in Sources */,
-				E5D6F5211AF02066009EA94C /* GetUnseenNotificationsTask.m in Sources */,
-				E5D6F5451AF02066009EA94C /* VerifyExternalUserTask.m in Sources */,
 				E5D6F5DF1AF02066009EA94C /* fileUtil.m in Sources */,
-				E5D6F5251AF02066009EA94C /* DeleteCommentsTask.m in Sources */,
 				E5D6F5711AF02066009EA94C /* SearchViewController.m in Sources */,
 				E5D6F54D1AF02066009EA94C /* FacebookUtils.m in Sources */,
 				E5D6F57E1AF02066009EA94C /* EditTextViewViewController.m in Sources */,
 				E5D6F4F41AF02066009EA94C /* MyLocationManager.m in Sources */,
-				E5D6F5031AF02066009EA94C /* StreamableVideo.m in Sources */,
 				E5D6F5D21AF02066009EA94C /* UIImage+H568.m in Sources */,
-				E5D6F4FE1AF02066009EA94C /* NotificationWelcome.m in Sources */,
 				E5D6F5941AF02066009EA94C /* STFullSizeCollectionCell.m in Sources */,
 				E5D6F2801AF01D06009EA94C /* AppDelegate.m in Sources */,
 				E5D6F5951AF02066009EA94C /* STFullSizeCollectionCellFactory.m in Sources */,
 				E5D6F27D1AF01D06009EA94C /* main.m in Sources */,
 				E5D6F5741AF02066009EA94C /* GeneralSettingsViewController.m in Sources */,
 				E5D6F57D1AF02066009EA94C /* EditTextFieldViewController.m in Sources */,
-				E5D6F5121AF02066009EA94C /* GetUnseenConversationsTask.m in Sources */,
-				E5D6F4FA1AF02066009EA94C /* NotificationFactory.m in Sources */,
-				E5D6F5261AF02066009EA94C /* EditCommentTask.m in Sources */,
-				E5D6F5011AF02066009EA94C /* StreamableFactory.m in Sources */,
 				E5D6F5C91AF02066009EA94C /* STViewController.m in Sources */,
 				E5D6F5531AF02066009EA94C /* LoginHomeViewController.m in Sources */,
 				E5D6F57A1AF02066009EA94C /* UserStreamablesViewController.m in Sources */,
-				E5D6F53B1AF02066009EA94C /* GetFollowingTask.m in Sources */,
 				E5D6F5831AF02066009EA94C /* AutocompleteHashCell.m in Sources */,
-				E5D6F5381AF02066009EA94C /* FindUserForUsernameTask.m in Sources */,
 				E5D6F5751AF02066009EA94C /* SettingsViewController.m in Sources */,
-				E5D6F5001AF02066009EA94C /* Streamable.m in Sources */,
-				E5D6F5321AF02066009EA94C /* GetStreamablesForLocationTask.m in Sources */,
 				E5D6F5A21AF02066009EA94C /* STTagMediumCollectionCell.m in Sources */,
 				E5D6F5911AF02066009EA94C /* NotificationLikeCell.m in Sources */,
 				E5D6F5BC1AF02066009EA94C /* STTagThumbnail.m in Sources */,
-				E5D6F5141AF02066009EA94C /* LeaveConversationTask.m in Sources */,
 				E5D6F54F1AF02066009EA94C /* GradientUtils.m in Sources */,
 				E5D6F5CC1AF02066009EA94C /* ZoomableNormalImageView.m in Sources */,
 				E5D6F5B71AF02066009EA94C /* LoadingImageView.m in Sources */,
 				E5D6F5AF1AF02066009EA94C /* ProfileDetailsCell.m in Sources */,
 				E5D6F5CF1AF02066009EA94C /* RIButtonItem.m in Sources */,
-				E5D6F50E1AF02066009EA94C /* EditConversationImageTask.m in Sources */,
 				E5D6F55F1AF02066009EA94C /* HomeStreamViewController.m in Sources */,
-				E5D6F5111AF02066009EA94C /* GetMessagesTask.m in Sources */,
 				E5D6F5BB1AF02066009EA94C /* STTagAnnotation.m in Sources */,
 				E5D6F58A1AF02066009EA94C /* ConversationCell.m in Sources */,
 				E5D6F5B21AF02066009EA94C /* ClickableImage.m in Sources */,
-				E5D6F5281AF02066009EA94C /* PostCommentTask.m in Sources */,
-				E5D6F5341AF02066009EA94C /* EditAvatarTask.m in Sources */,
-				E5D6F50A1AF02066009EA94C /* SessionManager.m in Sources */,
-				E5D6F53E1AF02066009EA94C /* GetUserProfileTask.m in Sources */,
 				E5D6F5BE1AF02066009EA94C /* PaintingView.m in Sources */,
-				E5D6F4FB1AF02066009EA94C /* NotificationFollow.m in Sources */,
 				E5D6F5B81AF02066009EA94C /* LoadingView.m in Sources */,
-				E5D6F51E1AF02066009EA94C /* DeleteUserLocationsTask.m in Sources */,
-				E5D6F51D1AF02066009EA94C /* CreateUserLocationTask.m in Sources */,
-				E5D6F5021AF02066009EA94C /* StreamableTag.m in Sources */,
 				E5D6F54E1AF02066009EA94C /* GoogleStaticApiUtils.m in Sources */,
 				E5D6F5811AF02066009EA94C /* SplashViewController.m in Sources */,
-				E5D6F50C1AF02066009EA94C /* AddConversationUsersTask.m in Sources */,
 				E5D6F5D51AF02066009EA94C /* UIView+NSObjectTag.m in Sources */,
 				E5D6F5561AF02066009EA94C /* SignUpViewController.m in Sources */,
 				E5D6F59E1AF02066009EA94C /* STVideoFullSizeTableCell.m in Sources */,
-				E5D6F5441AF02066009EA94C /* UnfollowTask.m in Sources */,
-				E5D6F5051AF02066009EA94C /* ViewControllerCache.m in Sources */,
 				E5D6F5AD1AF02066009EA94C /* ProfileAboutCell.m in Sources */,
 				E5D6F5AE1AF02066009EA94C /* ProfileAssetsCell.m in Sources */,
 				E5D6F5461AF02066009EA94C /* TagDetailsBounceDismissAnimationController.m in Sources */,
 				E5D6F5471AF02066009EA94C /* TagDetailsBouncePresentAnimationController.m in Sources */,
-				E5D6F51C1AF02066009EA94C /* SendFeedback.m in Sources */,
 				E5D6F5B31AF02066009EA94C /* HeaderViewWithImage.m in Sources */,
 				E5D6F5851AF02066009EA94C /* AutocompleteUserCell.m in Sources */,
-				E5D6F5291AF02066009EA94C /* GetNewestItemsTask.m in Sources */,
-				E5D6F4F51AF02066009EA94C /* Comment.m in Sources */,
-				E5D6F5101AF02066009EA94C /* GetConversationsTask.m in Sources */,
 				E5D6F56E1AF02066009EA94C /* PopularViewController.m in Sources */,
 				E5D6F5961AF02066009EA94C /* STTagFullSizeCollectionCell.m in Sources */,
 				E5D6F5A01AF02066009EA94C /* STMediumCollectionCell.m in Sources */,
-				E5D6F51A1AF02066009EA94C /* UnregisterDeviceTask.m in Sources */,
 				E5D6F5C61AF02066009EA94C /* STMediumOnlyViewController.m in Sources */,
-				E5D6F5151AF02066009EA94C /* DeleteMessagesTask.m in Sources */,
 				E5D6F57C1AF02066009EA94C /* EditProfileViewController.m in Sources */,
-				E5D6F50D1AF02066009EA94C /* CreateConversationTask.m in Sources */,
 				E5D6F5AC1AF02066009EA94C /* UserLocationCell.m in Sources */,
 				E5D6F58B1AF02066009EA94C /* MessageCell.m in Sources */,
 				E5D6F57B1AF02066009EA94C /* EditPasswordViewController.m in Sources */,
 				E5D6F5641AF02066009EA94C /* MenuViewController.m in Sources */,
 				E5D6F5C41AF02066009EA94C /* BackButtonViewController.m in Sources */,
 				E5D6F5571AF02066009EA94C /* ImageCropViewController.m in Sources */,
-				E5D6F5351AF02066009EA94C /* EditCoverTask.m in Sources */,
-				E5D6F51B1AF02066009EA94C /* NetworkTask.m in Sources */,
-				E5D6F5431AF02066009EA94C /* SignUpTask.m in Sources */,
 				E5D6F5C51AF02066009EA94C /* STFullOnlyViewController.m in Sources */,
 				E5D6F56D1AF02066009EA94C /* NotificationsViewController.m in Sources */,
 				E5D6F5901AF02066009EA94C /* NotificationFollowCell.m in Sources */,
 				E5D6F5B91AF02066009EA94C /* LoadingViewManager.m in Sources */,
-				E5D6F53F1AF02066009EA94C /* LinkExternalIdTask.m in Sources */,
 				E5D6F4F31AF02066009EA94C /* DialogBuilder.m in Sources */,
 				E5D6F5D91AF02066009EA94C /* EVCircularProgressView.m in Sources */,
 				E5D6F58E1AF02066009EA94C /* NotificationCellFactory.m in Sources */,
 				E5D6F55E1AF02066009EA94C /* HomeViewController.m in Sources */,
 				E5D6F58D1AF02066009EA94C /* NotificationCell.m in Sources */,
 				E5D6F5731AF02066009EA94C /* FeedbackViewController.m in Sources */,
-				E5D6F5081AF02066009EA94C /* CookieManager.m in Sources */,
-				E5D6F52A1AF02066009EA94C /* GetPopularItemsTask.m in Sources */,
-				E5D6F5311AF02066009EA94C /* CreateStreamableTagTask.m in Sources */,
 				E5D6F5C71AF02066009EA94C /* STThumbnailOnlyViewController.m in Sources */,
-				E5D6F5071AF02066009EA94C /* ResponseObject.m in Sources */,
 				E5D6F5691AF02066009EA94C /* AddConversationUsersViewController.m in Sources */,
 				E5D6F5671AF02066009EA94C /* CreateGroupViewController.m in Sources */,
 				E5D6F55D1AF02066009EA94C /* MapThumbnailsViewController.m in Sources */,
 				E5D6F5D01AF02066009EA94C /* UIAlertView+Blocks.m in Sources */,
 				E5D6F5871AF02066009EA94C /* CommentCell.m in Sources */,
-				E5D6F4FD1AF02066009EA94C /* NotificationMention.m in Sources */,
 				E5D6F5481AF02066009EA94C /* TagDetailsBounceTransitioningDelegate.m in Sources */,
 				E5D6F5511AF02066009EA94C /* Utils.m in Sources */,
 				E5D6F5A41AF02066009EA94C /* STVideoMediumCollectionCell.m in Sources */,
-				E5D6F51F1AF02066009EA94C /* GetUserLocationsTask.m in Sources */,
 				E5D6F59A1AF02066009EA94C /* STFullSizeTableCell.m in Sources */,
-				E5D6F4FC1AF02066009EA94C /* NotificationLike.m in Sources */,
 				E5D6F56A1AF02066009EA94C /* ConversationSettingsViewController.m in Sources */,
 				E5D6F5A81AF02066009EA94C /* STTagThumbnailCollectionCell.m in Sources */,
-				E5D6F5411AF02066009EA94C /* LogoutTask.m in Sources */,
 				E5D6F54A1AF02066009EA94C /* TagDetailsPresentAnimationController.m in Sources */,
 				E5D6F5521AF02066009EA94C /* ViewControllerUtils.m in Sources */,
 				E5D6F5BA1AF02066009EA94C /* MBProgressHUD.m in Sources */,
@@ -2687,61 +2063,37 @@
 				E5D6F54C1AF02066009EA94C /* DateUtils.m in Sources */,
 				E5D6F5AA1AF02066009EA94C /* STVideoThumbnailCollectionCell.m in Sources */,
 				E5D6F56C1AF02066009EA94C /* NewestViewController.m in Sources */,
-				E5D6F52D1AF02066009EA94C /* GetUserItemsTask.m in Sources */,
 				E5D6F5C31AF02066009EA94C /* BackButtonTwitterPagerViewController.m in Sources */,
 				E5D6F5591AF02066009EA94C /* FavouritesViewController.m in Sources */,
 				E5D6F5981AF02066009EA94C /* STVideoFullSizeCollectionCell.m in Sources */,
 				E5D6F5791AF02066009EA94C /* TagDetailsViewController.m in Sources */,
-				E5D6F5181AF02066009EA94C /* ShowTypingIndicatorTask.m in Sources */,
 				E5D6F5921AF02066009EA94C /* NotificationMentionCell.m in Sources */,
-				E5D6F5061AF02066009EA94C /* RequestBuilder.m in Sources */,
 				E5D6F5BF1AF02066009EA94C /* SoundEffect.m in Sources */,
-				E5D6F5331AF02066009EA94C /* CheckLoginStatus.m in Sources */,
 				E5D6F59C1AF02066009EA94C /* STTagFullSizeTableCell.m in Sources */,
-				E5D6F52E1AF02066009EA94C /* GetLikersTask.m in Sources */,
 				E5D6F5CE1AF02066009EA94C /* UIActionSheet+Blocks.m in Sources */,
 				E5D6F5621AF02066009EA94C /* LocationsViewController.m in Sources */,
 				E5D6F5A61AF02066009EA94C /* STThumbnailCollectionCell.m in Sources */,
-				E5D6F53D1AF02066009EA94C /* GetSocialFriends.m in Sources */,
-				E5D6F4FF1AF02066009EA94C /* Person.m in Sources */,
-				E5D6F5301AF02066009EA94C /* UnlikeItemTask.m in Sources */,
-				E5D6F5041AF02066009EA94C /* UserLocation.m in Sources */,
 				E5D6F5581AF02066009EA94C /* PaintingViewController.m in Sources */,
 				E5D6F5661AF02066009EA94C /* CreateConversationViewController.m in Sources */,
 				E5D6F5721AF02066009EA94C /* AboutViewController.m in Sources */,
 				E5D6F57F1AF02066009EA94C /* UserProfileViewController.m in Sources */,
 				E5D6F56F1AF02066009EA94C /* SearchGraffitiViewController.m in Sources */,
-				E5D6F5401AF02066009EA94C /* LoginTask.m in Sources */,
 				E5D6F5491AF02066009EA94C /* TagDetailsDismissAnimationController.m in Sources */,
-				E5D6F53C1AF02066009EA94C /* GetMostActiveUsersTask.m in Sources */,
 				E5D6F5A11AF02066009EA94C /* STMediumCollectionCellFactory.m in Sources */,
 				E5D6F5D11AF02066009EA94C /* UIBarButtonItem+Badge.m in Sources */,
-				E5D6F5091AF02066009EA94C /* JSONResponseSerializerWithData.m in Sources */,
-				E5D6F5361AF02066009EA94C /* EditPasswordTask.m in Sources */,
-				E5D6F5231AF02066009EA94C /* SearchHashtags.m in Sources */,
 				E5D6F5771AF02066009EA94C /* CommentsViewController.m in Sources */,
 				E5D6F59B1AF02066009EA94C /* STFullSizeTableCellFactory.m in Sources */,
 				E5D6F5CB1AF02066009EA94C /* ZoomableImageView.m in Sources */,
-				E5D6F52F1AF02066009EA94C /* LikeItemTask.m in Sources */,
-				E5D6F5421AF02066009EA94C /* ResetPasswordTask.m in Sources */,
 				E5D6F5551AF02066009EA94C /* RecoverPasswordViewController.m in Sources */,
 				E5D6F5B51AF02066009EA94C /* UserTitleHeader.m in Sources */,
 				E5D6F5D61AF02066009EA94C /* UIWindow+PazLabs.m in Sources */,
-				E5D6F4F71AF02066009EA94C /* ConversationMessage.m in Sources */,
-				E5D6F50F1AF02066009EA94C /* EditConversationNameTask.m in Sources */,
-				E5D6F5201AF02066009EA94C /* GetNotificationsTask.m in Sources */,
-				E5D6F52C1AF02066009EA94C /* GetUserHomeStreamTask.m in Sources */,
 				E5D6F5D31AF02066009EA94C /* UIImage+Tint.m in Sources */,
 				E5D6F54B1AF02066009EA94C /* TagDetailsTransitioningDelegate.m in Sources */,
 				E5D6F5761AF02066009EA94C /* SocialFriendsViewController.m in Sources */,
 				E5D6F5A71AF02066009EA94C /* STThumbnailCollectionCellFactory.m in Sources */,
 				E5D6F58F1AF02066009EA94C /* NotificationCommentCell.m in Sources */,
-				E5D6F5271AF02066009EA94C /* GetCommentsTask.m in Sources */,
 				E5D6F5651AF02066009EA94C /* ConversationsViewController.m in Sources */,
-				E5D6F5391AF02066009EA94C /* FollowTask.m in Sources */,
 				E5D6F55C1AF02066009EA94C /* GraffitiMapViewController.m in Sources */,
-				E5D6F4F91AF02066009EA94C /* NotificationComment.m in Sources */,
-				E5D6F53A1AF02066009EA94C /* GetFollowersTask.m in Sources */,
 				E5D6F5CD1AF02066009EA94C /* NSString+HTMLStrip.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2856,6 +2208,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/GraffiTab-iOS/ExternalLibs/AviarySDK",
 					/Users/georgichristov/Documents/FacebookSDK,
+					"/Users/georgichristov/Documents/Workspace/Examples/IOS/GraffiTab_iOS_SDK/Output/GraffiTab_iOS_SDK-Debug-iphoneuniversal",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GraffiTab-iOS/GraffiTab-iOS-Prefix.pch";
@@ -2876,6 +2229,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/GraffiTab-iOS/ExternalLibs/AviarySDK",
 					/Users/georgichristov/Documents/FacebookSDK,
+					"/Users/georgichristov/Documents/Workspace/Examples/IOS/GraffiTab_iOS_SDK/Output/GraffiTab_iOS_SDK-Debug-iphoneuniversal",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GraffiTab-iOS/GraffiTab-iOS-Prefix.pch";

@@ -13,6 +13,6 @@
 
 @interface STMediumCollectionCellFactory : NSObject
 
-+ (STMediumCollectionCell *)createStreamableCollectionCellForStreamable:(Streamable *)streamable tableView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath;
++ (STMediumCollectionCell *)createStreamableCollectionCellForStreamable:(GTStreamable *)streamable tableView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath;
 
 @end

@@ -21,7 +21,7 @@
     [self setSelectedBackgroundView:bgColorView];
 }
 
-- (void)setItem:(Conversation *)item {
+- (void)setItem:(GTConversation *)item {
     _item = item;
     
     NSMutableArray *otherMembers = [item findOtherMembers];
@@ -31,7 +31,7 @@
         if (item.name)
             self.usernameLabel.text = item.name;
         else {
-            Person *u = [otherMembers lastObject];
+            GTPerson *u = [otherMembers lastObject];
 
             NSString *title = [NSString stringWithFormat:@"%@ %@", u.fullName, u.mentionUsername];
             NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:title];
@@ -74,7 +74,7 @@
 
 - (void)loadConversationImage {
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetConversationImage:self.item.imageId]]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetConversationImage:self.item.imageId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
         NSURLResponse *response;
@@ -97,10 +97,10 @@
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSMutableArray *images = [NSMutableArray new];
         
-        for (Person *p in otherMembers) {
+        for (GTPerson *p in otherMembers) {
             UIImage *i;
             if (p.avatarId > 0) {
-                NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatar:p.avatarId]]];
+                NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:p.avatarId]]];
                 request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
                 
                 NSURLResponse *response;

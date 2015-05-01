@@ -7,8 +7,6 @@
 //
 
 #import "SearchUsersViewController.h"
-#import "GetMostActiveUsersTask.h"
-#import "SearchUsers.h"
 
 @interface SearchUsersViewController ()
 
@@ -32,24 +30,21 @@
     [self refresh];
 }
 
-- (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(ResponseObject *))successBlock cacheBlock:(void (^)(ResponseObject *))cacheBlock failureBlock:(void (^)(ResponseObject *))failureBlock {
+- (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(GTResponseObject *))successBlock cacheBlock:(void (^)(GTResponseObject *))cacheBlock failureBlock:(void (^)(GTResponseObject *))failureBlock {
     if (!self.searchString || self.searchString.length <= 0) {
-        GetMostActiveUsersTask *task = [GetMostActiveUsersTask new];
-        task.isStart = isStart;
-        [task getMostActiveUsersWithStart:o numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+        [GTUserManager getMostActiveUsersWithStart:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
             successBlock(response);
-        } cacheBlock:^(ResponseObject *response) {
+        } cacheBlock:^(GTResponseObject *response) {
             cacheBlock(response);
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             failureBlock(response);
         }];
     }
     else {
         // Perform search.
-        SearchUsers *task = [SearchUsers new];
-        [task searchUsersWithQuery:self.searchString offset:o numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+        [GTSearchManager searchUsersWithQuery:self.searchString offset:o numberOfItems:MAX_ITEMS successBlock:^(GTResponseObject *response) {
             successBlock(response);
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             failureBlock(response);
         }];
     }

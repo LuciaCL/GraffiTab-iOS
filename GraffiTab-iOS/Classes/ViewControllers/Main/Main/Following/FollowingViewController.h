@@ -10,6 +10,6 @@
 
 @interface FollowingViewController : USRViewController
 
-@property (nonatomic, assign) Person *user;
+@property (nonatomic, assign) GTPerson *user;
 
 @end

@@ -12,7 +12,7 @@
 
 @interface UserProfileViewController : BackButtonTableViewController <UserHeaderProtocol, UIImagePickerControllerDelegate, UINavigationControllerDelegate, FullSizeCellProtocol>
 
-@property (nonatomic, strong) Person *user;
+@property (nonatomic, strong) GTPerson *user;
 @property (nonatomic, copy) NSString *usernameToSearch;
 
 @end

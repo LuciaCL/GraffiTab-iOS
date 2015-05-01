@@ -10,7 +10,7 @@
 
 @interface NotificationCell : UITableViewCell
 
-@property (nonatomic, weak) Notification *item;
+@property (nonatomic, weak) GTNotification *item;
 @property (nonatomic, weak) IBOutlet UILabel *dateLabel;
 
 + (CGFloat)height;

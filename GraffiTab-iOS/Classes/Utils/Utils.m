@@ -22,7 +22,7 @@
 }
 
 + (void)logoutUserAndShowLoginController {
-    [[Settings getInstance] setUser:nil];
+    [GTLifecycleManager setUser:nil];
     
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     
@@ -40,7 +40,7 @@
     for (cookie in [storage cookies])
         [storage deleteCookie:cookie];
     
-    [CookieManager saveCookies];
+    [GTLifecycleManager applicationWillResignActive];
 }
 
 + (void)showMessage:(NSString *)title message:(NSString *)message {

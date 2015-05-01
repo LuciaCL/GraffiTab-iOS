@@ -7,7 +7,6 @@
 //
 
 #import "FacebookUtils.h"
-#import "LinkExternalIdTask.h"
 
 static FBSessionStateHandler oldHandler;
 
@@ -61,14 +60,13 @@ static FBSessionStateHandler oldHandler;
              // 1.
              NSString *externalId = [aUser objectForKey:@"id"];
              
-             LinkExternalIdTask *task = [LinkExternalIdTask new];
-             [task linkExternalId:externalId successBlock:^(ResponseObject *response) {
+             [GTUserManager linkExternalId:externalId successBlock:^(GTResponseObject *response) {
                  [[LoadingViewManager getInstance] removeLoadingView];
                  
                  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                      [Utils showMessage:APP_NAME message:@"Your profile is now linked with Facebook and you can use it to log in and out."];
                  });
-             } failureBlock:^(ResponseObject *response) {
+             } failureBlock:^(GTResponseObject *response) {
                  [[LoadingViewManager getInstance] removeLoadingView];
                  
                  [FBSession.activeSession closeAndClearTokenInformation];

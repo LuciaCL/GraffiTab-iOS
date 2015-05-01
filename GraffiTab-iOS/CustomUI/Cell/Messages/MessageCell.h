@@ -13,8 +13,8 @@
 
 @interface MessageCell : UITableViewCell <AMAttributedHighlightLabelDelegate>
 
-@property (nonatomic, weak) Conversation *conversation;
-@property (nonatomic, weak) ConversationMessage *item;
+@property (nonatomic, weak) GTConversation *conversation;
+@property (nonatomic, weak) GTConversationMessage *item;
 @property (nonatomic, assign) id<TweetProtocol, EditCellProtocol> delegate;
 @property (nonatomic, weak) IBOutlet UIImageView *balloonView;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarView;

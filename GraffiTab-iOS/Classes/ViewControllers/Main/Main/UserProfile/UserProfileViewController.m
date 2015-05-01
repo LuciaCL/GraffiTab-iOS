@@ -9,31 +9,22 @@
 #import "UserProfileViewController.h"
 #import "UIActionSheet+Blocks.h"
 #import "ImageCropViewController.h"
-#import "EditAvatarTask.h"
-#import "EditCoverTask.h"
 #import "FollowersViewController.h"
 #import "FollowingViewController.h"
 #import "UserStreamablesViewController.h"
 #import "UserTitleHeader.h"
-#import "GetUserProfileTask.h"
 #import "ProfileDetailsCell.h"
 #import "ProfileAboutCell.h"
-#import "FollowTask.h"
-#import "UnfollowTask.h"
 #import "ProfileAssetsCell.h"
 #import "UIScrollView+INSPullToRefresh.h"
 #import "INSCircleInfiniteIndicator.h"
-#import "GetUserItemsTask.h"
 #import "STFullSizeTableCellFactory.h"
 #import "TagDetailsViewController.h"
-#import "LikeItemTask.h"
-#import "UnlikeItemTask.h"
 #import "LikesViewController.h"
 #import "CommentsViewController.h"
 #import "EXPhotoViewer.h"
 #import "UIWindow+PazLabs.h"
 #import "TagDetailsBounceTransitioningDelegate.h"
-#import "FindUserForUsernameTask.h"
 #import "CreateConversationViewController.h"
 
 #define IMAGE_PICKER_MODE_AVATAR 0
@@ -90,8 +81,8 @@
         [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     if (initiallyRefreshed && self.user) {
-        if ([self.user isEqual:[Settings getInstance].user])
-            self.user = [Settings getInstance].user;
+        if ([self.user isEqual:[GTLifecycleManager user]])
+            self.user = [GTLifecycleManager user];
         
         // Refresh user state.
         headerView.item = self.user;
@@ -195,14 +186,13 @@
     [[LoadingViewManager getInstance] addLoadingToView:self.navigationController.view withMessage:@"Processing"];
     
     if (imagePickerMode == IMAGE_PICKER_MODE_AVATAR) {
-        EditAvatarTask *task = [EditAvatarTask new];
-        [task editAvatarWithNewImage:image successBlock:^(ResponseObject *response) {
+        [GTUserManager editAvatarWithNewImage:image successBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
-            self.user = [Settings getInstance].user;
+            self.user = [GTLifecycleManager user];
             
             headerView.item = self.user;
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == AUTHORIZATION_NEEDED) {
@@ -214,14 +204,13 @@
         }];
     }
     else if (imagePickerMode == IMAGE_PICKER_MODE_COVER) {
-        EditCoverTask *task = [EditCoverTask new];
-        [task editCoverWithNewImage:image successBlock:^(ResponseObject *response) {
+        [GTUserManager editCoverWithNewImage:image successBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
-            self.user = [Settings getInstance].user;
+            self.user = [GTLifecycleManager user];
             
             headerView.item = self.user;
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == AUTHORIZATION_NEEDED) {
@@ -235,7 +224,7 @@
 }
 
 - (BOOL)canEdit {
-    return [self.user isEqual:[Settings getInstance].user];
+    return [self.user isEqual:[GTLifecycleManager user]];
 }
 
 #pragma mark - Loading
@@ -243,9 +232,7 @@
 - (void)loadItems:(BOOL)isStart withOffset:(int)o {
     isDownloading = YES;
     
-    GetUserItemsTask *task = [GetUserItemsTask new];
-    task.isStart = isStart;
-    [task getItemsWithUserId:self.user.userId start:o numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+    [GTStreamableManager getItemsWithUserId:self.user.userId start:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
         if (o == 0)
             [items removeAllObjects];
         
@@ -255,12 +242,12 @@
             canLoadMore = NO;
         
         [self finalizeLoad];
-    } cacheBlock:^(ResponseObject *response) {
+    } cacheBlock:^(GTResponseObject *response) {
         [items removeAllObjects];
         [items addObjectsFromArray:response.object];
         
         [self finalizeCacheLoad];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         canLoadMore = NO;
         
         [self finalizeLoad];
@@ -305,15 +292,14 @@
 }
 
 - (void)loadItem {
-    GetUserProfileTask *task = [GetUserProfileTask new];
-    [task getUserProfileWithId:self.user.userId successBlock:^(ResponseObject *response) {
+    [GTUserManager getUserProfileWithId:self.user.userId successBlock:^(GTResponseObject *response) {
         self.user = response.object;
         
         headerView.item = self.user;
         statusBarBackground.item = self.user;
         
         [self.tableView reloadData];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         if (response.reason == AUTHORIZATION_NEEDED) {
             [Utils logoutUserAndShowLoginController];
             [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
@@ -326,8 +312,7 @@
 - (void)findUserForUsername {
     [[LoadingViewManager getInstance] addLoadingToView:self.navigationController.view withMessage:@"Processing"];
     
-    FindUserForUsernameTask *task = [FindUserForUsernameTask new];
-    [task findUserForUsername:self.usernameToSearch successBlock:^(ResponseObject *response) {
+    [GTUserManager findUserForUsername:self.usernameToSearch successBlock:^(GTResponseObject *response) {
         [[LoadingViewManager getInstance] removeLoadingView];
         
         // User with that username exists, so reset all data.
@@ -338,7 +323,7 @@
         
         [self.tableView reloadData];
         [self.tableView ins_beginInfinityScroll];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         [[LoadingViewManager getInstance] removeLoadingView];
         
         if (response.reason == AUTHORIZATION_NEEDED) {
@@ -496,21 +481,20 @@
     if (!self.user)
         return;
     
-    Person *p = self.user;
+    GTPerson *p = self.user;
     
     if (p.isFollowing) { // Unfollow user.
         p.followersCount--;
         
-        UnfollowTask *task = [UnfollowTask new];
-        [task unfollowUserWithId:p.userId successBlock:^(ResponseObject *response) {
-            Person *responsePerson = response.object;
+        [GTUserManager unfollowUserWithId:p.userId successBlock:^(GTResponseObject *response) {
+            GTPerson *responsePerson = response.object;
             
             p.isFollowing = responsePerson.isFollowing;
             p.followersCount = responsePerson.followersCount;
             p.followeesCount = responsePerson.followeesCount;
             
             [self.tableView reloadData];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [self.tableView reloadData];
             
             if (response.reason == AUTHORIZATION_NEEDED) {
@@ -524,16 +508,15 @@
     else { // Follow user.
         p.followersCount++;
         
-        FollowTask *task = [FollowTask new];
-        [task followUserWithId:p.userId successBlock:^(ResponseObject *response) {
-            Person *responsePerson = response.object;
+        [GTUserManager followUserWithId:p.userId successBlock:^(GTResponseObject *response) {
+            GTPerson *responsePerson = response.object;
             
             p.isFollowing = responsePerson.isFollowing;
             p.followersCount = responsePerson.followersCount;
             p.followeesCount = responsePerson.followeesCount;
             
             [self.tableView reloadData];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [self.tableView reloadData];
             
             if (response.reason == AUTHORIZATION_NEEDED) {
@@ -603,14 +586,13 @@
 
 #pragma mark - StreamableTableCellDelegate
 
-- (void)didTapLike:(Streamable *)p {
+- (void)didTapLike:(GTStreamable *)p {
     if (p.isLiked) { // Unlike item.
-        UnlikeItemTask *task = [UnlikeItemTask new];
-        [task unlikeItemWithId:p.streamableId successBlock:^(ResponseObject *response) {
+        [GTStreamableManager unlikeItemWithId:p.streamableId successBlock:^(GTResponseObject *response) {
             [items replaceObjectAtIndex:[items indexOfObject:p] withObject:response.object];
             
             [self.tableView reloadData];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [self.tableView reloadData];
             
             if (response.reason == AUTHORIZATION_NEEDED) {
@@ -622,12 +604,11 @@
         }];
     }
     else { // Like item.
-        LikeItemTask *task = [LikeItemTask new];
-        [task likeItemWithId:p.streamableId successBlock:^(ResponseObject *response) {
+        [GTStreamableManager likeItemWithId:p.streamableId successBlock:^(GTResponseObject *response) {
             [items replaceObjectAtIndex:[items indexOfObject:p] withObject:response.object];
             
             [self.tableView reloadData];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [self.tableView reloadData];
             
             if (response.reason == AUTHORIZATION_NEEDED) {
@@ -644,7 +625,7 @@
     [self.tableView reloadData];
 }
 
-- (void)didTapComment:(Streamable *)item {
+- (void)didTapComment:(GTStreamable *)item {
     UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
     CommentsViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"CommentsViewController"];
     vc.item = item;
@@ -652,7 +633,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)didTapLikesLabel:(Streamable *)item {
+- (void)didTapLikesLabel:(GTStreamable *)item {
     UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
     LikesViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"LikesViewController"];
     vc.item = item;
@@ -660,7 +641,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)didTapOwner:(Streamable *)item {
+- (void)didTapOwner:(GTStreamable *)item {
     
 }
 
@@ -770,11 +751,11 @@
             return [ProfileAssetsCell height];
         default: {
             int height;
-            Streamable *n = items[indexPath.row];
+            GTStreamable *n = items[indexPath.row];
             
-            if ([n isKindOfClass:[StreamableTag class]])
+            if ([n isKindOfClass:[GTStreamableTag class]])
                 height = [STTagFullSizeTableCell height];
-            else if ([n isKindOfClass:[StreamableVideo class]])
+            else if ([n isKindOfClass:[GTStreamableVideo class]])
                 height = [STVideoFullSizeTableCell height];
             
             return height;
@@ -799,11 +780,11 @@
             break;
         }
         case 2: {
-            Streamable *n = items[indexPath.row];
+            GTStreamable *n = items[indexPath.row];
             
-            if ([n isKindOfClass:[StreamableTag class]])
-                [ViewControllerUtils showTag:(StreamableTag *) n fromViewController:self originFrame:CGRectNull transitionDelegate:transitioningDelegate];
-            else if ([n isKindOfClass:[StreamableVideo class]]) {
+            if ([n isKindOfClass:[GTStreamableTag class]])
+                [ViewControllerUtils showTag:(GTStreamableTag *) n fromViewController:self originFrame:CGRectNull transitionDelegate:transitioningDelegate];
+            else if ([n isKindOfClass:[GTStreamableVideo class]]) {
                 
             }
             

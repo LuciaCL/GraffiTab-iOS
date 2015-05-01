@@ -10,7 +10,7 @@
 
 @implementation STThumbnailCollectionCellFactory
 
-+ (STThumbnailCollectionCell *)createStreamableCollectionCellForStreamable:(Streamable *)streamable tableView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath {
++ (STThumbnailCollectionCell *)createStreamableCollectionCellForStreamable:(GTStreamable *)streamable tableView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath {
     StreamableType type = streamable.type;
     STThumbnailCollectionCell *cell;
     

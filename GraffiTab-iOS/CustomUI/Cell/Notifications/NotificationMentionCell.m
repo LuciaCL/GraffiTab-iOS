@@ -10,7 +10,7 @@
 
 @interface NotificationMentionCell () {
     
-    NotificationMention *typedItem;
+    GTNotificationMention *typedItem;
 }
 
 @end
@@ -25,10 +25,10 @@
     [self setupImageViews];
 }
 
-- (void)setItem:(Notification *)item {
+- (void)setItem:(GTNotification *)item {
     super.item = item;
     
-    typedItem = (NotificationMention *)item;
+    typedItem = (GTNotificationMention *)item;
     
     NSString *text = [NSString stringWithFormat:NSLocalizedString(@"NOTIF_MENTION", nil), typedItem.mentioner.fullName];
     NSRange range = [text rangeOfString:typedItem.mentioner.fullName];
@@ -41,7 +41,7 @@
     
     [self loadAvatar];
     
-    if ([typedItem.item isKindOfClass:[StreamableTag class]]) // Load image only if we have a tag.
+    if ([typedItem.item isKindOfClass:[GTStreamableTag class]]) // Load image only if we have a tag.
         [self loadItem];
 }
 
@@ -49,7 +49,7 @@
     __weak typeof(self) weakSelf = self;
     
     if (typedItem.mentioner.avatarId > 0) {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatar:typedItem.mentioner.avatarId]]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:typedItem.mentioner.avatarId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
         self.avatarImage.image = nil;
@@ -66,9 +66,9 @@
 - (void)loadItem {
     __weak typeof(self) weakSelf = self;
     
-    StreamableTag *tag = (StreamableTag *) typedItem.item;
+    GTStreamableTag *tag = (GTStreamableTag *) typedItem.item;
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetGraffiti:tag.graffitiId]]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetGraffiti:tag.graffitiId]]];
     request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
     
     self.itemImage.image = nil;

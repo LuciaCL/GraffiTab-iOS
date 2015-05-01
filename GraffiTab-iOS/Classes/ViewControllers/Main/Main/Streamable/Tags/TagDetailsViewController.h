@@ -11,7 +11,7 @@
 
 @interface TagDetailsViewController : UIViewController <ZoomableNormalImageViewDelegate>
 
-@property (nonatomic, assign) StreamableTag *item;
+@property (nonatomic, assign) GTStreamableTag *item;
 @property (nonatomic, assign) CGRect originFrame;
 
 @end

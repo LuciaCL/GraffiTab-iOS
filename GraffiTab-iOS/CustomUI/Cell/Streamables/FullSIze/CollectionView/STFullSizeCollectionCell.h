@@ -12,7 +12,7 @@
 @interface STFullSizeCollectionCell : UICollectionViewCell
 
 @property (nonatomic, assign) id <FullSizeCellProtocol> delegate;
-@property (nonatomic, weak) Streamable *item;
+@property (nonatomic, weak) GTStreamable *item;
 @property (nonatomic, weak) IBOutlet UIView *containerView;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarView;
 @property (nonatomic, weak) IBOutlet UILabel *usernameLabel;

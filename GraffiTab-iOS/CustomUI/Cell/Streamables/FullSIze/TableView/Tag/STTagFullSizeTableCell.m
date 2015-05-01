@@ -10,7 +10,7 @@
 
 @interface STTagFullSizeTableCell () {
     
-    StreamableTag *typedItem;
+    GTStreamableTag *typedItem;
 }
 
 @end
@@ -25,10 +25,10 @@
     return 464;
 }
 
-- (void)setItem:(Streamable *)item {
+- (void)setItem:(GTStreamable *)item {
     super.item = item;
     
-    typedItem = (StreamableTag *)item;
+    typedItem = (GTStreamableTag *)item;
     
     [self loadItem];
 }
@@ -36,7 +36,7 @@
 - (void)loadItem {
     __weak typeof(self) weakSelf = self;
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetFullGraffiti:typedItem.graffitiId]]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetFullGraffiti:typedItem.graffitiId]]];
     request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
     
     self.itemImage.image = nil;

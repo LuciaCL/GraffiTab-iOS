@@ -8,6 +8,6 @@
 
 @interface CreateConversationViewController : BackButtonSLKTextViewController <UITextFieldDelegate>
 
-@property (nonatomic, strong) Person *selectedUser;
+@property (nonatomic, strong) GTPerson *selectedUser;
 
 @end

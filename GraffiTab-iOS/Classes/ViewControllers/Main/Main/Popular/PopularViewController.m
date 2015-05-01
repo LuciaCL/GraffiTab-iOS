@@ -7,7 +7,6 @@
 //
 
 #import "PopularViewController.h"
-#import "GetPopularItemsTask.h"
 
 @interface PopularViewController ()
 
@@ -25,14 +24,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(ResponseObject *))successBlock cacheBlock:(void (^)(ResponseObject *))cacheBlock failureBlock:(void (^)(ResponseObject *))failureBlock {
-    GetPopularItemsTask *task = [GetPopularItemsTask new];
-    task.isStart = isStart;
-    [task getPopularItemsWithStart:o numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+- (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(GTResponseObject *))successBlock cacheBlock:(void (^)(GTResponseObject *))cacheBlock failureBlock:(void (^)(GTResponseObject *))failureBlock {
+    [GTStreamableManager getPopularItemsWithStart:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
         successBlock(response);
-    } cacheBlock:^(ResponseObject *response) {
+    } cacheBlock:^(GTResponseObject *response) {
         cacheBlock(response);
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         failureBlock(response);
     }];
 }

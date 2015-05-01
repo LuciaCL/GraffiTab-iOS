@@ -11,16 +11,10 @@
 #import "INSCircleInfiniteIndicator.h"
 #import "INSDefaultPullToRefresh.h"
 #import "CommentCell.h"
-#import "PostCommentTask.h"
-#import "GetCommentsTask.h"
-#import "DeleteCommentsTask.h"
 #import "UIActionSheet+Blocks.h"
-#import "EditCommentTask.h"
 #import "RTSpinKitView.h"
 #import "AutocompleteHashCell.h"
 #import "AutocompleteUserCell.h"
-#import "SearchUsers.h"
-#import "SearchHashtags.h"
 
 @interface CommentsViewController () {
     
@@ -30,7 +24,7 @@
     BOOL isDownloading;
     NSMutableArray *items;
     int offset;
-    Comment *toEdit;
+    GTComment *toEdit;
     
     NSArray *searchResult;
     NSMutableArray *autocompleteUsers;
@@ -136,9 +130,7 @@
     
     isDownloading = YES;
     
-    GetCommentsTask *task = [GetCommentsTask new];
-    task.isStart = isStart;
-    [task getCommentsWithItemId:self.item.streamableId start:o numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+    [GTStreamableManager getCommentsWithItemId:self.item.streamableId start:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
         if (o == 0)
             [items removeAllObjects];
         
@@ -148,12 +140,12 @@
             canLoadMore = NO;
         
         [self finalizeLoad];
-    } cacheBlock:^(ResponseObject *response) {
+    } cacheBlock:^(GTResponseObject *response) {
         [items removeAllObjects];
         [items addObjectsFromArray:response.object];
         
         [self finalizeCacheLoad];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         canLoadMore = NO;
         
         [self finalizeLoad];
@@ -228,7 +220,7 @@
     NSError* error = nil;
     NSRegularExpression *hashtagsRegex = [NSRegularExpression regularExpressionWithPattern:@"(?:\\s|\\A)[##]+([A-Za-z0-9-_]+)" options:0 error:&error];
     
-    for (Comment *comment in items) {
+    for (GTComment *comment in items) {
         // Add any new usernames.
         if (![autocompleteUsers containsObject:comment.user])
             [autocompleteUsers addObject:comment.user];
@@ -257,16 +249,15 @@
     NSString *text = [self.textView.text copy];
     
     // Create new comment.
-    Comment *newComment = [Comment new];
+    GTComment *newComment = [GTComment new];
     newComment.itemId = self.item.streamableId;
-    newComment.user = [Settings getInstance].user;
+    newComment.user = [GTLifecycleManager user];
     newComment.text = text;
     newComment.date = [NSDate date];
     
-    PostCommentTask *task = [PostCommentTask new];
-    [task postCommentWithText:text itemId:self.item.streamableId successBlock:^(ResponseObject *response) {
-        newComment.commentId = ((Comment *) response.object).commentId;
-    } failureBlock:^(ResponseObject *response) {
+    [GTStreamableManager postCommentWithText:text itemId:self.item.streamableId successBlock:^(GTResponseObject *response) {
+        newComment.commentId = ((GTComment *) response.object).commentId;
+    } failureBlock:^(GTResponseObject *response) {
         if (response.reason == AUTHORIZATION_NEEDED) {
             [Utils logoutUserAndShowLoginController];
             [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
@@ -305,10 +296,9 @@
     
     [self.tableView reloadData];
     
-    EditCommentTask *task = [EditCommentTask new];
-    [task editCommentWithId:toEdit.commentId text:text successBlock:^(ResponseObject *response) {
+    [GTStreamableManager editCommentWithId:toEdit.commentId text:text successBlock:^(GTResponseObject *response) {
         
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         if (response.reason == AUTHORIZATION_NEEDED) {
             [Utils logoutUserAndShowLoginController];
             [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
@@ -334,13 +324,12 @@
             array = [autocompleteUsers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.username BEGINSWITH[c] %@", word]];
             
             if (array.count <= 0) {
-                SearchUsers *task = [SearchUsers new];
-                [task searchUsersWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+                [GTSearchManager searchUsersWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(GTResponseObject *response) {
                     autocompleteUsers = response.object;
                     searchResult = [[NSMutableArray alloc] initWithArray:autocompleteUsers];
                     
                     [self.autoCompletionView reloadData];
-                } failureBlock:^(ResponseObject *response) {}];
+                } failureBlock:^(GTResponseObject *response) {}];
             }
         }
         else
@@ -351,13 +340,12 @@
             array = [autocompleteHashtags filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self BEGINSWITH[c] %@", word]];
             
             if (array.count <= 0) {
-                SearchHashtags *task = [SearchHashtags new];
-                [task searchHashtagsWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+                [GTSearchManager searchHashtagsWithQuery:word offset:0 numberOfItems:MAX_ITEMS successBlock:^(GTResponseObject *response) {
                     autocompleteHashtags = response.object;
                     searchResult = [[NSMutableArray alloc] initWithArray:autocompleteHashtags];
                     
                     [self.autoCompletionView reloadData];
-                } failureBlock:^(ResponseObject *response) {}];
+                } failureBlock:^(GTResponseObject *response) {}];
             }
         }
         else
@@ -475,8 +463,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if ([tableView isEqual:self.tableView]) {
-        Comment *c = [items objectAtIndex:indexPath.row];
-        Person *u = [Settings getInstance].user;
+        GTComment *c = [items objectAtIndex:indexPath.row];
+        GTPerson *u = [GTLifecycleManager user];
         
         NSArray *actions;
         
@@ -503,7 +491,7 @@
     else if ([tableView isEqual:self.autoCompletionView]) {
         NSString *string;
         if ([self.foundPrefix isEqualToString:@"@"])
-            string = ((Person *)searchResult[indexPath.row]).username;
+            string = ((GTPerson *)searchResult[indexPath.row]).username;
         else
             string = searchResult[indexPath.row];
         
@@ -518,8 +506,8 @@
     if ([tableView isEqual:self.autoCompletionView] || items.count <= 0)
         return NO;
     
-    Comment *c = [items objectAtIndex:indexPath.row];
-    Person *u = [Settings getInstance].user;
+    GTComment *c = [items objectAtIndex:indexPath.row];
+    GTPerson *u = [GTLifecycleManager user];
     
     return [c.user isEqual:u];
 }
@@ -529,14 +517,13 @@
         return;
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Comment *c = [items objectAtIndex:indexPath.row];
+        GTComment *c = [items objectAtIndex:indexPath.row];
         
         NSMutableArray *idsToDelete = [NSMutableArray arrayWithObject:@(c.commentId)];
         
-        DeleteCommentsTask *task = [DeleteCommentsTask new];
-        [task deleteComments:idsToDelete successBlock:^(ResponseObject *response) {
+        [GTStreamableManager deleteComments:idsToDelete successBlock:^(GTResponseObject *response) {
             [self checkNoItemsHeader];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             if (response.reason == AUTHORIZATION_NEEDED) {
                 [Utils logoutUserAndShowLoginController];
                 [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
@@ -580,7 +567,7 @@
     [ViewControllerUtils showSearchUserProfile:username fromViewController:self];
 }
 
-- (void)didClickAvatar:(Person *)user {
+- (void)didClickAvatar:(GTPerson *)user {
     [ViewControllerUtils showUserProfile:user fromViewController:self];
 }
 

@@ -7,7 +7,6 @@
 //
 
 #import "EditPasswordViewController.h"
-#import "EditPasswordTask.h"
 
 @interface EditPasswordViewController () {
     
@@ -42,13 +41,12 @@
     if ([InputValidator validateEditPasswordInput:p newPassword:np confirmPassword:cp viewController:self.navigationController]) {
         [[LoadingViewManager getInstance] addLoadingToView:self.navigationController.view withMessage:@"Processing"];
         
-        EditPasswordTask *task = [EditPasswordTask new];
-        [task editProfileWithPassword:p newPassword:np successBlock:^(ResponseObject *response) {
+        [GTUserManager editProfileWithPassword:p newPassword:np successBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             SCLAlertView *alert = [[SCLAlertView alloc] init];
             [alert showTitle:self.navigationController title:APP_NAME subTitle:@"Password changed!" style:Success closeButtonTitle:@"OK" duration:0.0f];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == INCORRECT_CREDENTIALS)

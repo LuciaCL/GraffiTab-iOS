@@ -7,7 +7,6 @@
 //
 
 #import "FeedbackViewController.h"
-#import "SendFeedback.h"
 
 @interface FeedbackViewController () {
     
@@ -36,13 +35,12 @@
     if (textView.text.length > 0) {
         [[LoadingViewManager getInstance] addLoadingToView:self.navigationController.view withMessage:@"Processing"];
         
-        SendFeedback *task = [SendFeedback new];
-        [task postFeedbackWithText:textView.text successBlock:^(ResponseObject *response) {
+        [GTFeedbackManager postFeedbackWithText:textView.text successBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             SCLAlertView *alert = [[SCLAlertView alloc] init];
             [alert showTitle:self.navigationController title:APP_NAME subTitle:@"Thank you for your feedback!" style:Success closeButtonTitle:@"OK" duration:0.0f];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == AUTHORIZATION_NEEDED) {

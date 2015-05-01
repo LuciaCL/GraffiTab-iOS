@@ -18,7 +18,7 @@
     // Initialization code
 }
 
-- (void)setItem:(Person *)item {
+- (void)setItem:(GTPerson *)item {
     _item = item;
     
     CGRect f = self.descriptionLabel.frame;

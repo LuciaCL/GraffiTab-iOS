@@ -10,7 +10,7 @@
 
 @implementation NotificationCellFactory
 
-+ (NotificationCell *)createNotificationCellForNotification:(Notification *)notification tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
++ (NotificationCell *)createNotificationCellForNotification:(GTNotification *)notification tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
     NotificationType type = notification.type;
     NotificationCell *cell;
     

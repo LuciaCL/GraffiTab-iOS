@@ -10,7 +10,7 @@
 
 @interface STThumbnailCollectionCell : UICollectionViewCell
 
-@property (nonatomic, weak) Streamable *item;
+@property (nonatomic, weak) GTStreamable *item;
 @property (nonatomic, weak) IBOutlet UIImageView *itemImage;
 
 + (NSString *)reusableIdentifier;

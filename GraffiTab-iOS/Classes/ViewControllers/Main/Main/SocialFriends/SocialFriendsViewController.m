@@ -7,7 +7,6 @@
 //
 
 #import "SocialFriendsViewController.h"
-#import "GetSocialFriends.h"
 
 @interface SocialFriendsViewController () {
     
@@ -30,18 +29,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(ResponseObject *))successBlock cacheBlock:(void (^)(ResponseObject *))cacheBlock failureBlock:(void (^)(ResponseObject *))failureBlock {
-    
+- (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(GTResponseObject *))successBlock cacheBlock:(void (^)(GTResponseObject *))cacheBlock failureBlock:(void (^)(GTResponseObject *))failureBlock {
     if (!facebookFriendIds)
         return;
     
-    GetSocialFriends *task = [GetSocialFriends new];
-    task.isStart = isStart;
-    [task getFriendsListWithIds:facebookFriendIds start:o numberOfItems:MAX_ITEMS successBlock:^(ResponseObject *response) {
+    [GTUserManager getFriendsListWithIds:facebookFriendIds start:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
         successBlock(response);
-    } cacheBlock:^(ResponseObject *response) {
+    } cacheBlock:^(GTResponseObject *response) {
         cacheBlock(response);
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         failureBlock(response);
     }];
 }

@@ -10,7 +10,7 @@
 
 @interface CommentsViewController : BackButtonSLKTextViewController <TweetProtocol>
 
-@property (nonatomic, assign) Streamable *item;
+@property (nonatomic, assign) GTStreamable *item;
 @property (nonatomic, assign) BOOL embedded;
 
 @end

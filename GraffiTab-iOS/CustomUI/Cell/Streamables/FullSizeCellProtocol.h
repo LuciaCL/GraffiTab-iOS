@@ -6,18 +6,16 @@
 //  Copyright (c) 2015 GraffiTab. All rights reserved.
 //
 
-#import "Streamable.h"
-
 #ifndef DigiGraff_IOS_FullSizeCellProtocol_h
 #define DigiGraff_IOS_FullSizeCellProtocol_h
 
 @protocol FullSizeCellProtocol <NSObject>
 
 @required
-- (void)didTapLike:(Streamable *)item;
-- (void)didTapComment:(Streamable *)item;
-- (void)didTapLikesLabel:(Streamable *)item;
-- (void)didTapOwner:(Streamable *)item;
+- (void)didTapLike:(GTStreamable *)item;
+- (void)didTapComment:(GTStreamable *)item;
+- (void)didTapLikesLabel:(GTStreamable *)item;
+- (void)didTapOwner:(GTStreamable *)item;
 
 @end
 

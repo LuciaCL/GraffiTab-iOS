@@ -7,9 +7,6 @@
 //
 
 #import "ProfileAssetsCell.h"
-#import "GetUserItemsTask.h"
-#import "GetFollowersTask.h"
-#import "GetFollowingTask.h"
 
 @interface ProfileAssetsCell () {
     
@@ -61,7 +58,7 @@
         [self.delegate didTapFollowing];
 }
 
-- (void)setItem:(Person *)item {
+- (void)setItem:(GTPerson *)item {
     _item = item;
     
     [self loadAssets1];
@@ -77,17 +74,15 @@
     if (assets1Items && assets1Items.count > 0)
         return;
     
-    GetUserItemsTask *task = [GetUserItemsTask new];
-    task.isStart = YES;
-    [task getItemsWithUserId:self.item.userId start:0 numberOfItems:6 successBlock:^(ResponseObject *response) {
+    [GTStreamableManager getItemsWithUserId:self.item.userId start:0 numberOfItems:6 useCache:YES successBlock:^(GTResponseObject *response) {
         assets1Items = response.object;
         
         [self finishLoadingWithSuccess:assetsCollection1 containerView:assets1View errorImage:errorImage items:assets1Items];
-    } cacheBlock:^(ResponseObject *response) {
+    } cacheBlock:^(GTResponseObject *response) {
         assets1Items = response.object;
         
         [self finishLoadingWithSuccess:assetsCollection1 containerView:assets1View errorImage:errorImage items:assets1Items];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         [self finishLoadingWithSuccess:assetsCollection1 containerView:assets1View errorImage:errorImage items:nil];
     }];
 }
@@ -98,17 +93,15 @@
     if (assets2Items && assets2Items.count > 0)
         return;
     
-    GetFollowersTask *task = [GetFollowersTask new];
-    task.isStart = YES;
-    [task getFollowersWithUserId:self.item.userId start:0 numberOfItems:6 successBlock:^(ResponseObject *response) {
+    [GTUserManager getFollowersWithUserId:self.item.userId start:0 numberOfItems:6 useCache:YES successBlock:^(GTResponseObject *response) {
         assets2Items = response.object;
         
         [self finishLoadingWithSuccess:assetsCollection2 containerView:assets2View errorImage:errorImage items:assets2Items];
-    } cacheBlock:^(ResponseObject *response) {
+    } cacheBlock:^(GTResponseObject *response) {
         assets2Items = response.object;
         
         [self finishLoadingWithSuccess:assetsCollection2 containerView:assets2View errorImage:errorImage items:assets2Items];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         [self finishLoadingWithSuccess:assetsCollection2 containerView:assets2View errorImage:errorImage items:nil];
     }];
 }
@@ -119,17 +112,15 @@
     if (assets2Items && assets2Items.count > 0)
         return;
     
-    GetFollowingTask *task = [GetFollowingTask new];
-    task.isStart = YES;
-    [task getFollowingWithUserId:self.item.userId start:0 numberOfItems:6 successBlock:^(ResponseObject *response) {
+    [GTUserManager getFollowingWithUserId:self.item.userId start:0 numberOfItems:6 useCache:YES successBlock:^(GTResponseObject *response) {
         assets3Items = response.object;
         
         [self finishLoadingWithSuccess:assetsCollection3 containerView:assets3View errorImage:errorImage items:assets3Items];
-    } cacheBlock:^(ResponseObject *response) {
+    } cacheBlock:^(GTResponseObject *response) {
         assets3Items = response.object;
         
         [self finishLoadingWithSuccess:assetsCollection3 containerView:assets3View errorImage:errorImage items:assets3Items];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         [self finishLoadingWithSuccess:assetsCollection3 containerView:assets3View errorImage:errorImage items:nil];
     }];
 }
@@ -172,11 +163,11 @@
     
     if (collectionView == assetsCollection1) {
         __weak typeof(UICollectionViewCell *) weakSelf = cell;
-        Streamable *streamable = (Streamable *)assets1Items[indexPath.row];
+        GTStreamable *streamable = (GTStreamable *)assets1Items[indexPath.row];
         
         if (streamable.type == TAG) {
-            StreamableTag *tag = (StreamableTag *)streamable;
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetGraffiti:tag.graffitiId]]];
+            GTStreamableTag *tag = (GTStreamableTag *)streamable;
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetGraffiti:tag.graffitiId]]];
             request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
             
             [imageView setImageWithURLRequest:request placeholderImage:imageView.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
@@ -190,10 +181,10 @@
     }
     else if (collectionView == assetsCollection2 || collectionView == assetsCollection3) {
         __weak typeof(UICollectionViewCell *) weakSelf = cell;
-        Person *user = (Person *)(collectionView == assetsCollection2 ? assets2Items[indexPath.row] : assets3Items[indexPath.row]);
+        GTPerson *user = (GTPerson *)(collectionView == assetsCollection2 ? assets2Items[indexPath.row] : assets3Items[indexPath.row]);
         
         if (user.avatarId > 0) {
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatar:user.avatarId]]];
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:user.avatarId]]];
             request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
             
             [imageView setImageWithURLRequest:request placeholderImage:imageView.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {

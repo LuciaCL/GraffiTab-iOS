@@ -10,6 +10,6 @@
 
 @interface STTagAnnotation : JPSThumbnailAnnotation
 
-@property (nonatomic, strong) StreamableTag *item;
+@property (nonatomic, strong) GTStreamableTag *item;
 
 @end

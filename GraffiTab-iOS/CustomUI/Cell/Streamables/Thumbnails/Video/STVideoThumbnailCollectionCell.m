@@ -10,7 +10,7 @@
 
 @interface STVideoThumbnailCollectionCell () {
     
-    StreamableVideo *typedItem;
+    GTStreamableVideo *typedItem;
 }
 
 @end
@@ -21,10 +21,10 @@
     return @"STVideoThumbnailCollectionCell";
 }
 
-- (void)setItem:(Streamable *)item {
+- (void)setItem:(GTStreamable *)item {
     super.item = item;
     
-    typedItem = (StreamableVideo *)item;
+    typedItem = (GTStreamableVideo *)item;
 }
 
 @end

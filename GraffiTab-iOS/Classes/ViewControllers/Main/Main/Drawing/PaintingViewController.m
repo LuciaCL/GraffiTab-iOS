@@ -10,7 +10,6 @@
 #import "PaintingView.h"
 #import "SoundEffect.h"
 #import "MyLocationManager.h"
-#import "CreateStreamableTagTask.h"
 #import "UIActionSheet+Blocks.h"
 #import "ImageCropViewController.h"
 
@@ -134,12 +133,11 @@ static NSString * const kAVYAviarySecret = @"nESKzmp46kSvNDlgi0_CfA";
     if (location) {
         [[LoadingViewManager getInstance] addLoadingToView:self.view withMessage:@"Processing..."];
         
-        CreateStreamableTagTask *task = [CreateStreamableTagTask new];
-        [task createTagWithImage:i location:location successBlock:^(ResponseObject *response) {
+        [GTStreamableManager createTagWithImage:i location:location successBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             [Utils showMessage:APP_NAME message:@"Your graffiti was created successfully."];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == AUTHORIZATION_NEEDED) {

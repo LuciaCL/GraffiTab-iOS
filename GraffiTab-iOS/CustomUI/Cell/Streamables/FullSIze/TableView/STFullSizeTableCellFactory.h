@@ -13,6 +13,6 @@
 
 @interface STFullSizeTableCellFactory : NSObject
 
-+ (STFullSizeTableCell *)createStreamableTableCellForStreamable:(Streamable *)streamable tableView:(UITableView *)collectionView indexPath:(NSIndexPath *)indexPath;
++ (STFullSizeTableCell *)createStreamableTableCellForStreamable:(GTStreamable *)streamable tableView:(UITableView *)collectionView indexPath:(NSIndexPath *)indexPath;
 
 @end

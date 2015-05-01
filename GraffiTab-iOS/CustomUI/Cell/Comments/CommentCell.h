@@ -12,7 +12,7 @@
 
 @interface CommentCell : UITableViewCell <AMAttributedHighlightLabelDelegate>
 
-@property (nonatomic, weak) Comment *item;
+@property (nonatomic, weak) GTComment *item;
 @property (nonatomic, assign) id<TweetProtocol> delegate;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarView;
 @property (nonatomic, weak) IBOutlet UILabel *usernameLabel;

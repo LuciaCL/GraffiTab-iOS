@@ -30,7 +30,7 @@
         [self.delegate onEdit:self.item];
 }
 
-- (void)setItem:(ConversationMessage *)item {
+- (void)setItem:(GTConversationMessage *)item {
     _item = item;
     
     // Setup comment label.
@@ -39,7 +39,7 @@
     self.messageTextLabel.mentionTextColor = UIColorFromRGB(COLOR_LINKS);
     self.messageTextLabel.hashtagTextColor = UIColorFromRGB(COLOR_LINKS);
     
-    if ([self.item.user isEqual:[Settings getInstance].user]) // Mine.
+    if ([self.item.user isEqual:[GTLifecycleManager user]]) // Mine.
         self.messageTextLabel.textColor = UIColorFromRGB(COLOR_MAIN);
     else // Theirs.
         self.messageTextLabel.textColor = [UIColor whiteColor];
@@ -92,7 +92,7 @@
 
 - (void)layoutComponents {
     // Setup balloon view.
-    if ([self.item.user isEqual:[Settings getInstance].user]) // Mine.
+    if ([self.item.user isEqual:[GTLifecycleManager user]]) // Mine.
         [self layoutMyView];
     else // Theirs.
         [self layoutTheirView];
@@ -183,7 +183,7 @@
     __weak typeof(self) weakSelf = self;
     
     if (self.item.user.avatarId > 0) {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatar:self.item.user.avatarId]]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:self.item.user.avatarId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
         self.avatarView.image = nil;

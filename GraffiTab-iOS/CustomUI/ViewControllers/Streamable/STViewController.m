@@ -10,10 +10,6 @@
 #import "UIScrollView+INSPullToRefresh.h"
 #import "INSCircleInfiniteIndicator.h"
 #import "INSDefaultPullToRefresh.h"
-#import "GetNotificationsTask.h"
-#import "GetPopularItemsTask.h"
-#import "LikeItemTask.h"
-#import "UnlikeItemTask.h"
 #import "LikesViewController.h"
 #import "CommentsViewController.h"
 #import "TagDetailsViewController.h"
@@ -133,7 +129,7 @@
     
     isDownloading = YES;
     
-    [self loadItems:isStart withOffset:o successBlock:^(ResponseObject *response) {
+    [self loadItems:isStart withOffset:o successBlock:^(GTResponseObject *response) {
         if (o == 0)
             [items removeAllObjects];
         
@@ -143,12 +139,12 @@
             canLoadMore = NO;
         
         [self finalizeLoad];
-    } cacheBlock:^(ResponseObject *response) {
+    } cacheBlock:^(GTResponseObject *response) {
         [items removeAllObjects];
         [items addObjectsFromArray:response.object];
         
         [self finalizeCacheLoad];
-    } failureBlock:^(ResponseObject *response) {
+    } failureBlock:^(GTResponseObject *response) {
         canLoadMore = NO;
         
         [self finalizeLoad];
@@ -162,7 +158,7 @@
     }];
 }
 
-- (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(ResponseObject *))successBlock cacheBlock:(void (^)(ResponseObject *))cacheBlock failureBlock:(void (^)(ResponseObject *))failureBlock {
+- (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(GTResponseObject *))successBlock cacheBlock:(void (^)(GTResponseObject *))cacheBlock failureBlock:(void (^)(GTResponseObject *))failureBlock {
     NSLog(@"This should be overridden by subclasses");
 }
 
@@ -219,14 +215,13 @@
 
 #pragma mark - StreamableTableCellDelegate
 
-- (void)didTapLike:(Streamable *)p {
+- (void)didTapLike:(GTStreamable *)p {
     if (p.isLiked) { // Unlike item.
-        UnlikeItemTask *task = [UnlikeItemTask new];
-        [task unlikeItemWithId:p.streamableId successBlock:^(ResponseObject *response) {
+        [GTStreamableManager unlikeItemWithId:p.streamableId successBlock:^(GTResponseObject *response) {
             [items replaceObjectAtIndex:[items indexOfObject:p] withObject:response.object];
             
             [self.collectionView reloadData];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [self.collectionView reloadData];
             
             if (response.reason == AUTHORIZATION_NEEDED) {
@@ -238,12 +233,11 @@
         }];
     }
     else { // Like item.
-        LikeItemTask *task = [LikeItemTask new];
-        [task likeItemWithId:p.streamableId successBlock:^(ResponseObject *response) {
+        [GTStreamableManager likeItemWithId:p.streamableId successBlock:^(GTResponseObject *response) {
             [items replaceObjectAtIndex:[items indexOfObject:p] withObject:response.object];
             
             [self.collectionView reloadData];
-        } failureBlock:^(ResponseObject *response) {
+        } failureBlock:^(GTResponseObject *response) {
             [self.collectionView reloadData];
             
             if (response.reason == AUTHORIZATION_NEEDED) {
@@ -260,7 +254,7 @@
     [self.collectionView reloadData];
 }
 
-- (void)didTapComment:(Streamable *)item {
+- (void)didTapComment:(GTStreamable *)item {
     UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
     CommentsViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"CommentsViewController"];
     vc.item = item;
@@ -268,7 +262,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)didTapLikesLabel:(Streamable *)item {
+- (void)didTapLikesLabel:(GTStreamable *)item {
     UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
     LikesViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"LikesViewController"];
     vc.item = item;
@@ -276,7 +270,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)didTapOwner:(Streamable *)item {
+- (void)didTapOwner:(GTStreamable *)item {
     [ViewControllerUtils showUserProfile:item.user fromViewController:self];
 }
 
@@ -317,20 +311,20 @@
 }
 
 - (void)collectionView:(UICollectionView *)cv didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    Streamable *n = items[indexPath.row];
+    GTStreamable *n = items[indexPath.row];
     
-    if ([n isKindOfClass:[StreamableTag class]]) {
+    if ([n isKindOfClass:[GTStreamableTag class]]) {
         if (self.viewType == STVIEW_TYPE_SMALL || self.viewType == STVIEW_TYPE_MEDIUM) {
             UICollectionViewLayoutAttributes *attributes = [cv layoutAttributesForItemAtIndexPath:indexPath];
             CGRect cellRect = attributes.frame;
             CGRect cellFrameInSuperview = [cv convertRect:cellRect toView:nil];
             
-            [ViewControllerUtils showTag:(StreamableTag *) n fromViewController:self originFrame:cellFrameInSuperview transitionDelegate:transitioningDelegate];
+            [ViewControllerUtils showTag:(GTStreamableTag *) n fromViewController:self originFrame:cellFrameInSuperview transitionDelegate:transitioningDelegate];
         }
         else
-            [ViewControllerUtils showTag:(StreamableTag *) n fromViewController:self originFrame:CGRectNull transitionDelegate:transitioningBounceDelegate];
+            [ViewControllerUtils showTag:(GTStreamableTag *) n fromViewController:self originFrame:CGRectNull transitionDelegate:transitioningBounceDelegate];
     }
-    else if ([n isKindOfClass:[StreamableVideo class]]) {
+    else if ([n isKindOfClass:[GTStreamableVideo class]]) {
         
     }
 }
@@ -340,7 +334,7 @@
     int height;
     int numCols = 3;
     CGFloat spacing = [self getItemSpacing];
-    Streamable *n = items[indexPath.row];
+    GTStreamable *n = items[indexPath.row];
     
     if (self.viewType == STVIEW_TYPE_SMALL) {
         width = (cv.frame.size.width - (numCols + 1)*spacing) / numCols;
@@ -356,9 +350,9 @@
         width = self.collectionView.frame.size.width;
         height = width;
         
-        if ([n isKindOfClass:[StreamableTag class]])
+        if ([n isKindOfClass:[GTStreamableTag class]])
             height = [STTagFullSizeCollectionCell height];
-        else if ([n isKindOfClass:[StreamableVideo class]])
+        else if ([n isKindOfClass:[GTStreamableVideo class]])
             height = [STVideoFullSizeCollectionCell height];
     }
     

@@ -26,7 +26,7 @@
         [self.delegate didClickAvatar:self.item.user];
 }
 
-- (void)setItem:(Comment *)item {
+- (void)setItem:(GTComment *)item {
     _item = item;
     
     // Setup username label.
@@ -54,7 +54,7 @@
     __weak typeof(self) weakSelf = self;
     
     if (self.item.user.avatarId > 0) {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[RequestBuilder buildGetAvatar:self.item.user.avatarId]]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:self.item.user.avatarId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
         self.avatarView.image = nil;

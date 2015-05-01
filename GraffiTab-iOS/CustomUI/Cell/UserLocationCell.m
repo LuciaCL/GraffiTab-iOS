@@ -33,7 +33,7 @@
     self.locationImage.backgroundColor = backgroundColor;
 }
 
-- (void)setItem:(UserLocation *)item {
+- (void)setItem:(GTUserLocation *)item {
     _item = item;
     
     self.addressLabel.text = item.address;

@@ -13,6 +13,6 @@
 
 @interface STThumbnailCollectionCellFactory : NSObject
 
-+ (STThumbnailCollectionCell *)createStreamableCollectionCellForStreamable:(Streamable *)streamable tableView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath;
++ (STThumbnailCollectionCell *)createStreamableCollectionCellForStreamable:(GTStreamable *)streamable tableView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath;
 
 @end

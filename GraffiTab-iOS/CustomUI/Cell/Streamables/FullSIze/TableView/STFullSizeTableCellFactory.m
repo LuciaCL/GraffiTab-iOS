@@ -10,7 +10,7 @@
 
 @implementation STFullSizeTableCellFactory
 
-+ (STFullSizeTableCell *)createStreamableTableCellForStreamable:(Streamable *)streamable tableView:(UITableView *)collectionView indexPath:(NSIndexPath *)indexPath {
++ (STFullSizeTableCell *)createStreamableTableCellForStreamable:(GTStreamable *)streamable tableView:(UITableView *)collectionView indexPath:(NSIndexPath *)indexPath {
     StreamableType type = streamable.type;
     STFullSizeTableCell *cell;
     
