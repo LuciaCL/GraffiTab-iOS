@@ -31,4 +31,5 @@ target 'GraffiTab-iOS' do
     pod 'JPSThumbnailAnnotation'
     pod 'BlockAlertsAnd-ActionSheets'
     pod 'INSPullToRefresh'
+    pod 'WYPopoverController'
 end

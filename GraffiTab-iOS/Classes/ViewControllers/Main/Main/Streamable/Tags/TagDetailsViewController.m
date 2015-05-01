@@ -30,6 +30,7 @@
     IBOutlet UIImageView *menuImage;
     
     RTSpinKitView *loadingIndicator;
+    WYPopoverController *settingsPopoverController;
 }
 
 - (IBAction)onClickClose:(id)sender;
@@ -120,7 +121,7 @@
     vc.item = self.item;
     vc.embedded = YES;
     
-    [self showFormSheet:vc];
+    [self showFormSheet:vc forView:likeImage];
 }
 
 - (IBAction)onClickLabelComment:(id)sender {
@@ -129,36 +130,27 @@
     vc.item = self.item;
     vc.embedded = YES;
     
-    [self showFormSheet:vc];
+    [self showFormSheet:vc forView:commentImage];
 }
 
 - (void)onSwipeDown {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)showFormSheet:(UIViewController *)vc {
-    int w = 300;
-    int h = 350;
+- (void)showFormSheet:(UIViewController *)vc forView:(UIView *)view {
+    vc.preferredContentSize = CGSizeMake(300, 350);
     
-    [[MZFormSheetBackgroundWindow appearance] setBackgroundBlurEffect:YES];
-    [[MZFormSheetBackgroundWindow appearance] setBlurRadius:5.0];
-    [[MZFormSheetBackgroundWindow appearance] setBackgroundColor:[UIColor clearColor]];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    settingsPopoverController = [[WYPopoverController alloc] initWithContentViewController:nav];
+    settingsPopoverController.delegate = self;
+    settingsPopoverController.wantsDefaultContentAppearance = YES;
     
-    // Setup popup sheet.
-    MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithViewController:[[UINavigationController alloc] initWithRootViewController:vc]];
-    formSheet.shouldDismissOnBackgroundViewTap = YES;
-    formSheet.transitionStyle = MZFormSheetTransitionStyleDropDown;
-    formSheet.cornerRadius = 8.0;
-    formSheet.presentedFormSheetSize = CGSizeMake(w, h);
-    formSheet.shouldCenterVertically = YES;
+    [settingsPopoverController presentPopoverFromRect:view.bounds
+                                               inView:view
+                             permittedArrowDirections:WYPopoverArrowDirectionAny
+                                             animated:YES
+                                              options:WYPopoverAnimationOptionFadeWithScale];
     
-    formSheet.willPresentCompletionHandler = ^(UIViewController *presentedFSViewController){
-        presentedFSViewController.view.autoresizingMask = presentedFSViewController.view.autoresizingMask | UIViewAutoresizingFlexibleWidth;
-    };
-    
-    [formSheet presentAnimated:YES completionHandler:^(UIViewController *presentedFSViewController) {
-        
-    }];
 }
 
 #pragma mark - Loading
@@ -258,6 +250,25 @@
         
         [weakSelf->loadingIndicator stopAnimating];
     }];
+}
+
+#pragma mark - WYPopoverControllerDelegate
+
+- (void)popoverControllerDidPresentPopover:(WYPopoverController *)controller {
+    NSLog(@"popoverControllerDidPresentPopover");
+}
+
+- (BOOL)popoverControllerShouldDismissPopover:(WYPopoverController *)controller {
+    return YES;
+}
+
+- (BOOL)popoverControllerShouldIgnoreKeyboardBounds:(WYPopoverController *)popoverController {
+    return NO;
+}
+
+- (void)popoverController:(WYPopoverController *)popoverController willTranslatePopoverWithYOffset:(float *)value {
+    // keyboard is shown and the popover will be moved up by 163 pixels for example ( *value = 163 )
+    *value = 140; // set value to 0 if you want to avoid the popover to be moved
 }
 
 #pragma mark - ZoomableNormalImageViewDelegate

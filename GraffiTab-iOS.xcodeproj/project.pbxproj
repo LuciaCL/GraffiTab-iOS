@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		609A56238531C60BEF5C6721 /* Pods_GraffiTab_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A009B6B9FAC641B4B823435B /* Pods_GraffiTab_iOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		E581D92F1AF3D53B00FD67C8 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E581D92E1AF3D53B00FD67C8 /* GraffiTab_iOS_SDK.framework */; };
+		E581D9341AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E581D9331AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework */; };
+		E581D9351AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E581D9331AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E581D9381AF43ED300FD67C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E581D93A1AF43ED300FD67C8 /* Localizable.strings */; };
 		E5D6F27D1AF01D06009EA94C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F27C1AF01D06009EA94C /* main.m */; };
 		E5D6F2801AF01D06009EA94C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F27F1AF01D06009EA94C /* AppDelegate.m */; };
 		E5D6F2881AF01D06009EA94C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D6F2871AF01D06009EA94C /* Images.xcassets */; };
@@ -220,6 +222,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				E581D9351AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,7 +233,9 @@
 		6324B106F77245E0971638B6 /* Pods-GraffiTab-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab-iOS/Pods-GraffiTab-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		79BD38D90CD21E770F019901 /* Pods-GraffiTab-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab-iOS/Pods-GraffiTab-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A009B6B9FAC641B4B823435B /* Pods_GraffiTab_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraffiTab_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E581D92E1AF3D53B00FD67C8 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "../GraffiTab_iOS_SDK/Output/GraffiTab_iOS_SDK-Debug-iphoneuniversal/GraffiTab_iOS_SDK.framework"; sourceTree = "<group>"; };
+		E581D9331AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "../GraffiTab_iOS_SDK/Output/GraffiTab_iOS_SDK-Debug-iphoneuniversal/GraffiTab_iOS_SDK.framework"; sourceTree = "<group>"; };
+		E581D9391AF43ED300FD67C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E581D93B1AF43EFA00FD67C8 /* bg-BG */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "bg-BG"; path = "bg-BG.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		E5D6F2771AF01D06009EA94C /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D6F27B1AF01D06009EA94C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5D6F27C1AF01D06009EA94C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -592,7 +597,7 @@
 				E5D6F5F41AF020A6009EA94C /* Foundation.framework in Frameworks */,
 				E5D6F5F21AF0209E009EA94C /* MessageUI.framework in Frameworks */,
 				E5D6F5F01AF02096009EA94C /* OpenGLES.framework in Frameworks */,
-				E581D92F1AF3D53B00FD67C8 /* GraffiTab_iOS_SDK.framework in Frameworks */,
+				E581D9341AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework in Frameworks */,
 				E5D6F5EE1AF0208F009EA94C /* QuartzCore.framework in Frameworks */,
 				E5D6F5EC1AF02087009EA94C /* StoreKit.framework in Frameworks */,
 				609A56238531C60BEF5C6721 /* Pods_GraffiTab_iOS.framework in Frameworks */,
@@ -623,7 +628,7 @@
 		BC42DC8C4A61E7637B4579EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E581D92E1AF3D53B00FD67C8 /* GraffiTab_iOS_SDK.framework */,
+				E581D9331AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework */,
 				E5D6F6111AF09FB8009EA94C /* FacebookSDK.framework */,
 				E5D6F60D1AF02125009EA94C /* MobileCoreServices.framework */,
 				E5D6F60B1AF0211C009EA94C /* SystemConfiguration.framework */,
@@ -691,6 +696,7 @@
 				E5D6F2A11AF01FBC009EA94C /* GraffiTab-iOS-Prefix.pch */,
 				E5D6F27B1AF01D06009EA94C /* Info.plist */,
 				E5D6F27C1AF01D06009EA94C /* main.m */,
+				E581D93A1AF43ED300FD67C8 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1842,6 +1848,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"bg-BG",
 			);
 			mainGroup = E5D6F26E1AF01D06009EA94C;
 			productRefGroup = E5D6F2781AF01D06009EA94C /* Products */;
@@ -1894,6 +1901,7 @@
 				E5D6F5821AF02066009EA94C /* SplashStoryboard~ipad.storyboard in Resources */,
 				E5D6F5991AF02066009EA94C /* STVideoFullSizeCollectionCell.xib in Resources */,
 				E5D6F2A21AF01FBC009EA94C /* Default-568h@2x.png in Resources */,
+				E581D9381AF43ED300FD67C8 /* Localizable.strings in Resources */,
 				E5D6F59F1AF02066009EA94C /* STVideoFullSizeTableCell.xib in Resources */,
 				E5D6F5E71AF02066009EA94C /* credits.txt in Resources */,
 			);
@@ -2116,6 +2124,18 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		E581D93A1AF43ED300FD67C8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E581D9391AF43ED300FD67C8 /* Base */,
+				E581D93B1AF43EFA00FD67C8 /* bg-BG */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		E5D6F2981AF01D06009EA94C /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2213,7 +2233,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GraffiTab-iOS/GraffiTab-iOS-Prefix.pch";
 				INFOPLIST_FILE = "GraffiTab-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = GraffiTab;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2234,7 +2254,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GraffiTab-iOS/GraffiTab-iOS-Prefix.pch";
 				INFOPLIST_FILE = "GraffiTab-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = GraffiTab;
 				TARGETED_DEVICE_FAMILY = "1,2";

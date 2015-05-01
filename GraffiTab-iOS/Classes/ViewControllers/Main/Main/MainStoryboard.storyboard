@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="XTx-PC-peh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="XTx-PC-peh">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--Menu View Controller-->
@@ -1781,7 +1780,7 @@
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="167" id="sOu-RP-cHx">
-                                <rect key="frame" x="0.0" y="50" width="320" height="167"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="167"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sOu-RP-cHx" id="gmi-SR-b4W">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="166"/>
@@ -1812,7 +1811,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" textLabel="XNf-kg-iHd" detailTextLabel="Ajd-cp-Hps" imageView="tKb-gD-Qoq" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="Lni-bC-VoH" customClass="ConversationSettingsCell">
-                                <rect key="frame" x="0.0" y="217" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="281" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lni-bC-VoH" id="LAI-Bn-TFX">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -1838,7 +1837,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddPeopleCell" textLabel="Alv-jD-0LF" imageView="vfF-0A-OyC" rowHeight="44" style="IBUITableViewCellStyleDefault" id="36M-6u-S7f" customClass="ConversationSettingsCell">
-                                <rect key="frame" x="0.0" y="261" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="325" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="36M-6u-S7f" id="F6e-va-jKg">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -1858,7 +1857,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeaveCell" textLabel="0bR-N1-Bxv" imageView="do9-zL-P28" rowHeight="44" style="IBUITableViewCellStyleDefault" id="xfY-jV-3Af" customClass="ConversationSettingsCell">
-                                <rect key="frame" x="0.0" y="305" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="369" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xfY-jV-3Af" id="0fi-dD-Mgr">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -1955,7 +1954,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="iPY-fd-vk3" customClass="TITokenField">
                                 <rect key="frame" x="0.0" y="65" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.98431372549019602" green="0.95294117647058818" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>

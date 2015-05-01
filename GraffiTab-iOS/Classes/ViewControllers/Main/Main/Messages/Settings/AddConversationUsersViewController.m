@@ -101,7 +101,8 @@
     
     GTPerson *p = searchResult[indexPath.row];
     
-    [tokenField addTokenWithTitle:p.fullName representedObject:p];
+    TIToken *token = [tokenField addTokenWithTitle:p.fullName representedObject:p];
+    token.tintColor = UIColorFromRGB(COLOR_ORANGE);
 }
 
 #pragma mark - UITokenFieldDelegate
@@ -188,7 +189,7 @@
 
 - (void)setupToField {
     tokenField.delegate = self;
-    tokenField.backgroundColor = [UIColor colorWithHexString:@"#fcfcfc"];
+    tokenField.backgroundColor = UIColorFromRGB(0xfbf3e8);
     [tokenField addTarget:self action:@selector(tokenFieldFrameDidChange:) forControlEvents:TITokenFieldControlEventFrameDidChange];
     [tokenField setTokenizingCharacters:[NSCharacterSet characterSetWithCharactersInString:@",;."]]; // Default is a comma
     [tokenField setPromptText:@"To:"];

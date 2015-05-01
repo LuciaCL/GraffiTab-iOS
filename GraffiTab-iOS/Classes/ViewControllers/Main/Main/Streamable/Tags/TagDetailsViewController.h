@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ZoomableNormalImageView.h"
+#import "WYPopoverController.h"
 
-@interface TagDetailsViewController : UIViewController <ZoomableNormalImageViewDelegate>
+@interface TagDetailsViewController : UIViewController <ZoomableNormalImageViewDelegate, WYPopoverControllerDelegate>
 
 @property (nonatomic, assign) GTStreamableTag *item;
 @property (nonatomic, assign) CGRect originFrame;
