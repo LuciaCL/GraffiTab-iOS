@@ -478,7 +478,7 @@
                             <tableViewSection id="5wM-7v-dZN">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="iXS-Yp-ClI" rowHeight="127" style="IBUITableViewCellStyleDefault" id="aNZ-Cy-s89">
-                                        <rect key="frame" x="0.0" y="35" width="320" height="127"/>
+                                        <rect key="frame" x="0.0" y="79" width="320" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aNZ-Cy-s89" id="S8I-xP-2qK">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
@@ -495,7 +495,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="hm0-i9-wS8">
-                                        <rect key="frame" x="0.0" y="162" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="206" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hm0-i9-wS8" id="TE1-uM-sZc">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -523,7 +523,7 @@
                             <tableViewSection id="EiN-ay-Geq">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="i2o-y7-vzF" style="IBUITableViewCellStyleDefault" id="zNK-tf-dSR">
-                                        <rect key="frame" x="0.0" y="226" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="270" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zNK-tf-dSR" id="2Yo-5b-PTf">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -556,6 +556,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="emailField" destination="oet-gr-DbW" id="C6Z-aJ-7FQ"/>
+                        <outlet property="emailIcon" destination="6rh-Po-KJt" id="Izt-lk-YYL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sfw-RE-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>

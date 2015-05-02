@@ -11,6 +11,7 @@
 @interface RecoverPasswordViewController () {
     
     IBOutlet UITextField *emailField;
+    IBOutlet UIImageView *emailIcon;
 }
 
 - (IBAction)onClickCancel:(id)sender;
@@ -21,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setupImageViews];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,6 +70,12 @@
     
     if (indexPath.section == 1 && indexPath.row == 0)
         [self onClickReset];
+}
+
+#pragma mark - Setup
+
+- (void)setupImageViews {
+    emailIcon.image = [emailIcon.image imageWithTint:UIColorFromRGB(COLOR_MAIN)];
 }
 
 @end
