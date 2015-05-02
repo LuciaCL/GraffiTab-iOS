@@ -14,6 +14,7 @@
 @required
 - (void)didTapLike:(GTStreamable *)item;
 - (void)didTapComment:(GTStreamable *)item;
+- (void)didTapShare:(GTStreamable *)item image:(UIImage *)image;
 - (void)didTapLikesLabel:(GTStreamable *)item;
 - (void)didTapOwner:(GTStreamable *)item;
 

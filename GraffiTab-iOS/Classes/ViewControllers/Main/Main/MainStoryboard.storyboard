@@ -798,7 +798,7 @@
         <!--Painting View Controller-->
         <scene sceneID="09F-Zf-3db">
             <objects>
-                <viewController id="WIG-A9-xoB" customClass="PaintingViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PaintingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WIG-A9-xoB" customClass="PaintingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SZX-oO-gH4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1204,7 +1204,11 @@
                         <action selector="onClickLabelComment:" destination="BSD-AP-QMA" id="gng-94-l0F"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="82B-db-gbg"/>
+                <tapGestureRecognizer id="82B-db-gbg">
+                    <connections>
+                        <action selector="onClickMenu:" destination="BSD-AP-QMA" id="dbv-n6-ccO"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <tapGestureRecognizer id="8UA-UP-Op1">
                     <connections>
                         <action selector="onClickLabelLike:" destination="BSD-AP-QMA" id="UTL-8J-j3N"/>

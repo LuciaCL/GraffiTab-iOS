@@ -262,6 +262,10 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)didTapShare:(GTStreamable *)item image:(UIImage *)image {
+    [ShareUtils shareText:nil andImage:image andUrl:nil viewController:self];
+}
+
 - (void)didTapLikesLabel:(GTStreamable *)item {
     UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
     LikesViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"LikesViewController"];

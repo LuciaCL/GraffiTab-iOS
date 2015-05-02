@@ -33,6 +33,11 @@
         [self.delegate didTapComment:self.item];
 }
 
+- (void)onClickButtonShare {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didTapShare:image:)])
+        [self.delegate didTapShare:self.item image:self.itemImage.image];
+}
+
 - (void)onClickLabelLike {
     if (self.delegate && [self.delegate respondsToSelector:@selector(didTapLikesLabel:)])
         [self.delegate didTapLikesLabel:self.item];
@@ -107,6 +112,7 @@
     
     [self.likeButton addTarget:self action:@selector(onClickButtonLike) forControlEvents:UIControlEventTouchUpInside];
     [self.commentButton addTarget:self action:@selector(onClickButtonComment) forControlEvents:UIControlEventTouchUpInside];
+    [self.shareButton addTarget:self action:@selector(onClickButtonShare) forControlEvents:UIControlEventTouchUpInside];
     
     self.commentsLabel.userInteractionEnabled = YES;
     [self.commentsLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickLabelComment)]];

@@ -39,6 +39,7 @@
     #import "Settings.h"
     #import "LoadingViewManager.h"
     #import "DateUtils.h"
+    #import "ShareUtils.h"
 
     #import "ViewControllerUtils.h"
 #endif

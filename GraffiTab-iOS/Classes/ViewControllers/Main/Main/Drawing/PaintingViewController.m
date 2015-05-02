@@ -52,6 +52,9 @@ static NSString * const kAVYAviarySecret = @"nESKzmp46kSvNDlgi0_CfA";
     // Do any additional setup after loading the view.
     
     [self setupInitialValues];
+    
+    if (self.toEdit)
+        backgroundImage.image = self.toEditImage;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -133,11 +136,15 @@ static NSString * const kAVYAviarySecret = @"nESKzmp46kSvNDlgi0_CfA";
     if (location) {
         [[LoadingViewManager getInstance] addLoadingToView:self.view withMessage:@"Processing..."];
         
-        [GTStreamableManager createTagWithImage:i location:location successBlock:^(GTResponseObject *response) {
+        void (^successBlock)(GTResponseObject *response) = ^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
-            [Utils showMessage:APP_NAME message:@"Your graffiti was created successfully."];
-        } failureBlock:^(GTResponseObject *response) {
+            if (self.toEdit)
+                [Utils showMessage:APP_NAME message:@"Your graffiti was editted successfully."];
+            else
+                [Utils showMessage:APP_NAME message:@"Your graffiti was created successfully."];
+        };
+        void (^failureBlock)(GTResponseObject *response) = ^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == AUTHORIZATION_NEEDED) {
@@ -146,7 +153,12 @@ static NSString * const kAVYAviarySecret = @"nESKzmp46kSvNDlgi0_CfA";
             }
             else if (response.reason == DATABASE_ERROR || response.reason == NOT_FOUND || response.reason == NETWORK || response.reason == OTHER)
                 [Utils showMessage:APP_NAME message:response.message];
-        }];
+        };
+        
+        if (self.toEdit)
+            [GTStreamableManager editTagWithId:self.toEdit.streamableId image:i location:location successBlock:successBlock failureBlock:failureBlock];
+        else
+            [GTStreamableManager createTagWithImage:i location:location successBlock:successBlock failureBlock:failureBlock];
     }
     else
         [Utils showMessage:APP_NAME message:@"We couldn't locate you. Please enable Location Services and try again."];

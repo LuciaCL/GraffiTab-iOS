@@ -13,6 +13,10 @@
 #import "UserProfileViewController.h"
 #import "UIWindow+PazLabs.h"
 #import "MZFormSheetController.h"
+#import "UIActionSheet+Blocks.h"
+#import "PaintingViewController.h"
+#import "UIWindow+PazLabs.h"
+#import "AppDelegate.h"
 
 @interface TagDetailsViewController () {
     
@@ -38,6 +42,7 @@
 - (IBAction)onClickLabelComment:(id)sender;
 - (IBAction)onClickLabelLike:(id)sender;
 - (IBAction)onClickLike:(id)sender;
+- (IBAction)onClickMenu:(id)sender;
 
 @end
 
@@ -68,6 +73,83 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)onClickMenu:(id)sender {
+    NSMutableArray *actions;
+    
+    if ([self.item.user isEqual:GTLifecycleManager.user])
+        actions = [NSMutableArray arrayWithArray:@[@"Edit", self.item.isPrivate ? @"Make public" : @"Make private", @"Delete"]];
+    
+    [actions addObjectsFromArray:@[@"Save to Camera Roll", @"Flag as inappropriate"]];
+    
+    [UIActionSheet showInView:self.view
+                    withTitle:[NSString stringWithFormat:@"What would you like to do?"]
+            cancelButtonTitle:@"Cancel"
+       destructiveButtonTitle:nil
+            otherButtonTitles:actions
+                     tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+                         if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Cancel"])
+                             return;
+                         
+                         if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Edit"]) {
+                             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                                 UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
+                                 PaintingViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"PaintingViewController"];
+                                 vc.toEdit = self.item;
+                                 vc.toEditImage = itemImage.imageView.image;
+                                 
+                                 [self dismissViewControllerAnimated:YES completion:^{
+                                     AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                                     [delegate.window.visibleViewController presentViewController:vc animated:YES completion:nil];
+                                 }];
+                             });
+                         }
+                         else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Save to Camera Roll"])
+                             UIImageWriteToSavedPhotosAlbum(itemImage.imageView.image, nil, nil, nil);
+                         else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Flag as inappropriate"]) {
+                             [DialogBuilder buildYesNoDialogWithTitle:APP_NAME message:@"Are you sure you want to flag this item as inappropriate?" yesTitle:@"Flag" noTitle:@"Cancel" yesBlock:^{
+                                 [GTStreamableManager flagItemWithId:self.item.streamableId successBlock:^(GTResponseObject *response) {
+                                     self.item.isFlagged = YES;
+                                 } failureBlock:^(GTResponseObject *response) {
+                                     [self handleError:response];
+                                 }];
+                             } noBlock:^{}];
+                         }
+                         else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Make public"]) {
+                             [GTStreamableManager makeItemPublicWithId:self.item.streamableId successBlock:^(GTResponseObject *response) {
+                                 self.item.isPrivate = NO;
+                             } failureBlock:^(GTResponseObject *response) {
+                                 [self handleError:response];
+                             }];
+                         }
+                         else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Make private"]) {
+                             [GTStreamableManager makeItemPrivateWithId:self.item.streamableId successBlock:^(GTResponseObject *response) {
+                                 self.item.isPrivate = YES;
+                             } failureBlock:^(GTResponseObject *response) {
+                                 [self handleError:response];
+                             }];
+                         }
+                         else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Delete"]) {
+                             [DialogBuilder buildYesNoDialogWithTitle:APP_NAME message:@"Are you sure you want to delete this item?" yesTitle:@"Delete" noTitle:@"Cancel" yesBlock:^{
+                                 [[LoadingViewManager getInstance] addLoadingToView:self.view withMessage:@"Processing"];
+                                
+                                 NSMutableArray *idsToDelete = [NSMutableArray arrayWithObject:@(self.item.streamableId)];
+                                 
+                                 [GTStreamableManager deleteItemsWithIds:idsToDelete successBlock:^(GTResponseObject *response) {
+                                     [[LoadingViewManager getInstance] removeLoadingView];
+                                     
+                                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                                         [self onClickClose:nil];
+                                     });
+                                 } failureBlock:^(GTResponseObject *response) {
+                                     [[LoadingViewManager getInstance] removeLoadingView];
+                                     
+                                     [self handleError:response];
+                                 }];
+                             } noBlock:^{}];
+                         }
+                     }];
+}
+
 - (IBAction)onClickLike:(id)sender {
     if (self.item.isLiked) { // Unlike item.
         self.item.likesCount--;
@@ -75,12 +157,7 @@
         [GTStreamableManager unlikeItemWithId:self.item.streamableId successBlock:^(GTResponseObject *response) {
             [self loadItemInfo];
         } failureBlock:^(GTResponseObject *response) {
-            if (response.reason == AUTHORIZATION_NEEDED) {
-                [Utils logoutUserAndShowLoginController];
-                [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
-            }
-            else if (response.reason == DATABASE_ERROR || response.reason == NOT_FOUND || response.reason == NETWORK || response.reason == OTHER)
-                [Utils showMessage:APP_NAME message:response.message];
+            [self handleError:response];
         }];
     }
     else { // Like item.
@@ -89,12 +166,7 @@
         [GTStreamableManager likeItemWithId:self.item.streamableId successBlock:^(GTResponseObject *response) {
             [self loadItemInfo];
         } failureBlock:^(GTResponseObject *response) {
-            if (response.reason == AUTHORIZATION_NEEDED) {
-                [Utils logoutUserAndShowLoginController];
-                [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
-            }
-            else if (response.reason == DATABASE_ERROR || response.reason == NOT_FOUND || response.reason == NETWORK || response.reason == OTHER)
-                [Utils showMessage:APP_NAME message:response.message];
+            [self handleError:response];
         }];
     }
     
@@ -151,6 +223,17 @@
                                              animated:YES
                                               options:WYPopoverAnimationOptionFadeWithScale];
     
+}
+
+#pragma mark - Error handler
+
+- (void)handleError:(GTResponseObject *)response {
+    if (response.reason == AUTHORIZATION_NEEDED) {
+        [Utils logoutUserAndShowLoginController];
+        [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
+    }
+    else if (response.reason == DATABASE_ERROR || response.reason == NOT_FOUND || response.reason == NETWORK || response.reason == OTHER)
+        [Utils showMessage:APP_NAME message:response.message];
 }
 
 #pragma mark - Loading

@@ -10,4 +10,7 @@
 
 @interface PaintingViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVYPhotoEditorControllerDelegate>
 
+@property (nonatomic, weak) GTStreamableTag *toEdit;
+@property (nonatomic, strong) UIImage *toEditImage;
+
 @end
