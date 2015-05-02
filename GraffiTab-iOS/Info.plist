@@ -18,12 +18,27 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb427845203916953</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>427845203916953</string>
+	<key>FacebookDisplayName</key>
+	<string>DigiGraff</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need to use your location to determine the position of the graffiti around the world.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need to use your location to determine the position of the graffiti around the world.</string>
 	<key>UIMainStoryboardFile</key>
 	<string>SplashStoryboard</string>
 	<key>UIMainStoryboardFile~ipad</key>
@@ -43,26 +58,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>FacebookAppID</key>
-	<string>427845203916953</string>
-	<key>FacebookDisplayName</key>
-	<string>DigiGraff</string>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fb427845203916953</string>
-			</array>
-		</dict>
-	</array>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need to use your location to determine the position of the graffiti around the world.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need to use your location to determine the position of the graffiti around the world.</string>
-	<key>privacy - location usage description</key>
-	<string>We need to use your location to determine the position of the graffiti around the world.</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>privacy - location usage description</key>
+	<string>We need to use your location to determine the position of the graffiti around the world.</string>
 </dict>
 </plist>
