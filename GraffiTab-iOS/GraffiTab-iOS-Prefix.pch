@@ -18,8 +18,6 @@
     #import <SystemConfiguration/SystemConfiguration.h>
     #import <MobileCoreServices/MobileCoreServices.h>
     #import <QuartzCore/QuartzCore.h>
-    #import <AFNetworking/AFNetworking.h>
-    #import <AFNetworking/UIImageView+AFNetworking.h>
     #import <FacebookSDK/FacebookSDK.h>
     #import <AviarySDK/AviarySDK.h>
     #import <GraffiTab_iOS_SDK/GraffiTab_iOS_SDK.h>

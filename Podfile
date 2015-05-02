@@ -5,7 +5,6 @@ use_frameworks!
 target 'GraffiTab-iOS' do
     pod 'iCarousel'
     pod 'SwipeView'
-    pod 'AFNetworking'
     pod 'ActionSheetPicker-3.0'
     pod 'MarqueeLabel'
     pod 'MZFormSheetController'

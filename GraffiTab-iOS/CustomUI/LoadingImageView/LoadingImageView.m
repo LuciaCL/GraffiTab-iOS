@@ -7,7 +7,6 @@
 //
 
 #import "LoadingImageView.h"
-#import "UIImageView+AFNetworking.h"
 
 @interface LoadingImageView () {
     

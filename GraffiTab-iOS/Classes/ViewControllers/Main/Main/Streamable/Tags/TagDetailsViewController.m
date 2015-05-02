@@ -254,10 +254,6 @@
 
 #pragma mark - WYPopoverControllerDelegate
 
-- (void)popoverControllerDidPresentPopover:(WYPopoverController *)controller {
-    NSLog(@"popoverControllerDidPresentPopover");
-}
-
 - (BOOL)popoverControllerShouldDismissPopover:(WYPopoverController *)controller {
     return YES;
 }
