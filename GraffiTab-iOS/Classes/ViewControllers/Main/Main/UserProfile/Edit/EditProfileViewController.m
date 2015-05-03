@@ -10,7 +10,6 @@
 #import "FXBlurView.h"
 #import "UIActionSheet+Blocks.h"
 #import "EXPhotoViewer.h"
-#import "UIWindow+PazLabs.h"
 #import "ImageCropViewController.h"
 #import "EditTextFieldViewController.h"
 #import "EditTextViewViewController.h"

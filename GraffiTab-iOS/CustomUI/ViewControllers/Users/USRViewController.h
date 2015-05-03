@@ -23,6 +23,8 @@
 - (void)showLoadingIndicator;
 - (void)removeLoadingIndicator;
 
+- (void)showUserProfile:(GTPerson *)person;
+
 - (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(GTResponseObject *))successBlock cacheBlock:(void (^)(GTResponseObject *))cacheBlock failureBlock:(void (^)(GTResponseObject *))failureBlock;
 
 @end

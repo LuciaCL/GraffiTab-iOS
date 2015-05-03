@@ -86,6 +86,10 @@
     [self.myTableView ins_removePullToRefresh];
 }
 
+- (void)showUserProfile:(GTPerson *)person {
+    [ViewControllerUtils showUserProfile:person fromViewController:self];
+}
+
 #pragma mark - Loading
 
 - (void)refresh {
@@ -206,7 +210,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    [ViewControllerUtils showUserProfile:items[indexPath.row] fromViewController:self];
+    [self showUserProfile:items[indexPath.row]];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

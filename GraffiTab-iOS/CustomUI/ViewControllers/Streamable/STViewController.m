@@ -16,14 +16,10 @@
 #import "STThumbnailCollectionCellFactory.h"
 #import "STFullSizeCollectionCellFactory.h"
 #import "UserProfileViewController.h"
-#import "TagDetailsTransitioningDelegate.h"
-#import "TagDetailsBounceTransitioningDelegate.h"
 #import "STMediumCollectionCellFactory.h"
 
 @interface STViewController () {
     
-    TagDetailsTransitioningDelegate *transitioningDelegate;
-    TagDetailsBounceTransitioningDelegate *transitioningBounceDelegate;
     BOOL canLoadMore;
     BOOL isDownloading;
     NSMutableArray *items;
@@ -66,9 +62,6 @@
 
 - (void)basicInit {
     _viewType = STVIEW_TYPE_MEDIUM;
-    
-    transitioningDelegate = [TagDetailsTransitioningDelegate new];
-    transitioningBounceDelegate = [TagDetailsBounceTransitioningDelegate new];
 }
 
 #pragma mark - View lifecycle
@@ -317,17 +310,8 @@
 - (void)collectionView:(UICollectionView *)cv didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     GTStreamable *n = items[indexPath.row];
     
-    if ([n isKindOfClass:[GTStreamableTag class]]) {
-        if (self.viewType == STVIEW_TYPE_SMALL || self.viewType == STVIEW_TYPE_MEDIUM) {
-            UICollectionViewLayoutAttributes *attributes = [cv layoutAttributesForItemAtIndexPath:indexPath];
-            CGRect cellRect = attributes.frame;
-            CGRect cellFrameInSuperview = [cv convertRect:cellRect toView:nil];
-            
-            [ViewControllerUtils showTag:(GTStreamableTag *) n fromViewController:self originFrame:cellFrameInSuperview transitionDelegate:transitioningDelegate];
-        }
-        else
-            [ViewControllerUtils showTag:(GTStreamableTag *) n fromViewController:self originFrame:CGRectNull transitionDelegate:transitioningBounceDelegate];
-    }
+    if ([n isKindOfClass:[GTStreamableTag class]])
+        [ViewControllerUtils showTag:(GTStreamableTag *) n fromViewController:self];
     else if ([n isKindOfClass:[GTStreamableVideo class]]) {
         
     }

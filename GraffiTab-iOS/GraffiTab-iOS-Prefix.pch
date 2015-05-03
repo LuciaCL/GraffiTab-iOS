@@ -29,6 +29,7 @@
     #import "BackButtonTwitterPagerViewController.h"
     #import "BackButtonSLKTextViewController.h"
 
+    #import "MZFormSheetController.h"
     #import "SlideNavigationController.h"
     #import "HexColor.h"
     #import "Constants.h"

@@ -12,6 +12,7 @@
 		E581D9351AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E581D9331AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E581D9381AF43ED300FD67C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E581D93A1AF43ED300FD67C8 /* Localizable.strings */; };
 		E581D93E1AF5397100FD67C8 /* ShareUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E581D93D1AF5397100FD67C8 /* ShareUtils.m */; };
+		E581D9561AF5C32700FD67C8 /* NSArray+Varargs.m in Sources */ = {isa = PBXBuildFile; fileRef = E581D9551AF5C32700FD67C8 /* NSArray+Varargs.m */; };
 		E5D6F27D1AF01D06009EA94C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F27C1AF01D06009EA94C /* main.m */; };
 		E5D6F2801AF01D06009EA94C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F27F1AF01D06009EA94C /* AppDelegate.m */; };
 		E5D6F2881AF01D06009EA94C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D6F2871AF01D06009EA94C /* Images.xcassets */; };
@@ -20,12 +21,6 @@
 		E5D6F4F31AF02066009EA94C /* DialogBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2AD1AF02065009EA94C /* DialogBuilder.m */; };
 		E5D6F4F41AF02066009EA94C /* MyLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2B01AF02065009EA94C /* MyLocationManager.m */; };
 		E5D6F50B1AF02066009EA94C /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F2EC1AF02065009EA94C /* Settings.m */; };
-		E5D6F5461AF02066009EA94C /* TagDetailsBounceDismissAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3731AF02066009EA94C /* TagDetailsBounceDismissAnimationController.m */; };
-		E5D6F5471AF02066009EA94C /* TagDetailsBouncePresentAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3751AF02066009EA94C /* TagDetailsBouncePresentAnimationController.m */; };
-		E5D6F5481AF02066009EA94C /* TagDetailsBounceTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3771AF02066009EA94C /* TagDetailsBounceTransitioningDelegate.m */; };
-		E5D6F5491AF02066009EA94C /* TagDetailsDismissAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F37A1AF02066009EA94C /* TagDetailsDismissAnimationController.m */; };
-		E5D6F54A1AF02066009EA94C /* TagDetailsPresentAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F37C1AF02066009EA94C /* TagDetailsPresentAnimationController.m */; };
-		E5D6F54B1AF02066009EA94C /* TagDetailsTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F37E1AF02066009EA94C /* TagDetailsTransitioningDelegate.m */; };
 		E5D6F54C1AF02066009EA94C /* DateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3811AF02066009EA94C /* DateUtils.m */; };
 		E5D6F54D1AF02066009EA94C /* FacebookUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3831AF02066009EA94C /* FacebookUtils.m */; };
 		E5D6F54E1AF02066009EA94C /* GoogleStaticApiUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3851AF02066009EA94C /* GoogleStaticApiUtils.m */; };
@@ -240,6 +235,8 @@
 		E581D93C1AF5397100FD67C8 /* ShareUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareUtils.h; sourceTree = "<group>"; };
 		E581D93D1AF5397100FD67C8 /* ShareUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareUtils.m; sourceTree = "<group>"; };
 		E581D93F1AF5402500FD67C8 /* FullSizeCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullSizeCellProtocol.h; sourceTree = "<group>"; };
+		E581D9541AF5C32700FD67C8 /* NSArray+Varargs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Varargs.h"; sourceTree = "<group>"; };
+		E581D9551AF5C32700FD67C8 /* NSArray+Varargs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Varargs.m"; sourceTree = "<group>"; };
 		E5D6F2771AF01D06009EA94C /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D6F27B1AF01D06009EA94C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5D6F27C1AF01D06009EA94C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -262,18 +259,6 @@
 		E5D6F2E91AF02065009EA94C /* UserProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProtocol.h; sourceTree = "<group>"; };
 		E5D6F2EB1AF02065009EA94C /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		E5D6F2EC1AF02065009EA94C /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
-		E5D6F3721AF02066009EA94C /* TagDetailsBounceDismissAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDetailsBounceDismissAnimationController.h; sourceTree = "<group>"; };
-		E5D6F3731AF02066009EA94C /* TagDetailsBounceDismissAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagDetailsBounceDismissAnimationController.m; sourceTree = "<group>"; };
-		E5D6F3741AF02066009EA94C /* TagDetailsBouncePresentAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDetailsBouncePresentAnimationController.h; sourceTree = "<group>"; };
-		E5D6F3751AF02066009EA94C /* TagDetailsBouncePresentAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagDetailsBouncePresentAnimationController.m; sourceTree = "<group>"; };
-		E5D6F3761AF02066009EA94C /* TagDetailsBounceTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDetailsBounceTransitioningDelegate.h; sourceTree = "<group>"; };
-		E5D6F3771AF02066009EA94C /* TagDetailsBounceTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagDetailsBounceTransitioningDelegate.m; sourceTree = "<group>"; };
-		E5D6F3791AF02066009EA94C /* TagDetailsDismissAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDetailsDismissAnimationController.h; sourceTree = "<group>"; };
-		E5D6F37A1AF02066009EA94C /* TagDetailsDismissAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagDetailsDismissAnimationController.m; sourceTree = "<group>"; };
-		E5D6F37B1AF02066009EA94C /* TagDetailsPresentAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDetailsPresentAnimationController.h; sourceTree = "<group>"; };
-		E5D6F37C1AF02066009EA94C /* TagDetailsPresentAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagDetailsPresentAnimationController.m; sourceTree = "<group>"; };
-		E5D6F37D1AF02066009EA94C /* TagDetailsTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDetailsTransitioningDelegate.h; sourceTree = "<group>"; };
-		E5D6F37E1AF02066009EA94C /* TagDetailsTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagDetailsTransitioningDelegate.m; sourceTree = "<group>"; };
 		E5D6F3801AF02066009EA94C /* DateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtils.h; sourceTree = "<group>"; };
 		E5D6F3811AF02066009EA94C /* DateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtils.m; sourceTree = "<group>"; };
 		E5D6F3821AF02066009EA94C /* FacebookUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookUtils.h; sourceTree = "<group>"; };
@@ -729,7 +714,6 @@
 				E5D6F2AE1AF02065009EA94C /* LocationManager */,
 				E5D6F2E51AF02065009EA94C /* Protocols */,
 				E5D6F2EA1AF02065009EA94C /* Settings */,
-				E5D6F36F1AF02066009EA94C /* Transitions */,
 				E5D6F37F1AF02066009EA94C /* Utils */,
 				E5D6F38E1AF02066009EA94C /* ViewControllers */,
 			);
@@ -781,49 +765,6 @@
 				E5D6F2EC1AF02065009EA94C /* Settings.m */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		E5D6F36F1AF02066009EA94C /* Transitions */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F3701AF02066009EA94C /* TagDetails */,
-			);
-			path = Transitions;
-			sourceTree = "<group>";
-		};
-		E5D6F3701AF02066009EA94C /* TagDetails */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F3711AF02066009EA94C /* Bounce */,
-				E5D6F3781AF02066009EA94C /* Zoom */,
-			);
-			path = TagDetails;
-			sourceTree = "<group>";
-		};
-		E5D6F3711AF02066009EA94C /* Bounce */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F3721AF02066009EA94C /* TagDetailsBounceDismissAnimationController.h */,
-				E5D6F3731AF02066009EA94C /* TagDetailsBounceDismissAnimationController.m */,
-				E5D6F3741AF02066009EA94C /* TagDetailsBouncePresentAnimationController.h */,
-				E5D6F3751AF02066009EA94C /* TagDetailsBouncePresentAnimationController.m */,
-				E5D6F3761AF02066009EA94C /* TagDetailsBounceTransitioningDelegate.h */,
-				E5D6F3771AF02066009EA94C /* TagDetailsBounceTransitioningDelegate.m */,
-			);
-			path = Bounce;
-			sourceTree = "<group>";
-		};
-		E5D6F3781AF02066009EA94C /* Zoom */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F3791AF02066009EA94C /* TagDetailsDismissAnimationController.h */,
-				E5D6F37A1AF02066009EA94C /* TagDetailsDismissAnimationController.m */,
-				E5D6F37B1AF02066009EA94C /* TagDetailsPresentAnimationController.h */,
-				E5D6F37C1AF02066009EA94C /* TagDetailsPresentAnimationController.m */,
-				E5D6F37D1AF02066009EA94C /* TagDetailsTransitioningDelegate.h */,
-				E5D6F37E1AF02066009EA94C /* TagDetailsTransitioningDelegate.m */,
-			);
-			path = Zoom;
 			sourceTree = "<group>";
 		};
 		E5D6F37F1AF02066009EA94C /* Utils */ = {
@@ -1661,6 +1602,8 @@
 				E5D6F4CD1AF02066009EA94C /* UIView+NSObjectTag.m */,
 				E5D6F4CE1AF02066009EA94C /* UIWindow+PazLabs.h */,
 				E5D6F4CF1AF02066009EA94C /* UIWindow+PazLabs.m */,
+				E581D9541AF5C32700FD67C8 /* NSArray+Varargs.h */,
+				E581D9551AF5C32700FD67C8 /* NSArray+Varargs.m */,
 			);
 			path = Extends;
 			sourceTree = "<group>";
@@ -1987,6 +1930,7 @@
 				E5D6F55B1AF02066009EA94C /* FollowingViewController.m in Sources */,
 				E5D6F56B1AF02066009EA94C /* MostActiveUsersViewController.m in Sources */,
 				E5D6F5D41AF02066009EA94C /* UILabel+Boldify.m in Sources */,
+				E581D9561AF5C32700FD67C8 /* NSArray+Varargs.m in Sources */,
 				E5D6F5931AF02066009EA94C /* NotificationWelcomeCell.m in Sources */,
 				E5D6F50B1AF02066009EA94C /* Settings.m in Sources */,
 				E5D6F5C81AF02066009EA94C /* STToggleViewController.m in Sources */,
@@ -2032,8 +1976,6 @@
 				E5D6F59E1AF02066009EA94C /* STVideoFullSizeTableCell.m in Sources */,
 				E5D6F5AD1AF02066009EA94C /* ProfileAboutCell.m in Sources */,
 				E5D6F5AE1AF02066009EA94C /* ProfileAssetsCell.m in Sources */,
-				E5D6F5461AF02066009EA94C /* TagDetailsBounceDismissAnimationController.m in Sources */,
-				E5D6F5471AF02066009EA94C /* TagDetailsBouncePresentAnimationController.m in Sources */,
 				E5D6F5B31AF02066009EA94C /* HeaderViewWithImage.m in Sources */,
 				E5D6F5851AF02066009EA94C /* AutocompleteUserCell.m in Sources */,
 				E5D6F56E1AF02066009EA94C /* PopularViewController.m in Sources */,
@@ -2063,13 +2005,11 @@
 				E5D6F55D1AF02066009EA94C /* MapThumbnailsViewController.m in Sources */,
 				E5D6F5D01AF02066009EA94C /* UIAlertView+Blocks.m in Sources */,
 				E5D6F5871AF02066009EA94C /* CommentCell.m in Sources */,
-				E5D6F5481AF02066009EA94C /* TagDetailsBounceTransitioningDelegate.m in Sources */,
 				E5D6F5511AF02066009EA94C /* Utils.m in Sources */,
 				E5D6F5A41AF02066009EA94C /* STVideoMediumCollectionCell.m in Sources */,
 				E5D6F59A1AF02066009EA94C /* STFullSizeTableCell.m in Sources */,
 				E5D6F56A1AF02066009EA94C /* ConversationSettingsViewController.m in Sources */,
 				E5D6F5A81AF02066009EA94C /* STTagThumbnailCollectionCell.m in Sources */,
-				E5D6F54A1AF02066009EA94C /* TagDetailsPresentAnimationController.m in Sources */,
 				E5D6F5521AF02066009EA94C /* ViewControllerUtils.m in Sources */,
 				E5D6F5BA1AF02066009EA94C /* MBProgressHUD.m in Sources */,
 				E5D6F5701AF02066009EA94C /* SearchUsersViewController.m in Sources */,
@@ -2092,7 +2032,6 @@
 				E5D6F5721AF02066009EA94C /* AboutViewController.m in Sources */,
 				E5D6F57F1AF02066009EA94C /* UserProfileViewController.m in Sources */,
 				E5D6F56F1AF02066009EA94C /* SearchGraffitiViewController.m in Sources */,
-				E5D6F5491AF02066009EA94C /* TagDetailsDismissAnimationController.m in Sources */,
 				E5D6F5A11AF02066009EA94C /* STMediumCollectionCellFactory.m in Sources */,
 				E5D6F5D11AF02066009EA94C /* UIBarButtonItem+Badge.m in Sources */,
 				E5D6F5771AF02066009EA94C /* CommentsViewController.m in Sources */,
@@ -2102,7 +2041,6 @@
 				E5D6F5B51AF02066009EA94C /* UserTitleHeader.m in Sources */,
 				E5D6F5D61AF02066009EA94C /* UIWindow+PazLabs.m in Sources */,
 				E5D6F5D31AF02066009EA94C /* UIImage+Tint.m in Sources */,
-				E5D6F54B1AF02066009EA94C /* TagDetailsTransitioningDelegate.m in Sources */,
 				E5D6F5761AF02066009EA94C /* SocialFriendsViewController.m in Sources */,
 				E5D6F5A71AF02066009EA94C /* STThumbnailCollectionCellFactory.m in Sources */,
 				E5D6F58F1AF02066009EA94C /* NotificationCommentCell.m in Sources */,

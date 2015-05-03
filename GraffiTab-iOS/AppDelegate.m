@@ -14,10 +14,12 @@
 #import "MyLocationManager.h"
 #import "MessagesViewController.h"
 #import "NotificationsViewController.h"
-#import "UIWindow+PazLabs.h"
 #import "ConversationsViewController.h"
 #import "Reachability.h"
 #import "TWMessageBarManager.h"
+#import "TagDetailsViewController.h"
+#import "NSArray+Varargs.h"
+#import "NotificationsViewController.h"
 
 @interface AppDelegate () <TWMessageBarStyleSheet> {
     
@@ -135,6 +137,7 @@
 - (void)application:(UIApplication *)app didReceiveRemoteNotification:(NSDictionary *)userInfo {
     if (app.applicationState == UIApplicationStateActive) {
         NotificationType type = NotificationType(userInfo[@"type"]);
+        UIViewController *vc = [ViewControllerUtils getVisibleViewController];
         
         switch (type) {
             case COMMENT:
@@ -142,38 +145,55 @@
             case LIKE:
             case MENTION:
             case WELCOME: {
+                NSArray *args = userInfo[@"aps"][@"alert"][@"loc-args"];
+                NSString *key = userInfo[@"aps"][@"alert"][@"loc-key"];
+                
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"Notification"
+                                                               description:[args stringWithFormat:NSLocalizedString(key, nil)]
+                                                                      type:TWMessageBarMessageTypeSuccess
+                                                            statusBarStyle:UIStatusBarStyleLightContent
+                                                                  callback:^{
+                                                                      if ([vc isKindOfClass:[TagDetailsViewController class]])
+                                                                          [vc dismissViewControllerAnimated:YES completion:^{
+                                                                              [self showNotifications];
+                                                                          }];
+                                                                      else
+                                                                          [self showNotifications];
+                                                                  }];
+                
                 break;
             }
             case CUSTOM_MESSAGE: {
-                UIViewController *vc = [[UIApplication sharedApplication].keyWindow visibleViewController];
-                
                 if ([vc isKindOfClass:[MessagesViewController class]])
                     [((MessagesViewController *) vc) processMessageNotification:userInfo];
                 else if ([vc isKindOfClass:[ConversationsViewController class]])
                     [((ConversationsViewController *) vc) processMessageNotification:userInfo];
                 else { // Show local notification about message.
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"Tina Petros"
-                                                                   description:@"Hey what's up :)"
+                    NSArray *args = userInfo[@"aps"][@"alert"][@"loc-args"];
+                    
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:args[0]
+                                                                   description:args[1]
                                                                           type:TWMessageBarMessageTypeSuccess
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:^{
-                                                                          NSLog(@"CLICKED");
+                                                                          if ([vc isKindOfClass:[TagDetailsViewController class]])
+                                                                              [vc dismissViewControllerAnimated:YES completion:^{
+                                                                                  [self showConversations];
+                                                                              }];
+                                                                          else
+                                                                              [self showConversations];
                                                                       }];
                 }
                 
                 break;
             }
             case CUSTOM_TYPING_ON: {
-                UIViewController *vc = [[UIApplication sharedApplication].keyWindow visibleViewController];
-                
                 if ([vc isKindOfClass:[MessagesViewController class]])
                     [((MessagesViewController *) vc) processShowTypingIndicatorNotification:userInfo];
                 
                 break;
             }
             case CUSTOM_TYPING_OFF: {
-                UIViewController *vc = [[UIApplication sharedApplication].keyWindow visibleViewController];
-                
                 if ([vc isKindOfClass:[MessagesViewController class]])
                     [((MessagesViewController *) vc) processHideTypingIndicatorNotification:userInfo];
                 
@@ -181,6 +201,30 @@
             }
         }
     }
+}
+
+- (void)showConversations {
+    UIViewController *vc = [ViewControllerUtils getVisibleViewController];
+    
+    UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
+    
+    ConversationsViewController *conversations = [mainStoryboard instantiateViewControllerWithIdentifier:@"ConversationsViewController"];
+    conversations.isModal = YES;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:conversations];
+    
+    [vc presentViewController:nav animated:YES completion:nil];
+}
+
+- (void)showNotifications {
+    UIViewController *vc = [ViewControllerUtils getVisibleViewController];
+    
+    UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
+    
+    NotificationsViewController *conversations = [mainStoryboard instantiateViewControllerWithIdentifier:@"NotificationsViewController"];
+    conversations.isModal = YES;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:conversations];
+    
+    [vc presentViewController:nav animated:YES completion:nil];
 }
 
 #pragma mark - Login
@@ -309,7 +353,7 @@
 }
 
 - (UIImage *)iconImageForMessageType:(TWMessageBarMessageType)type {
-    return [[UIImage imageNamed:@"message.png"] imageWithTint:[UIColor whiteColor]];
+    return [[UIImage imageNamed:@"comment.png"] imageWithTint:[UIColor whiteColor]];
 }
 
 #pragma mark - Setup

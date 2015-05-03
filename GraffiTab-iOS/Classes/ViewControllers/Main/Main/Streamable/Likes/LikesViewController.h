@@ -7,10 +7,13 @@
 //
 
 #import "USRViewController.h"
+#import "WYPopoverController.h"
 
 @interface LikesViewController : USRViewController
 
 @property (nonatomic, assign) GTStreamable *item;
 @property (nonatomic, assign) BOOL embedded;
+@property (nonatomic, strong) WYPopoverController *parentPopover;
+@property (nonatomic, strong) UIViewController *parent;
 
 @end

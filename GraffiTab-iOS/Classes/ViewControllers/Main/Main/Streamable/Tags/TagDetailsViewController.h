@@ -13,6 +13,5 @@
 @interface TagDetailsViewController : UIViewController <ZoomableNormalImageViewDelegate, WYPopoverControllerDelegate>
 
 @property (nonatomic, assign) GTStreamableTag *item;
-@property (nonatomic, assign) CGRect originFrame;
 
 @end

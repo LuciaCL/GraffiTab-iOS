@@ -10,8 +10,16 @@
 #import "UserProfileViewController.h"
 #import "TagDetailsViewController.h"
 #import "SearchGraffitiViewController.h"
+#import "UIWindow+PazLabs.h"
+#import "AppDelegate.h"
 
 @implementation ViewControllerUtils
+
++ (UIViewController *)getVisibleViewController {
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    return [delegate.window visibleViewController];
+}
 
 + (void)showUserProfile:(GTPerson *)user fromViewController:(UIViewController *)controller {
     UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
@@ -41,17 +49,35 @@
     [controller presentViewController:nav animated:YES completion:nil];
 }
 
-+ (void)showTag:(GTStreamableTag *)tag fromViewController:(UIViewController *)controller originFrame:(CGRect)frame transitionDelegate:(id <UIViewControllerTransitioningDelegate>)delegate {
++ (void)showTag:(GTStreamableTag *)tag fromViewController:(UIViewController *)controller {
     UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
     UINavigationController *tagDetailsNavigation = [mainStoryboard instantiateViewControllerWithIdentifier:@"TagDetailsViewController"];
-    tagDetailsNavigation.modalPresentationStyle = UIModalPresentationCustom;
-    tagDetailsNavigation.transitioningDelegate = delegate;
     
     TagDetailsViewController *vc = tagDetailsNavigation.viewControllers[0];
     vc.item = tag;
-    vc.originFrame = frame;
     
-    [controller presentViewController:tagDetailsNavigation animated:YES completion:nil];
+    int w = vc.view.frame.size.width - 40;
+    int h = vc.view.frame.size.height - 60;
+    
+    [[MZFormSheetBackgroundWindow appearance] setBackgroundBlurEffect:YES];
+    [[MZFormSheetBackgroundWindow appearance] setBlurRadius:5.0];
+    [[MZFormSheetBackgroundWindow appearance] setBackgroundColor:[UIColor clearColor]];
+    
+    // Setup popup sheet.
+    MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithViewController:vc];
+    formSheet.shouldDismissOnBackgroundViewTap = YES;
+    formSheet.transitionStyle = MZFormSheetTransitionStyleBounce;
+    formSheet.cornerRadius = 8.0;
+    formSheet.presentedFormSheetSize = CGSizeMake(w, h);
+    formSheet.shouldCenterVertically = YES;
+    
+    formSheet.willPresentCompletionHandler = ^(UIViewController *presentedFSViewController){
+        presentedFSViewController.view.autoresizingMask = presentedFSViewController.view.autoresizingMask | UIViewAutoresizingFlexibleWidth;
+    };
+    
+    [formSheet presentAnimated:YES completionHandler:^(UIViewController *presentedFSViewController) {
+        
+    }];
 }
 
 @end

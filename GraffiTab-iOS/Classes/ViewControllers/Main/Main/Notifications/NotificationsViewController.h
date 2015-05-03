@@ -10,4 +10,6 @@
 
 @interface NotificationsViewController : BackButtonViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, assign) BOOL isModal;
+
 @end

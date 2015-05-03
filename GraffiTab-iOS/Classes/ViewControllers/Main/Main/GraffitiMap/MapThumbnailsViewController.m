@@ -7,7 +7,6 @@
 //
 
 #import "MapThumbnailsViewController.h"
-#import "MZFormSheetController.h"
 
 @interface MapThumbnailsViewController ()
 

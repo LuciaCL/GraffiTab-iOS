@@ -10,6 +10,8 @@
 
 @interface ConversationsViewController : BackButtonViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, assign) BOOL isModal;
+
 - (void)processMessageNotification:(NSDictionary *)userInfo;
 
 @end

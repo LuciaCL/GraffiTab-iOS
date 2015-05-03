@@ -48,6 +48,16 @@
     }];
 }
 
+- (void)showUserProfile:(GTPerson *)user {
+    if (self.embedded) {
+        [self.parentPopover dismissPopoverAnimated:YES completion:^{
+            [ViewControllerUtils showUserProfile:user fromViewController:self.parent];
+        }];
+    }
+    else
+        [ViewControllerUtils showUserProfile:user fromViewController:self];
+}
+
 #pragma mark - Initialization
 
 - (void)basicInit {

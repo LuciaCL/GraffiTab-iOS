@@ -568,7 +568,13 @@
 }
 
 - (void)didClickAvatar:(GTPerson *)user {
-    [ViewControllerUtils showUserProfile:user fromViewController:self];
+    if (self.embedded) {
+        [self.parentPopover dismissPopoverAnimated:YES completion:^{
+            [ViewControllerUtils showUserProfile:user fromViewController:self.parent];
+        }];
+    }
+    else
+        [ViewControllerUtils showUserProfile:user fromViewController:self];
 }
 
 - (void)didClickLink:(NSString *)link {

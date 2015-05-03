@@ -23,8 +23,6 @@
 #import "LikesViewController.h"
 #import "CommentsViewController.h"
 #import "EXPhotoViewer.h"
-#import "UIWindow+PazLabs.h"
-#import "TagDetailsBounceTransitioningDelegate.h"
 #import "CreateConversationViewController.h"
 
 #define IMAGE_PICKER_MODE_AVATAR 0
@@ -35,7 +33,6 @@
     UserTitleHeader *statusBarBackground;
     HeaderViewWithImage *headerView;
     
-    TagDetailsBounceTransitioningDelegate *transitioningDelegate;
     BOOL initiallyRefreshed;
     BOOL initiallyLoaded;
     BOOL canLoadMore;
@@ -54,7 +51,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    transitioningDelegate = [TagDetailsBounceTransitioningDelegate new];
     offset = 0;
     canLoadMore = YES;
     isDownloading = NO;
@@ -179,7 +175,7 @@
     else if (imagePickerMode == IMAGE_PICKER_MODE_COVER)
         i = headerView.coverView;
     
-    [EXPhotoViewer showImageFrom:i rootViewController:[[UIApplication sharedApplication].keyWindow visibleViewController]];
+    [EXPhotoViewer showImageFrom:i rootViewController:[ViewControllerUtils getVisibleViewController]];
 }
 
 - (void)changeImage:(UIImage *)image {
@@ -787,7 +783,7 @@
             GTStreamable *n = items[indexPath.row];
             
             if ([n isKindOfClass:[GTStreamableTag class]])
-                [ViewControllerUtils showTag:(GTStreamableTag *) n fromViewController:self originFrame:CGRectNull transitionDelegate:transitioningDelegate];
+                [ViewControllerUtils showTag:(GTStreamableTag *) n fromViewController:self];
             else if ([n isKindOfClass:[GTStreamableVideo class]]) {
                 
             }

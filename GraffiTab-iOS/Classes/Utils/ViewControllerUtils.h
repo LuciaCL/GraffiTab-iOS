@@ -10,8 +10,10 @@
 
 @interface ViewControllerUtils : NSObject
 
++ (UIViewController *)getVisibleViewController;
+
 + (void)showUserProfile:(GTPerson *)user fromViewController:(UIViewController *)vc;
-+ (void)showTag:(GTStreamableTag *)tag fromViewController:(UIViewController *)controller originFrame:(CGRect)frame transitionDelegate:(id <UIViewControllerTransitioningDelegate>)delegate;
++ (void)showTag:(GTStreamableTag *)tag fromViewController:(UIViewController *)controller;
 
 + (void)showSearchUserProfile:(NSString *)username fromViewController:(UIViewController *)controller;
 + (void)showSearchHashtag:(NSString *)hashtag fromViewController:(UIViewController *)controller;

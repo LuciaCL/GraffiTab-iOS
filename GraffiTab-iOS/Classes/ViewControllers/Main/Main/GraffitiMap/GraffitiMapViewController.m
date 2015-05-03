@@ -11,12 +11,9 @@
 #import "STTagThumbnail.h"
 #import "STTagAnnotation.h"
 #import "TSDemoClusteredAnnotationView.h"
-#import "TagDetailsBounceTransitioningDelegate.h"
 #import "BlockActionSheet.h"
 #import <AddressBookUI/AddressBookUI.h>
 #import "MapThumbnailsViewController.h"
-#import "TagDetailsBounceTransitioningDelegate.h"
-#import "MZFormSheetController.h"
 
 @interface GraffitiMapViewController () {
     
@@ -29,7 +26,6 @@
     IBOutlet TSClusterMapView *myMapView;
     IBOutlet UITextField *searchField;
     
-    TagDetailsBounceTransitioningDelegate *tagTransitioningDelegate;
     NSMutableArray *items;
     NSMutableArray *annotations;
     BOOL isSearching;
@@ -51,7 +47,6 @@
     
     items = [NSMutableArray new];
     annotations = [NSMutableArray new];
-    tagTransitioningDelegate = [TagDetailsBounceTransitioningDelegate new];
     
     [self setupMapView];
     [self setupButtons];
@@ -272,7 +267,7 @@
                 thumbnail.subtitle = tag.user.mentionUsername;
                 thumbnail.coordinate = CLLocationCoordinate2DMake(tag.latitude, tag.longitude);
                 thumbnail.disclosureBlock = ^{
-                    [ViewControllerUtils showTag:tag fromViewController:self originFrame:CGRectNull transitionDelegate:tagTransitioningDelegate];
+                    [ViewControllerUtils showTag:tag fromViewController:self];
                 };
                 
                 STTagAnnotation *annotation = [STTagAnnotation annotationWithThumbnail:thumbnail];
@@ -304,7 +299,7 @@
                 thumbnail.subtitle = annotation.item.user.mentionUsername;
                 thumbnail.coordinate = CLLocationCoordinate2DMake(annotation.item.latitude, annotation.item.longitude);
                 thumbnail.disclosureBlock = ^{
-                    [ViewControllerUtils showTag:annotation.item fromViewController:self originFrame:CGRectNull transitionDelegate:tagTransitioningDelegate];
+                    [ViewControllerUtils showTag:annotation.item fromViewController:self];
                 };
                 
                 [annotation updateThumbnail:thumbnail animated:YES];

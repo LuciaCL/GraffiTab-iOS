@@ -11,11 +11,8 @@
 #import "CommentsViewController.h"
 #import "RTSpinKitView.h"
 #import "UserProfileViewController.h"
-#import "UIWindow+PazLabs.h"
-#import "MZFormSheetController.h"
 #import "UIActionSheet+Blocks.h"
 #import "PaintingViewController.h"
-#import "UIWindow+PazLabs.h"
 #import "AppDelegate.h"
 
 @interface TagDetailsViewController () {
@@ -97,9 +94,8 @@
                                  vc.toEdit = self.item;
                                  vc.toEditImage = itemImage.imageView.image;
                                  
-                                 [self dismissViewControllerAnimated:YES completion:^{
-                                     AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-                                     [delegate.window.visibleViewController presentViewController:vc animated:YES completion:nil];
+                                 [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+                                     [[ViewControllerUtils getVisibleViewController] presentViewController:vc animated:YES completion:nil];
                                  }];
                              });
                          }
@@ -176,15 +172,12 @@
 }
 
 - (IBAction)onClickClose:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self mz_dismissFormSheetControllerAnimated:YES completionHandler:nil];
+
 }
 
 - (IBAction)onClickOwner:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [ViewControllerUtils showUserProfile:self.item.user fromViewController:[[UIApplication sharedApplication].keyWindow visibleViewController]];
-    });
+    [ViewControllerUtils showUserProfile:self.item.user fromViewController:self];
 }
 
 - (IBAction)onClickLabelLike:(id)sender {
@@ -194,6 +187,8 @@
     vc.embedded = YES;
     
     [self showFormSheet:vc forView:likeImage];
+    vc.parentPopover = settingsPopoverController;
+    vc.parent = self;
 }
 
 - (IBAction)onClickLabelComment:(id)sender {
@@ -203,10 +198,12 @@
     vc.embedded = YES;
     
     [self showFormSheet:vc forView:commentImage];
+    vc.parentPopover = settingsPopoverController;
+    vc.parent = self;
 }
 
 - (void)onSwipeDown {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self onClickClose:nil];
 }
 
 - (void)showFormSheet:(UIViewController *)vc forView:(UIView *)view {
@@ -401,7 +398,7 @@
         [self.view addSubview:loadingIndicator];
     }
     
-    loadingIndicator.center = self.view.center;
+    loadingIndicator.center = itemImage.center;
 }
 
 @end

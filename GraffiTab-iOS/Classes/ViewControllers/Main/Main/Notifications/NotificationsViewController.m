@@ -14,7 +14,6 @@
 #import "HomeViewController.h"
 #import "TagDetailsViewController.h"
 #import "RTSpinKitView.h"
-#import "TagDetailsBounceTransitioningDelegate.h"
 
 @interface NotificationsViewController () {
     
@@ -22,7 +21,6 @@
     
     RTSpinKitView *loadingIndicator;
     
-    TagDetailsBounceTransitioningDelegate *transitioningDelegate;
     BOOL canLoadMore;
     BOOL isDownloading;
     NSMutableArray *items;
@@ -37,7 +35,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    transitioningDelegate = [TagDetailsBounceTransitioningDelegate new];
     offset = 0;
     canLoadMore = YES;
     isDownloading = NO;
@@ -58,6 +55,10 @@
 - (void)dealloc {
     [theTable ins_removeInfinityScroll];
     [theTable ins_removePullToRefresh];
+}
+
+- (void)onClickClose {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Loading
@@ -184,19 +185,23 @@
         GTNotificationComment *not = (GTNotificationComment *) n;
         
         if ([not.item isKindOfClass:[GTStreamableTag class]]) {
-            [ViewControllerUtils showTag:(GTStreamableTag *) not.item fromViewController:self originFrame:CGRectNull transitionDelegate:transitioningDelegate];
+            [ViewControllerUtils showTag:(GTStreamableTag *) not.item fromViewController:self];
             
             return;
         }
     }
     else if ([n isKindOfClass:[GTNotificationFollow class]]) {
+        GTNotificationFollow *not = (GTNotificationFollow *) n;
         
+        [ViewControllerUtils showUserProfile:not.follower fromViewController:self];
+        
+        return;
     }
     else if ([n isKindOfClass:[GTNotificationLike class]]) {
         GTNotificationLike *not = (GTNotificationLike *) n;
         
         if ([not.item isKindOfClass:[GTStreamableTag class]]) {
-            [ViewControllerUtils showTag:(GTStreamableTag *) not.item fromViewController:self originFrame:CGRectNull transitionDelegate:transitioningDelegate];
+            [ViewControllerUtils showTag:(GTStreamableTag *) not.item fromViewController:self];
             
             return;
         }
@@ -205,7 +210,7 @@
         GTNotificationMention *not = (GTNotificationMention *) n;
         
         if ([not.item isKindOfClass:[GTStreamableTag class]]) {
-            [ViewControllerUtils showTag:(GTStreamableTag *) not.item fromViewController:self originFrame:CGRectNull transitionDelegate:transitioningDelegate];
+            [ViewControllerUtils showTag:(GTStreamableTag *) not.item fromViewController:self];
             
             return;
         }
@@ -249,6 +254,9 @@
 
 - (void)setupTopBar {
     self.title = @"Notifications";
+    
+    if (self.isModal)
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onClickClose)];
 }
 
 - (void)setupLoadingIndicator {

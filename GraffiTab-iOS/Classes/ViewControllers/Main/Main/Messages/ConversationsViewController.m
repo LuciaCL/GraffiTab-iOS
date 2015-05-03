@@ -57,6 +57,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)onClickClose {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)onClickCompose {
     [self performSegueWithIdentifier:@"SEGUE_COMPOSE_MESSAGE" sender:nil];
 }
@@ -251,6 +255,9 @@
 
 - (void)setupTopBar {
     self.title = @"Messages";
+    
+    if (self.isModal)
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onClickClose)];
 }
 
 - (void)setupLoadingIndicator {
