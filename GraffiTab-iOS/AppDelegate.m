@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 GraffiTab. All rights reserved.
 //
 
+#import <ALAlertBanner/ALAlertBanner.h>
+
 #import "AppDelegate.h"
 #import "MenuViewController.h"
 #import "SlideNavigationContorllerAnimatorSlide.h"
@@ -14,8 +16,12 @@
 #import "NotificationsViewController.h"
 #import "UIWindow+PazLabs.h"
 #import "ConversationsViewController.h"
+#import "Reachability.h"
+#import "TWMessageBarManager.h"
 
-@interface AppDelegate () {
+@interface AppDelegate () <TWMessageBarStyleSheet> {
+    
+    ALAlertBanner *networkBanner;
     
     NSString *activeStoryboardName;
     FBSessionStateHandler handler;
@@ -35,6 +41,7 @@
     [self setupStatusBar];
     [self setupCache];
     [self setupFacebookHandler];
+    [self setupRechability];
     
     // Initialize the location manager.
     [MyLocationManager sharedInstance];
@@ -144,7 +151,16 @@
                     [((MessagesViewController *) vc) processMessageNotification:userInfo];
                 else if ([vc isKindOfClass:[ConversationsViewController class]])
                     [((ConversationsViewController *) vc) processMessageNotification:userInfo];
-                    
+                else { // Show local notification about message.
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"Tina Petros"
+                                                                   description:@"Hey what's up :)"
+                                                                          type:TWMessageBarMessageTypeSuccess
+                                                                statusBarStyle:UIStatusBarStyleLightContent
+                                                                      callback:^{
+                                                                          NSLog(@"CLICKED");
+                                                                      }];
+                }
+                
                 break;
             }
             case CUSTOM_TYPING_ON: {
@@ -286,9 +302,21 @@
      completion:nil];
 }
 
+#pragma mark - TWMessageBarStyleSheetDelegate
+
+- (UIColor *)backgroundColorForMessageType:(TWMessageBarMessageType)type {
+    return UIColorFromRGB(COLOR_ORANGE);
+}
+
+- (UIImage *)iconImageForMessageType:(TWMessageBarMessageType)type {
+    return [[UIImage imageNamed:@"message.png"] imageWithTint:[UIColor whiteColor]];
+}
+
 #pragma mark - Setup
 
 - (void)setupStatusBar {
+    [TWMessageBarManager sharedInstance].styleSheet = self;
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
@@ -316,6 +344,40 @@
         // also for intermediate states and NOT just when the session open
         [weakSelf facebookSessionStateChange:session state:state error:error];
     };
+}
+
+- (void)setupRechability {
+    // Allocate a reachability object
+    Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    
+    // Set the blocks
+    reach.reachableBlock = ^(Reachability*reach) {
+        // keep in mind this is called on a background thread
+        // and if you are updating the UI it needs to happen
+        // on the main thread, like this:
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (networkBanner)
+                [networkBanner hide];
+        });
+    };
+    
+    reach.unreachableBlock = ^(Reachability*reach) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (networkBanner)
+                [networkBanner hide];
+            
+            networkBanner = [ALAlertBanner alertBannerForView:self.window
+                                                        style:ALAlertBannerStyleFailure
+                                                     position:ALAlertBannerPositionBottom
+                                                        title:@"No network!"
+                                                     subtitle:@"Please check your Interner connection."];
+            [networkBanner show];
+        });
+    };
+    
+    // Start the notifier, which will cause the reachability object to retain itself!
+    [reach startNotifier];
 }
 
 @end

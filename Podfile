@@ -31,4 +31,7 @@ target 'GraffiTab-iOS' do
     pod 'BlockAlertsAnd-ActionSheets'
     pod 'INSPullToRefresh'
     pod 'WYPopoverController'
+    pod 'Reachability'
+    pod 'ALAlertBanner'
+    pod 'TWMessageBarManager'
 end
