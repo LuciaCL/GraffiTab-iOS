@@ -11,14 +11,11 @@
 #import "TagDetailsViewController.h"
 #import "SearchGraffitiViewController.h"
 #import "UIWindow+PazLabs.h"
-#import "AppDelegate.h"
 
 @implementation ViewControllerUtils
 
 + (UIViewController *)getVisibleViewController {
-    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
-    return [delegate.window visibleViewController];
+    return [[UIApplication sharedApplication].keyWindow visibleViewController];
 }
 
 + (void)showUserProfile:(GTPerson *)user fromViewController:(UIViewController *)controller {
@@ -64,7 +61,7 @@
     [[MZFormSheetBackgroundWindow appearance] setBackgroundColor:[UIColor clearColor]];
     
     // Setup popup sheet.
-    MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithViewController:vc];
+    MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithViewController:tagDetailsNavigation];
     formSheet.shouldDismissOnBackgroundViewTap = YES;
     formSheet.transitionStyle = MZFormSheetTransitionStyleBounce;
     formSheet.cornerRadius = 8.0;
