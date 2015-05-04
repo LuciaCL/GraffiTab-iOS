@@ -51,7 +51,9 @@
 - (void)showUserProfile:(GTPerson *)user {
     if (self.embedded) {
         [self.parentPopover dismissPopoverAnimated:YES completion:^{
-            [ViewControllerUtils showUserProfile:user fromViewController:self.parent];
+            [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+                [ViewControllerUtils showUserProfile:user fromViewController:[ViewControllerUtils getVisibleViewController]];
+            }];
         }];
     }
     else

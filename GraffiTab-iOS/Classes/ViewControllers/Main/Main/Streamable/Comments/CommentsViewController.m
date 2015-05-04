@@ -560,17 +560,35 @@
 #pragma mark - TweetProtocol
 
 - (void)didClickHashtag:(NSString *)hashtag {
-    [ViewControllerUtils showSearchHashtag:hashtag fromViewController:self];
+    if (self.embedded) {
+        [self.parentPopover dismissPopoverAnimated:YES completion:^{
+            [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+                [ViewControllerUtils showSearchHashtag:hashtag fromViewController:[ViewControllerUtils getVisibleViewController]];
+            }];
+        }];
+    }
+    else
+        [ViewControllerUtils showSearchHashtag:hashtag fromViewController:self];
 }
 
 - (void)didClickUsername:(NSString *)username {
-    [ViewControllerUtils showSearchUserProfile:username fromViewController:self];
+    if (self.embedded) {
+        [self.parentPopover dismissPopoverAnimated:YES completion:^{
+            [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+                [ViewControllerUtils showSearchUserProfile:username fromViewController:[ViewControllerUtils getVisibleViewController]];
+            }];
+        }];
+    }
+    else
+        [ViewControllerUtils showSearchUserProfile:username fromViewController:self];
 }
 
 - (void)didClickAvatar:(GTPerson *)user {
     if (self.embedded) {
         [self.parentPopover dismissPopoverAnimated:YES completion:^{
-            [ViewControllerUtils showUserProfile:user fromViewController:self.parent];
+            [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+                [ViewControllerUtils showUserProfile:user fromViewController:[ViewControllerUtils getVisibleViewController]];
+            }];
         }];
     }
     else

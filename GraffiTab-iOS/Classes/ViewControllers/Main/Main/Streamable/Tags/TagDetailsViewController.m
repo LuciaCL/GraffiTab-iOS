@@ -188,7 +188,6 @@
     
     [self showFormSheet:vc forView:likeImage];
     vc.parentPopover = settingsPopoverController;
-    vc.parent = self;
 }
 
 - (IBAction)onClickLabelComment:(id)sender {
@@ -199,7 +198,6 @@
     
     [self showFormSheet:vc forView:commentImage];
     vc.parentPopover = settingsPopoverController;
-    vc.parent = self;
 }
 
 - (void)onSwipeDown {
