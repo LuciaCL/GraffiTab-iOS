@@ -13,6 +13,7 @@
 		E581D9381AF43ED300FD67C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E581D93A1AF43ED300FD67C8 /* Localizable.strings */; };
 		E581D93E1AF5397100FD67C8 /* ShareUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E581D93D1AF5397100FD67C8 /* ShareUtils.m */; };
 		E581D9561AF5C32700FD67C8 /* NSArray+Varargs.m in Sources */ = {isa = PBXBuildFile; fileRef = E581D9551AF5C32700FD67C8 /* NSArray+Varargs.m */; };
+		E581D9881AF8FB8200FD67C8 /* PrivateGraffitiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E581D9871AF8FB8200FD67C8 /* PrivateGraffitiViewController.m */; };
 		E5D6F27D1AF01D06009EA94C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F27C1AF01D06009EA94C /* main.m */; };
 		E5D6F2801AF01D06009EA94C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F27F1AF01D06009EA94C /* AppDelegate.m */; };
 		E5D6F2881AF01D06009EA94C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D6F2871AF01D06009EA94C /* Images.xcassets */; };
@@ -237,6 +238,8 @@
 		E581D93F1AF5402500FD67C8 /* FullSizeCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullSizeCellProtocol.h; sourceTree = "<group>"; };
 		E581D9541AF5C32700FD67C8 /* NSArray+Varargs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Varargs.h"; sourceTree = "<group>"; };
 		E581D9551AF5C32700FD67C8 /* NSArray+Varargs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Varargs.m"; sourceTree = "<group>"; };
+		E581D9861AF8FB8200FD67C8 /* PrivateGraffitiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateGraffitiViewController.h; sourceTree = "<group>"; };
+		E581D9871AF8FB8200FD67C8 /* PrivateGraffitiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivateGraffitiViewController.m; sourceTree = "<group>"; };
 		E5D6F2771AF01D06009EA94C /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D6F27B1AF01D06009EA94C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5D6F27C1AF01D06009EA94C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -639,6 +642,15 @@
 				A009B6B9FAC641B4B823435B /* Pods_GraffiTab_iOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E581D9851AF8FB6100FD67C8 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				E581D9861AF8FB8200FD67C8 /* PrivateGraffitiViewController.h */,
+				E581D9871AF8FB8200FD67C8 /* PrivateGraffitiViewController.m */,
+			);
+			path = Private;
 			sourceTree = "<group>";
 		};
 		E5D6F26E1AF01D06009EA94C = {
@@ -1105,6 +1117,7 @@
 		E5D6F3F91AF02066009EA94C /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				E581D9851AF8FB6100FD67C8 /* Private */,
 				E5D6F3FA1AF02066009EA94C /* Edit */,
 				E5D6F4031AF02066009EA94C /* UserProfileViewController.h */,
 				E5D6F4041AF02066009EA94C /* UserProfileViewController.m */,
@@ -1939,6 +1952,7 @@
 				E5D6F5891AF02066009EA94C /* ConversationSettingsCell.m in Sources */,
 				E5D6F5DF1AF02066009EA94C /* fileUtil.m in Sources */,
 				E5D6F5711AF02066009EA94C /* SearchViewController.m in Sources */,
+				E581D9881AF8FB8200FD67C8 /* PrivateGraffitiViewController.m in Sources */,
 				E5D6F54D1AF02066009EA94C /* FacebookUtils.m in Sources */,
 				E5D6F57E1AF02066009EA94C /* EditTextViewViewController.m in Sources */,
 				E5D6F4F41AF02066009EA94C /* MyLocationManager.m in Sources */,

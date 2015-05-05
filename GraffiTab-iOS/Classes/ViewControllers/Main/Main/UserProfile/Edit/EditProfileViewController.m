@@ -515,6 +515,11 @@
             
             break;
         }
+        case 3: {
+            [self performSegueWithIdentifier:@"SEGUE_SHOW_PRIVATE" sender:nil];
+            
+            break;
+        }
     }
 }
 
