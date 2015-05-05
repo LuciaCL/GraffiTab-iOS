@@ -81,7 +81,7 @@
     if ([self.item.user isEqual:GTLifecycleManager.user])
         actions = [NSMutableArray arrayWithArray:@[@"Edit", self.item.isPrivate ? @"Make public" : @"Make private", @"Delete"]];
     
-    [actions addObjectsFromArray:@[@"Save to Camera Roll", @"Flag as inappropriate"]];
+    [actions addObjectsFromArray:@[@"Explore graffiti area", @"Save to Camera Roll", @"Flag as inappropriate"]];
     
     [UIActionSheet showInView:self.view
                     withTitle:[NSString stringWithFormat:@"What would you like to do?"]
@@ -92,7 +92,9 @@
                          if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Cancel"])
                              return;
                          
-                         if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Edit"]) {
+                         if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Explore graffiti area"])
+                             [ViewControllerUtils showMapLocation:[[CLLocation alloc] initWithLatitude:self.item.latitude longitude:self.item.longitude] fromViewController:self];
+                         else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Edit"]) {
                              dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                                  UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
                                  PaintingViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"PaintingViewController"];

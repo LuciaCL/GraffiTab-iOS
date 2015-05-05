@@ -50,6 +50,9 @@
     
     [self setupMapView];
     [self setupButtons];
+    
+    if (self.location)
+        [self zoomMapToLocation:self.location];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -93,7 +96,10 @@
 }
 
 - (IBAction)onClickBack:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    if (self.isModal)
+        [self dismissViewControllerAnimated:YES completion:nil];
+    else
+        [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)onClickSearch:(id)sender {
@@ -165,11 +171,11 @@
 }
 
 - (IBAction)onClickLocate:(id)sender {
-    [self centerToUserLocation];
+    [self centerToLocation:myMapView.userLocation.location];
 }
 
-- (void)centerToUserLocation {
-    [self zoomMapToLocation:myMapView.userLocation.location];
+- (void)centerToLocation:(CLLocation *)location {
+    [self zoomMapToLocation:location];
 }
 
 #pragma mark - Searching
@@ -231,6 +237,7 @@
 #pragma mark - Loading
 
 - (void)loadItems {
+    NSLog(@"LOADING");
     // First we need to calculate the corners of the map so we get the points.
     CGPoint nePoint = CGPointMake(myMapView.bounds.origin.x + myMapView.bounds.size.width, myMapView.bounds.origin.y);
     CGPoint swPoint = CGPointMake(myMapView.bounds.origin.x, myMapView.bounds.origin.y + myMapView.bounds.size.height);
@@ -346,8 +353,10 @@
 #pragma mark - MKMapViewDelegate
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-    if (!showedFirstUserLocation)
-        [self centerToUserLocation];
+    if (!showedFirstUserLocation && !self.location) {
+        NSLog(@"HERE");
+        [self centerToLocation:myMapView.userLocation.location];
+    }
     
     showedFirstUserLocation = YES;
 }

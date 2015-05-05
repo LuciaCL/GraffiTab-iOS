@@ -302,8 +302,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (!tableView.isEditing)
+    if (!tableView.isEditing) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        GTUserLocation *l = items[indexPath.row];
+        
+        [ViewControllerUtils showMapLocation:[[CLLocation alloc] initWithLatitude:l.latitude longitude:l.longitude] fromViewController:self];
+    }
     
     [self updateButtonsToMatchTableState];
 }

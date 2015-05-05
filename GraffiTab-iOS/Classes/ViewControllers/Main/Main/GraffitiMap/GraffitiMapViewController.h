@@ -11,4 +11,7 @@
 
 @interface GraffitiMapViewController : BackButtonViewController <TSClusterMapViewDelegate, UITextFieldDelegate>
 
+@property (nonatomic, strong) CLLocation *location;
+@property (nonatomic, assign) BOOL isModal;
+
 @end

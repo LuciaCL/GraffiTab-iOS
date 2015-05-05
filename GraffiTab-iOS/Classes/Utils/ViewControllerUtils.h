@@ -12,6 +12,8 @@
 
 + (UIViewController *)getVisibleViewController;
 
++ (void)showMapLocation:(CLLocation *)location fromViewController:(UIViewController *)controller;
+
 + (void)showUserProfile:(GTPerson *)user fromViewController:(UIViewController *)vc;
 + (void)showTag:(GTStreamableTag *)tag fromViewController:(UIViewController *)controller;
 

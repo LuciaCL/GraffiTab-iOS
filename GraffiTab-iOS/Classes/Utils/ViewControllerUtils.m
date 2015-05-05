@@ -11,11 +11,23 @@
 #import "TagDetailsViewController.h"
 #import "SearchGraffitiViewController.h"
 #import "UIWindow+PazLabs.h"
+#import "GraffitiMapViewController.h"
 
 @implementation ViewControllerUtils
 
 + (UIViewController *)getVisibleViewController {
     return [[UIApplication sharedApplication].keyWindow visibleViewController];
+}
+
++ (void)showMapLocation:(CLLocation *)location fromViewController:(UIViewController *)controller {
+    UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
+    GraffitiMapViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"GraffitiMapViewController"];
+    vc.location = location;
+    vc.isModal = YES;
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    [controller presentViewController:nav animated:YES completion:nil];
 }
 
 + (void)showUserProfile:(GTPerson *)user fromViewController:(UIViewController *)controller {
