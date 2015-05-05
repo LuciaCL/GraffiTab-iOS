@@ -31,6 +31,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    NSLog(@"DEALLOC %@", self.class);
+}
+
 - (IBAction)onClickDone:(id)sender {
     NSString *trimmedString = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     

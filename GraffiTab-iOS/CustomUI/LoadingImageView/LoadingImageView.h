@@ -18,8 +18,8 @@
 @interface LoadingImageView : UIView <UIGestureRecognizerDelegate>
 
 @property (nonatomic, assign) IBOutlet id<LoadingImageViewDelegate> delegate;
-@property (nonatomic, strong) IBOutlet UIImageView *imageView;
-@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, weak) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, assign) BOOL forceLoad;
 
 - (void)loadImageWithUrl:(NSString *)url thumbnailUrl:(NSString *)url;

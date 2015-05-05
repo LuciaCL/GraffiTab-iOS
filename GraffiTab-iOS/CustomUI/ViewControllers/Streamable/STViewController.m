@@ -20,11 +20,12 @@
 
 @interface STViewController () {
     
-    BOOL canLoadMore;
-    BOOL isDownloading;
     NSMutableArray *items;
-    int offset;
 }
+
+@property (nonatomic, assign) BOOL canLoadMore;
+@property (nonatomic, assign) BOOL isDownloading;
+@property (nonatomic, assign) int offset;
 
 @end
 
@@ -70,15 +71,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    offset = 0;
-    canLoadMore = YES;
-    isDownloading = NO;
+    _offset = 0;
+    _canLoadMore = YES;
+    _isDownloading = NO;
     items = [NSMutableArray new];
     
     [self setupLoadingIndicator];
     [self setupCollectionView];
     
-    [self loadItems:YES withOffset:offset];
+    [self loadItems:YES withOffset:_offset];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -93,6 +94,7 @@
 }
 
 - (void)dealloc {
+    NSLog(@"DEALLOC %@", self.class);
     [self.collectionView ins_removeInfinityScroll];
     [self.collectionView ins_removePullToRefresh];
 }
@@ -106,21 +108,21 @@
 #pragma mark - Loading
 
 - (void)refresh {
-    offset = 0;
-    canLoadMore = YES;
+    _offset = 0;
+    _canLoadMore = YES;
     
-    [self loadItems:NO withOffset:offset];
+    [self loadItems:NO withOffset:_offset];
 }
 
 - (void)loadItems:(BOOL)isStart withOffset:(int)o {
-    if (items.count <= 0 && !isDownloading) {
+    if (items.count <= 0 && !_isDownloading) {
         [self.loadingIndicator startAnimating];
         [[self.collectionView viewWithTag:1001] removeFromSuperview];
     }
     
     [self showLoadingIndicator];
     
-    isDownloading = YES;
+    _isDownloading = YES;
     
     [self loadItems:isStart withOffset:o successBlock:^(GTResponseObject *response) {
         if (o == 0)
@@ -129,7 +131,7 @@
         [items addObjectsFromArray:response.object];
         
         if ([response.object count] <= 0 || [response.object count] < MAX_ITEMS)
-            canLoadMore = NO;
+            _canLoadMore = NO;
         
         [self finalizeLoad];
     } cacheBlock:^(GTResponseObject *response) {
@@ -138,7 +140,7 @@
         
         [self finalizeCacheLoad];
     } failureBlock:^(GTResponseObject *response) {
-        canLoadMore = NO;
+        _canLoadMore = NO;
         
         [self finalizeLoad];
         
@@ -166,12 +168,12 @@
     [self removeLoadingIndicator];
     [self.loadingIndicator stopAnimating];
     
-    isDownloading = NO;
+    _isDownloading = NO;
     [self.collectionView ins_endInfinityScroll];
-    [self.collectionView ins_setInfinityScrollEnabled:canLoadMore];
+    [self.collectionView ins_setInfinityScrollEnabled:_canLoadMore];
     
     // Delay execution of my block for x seconds.
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (offset == 1 ? 0.3 : 0.0) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (_offset == 1 ? 0.3 : 0.0) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self.collectionView reloadData];
         
         [self checkNoItemsHeader];
@@ -402,22 +404,22 @@
     self.collectionView.alwaysBounceVertical = YES;
     
     // Setup pull-to-refresh
+    __weak typeof(self) weakSelf = self;
+    
     [self.collectionView ins_addPullToRefreshWithHeight:60.0 handler:^(UIScrollView *scrollView) {
-        [self refresh];
+        [weakSelf refresh];
     }];
     
     self.collectionView.ins_pullToRefreshBackgroundView.preserveContentInset = NO;
     
-    __strong typeof(self) weakSelf = self;
-    
     [self.collectionView ins_addInfinityScrollWithHeight:60 handler:^(UIScrollView *scrollView) {
-        if (weakSelf->canLoadMore && !weakSelf->isDownloading) {
-            weakSelf->offset += MAX_ITEMS;
+        if (weakSelf.canLoadMore && !weakSelf.isDownloading) {
+            weakSelf.offset += MAX_ITEMS;
             
-            [weakSelf loadItems:NO withOffset:weakSelf->offset];
+            [weakSelf loadItems:NO withOffset:weakSelf.offset];
         }
         else {
-            weakSelf->isDownloading = NO;
+            weakSelf.isDownloading = NO;
             
             [weakSelf.collectionView ins_endInfinityScroll];
             [weakSelf.collectionView ins_setInfinityScrollEnabled:NO];

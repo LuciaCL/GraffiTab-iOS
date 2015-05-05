@@ -111,20 +111,20 @@
     else
         [activityIndicator stopAnimating];
     
-    __strong typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     req.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
     
     [imageView setImageWithURLRequest:req placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-        weakSelf->imageView.image = image;
-        [weakSelf->activityIndicator stopAnimating];
+        weakSelf.imageView.image = image;
+        [weakSelf.activityIndicator stopAnimating];
         
         if (successBlock)
             successBlock();
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-        weakSelf->imageView.image = [UIImage imageNamed:@"no_image_available.gif"];
-        [weakSelf->activityIndicator stopAnimating];
+        weakSelf.imageView.image = [UIImage imageNamed:@"no_image_available.gif"];
+        [weakSelf.activityIndicator stopAnimating];
         
         if (failureBlock)
             failureBlock();

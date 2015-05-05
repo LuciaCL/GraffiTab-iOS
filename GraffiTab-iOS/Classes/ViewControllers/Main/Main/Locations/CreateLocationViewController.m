@@ -37,6 +37,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    NSLog(@"DEALLOC %@", self.class);
+}
+
 - (IBAction)onClickCenter:(id)sender {
     [self centerToUserLocation];
 }

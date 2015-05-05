@@ -3,6 +3,7 @@ platform :ios, '7.1'
 use_frameworks!
 
 target 'GraffiTab-iOS' do
+    pod 'AFNetworking'
     pod 'iCarousel'
     pod 'SwipeView'
     pod 'ActionSheetPicker-3.0'

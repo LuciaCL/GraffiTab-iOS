@@ -20,16 +20,17 @@
     
     RTSpinKitView *loadingIndicator;
     
-    BOOL canLoadMore;
-    BOOL isDownloading;
     NSMutableArray *items;
-    int offset;
     GTComment *toEdit;
     
     NSArray *searchResult;
     NSMutableArray *autocompleteUsers;
     NSMutableArray *autocompleteHashtags;
 }
+
+@property (nonatomic, assign) BOOL canLoadMore;
+@property (nonatomic, assign) BOOL isDownloading;
+@property (nonatomic, assign) int offset;
 
 @end
 
@@ -65,9 +66,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    offset = 0;
-    canLoadMore = YES;
-    isDownloading = NO;
+    _offset = 0;
+    _canLoadMore = YES;
+    _isDownloading = NO;
     items = [NSMutableArray new];
     autocompleteUsers = [NSMutableArray new];
     autocompleteHashtags = [NSMutableArray new];
@@ -77,7 +78,7 @@
     [self setupLoadingIndicator];
     [self setupTableView];
     
-    [self loadItems:YES withOffset:offset];
+    [self loadItems:YES withOffset:_offset];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -88,6 +89,7 @@
 }
 
 - (void)dealloc {
+    NSLog(@"DEALLOC %@", self.class);
     [self.tableView ins_removeInfinityScroll];
     [self.tableView ins_removePullToRefresh];
 }
@@ -114,21 +116,21 @@
 #pragma mark - Loading
 
 - (void)refresh {
-    offset = 0;
-    canLoadMore = YES;
+    self.offset = 0;
+    self.canLoadMore = YES;
     
-    [self loadItems:NO withOffset:offset];
+    [self loadItems:NO withOffset:self.offset];
 }
 
 - (void)loadItems:(BOOL)isStart withOffset:(int)o {
-    if (items.count <= 0 && !isDownloading) {
+    if (items.count <= 0 && !self.isDownloading) {
         [loadingIndicator startAnimating];
         self.tableView.tableHeaderView = nil;
     }
     
     [self showLoadingIndicator];
     
-    isDownloading = YES;
+    self.isDownloading = YES;
     
     [GTStreamableManager getCommentsWithItemId:self.item.streamableId start:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
         if (o == 0)
@@ -137,7 +139,7 @@
         [items addObjectsFromArray:response.object];
         
         if ([response.object count] <= 0 || [response.object count] < MAX_ITEMS)
-            canLoadMore = NO;
+            self.canLoadMore = NO;
         
         [self finalizeLoad];
     } cacheBlock:^(GTResponseObject *response) {
@@ -146,7 +148,7 @@
         
         [self finalizeCacheLoad];
     } failureBlock:^(GTResponseObject *response) {
-        canLoadMore = NO;
+        self.canLoadMore = NO;
         
         [self finalizeLoad];
         
@@ -170,14 +172,14 @@
     [self removeLoadingIndicator];
     [loadingIndicator stopAnimating];
     
-    isDownloading = NO;
+    self.isDownloading = NO;
     [self.tableView ins_endInfinityScroll];
-    [self.tableView ins_setInfinityScrollEnabled:canLoadMore];
+    [self.tableView ins_setInfinityScrollEnabled:self.canLoadMore];
     
     [self findAutocompletes];
     
     // Delay execution of my block for x seconds.
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (offset == 1 ? 0.3 : 0.0) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (self.offset == 1 ? 0.3 : 0.0) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         
         [self checkNoItemsHeader];
@@ -646,22 +648,22 @@
     self.tableView.tableFooterView = [UIView new];
     
     // Setup pull-to-refresh
+    __weak typeof(self) weakSelf = self;
+    
     [self.tableView ins_addPullToRefreshWithHeight:60.0 handler:^(UIScrollView *scrollView) {
-        [self refresh];
+        [weakSelf refresh];
     }];
     
     self.tableView.ins_pullToRefreshBackgroundView.preserveContentInset = NO;
     
-    __strong typeof(self) weakSelf = self;
-    
     [self.tableView ins_addInfinityScrollWithHeight:60 handler:^(UIScrollView *scrollView) {
-        if (weakSelf->canLoadMore && !weakSelf->isDownloading) {
-            weakSelf->offset += MAX_ITEMS;
+        if (weakSelf.canLoadMore && !weakSelf.isDownloading) {
+            weakSelf.offset += MAX_ITEMS;
             
-            [weakSelf loadItems:NO withOffset:weakSelf->offset];
+            [weakSelf loadItems:NO withOffset:weakSelf.offset];
         }
         else {
-            weakSelf->isDownloading = NO;
+            weakSelf.isDownloading = NO;
             
             [weakSelf.tableView ins_endInfinityScroll];
             [weakSelf.tableView ins_setInfinityScrollEnabled:NO];

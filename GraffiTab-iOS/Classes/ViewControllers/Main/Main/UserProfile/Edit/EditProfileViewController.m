@@ -19,8 +19,6 @@
 
 @interface EditProfileViewController () {
     
-    IBOutlet UIImageView *avatarImage;
-    IBOutlet UIImageView *coverImage;
     
     IBOutlet UILabel *firstNameLabel;
     IBOutlet UILabel *lastNameLabel;
@@ -33,6 +31,9 @@
     UIImage *defaultBlurredImage;
     UIImagePickerController *galleryPicker;
 }
+
+@property (nonatomic, weak) IBOutlet UIImageView *avatarImage;
+@property (nonatomic, weak) IBOutlet UIImageView *coverImage;
 
 @end
 
@@ -61,6 +62,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    NSLog(@"DEALLOC %@", self.class);
 }
 
 - (IBAction)onClickSave:(id)sender {
@@ -151,9 +156,9 @@
     UIImageView *i;
     
     if (imagePickerMode == IMAGE_PICKER_MODE_AVATAR)
-        i = avatarImage;
+        i = _avatarImage;
     else if (imagePickerMode == IMAGE_PICKER_MODE_COVER)
-        i = coverImage;
+        i = _coverImage;
     
     [EXPhotoViewer showImageFrom:i rootViewController:self.navigationController];
 }
@@ -217,43 +222,43 @@
 }
 
 - (void)loadAvatar {
-    __strong typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     
     if (user.avatarId > 0) {
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:user.avatarId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
-        [avatarImage setImageWithURLRequest:request placeholderImage:avatarImage.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-            [UIView transitionWithView:weakSelf->avatarImage
+        [_avatarImage setImageWithURLRequest:request placeholderImage:_avatarImage.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            [UIView transitionWithView:weakSelf.avatarImage
                               duration:0.5f
                                options:UIViewAnimationOptionTransitionCrossDissolve
                             animations:^{
-                                weakSelf->avatarImage.image = image;
+                                weakSelf.avatarImage.image = image;
                             } completion:nil];
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-            weakSelf->avatarImage.image = [UIImage imageNamed:@"default_avatar.jpg"];
+            weakSelf.avatarImage.image = [UIImage imageNamed:@"default_avatar.jpg"];
         }];
     }
     else
-        avatarImage.image = [UIImage imageNamed:@"default_avatar.jpg"];
+        _avatarImage.image = [UIImage imageNamed:@"default_avatar.jpg"];
 }
 
 - (void)loadCover {
-    __strong typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     
     if (user.coverId > 0) {
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetCover:user.coverId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
-        [coverImage setImageWithURLRequest:request placeholderImage:coverImage.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-            [UIView transitionWithView:weakSelf->coverImage
+        [_coverImage setImageWithURLRequest:request placeholderImage:_coverImage.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            [UIView transitionWithView:weakSelf.coverImage
                               duration:0.5f
                                options:UIViewAnimationOptionTransitionCrossDissolve
                             animations:^{
-                                weakSelf->coverImage.image = image;
+                                weakSelf.coverImage.image = image;
                             } completion:nil];
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-            weakSelf->coverImage.image = weakSelf->defaultBlurredImage;
+            weakSelf.coverImage.image = defaultBlurredImage;
         }];
     }
     else {
@@ -262,14 +267,14 @@
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:user.avatarId]]];
             request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
             
-            [coverImage setImageWithURLRequest:request placeholderImage:coverImage.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            [_coverImage setImageWithURLRequest:request placeholderImage:_coverImage.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                 [weakSelf setDarkBlurredImageAsCover:image];
             } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                weakSelf->coverImage.image = weakSelf->defaultBlurredImage;
+                weakSelf.coverImage.image = defaultBlurredImage;
             }];
         }
         else
-            weakSelf->coverImage.image = defaultBlurredImage;
+            weakSelf.coverImage.image = defaultBlurredImage;
     }
 }
 
@@ -277,11 +282,11 @@
     UIImage *darken = [i colorizeImagWithColor:[UIColor colorWithWhite:0 alpha:0.5]];
     UIImage *blur = [darken blurredImageWithRadius:40 iterations:2 tintColor:nil];
     
-    [UIView transitionWithView:coverImage
+    [UIView transitionWithView:_coverImage
                       duration:0.5f
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
-                        coverImage.image = blur;
+                        _coverImage.image = blur;
                     } completion:nil];
 }
 
@@ -555,10 +560,10 @@
 }
 
 - (void)setupImageViews {
-    avatarImage.layer.cornerRadius = avatarImage.frame.size.width / 2;
+    _avatarImage.layer.cornerRadius = _avatarImage.frame.size.width / 2;
     
-    coverImage.image = defaultBlurredImage;
-    coverImage.layer.cornerRadius = coverImage.frame.size.width / 2;
+    _coverImage.image = defaultBlurredImage;
+    _coverImage.layer.cornerRadius = _coverImage.frame.size.width / 2;
 }
 
 @end

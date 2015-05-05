@@ -77,6 +77,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    NSLog(@"DEALLOC %@", self.class);
+}
+
 - (IBAction)onClickImage:(id)sender {
     [UIActionSheet showInView:self.view
                     withTitle:@"Choose source"

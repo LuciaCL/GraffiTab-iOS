@@ -17,15 +17,15 @@
 
 @interface NotificationsViewController () {
     
-    IBOutlet UITableView *theTable;
-    
     RTSpinKitView *loadingIndicator;
     
-    BOOL canLoadMore;
-    BOOL isDownloading;
     NSMutableArray *items;
-    int offset;
 }
+
+@property (nonatomic, weak) IBOutlet UITableView *theTable;
+@property (nonatomic, assign) BOOL canLoadMore;
+@property (nonatomic, assign) BOOL isDownloading;
+@property (nonatomic, assign) int offset;
 
 @end
 
@@ -35,16 +35,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    offset = 0;
-    canLoadMore = YES;
-    isDownloading = NO;
+    _offset = 0;
+    _canLoadMore = YES;
+    _isDownloading = NO;
     items = [NSMutableArray new];
     
     [self setupTopBar];
     [self setupLoadingIndicator];
     [self setupTableView];
     
-    [self loadItems:YES withOffset:offset];
+    [self loadItems:YES withOffset:_offset];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,8 +53,9 @@
 }
 
 - (void)dealloc {
-    [theTable ins_removeInfinityScroll];
-    [theTable ins_removePullToRefresh];
+    NSLog(@"DEALLOC %@", self.class);
+    [_theTable ins_removeInfinityScroll];
+    [_theTable ins_removePullToRefresh];
 }
 
 - (void)onClickClose {
@@ -64,21 +65,21 @@
 #pragma mark - Loading
 
 - (void)refresh {
-    offset = 0;
-    canLoadMore = YES;
+    _offset = 0;
+    _canLoadMore = YES;
     
-    [self loadItems:NO withOffset:offset];
+    [self loadItems:NO withOffset:_offset];
 }
 
 - (void)loadItems:(BOOL)isStart withOffset:(int)o {
-    if (items.count <= 0 && !isDownloading) {
+    if (items.count <= 0 && !_isDownloading) {
         [loadingIndicator startAnimating];
-        theTable.tableHeaderView = nil;
+        _theTable.tableHeaderView = nil;
     }
     
     [self showLoadingIndicator];
     
-    isDownloading = YES;
+    _isDownloading = YES;
     
     [GTNotificationManager getNotificationsWithStart:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
         HomeViewController *vc = [SlideNavigationController sharedInstance].viewControllers[0];
@@ -91,7 +92,7 @@
         [items addObjectsFromArray:response.object];
         
         if ([response.object count] <= 0 || [response.object count] < MAX_ITEMS)
-            canLoadMore = NO;
+            _canLoadMore = NO;
         
         [self finalizeLoad];
     } cacheBlock:^(GTResponseObject *response) {
@@ -100,7 +101,7 @@
         
         [self finalizeCacheLoad];
     } failureBlock:^(GTResponseObject *response) {
-        canLoadMore = NO;
+        _canLoadMore = NO;
         
         [self finalizeLoad];
         
@@ -116,21 +117,21 @@
 - (void)finalizeCacheLoad {
     [loadingIndicator stopAnimating];
     
-    [theTable reloadData];
+    [_theTable reloadData];
 }
 
 - (void)finalizeLoad {
-    [theTable ins_endPullToRefresh];
+    [_theTable ins_endPullToRefresh];
     [self removeLoadingIndicator];
     [loadingIndicator stopAnimating];
     
-    isDownloading = NO;
-    [theTable ins_endInfinityScroll];
-    [theTable ins_setInfinityScrollEnabled:canLoadMore];
+    _isDownloading = NO;
+    [_theTable ins_endInfinityScroll];
+    [_theTable ins_setInfinityScrollEnabled:_canLoadMore];
     
     // Delay execution of my block for x seconds.
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (offset == 1 ? 0.3 : 0.0) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [theTable reloadData];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (_offset == 1 ? 0.3 : 0.0) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [_theTable reloadData];
         
         [self checkNoItemsHeader];
     });
@@ -152,15 +153,15 @@
 
 - (void)checkNoItemsHeader {
     if (items.count <= 0) {
-        UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, theTable.frame.size.width, 70)];
+        UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _theTable.frame.size.width, 70)];
         l.textAlignment = NSTextAlignmentCenter;
         l.text = @"No items found";
         l.textColor = [UIColor lightGrayColor];
         l.font = [UIFont systemFontOfSize:15];
-        theTable.tableHeaderView = l;
+        _theTable.tableHeaderView = l;
     }
     else
-        theTable.tableHeaderView = nil;
+        _theTable.tableHeaderView = nil;
 }
 
 #pragma mark - UITableViewDelegate
@@ -270,40 +271,40 @@
 }
 
 - (void)setupTableView {
-    theTable.tableFooterView = [UIView new];
+    _theTable.tableFooterView = [UIView new];
     
     // Setup pull-to-refresh
-    [theTable ins_addPullToRefreshWithHeight:60.0 handler:^(UIScrollView *scrollView) {
-        [self refresh];
+    __weak typeof(self) weakSelf = self;
+    
+    [_theTable ins_addPullToRefreshWithHeight:60.0 handler:^(UIScrollView *scrollView) {
+        [weakSelf refresh];
     }];
     
-    theTable.ins_pullToRefreshBackgroundView.preserveContentInset = NO;
+    _theTable.ins_pullToRefreshBackgroundView.preserveContentInset = NO;
     
-    __strong typeof(self) weakSelf = self;
-    
-    [theTable ins_addInfinityScrollWithHeight:60 handler:^(UIScrollView *scrollView) {
-        if (weakSelf->canLoadMore && !weakSelf->isDownloading) {
-            weakSelf->offset += MAX_ITEMS;
+    [_theTable ins_addInfinityScrollWithHeight:60 handler:^(UIScrollView *scrollView) {
+        if (weakSelf.canLoadMore && !weakSelf.isDownloading) {
+            weakSelf.offset += MAX_ITEMS;
             
-            [weakSelf loadItems:NO withOffset:weakSelf->offset];
+            [weakSelf loadItems:NO withOffset:weakSelf.offset];
         }
         else {
-            weakSelf->isDownloading = NO;
+            weakSelf.isDownloading = NO;
             
-            [weakSelf->theTable ins_endInfinityScroll];
-            [weakSelf->theTable ins_setInfinityScrollEnabled:NO];
+            [weakSelf.theTable ins_endInfinityScroll];
+            [weakSelf.theTable ins_setInfinityScrollEnabled:NO];
         }
     }];
     
     UIView <INSAnimatable> *infinityIndicator = [[INSCircleInfiniteIndicator alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
-    [theTable.ins_infiniteScrollBackgroundView addSubview:infinityIndicator];
+    [_theTable.ins_infiniteScrollBackgroundView addSubview:infinityIndicator];
     [infinityIndicator startAnimating];
     
-    theTable.ins_infiniteScrollBackgroundView.preserveContentInset = NO;
+    _theTable.ins_infiniteScrollBackgroundView.preserveContentInset = NO;
     
     UIView <INSPullToRefreshBackgroundViewDelegate> *pullToRefresh = [[INSDefaultPullToRefresh alloc] initWithFrame:CGRectMake(0, 0, 24, 24) backImage:nil frontImage:[UIImage imageNamed:@"iconFacebook"]];;
-    theTable.ins_pullToRefreshBackgroundView.delegate = pullToRefresh;
-    [theTable.ins_pullToRefreshBackgroundView addSubview:pullToRefresh];
+    _theTable.ins_pullToRefreshBackgroundView.delegate = pullToRefresh;
+    [_theTable.ins_pullToRefreshBackgroundView addSubview:pullToRefresh];
 }
 
 @end

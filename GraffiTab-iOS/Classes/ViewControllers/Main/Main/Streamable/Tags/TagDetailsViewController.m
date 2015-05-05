@@ -17,10 +17,8 @@
 
 @interface TagDetailsViewController () {
     
-    IBOutlet UIImageView *avatarView;
     IBOutlet UILabel *usernameLabel;
     IBOutlet UILabel *dateLabel;
-    IBOutlet ZoomableNormalImageView *itemImage;
     IBOutlet UILabel *likesLabel;
     IBOutlet UILabel *commentsLabel;
     IBOutlet UIView *gradientView;
@@ -30,9 +28,12 @@
     IBOutlet UIImageView *commentImage;
     IBOutlet UIImageView *menuImage;
     
-    RTSpinKitView *loadingIndicator;
     WYPopoverController *settingsPopoverController;
 }
+
+@property (nonatomic, weak) IBOutlet UIImageView *avatarView;
+@property (nonatomic, weak) IBOutlet ZoomableNormalImageView *itemImage;
+@property (nonatomic, strong) RTSpinKitView *loadingIndicator;
 
 - (IBAction)onClickClose:(id)sender;
 - (IBAction)onClickOwner:(id)sender;
@@ -70,6 +71,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    NSLog(@"DEALLOC %@", self.class);
+}
+
 - (IBAction)onClickMenu:(id)sender {
     NSMutableArray *actions;
     
@@ -92,7 +97,7 @@
                                  UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
                                  PaintingViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"PaintingViewController"];
                                  vc.toEdit = self.item;
-                                 vc.toEditImage = itemImage.imageView.image;
+                                 vc.toEditImage = _itemImage.imageView.image;
                                  
                                  [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
                                      [[ViewControllerUtils getVisibleViewController] presentViewController:vc animated:YES completion:nil];
@@ -100,7 +105,7 @@
                              });
                          }
                          else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Save to Camera Roll"])
-                             UIImageWriteToSavedPhotosAlbum(itemImage.imageView.image, nil, nil, nil);
+                             UIImageWriteToSavedPhotosAlbum(_itemImage.imageView.image, nil, nil, nil);
                          else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Flag as inappropriate"]) {
                              [DialogBuilder buildYesNoDialogWithTitle:APP_NAME message:@"Are you sure you want to flag this item as inappropriate?" yesTitle:@"Flag" noTitle:@"Cancel" yesBlock:^{
                                  [GTStreamableManager flagItemWithId:self.item.streamableId successBlock:^(GTResponseObject *response) {
@@ -285,50 +290,50 @@
 }
 
 - (void)loadAvatar {
-    __strong typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     
     if (self.item.user.avatarId > 0) {
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:self.item.user.avatarId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
-        avatarView.image = nil;
-        [avatarView setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"default_avatar.jpg"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-            [UIView transitionWithView:weakSelf->avatarView
+        _avatarView.image = nil;
+        [_avatarView setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"default_avatar.jpg"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            [UIView transitionWithView:weakSelf.avatarView
                               duration:0.5f
                                options:UIViewAnimationOptionTransitionCrossDissolve
                             animations:^{
-                                weakSelf->avatarView.image = image;
+                                weakSelf.avatarView.image = image;
                             } completion:nil];
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-            weakSelf->avatarView.image = [UIImage imageNamed:@"default_avatar.jpg"];
+            weakSelf.avatarView.image = [UIImage imageNamed:@"default_avatar.jpg"];
         }];
     }
     else
-        avatarView.image = [UIImage imageNamed:@"default_avatar.jpg"];
+        _avatarView.image = [UIImage imageNamed:@"default_avatar.jpg"];
 }
 
 - (void)loadItem {
-    [loadingIndicator startAnimating];
+    [_loadingIndicator startAnimating];
     
-    __strong typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetFullGraffiti:self.item.graffitiId]]];
     request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
     
-    itemImage.imageView.image = nil;
-    [itemImage.imageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-        [UIView transitionWithView:weakSelf->itemImage.imageView
+    _itemImage.imageView.image = nil;
+    [_itemImage.imageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        [UIView transitionWithView:weakSelf.itemImage.imageView
                           duration:0.5f
                            options:UIViewAnimationOptionTransitionCrossDissolve
                         animations:^{
-                            weakSelf->itemImage.imageView.image = image;
+                            weakSelf.itemImage.imageView.image = image;
                         } completion:^(BOOL finished) {
-                            [weakSelf->loadingIndicator stopAnimating];
+                            [weakSelf.loadingIndicator stopAnimating];
                         }];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-        weakSelf->itemImage.imageView.image = nil;
+        weakSelf.itemImage.imageView.image = nil;
         
-        [weakSelf->loadingIndicator stopAnimating];
+        [weakSelf.loadingIndicator stopAnimating];
     }];
 }
 
@@ -375,11 +380,11 @@
 }
 
 - (void)setupImageViews {
-    itemImage.delegate = self;
+    _itemImage.delegate = self;
     
-    avatarView.layer.cornerRadius = avatarView.frame.size.width / 2;
-    avatarView.layer.borderWidth = 2;
-    avatarView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _avatarView.layer.cornerRadius = _avatarView.frame.size.width / 2;
+    _avatarView.layer.borderWidth = 2;
+    _avatarView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
     likeImage.image = [likeImage.image imageWithTint:[UIColor lightGrayColor]];
     menuImage.image = [menuImage.image imageWithTint:[UIColor lightGrayColor]];
@@ -392,13 +397,13 @@
 }
 
 - (void)setupLoadingIndicator {
-    if (!loadingIndicator) {
-        loadingIndicator = [[RTSpinKitView alloc] initWithStyle:RTSpinKitViewStyleWave color:[UIColor whiteColor]];
-        loadingIndicator.autoresizingMask = UIViewAutoresizingNone;
-        [self.view addSubview:loadingIndicator];
+    if (!_loadingIndicator) {
+        _loadingIndicator = [[RTSpinKitView alloc] initWithStyle:RTSpinKitViewStyleWave color:[UIColor whiteColor]];
+        _loadingIndicator.autoresizingMask = UIViewAutoresizingNone;
+        [self.view addSubview:_loadingIndicator];
     }
     
-    loadingIndicator.center = itemImage.center;
+    _loadingIndicator.center = _itemImage.center;
 }
 
 @end

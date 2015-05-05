@@ -84,6 +84,7 @@ static NSString * const kAVYAviarySecret = @"nESKzmp46kSvNDlgi0_CfA";
 }
 
 - (void)dealloc {
+    NSLog(@"DEALLOC %@", self.class);
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

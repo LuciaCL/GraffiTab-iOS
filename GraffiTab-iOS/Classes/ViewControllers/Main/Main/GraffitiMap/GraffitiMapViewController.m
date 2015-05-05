@@ -72,6 +72,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    NSLog(@"DEALLOC %@", self.class);
+}
+
 - (IBAction)onClickBack:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
@@ -257,6 +261,8 @@
 }
 
 - (void)processAnnotations:(NSMutableArray *)streamables {
+    __weak typeof(self) weakSelf = self;
+    
     for (GTStreamable *item in streamables) {
         if (![items containsObject:item]) {
             if (item.type == TAG) {
@@ -267,7 +273,7 @@
                 thumbnail.subtitle = tag.user.mentionUsername;
                 thumbnail.coordinate = CLLocationCoordinate2DMake(tag.latitude, tag.longitude);
                 thumbnail.disclosureBlock = ^{
-                    [ViewControllerUtils showTag:tag fromViewController:self];
+                    [ViewControllerUtils showTag:tag fromViewController:weakSelf];
                 };
                 
                 STTagAnnotation *annotation = [STTagAnnotation annotationWithThumbnail:thumbnail];
@@ -282,6 +288,8 @@
 }
 
 - (void)downloadImagesAndRefresh {
+    __weak typeof(self) weakSelf = self;
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         for (STTagAnnotation *annotation in annotations) {
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetGraffiti:annotation.item.graffitiId]]];
@@ -299,7 +307,7 @@
                 thumbnail.subtitle = annotation.item.user.mentionUsername;
                 thumbnail.coordinate = CLLocationCoordinate2DMake(annotation.item.latitude, annotation.item.longitude);
                 thumbnail.disclosureBlock = ^{
-                    [ViewControllerUtils showTag:annotation.item fromViewController:self];
+                    [ViewControllerUtils showTag:annotation.item fromViewController:weakSelf];
                 };
                 
                 [annotation updateThumbnail:thumbnail animated:YES];

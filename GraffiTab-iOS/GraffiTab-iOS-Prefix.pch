@@ -21,6 +21,8 @@
     #import <FacebookSDK/FacebookSDK.h>
     #import <AviarySDK/AviarySDK.h>
     #import <GraffiTab_iOS_SDK/GraffiTab_iOS_SDK.h>
+    #import <AFNetworking/AFNetworking.h>
+    #import <AFNetworking/UIImageView+AFNetworking.h>
 
     #import "UIImage+Tint.h"
 

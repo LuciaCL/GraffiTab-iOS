@@ -34,14 +34,15 @@
     HeaderViewWithImage *headerView;
     
     BOOL initiallyRefreshed;
-    BOOL initiallyLoaded;
-    BOOL canLoadMore;
-    BOOL isDownloading;
     NSMutableArray *items;
-    int offset;
     int imagePickerMode;
     UIImagePickerController *galleryPicker;
 }
+
+@property (nonatomic, assign) BOOL initiallyLoaded;
+@property (nonatomic, assign) BOOL canLoadMore;
+@property (nonatomic, assign) BOOL isDownloading;
+@property (nonatomic, assign) int offset;
 
 @end
 
@@ -51,9 +52,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    offset = 0;
-    canLoadMore = YES;
-    isDownloading = NO;
+    self.offset = 0;
+    self.canLoadMore = YES;
+    self.isDownloading = NO;
     items = [NSMutableArray new];
     
     [self setupStatusBar];
@@ -92,6 +93,7 @@
 }
 
 - (void)dealloc {
+    NSLog(@"DEALLOC %@", self.class);
     [self.tableView ins_removeInfinityScroll];
 }
 
@@ -227,7 +229,7 @@
 #pragma mark - Loading
 
 - (void)loadItems:(BOOL)isStart withOffset:(int)o {
-    isDownloading = YES;
+    self.isDownloading = YES;
     
     [GTStreamableManager getItemsWithUserId:self.user.userId start:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
         if (o == 0)
@@ -236,7 +238,7 @@
         [items addObjectsFromArray:response.object];
         
         if ([response.object count] <= 0 || [response.object count] < MAX_ITEMS)
-            canLoadMore = NO;
+            self.canLoadMore = NO;
         
         [self finalizeLoad];
     } cacheBlock:^(GTResponseObject *response) {
@@ -245,7 +247,7 @@
         
         [self finalizeCacheLoad];
     } failureBlock:^(GTResponseObject *response) {
-        canLoadMore = NO;
+        self.canLoadMore = NO;
         
         [self finalizeLoad];
         
@@ -263,12 +265,12 @@
 }
 
 - (void)finalizeLoad {
-    isDownloading = NO;
+    self.isDownloading = NO;
     [self.tableView ins_endInfinityScroll];
-    [self.tableView ins_setInfinityScrollEnabled:canLoadMore];
+    [self.tableView ins_setInfinityScrollEnabled:self.canLoadMore];
     
     // Delay execution of my block for x seconds.
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (offset == 1 ? 0.3 : 0.0) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (self.offset == 1 ? 0.3 : 0.0) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         
         [self checkNoItemsHeader];
@@ -815,19 +817,19 @@
     [self.tableView registerNib:[UINib nibWithNibName:[STVideoFullSizeTableCell reusableIdentifier] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[STVideoFullSizeTableCell reusableIdentifier]];
     
     // Setup pull-to-refresh
-    __strong typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     
     [self.tableView ins_addInfinityScrollWithHeight:60 handler:^(UIScrollView *scrollView) {
-        if (weakSelf->canLoadMore && !weakSelf->isDownloading) {
-            if (weakSelf->initiallyLoaded)
-                weakSelf->offset += MAX_ITEMS;
+        if (weakSelf.canLoadMore && !weakSelf.isDownloading) {
+            if (weakSelf.initiallyLoaded)
+                weakSelf.offset += MAX_ITEMS;
             
-            weakSelf->initiallyLoaded = YES;
+            weakSelf.initiallyLoaded = YES;
             
-            [weakSelf loadItems:NO withOffset:weakSelf->offset];
+            [weakSelf loadItems:NO withOffset:weakSelf.offset];
         }
         else {
-            weakSelf->isDownloading = NO;
+            weakSelf.isDownloading = NO;
             
             [weakSelf.tableView ins_endInfinityScroll];
             [weakSelf.tableView ins_setInfinityScrollEnabled:NO];

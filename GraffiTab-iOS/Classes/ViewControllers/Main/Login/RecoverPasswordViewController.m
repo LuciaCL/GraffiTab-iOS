@@ -31,6 +31,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    NSLog(@"DEALLOC %@", self.class);
+}
+
 - (IBAction)onClickCancel:(id)sender {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }

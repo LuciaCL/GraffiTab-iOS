@@ -49,6 +49,10 @@
     [self loadUnseenNotificationCount];
 }
 
+- (void)dealloc {
+    NSLog(@"DEALLOC %@", self.class);
+}
+
 - (void)onClickToggleMenu {
     [[SlideNavigationController sharedInstance] toggleLeftMenu];
 }

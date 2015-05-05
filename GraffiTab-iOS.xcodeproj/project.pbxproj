@@ -826,11 +826,11 @@
 			children = (
 				E5D6F3911AF02066009EA94C /* LoginHomeViewController.h */,
 				E5D6F3921AF02066009EA94C /* LoginHomeViewController.m */,
-				E5D6F3931AF02066009EA94C /* LoginStoryboard.storyboard */,
 				E5D6F3941AF02066009EA94C /* RecoverPasswordViewController.h */,
 				E5D6F3951AF02066009EA94C /* RecoverPasswordViewController.m */,
 				E5D6F3961AF02066009EA94C /* SignUpViewController.h */,
 				E5D6F3971AF02066009EA94C /* SignUpViewController.m */,
+				E5D6F3931AF02066009EA94C /* LoginStoryboard.storyboard */,
 			);
 			path = Login;
 			sourceTree = "<group>";

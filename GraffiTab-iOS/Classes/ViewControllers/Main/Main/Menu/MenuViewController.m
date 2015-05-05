@@ -20,12 +20,13 @@
 
 @interface MenuViewController () {
     
-    IBOutlet UIImageView *avatarImage;
     IBOutlet UILabel *usernameField;
     IBOutlet UILabel *nameField;
     IBOutlet UILabel *messagesBadge;
     IBOutlet UILabel *notificationsBadge;
 }
+
+@property (nonatomic, weak) IBOutlet UIImageView *avatarImage;
 
 @end
 
@@ -53,6 +54,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    NSLog(@"DEALLOC %@", self.class);
 }
 
 - (void)onClickLogout {
@@ -105,25 +110,25 @@
 }
 
 - (void)loadAvatar {
-    __strong typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     
     if ([GTLifecycleManager user].avatarId > 0) {
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetAvatar:[GTLifecycleManager user].avatarId]]];
         request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         
-        [avatarImage setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"default_avatar.jpg"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-            [UIView transitionWithView:weakSelf->avatarImage
+        [_avatarImage setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"default_avatar.jpg"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            [UIView transitionWithView:weakSelf.avatarImage
                               duration:0.5f
                                options:UIViewAnimationOptionTransitionCrossDissolve
                             animations:^{
-                                weakSelf->avatarImage.image = image;
+                                weakSelf.avatarImage.image = image;
                             } completion:nil];
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-            weakSelf->avatarImage.image = [UIImage imageNamed:@"default_avatar.jpg"];
+            weakSelf.avatarImage.image = [UIImage imageNamed:@"default_avatar.jpg"];
         }];
     }
     else
-        avatarImage.image = [UIImage imageNamed:@"default_avatar.jpg"];
+        _avatarImage.image = [UIImage imageNamed:@"default_avatar.jpg"];
 }
 
 #pragma mark - UITableViewDelegate
@@ -359,9 +364,9 @@
 }
 
 - (void)setupImageViews {
-    avatarImage.layer.cornerRadius = avatarImage.frame.size.width / 2;
-    avatarImage.layer.borderWidth = 2;
-    avatarImage.layer.borderColor = [UIColor whiteColor].CGColor;
+    _avatarImage.layer.cornerRadius = _avatarImage.frame.size.width / 2;
+    _avatarImage.layer.borderWidth = 2;
+    _avatarImage.layer.borderColor = [UIColor whiteColor].CGColor;
 }
 
 - (void)setupTableView {

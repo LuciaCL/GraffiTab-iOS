@@ -13,12 +13,12 @@
 
 @interface ConversationSettingsViewController () {
     
-    UITextField *conversationTitle;
-    UIImageView *conversationImage;
-    
     UIImagePickerController *galleryPicker;
     BOOL editing;
 }
+
+@property (nonatomic, weak) UITextField *conversationTitle;
+@property (nonatomic, weak) UIImageView *conversationImage;
 
 - (IBAction)onClickEdit:(id)sender;
 
@@ -43,6 +43,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    NSLog(@"DEALLOC %@", self.class);
 }
 
 - (IBAction)onClickEdit:(id)sender {
@@ -88,9 +92,9 @@
     editing = !editing;
     
     if (editing)
-        [conversationTitle becomeFirstResponder];
+        [_conversationTitle becomeFirstResponder];
     else {
-        [conversationTitle resignFirstResponder];
+        [_conversationTitle resignFirstResponder];
         [self changeName];
     }
     
@@ -105,11 +109,11 @@
 }
 
 - (void)changeName {
-    if (![self.conversation.name isEqualToString:conversationTitle.text]) {
-        if (conversationTitle.text.length > 0) {
+    if (![self.conversation.name isEqualToString:_conversationTitle.text]) {
+        if (_conversationTitle.text.length > 0) {
             [[LoadingViewManager getInstance] addLoadingToView:self.navigationController.view withMessage:@"Processing"];
             
-            [GTConversationManager editConversationTitleWithId:self.conversation.conversationId text:conversationTitle.text successBlock:^(GTResponseObject *response) {
+            [GTConversationManager editConversationTitleWithId:self.conversation.conversationId text:_conversationTitle.text successBlock:^(GTResponseObject *response) {
                 [[LoadingViewManager getInstance] removeLoadingView];
                 
                 GTConversation *c = response.object;
@@ -222,18 +226,18 @@
         case 0: {
             cell = [tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
             
-            conversationImage = (UIImageView *)[cell viewWithTag:1];
-            conversationImage.layer.cornerRadius = conversationImage.frame.size.width / 2;
-            conversationImage.layer.borderWidth = 2;
-            conversationImage.layer.borderColor = UIColorFromRGB(0x77c7ed).CGColor;
-            conversationImage.userInteractionEnabled = YES;
+            _conversationImage = (UIImageView *)[cell viewWithTag:1];
+            _conversationImage.layer.cornerRadius = _conversationImage.frame.size.width / 2;
+            _conversationImage.layer.borderWidth = 2;
+            _conversationImage.layer.borderColor = UIColorFromRGB(0x77c7ed).CGColor;
+            _conversationImage.userInteractionEnabled = YES;
             
             UIImageView *editView = (UIImageView *)[cell viewWithTag:3];
-            editView.center = conversationImage.center;
+            editView.center = _conversationImage.center;
             editView.image = [editView.image imageWithTint:UIColorFromRGB(0x77c7ed)];
             
             // Load avatar.
-            __strong typeof(self) weakSelf = self;
+            __weak typeof(self) weakSelf = self;
             
             if (self.conversation.imageId > 0) {
                 editView.hidden = YES;
@@ -241,33 +245,33 @@
                 NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[GTImageRequestBuilder buildGetConversationImage:self.conversation.imageId]]];
                 request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
                 
-                conversationImage.image = nil;
-                [conversationImage setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                    [UIView transitionWithView:weakSelf->conversationImage
+                _conversationImage.image = nil;
+                [_conversationImage setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                    [UIView transitionWithView:weakSelf.conversationImage
                                       duration:0.5f
                                        options:UIViewAnimationOptionTransitionCrossDissolve
                                     animations:^{
-                                        weakSelf->conversationImage.image = image;
+                                        weakSelf.conversationImage.image = image;
                                     } completion:nil];
                 } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                    weakSelf->conversationImage.image = nil;
+                    weakSelf.conversationImage.image = nil;
                 }];
             }
             else {
-                conversationImage.image = nil;
+                _conversationImage.image = nil;
                 
                 editView.hidden = NO;
             }
             
-            [conversationImage addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickChangeImage)]];
+            [_conversationImage addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickChangeImage)]];
             
-            conversationTitle = (UITextField *)[cell viewWithTag:2];
-            conversationTitle.text = self.conversation.name ? self.conversation.name : @"Untitled";
-            conversationTitle.delegate = self;
-            conversationTitle.layer.shadowOpacity = 1.0;
-            conversationTitle.layer.shadowRadius = 0.0;
-            conversationTitle.layer.shadowColor = [UIColor blackColor].CGColor;
-            conversationTitle.layer.shadowOffset = CGSizeMake(1.0, 1.0);
+            _conversationTitle = (UITextField *)[cell viewWithTag:2];
+            _conversationTitle.text = self.conversation.name ? self.conversation.name : @"Untitled";
+            _conversationTitle.delegate = self;
+            _conversationTitle.layer.shadowOpacity = 1.0;
+            _conversationTitle.layer.shadowRadius = 0.0;
+            _conversationTitle.layer.shadowColor = [UIColor blackColor].CGColor;
+            _conversationTitle.layer.shadowOffset = CGSizeMake(1.0, 1.0);
             
             break;
         }

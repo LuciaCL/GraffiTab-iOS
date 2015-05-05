@@ -52,6 +52,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    NSLog(@"DEALLOC %@", self.class);
+}
+
 #pragma mark - Tab Pager Data Source
 
 - (NSInteger)numberOfViewControllers {
