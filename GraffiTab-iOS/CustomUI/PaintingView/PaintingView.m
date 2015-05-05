@@ -522,6 +522,10 @@ typedef struct {
 {   
 	CGRect				bounds = [self bounds];
     UITouch*            touch = [[event touchesForView:self] anyObject];
+    
+    if (self.currentOverlay && CGRectContainsPoint(self.currentOverlay.frame, [touch locationInView:self]))
+        return;
+        
 	firstTouch = YES;
 	// Convert touch point from UIView referential to OpenGL one (upside-down flip)
 	location = [touch locationInView:self];
@@ -534,6 +538,9 @@ typedef struct {
 	CGRect				bounds = [self bounds];
 	UITouch*			touch = [[event touchesForView:self] anyObject];
 		
+    if (self.currentOverlay && CGRectContainsPoint(self.currentOverlay.frame, [touch locationInView:self]))
+        return;
+    
 	// Convert touch point from UIView referential to OpenGL one (upside-down flip)
 	if (firstTouch) {
 		firstTouch = NO;
@@ -555,6 +562,10 @@ typedef struct {
 {
 	CGRect				bounds = [self bounds];
     UITouch*            touch = [[event touchesForView:self] anyObject];
+    
+    if (self.currentOverlay && CGRectContainsPoint(self.currentOverlay.frame, [touch locationInView:self]))
+        return;
+    
 	if (firstTouch) {
 		firstTouch = NO;
 		previousLocation = [touch previousLocationInView:self];

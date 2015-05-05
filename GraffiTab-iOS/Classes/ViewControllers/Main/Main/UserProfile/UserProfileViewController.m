@@ -59,13 +59,6 @@
     [self setupStatusBar];
     [self setupTableView];
     [self setupHeader];
-    
-    if (self.user) {
-        [self loadItem];
-        [self.tableView ins_beginInfinityScroll];
-    }
-    else // We need to first check if the user exists.
-        [self findUserForUsername];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -85,6 +78,14 @@
         statusBarBackground.item = self.user;
         
         [self.tableView reloadData];
+    }
+    else if (!initiallyRefreshed) {
+        if (self.user) {
+            [self loadItem];
+            [self.tableView ins_beginInfinityScroll];
+        }
+        else // We need to first check if the user exists.
+            [self findUserForUsername];
     }
     
     initiallyRefreshed = YES;
@@ -806,7 +807,7 @@
 }
 
 - (void)setupTableView {
-    self.tableView.contentInset = UIEdgeInsetsMake(-STATUSBAR_HEIGHT, 0, -(STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT), 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(-STATUSBAR_HEIGHT, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(-STATUSBAR_HEIGHT, 0, 0, 0);
     self.tableView.tableFooterView = [UIView new];
     
