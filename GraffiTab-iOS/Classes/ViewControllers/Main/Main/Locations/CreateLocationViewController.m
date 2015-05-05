@@ -39,6 +39,22 @@
 
 - (void)dealloc {
     NSLog(@"DEALLOC %@", self.class);
+    
+    switch (mapView.mapType) {
+        case MKMapTypeHybrid:
+            mapView.mapType = MKMapTypeStandard;
+            break;
+        case MKMapTypeStandard:
+            mapView.mapType = MKMapTypeHybrid;
+            break;
+        default:
+            break;
+    }
+    
+    mapView.showsUserLocation = NO;
+    mapView.delegate = nil;
+    [mapView removeFromSuperview];
+    mapView = nil;
 }
 
 - (IBAction)onClickCenter:(id)sender {
