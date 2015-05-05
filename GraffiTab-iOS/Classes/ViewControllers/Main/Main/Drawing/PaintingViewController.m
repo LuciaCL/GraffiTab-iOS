@@ -151,7 +151,7 @@ static NSString * const kAVYAviarySecret = @"nESKzmp46kSvNDlgi0_CfA";
                 [Utils logoutUserAndShowLoginController];
                 [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
             }
-            else if (response.reason == DATABASE_ERROR || response.reason == NOT_FOUND || response.reason == NETWORK || response.reason == OTHER)
+            else
                 [Utils showMessage:APP_NAME message:response.message];
         };
         

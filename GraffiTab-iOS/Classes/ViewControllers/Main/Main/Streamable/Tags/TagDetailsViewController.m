@@ -177,7 +177,9 @@
 }
 
 - (IBAction)onClickOwner:(id)sender {
-    [ViewControllerUtils showUserProfile:self.item.user fromViewController:self];
+    [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+        [ViewControllerUtils showUserProfile:self.item.user fromViewController:[ViewControllerUtils getVisibleViewController]];
+    }];
 }
 
 - (IBAction)onClickLabelLike:(id)sender {
@@ -227,7 +229,7 @@
         [Utils logoutUserAndShowLoginController];
         [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
     }
-    else if (response.reason == DATABASE_ERROR || response.reason == NOT_FOUND || response.reason == NETWORK || response.reason == OTHER)
+    else
         [Utils showMessage:APP_NAME message:response.message];
 }
 

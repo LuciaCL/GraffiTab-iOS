@@ -253,7 +253,7 @@
     [GTUserManager checkLoginStatusWithSuccessBlock:^(GTResponseObject *response) {
         [self checkLocalLoginStatus];
     } failureBlock:^(GTResponseObject *response) {
-        if (response.reason == NETWORK)
+        if (response.reason == OTHER)
             [self checkLocalLoginStatus];
         else {
             [GTLifecycleManager setUser:nil];

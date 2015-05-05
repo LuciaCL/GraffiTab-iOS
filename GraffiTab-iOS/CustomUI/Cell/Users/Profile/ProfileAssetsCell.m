@@ -71,6 +71,11 @@
 - (void)loadAssets1 {
     UIImage *errorImage = [UIImage imageNamed:@"gallery.png"];
     
+    if (!self.item) {
+        [self finishLoadingWithSuccess:assetsCollection1 containerView:assets1View errorImage:errorImage items:nil];
+        return;
+    }
+    
     if (assets1Items && assets1Items.count > 0)
         return;
     
@@ -90,6 +95,11 @@
 - (void)loadAssets2 {
     UIImage *errorImage = [UIImage imageNamed:@"group.png"];
     
+    if (!self.item) {
+        [self finishLoadingWithSuccess:assetsCollection2 containerView:assets2View errorImage:errorImage items:nil];
+        return;
+    }
+    
     if (assets2Items && assets2Items.count > 0)
         return;
     
@@ -108,6 +118,11 @@
 
 - (void)loadAssets3 {
     UIImage *errorImage = [UIImage imageNamed:@"group.png"];
+    
+    if (!self.item) {
+        [self finishLoadingWithSuccess:assetsCollection3 containerView:assets3View errorImage:errorImage items:nil];
+        return;
+    }
     
     if (assets2Items && assets2Items.count > 0)
         return;

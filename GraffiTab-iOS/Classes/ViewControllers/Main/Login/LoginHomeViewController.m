@@ -61,10 +61,10 @@
         } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
-            if (response.reason == INCORRECT_CREDENTIALS)
+            if (response.reason == AUTHORIZATION_NEEDED)
                 [[SCLAlertView new] showError:self title:APP_NAME subTitle:@"The username or password are incorrect." closeButtonTitle:@"OK" duration:0.0f];
             else
-                [[SCLAlertView new] showError:self title:APP_NAME subTitle:@"We couldn't process your request right now. Please try again." closeButtonTitle:@"OK" duration:0.0f];
+                [[SCLAlertView new] showError:self title:APP_NAME subTitle:response.message closeButtonTitle:@"OK" duration:0.0f];
         }];
     }
 }

@@ -49,13 +49,9 @@
         } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
-            if (response.reason == INCORRECT_CREDENTIALS)
+            if (response.reason == AUTHORIZATION_NEEDED)
                 [[SCLAlertView new] showError:self.navigationController title:APP_NAME subTitle:@"Your password was incorrect." closeButtonTitle:@"OK" duration:0.0f];
-            else if (response.reason == AUTHORIZATION_NEEDED) {
-                [Utils logoutUserAndShowLoginController];
-                [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
-            }
-            else if (response.reason == DATABASE_ERROR || response.reason == NOT_FOUND || response.reason == NETWORK || response.reason == OTHER)
+            else
                 [Utils showMessage:APP_NAME message:response.message];
         }];
         
