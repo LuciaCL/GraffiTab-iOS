@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 GraffiTab. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MGSwipeTableCell.h"
 
-@interface UserLocationCell : UITableViewCell
+@interface UserLocationCell : MGSwipeTableCell
 
 @property (nonatomic, weak) GTUserLocation *item;
 @property (nonatomic, weak) IBOutlet UIImageView *locationImage;

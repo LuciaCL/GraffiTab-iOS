@@ -36,6 +36,24 @@ static MyLocationManager *instance = nil;
     return self;
 }
 
+- (NSSet *)getRegions {
+    return locationManager.monitoredRegions;
+}
+
+- (BOOL)canMonitorRegions {
+    return [CLLocationManager isMonitoringAvailableForClass:[CLRegion class]];
+}
+
+- (void)startMonitoringRegion:(CLRegion *)region {
+    region.notifyOnEntry = YES;
+    region.notifyOnExit = NO;
+    [locationManager startMonitoringForRegion:region];
+}
+
+- (void)stopMonitoringRegion:(CLRegion *)region {
+    [locationManager stopMonitoringForRegion:region];
+}
+
 - (void)startLocationUpdates {
     [locationManager startMonitoringSignificantLocationChanges];
     [locationManager startUpdatingLocation];
@@ -52,7 +70,7 @@ static MyLocationManager *instance = nil;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     if (IS_IOS8_AND_UP)
-        [locationManager requestWhenInUseAuthorization];
+        [locationManager requestAlwaysAuthorization];
     
     self.lastLocation = locationManager.location;
 }
@@ -61,6 +79,18 @@ static MyLocationManager *instance = nil;
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     self.lastLocation = [locations lastObject];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+        [Utils showMessage:APP_NAME message:@"You have entered one of your geographical regions. To explore it, navigate to the Graffiti Map."];
+    else {
+        UILocalNotification *notification = [[UILocalNotification alloc]init];
+        [notification setAlertBody:@"You have entered one of your geographical regions. Explore it here."];
+        [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+        [notification setTimeZone:[NSTimeZone  defaultTimeZone]];
+        [[UIApplication sharedApplication] setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
+    }
 }
 
 @end

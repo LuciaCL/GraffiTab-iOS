@@ -108,6 +108,14 @@
     [self.collectionView reloadData];
 }
 
+- (void)showStreamableTag:(GTStreamableTag *)streamable {
+    [ViewControllerUtils showTag:streamable fromViewController:self];
+}
+
+- (void)showStreamableVideo:(GTStreamableVideo *)streamable {
+    
+}
+
 #pragma mark - Loading
 
 - (void)refresh {
@@ -313,9 +321,9 @@
     GTStreamable *n = items[indexPath.row];
     
     if ([n isKindOfClass:[GTStreamableTag class]])
-        [ViewControllerUtils showTag:(GTStreamableTag *) n fromViewController:self];
+        [self showStreamableTag:(GTStreamableTag *) n];
     else if ([n isKindOfClass:[GTStreamableVideo class]]) {
-        
+        [self showStreamableVideo:(GTStreamableVideo *) n];
     }
 }
 

@@ -36,6 +36,12 @@
     [self mz_dismissFormSheetControllerAnimated:YES completionHandler:nil];
 }
 
+- (void)showStreamableTag:(GTStreamableTag *)streamable {
+    [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+        [ViewControllerUtils showTag:streamable fromViewController:[ViewControllerUtils getVisibleViewController]];
+    }];
+}
+
 - (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(GTResponseObject *))successBlock cacheBlock:(void (^)(GTResponseObject *))cacheBlock failureBlock:(void (^)(GTResponseObject *))failureBlock {
     [GTStreamableManager getForLocationWithNECoordinate:self.neCoord SWCoordinate:self.swCoord start:o numberOfItems:MAX_ITEMS successBlock:^(GTResponseObject *response) {
         successBlock(response);

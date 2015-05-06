@@ -15,6 +15,11 @@
 
 + (MyLocationManager *)sharedInstance;
 
+- (NSSet *)getRegions;
+- (BOOL)canMonitorRegions;
+- (void)startMonitoringRegion:(CLRegion *)region;
+- (void)stopMonitoringRegion:(CLRegion *)region;
+
 - (void)startLocationUpdates;
 - (void)stopLocationUpdates;
 

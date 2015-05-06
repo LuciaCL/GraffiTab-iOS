@@ -13,6 +13,7 @@
 #import "UserLocationCell.h"
 #import "UIActionSheet+Blocks.h"
 #import "RTSpinKitView.h"
+#import "MGSwipeButton.h"
 
 @interface LocationsViewController () {
     
@@ -69,6 +70,61 @@
         [_theTable setEditing:NO animated:YES];
     else
         [_theTable setEditing:YES animated:YES];
+}
+
+#pragma mark - Geofencing
+
+- (void)addGeofenceForLocation:(NSIndexPath *)indexPath {
+    if (![MyLocationManager sharedInstance].canMonitorRegions) {
+        [Utils showMessage:APP_NAME message:@"Your device does not support geofences."];
+        
+        return;
+    }
+    
+    GTUserLocation *l = items[indexPath.row];
+    
+    // Initialize region to monitor.
+    CLCircularRegion *region = [self getRegionForLocation:l];
+    
+    // Start monitoring region.
+    [[MyLocationManager sharedInstance] startMonitoringRegion:region];
+    
+    [Utils showMessage:APP_NAME message:@"This region is now being tracked."];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [_theTable reloadData];
+    });
+}
+
+- (void)removeGeofenceForLocation:(NSIndexPath *)indexPath {
+    if (![MyLocationManager sharedInstance].canMonitorRegions) {
+        [Utils showMessage:APP_NAME message:@"Your device does not support geofences."];
+        
+        return;
+    }
+    
+    GTUserLocation *l = items[indexPath.row];
+    
+    // Initialize region to monitor.
+    CLCircularRegion *region = [self getRegionForLocation:l];
+    
+    if ([[MyLocationManager sharedInstance].getRegions containsObject:region]) {
+        // Stop monitoring region.
+        [[MyLocationManager sharedInstance] stopMonitoringRegion:region];
+        
+        [Utils showMessage:APP_NAME message:@"This region is no longer being tracked."];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [_theTable reloadData];
+        });
+    }
+}
+
+- (CLCircularRegion *)getRegionForLocation:(GTUserLocation *)l {
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:l.latitude longitude:l.longitude];
+    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:[location coordinate] radius:250.0 identifier:[NSString stringWithFormat:@"%li", l.locationId]];
+    
+    return region;
 }
 
 #pragma mark - Loading
@@ -154,9 +210,25 @@
         l.textColor = [UIColor lightGrayColor];
         l.font = [UIFont systemFontOfSize:15];
         _theTable.tableHeaderView = l;
+        _theTable.tableFooterView = [UIView new];
     }
-    else
+    else {
         _theTable.tableHeaderView = nil;
+        
+        UILabel *footer = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _theTable.frame.size.width, 25)];
+        footer.text = @"Swipe a location to add or edit it's geofence. You can use geofences to get notifications when you enter a specific geographic region.";
+        footer.numberOfLines = 0;
+        footer.lineBreakMode = NSLineBreakByWordWrapping;
+        footer.textAlignment = NSTextAlignmentCenter;
+        footer.font = [UIFont systemFontOfSize:12];
+        footer.textColor = UIColorFromRGB(0x808080);
+        footer.alpha = 0.6;
+        [footer sizeToFit];
+        CGRect f = footer.frame;
+        f.size.height += 15;
+        footer.frame = f;
+        _theTable.tableFooterView = footer;
+    }
 }
 
 #pragma mark - UITableViewDelegate
@@ -169,6 +241,32 @@
     UserLocationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserLocationCell" forIndexPath:indexPath];
     
     cell.item = items[indexPath.row];
+    
+    // Add utility buttons.
+    __weak typeof(self) weakSelf = self;
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    CLRegion *r = [self getRegionForLocation:items[indexPath.row]];
+    
+    if (![[MyLocationManager sharedInstance].getRegions containsObject:r]) {
+        MGSwipeButton *btn = [MGSwipeButton buttonWithTitle:@"Track" backgroundColor:UIColorFromRGB(COLOR_MAIN) callback:^BOOL(MGSwipeTableCell *sender) {
+            [weakSelf addGeofenceForLocation:indexPath];
+            
+            return YES;
+        }];
+        
+        [rightUtilityButtons addObject:btn];
+    }
+    else {
+        MGSwipeButton *btn = [MGSwipeButton buttonWithTitle:@"Untrack" backgroundColor:UIColorFromRGB(0xFC3D38) callback:^BOOL(MGSwipeTableCell *sender) {
+            [weakSelf removeGeofenceForLocation:indexPath];
+            
+            return YES;
+        }];
+        
+        [rightUtilityButtons addObject:btn];
+    }
+    
+    cell.rightButtons = rightUtilityButtons;
     
     return cell;
 }
@@ -205,6 +303,9 @@
             else
                 [Utils showMessage:APP_NAME message:response.message];
         }];
+        
+        // Stop geofencing, if any.
+        [self removeGeofenceForLocation:indexPath];
         
         // Delete item instantly.
         [items removeObjectAtIndex:indexPath.row];

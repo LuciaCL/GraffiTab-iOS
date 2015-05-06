@@ -27,6 +27,9 @@ typedef enum {
 - (void)refresh;
 - (void)layoutComponents;
 
+- (void)showStreamableTag:(GTStreamableTag *)streamable;
+- (void)showStreamableVideo:(GTStreamableVideo *)streamable;
+
 - (void)showLoadingIndicator;
 - (void)removeLoadingIndicator;
 

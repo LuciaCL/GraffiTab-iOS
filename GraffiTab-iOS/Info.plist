@@ -36,9 +36,13 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need to use your location to determine the position of the graffiti around the world.</string>
+	<string>We use your location to notify you when you enter any of your defined Places.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need to use your location to determine the position of the graffiti around the world.</string>
+	<string>We use your location to show relative graffiti in your area.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>SplashStoryboard</string>
 	<key>UIMainStoryboardFile~ipad</key>

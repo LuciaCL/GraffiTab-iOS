@@ -44,6 +44,7 @@
     #import "LoadingViewManager.h"
     #import "DateUtils.h"
     #import "ShareUtils.h"
+    #import "MyLocationManager.h"
 
     #import "ViewControllerUtils.h"
 #endif

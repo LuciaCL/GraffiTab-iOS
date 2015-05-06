@@ -9,7 +9,6 @@
 #import "PaintingViewController.h"
 #import "PaintingView.h"
 #import "SoundEffect.h"
-#import "MyLocationManager.h"
 #import "UIActionSheet+Blocks.h"
 #import "ImageCropViewController.h"
 
