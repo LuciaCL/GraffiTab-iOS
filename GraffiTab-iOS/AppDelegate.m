@@ -13,7 +13,7 @@
 #import "SlideNavigationContorllerAnimatorSlide.h"
 #import "MyLocationManager.h"
 #import "MessagesViewController.h"
-#import "NotificationsViewController.h"
+#import "MyNotificationsViewController.h"
 #import "ConversationsViewController.h"
 #import "Reachability.h"
 #import "TWMessageBarManager.h"

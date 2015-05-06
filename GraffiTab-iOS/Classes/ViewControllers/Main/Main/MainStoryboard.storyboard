@@ -556,9 +556,39 @@
             <point key="canvasLocation" x="-20" y="572"/>
         </scene>
         <!--Notifications View Controller-->
+        <scene sceneID="IQF-0c-R1X">
+            <objects>
+                <viewController storyboardIdentifier="NotificationsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k7N-b4-Kwi" customClass="NotificationsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SJ2-Tp-ZlV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TEB-Z2-049" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="329" y="572"/>
+        </scene>
+        <!--Following Notifications View Controller-->
+        <scene sceneID="Cyq-ON-b0s">
+            <objects>
+                <viewController storyboardIdentifier="FollowingNotificationsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eAw-xz-Tqu" customClass="FollowingNotificationsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R13-Dp-uu0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BiU-5B-qzM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="679" y="572"/>
+        </scene>
+        <!--My Notifications View Controller-->
         <scene sceneID="8Bm-xq-SMo">
             <objects>
-                <viewController storyboardIdentifier="NotificationsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qeq-Ex-b8B" customClass="NotificationsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyNotificationsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qeq-Ex-b8B" customClass="MyNotificationsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hki-Nn-LPa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -759,7 +789,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0wi-7I-cCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="329" y="572"/>
+            <point key="canvasLocation" x="1033" y="572"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C6f-ho-0LK">
@@ -913,7 +943,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="stf-dJ-3nl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="679" y="572"/>
+            <point key="canvasLocation" x="1383" y="572"/>
         </scene>
         <!--Followers View Controller-->
         <scene sceneID="zS0-iB-ikj">
@@ -943,7 +973,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRS-zK-iNr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1033" y="572"/>
+            <point key="canvasLocation" x="1737" y="572"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="px1-IB-3V1">
@@ -1026,7 +1056,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bel-Wv-U6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1389" y="572"/>
+            <point key="canvasLocation" x="2093" y="572"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wNt-1e-hpK">
@@ -1042,7 +1072,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6TF-E1-3Fp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1746" y="572"/>
+            <point key="canvasLocation" x="2450" y="572"/>
         </scene>
         <!--Tag Details View Controller-->
         <scene sceneID="BKW-YH-biI">
@@ -1234,7 +1264,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2098" y="572"/>
+            <point key="canvasLocation" x="2802" y="572"/>
         </scene>
         <!--Newest View Controller-->
         <scene sceneID="X87-dd-Bwc">

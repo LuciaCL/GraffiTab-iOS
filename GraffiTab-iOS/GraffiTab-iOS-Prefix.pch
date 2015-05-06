@@ -30,6 +30,7 @@
     #import "BackButtonTableViewController.h"
     #import "BackButtonTwitterPagerViewController.h"
     #import "BackButtonSLKTextViewController.h"
+    #import "BackButtonGUITabPagerViewController.h"
 
     #import "MZFormSheetController.h"
     #import "SlideNavigationController.h"

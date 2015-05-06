@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 GraffiTab. All rights reserved.
 //
 
-#import <GUITabPagerViewController/GUITabPagerViewController.h>
+#import "BackButtonGUITabPagerViewController.h"
 
-@interface SearchViewController : GUITabPagerViewController <GUITabPagerDataSource, GUITabPagerDelegate, UISearchBarDelegate>
+@interface SearchViewController : BackButtonGUITabPagerViewController <GUITabPagerDataSource, GUITabPagerDelegate, UISearchBarDelegate>
 
 @end

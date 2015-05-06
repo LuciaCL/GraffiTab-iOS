@@ -2,13 +2,13 @@
 //  NotificationsViewController.h
 //  GraffiTab-iOS
 //
-//  Created by Georgi Christov on 03/12/2014.
-//  Copyright (c) 2014 GraffiTab. All rights reserved.
+//  Created by Georgi Christov on 06/05/2015.
+//  Copyright (c) 2015 GraffiTab. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BackButtonGUITabPagerViewController.h"
 
-@interface NotificationsViewController : BackButtonViewController <UITableViewDataSource, UITableViewDelegate>
+@interface NotificationsViewController : BackButtonGUITabPagerViewController <GUITabPagerDataSource, GUITabPagerDelegate>
 
 @property (nonatomic, assign) BOOL isModal;
 

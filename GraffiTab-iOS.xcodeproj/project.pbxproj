@@ -55,7 +55,7 @@
 		E5D6F56A1AF02066009EA94C /* ConversationSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3CD1AF02066009EA94C /* ConversationSettingsViewController.m */; };
 		E5D6F56B1AF02066009EA94C /* MostActiveUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3D01AF02066009EA94C /* MostActiveUsersViewController.m */; };
 		E5D6F56C1AF02066009EA94C /* NewestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3D31AF02066009EA94C /* NewestViewController.m */; };
-		E5D6F56D1AF02066009EA94C /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3D61AF02066009EA94C /* NotificationsViewController.m */; };
+		E5D6F56D1AF02066009EA94C /* MyNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3D61AF02066009EA94C /* MyNotificationsViewController.m */; };
 		E5D6F56E1AF02066009EA94C /* PopularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3D91AF02066009EA94C /* PopularViewController.m */; };
 		E5D6F56F1AF02066009EA94C /* SearchGraffitiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3DC1AF02066009EA94C /* SearchGraffitiViewController.m */; };
 		E5D6F5701AF02066009EA94C /* SearchUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3DE1AF02066009EA94C /* SearchUsersViewController.m */; };
@@ -200,6 +200,9 @@
 		E5D6F60C1AF0211C009EA94C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D6F60B1AF0211C009EA94C /* SystemConfiguration.framework */; };
 		E5D6F60E1AF02125009EA94C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D6F60D1AF02125009EA94C /* MobileCoreServices.framework */; };
 		E5D6F6121AF09FB8009EA94C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D6F6111AF09FB8009EA94C /* FacebookSDK.framework */; };
+		E5E1FE371AFA104B00FD3B18 /* BackButtonGUITabPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE361AFA104B00FD3B18 /* BackButtonGUITabPagerViewController.m */; };
+		E5E1FE3A1AFA109D00FD3B18 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE391AFA109D00FD3B18 /* NotificationsViewController.m */; };
+		E5E1FE3D1AFA13BC00FD3B18 /* FollowingNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE3C1AFA13BC00FD3B18 /* FollowingNotificationsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -326,8 +329,8 @@
 		E5D6F3D01AF02066009EA94C /* MostActiveUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MostActiveUsersViewController.m; sourceTree = "<group>"; };
 		E5D6F3D21AF02066009EA94C /* NewestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewestViewController.h; sourceTree = "<group>"; };
 		E5D6F3D31AF02066009EA94C /* NewestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewestViewController.m; sourceTree = "<group>"; };
-		E5D6F3D51AF02066009EA94C /* NotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsViewController.h; sourceTree = "<group>"; };
-		E5D6F3D61AF02066009EA94C /* NotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsViewController.m; sourceTree = "<group>"; };
+		E5D6F3D51AF02066009EA94C /* MyNotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationsViewController.h; sourceTree = "<group>"; };
+		E5D6F3D61AF02066009EA94C /* MyNotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNotificationsViewController.m; sourceTree = "<group>"; };
 		E5D6F3D81AF02066009EA94C /* PopularViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularViewController.h; sourceTree = "<group>"; };
 		E5D6F3D91AF02066009EA94C /* PopularViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularViewController.m; sourceTree = "<group>"; };
 		E5D6F3DB1AF02066009EA94C /* SearchGraffitiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchGraffitiViewController.h; sourceTree = "<group>"; };
@@ -565,6 +568,12 @@
 		E5D6F60B1AF0211C009EA94C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E5D6F60D1AF02125009EA94C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E5D6F6111AF09FB8009EA94C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		E5E1FE351AFA104B00FD3B18 /* BackButtonGUITabPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackButtonGUITabPagerViewController.h; sourceTree = "<group>"; };
+		E5E1FE361AFA104B00FD3B18 /* BackButtonGUITabPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackButtonGUITabPagerViewController.m; sourceTree = "<group>"; };
+		E5E1FE381AFA109D00FD3B18 /* NotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsViewController.h; sourceTree = "<group>"; };
+		E5E1FE391AFA109D00FD3B18 /* NotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsViewController.m; sourceTree = "<group>"; };
+		E5E1FE3B1AFA13BC00FD3B18 /* FollowingNotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingNotificationsViewController.h; sourceTree = "<group>"; };
+		E5E1FE3C1AFA13BC00FD3B18 /* FollowingNotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingNotificationsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1023,8 +1032,12 @@
 		E5D6F3D41AF02066009EA94C /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				E5D6F3D51AF02066009EA94C /* NotificationsViewController.h */,
-				E5D6F3D61AF02066009EA94C /* NotificationsViewController.m */,
+				E5D6F3D51AF02066009EA94C /* MyNotificationsViewController.h */,
+				E5D6F3D61AF02066009EA94C /* MyNotificationsViewController.m */,
+				E5E1FE3B1AFA13BC00FD3B18 /* FollowingNotificationsViewController.h */,
+				E5E1FE3C1AFA13BC00FD3B18 /* FollowingNotificationsViewController.m */,
+				E5E1FE381AFA109D00FD3B18 /* NotificationsViewController.h */,
+				E5E1FE391AFA109D00FD3B18 /* NotificationsViewController.m */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -1544,6 +1557,8 @@
 		E5D6F49E1AF02066009EA94C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E5E1FE351AFA104B00FD3B18 /* BackButtonGUITabPagerViewController.h */,
+				E5E1FE361AFA104B00FD3B18 /* BackButtonGUITabPagerViewController.m */,
 				E5D6F49F1AF02066009EA94C /* BackButtonSLKTextViewController.h */,
 				E5D6F4A01AF02066009EA94C /* BackButtonSLKTextViewController.m */,
 				E5D6F4A11AF02066009EA94C /* BackButtonTableViewController.h */,
@@ -2004,12 +2019,13 @@
 				E5D6F5C41AF02066009EA94C /* BackButtonViewController.m in Sources */,
 				E5D6F5571AF02066009EA94C /* ImageCropViewController.m in Sources */,
 				E5D6F5C51AF02066009EA94C /* STFullOnlyViewController.m in Sources */,
-				E5D6F56D1AF02066009EA94C /* NotificationsViewController.m in Sources */,
+				E5D6F56D1AF02066009EA94C /* MyNotificationsViewController.m in Sources */,
 				E5D6F5901AF02066009EA94C /* NotificationFollowCell.m in Sources */,
 				E5D6F5B91AF02066009EA94C /* LoadingViewManager.m in Sources */,
 				E5D6F4F31AF02066009EA94C /* DialogBuilder.m in Sources */,
 				E5D6F5D91AF02066009EA94C /* EVCircularProgressView.m in Sources */,
 				E5D6F58E1AF02066009EA94C /* NotificationCellFactory.m in Sources */,
+				E5E1FE3A1AFA109D00FD3B18 /* NotificationsViewController.m in Sources */,
 				E5D6F55E1AF02066009EA94C /* HomeViewController.m in Sources */,
 				E5D6F58D1AF02066009EA94C /* NotificationCell.m in Sources */,
 				E5D6F5731AF02066009EA94C /* FeedbackViewController.m in Sources */,
@@ -2032,11 +2048,13 @@
 				E5D6F5AA1AF02066009EA94C /* STVideoThumbnailCollectionCell.m in Sources */,
 				E5D6F56C1AF02066009EA94C /* NewestViewController.m in Sources */,
 				E5D6F5C31AF02066009EA94C /* BackButtonTwitterPagerViewController.m in Sources */,
+				E5E1FE3D1AFA13BC00FD3B18 /* FollowingNotificationsViewController.m in Sources */,
 				E5D6F5591AF02066009EA94C /* FavouritesViewController.m in Sources */,
 				E5D6F5981AF02066009EA94C /* STVideoFullSizeCollectionCell.m in Sources */,
 				E5D6F5791AF02066009EA94C /* TagDetailsViewController.m in Sources */,
 				E5D6F5921AF02066009EA94C /* NotificationMentionCell.m in Sources */,
 				E5D6F5BF1AF02066009EA94C /* SoundEffect.m in Sources */,
+				E5E1FE371AFA104B00FD3B18 /* BackButtonGUITabPagerViewController.m in Sources */,
 				E5D6F59C1AF02066009EA94C /* STTagFullSizeTableCell.m in Sources */,
 				E5D6F5CE1AF02066009EA94C /* UIActionSheet+Blocks.m in Sources */,
 				E5D6F5621AF02066009EA94C /* LocationsViewController.m in Sources */,
