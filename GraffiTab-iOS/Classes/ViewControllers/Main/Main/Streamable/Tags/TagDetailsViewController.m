@@ -27,6 +27,7 @@
     IBOutlet UIImageView *likeImage;
     IBOutlet UIImageView *commentImage;
     IBOutlet UIImageView *menuImage;
+    IBOutlet UIImageView *shareImage;
     
     WYPopoverController *settingsPopoverController;
 }
@@ -41,6 +42,7 @@
 - (IBAction)onClickLabelLike:(id)sender;
 - (IBAction)onClickLike:(id)sender;
 - (IBAction)onClickMenu:(id)sender;
+- (IBAction)onClickShare:(id)sender;
 
 @end
 
@@ -73,6 +75,10 @@
 
 - (void)dealloc {
     NSLog(@"DEALLOC %@", self.class);
+}
+
+- (IBAction)onClickShare:(id)sender {
+    [ShareUtils shareText:nil andImage:self.itemImage.imageView.image andUrl:nil viewController:self];
 }
 
 - (IBAction)onClickMenu:(id)sender {
@@ -390,6 +396,7 @@
     
     likeImage.image = [likeImage.image imageWithTint:[UIColor lightGrayColor]];
     menuImage.image = [menuImage.image imageWithTint:[UIColor lightGrayColor]];
+    shareImage.image = [shareImage.image imageWithTint:[UIColor lightGrayColor]];
     [closeBtn setImage:[closeBtn.imageView.image imageWithTint:[UIColor lightGrayColor]] forState:UIControlStateNormal];
 }
 

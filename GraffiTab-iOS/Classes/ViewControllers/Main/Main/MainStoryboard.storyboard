@@ -1065,6 +1065,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" id="Brd-Rd-M8y">
+                                        <rect key="frame" x="47" y="15" width="23" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="GFf-nb-n1r" appends="YES" id="M9i-Qw-VEB"/>
+                                        </connections>
+                                    </imageView>
                                     <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h5E-et-QXp">
                                         <rect key="frame" x="287" y="13" width="25" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
@@ -1179,6 +1187,7 @@
                         <outlet property="likeImage" destination="yrp-co-iKz" id="7BU-WJ-hix"/>
                         <outlet property="likesLabel" destination="h5E-et-QXp" id="bTC-Q5-1z6"/>
                         <outlet property="menuImage" destination="l7X-eS-NTL" id="HlN-7m-btE"/>
+                        <outlet property="shareImage" destination="Brd-Rd-M8y" id="ewB-B8-02w"/>
                         <outlet property="topGradientView" destination="Ghc-Ve-SW4" id="qCX-s2-IYU"/>
                         <outlet property="usernameLabel" destination="6p8-x6-tJr" id="Pyy-R7-aM6"/>
                     </connections>
@@ -1217,6 +1226,11 @@
                 <tapGestureRecognizer id="FOR-HY-Llj">
                     <connections>
                         <action selector="onClickLabelComment:" destination="BSD-AP-QMA" id="Aia-sx-ydF"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="GFf-nb-n1r">
+                    <connections>
+                        <action selector="onClickShare:" destination="BSD-AP-QMA" id="t8k-JS-WOM"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -3429,6 +3443,7 @@
         <image name="message" width="25" height="25"/>
         <image name="search" width="25" height="25"/>
         <image name="settings" width="25" height="25"/>
+        <image name="share" width="17" height="18"/>
         <image name="star" width="25" height="25"/>
         <image name="view_toggle" width="25" height="25"/>
     </resources>
