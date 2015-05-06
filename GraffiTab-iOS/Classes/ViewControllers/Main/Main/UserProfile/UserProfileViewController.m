@@ -93,7 +93,10 @@
 }
 
 - (void)dealloc {
+#ifdef DEBUG
     NSLog(@"DEALLOC %@", self.class);
+#endif
+    
     [self.tableView ins_removeInfinityScroll];
 }
 
@@ -824,9 +827,9 @@
             if (weakSelf.initiallyLoaded)
                 weakSelf.offset += MAX_ITEMS;
             
-            weakSelf.initiallyLoaded = YES;
+            [weakSelf loadItems:!weakSelf.initiallyLoaded withOffset:weakSelf.offset];
             
-            [weakSelf loadItems:NO withOffset:weakSelf.offset];
+            weakSelf.initiallyLoaded = YES;
         }
         else {
             weakSelf.isDownloading = NO;

@@ -75,7 +75,9 @@
 }
 
 - (void)dealloc {
+#ifdef DEBUG
     NSLog(@"DEALLOC %@", self.class);
+#endif
 }
 
 - (IBAction)onClickCancel:(id)sender {

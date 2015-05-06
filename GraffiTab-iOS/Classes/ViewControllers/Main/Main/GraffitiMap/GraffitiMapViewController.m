@@ -76,7 +76,9 @@
 }
 
 - (void)dealloc {
+#ifdef DEBUG
     NSLog(@"DEALLOC %@", self.class);
+#endif
     
     switch (myMapView.mapType) {
         case MKMapTypeHybrid:
@@ -237,7 +239,6 @@
 #pragma mark - Loading
 
 - (void)loadItems {
-    NSLog(@"LOADING");
     // First we need to calculate the corners of the map so we get the points.
     CGPoint nePoint = CGPointMake(myMapView.bounds.origin.x + myMapView.bounds.size.width, myMapView.bounds.origin.y);
     CGPoint swPoint = CGPointMake(myMapView.bounds.origin.x, myMapView.bounds.origin.y + myMapView.bounds.size.height);
@@ -248,18 +249,10 @@
     
     int o = 0;
     
-    [GTStreamableManager getForLocationWithNECoordinate:neCoord SWCoordinate:swCoord start:o numberOfItems:50 useCache:NO successBlock:^(GTResponseObject *response) {
+    [GTStreamableManager getForLocationWithNECoordinate:neCoord SWCoordinate:swCoord start:o numberOfItems:50 successBlock:^(GTResponseObject *response) {
         [self processAnnotations:response.object];
         
         [self finalizeLoad];
-    } cacheBlock:^(GTResponseObject *response) {
-        [myMapView removeAnnotations:annotations];
-        [items removeAllObjects];
-        [annotations removeAllObjects];
-        
-        [self processAnnotations:response.object];
-
-        [self finalizeCacheLoad];
     } failureBlock:^(GTResponseObject *response) {
         [self finalizeLoad];
 
@@ -339,7 +332,7 @@
     });
 }
 
-#pragma mark - UITextFIeldDelegate
+#pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
@@ -353,10 +346,8 @@
 #pragma mark - MKMapViewDelegate
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-    if (!showedFirstUserLocation && !self.location) {
-        NSLog(@"HERE");
+    if (!showedFirstUserLocation && !self.location)
         [self centerToLocation:myMapView.userLocation.location];
-    }
     
     showedFirstUserLocation = YES;
 }

@@ -1460,36 +1460,11 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="cancelButton" destination="RqC-mw-FC5" id="R32-pG-62O"/>
-                        <outlet property="createButton" destination="fyZ-bJ-pb0" id="xBK-VC-nvg"/>
-                        <outlet property="deleteButton" destination="4Iq-Tg-1v1" id="2Aa-an-236"/>
-                        <outlet property="editButton" destination="0vA-No-ThT" id="pTB-Tw-lAQ"/>
                         <outlet property="theTable" destination="Va6-1a-qFI" id="D5Z-Ad-BuC"/>
-                        <segue destination="Job-kG-sRc" kind="push" identifier="SEGUE_CREATE_LOCATION" id="1bB-9s-CKr"/>
+                        <segue destination="Job-kG-sRc" kind="modal" identifier="SEGUE_CREATE_LOCATION" id="1bB-9s-CKr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5o1-JU-RG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <barButtonItem systemItem="compose" id="0vA-No-ThT">
-                    <connections>
-                        <action selector="onClickEdit:" destination="1MB-hE-E91" id="13I-Pl-SI8"/>
-                    </connections>
-                </barButtonItem>
-                <barButtonItem systemItem="cancel" id="RqC-mw-FC5">
-                    <connections>
-                        <action selector="onClickCancel:" destination="1MB-hE-E91" id="9KQ-wL-5XO"/>
-                    </connections>
-                </barButtonItem>
-                <barButtonItem title="Delete" id="4Iq-Tg-1v1">
-                    <color key="tintColor" red="0.9137254901960784" green="0.63137254901960782" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <connections>
-                        <action selector="onClickDelete:" destination="1MB-hE-E91" id="ymO-Yk-a2m"/>
-                    </connections>
-                </barButtonItem>
-                <barButtonItem systemItem="add" id="fyZ-bJ-pb0">
-                    <connections>
-                        <action selector="onClickCreate:" destination="1MB-hE-E91" id="w7J-K2-qfW"/>
-                    </connections>
-                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="-372" y="2467"/>
         </scene>
@@ -1501,36 +1476,104 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="OA5-Sg-eqy">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="dEK-ev-E0a" customClass="TSClusterMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
-                                    <outlet property="delegate" destination="Job-kG-sRc" id="MmO-W2-PVc"/>
+                                    <outlet property="delegate" destination="Job-kG-sRc" id="yZO-cO-Zf9"/>
                                 </connections>
                             </mapView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" id="jTb-gm-ZmD">
-                                <rect key="frame" x="135" y="259" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Cqn-oa-EPj">
+                                <rect key="frame" x="10" y="32" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickBack:" destination="Job-kG-sRc" eventType="touchUpInside" id="0Q1-7c-4aQ"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="qwe-kR-2xp">
+                                <rect key="frame" x="270" y="32" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="H1O-ZU-zOS">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="search">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onClickSearch:" destination="Job-kG-sRc" eventType="touchUpInside" id="bbE-zn-Nt5"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search location" minimumFontSize="17" id="Tog-K4-4a0">
+                                        <rect key="frame" x="41" y="0.0" width="1" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Job-kG-sRc" id="mur-R2-vp4"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="4lV-4c-zKw">
+                                <rect key="frame" x="115" y="508" width="90" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OHR-Hv-624">
+                                        <rect key="frame" x="3" y="0.0" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="checkmark">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onClickCreate:" destination="Job-kG-sRc" eventType="touchUpInside" id="hYX-Og-mZe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="y0Q-6Y-kLI">
+                                        <rect key="frame" x="48" y="0.0" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="define_location">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onClickLocate:" destination="Job-kG-sRc" eventType="touchUpInside" id="c0G-df-Ilg"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" id="rCG-xV-6Hg">
+                                        <rect key="frame" x="44" y="9" width="1" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ClusterAnnotation" id="nei-pV-vth">
+                                <rect key="frame" x="140" y="264" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="hff-up-eYy">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BaQ-Bk-JpC"/>
-                                    <barButtonItem image="define_location" id="fGv-E9-yJF">
-                                        <connections>
-                                            <action selector="onClickCenter:" destination="Job-kG-sRc" id="vXx-uB-fkQ"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="0xS-9b-W12"/>
                     <connections>
-                        <outlet property="mapCenterImage" destination="jTb-gm-ZmD" id="Wqs-lS-84S"/>
-                        <outlet property="mapView" destination="OA5-Sg-eqy" id="eTK-dL-QKH"/>
+                        <outlet property="backButton" destination="Cqn-oa-EPj" id="l7r-ek-MlG"/>
+                        <outlet property="gridButton" destination="OHR-Hv-624" id="dd4-cK-ng5"/>
+                        <outlet property="locateButton" destination="y0Q-6Y-kLI" id="C5b-AZ-icx"/>
+                        <outlet property="mapCenterImage" destination="nei-pV-vth" id="Bja-FQ-VmP"/>
+                        <outlet property="mapView" destination="dEK-ev-E0a" id="8VS-zr-vub"/>
+                        <outlet property="searchButton" destination="H1O-ZU-zOS" id="bZP-Nw-snD"/>
+                        <outlet property="searchField" destination="Tog-K4-4a0" id="coP-85-TM7"/>
+                        <outlet property="searchView" destination="qwe-kR-2xp" id="7a2-v7-yqe"/>
+                        <outlet property="segmentView" destination="4lV-4c-zKw" id="CV4-bb-x1Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ch6-GO-LGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3446,7 +3489,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ClusterAnnotation" width="33" height="40"/>
         <image name="back" width="25" height="25"/>
+        <image name="checkmark" width="25" height="25"/>
         <image name="clock" width="25" height="25"/>
         <image name="comment" width="19" height="18"/>
         <image name="default_avatar.jpg" width="185" height="185"/>
@@ -3467,7 +3512,6 @@
         <image name="icn_plus" width="15" height="15"/>
         <image name="info" width="25" height="25"/>
         <image name="like" width="19" height="19"/>
-        <image name="location" width="32" height="58"/>
         <image name="logout" width="25" height="25"/>
         <image name="map" width="25" height="25"/>
         <image name="message" width="25" height="25"/>

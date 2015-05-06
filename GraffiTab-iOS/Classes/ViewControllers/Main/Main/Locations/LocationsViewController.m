@@ -16,25 +16,13 @@
 
 @interface LocationsViewController () {
     
-    IBOutlet UIBarButtonItem *editButton;
-    IBOutlet UIBarButtonItem *cancelButton;
-    IBOutlet UIBarButtonItem *deleteButton;
-    IBOutlet UIBarButtonItem *createButton;
-    
     RTSpinKitView *loadingIndicator;
     
     NSMutableArray *items;
 }
 
 @property (nonatomic, weak) IBOutlet UITableView *theTable;
-@property (nonatomic, assign) BOOL canLoadMore;
 @property (nonatomic, assign) BOOL isDownloading;
-@property (nonatomic, assign) int offset;
-
-- (IBAction)onClickCreate:(id)sender;
-- (IBAction)onClickEdit:(id)sender;
-- (IBAction)onClickCancel:(id)sender;
-- (IBAction)onClickDelete:(id)sender;
 
 @end
 
@@ -46,8 +34,6 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshFromNotification) name:NOTIFICATION_UPDATE_LOCATIONS object:nil];
     
-    _offset = 0;
-    _canLoadMore = YES;
     _isDownloading = NO;
     items = [NSMutableArray new];
     
@@ -55,13 +41,14 @@
     [self setupLoadingIndicator];
     [self setupTableView];
     
-    [self updateButtonsToMatchTableState];
-    
-    [self loadItems:NO withOffset:_offset];
+    [self loadItems:YES];
 }
 
 - (void)dealloc {
+#ifdef DEBUG
     NSLog(@"DEALLOC %@", self.class);
+#endif
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [_theTable ins_removeInfinityScroll];
@@ -73,147 +60,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)onClickCreate:(id)sender {
+- (void)onClickCreate {
     [self performSegueWithIdentifier:@"SEGUE_CREATE_LOCATION" sender:nil];
 }
 
-- (IBAction)onClickEdit:(id)sender {
-    [_theTable setEditing:YES animated:YES];
-    [self updateButtonsToMatchTableState];
-}
-
-- (IBAction)onClickCancel:(id)sender {
-    [_theTable setEditing:NO animated:YES];
-    [self updateButtonsToMatchTableState];
-}
-
-- (IBAction)onClickDelete:(id)sender {
-    [UIActionSheet showInView:self.view
-                    withTitle:[NSString stringWithFormat:@"Are you sure you want to delete these items?"]
-            cancelButtonTitle:@"Cancel"
-       destructiveButtonTitle:nil
-            otherButtonTitles:@[@"Delete"]
-                     tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
-                         if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Cancel"])
-                             return;
-                         
-                         if (buttonIndex == 0)
-                             [self doDelete];
-                     }];
-}
-
-#pragma mark - Deleting
-
-- (void)doDelete {
-    NSArray *selectedRows = [_theTable indexPathsForSelectedRows];
-    
-    if (selectedRows.count <= 0) {
-        NSMutableArray *a = [NSMutableArray new];
-        for (int i = 0; i < items.count; i++)
-            [a addObject:[NSIndexPath indexPathForRow:i inSection:0]];
-        
-        selectedRows = a;
-    }
-    
-    NSMutableArray *idsToDelete = [NSMutableArray new];
-    NSMutableIndexSet *indexPaths = [NSMutableIndexSet new];
-    
-    for (NSIndexPath *selectionIndex in selectedRows) {
-        [idsToDelete addObject:@([items[selectionIndex.row] locationId])];
-        [indexPaths addIndex:selectionIndex.row];
-    }
-    
-    [GTLocationManager deleteLocations:idsToDelete successBlock:^(GTResponseObject *response) {
-        
-    } failureBlock:^(GTResponseObject *response) {
-        if (response.reason == AUTHORIZATION_NEEDED) {
-            [Utils logoutUserAndShowLoginController];
-            [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
-        }
-        else
-            [Utils showMessage:APP_NAME message:response.message];
-    }];
-    
-    // Locally delete items.
-    [_theTable beginUpdates];
-    
-    [items removeObjectsAtIndexes:indexPaths];
-    [_theTable deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationLeft];
-    
-    [_theTable endUpdates];
-    
-    // Delay execution of my block for x seconds.
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [self checkNoItemsHeader];
-        
+- (void)onClickEdit {
+    if (_theTable.isEditing)
         [_theTable setEditing:NO animated:YES];
-        [self updateButtonsToMatchTableState];
-    });
-}
-
-- (void)updateButtonsToMatchTableState {
-    if (_theTable.editing) {
-        // Show the option to cancel the edit.
-        self.navigationItem.rightBarButtonItems = @[cancelButton];
-        
-        [self updateDeleteButtonTitle];
-        
-        // Show the delete button.
-        self.navigationItem.leftBarButtonItems = @[deleteButton];
-    }
-    else {
-        // Not in editing mode.
-        self.navigationItem.leftBarButtonItems = nil;
-        
-        // Show the edit button, but disable the edit button if there's nothing to edit.
-        if (items.count > 0)
-            editButton.enabled = YES;
-        else
-            editButton.enabled = NO;
-
-        self.navigationItem.rightBarButtonItems = @[createButton, editButton];
-    }
-}
-
-- (void)updateDeleteButtonTitle {
-    // Update the delete button's title, based on how many items are selected
-    NSArray *selectedRows = [_theTable indexPathsForSelectedRows];
-    
-    BOOL allItemsAreSelected = selectedRows.count == items.count;
-    BOOL noItemsAreSelected = selectedRows.count == 0;
-    
-    if (allItemsAreSelected || noItemsAreSelected)
-        deleteButton.title = NSLocalizedString(@"Delete All", @"");
-    else {
-        NSString *titleFormatString =
-        NSLocalizedString(@"Delete (%d)", @"Title for delete button with placeholder for number");
-        deleteButton.title = [NSString stringWithFormat:titleFormatString, selectedRows.count];
-    }
-}
-
-#pragma mark - Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+    else
+        [_theTable setEditing:YES animated:YES];
 }
 
 #pragma mark - Loading
 
 - (void)refreshFromNotification {
-    _offset = 0;
-    _canLoadMore = YES;
-    
-    [self loadItems:YES withOffset:_offset];
+   [self loadItems:YES];
 }
 
 - (void)refresh {
-    _offset = 0;
-    _canLoadMore = YES;
-    
-    [self loadItems:NO withOffset:_offset];
+   [self loadItems:NO];
 }
 
-- (void)loadItems:(BOOL)isStart withOffset:(int)o {
+- (void)loadItems:(BOOL)isStart {
     if (items.count <= 0 && !_isDownloading) {
         [loadingIndicator startAnimating];
         _theTable.tableHeaderView = nil;
@@ -221,14 +89,11 @@
     
     _isDownloading = YES;
     
-    [GTLocationManager getLocationsWithStart:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
-        if (o == 0)
-            [items removeAllObjects];
-        
+    [self showLoadingIndicator];
+    
+    [GTLocationManager getLocationsWithCache:isStart successBlock:^(GTResponseObject *response) {
+        [items removeAllObjects];
         [items addObjectsFromArray:response.object];
-        
-        if ([response.object count] <= 0 || [response.object count] < MAX_ITEMS)
-            _canLoadMore = NO;
         
         [self finalizeLoad];
     } cacheBlock:^(GTResponseObject *response) {
@@ -237,8 +102,6 @@
         
         [self finalizeCacheLoad];
     } failureBlock:^(GTResponseObject *response) {
-        _canLoadMore = NO;
-        
         [self finalizeLoad];
         
         if (response.reason == AUTHORIZATION_NEEDED) {
@@ -258,20 +121,29 @@
 
 - (void)finalizeLoad {
     [_theTable ins_endPullToRefresh];
+    [self removeLoadingIndicator];
     [loadingIndicator stopAnimating];
     
     _isDownloading = NO;
-    [_theTable ins_endInfinityScroll];
-    [_theTable ins_setInfinityScrollEnabled:_canLoadMore];
     
-    // Delay execution of my block for x seconds.
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (_offset == 1 ? 0.3 : 0.0) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [_theTable reloadData];
-        
-        [self checkNoItemsHeader];
-        
-        [self updateButtonsToMatchTableState];
-    });
+    [_theTable reloadData];
+    
+    [self checkNoItemsHeader];
+}
+
+- (void)showLoadingIndicator {
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    indicator.hidesWhenStopped = YES;
+    [indicator startAnimating];
+    
+    [self.navigationItem setRightBarButtonItems:@[[[UIBarButtonItem alloc] initWithCustomView:indicator]] animated:YES];
+}
+
+- (void)removeLoadingIndicator {
+    UIBarButtonItem *create = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onClickCreate)];
+    UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(onClickEdit)];
+    
+    [self.navigationItem setRightBarButtonItems:@[create, edit] animated:YES];
 }
 
 - (void)checkNoItemsHeader {
@@ -302,19 +174,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (!tableView.isEditing) {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        
-        GTUserLocation *l = items[indexPath.row];
-        
-        [ViewControllerUtils showMapLocation:[[CLLocation alloc] initWithLatitude:l.latitude longitude:l.longitude] fromViewController:self];
-    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    [self updateButtonsToMatchTableState];
-}
-
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self updateDeleteButtonTitle];
+    GTUserLocation *l = items[indexPath.row];
+    
+    [ViewControllerUtils showMapLocation:[[CLLocation alloc] initWithLatitude:l.latitude longitude:l.longitude] fromViewController:self];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -323,6 +187,32 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        GTUserLocation *c = [items objectAtIndex:indexPath.row];
+        
+        NSMutableArray *idsToDelete = [NSMutableArray arrayWithObject:@(c.locationId)];
+        
+        [GTLocationManager deleteLocations:idsToDelete successBlock:^(GTResponseObject *response) {
+            [self checkNoItemsHeader];
+        } failureBlock:^(GTResponseObject *response) {
+            if (response.reason == AUTHORIZATION_NEEDED) {
+                [Utils logoutUserAndShowLoginController];
+                [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];
+            }
+            else
+                [Utils showMessage:APP_NAME message:response.message];
+        }];
+        
+        // Delete item instantly.
+        [items removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        
+        if (items.count <= 0)
+            [tableView setEditing:NO animated:YES];
+    }
 }
 
 #pragma mark - Setup
@@ -343,7 +233,6 @@
 
 - (void)setupTableView {
     _theTable.tableFooterView = [UIView new];
-    _theTable.allowsMultipleSelectionDuringEditing = YES;
     
     // Setup pull-to-refresh
     __weak typeof(self) weakSelf = self;
@@ -353,26 +242,6 @@
     }];
     
     _theTable.ins_pullToRefreshBackgroundView.preserveContentInset = NO;
-    
-    [_theTable ins_addInfinityScrollWithHeight:60 handler:^(UIScrollView *scrollView) {
-        if (weakSelf.canLoadMore && !weakSelf.isDownloading) {
-            weakSelf.offset += MAX_ITEMS;
-            
-            [weakSelf loadItems:NO withOffset:weakSelf.offset];
-        }
-        else {
-            weakSelf.isDownloading = NO;
-            
-            [weakSelf.theTable ins_endInfinityScroll];
-            [weakSelf.theTable ins_setInfinityScrollEnabled:NO];
-        }
-    }];
-    
-    UIView <INSAnimatable> *infinityIndicator = [[INSCircleInfiniteIndicator alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
-    [_theTable.ins_infiniteScrollBackgroundView addSubview:infinityIndicator];
-    [infinityIndicator startAnimating];
-    
-    _theTable.ins_infiniteScrollBackgroundView.preserveContentInset = NO;
     
     UIView <INSPullToRefreshBackgroundViewDelegate> *pullToRefresh = [[INSDefaultPullToRefresh alloc] initWithFrame:CGRectMake(0, 0, 24, 24) backImage:nil frontImage:[UIImage imageNamed:@"iconFacebook"]];;
     _theTable.ins_pullToRefreshBackgroundView.delegate = pullToRefresh;

@@ -37,10 +37,8 @@
 }
 
 - (void)loadItems:(BOOL)isStart withOffset:(int)o successBlock:(void (^)(GTResponseObject *))successBlock cacheBlock:(void (^)(GTResponseObject *))cacheBlock failureBlock:(void (^)(GTResponseObject *))failureBlock {
-    [GTStreamableManager getForLocationWithNECoordinate:self.neCoord SWCoordinate:self.swCoord start:o numberOfItems:MAX_ITEMS useCache:isStart successBlock:^(GTResponseObject *response) {
+    [GTStreamableManager getForLocationWithNECoordinate:self.neCoord SWCoordinate:self.swCoord start:o numberOfItems:MAX_ITEMS successBlock:^(GTResponseObject *response) {
         successBlock(response);
-    } cacheBlock:^(GTResponseObject *response) {
-        cacheBlock(response);
     } failureBlock:^(GTResponseObject *response) {
         failureBlock(response);
     }];

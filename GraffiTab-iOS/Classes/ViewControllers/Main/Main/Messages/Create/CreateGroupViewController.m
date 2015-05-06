@@ -78,7 +78,9 @@
 }
 
 - (void)dealloc {
+#ifdef DEBUG
     NSLog(@"DEALLOC %@", self.class);
+#endif
 }
 
 - (IBAction)onClickImage:(id)sender {

@@ -26,7 +26,9 @@
 }
 
 - (void)dealloc {
+#ifdef DEBUG
     NSLog(@"DEALLOC %@", self.class);
+#endif
 }
 
 - (void)showInfoController:(NSString *)file title:(NSString *)title {

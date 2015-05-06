@@ -94,7 +94,10 @@
 }
 
 - (void)dealloc {
+#ifdef DEBUG
     NSLog(@"DEALLOC %@", self.class);
+#endif
+    
     [self.collectionView ins_removeInfinityScroll];
     [self.collectionView ins_removePullToRefresh];
 }
@@ -172,12 +175,9 @@
     [self.collectionView ins_endInfinityScroll];
     [self.collectionView ins_setInfinityScrollEnabled:_canLoadMore];
     
-    // Delay execution of my block for x seconds.
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (_offset == 1 ? 0.3 : 0.0) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [self.collectionView reloadData];
-        
-        [self checkNoItemsHeader];
-    });
+    [self.collectionView reloadData];
+    
+    [self checkNoItemsHeader];
 }
 
 - (void)showLoadingIndicator {

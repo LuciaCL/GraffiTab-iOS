@@ -83,7 +83,10 @@
 }
 
 - (void)dealloc {
+#ifdef DEBUG
     NSLog(@"DEALLOC %@", self.class);
+#endif
+    
     [self.myTableView ins_removeInfinityScroll];
     [self.myTableView ins_removePullToRefresh];
 }
@@ -159,12 +162,9 @@
     [self.myTableView ins_endInfinityScroll];
     [self.myTableView ins_setInfinityScrollEnabled:_canLoadMore];
     
-    // Delay execution of my block for x seconds.
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (_offset == 1 ? 0.3 : 0.0) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [self.myTableView reloadData];
-        
-        [self checkNoItemsHeader];
-    });
+    [self.myTableView reloadData];
+    
+    [self checkNoItemsHeader];
 }
 
 - (void)showLoadingIndicator {

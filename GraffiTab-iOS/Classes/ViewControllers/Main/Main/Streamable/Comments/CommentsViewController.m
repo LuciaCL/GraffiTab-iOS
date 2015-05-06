@@ -89,7 +89,10 @@
 }
 
 - (void)dealloc {
+#ifdef DEBUG
     NSLog(@"DEALLOC %@", self.class);
+#endif
+    
     [self.tableView ins_removeInfinityScroll];
     [self.tableView ins_removePullToRefresh];
 }

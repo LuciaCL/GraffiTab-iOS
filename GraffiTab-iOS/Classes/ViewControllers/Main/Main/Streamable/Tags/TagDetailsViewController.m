@@ -74,7 +74,9 @@
 }
 
 - (void)dealloc {
+#ifdef DEBUG
     NSLog(@"DEALLOC %@", self.class);
+#endif
 }
 
 - (IBAction)onClickShare:(id)sender {

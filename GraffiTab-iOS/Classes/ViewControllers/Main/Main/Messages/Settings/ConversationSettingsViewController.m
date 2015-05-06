@@ -46,7 +46,9 @@
 }
 
 - (void)dealloc {
+#ifdef DEBUG
     NSLog(@"DEALLOC %@", self.class);
+#endif
 }
 
 - (IBAction)onClickEdit:(id)sender {
