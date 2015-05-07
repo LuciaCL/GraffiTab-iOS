@@ -90,13 +90,13 @@ static NSString * const kAVYAviarySecret = @"nESKzmp46kSvNDlgi0_CfA";
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)onClickEnhance {
+- (IBAction)onClickEnhance:(id)sender {
     UIImage *i = [self getMergedImage];
     
     [self launchPhotoEditorWithImage:i highResolutionImage:nil];
 }
 
-- (void)onClickClose {
+- (IBAction)onClickClose:(id)sender {
     SCLAlertView *alert = [[SCLAlertView alloc] init];
     
     [alert addButton:@"Save and close" actionBlock:^(void) {
@@ -115,7 +115,7 @@ static NSString * const kAVYAviarySecret = @"nESKzmp46kSvNDlgi0_CfA";
     [alert showTitle:self title:APP_NAME subTitle:@"Are you sure you want to close this without saving it first?" style:Notice closeButtonTitle:@"Cancel" duration:0.0f];
 }
 
-- (void)onClickChangeBackground {
+- (IBAction)onClickChangeBackground:(id)sender {
     [UIActionSheet showInView:self.view
                     withTitle:@"Choose source"
             cancelButtonTitle:@"Cancel"
@@ -132,7 +132,7 @@ static NSString * const kAVYAviarySecret = @"nESKzmp46kSvNDlgi0_CfA";
                      }];
 }
 
-- (void)onClickCreate {
+- (IBAction)onClickCreate:(id)sender {
     UIImage *i = [self getMergedImage];
     CLLocation *location = [MyLocationManager sharedInstance].lastLocation;
     

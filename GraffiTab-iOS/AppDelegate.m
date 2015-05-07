@@ -138,29 +138,6 @@
         UIViewController *vc = [ViewControllerUtils getVisibleViewController];
         
         switch (type) {
-            case COMMENT:
-            case FOLLOW:
-            case LIKE:
-            case MENTION:
-            case WELCOME: {
-                NSArray *args = userInfo[@"aps"][@"alert"][@"loc-args"];
-                NSString *key = userInfo[@"aps"][@"alert"][@"loc-key"];
-                
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"Notification"
-                                                               description:[args stringWithFormat:NSLocalizedString(key, nil)]
-                                                                      type:TWMessageBarMessageTypeSuccess
-                                                            statusBarStyle:UIStatusBarStyleLightContent
-                                                                  callback:^{
-                                                                      if ([vc isKindOfClass:[TagDetailsViewController class]])
-                                                                          [vc dismissViewControllerAnimated:YES completion:^{
-                                                                              [self showNotifications];
-                                                                          }];
-                                                                      else
-                                                                          [self showNotifications];
-                                                                  }];
-                
-                break;
-            }
             case CUSTOM_MESSAGE: {
                 if ([vc isKindOfClass:[MessagesViewController class]])
                     [((MessagesViewController *) vc) processMessageNotification:userInfo];
@@ -197,6 +174,12 @@
                 
                 break;
             }
+            case COMMENT:
+            case FOLLOW:
+            case LIKE:
+            case MENTION:
+            case WELCOME:
+                break;
         }
     }
 }
