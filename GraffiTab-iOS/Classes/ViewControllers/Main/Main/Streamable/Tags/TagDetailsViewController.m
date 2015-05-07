@@ -84,10 +84,10 @@
 }
 
 - (IBAction)onClickMenu:(id)sender {
-    NSMutableArray *actions;
+    NSMutableArray *actions = [NSMutableArray new];
     
     if ([self.item.user isEqual:GTLifecycleManager.user])
-        actions = [NSMutableArray arrayWithArray:@[@"Edit", self.item.isPrivate ? @"Make public" : @"Make private", @"Delete"]];
+        [actions addObjectsFromArray:@[@"Edit", self.item.isPrivate ? @"Make public" : @"Make private", @"Delete"]];
     
     [actions addObjectsFromArray:@[@"Explore graffiti area", @"Save to Camera Roll", @"Flag as inappropriate"]];
     

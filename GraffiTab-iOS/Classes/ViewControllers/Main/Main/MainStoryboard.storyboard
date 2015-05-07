@@ -577,6 +577,13 @@
                     <view key="view" contentMode="scaleToFill" id="R13-Dp-uu0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ecZ-Ps-e01">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -983,7 +990,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="stf-dJ-3nl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1383" y="572"/>
+            <point key="canvasLocation" x="1389" y="572"/>
         </scene>
         <!--Followers View Controller-->
         <scene sceneID="zS0-iB-ikj">
@@ -1013,7 +1020,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRS-zK-iNr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1737" y="572"/>
+            <point key="canvasLocation" x="1743" y="572"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="px1-IB-3V1">
@@ -1096,7 +1103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bel-Wv-U6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2093" y="572"/>
+            <point key="canvasLocation" x="2099" y="572"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wNt-1e-hpK">
@@ -1112,7 +1119,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6TF-E1-3Fp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2450" y="572"/>
+            <point key="canvasLocation" x="2456" y="572"/>
         </scene>
         <!--Tag Details View Controller-->
         <scene sceneID="BKW-YH-biI">
@@ -1304,7 +1311,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2802" y="572"/>
+            <point key="canvasLocation" x="2808" y="572"/>
         </scene>
         <!--Newest View Controller-->
         <scene sceneID="X87-dd-Bwc">

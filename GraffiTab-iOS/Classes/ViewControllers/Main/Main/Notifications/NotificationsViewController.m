@@ -79,7 +79,7 @@
 #pragma mark - Setup
 
 - (void)setupTopBar {
-    self.title = @"Notifications";
+    self.title = @"Activity";
     
     if (self.isModal)
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onClickClose)];
