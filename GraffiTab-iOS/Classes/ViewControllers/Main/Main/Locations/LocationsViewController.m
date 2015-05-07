@@ -248,6 +248,8 @@
     CLRegion *r = [self getRegionForLocation:items[indexPath.row]];
     
     if (![[MyLocationManager sharedInstance].getRegions containsObject:r]) {
+        cell.trackingImage.hidden = YES;
+        
         MGSwipeButton *btn = [MGSwipeButton buttonWithTitle:@"Track" backgroundColor:UIColorFromRGB(COLOR_MAIN) callback:^BOOL(MGSwipeTableCell *sender) {
             [weakSelf addGeofenceForLocation:indexPath];
             
@@ -257,6 +259,8 @@
         [rightUtilityButtons addObject:btn];
     }
     else {
+        cell.trackingImage.hidden = NO;
+        
         MGSwipeButton *btn = [MGSwipeButton buttonWithTitle:@"Untrack" backgroundColor:UIColorFromRGB(0xFC3D38) callback:^BOOL(MGSwipeTableCell *sender) {
             [weakSelf removeGeofenceForLocation:indexPath];
             

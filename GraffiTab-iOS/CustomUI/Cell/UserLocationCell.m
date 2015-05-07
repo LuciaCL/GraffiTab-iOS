@@ -61,6 +61,8 @@
 - (void)setupImageViews {
     self.locationImage.layer.cornerRadius = 5;
     self.locationImage.backgroundColor = [UIColor colorWithHexString:@"#efefef"];
+    
+    self.trackingImage.image = [self.trackingImage.image imageWithTint:UIColorFromRGB(COLOR_MAIN)];
 }
 
 @end
