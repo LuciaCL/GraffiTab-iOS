@@ -71,7 +71,9 @@
 
 - (void)loadItems:(BOOL)isStart withOffset:(int)o {
     if (items.count <= 0 && !_isDownloading) {
-        [loadingIndicator startAnimating];
+        if (isStart)
+            [loadingIndicator startAnimating];
+        
         _theTable.tableHeaderView = nil;
     }
     

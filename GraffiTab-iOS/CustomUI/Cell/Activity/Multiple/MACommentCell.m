@@ -43,6 +43,7 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MACell" forIndexPath:indexPath];
     
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:1];
+    imageView.backgroundColor = [UIColor colorWithHexString:@"#d0d0d0"];
     
     __weak typeof(UICollectionViewCell *) weakSelf = cell;
     

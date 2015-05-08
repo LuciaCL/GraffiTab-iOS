@@ -127,7 +127,9 @@
 
 - (void)loadItems:(BOOL)isStart withOffset:(int)o {
     if (items.count <= 0 && !self.isDownloading) {
-        [loadingIndicator startAnimating];
+        if (isStart)
+            [loadingIndicator startAnimating];
+        
         self.tableView.tableHeaderView = nil;
     }
     

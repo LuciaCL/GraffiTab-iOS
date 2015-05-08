@@ -69,7 +69,9 @@
 
 - (void)loadItems:(BOOL)isStart withOffset:(int)o {
     if (items.count <= 0 && !_isDownloading) {
-        [loadingIndicator startAnimating];
+        if (isStart)
+            [loadingIndicator startAnimating];
+        
         _theTable.tableHeaderView = nil;
     }
     
@@ -176,12 +178,14 @@
         if (activityContainer.type == ACTIVITY_COMMENT) {
             GTStreamable *s = ((GTActivityComment *)activityContainer.activities.firstObject).item;
             
-            [ViewControllerUtils showTag:(GTStreamableTag *)s fromViewController:self];
+            if ([s isKindOfClass:[GTStreamableTag class]])
+                [ViewControllerUtils showTag:(GTStreamableTag *)s fromViewController:self];
         }
         else if (activityContainer.type == ACTIVITY_CREATE_STREAMABLE) {
             GTStreamable *s = ((GTActivityCreateStreamable *)activityContainer.activities.firstObject).item;
             
-            [ViewControllerUtils showTag:(GTStreamableTag *)s fromViewController:self];
+            if ([s isKindOfClass:[GTStreamableTag class]])
+                [ViewControllerUtils showTag:(GTStreamableTag *)s fromViewController:self];
         }
         else if (activityContainer.type == ACTIVITY_FOLLOW) {
             GTPerson *s = ((GTActivityFollow *)activityContainer.activities.firstObject).followedUser;
@@ -191,21 +195,26 @@
         else if (activityContainer.type == ACTIVITY_LIKE) {
             GTStreamable *s = ((GTActivityLike *)activityContainer.activities.firstObject).item;
             
-            [ViewControllerUtils showTag:(GTStreamableTag *)s fromViewController:self];
+            if ([s isKindOfClass:[GTStreamableTag class]])
+                [ViewControllerUtils showTag:(GTStreamableTag *)s fromViewController:self];
         }
     }
     else {
         if (activityContainer.type == ACTIVITY_COMMENT) {
             NSMutableArray *streamables = [NSMutableArray new];
-            for (GTActivityComment *activityItem in activityContainer.activities)
-                [streamables addObject:activityItem.item];
+            for (GTActivityComment *activityItem in activityContainer.activities) {
+                if ([activityItem.item isKindOfClass:[GTStreamableTag class]] || [activityItem.item isKindOfClass:[GTStreamableVideo class]])
+                    [streamables addObject:activityItem.item];
+            }
             
             [ViewControllerUtils showActivityStreamable:streamables fromViewController:self];
         }
         else if (activityContainer.type == ACTIVITY_CREATE_STREAMABLE) {
             NSMutableArray *streamables = [NSMutableArray new];
-            for (GTActivityCreateStreamable *activityItem in activityContainer.activities)
-                [streamables addObject:activityItem.item];
+            for (GTActivityCreateStreamable *activityItem in activityContainer.activities) {
+                if ([activityItem.item isKindOfClass:[GTStreamableTag class]] || [activityItem.item isKindOfClass:[GTStreamableVideo class]])
+                    [streamables addObject:activityItem.item];
+            }
             
             [ViewControllerUtils showActivityStreamable:streamables fromViewController:self];
         }
@@ -218,8 +227,10 @@
         }
         else if (activityContainer.type == ACTIVITY_LIKE) {
             NSMutableArray *streamables = [NSMutableArray new];
-            for (GTActivityLike *activityItem in activityContainer.activities)
-                [streamables addObject:activityItem.item];
+            for (GTActivityLike *activityItem in activityContainer.activities) {
+                if ([activityItem.item isKindOfClass:[GTStreamableTag class]] || [activityItem.item isKindOfClass:[GTStreamableVideo class]])
+                    [streamables addObject:activityItem.item];
+            }
             
             [ViewControllerUtils showActivityStreamable:streamables fromViewController:self];
         }

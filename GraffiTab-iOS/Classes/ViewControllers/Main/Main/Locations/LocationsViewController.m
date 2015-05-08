@@ -139,7 +139,9 @@
 
 - (void)loadItems:(BOOL)isStart {
     if (items.count <= 0 && !_isDownloading) {
-        [loadingIndicator startAnimating];
+        if (isStart)
+            [loadingIndicator startAnimating];
+        
         _theTable.tableHeaderView = nil;
     }
     
