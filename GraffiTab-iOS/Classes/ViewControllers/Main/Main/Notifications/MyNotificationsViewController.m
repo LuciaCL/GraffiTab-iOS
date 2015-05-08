@@ -15,7 +15,7 @@
 #import "TagDetailsViewController.h"
 #import "RTSpinKitView.h"
 
-@interface MyNotificationsViewController () {
+@interface MyNotificationsViewController () <NotificationCellProtocol> {
     
     RTSpinKitView *loadingIndicator;
     
@@ -166,7 +166,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [NotificationCellFactory createNotificationCellForNotification:items[indexPath.row] tableView:tableView indexPath:indexPath];
+    NotificationCell *cell = [NotificationCellFactory createNotificationCellForNotification:items[indexPath.row] tableView:tableView indexPath:indexPath];
+    
+    cell.delegate = self;
+    
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -244,6 +248,12 @@
     GTNotification *n = items[indexPath.row];
     
     cell.backgroundColor = n.isRead ? [UIColor whiteColor] : [UIColor colorWithHexString:@"#F5EC89" alpha:0.3];
+}
+
+#pragma mark - NotificationCellDelegate
+
+- (void)didTapAvatar:(GTPerson *)person {
+    [ViewControllerUtils showUserProfile:person fromViewController:self];
 }
 
 #pragma mark - Setup

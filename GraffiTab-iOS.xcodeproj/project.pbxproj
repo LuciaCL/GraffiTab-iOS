@@ -574,6 +574,7 @@
 		E5E1FE391AFA109D00FD3B18 /* NotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsViewController.m; sourceTree = "<group>"; };
 		E5E1FE3B1AFA13BC00FD3B18 /* FollowingNotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingNotificationsViewController.h; sourceTree = "<group>"; };
 		E5E1FE3C1AFA13BC00FD3B18 /* FollowingNotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingNotificationsViewController.m; sourceTree = "<group>"; };
+		E5E1FE3E1AFB828100FD3B18 /* NotificationCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCellProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -775,6 +776,7 @@
 				E5D6F2E71AF02065009EA94C /* TweetProtocol.h */,
 				E5D6F2E81AF02065009EA94C /* UserHeaderProtocol.h */,
 				E5D6F2E91AF02065009EA94C /* UserProtocol.h */,
+				E5E1FE3E1AFB828100FD3B18 /* NotificationCellProtocol.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1032,6 +1034,7 @@
 		E5D6F3D41AF02066009EA94C /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				E5E1FE671AFCC3DC00FD3B18 /* Activity */,
 				E5D6F3D51AF02066009EA94C /* MyNotificationsViewController.h */,
 				E5D6F3D61AF02066009EA94C /* MyNotificationsViewController.m */,
 				E5E1FE3B1AFA13BC00FD3B18 /* FollowingNotificationsViewController.h */,
@@ -1755,6 +1758,13 @@
 				E5D6F4F21AF02066009EA94C /* terms.txt */,
 			);
 			path = Text;
+			sourceTree = "<group>";
+		};
+		E5E1FE671AFCC3DC00FD3B18 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Activity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

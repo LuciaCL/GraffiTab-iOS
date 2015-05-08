@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NotificationCellProtocol.h"
 
 @interface NotificationCell : UITableViewCell
 
+@property (nonatomic, weak) id <NotificationCellProtocol> delegate;
 @property (nonatomic, weak) GTNotification *item;
 @property (nonatomic, weak) IBOutlet UILabel *dateLabel;
 

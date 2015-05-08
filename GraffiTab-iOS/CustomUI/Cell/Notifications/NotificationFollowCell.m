@@ -25,6 +25,11 @@
     [self setupImageViews];
 }
 
+- (void)onClickAvatar {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didTapAvatar:)])
+        [self.delegate didTapAvatar:typedItem.follower];
+}
+
 - (void)setItem:(GTNotification *)item {
     super.item = item;
     
@@ -64,6 +69,7 @@
 
 - (void)setupImageViews {
     self.avatarImage.layer.cornerRadius = self.avatarImage.frame.size.width / 2;
+    [self.avatarImage addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickAvatar)]];
 }
 
 @end
