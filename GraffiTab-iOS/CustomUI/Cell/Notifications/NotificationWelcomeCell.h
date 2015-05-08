@@ -11,6 +11,4 @@
 
 @interface NotificationWelcomeCell : NotificationCell
 
-@property (nonatomic, weak) IBOutlet UILabel *infoLabel;
-
 @end

@@ -12,3 +12,13 @@
 "NOTIF_MENTION" = "%@ mentioned you in a comment";
 "NOTIF_WELCOME" = "Welcome to GraffiTab, %@";
 "NOTIF_MESSAGE" = "%@: %@";
+
+"SA_COMMENT" = "%@ commented on a graffiti";
+"SA_CREATE" = "%@ created a graffiti";
+"SA_FOLLOW" = "%@ followed %@";
+"SA_LIKE" = "%@ liked a graffiti";
+
+"MA_COMMENT" = "%@ commented on %li graffiti";
+"MA_CREATE" = "%@ created %li graffiti";
+"MA_FOLLOW" = "%@ followed %li people";
+"MA_LIKE" = "%@ liked %li graffiti";

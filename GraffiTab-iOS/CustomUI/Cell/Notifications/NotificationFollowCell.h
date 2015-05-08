@@ -11,7 +11,6 @@
 
 @interface NotificationFollowCell : NotificationCell
 
-@property (nonatomic, weak) IBOutlet UILabel *infoLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarImage;
 
 @end

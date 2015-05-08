@@ -228,20 +228,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    GTNotification *n = items[indexPath.row];
-    
-    if ([n isKindOfClass:[GTNotificationComment class]])
-        return [NotificationCommentCell height];
-    else if ([n isKindOfClass:[GTNotificationFollow class]])
-        return [NotificationFollowCell height];
-    else if ([n isKindOfClass:[GTNotificationLike class]])
-        return [NotificationLikeCell height];
-    else if ([n isKindOfClass:[GTNotificationMention class]])
-        return [NotificationMentionCell height];
-    else if ([n isKindOfClass:[GTNotificationWelcome class]])
-        return [NotificationWelcomeCell height];
-    else
-        return [NotificationCell height];
+    return [NotificationCellFactory cellHeightForNotification:items[indexPath.row] tableView:tableView indexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {

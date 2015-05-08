@@ -30,4 +30,19 @@
     return cell;
 }
 
++ (CGFloat)cellHeightForNotification:(GTNotification *)n tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+    if ([n isKindOfClass:[GTNotificationComment class]])
+        return [NotificationCommentCell height];
+    else if ([n isKindOfClass:[GTNotificationFollow class]])
+        return [NotificationFollowCell height];
+    else if ([n isKindOfClass:[GTNotificationLike class]])
+        return [NotificationLikeCell height];
+    else if ([n isKindOfClass:[GTNotificationMention class]])
+        return [NotificationMentionCell height];
+    else if ([n isKindOfClass:[GTNotificationWelcome class]])
+        return [NotificationWelcomeCell height];
+    else
+        return [NotificationCell height];
+}
+
 @end

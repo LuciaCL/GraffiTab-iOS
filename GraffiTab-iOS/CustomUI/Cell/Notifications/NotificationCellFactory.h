@@ -17,5 +17,6 @@
 @interface NotificationCellFactory : NSObject
 
 + (NotificationCell *)createNotificationCellForNotification:(GTNotification *)notification tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
++ (CGFloat)cellHeightForNotification:(GTNotification *)notification tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
 
 @end

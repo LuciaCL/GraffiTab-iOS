@@ -203,6 +203,16 @@
 		E5E1FE371AFA104B00FD3B18 /* BackButtonGUITabPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE361AFA104B00FD3B18 /* BackButtonGUITabPagerViewController.m */; };
 		E5E1FE3A1AFA109D00FD3B18 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE391AFA109D00FD3B18 /* NotificationsViewController.m */; };
 		E5E1FE3D1AFA13BC00FD3B18 /* FollowingNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE3C1AFA13BC00FD3B18 /* FollowingNotificationsViewController.m */; };
+		E5E1FE6D1AFCCF2D00FD3B18 /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE6C1AFCCF2D00FD3B18 /* ActivityCell.m */; };
+		E5E1FE701AFCD43A00FD3B18 /* SACommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE6F1AFCD43A00FD3B18 /* SACommentCell.m */; };
+		E5E1FE731AFCD44E00FD3B18 /* SACreateStreamableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE721AFCD44E00FD3B18 /* SACreateStreamableCell.m */; };
+		E5E1FE761AFCD46600FD3B18 /* SAFollowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE751AFCD46600FD3B18 /* SAFollowCell.m */; };
+		E5E1FE791AFCD47500FD3B18 /* SALikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE781AFCD47500FD3B18 /* SALikeCell.m */; };
+		E5E1FE7C1AFCE97A00FD3B18 /* ActivityCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE7B1AFCE97A00FD3B18 /* ActivityCellFactory.m */; };
+		E5E1FE7F1AFCF29C00FD3B18 /* MACommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE7E1AFCF29C00FD3B18 /* MACommentCell.m */; };
+		E5E1FE821AFCF2C000FD3B18 /* MACreateStreamableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE811AFCF2C000FD3B18 /* MACreateStreamableCell.m */; };
+		E5E1FE851AFCF2CE00FD3B18 /* MAFollowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE841AFCF2CE00FD3B18 /* MAFollowCell.m */; };
+		E5E1FE881AFCF2DB00FD3B18 /* MALikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE871AFCF2DB00FD3B18 /* MALikeCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -575,6 +585,26 @@
 		E5E1FE3B1AFA13BC00FD3B18 /* FollowingNotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingNotificationsViewController.h; sourceTree = "<group>"; };
 		E5E1FE3C1AFA13BC00FD3B18 /* FollowingNotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingNotificationsViewController.m; sourceTree = "<group>"; };
 		E5E1FE3E1AFB828100FD3B18 /* NotificationCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCellProtocol.h; sourceTree = "<group>"; };
+		E5E1FE6B1AFCCF2D00FD3B18 /* ActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCell.h; sourceTree = "<group>"; };
+		E5E1FE6C1AFCCF2D00FD3B18 /* ActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCell.m; sourceTree = "<group>"; };
+		E5E1FE6E1AFCD43A00FD3B18 /* SACommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACommentCell.h; sourceTree = "<group>"; };
+		E5E1FE6F1AFCD43A00FD3B18 /* SACommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SACommentCell.m; sourceTree = "<group>"; };
+		E5E1FE711AFCD44E00FD3B18 /* SACreateStreamableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACreateStreamableCell.h; sourceTree = "<group>"; };
+		E5E1FE721AFCD44E00FD3B18 /* SACreateStreamableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SACreateStreamableCell.m; sourceTree = "<group>"; };
+		E5E1FE741AFCD46600FD3B18 /* SAFollowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAFollowCell.h; sourceTree = "<group>"; };
+		E5E1FE751AFCD46600FD3B18 /* SAFollowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAFollowCell.m; sourceTree = "<group>"; };
+		E5E1FE771AFCD47500FD3B18 /* SALikeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SALikeCell.h; sourceTree = "<group>"; };
+		E5E1FE781AFCD47500FD3B18 /* SALikeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SALikeCell.m; sourceTree = "<group>"; };
+		E5E1FE7A1AFCE97A00FD3B18 /* ActivityCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCellFactory.h; sourceTree = "<group>"; };
+		E5E1FE7B1AFCE97A00FD3B18 /* ActivityCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCellFactory.m; sourceTree = "<group>"; };
+		E5E1FE7D1AFCF29C00FD3B18 /* MACommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACommentCell.h; sourceTree = "<group>"; };
+		E5E1FE7E1AFCF29C00FD3B18 /* MACommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACommentCell.m; sourceTree = "<group>"; };
+		E5E1FE801AFCF2C000FD3B18 /* MACreateStreamableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACreateStreamableCell.h; sourceTree = "<group>"; };
+		E5E1FE811AFCF2C000FD3B18 /* MACreateStreamableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACreateStreamableCell.m; sourceTree = "<group>"; };
+		E5E1FE831AFCF2CE00FD3B18 /* MAFollowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAFollowCell.h; sourceTree = "<group>"; };
+		E5E1FE841AFCF2CE00FD3B18 /* MAFollowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAFollowCell.m; sourceTree = "<group>"; };
+		E5E1FE861AFCF2DB00FD3B18 /* MALikeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MALikeCell.h; sourceTree = "<group>"; };
+		E5E1FE871AFCF2DB00FD3B18 /* MALikeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MALikeCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1034,7 +1064,6 @@
 		E5D6F3D41AF02066009EA94C /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				E5E1FE671AFCC3DC00FD3B18 /* Activity */,
 				E5D6F3D51AF02066009EA94C /* MyNotificationsViewController.h */,
 				E5D6F3D61AF02066009EA94C /* MyNotificationsViewController.m */,
 				E5E1FE3B1AFA13BC00FD3B18 /* FollowingNotificationsViewController.h */,
@@ -1202,6 +1231,7 @@
 		E5D6F40E1AF02066009EA94C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				E5E1FE681AFCC88F00FD3B18 /* Activity */,
 				E5D6F40F1AF02066009EA94C /* Comments */,
 				E5D6F41C1AF02066009EA94C /* Messages */,
 				E5D6F4221AF02066009EA94C /* Notifications */,
@@ -1254,10 +1284,10 @@
 		E5D6F4221AF02066009EA94C /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				E5D6F4231AF02066009EA94C /* NotificationCell.h */,
-				E5D6F4241AF02066009EA94C /* NotificationCell.m */,
 				E5D6F4251AF02066009EA94C /* NotificationCellFactory.h */,
 				E5D6F4261AF02066009EA94C /* NotificationCellFactory.m */,
+				E5D6F4231AF02066009EA94C /* NotificationCell.h */,
+				E5D6F4241AF02066009EA94C /* NotificationCell.m */,
 				E5D6F4271AF02066009EA94C /* NotificationCommentCell.h */,
 				E5D6F4281AF02066009EA94C /* NotificationCommentCell.m */,
 				E5D6F4291AF02066009EA94C /* NotificationFollowCell.h */,
@@ -1760,11 +1790,47 @@
 			path = Text;
 			sourceTree = "<group>";
 		};
-		E5E1FE671AFCC3DC00FD3B18 /* Activity */ = {
+		E5E1FE681AFCC88F00FD3B18 /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				E5E1FE691AFCC8B300FD3B18 /* Multiple */,
+				E5E1FE6A1AFCC8B300FD3B18 /* Single */,
+				E5E1FE7A1AFCE97A00FD3B18 /* ActivityCellFactory.h */,
+				E5E1FE7B1AFCE97A00FD3B18 /* ActivityCellFactory.m */,
+				E5E1FE6B1AFCCF2D00FD3B18 /* ActivityCell.h */,
+				E5E1FE6C1AFCCF2D00FD3B18 /* ActivityCell.m */,
 			);
 			path = Activity;
+			sourceTree = "<group>";
+		};
+		E5E1FE691AFCC8B300FD3B18 /* Multiple */ = {
+			isa = PBXGroup;
+			children = (
+				E5E1FE7D1AFCF29C00FD3B18 /* MACommentCell.h */,
+				E5E1FE7E1AFCF29C00FD3B18 /* MACommentCell.m */,
+				E5E1FE801AFCF2C000FD3B18 /* MACreateStreamableCell.h */,
+				E5E1FE811AFCF2C000FD3B18 /* MACreateStreamableCell.m */,
+				E5E1FE831AFCF2CE00FD3B18 /* MAFollowCell.h */,
+				E5E1FE841AFCF2CE00FD3B18 /* MAFollowCell.m */,
+				E5E1FE861AFCF2DB00FD3B18 /* MALikeCell.h */,
+				E5E1FE871AFCF2DB00FD3B18 /* MALikeCell.m */,
+			);
+			path = Multiple;
+			sourceTree = "<group>";
+		};
+		E5E1FE6A1AFCC8B300FD3B18 /* Single */ = {
+			isa = PBXGroup;
+			children = (
+				E5E1FE6E1AFCD43A00FD3B18 /* SACommentCell.h */,
+				E5E1FE6F1AFCD43A00FD3B18 /* SACommentCell.m */,
+				E5E1FE711AFCD44E00FD3B18 /* SACreateStreamableCell.h */,
+				E5E1FE721AFCD44E00FD3B18 /* SACreateStreamableCell.m */,
+				E5E1FE741AFCD46600FD3B18 /* SAFollowCell.h */,
+				E5E1FE751AFCD46600FD3B18 /* SAFollowCell.m */,
+				E5E1FE771AFCD47500FD3B18 /* SALikeCell.h */,
+				E5E1FE781AFCD47500FD3B18 /* SALikeCell.m */,
+			);
+			path = Single;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1961,6 +2027,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5D6F5E41AF02066009EA94C /* shaderUtil.c in Sources */,
+				E5E1FE7C1AFCE97A00FD3B18 /* ActivityCellFactory.m in Sources */,
 				E5D6F55A1AF02066009EA94C /* FollowersViewController.m in Sources */,
 				E5D6F5601AF02066009EA94C /* InfoViewController.m in Sources */,
 				E5D6F5C11AF02066009EA94C /* BackButtonSLKTextViewController.m in Sources */,
@@ -1990,11 +2057,14 @@
 				E5D6F5941AF02066009EA94C /* STFullSizeCollectionCell.m in Sources */,
 				E581D93E1AF5397100FD67C8 /* ShareUtils.m in Sources */,
 				E5D6F2801AF01D06009EA94C /* AppDelegate.m in Sources */,
+				E5E1FE851AFCF2CE00FD3B18 /* MAFollowCell.m in Sources */,
 				E5D6F5951AF02066009EA94C /* STFullSizeCollectionCellFactory.m in Sources */,
+				E5E1FE731AFCD44E00FD3B18 /* SACreateStreamableCell.m in Sources */,
 				E5D6F27D1AF01D06009EA94C /* main.m in Sources */,
 				E5D6F5741AF02066009EA94C /* GeneralSettingsViewController.m in Sources */,
 				E5D6F57D1AF02066009EA94C /* EditTextFieldViewController.m in Sources */,
 				E5D6F5C91AF02066009EA94C /* STViewController.m in Sources */,
+				E5E1FE761AFCD46600FD3B18 /* SAFollowCell.m in Sources */,
 				E5D6F5531AF02066009EA94C /* LoginHomeViewController.m in Sources */,
 				E5D6F57A1AF02066009EA94C /* UserStreamablesViewController.m in Sources */,
 				E5D6F5831AF02066009EA94C /* AutocompleteHashCell.m in Sources */,
@@ -2025,6 +2095,7 @@
 				E5D6F56E1AF02066009EA94C /* PopularViewController.m in Sources */,
 				E5D6F5961AF02066009EA94C /* STTagFullSizeCollectionCell.m in Sources */,
 				E5D6F5A01AF02066009EA94C /* STMediumCollectionCell.m in Sources */,
+				E5E1FE701AFCD43A00FD3B18 /* SACommentCell.m in Sources */,
 				E5D6F5C61AF02066009EA94C /* STMediumOnlyViewController.m in Sources */,
 				E5D6F57C1AF02066009EA94C /* EditProfileViewController.m in Sources */,
 				E5D6F5AC1AF02066009EA94C /* UserLocationCell.m in Sources */,
@@ -2066,10 +2137,13 @@
 				E5E1FE3D1AFA13BC00FD3B18 /* FollowingNotificationsViewController.m in Sources */,
 				E5D6F5591AF02066009EA94C /* FavouritesViewController.m in Sources */,
 				E5D6F5981AF02066009EA94C /* STVideoFullSizeCollectionCell.m in Sources */,
+				E5E1FE791AFCD47500FD3B18 /* SALikeCell.m in Sources */,
+				E5E1FE821AFCF2C000FD3B18 /* MACreateStreamableCell.m in Sources */,
 				E5D6F5791AF02066009EA94C /* TagDetailsViewController.m in Sources */,
 				E5D6F5921AF02066009EA94C /* NotificationMentionCell.m in Sources */,
 				E5D6F5BF1AF02066009EA94C /* SoundEffect.m in Sources */,
 				E5E1FE371AFA104B00FD3B18 /* BackButtonGUITabPagerViewController.m in Sources */,
+				E5E1FE6D1AFCCF2D00FD3B18 /* ActivityCell.m in Sources */,
 				E5D6F59C1AF02066009EA94C /* STTagFullSizeTableCell.m in Sources */,
 				E5D6F5CE1AF02066009EA94C /* UIActionSheet+Blocks.m in Sources */,
 				E5D6F5621AF02066009EA94C /* LocationsViewController.m in Sources */,
@@ -2090,8 +2164,10 @@
 				E5D6F5D31AF02066009EA94C /* UIImage+Tint.m in Sources */,
 				E5D6F5761AF02066009EA94C /* SocialFriendsViewController.m in Sources */,
 				E5D6F5A71AF02066009EA94C /* STThumbnailCollectionCellFactory.m in Sources */,
+				E5E1FE881AFCF2DB00FD3B18 /* MALikeCell.m in Sources */,
 				E5D6F58F1AF02066009EA94C /* NotificationCommentCell.m in Sources */,
 				E5D6F5651AF02066009EA94C /* ConversationsViewController.m in Sources */,
+				E5E1FE7F1AFCF29C00FD3B18 /* MACommentCell.m in Sources */,
 				E5D6F55C1AF02066009EA94C /* GraffitiMapViewController.m in Sources */,
 				E5D6F5CD1AF02066009EA94C /* NSString+HTMLStrip.m in Sources */,
 			);

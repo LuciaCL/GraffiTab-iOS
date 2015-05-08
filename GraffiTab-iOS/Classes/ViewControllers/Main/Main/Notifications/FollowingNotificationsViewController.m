@@ -11,8 +11,9 @@
 #import "INSCircleInfiniteIndicator.h"
 #import "INSDefaultPullToRefresh.h"
 #import "RTSpinKitView.h"
+#import "ActivityCellFactory.h"
 
-@interface FollowingNotificationsViewController () {
+@interface FollowingNotificationsViewController () <NotificationCellProtocol> {
     
     RTSpinKitView *loadingIndicator;
     
@@ -81,7 +82,7 @@
             [items removeAllObjects];
         
         [items addObjectsFromArray:response.object];
-        NSLog(@"%li", items.count);
+
         if ([response.object count] <= 0 || [response.object count] < MAX_ITEMS)
             _canLoadMore = NO;
         
@@ -155,89 +156,31 @@
 #pragma mark - UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
-//    return items.count;
+    return items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
-//    NotificationCell *cell = [NotificationCellFactory createNotificationCellForNotification:items[indexPath.row] tableView:tableView indexPath:indexPath];
-//    
-//    cell.delegate = self;
-//    
-//    return cell;
+    ActivityCell *cell = [ActivityCellFactory createActivityCellForActivityContainer:items[indexPath.row] tableView:tableView indexPath:indexPath];
+
+    cell.delegate = self;
+
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    GTNotification *n = items[indexPath.row];
     
-    UIViewController *controllerToShow;
-    BOOL presentModal = NO;
-    
-    if ([n isKindOfClass:[GTNotificationComment class]]) {
-        GTNotificationComment *not = (GTNotificationComment *) n;
-        
-        if ([not.item isKindOfClass:[GTStreamableTag class]]) {
-            [ViewControllerUtils showTag:(GTStreamableTag *) not.item fromViewController:self];
-            
-            return;
-        }
-    }
-    else if ([n isKindOfClass:[GTNotificationFollow class]]) {
-        GTNotificationFollow *not = (GTNotificationFollow *) n;
-        
-        [ViewControllerUtils showUserProfile:not.follower fromViewController:self];
-        
-        return;
-    }
-    else if ([n isKindOfClass:[GTNotificationLike class]]) {
-        GTNotificationLike *not = (GTNotificationLike *) n;
-        
-        if ([not.item isKindOfClass:[GTStreamableTag class]]) {
-            [ViewControllerUtils showTag:(GTStreamableTag *) not.item fromViewController:self];
-            
-            return;
-        }
-    }
-    else if ([n isKindOfClass:[GTNotificationMention class]]) {
-        GTNotificationMention *not = (GTNotificationMention *) n;
-        
-        if ([not.item isKindOfClass:[GTStreamableTag class]]) {
-            [ViewControllerUtils showTag:(GTStreamableTag *) not.item fromViewController:self];
-            
-            return;
-        }
-    }
-    else if ([n isKindOfClass:[GTNotificationWelcome class]]) {
-        
-    }
-    
-    if (controllerToShow) {
-        if (presentModal)
-            [self presentViewController:controllerToShow animated:YES completion:nil];
-        else
-            [self.navigationController pushViewController:controllerToShow animated:YES];
-    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return tableView.rowHeight;
-//    GTNotification *n = items[indexPath.row];
-//    
-//    if ([n isKindOfClass:[GTNotificationComment class]])
-//        return [NotificationCommentCell height];
-//    else if ([n isKindOfClass:[GTNotificationFollow class]])
-//        return [NotificationFollowCell height];
-//    else if ([n isKindOfClass:[GTNotificationLike class]])
-//        return [NotificationLikeCell height];
-//    else if ([n isKindOfClass:[GTNotificationMention class]])
-//        return [NotificationMentionCell height];
-//    else if ([n isKindOfClass:[GTNotificationWelcome class]])
-//        return [NotificationWelcomeCell height];
-//    else
-//        return [NotificationCell height];
+    return [ActivityCellFactory cellHeightForActivityContainer:items[indexPath.row] tableView:tableView indexPath:indexPath];
+}
+
+#pragma mark - NotificationCellDelegate
+
+- (void)didTapAvatar:(GTPerson *)person {
+    [ViewControllerUtils showUserProfile:person fromViewController:self];
 }
 
 #pragma mark - Setup

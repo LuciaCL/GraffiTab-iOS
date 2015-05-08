@@ -11,7 +11,6 @@
 
 @interface NotificationCommentCell : NotificationCell
 
-@property (nonatomic, weak) IBOutlet UILabel *infoLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarImage;
 @property (nonatomic, weak) IBOutlet UIImageView *itemImage;
 
