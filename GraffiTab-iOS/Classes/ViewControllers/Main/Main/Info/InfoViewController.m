@@ -7,6 +7,7 @@
 //
 
 #import "InfoViewController.h"
+#import "UIWebView+Clean.h"
 
 @interface InfoViewController () {
     
@@ -40,6 +41,9 @@
 #ifdef DEBUG
     NSLog(@"DEALLOC %@", self.class);
 #endif
+    
+    [webview cleanForDealloc];
+    webview = nil;
 }
 
 - (void)loadText {
@@ -62,7 +66,7 @@
     }
     
     if ( !loaded )
-        [[SCLAlertView new] showError:self title:APP_NAME subTitle:@"Couldn't load content. Please try again." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Couldn't load content. Please try again."];
 }
 
 @end

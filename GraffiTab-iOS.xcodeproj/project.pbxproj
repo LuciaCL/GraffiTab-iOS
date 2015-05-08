@@ -215,6 +215,7 @@
 		E5E1FE881AFCF2DB00FD3B18 /* MALikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE871AFCF2DB00FD3B18 /* MALikeCell.m */; };
 		E5E1FE8C1AFD150300FD3B18 /* StreamableActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE8B1AFD150300FD3B18 /* StreamableActivityViewController.m */; };
 		E5E1FE8F1AFD151B00FD3B18 /* UserActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE8E1AFD151B00FD3B18 /* UserActivityViewController.m */; };
+		E5E1FE921AFD787500FD3B18 /* UIWebView+Clean.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE911AFD787500FD3B18 /* UIWebView+Clean.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -611,6 +612,8 @@
 		E5E1FE8B1AFD150300FD3B18 /* StreamableActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamableActivityViewController.m; sourceTree = "<group>"; };
 		E5E1FE8D1AFD151B00FD3B18 /* UserActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserActivityViewController.h; sourceTree = "<group>"; };
 		E5E1FE8E1AFD151B00FD3B18 /* UserActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserActivityViewController.m; sourceTree = "<group>"; };
+		E5E1FE901AFD787500FD3B18 /* UIWebView+Clean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Clean.h"; sourceTree = "<group>"; };
+		E5E1FE911AFD787500FD3B18 /* UIWebView+Clean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Clean.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1672,6 +1675,8 @@
 				E5D6F4CF1AF02066009EA94C /* UIWindow+PazLabs.m */,
 				E581D9541AF5C32700FD67C8 /* NSArray+Varargs.h */,
 				E581D9551AF5C32700FD67C8 /* NSArray+Varargs.m */,
+				E5E1FE901AFD787500FD3B18 /* UIWebView+Clean.h */,
+				E5E1FE911AFD787500FD3B18 /* UIWebView+Clean.m */,
 			);
 			path = Extends;
 			sourceTree = "<group>";
@@ -2168,6 +2173,7 @@
 				E5D6F5CE1AF02066009EA94C /* UIActionSheet+Blocks.m in Sources */,
 				E5D6F5621AF02066009EA94C /* LocationsViewController.m in Sources */,
 				E5D6F5A61AF02066009EA94C /* STThumbnailCollectionCell.m in Sources */,
+				E5E1FE921AFD787500FD3B18 /* UIWebView+Clean.m in Sources */,
 				E5D6F5581AF02066009EA94C /* PaintingViewController.m in Sources */,
 				E5D6F5661AF02066009EA94C /* CreateConversationViewController.m in Sources */,
 				E5D6F5721AF02066009EA94C /* AboutViewController.m in Sources */,

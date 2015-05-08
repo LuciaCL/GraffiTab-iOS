@@ -9,7 +9,6 @@
 #import "PaintingViewController.h"
 #import "PaintingView.h"
 #import "SoundEffect.h"
-#import "UIActionSheet+Blocks.h"
 #import "ImageCropViewController.h"
 
 #define kBrightness             1.0
@@ -98,6 +97,7 @@ static NSString * const kAVYAviarySecret = @"nESKzmp46kSvNDlgi0_CfA";
 
 - (IBAction)onClickClose:(id)sender {
     SCLAlertView *alert = [[SCLAlertView alloc] init];
+    alert.customViewColor = UIColorFromRGB(COLOR_MAIN);
     
     [alert addButton:@"Save and close" actionBlock:^(void) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{

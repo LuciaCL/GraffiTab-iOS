@@ -15,7 +15,8 @@
         return NO;
     
     if (![self validateEmail:email]) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"This email address is not valid." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"This email address is not valid."];
+        
         return NO;
     }
     
@@ -24,46 +25,56 @@
 
 + (BOOL)validateSignupInput:(NSString *)username password:(NSString *)password confirmPassword:(NSString *)confirmPassword email:(NSString *)email firstname:(NSString *)firstname lastname:(NSString *)lastname viewController:(UIViewController *)vc {
     if (firstname.length <= 0) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Please enter your first name." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Please enter your first name."];
+        
         return NO;
     }
     if (lastname.length <= 0) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Please enter your last name." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Please enter your last name."];
+        
         return NO;
     }
     if (username.length <= 0) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Please enter a username." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Please enter a username."];
+        
         return NO;
     }
     if (password.length <= 0) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Please enter a password." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Please enter a password."];
+        
         return NO;
     }
     if (confirmPassword.length <= 0) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Please confirm your password." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Please confirm your password."];
+        
         return NO;
     }
     if (email.length <= 0) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Please enter your email address." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Please enter your email address."];
+        
         return NO;
     }
     
     if (![password isEqualToString:confirmPassword]) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Your passwords do not match." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Your passwords do not match."];
+        
         return NO;
     }
     
     if (![self validateEmail:email]) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"This email address is not valid." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"This email address is not valid."];
+        
         return NO;
     }
     
     if (username.length <= 2) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Your username must have at least 3 characters." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Your username must be at least 3 characters long."];
+        
         return NO;
     }
     if (password.length <= 3) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Your password must have at least 4 characters." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Your password must be at least 4 characters long."];
+        
         return NO;
     }
     
@@ -81,20 +92,24 @@
 
 + (BOOL)validateProfileEditInput:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email about:(NSString *)about website:(NSString *)website viewController:(UIViewController *)vc {
     if (firstName.length <= 0) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Please enter your first name." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Please enter your first name."];
+        
         return NO;
     }
     if (lastName.length <= 0) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Please enter your last name." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Please enter your last name."];
+
         return NO;
     }
     if (email.length <= 0) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Please enter your email." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Please enter your email."];
+        
         return NO;
     }
     
     if (![self validateEmail:email]) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"This email address is not valid." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"This email address is not valid."];
+
         return NO;
     }
     
@@ -103,25 +118,30 @@
 
 + (BOOL)validateEditPasswordInput:(NSString *)password newPassword:(NSString *)newPassword confirmPassword:(NSString *)confirmPassword viewController:(UIViewController *)vc {
     if (password.length <= 0) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Please enter your password." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Please enter your password."];
+
         return NO;
     }
     if (newPassword.length <= 0) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Please enter your new password." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Please enter your new password."];
+
         return NO;
     }
     if (confirmPassword.length <= 0) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Please confirm your new password." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Please confirm your new password."];
+
         return NO;
     }
     
     if (![newPassword isEqualToString:confirmPassword]) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Your passwords do not match." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Your passwords do not match."];
+
         return NO;
     }
     
     if (newPassword.length <= 3) {
-        [[SCLAlertView new] showError:vc title:APP_NAME subTitle:@"Your new password must have at least 4 characters." closeButtonTitle:@"OK" duration:0.0f];
+        [Utils showMessage:APP_NAME message:@"Your new password must have at least 4 characters."];
+
         return NO;
     }
     

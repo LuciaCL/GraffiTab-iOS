@@ -8,7 +8,6 @@
 
 #import "ConversationSettingsViewController.h"
 #import "AddConversationUsersViewController.h"
-#import "UIActionSheet+Blocks.h"
 #import "ImageCropViewController.h"
 
 @interface ConversationSettingsViewController () {

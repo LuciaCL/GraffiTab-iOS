@@ -76,9 +76,9 @@
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == ALREADY_EXISTS)
-                [[SCLAlertView new] showError:self title:APP_NAME subTitle:@"This username or email have already been taken." closeButtonTitle:@"OK" duration:0.0f];
+                [Utils showMessage:APP_NAME message:@"This username or email have already been taken."];
             else
-                [[SCLAlertView new] showError:self title:APP_NAME subTitle:@"We couldn't process your request right now. Please try again." closeButtonTitle:@"OK" duration:0.0f];
+                [Utils showMessage:APP_NAME message:@"We couldn't process your request right now. Please try again."];
         }];
     }
 }

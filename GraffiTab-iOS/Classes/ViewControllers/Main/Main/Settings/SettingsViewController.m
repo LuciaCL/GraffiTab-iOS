@@ -8,7 +8,6 @@
 
 #import "SettingsViewController.h"
 #import "FacebookUtils.h"
-#import "UIActionSheet+Blocks.h"
 
 @interface SettingsViewController () {
     
@@ -53,7 +52,7 @@
         if (response.reason == AUTHORIZATION_NEEDED)
             [self doLogoutUser];
         else
-            [[SCLAlertView new] showError:self title:APP_NAME subTitle:@"We couldn't process your request right now. Please try again." closeButtonTitle:@"OK" duration:0.0f];
+            [Utils showMessage:APP_NAME message:@"We couldn't process your request right now. Please try again."];
     }];
 }
 
@@ -81,6 +80,7 @@
                     else {
                         [[SlideNavigationController sharedInstance] closeMenuWithCompletion:^{
                             SCLAlertView *alert = [[SCLAlertView alloc] init];
+                            alert.customViewColor = [UIColor colorWithHexString:@"#005C86"];
                             
                             [alert addButton:@"Connect with Facebook" actionBlock:^(void) {
                                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -173,15 +173,18 @@
         case 4: {
             switch (indexPath.row) {
                 case 0: { // Logout
-                    SCLAlertView *alert = [[SCLAlertView alloc] init];
-                    
-                    [alert addButton:@"Log out" actionBlock:^(void) {
-                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                            [self onClickLogout];
-                        });
-                    }];
-                    
-                    [alert showTitle:[SlideNavigationController sharedInstance] title:APP_NAME subTitle:@"Are you sure you want to log out?" style:Warning closeButtonTitle:@"Cancel" duration:0.0f];
+                    [UIActionSheet showInView:self.view
+                                    withTitle:@"Are you sutre you want to log out?"
+                            cancelButtonTitle:@"Cancel"
+                       destructiveButtonTitle:nil
+                            otherButtonTitles:@[@"Log out"]
+                                     tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+                                         if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Cancel"])
+                                             return;
+                                         
+                                         if (buttonIndex == 0)
+                                             [self onClickLogout];
+                                     }];
                     
                     break;
                 }

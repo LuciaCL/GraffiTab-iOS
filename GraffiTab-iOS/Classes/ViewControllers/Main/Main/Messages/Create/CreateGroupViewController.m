@@ -9,7 +9,6 @@
 #import "CreateGroupViewController.h"
 #import "AutocompleteHashCell.h"
 #import "AutocompleteUserCell.h"
-#import "UIActionSheet+Blocks.h"
 #import "ImageCropViewController.h"
 
 @interface CreateGroupViewController () {

@@ -11,7 +11,6 @@
 #import "CommentsViewController.h"
 #import "RTSpinKitView.h"
 #import "UserProfileViewController.h"
-#import "UIActionSheet+Blocks.h"
 #import "PaintingViewController.h"
 #import "AppDelegate.h"
 

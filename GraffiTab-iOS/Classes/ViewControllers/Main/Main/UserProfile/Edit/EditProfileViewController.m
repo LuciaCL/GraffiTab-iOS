@@ -8,7 +8,6 @@
 
 #import "EditProfileViewController.h"
 #import "FXBlurView.h"
-#import "UIActionSheet+Blocks.h"
 #import "EXPhotoViewer.h"
 #import "ImageCropViewController.h"
 #import "EditTextFieldViewController.h"
@@ -88,12 +87,12 @@
             [self loadData];
             
             SCLAlertView *alert = [[SCLAlertView alloc] init];
-            [alert showTitle:self.navigationController title:APP_NAME subTitle:@"Profile saved!" style:Success closeButtonTitle:@"OK" duration:0.0f];
+            [alert showTitle:self.navigationController title:APP_NAME subTitle:@"Profile saved successfully." style:Success closeButtonTitle:@"OK" duration:0.0f];
         } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == ALREADY_EXISTS)
-                [[SCLAlertView new] showError:self.navigationController title:APP_NAME subTitle:@"This username or email have already been taken." closeButtonTitle:@"OK" duration:0.0f];
+                [Utils showMessage:APP_NAME message:@"This username or email have already been taken."];
             else if (response.reason == AUTHORIZATION_NEEDED) {
                 [Utils logoutUserAndShowLoginController];
                 [Utils showMessage:APP_NAME message:@"Your session has timed out. Please login again."];

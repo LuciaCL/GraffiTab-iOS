@@ -72,9 +72,9 @@ static FBSessionStateHandler oldHandler;
                  [FBSession.activeSession closeAndClearTokenInformation];
                  
                  if (response.reason == ALREADY_EXISTS)
-                     [[SCLAlertView new] showError:[SlideNavigationController sharedInstance] title:APP_NAME subTitle:@"This Facebook account is already linked to another profile. Please choose a different account." closeButtonTitle:@"OK" duration:0.0f];
+                     [Utils showMessage:APP_NAME message:@"This Facebook account is already linked to another profile. Please choose a different account."];
                  else
-                     [[SCLAlertView new] showError:[SlideNavigationController sharedInstance] title:APP_NAME subTitle:@"We couldn't process your request right now. Please try again." closeButtonTitle:@"OK" duration:0.0f];
+                     [Utils showMessage:APP_NAME message:@"We couldn't process your request right now. Please try again."];
              }];
          }
          else

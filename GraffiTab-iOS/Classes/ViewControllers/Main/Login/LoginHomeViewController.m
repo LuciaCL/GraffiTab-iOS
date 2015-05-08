@@ -68,9 +68,9 @@
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == AUTHORIZATION_NEEDED)
-                [[SCLAlertView new] showError:self title:APP_NAME subTitle:@"The username or password are incorrect." closeButtonTitle:@"OK" duration:0.0f];
+                [Utils showMessage:APP_NAME message:@"The username or password are incorrect."];
             else
-                [[SCLAlertView new] showError:self title:APP_NAME subTitle:response.message closeButtonTitle:@"OK" duration:0.0f];
+                [Utils showMessage:APP_NAME message:response.message];
         }];
     }
 }
@@ -162,7 +162,7 @@
                  else {
                      [FBSession.activeSession closeAndClearTokenInformation];
                      
-                     [[SCLAlertView new] showError:self title:APP_NAME subTitle:@"We couldn't process your request right now. Please try again." closeButtonTitle:@"OK" duration:0.0f];
+                     [Utils showMessage:APP_NAME message:@"We couldn't process your request right now. Please try again."];
                  }
              }];
          }
@@ -177,6 +177,7 @@
 
 - (void)askUserForUsername:(NSDictionary<FBGraphUser> *)facebookuser {
     SCLAlertView *alert = [[SCLAlertView alloc] init];
+    alert.customViewColor = UIColorFromRGB(COLOR_MAIN);
     
     UITextField *nameField = [alert addTextField:@"Username"];
     
@@ -218,7 +219,7 @@
                 else {
                     [FBSession.activeSession closeAndClearTokenInformation];
                     
-                    [[SCLAlertView new] showError:self title:APP_NAME subTitle:@"We couldn't process your request right now. Please try again." closeButtonTitle:@"OK" duration:0.0f];
+                    [Utils showMessage:APP_NAME message:@"We couldn't process your request right now. Please try again."];
                 }
             }];
         }

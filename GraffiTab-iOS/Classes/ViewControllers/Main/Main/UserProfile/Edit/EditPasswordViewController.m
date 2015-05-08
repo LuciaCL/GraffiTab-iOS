@@ -51,12 +51,12 @@
             [[LoadingViewManager getInstance] removeLoadingView];
             
             SCLAlertView *alert = [[SCLAlertView alloc] init];
-            [alert showTitle:self.navigationController title:APP_NAME subTitle:@"Password changed!" style:Success closeButtonTitle:@"OK" duration:0.0f];
+            [alert showTitle:self.navigationController title:APP_NAME subTitle:@"Password changed successfully." style:Success closeButtonTitle:@"OK" duration:0.0f];
         } failureBlock:^(GTResponseObject *response) {
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == AUTHORIZATION_NEEDED)
-                [[SCLAlertView new] showError:self.navigationController title:APP_NAME subTitle:@"Your password was incorrect." closeButtonTitle:@"OK" duration:0.0f];
+                [Utils showMessage:APP_NAME message:@"Your password was incorrect."];
             else
                 [Utils showMessage:APP_NAME message:response.message];
         }];

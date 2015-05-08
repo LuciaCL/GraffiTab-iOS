@@ -62,9 +62,9 @@
             [[LoadingViewManager getInstance] removeLoadingView];
             
             if (response.reason == NOT_FOUND)
-                [[SCLAlertView new] showError:self.navigationController title:APP_NAME subTitle:@"This email address was not found." closeButtonTitle:@"OK" duration:0.0f];
+                [Utils showMessage:APP_NAME message:@"This email address was not found."];
             else
-                [[SCLAlertView new] showError:self.navigationController title:APP_NAME subTitle:@"We couldn't process your request right now. Please try again." closeButtonTitle:@"OK" duration:0.0f];
+                [Utils showMessage:APP_NAME message:@"We couldn't process your request right now. Please try again."];
         }];
     }
 }
