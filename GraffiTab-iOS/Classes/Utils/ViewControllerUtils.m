@@ -12,6 +12,8 @@
 #import "SearchGraffitiViewController.h"
 #import "UIWindow+PazLabs.h"
 #import "GraffitiMapViewController.h"
+#import "StreamableActivityViewController.h"
+#import "UserActivityViewController.h"
 
 @implementation ViewControllerUtils
 
@@ -87,6 +89,22 @@
     [formSheet presentAnimated:YES completionHandler:^(UIViewController *presentedFSViewController) {
         
     }];
+}
+
++ (void)showActivityStreamable:(NSMutableArray *)items fromViewController:(UIViewController *)controller {
+    UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
+    StreamableActivityViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"StreamableActivityViewController"];
+    vc.items = items;
+    
+    [controller.navigationController pushViewController:vc animated:YES];
+}
+
++ (void)showActivityUser:(NSMutableArray *)items fromViewController:(UIViewController *)controller {
+    UIStoryboard *mainStoryboard = [SlideNavigationController sharedInstance].storyboard;
+    UserActivityViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"UserActivityViewController"];
+    vc.items = items;
+    
+    [controller.navigationController pushViewController:vc animated:YES];
 }
 
 @end

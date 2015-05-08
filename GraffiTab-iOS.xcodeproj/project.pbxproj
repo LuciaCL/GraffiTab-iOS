@@ -213,6 +213,8 @@
 		E5E1FE821AFCF2C000FD3B18 /* MACreateStreamableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE811AFCF2C000FD3B18 /* MACreateStreamableCell.m */; };
 		E5E1FE851AFCF2CE00FD3B18 /* MAFollowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE841AFCF2CE00FD3B18 /* MAFollowCell.m */; };
 		E5E1FE881AFCF2DB00FD3B18 /* MALikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE871AFCF2DB00FD3B18 /* MALikeCell.m */; };
+		E5E1FE8C1AFD150300FD3B18 /* StreamableActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE8B1AFD150300FD3B18 /* StreamableActivityViewController.m */; };
+		E5E1FE8F1AFD151B00FD3B18 /* UserActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1FE8E1AFD151B00FD3B18 /* UserActivityViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -605,6 +607,10 @@
 		E5E1FE841AFCF2CE00FD3B18 /* MAFollowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAFollowCell.m; sourceTree = "<group>"; };
 		E5E1FE861AFCF2DB00FD3B18 /* MALikeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MALikeCell.h; sourceTree = "<group>"; };
 		E5E1FE871AFCF2DB00FD3B18 /* MALikeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MALikeCell.m; sourceTree = "<group>"; };
+		E5E1FE8A1AFD150300FD3B18 /* StreamableActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamableActivityViewController.h; sourceTree = "<group>"; };
+		E5E1FE8B1AFD150300FD3B18 /* StreamableActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamableActivityViewController.m; sourceTree = "<group>"; };
+		E5E1FE8D1AFD151B00FD3B18 /* UserActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserActivityViewController.h; sourceTree = "<group>"; };
+		E5E1FE8E1AFD151B00FD3B18 /* UserActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserActivityViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1064,6 +1070,7 @@
 		E5D6F3D41AF02066009EA94C /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				E5E1FE891AFD149800FD3B18 /* Activity */,
 				E5D6F3D51AF02066009EA94C /* MyNotificationsViewController.h */,
 				E5D6F3D61AF02066009EA94C /* MyNotificationsViewController.m */,
 				E5E1FE3B1AFA13BC00FD3B18 /* FollowingNotificationsViewController.h */,
@@ -1833,6 +1840,17 @@
 			path = Single;
 			sourceTree = "<group>";
 		};
+		E5E1FE891AFD149800FD3B18 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				E5E1FE8A1AFD150300FD3B18 /* StreamableActivityViewController.h */,
+				E5E1FE8B1AFD150300FD3B18 /* StreamableActivityViewController.m */,
+				E5E1FE8D1AFD151B00FD3B18 /* UserActivityViewController.h */,
+				E5E1FE8E1AFD151B00FD3B18 /* UserActivityViewController.m */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2064,6 +2082,7 @@
 				E5D6F5741AF02066009EA94C /* GeneralSettingsViewController.m in Sources */,
 				E5D6F57D1AF02066009EA94C /* EditTextFieldViewController.m in Sources */,
 				E5D6F5C91AF02066009EA94C /* STViewController.m in Sources */,
+				E5E1FE8F1AFD151B00FD3B18 /* UserActivityViewController.m in Sources */,
 				E5E1FE761AFCD46600FD3B18 /* SAFollowCell.m in Sources */,
 				E5D6F5531AF02066009EA94C /* LoginHomeViewController.m in Sources */,
 				E5D6F57A1AF02066009EA94C /* UserStreamablesViewController.m in Sources */,
@@ -2103,6 +2122,7 @@
 				E5D6F57B1AF02066009EA94C /* EditPasswordViewController.m in Sources */,
 				E5D6F5641AF02066009EA94C /* MenuViewController.m in Sources */,
 				E5D6F5C41AF02066009EA94C /* BackButtonViewController.m in Sources */,
+				E5E1FE8C1AFD150300FD3B18 /* StreamableActivityViewController.m in Sources */,
 				E5D6F5571AF02066009EA94C /* ImageCropViewController.m in Sources */,
 				E5D6F5C51AF02066009EA94C /* STFullOnlyViewController.m in Sources */,
 				E5D6F56D1AF02066009EA94C /* MyNotificationsViewController.m in Sources */,

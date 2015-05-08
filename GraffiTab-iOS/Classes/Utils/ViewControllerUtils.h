@@ -20,4 +20,7 @@
 + (void)showSearchUserProfile:(NSString *)username fromViewController:(UIViewController *)controller;
 + (void)showSearchHashtag:(NSString *)hashtag fromViewController:(UIViewController *)controller;
 
++ (void)showActivityStreamable:(NSMutableArray *)items fromViewController:(UIViewController *)controller;
++ (void)showActivityUser:(NSMutableArray *)items fromViewController:(UIViewController *)controller;
+
 @end

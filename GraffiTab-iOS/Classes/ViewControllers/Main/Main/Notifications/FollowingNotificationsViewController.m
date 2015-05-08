@@ -170,7 +170,60 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    GTActivityContainer *activityContainer = items[indexPath.row];
     
+    if (activityContainer.activities.count == 1) { // Load single activity cells.
+        if (activityContainer.type == ACTIVITY_COMMENT) {
+            GTStreamable *s = ((GTActivityComment *)activityContainer.activities.firstObject).item;
+            
+            [ViewControllerUtils showTag:(GTStreamableTag *)s fromViewController:self];
+        }
+        else if (activityContainer.type == ACTIVITY_CREATE_STREAMABLE) {
+            GTStreamable *s = ((GTActivityCreateStreamable *)activityContainer.activities.firstObject).item;
+            
+            [ViewControllerUtils showTag:(GTStreamableTag *)s fromViewController:self];
+        }
+        else if (activityContainer.type == ACTIVITY_FOLLOW) {
+            GTPerson *s = ((GTActivityFollow *)activityContainer.activities.firstObject).followedUser;
+            
+            [ViewControllerUtils showUserProfile:s fromViewController:self];
+        }
+        else if (activityContainer.type == ACTIVITY_LIKE) {
+            GTStreamable *s = ((GTActivityLike *)activityContainer.activities.firstObject).item;
+            
+            [ViewControllerUtils showTag:(GTStreamableTag *)s fromViewController:self];
+        }
+    }
+    else {
+        if (activityContainer.type == ACTIVITY_COMMENT) {
+            NSMutableArray *streamables = [NSMutableArray new];
+            for (GTActivityComment *activityItem in activityContainer.activities)
+                [streamables addObject:activityItem.item];
+            
+            [ViewControllerUtils showActivityStreamable:streamables fromViewController:self];
+        }
+        else if (activityContainer.type == ACTIVITY_CREATE_STREAMABLE) {
+            NSMutableArray *streamables = [NSMutableArray new];
+            for (GTActivityCreateStreamable *activityItem in activityContainer.activities)
+                [streamables addObject:activityItem.item];
+            
+            [ViewControllerUtils showActivityStreamable:streamables fromViewController:self];
+        }
+        else if (activityContainer.type == ACTIVITY_FOLLOW) {
+            NSMutableArray *users = [NSMutableArray new];
+            for (GTActivityFollow *activityItem in activityContainer.activities)
+                [users addObject:activityItem.followedUser];
+            
+            [ViewControllerUtils showActivityUser:users fromViewController:self];
+        }
+        else if (activityContainer.type == ACTIVITY_LIKE) {
+            NSMutableArray *streamables = [NSMutableArray new];
+            for (GTActivityLike *activityItem in activityContainer.activities)
+                [streamables addObject:activityItem.item];
+            
+            [ViewControllerUtils showActivityStreamable:streamables fromViewController:self];
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -196,6 +249,7 @@
 }
 
 - (void)setupTableView {
+    _theTable.contentInset = UIEdgeInsetsMake(_theTable.contentInset.top, _theTable.contentInset.left, 8, _theTable.contentInset.right);
     _theTable.tableFooterView = [UIView new];
     
     // Setup pull-to-refresh
@@ -225,7 +279,7 @@
     [_theTable.ins_infiniteScrollBackgroundView addSubview:infinityIndicator];
     [infinityIndicator startAnimating];
     
-    _theTable.ins_infiniteScrollBackgroundView.preserveContentInset = NO;
+    _theTable.ins_infiniteScrollBackgroundView.preserveContentInset = YES;
     
     UIView <INSPullToRefreshBackgroundViewDelegate> *pullToRefresh = [[INSDefaultPullToRefresh alloc] initWithFrame:CGRectMake(0, 0, 24, 24) backImage:nil frontImage:[UIImage imageNamed:@"iconFacebook"]];;
     _theTable.ins_pullToRefreshBackgroundView.delegate = pullToRefresh;
