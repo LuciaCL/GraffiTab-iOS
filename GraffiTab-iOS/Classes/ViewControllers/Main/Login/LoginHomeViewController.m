@@ -19,6 +19,7 @@
     IBOutlet UIImageView *passwordIcon;
     IBOutlet UIButton *facebookButton;
     IBOutlet UIButton *signupButton;
+    IBOutlet UIScrollView *scroll;
 }
 
 - (IBAction)onClickLogin:(id)sender;
@@ -39,6 +40,7 @@
     [self setupLabels];
     [self setupImageViews];
     [self setupButtons];
+    [self setupScrollView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -309,6 +311,10 @@
     
     facebookButton.layer.cornerRadius = 3;
     signupButton.layer.cornerRadius = 3;
+}
+
+- (void)setupScrollView {
+    scroll.contentSize = CGSizeMake(scroll.frame.size.width, signupLabel.frame.origin.y + signupLabel.frame.size.height + 10);
 }
 
 @end
