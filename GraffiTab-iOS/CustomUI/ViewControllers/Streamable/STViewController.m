@@ -22,6 +22,7 @@
 @interface STViewController () {
     
     NSMutableArray *items;
+    NSMutableSet *shownIndexes;
 }
 
 @property (nonatomic, assign) BOOL canLoadMore;
@@ -76,6 +77,7 @@
     _canLoadMore = YES;
     _isDownloading = NO;
     items = [NSMutableArray new];
+    shownIndexes = [NSMutableSet set];
     
     [self setupLoadingIndicator];
     [self setupCollectionView];
@@ -93,8 +95,6 @@
     [super viewDidLayoutSubviews];
     
     if (self.viewType == STVIEW_TYPE_RANDOM) {
-        self.collectionView.contentInset = UIEdgeInsetsMake(5, 5, 5, 5);
-        
         if (![self.collectionView.collectionViewLayout isKindOfClass:[FBLikeLayout class]]) {
             FBLikeLayout *layout = [FBLikeLayout new];
             layout.minimumInteritemSpacing = 4;
@@ -403,6 +403,25 @@
         return UIEdgeInsetsMake(spacing, spacing, spacing, spacing);
     else
         return UIEdgeInsetsZero;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.viewType == STVIEW_TYPE_LARGE) {
+        if (![shownIndexes containsObject:indexPath]) {
+            [shownIndexes addObject:indexPath];
+            
+            CALayer *layer = cell.layer;
+            layer.transform = CATransform3DMakeTranslation(0, self.collectionView.frame.size.height - 50, 0.0f);
+            
+            [UIView animateWithDuration:0.8
+                                  delay:0
+                                options:UIViewAnimationOptionCurveEaseOut
+                             animations:^(void){
+                                 cell.layer.transform = CATransform3DIdentity;
+                                 
+                             } completion:nil];
+        }
+    }
 }
 
 #pragma mark - Layout
