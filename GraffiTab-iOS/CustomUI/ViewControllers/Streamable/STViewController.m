@@ -17,6 +17,7 @@
 #import "STFullSizeCollectionCellFactory.h"
 #import "UserProfileViewController.h"
 #import "STMediumCollectionCellFactory.h"
+#import "FBLikeLayout.h"
 
 @interface STViewController () {
     
@@ -86,6 +87,28 @@
     [super viewWillAppear:animated];
     
     [self layoutComponents];
+}
+
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    
+    if (self.viewType == STVIEW_TYPE_RANDOM) {
+        self.collectionView.contentInset = UIEdgeInsetsMake(5, 5, 5, 5);
+        
+        if (![self.collectionView.collectionViewLayout isKindOfClass:[FBLikeLayout class]]) {
+            FBLikeLayout *layout = [FBLikeLayout new];
+            layout.minimumInteritemSpacing = 4;
+            layout.singleCellWidth = (MIN(self.collectionView.bounds.size.width, self.collectionView.bounds.size.height)-self.collectionView.contentInset.left-self.collectionView.contentInset.right-8)/3.0;
+            layout.maxCellSpace = 3;
+            layout.forceCellWidthForMinimumInteritemSpacing = YES;
+            layout.fullImagePercentageOfOccurrency = 50;
+            self.collectionView.collectionViewLayout = layout;
+            
+            [self.collectionView reloadData];
+        } else {
+            //[self.collectionView.collectionViewLayout invalidateLayout];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -305,6 +328,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.viewType == STVIEW_TYPE_SMALL)
         return [STThumbnailCollectionCellFactory createStreamableCollectionCellForStreamable:items[indexPath.row] tableView:cv indexPath:indexPath];
+    else if (self.viewType == STVIEW_TYPE_RANDOM)
+        return [STThumbnailCollectionCellFactory createStreamableCollectionCellForStreamable:items[indexPath.row] tableView:cv indexPath:indexPath];
     else if (self.viewType == STVIEW_TYPE_MEDIUM) {
         STMediumCollectionCell *cell = [STMediumCollectionCellFactory createStreamableCollectionCellForStreamable:items[indexPath.row] tableView:cv indexPath:indexPath];
         cell.delegate = self;
@@ -345,6 +370,10 @@
         
         width = (cv.frame.size.width - (numCols + 1)*spacing) / numCols;
         height = width + 100;
+    }
+    else if (self.viewType == STVIEW_TYPE_RANDOM) {
+        width = n.width;
+        height = n.height;
     }
     else {
         width = self.collectionView.frame.size.width;

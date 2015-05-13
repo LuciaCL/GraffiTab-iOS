@@ -39,7 +39,6 @@
 - (void)basicInit {
     [super basicInit];
     
-    self.viewType = STVIEW_TYPE_SMALL;
     self.title = @"Most recent";
 }
 

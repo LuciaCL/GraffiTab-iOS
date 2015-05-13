@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '7.1'
+platform :ios, '8.0'
 use_frameworks!
 
 target 'GraffiTab-iOS' do
@@ -35,4 +35,5 @@ target 'GraffiTab-iOS' do
     pod 'Reachability'
     pod 'ALAlertBanner'
     pod 'TWMessageBarManager'
+    pod 'FBLikeLayout'
 end

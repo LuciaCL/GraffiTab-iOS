@@ -13,7 +13,8 @@
 typedef enum {
     STVIEW_TYPE_LARGE,
     STVIEW_TYPE_MEDIUM,
-    STVIEW_TYPE_SMALL
+    STVIEW_TYPE_SMALL,
+    STVIEW_TYPE_RANDOM,
 } STViewType;
 
 @interface STViewController : BackButtonViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FullSizeCellProtocol>

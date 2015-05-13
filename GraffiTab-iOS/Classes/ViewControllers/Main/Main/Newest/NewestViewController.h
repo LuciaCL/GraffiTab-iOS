@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 GraffiTab. All rights reserved.
 //
 
-#import "STToggleViewController.h"
+#import "STRandomOnlyViewController.h"
 
-@interface NewestViewController : STToggleViewController
+@interface NewestViewController : STRandomOnlyViewController
 
 @end
