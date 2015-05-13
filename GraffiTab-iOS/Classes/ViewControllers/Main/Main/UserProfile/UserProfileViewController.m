@@ -37,6 +37,7 @@
     NSMutableArray *items;
     int imagePickerMode;
     UIImagePickerController *galleryPicker;
+    NSMutableSet *shownIndexes;
 }
 
 @property (nonatomic, assign) BOOL initiallyLoaded;
@@ -56,6 +57,7 @@
     self.canLoadMore = YES;
     self.isDownloading = NO;
     items = [NSMutableArray new];
+    shownIndexes = [NSMutableSet set];
     
     [self setupStatusBar];
     [self setupTableView];
@@ -798,6 +800,23 @@
             
             break;
         }
+    }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (![shownIndexes containsObject:indexPath] && indexPath.section == 2) {
+        [shownIndexes addObject:indexPath];
+        
+        CALayer *layer = cell.layer;
+        layer.transform = CATransform3DMakeTranslation(0, self.tableView.frame.size.height - 50, 0.0f);
+        
+        [UIView animateWithDuration:0.8
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseOut
+                         animations:^(void){
+                             cell.layer.transform = CATransform3DIdentity;
+                             
+                         } completion:nil];
     }
 }
 
