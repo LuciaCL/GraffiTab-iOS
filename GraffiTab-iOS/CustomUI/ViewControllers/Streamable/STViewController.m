@@ -310,7 +310,7 @@
 
 - (CGFloat)getItemSpacing {
     if (self.viewType == STVIEW_TYPE_SMALL)
-        return 5.0;
+        return 2.0;
     else if (self.viewType == STVIEW_TYPE_MEDIUM)
         return 10.0;
     else
@@ -413,7 +413,7 @@
             CALayer *layer = cell.layer;
             layer.transform = CATransform3DMakeTranslation(0, self.collectionView.frame.size.height - 50, 0.0f);
             
-            [UIView animateWithDuration:0.8
+            [UIView animateWithDuration:indexPath.row == 0 ? 0.0 : 0.8
                                   delay:0
                                 options:UIViewAnimationOptionCurveEaseOut
                              animations:^(void){
