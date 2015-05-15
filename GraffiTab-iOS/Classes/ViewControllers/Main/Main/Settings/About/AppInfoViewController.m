@@ -61,7 +61,7 @@
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             CGRect f = logo.frame;
-            f.origin.y -= IS_IPHONE_5 ? 130 : 100;
+            f.origin.y -= IS_IPHONE_5 ? 130 : 110;
             logo.frame = f;
         } completion:^(BOOL finished) {
             [self animateInfo];
@@ -74,7 +74,7 @@
         infoView.alpha = 1.0;
         
         CGRect f = infoView.frame;
-        f.origin.y -= IS_IPHONE_5 ? 70 : 40;
+        f.origin.y -= IS_IPHONE_5 ? 60 : 30;
         infoView.frame = f;
     } completion:^(BOOL finished) {
         [self animateRest];
