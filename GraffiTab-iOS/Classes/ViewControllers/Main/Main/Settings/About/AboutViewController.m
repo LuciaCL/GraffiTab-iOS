@@ -27,6 +27,13 @@
     [self loadData];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (self.navigationController.isNavigationBarHidden)
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -50,9 +57,9 @@
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0)
-            [self showInfoController:[[NSBundle mainBundle] pathForResource:@"release_notes" ofType:@"txt"] title:@"Release Notes"];
+            [self showInfoController:[[NSBundle mainBundle] pathForResource:@"release_notes" ofType:@"html"] title:@"Release Notes"];
         else
-            [self showInfoController:[[NSBundle mainBundle] pathForResource:@"about" ofType:@"txt"] title:@"About"];
+            [self performSegueWithIdentifier:@"SEGUE_APP_INFO" sender:nil];
     }
 }
 

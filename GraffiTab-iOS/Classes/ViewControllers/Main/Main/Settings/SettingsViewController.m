@@ -148,17 +148,17 @@
         case 3: {
             switch (indexPath.row) {
                 case 0: { // Terms and Conditions
-                    [self showInfoController:[[NSBundle mainBundle] pathForResource:@"terms" ofType:@"txt"] title:@"Terms of Use"];
+                    [self showInfoController:[[NSBundle mainBundle] pathForResource:@"terms" ofType:@"html"] title:@"Terms of Use"];
                     
                     break;
                 }
                 case 1: { // EULA
-                    [self showInfoController:[[NSBundle mainBundle] pathForResource:@"eula" ofType:@"txt"] title:@"End User License Agreement"];
+                    [self showInfoController:[[NSBundle mainBundle] pathForResource:@"eula" ofType:@"html"] title:@"End User License Agreement"];
                     
                     break;
                 }
                 case 2: { // Credits
-                    [self showInfoController:[[NSBundle mainBundle] pathForResource:@"credits" ofType:@"txt"] title:@"Credits"];
+                    [self showInfoController:[[NSBundle mainBundle] pathForResource:@"credits" ofType:@"html"] title:@"Credits"];
                     
                     break;
                 }

@@ -86,7 +86,7 @@
 - (void)onClickTerms {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     InfoViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"InfoViewController"];
-    vc.filePath = [[NSBundle mainBundle] pathForResource:@"terms" ofType:@"txt"];
+    vc.filePath = [[NSBundle mainBundle] pathForResource:@"terms" ofType:@"html"];
     vc.title = @"Terms of Use";
     
     [self.navigationController pushViewController:vc animated:YES];

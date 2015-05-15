@@ -1,8 +1,0 @@
-<font color='gray'><h2>App version</h2>
-<p>1.0.0</p>
-<h2>Developer</h2>
-<p>Georgi Christov</p>
-<h2>Graphics designer</h2>
-<p>Dimitar Donchev</p>
-<h2>License</h2>
-<p>All rights reserved. No part of this application may be reproduced or transmitted in any form or by any means, electronic, mechanical, photocopying, recording, or otherwise, without prior written permission of GraffiTab.</p></font>
