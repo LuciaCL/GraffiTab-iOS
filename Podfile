@@ -4,13 +4,9 @@ use_frameworks!
 
 target 'GraffiTab-iOS' do
     pod 'AFNetworking'
-    pod 'iCarousel'
-    pod 'SwipeView'
     pod 'ActionSheetPicker-3.0'
-    pod 'MarqueeLabel'
     pod 'MZFormSheetController'
     pod 'TPKeyboardAvoiding'
-    pod 'ReflectionView'
     pod 'SCLAlertView-Objective-C'
     pod 'iOS-Slide-Menu'
     pod 'HexColors'
@@ -18,7 +14,6 @@ target 'GraffiTab-iOS' do
     pod 'AMAttributedHighlightLabel'
     pod 'ios-image-editor'
     pod 'XHTwitterPaggingViewer'
-    pod 'ICViewPager'
     pod 'SpinKit'
     pod 'MGSwipeTableCell'
     pod 'GLGroupChatPicView'

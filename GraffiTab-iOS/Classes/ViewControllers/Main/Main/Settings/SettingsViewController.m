@@ -158,7 +158,7 @@
                     break;
                 }
                 case 2: { // Credits
-                    [self showInfoController:[[NSBundle mainBundle] pathForResource:@"credits" ofType:@"html"] title:@"Credits"];
+                    [self performSegueWithIdentifier:@"SEGUE_CREDITS" sender:nil];
                     
                     break;
                 }
