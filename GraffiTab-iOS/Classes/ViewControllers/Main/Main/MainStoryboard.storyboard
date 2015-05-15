@@ -3557,7 +3557,7 @@
                             <tableViewSection id="cAb-YE-Tvx">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="BOO-Tq-R5a" style="IBUITableViewCellStyleDefault" id="eyj-ux-ooJ">
-                                        <rect key="frame" x="0.0" y="35" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eyj-ux-ooJ" id="GeL-hz-G4H">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -3573,7 +3573,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="mkf-d9-ph4" style="IBUITableViewCellStyleDefault" id="YfT-23-0AX">
-                                        <rect key="frame" x="0.0" y="79" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="143" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YfT-23-0AX" id="p5Z-pc-MDK">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -3593,7 +3593,7 @@
                             <tableViewSection headerTitle="Version information" footerTitle="© 2015 GraffiTab All Rights Reserved" id="3Nc-2e-x2H">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="avJ-XE-VQI" detailTextLabel="Sz8-Fq-dOx" style="IBUITableViewCellStyleValue1" id="AG2-5u-nDX">
-                                        <rect key="frame" x="0.0" y="166" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="230" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AG2-5u-nDX" id="kH1-iO-oGQ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -3615,7 +3615,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="N78-yV-9mc" detailTextLabel="XNq-om-7Oy" style="IBUITableViewCellStyleValue1" id="uo1-9e-3dU">
-                                        <rect key="frame" x="0.0" y="210" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="274" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uo1-9e-3dU" id="YtU-nT-GCK">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
