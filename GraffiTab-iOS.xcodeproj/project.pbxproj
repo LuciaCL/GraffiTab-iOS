@@ -22,6 +22,7 @@
 		E582984D1B0607CF0016403E /* release_notes.html in Resources */ = {isa = PBXBuildFile; fileRef = E58298491B0607CF0016403E /* release_notes.html */; };
 		E582984E1B0607CF0016403E /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = E582984A1B0607CF0016403E /* terms.html */; };
 		E58298501B0607EC0016403E /* credits.json in Resources */ = {isa = PBXBuildFile; fileRef = E582984F1B0607EC0016403E /* credits.json */; };
+		E58298541B06133A0016403E /* CreditsLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = E58298531B06133A0016403E /* CreditsLibrary.m */; };
 		E5D6F27D1AF01D06009EA94C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F27C1AF01D06009EA94C /* main.m */; };
 		E5D6F2801AF01D06009EA94C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F27F1AF01D06009EA94C /* AppDelegate.m */; };
 		E5D6F2881AF01D06009EA94C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D6F2871AF01D06009EA94C /* Images.xcassets */; };
@@ -270,6 +271,8 @@
 		E58298491B0607CF0016403E /* release_notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = release_notes.html; sourceTree = "<group>"; };
 		E582984A1B0607CF0016403E /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
 		E582984F1B0607EC0016403E /* credits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = credits.json; sourceTree = "<group>"; };
+		E58298521B06133A0016403E /* CreditsLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsLibrary.h; sourceTree = "<group>"; };
+		E58298531B06133A0016403E /* CreditsLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsLibrary.m; sourceTree = "<group>"; };
 		E5D6F2771AF01D06009EA94C /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D6F27B1AF01D06009EA94C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5D6F27C1AF01D06009EA94C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -738,6 +741,15 @@
 			path = Json;
 			sourceTree = "<group>";
 		};
+		E58298511B0613250016403E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E58298521B06133A0016403E /* CreditsLibrary.h */,
+				E58298531B06133A0016403E /* CreditsLibrary.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E5D6F26E1AF01D06009EA94C = {
 			isa = PBXGroup;
 			children = (
@@ -809,6 +821,7 @@
 				E5D6F2A41AF02065009EA94C /* Constants */,
 				E5D6F2AB1AF02065009EA94C /* DialogBuilder */,
 				E5D6F2AE1AF02065009EA94C /* LocationManager */,
+				E58298511B0613250016403E /* Model */,
 				E5D6F2E51AF02065009EA94C /* Protocols */,
 				E5D6F2EA1AF02065009EA94C /* Settings */,
 				E5D6F37F1AF02066009EA94C /* Utils */,
@@ -2102,6 +2115,7 @@
 				E581D9881AF8FB8200FD67C8 /* PrivateGraffitiViewController.m in Sources */,
 				E5D6F54D1AF02066009EA94C /* FacebookUtils.m in Sources */,
 				E5D6F57E1AF02066009EA94C /* EditTextViewViewController.m in Sources */,
+				E58298541B06133A0016403E /* CreditsLibrary.m in Sources */,
 				E5D6F4F41AF02066009EA94C /* MyLocationManager.m in Sources */,
 				E5D6F5D21AF02066009EA94C /* UIImage+H568.m in Sources */,
 				E5D6F5941AF02066009EA94C /* STFullSizeCollectionCell.m in Sources */,
