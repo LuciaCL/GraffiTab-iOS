@@ -56,9 +56,9 @@
 - (void)setItem:(GTStreamable *)item {
     _item = item;
     
+    // Setup labels.
     self.dateLabel.text = [DateUtils timePassedSinceDate:item.date];
     
-    // Setup labels.
     self.nameLabel.text = item.user.fullName;
     self.usernameLabel.text = item.user.mentionUsername;
     self.likesLabel.text = [NSString stringWithFormat:@"%i %@", item.likesCount, item.likesCount == 1 ? @"Like" : @"Likes"];
