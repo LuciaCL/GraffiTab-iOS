@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		609A56238531C60BEF5C6721 /* Pods_GraffiTab_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A009B6B9FAC641B4B823435B /* Pods_GraffiTab_iOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E5284B4A1B46B1D200C26C80 /* UserStreamablesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5284B491B46B1D200C26C80 /* UserStreamablesViewController.m */; };
+		E5284B4D1B46BFA900C26C80 /* FollowingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5284B4C1B46BFA900C26C80 /* FollowingViewController.m */; };
 		E581D9341AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E581D9331AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework */; };
 		E581D9351AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E581D9331AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E581D9381AF43ED300FD67C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E581D93A1AF43ED300FD67C8 /* Localizable.strings */; };
@@ -46,7 +48,6 @@
 		E5D6F5581AF02066009EA94C /* PaintingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F39E1AF02066009EA94C /* PaintingViewController.m */; };
 		E5D6F5591AF02066009EA94C /* FavouritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3A11AF02066009EA94C /* FavouritesViewController.m */; };
 		E5D6F55A1AF02066009EA94C /* FollowersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3A41AF02066009EA94C /* FollowersViewController.m */; };
-		E5D6F55B1AF02066009EA94C /* FollowingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3A71AF02066009EA94C /* FollowingViewController.m */; };
 		E5D6F55C1AF02066009EA94C /* GraffitiMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3AA1AF02066009EA94C /* GraffitiMapViewController.m */; };
 		E5D6F55D1AF02066009EA94C /* MapThumbnailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3AC1AF02066009EA94C /* MapThumbnailsViewController.m */; };
 		E5D6F55E1AF02066009EA94C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3AF1AF02066009EA94C /* HomeViewController.m */; };
@@ -76,7 +77,6 @@
 		E5D6F5771AF02066009EA94C /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3F01AF02066009EA94C /* CommentsViewController.m */; };
 		E5D6F5781AF02066009EA94C /* LikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3F31AF02066009EA94C /* LikesViewController.m */; };
 		E5D6F5791AF02066009EA94C /* TagDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3F61AF02066009EA94C /* TagDetailsViewController.m */; };
-		E5D6F57A1AF02066009EA94C /* UserStreamablesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3F81AF02066009EA94C /* UserStreamablesViewController.m */; };
 		E5D6F57B1AF02066009EA94C /* EditPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3FC1AF02066009EA94C /* EditPasswordViewController.m */; };
 		E5D6F57C1AF02066009EA94C /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F3FE1AF02066009EA94C /* EditProfileViewController.m */; };
 		E5D6F57D1AF02066009EA94C /* EditTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F4001AF02066009EA94C /* EditTextFieldViewController.m */; };
@@ -249,6 +249,10 @@
 		6324B106F77245E0971638B6 /* Pods-GraffiTab-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab-iOS/Pods-GraffiTab-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		79BD38D90CD21E770F019901 /* Pods-GraffiTab-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab-iOS/Pods-GraffiTab-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A009B6B9FAC641B4B823435B /* Pods_GraffiTab_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraffiTab_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5284B481B46B1D200C26C80 /* UserStreamablesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserStreamablesViewController.h; sourceTree = "<group>"; };
+		E5284B491B46B1D200C26C80 /* UserStreamablesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserStreamablesViewController.m; sourceTree = "<group>"; };
+		E5284B4B1B46BFA900C26C80 /* FollowingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingViewController.h; sourceTree = "<group>"; };
+		E5284B4C1B46BFA900C26C80 /* FollowingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingViewController.m; sourceTree = "<group>"; };
 		E581D9331AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "../GraffiTab_iOS_SDK/Output/GraffiTab_iOS_SDK-Debug-iphoneuniversal/GraffiTab_iOS_SDK.framework"; sourceTree = "<group>"; };
 		E581D9391AF43ED300FD67C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E581D93B1AF43EFA00FD67C8 /* bg-BG */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "bg-BG"; path = "bg-BG.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -324,8 +328,6 @@
 		E5D6F3A11AF02066009EA94C /* FavouritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouritesViewController.m; sourceTree = "<group>"; };
 		E5D6F3A31AF02066009EA94C /* FollowersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowersViewController.h; sourceTree = "<group>"; };
 		E5D6F3A41AF02066009EA94C /* FollowersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowersViewController.m; sourceTree = "<group>"; };
-		E5D6F3A61AF02066009EA94C /* FollowingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingViewController.h; sourceTree = "<group>"; };
-		E5D6F3A71AF02066009EA94C /* FollowingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingViewController.m; sourceTree = "<group>"; };
 		E5D6F3A91AF02066009EA94C /* GraffitiMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraffitiMapViewController.h; sourceTree = "<group>"; };
 		E5D6F3AA1AF02066009EA94C /* GraffitiMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraffitiMapViewController.m; sourceTree = "<group>"; };
 		E5D6F3AB1AF02066009EA94C /* MapThumbnailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapThumbnailsViewController.h; sourceTree = "<group>"; };
@@ -383,8 +385,6 @@
 		E5D6F3F31AF02066009EA94C /* LikesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesViewController.m; sourceTree = "<group>"; };
 		E5D6F3F51AF02066009EA94C /* TagDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDetailsViewController.h; sourceTree = "<group>"; };
 		E5D6F3F61AF02066009EA94C /* TagDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagDetailsViewController.m; sourceTree = "<group>"; };
-		E5D6F3F71AF02066009EA94C /* UserStreamablesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserStreamablesViewController.h; sourceTree = "<group>"; };
-		E5D6F3F81AF02066009EA94C /* UserStreamablesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserStreamablesViewController.m; sourceTree = "<group>"; };
 		E5D6F3FB1AF02066009EA94C /* EditPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPasswordViewController.h; sourceTree = "<group>"; };
 		E5D6F3FC1AF02066009EA94C /* EditPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPasswordViewController.m; sourceTree = "<group>"; };
 		E5D6F3FD1AF02066009EA94C /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
@@ -703,6 +703,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E5284B471B46B1D200C26C80 /* Graffiti */ = {
+			isa = PBXGroup;
+			children = (
+				E5284B481B46B1D200C26C80 /* UserStreamablesViewController.h */,
+				E5284B491B46B1D200C26C80 /* UserStreamablesViewController.m */,
+			);
+			path = Graffiti;
+			sourceTree = "<group>";
+		};
 		E581D9851AF8FB6100FD67C8 /* Private */ = {
 			isa = PBXGroup;
 			children = (
@@ -937,10 +946,10 @@
 		E5D6F3981AF02066009EA94C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E5284B471B46B1D200C26C80 /* Graffiti */,
 				E5D6F3991AF02066009EA94C /* Drawing */,
 				E5D6F39F1AF02066009EA94C /* Favourites */,
 				E5D6F3A21AF02066009EA94C /* Followers */,
-				E5D6F3A51AF02066009EA94C /* Following */,
 				E5D6F3A81AF02066009EA94C /* GraffitiMap */,
 				E5D6F3AD1AF02066009EA94C /* Home */,
 				E5D6F3B01AF02066009EA94C /* HomeStream */,
@@ -993,19 +1002,12 @@
 		E5D6F3A21AF02066009EA94C /* Followers */ = {
 			isa = PBXGroup;
 			children = (
+				E5284B4B1B46BFA900C26C80 /* FollowingViewController.h */,
+				E5284B4C1B46BFA900C26C80 /* FollowingViewController.m */,
 				E5D6F3A31AF02066009EA94C /* FollowersViewController.h */,
 				E5D6F3A41AF02066009EA94C /* FollowersViewController.m */,
 			);
 			path = Followers;
-			sourceTree = "<group>";
-		};
-		E5D6F3A51AF02066009EA94C /* Following */ = {
-			isa = PBXGroup;
-			children = (
-				E5D6F3A61AF02066009EA94C /* FollowingViewController.h */,
-				E5D6F3A71AF02066009EA94C /* FollowingViewController.m */,
-			);
-			path = Following;
 			sourceTree = "<group>";
 		};
 		E5D6F3A81AF02066009EA94C /* GraffitiMap */ = {
@@ -1186,8 +1188,6 @@
 				E5D6F3EE1AF02066009EA94C /* Comments */,
 				E5D6F3F11AF02066009EA94C /* Likes */,
 				E5D6F3F41AF02066009EA94C /* Tags */,
-				E5D6F3F71AF02066009EA94C /* UserStreamablesViewController.h */,
-				E5D6F3F81AF02066009EA94C /* UserStreamablesViewController.m */,
 			);
 			path = Streamable;
 			sourceTree = "<group>";
@@ -2100,7 +2100,6 @@
 				E5D6F5611AF02066009EA94C /* CreateLocationViewController.m in Sources */,
 				E5D6F5CA1AF02066009EA94C /* USRViewController.m in Sources */,
 				E5D6F5BD1AF02066009EA94C /* TSDemoClusteredAnnotationView.m in Sources */,
-				E5D6F55B1AF02066009EA94C /* FollowingViewController.m in Sources */,
 				E5D6F56B1AF02066009EA94C /* MostActiveUsersViewController.m in Sources */,
 				E5D6F5D41AF02066009EA94C /* UILabel+Boldify.m in Sources */,
 				E581D9561AF5C32700FD67C8 /* NSArray+Varargs.m in Sources */,
@@ -2110,6 +2109,7 @@
 				E5D6F5681AF02066009EA94C /* MessagesViewController.m in Sources */,
 				E5D6F5B01AF02066009EA94C /* UserCell.m in Sources */,
 				E5D6F5891AF02066009EA94C /* ConversationSettingsCell.m in Sources */,
+				E5284B4D1B46BFA900C26C80 /* FollowingViewController.m in Sources */,
 				E5D6F5DF1AF02066009EA94C /* fileUtil.m in Sources */,
 				E5D6F5711AF02066009EA94C /* SearchViewController.m in Sources */,
 				E581D9881AF8FB8200FD67C8 /* PrivateGraffitiViewController.m in Sources */,
@@ -2131,7 +2131,6 @@
 				E5E1FE8F1AFD151B00FD3B18 /* UserActivityViewController.m in Sources */,
 				E5E1FE761AFCD46600FD3B18 /* SAFollowCell.m in Sources */,
 				E5D6F5531AF02066009EA94C /* LoginHomeViewController.m in Sources */,
-				E5D6F57A1AF02066009EA94C /* UserStreamablesViewController.m in Sources */,
 				E5D6F5831AF02066009EA94C /* AutocompleteHashCell.m in Sources */,
 				E5D6F5751AF02066009EA94C /* SettingsViewController.m in Sources */,
 				E5D6F5A21AF02066009EA94C /* STTagMediumCollectionCell.m in Sources */,
@@ -2172,6 +2171,7 @@
 				E5E1FE8C1AFD150300FD3B18 /* StreamableActivityViewController.m in Sources */,
 				E5D6F5571AF02066009EA94C /* ImageCropViewController.m in Sources */,
 				E5D6F5C51AF02066009EA94C /* STFullOnlyViewController.m in Sources */,
+				E5284B4A1B46B1D200C26C80 /* UserStreamablesViewController.m in Sources */,
 				E5D6F56D1AF02066009EA94C /* MyNotificationsViewController.m in Sources */,
 				E5D6F5901AF02066009EA94C /* NotificationFollowCell.m in Sources */,
 				E5D6F5B91AF02066009EA94C /* LoadingViewManager.m in Sources */,
