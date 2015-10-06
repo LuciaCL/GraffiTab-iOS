@@ -18,7 +18,6 @@ target 'GraffiTab-iOS' do
     pod 'MGSwipeTableCell'
     pod 'GLGroupChatPicView'
     pod 'TITokenField'
-    pod 'GUITabPagerViewController'
     pod 'VGParallaxHeader'
     pod 'FXBlurView'
     pod 'EXPhotoViewer'
@@ -31,4 +30,5 @@ target 'GraffiTab-iOS' do
     pod 'ALAlertBanner'
     pod 'TWMessageBarManager'
     pod 'FBLikeLayout'
+    pod 'GUITabPagerViewController'
 end
