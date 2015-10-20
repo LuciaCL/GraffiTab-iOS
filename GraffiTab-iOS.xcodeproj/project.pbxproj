@@ -10,8 +10,6 @@
 		609A56238531C60BEF5C6721 /* Pods_GraffiTab_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A009B6B9FAC641B4B823435B /* Pods_GraffiTab_iOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E5284B4A1B46B1D200C26C80 /* UserStreamablesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5284B491B46B1D200C26C80 /* UserStreamablesViewController.m */; };
 		E5284B4D1B46BFA900C26C80 /* FollowingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5284B4C1B46BFA900C26C80 /* FollowingViewController.m */; };
-		E581D9341AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E581D9331AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework */; };
-		E581D9351AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E581D9331AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E581D9381AF43ED300FD67C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E581D93A1AF43ED300FD67C8 /* Localizable.strings */; };
 		E581D93E1AF5397100FD67C8 /* ShareUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E581D93D1AF5397100FD67C8 /* ShareUtils.m */; };
 		E581D9561AF5C32700FD67C8 /* NSArray+Varargs.m in Sources */ = {isa = PBXBuildFile; fileRef = E581D9551AF5C32700FD67C8 /* NSArray+Varargs.m */; };
@@ -25,6 +23,10 @@
 		E582984E1B0607CF0016403E /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = E582984A1B0607CF0016403E /* terms.html */; };
 		E58298501B0607EC0016403E /* credits.json in Resources */ = {isa = PBXBuildFile; fileRef = E582984F1B0607EC0016403E /* credits.json */; };
 		E58298541B06133A0016403E /* CreditsLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = E58298531B06133A0016403E /* CreditsLibrary.m */; };
+		E597B9C31BD650C50085A6BA /* AviarySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E597B9C11BD650C50085A6BA /* AviarySDK.framework */; settings = {ASSET_TAGS = (); }; };
+		E597B9C41BD650C50085A6BA /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E597B9C21BD650C50085A6BA /* AviarySDKResources.bundle */; settings = {ASSET_TAGS = (); }; };
+		E597B9D01BD657C70085A6BA /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E597B9CF1BD657C70085A6BA /* GraffiTab_iOS_SDK.framework */; };
+		E597B9D11BD657C70085A6BA /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E597B9CF1BD657C70085A6BA /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E5D6F27D1AF01D06009EA94C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F27C1AF01D06009EA94C /* main.m */; };
 		E5D6F2801AF01D06009EA94C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F27F1AF01D06009EA94C /* AppDelegate.m */; };
 		E5D6F2881AF01D06009EA94C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D6F2871AF01D06009EA94C /* Images.xcassets */; };
@@ -169,8 +171,6 @@
 		E5D6F5D41AF02066009EA94C /* UILabel+Boldify.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F4CB1AF02066009EA94C /* UILabel+Boldify.m */; };
 		E5D6F5D51AF02066009EA94C /* UIView+NSObjectTag.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F4CD1AF02066009EA94C /* UIView+NSObjectTag.m */; };
 		E5D6F5D61AF02066009EA94C /* UIWindow+PazLabs.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F4CF1AF02066009EA94C /* UIWindow+PazLabs.m */; };
-		E5D6F5D71AF02066009EA94C /* AviarySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D6F4D21AF02066009EA94C /* AviarySDK.framework */; };
-		E5D6F5D81AF02066009EA94C /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E5D6F4D31AF02066009EA94C /* AviarySDKResources.bundle */; };
 		E5D6F5D91AF02066009EA94C /* EVCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D6F4D61AF02066009EA94C /* EVCircularProgressView.m */; };
 		E5D6F5DA1AF02066009EA94C /* menu_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E5D6F4DA1AF02066009EA94C /* menu_background.jpg */; };
 		E5D6F5DB1AF02066009EA94C /* default_avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E5D6F4DC1AF02066009EA94C /* default_avatar.jpg */; };
@@ -238,7 +238,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E581D9351AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */,
+				E597B9D11BD657C70085A6BA /* GraffiTab_iOS_SDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,7 +253,6 @@
 		E5284B491B46B1D200C26C80 /* UserStreamablesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserStreamablesViewController.m; sourceTree = "<group>"; };
 		E5284B4B1B46BFA900C26C80 /* FollowingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingViewController.h; sourceTree = "<group>"; };
 		E5284B4C1B46BFA900C26C80 /* FollowingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingViewController.m; sourceTree = "<group>"; };
-		E581D9331AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "../GraffiTab_iOS_SDK/Output/GraffiTab_iOS_SDK-Debug-iphoneuniversal/GraffiTab_iOS_SDK.framework"; sourceTree = "<group>"; };
 		E581D9391AF43ED300FD67C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E581D93B1AF43EFA00FD67C8 /* bg-BG */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "bg-BG"; path = "bg-BG.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		E581D93C1AF5397100FD67C8 /* ShareUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareUtils.h; sourceTree = "<group>"; };
@@ -277,6 +276,9 @@
 		E582984F1B0607EC0016403E /* credits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = credits.json; sourceTree = "<group>"; };
 		E58298521B06133A0016403E /* CreditsLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsLibrary.h; sourceTree = "<group>"; };
 		E58298531B06133A0016403E /* CreditsLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsLibrary.m; sourceTree = "<group>"; };
+		E597B9C11BD650C50085A6BA /* AviarySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AviarySDK.framework; sourceTree = "<group>"; };
+		E597B9C21BD650C50085A6BA /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
+		E597B9CF1BD657C70085A6BA /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "../GraffiTab-iOS-SDK/Output/GraffiTab_iOS_SDK-Debug-iphoneuniversal/GraffiTab_iOS_SDK.framework"; sourceTree = "<group>"; };
 		E5D6F2771AF01D06009EA94C /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D6F27B1AF01D06009EA94C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5D6F27C1AF01D06009EA94C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -553,8 +555,6 @@
 		E5D6F4CD1AF02066009EA94C /* UIView+NSObjectTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NSObjectTag.m"; sourceTree = "<group>"; };
 		E5D6F4CE1AF02066009EA94C /* UIWindow+PazLabs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+PazLabs.h"; sourceTree = "<group>"; };
 		E5D6F4CF1AF02066009EA94C /* UIWindow+PazLabs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+PazLabs.m"; sourceTree = "<group>"; };
-		E5D6F4D21AF02066009EA94C /* AviarySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AviarySDK.framework; sourceTree = "<group>"; };
-		E5D6F4D31AF02066009EA94C /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
 		E5D6F4D51AF02066009EA94C /* EVCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVCircularProgressView.h; sourceTree = "<group>"; };
 		E5D6F4D61AF02066009EA94C /* EVCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVCircularProgressView.m; sourceTree = "<group>"; };
 		E5D6F4DA1AF02066009EA94C /* menu_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menu_background.jpg; sourceTree = "<group>"; };
@@ -632,6 +632,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5D6F60E1AF02125009EA94C /* MobileCoreServices.framework in Frameworks */,
+				E597B9C31BD650C50085A6BA /* AviarySDK.framework in Frameworks */,
 				E5D6F60C1AF0211C009EA94C /* SystemConfiguration.framework in Frameworks */,
 				E5D6F60A1AF02111009EA94C /* GLKit.framework in Frameworks */,
 				E5D6F6081AF0210B009EA94C /* UIKit.framework in Frameworks */,
@@ -646,12 +647,11 @@
 				E5D6F5F61AF020B3009EA94C /* libz.1.2.5.dylib in Frameworks */,
 				E5D6F5F41AF020A6009EA94C /* Foundation.framework in Frameworks */,
 				E5D6F5F21AF0209E009EA94C /* MessageUI.framework in Frameworks */,
+				E597B9D01BD657C70085A6BA /* GraffiTab_iOS_SDK.framework in Frameworks */,
 				E5D6F5F01AF02096009EA94C /* OpenGLES.framework in Frameworks */,
-				E581D9341AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework in Frameworks */,
 				E5D6F5EE1AF0208F009EA94C /* QuartzCore.framework in Frameworks */,
 				E5D6F5EC1AF02087009EA94C /* StoreKit.framework in Frameworks */,
 				609A56238531C60BEF5C6721 /* Pods_GraffiTab_iOS.framework in Frameworks */,
-				E5D6F5D71AF02066009EA94C /* AviarySDK.framework in Frameworks */,
 				E5D6F6121AF09FB8009EA94C /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -678,7 +678,6 @@
 		BC42DC8C4A61E7637B4579EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E581D9331AF3E4AC00FD67C8 /* GraffiTab_iOS_SDK.framework */,
 				E5D6F6111AF09FB8009EA94C /* FacebookSDK.framework */,
 				E5D6F60D1AF02125009EA94C /* MobileCoreServices.framework */,
 				E5D6F60B1AF0211C009EA94C /* SystemConfiguration.framework */,
@@ -762,6 +761,7 @@
 		E5D6F26E1AF01D06009EA94C = {
 			isa = PBXGroup;
 			children = (
+				E597B9CF1BD657C70085A6BA /* GraffiTab_iOS_SDK.framework */,
 				E5D6F2791AF01D06009EA94C /* GraffiTab-iOS */,
 				E5D6F2931AF01D06009EA94C /* GraffiTab-iOSTests */,
 				E5D6F2781AF01D06009EA94C /* Products */,
@@ -1756,8 +1756,8 @@
 		E5D6F4D11AF02066009EA94C /* AviarySDK */ = {
 			isa = PBXGroup;
 			children = (
-				E5D6F4D21AF02066009EA94C /* AviarySDK.framework */,
-				E5D6F4D31AF02066009EA94C /* AviarySDKResources.bundle */,
+				E597B9C11BD650C50085A6BA /* AviarySDK.framework */,
+				E597B9C21BD650C50085A6BA /* AviarySDKResources.bundle */,
 			);
 			path = AviarySDK;
 			sourceTree = "<group>";
@@ -2011,8 +2011,8 @@
 				E5D6F5801AF02066009EA94C /* SplashStoryboard.storyboard in Resources */,
 				E5D6F5A31AF02066009EA94C /* STTagMediumCollectionCell.xib in Resources */,
 				E5D6F5E21AF02066009EA94C /* point.fsh in Resources */,
+				E597B9C41BD650C50085A6BA /* AviarySDKResources.bundle in Resources */,
 				E5D6F58C1AF02066009EA94C /* MessageCell.xib in Resources */,
-				E5D6F5D81AF02066009EA94C /* AviarySDKResources.bundle in Resources */,
 				E5D6F5631AF02066009EA94C /* MainStoryboard.storyboard in Resources */,
 				E5D6F5881AF02066009EA94C /* CommentCell.xib in Resources */,
 				E5D6F5A51AF02066009EA94C /* STVideoMediumCollectionCell.xib in Resources */,
@@ -2366,7 +2366,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/GraffiTab-iOS/ExternalLibs/AviarySDK",
 					/Users/georgichristov/Documents/FacebookSDK,
-					"/Users/georgichristov/Documents/Workspace/Examples/IOS/GraffiTab_iOS_SDK/Output/GraffiTab_iOS_SDK-Debug-iphoneuniversal",
+					"$(PROJECT_DIR)-SDK/Output/GraffiTab_iOS_SDK-Debug-iphoneuniversal",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GraffiTab-iOS/GraffiTab-iOS-Prefix.pch";
@@ -2388,7 +2388,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/GraffiTab-iOS/ExternalLibs/AviarySDK",
 					/Users/georgichristov/Documents/FacebookSDK,
-					"/Users/georgichristov/Documents/Workspace/Examples/IOS/GraffiTab_iOS_SDK/Output/GraffiTab_iOS_SDK-Debug-iphoneuniversal",
+					"$(PROJECT_DIR)-SDK/Output/GraffiTab_iOS_SDK-Debug-iphoneuniversal",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GraffiTab-iOS/GraffiTab-iOS-Prefix.pch";

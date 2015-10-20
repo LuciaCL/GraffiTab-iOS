@@ -35,7 +35,7 @@
 
     #import "MZFormSheetController.h"
     #import "SlideNavigationController.h"
-    #import "HexColor.h"
+    #import "HexColors.h"
     #import "Constants.h"
     #import "Utils.h"
     #import "DialogBuilder.h"

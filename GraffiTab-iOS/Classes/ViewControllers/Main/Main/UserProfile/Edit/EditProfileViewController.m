@@ -161,7 +161,7 @@
     else if (imagePickerMode == IMAGE_PICKER_MODE_COVER)
         i = _coverImage;
     
-    [EXPhotoViewer showImageFrom:i rootViewController:self.navigationController];
+    [EXPhotoViewer showImageFrom:i];
 }
 
 - (void)changeImage:(UIImage *)image {

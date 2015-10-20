@@ -183,7 +183,7 @@
     else if (imagePickerMode == IMAGE_PICKER_MODE_COVER)
         i = headerView.coverView;
     
-    [EXPhotoViewer showImageFrom:i rootViewController:[ViewControllerUtils getVisibleViewController]];
+    [EXPhotoViewer showImageFrom:i];
 }
 
 - (void)changeImage:(UIImage *)image {
