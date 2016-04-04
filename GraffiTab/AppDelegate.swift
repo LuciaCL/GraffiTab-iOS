@@ -28,6 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Some code.
         }
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"userDidLogin", name:Notifications.UserLoggedIn, object:nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"userDidLogout", name:Notifications.UserLoggedOut, object:nil)
+        
+        setupTopBar()
+        setupCache()
+        
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            self.checkLoginStatus()
+        }
+        
         return true
     }
 
@@ -105,23 +116,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Login management
     
     func checkLoginStatus() {
-//        if (APISettings.sharedInstance.isLoggedIn()) {
-//            let task = APIGetUserTask()
-//            task.getUser(APISettings.sharedInstance.user!.id!, successBlock: { (response) -> Void in
-//                UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
-//                
-//                self.userDidLogin()
-//                }, failureBlock: { (response) -> Void in
-//                    UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
-//                    
-//                    self.userDidLogout()
-//            })
-//        }
-//        else {
-//            UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
-//            
-//            userDidLogout()
-//        }
+        if (GTSettings.sharedInstance.isLoggedIn()) {
+            GTUserManager.getMe({ (response) -> Void in
+                UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
+                
+                self.userDidLogin()
+            }, failureBlock: { (response) -> Void in
+                UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
+                
+                self.userDidLogout()
+            })
+        }
+        else {
+            UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
+            
+            userDidLogout()
+        }
     }
     
     func userDidLogin() {

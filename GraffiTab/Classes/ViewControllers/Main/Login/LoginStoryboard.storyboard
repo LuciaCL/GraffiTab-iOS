@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="teY-0g-xhu">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="O3I-Xl-hnb">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="teY-0g-xhu" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZJ7-rh-4Z7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="VXb-aq-r7q" kind="relationship" relationship="rootViewController" id="OB8-DC-RHn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A28-9M-GwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-169" y="581"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="OBX-3e-9BZ">
+            <objects>
+                <viewController id="VXb-aq-r7q" customClass="LoginViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UYM-qJ-E8X"/>
+                        <viewControllerLayoutGuide type="bottom" id="y1C-Gw-L6Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hEa-eY-Ru7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grafitab_login" translatesAutoresizingMaskIntoConstraints="NO" id="f9H-j3-R3e">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qPS-TW-QtY" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBm-1r-4Ua">
+                                        <rect key="frame" x="160" y="224" width="280" height="107"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="username" translatesAutoresizingMaskIntoConstraints="NO" id="g2T-Nr-6wc" customClass="TintImageView" customModule="GraffiTab" customModuleProvider="target">
+                                                <rect key="frame" x="7" y="0.0" width="27" height="40"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gjz-XX-TLo">
+                                                <rect key="frame" x="45" y="0.0" width="227" height="40"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="VXb-aq-r7q" id="2Hh-G2-6Jf"/>
+                                                </connections>
+                                            </textField>
+                                            <view alpha="0.60000002384185791" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktC-ND-69v">
+                                                <rect key="frame" x="3" y="44" width="276" height="1"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <imageView userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="0KG-mn-ZMU" customClass="TintImageView" customModule="GraffiTab" customModuleProvider="target">
+                                                <rect key="frame" x="7" y="55" width="27" height="40"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edi-6Z-qCh">
+                                                <rect key="frame" x="45" y="55" width="227" height="40"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="VXb-aq-r7q" id="8b7-9H-ZIa"/>
+                                                </connections>
+                                            </textField>
+                                            <view alpha="0.60000002384185791" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p7V-nF-gkc">
+                                                <rect key="frame" x="3" y="99" width="276" height="1"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="107" id="24Q-yv-H0Q"/>
+                                            <constraint firstAttribute="width" constant="280" id="SfY-Tg-7X1"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="tTv-kW-FLU">
+                                        <rect key="frame" x="160" y="70" width="280" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="ELe-WU-b7f"/>
+                                            <constraint firstAttribute="height" constant="100" id="k57-6l-VVs"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgotten password?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDF-96-09y">
+                                        <rect key="frame" x="160" y="344" width="280" height="21"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="4CG-AP-Hba"/>
+                                            <constraint firstAttribute="height" constant="21" id="d4J-BT-07N"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="bye-wx-0d1" appends="YES" id="54b-m7-AUY"/>
+                                        </connections>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="PDF-96-09y" firstAttribute="centerX" secondItem="BBm-1r-4Ua" secondAttribute="centerX" id="UDv-eR-x5N"/>
+                                    <constraint firstItem="BBm-1r-4Ua" firstAttribute="centerY" secondItem="qPS-TW-QtY" secondAttribute="centerY" multiplier="0.9" constant="106.5" id="XPe-B8-e2I"/>
+                                    <constraint firstItem="BBm-1r-4Ua" firstAttribute="centerX" secondItem="qPS-TW-QtY" secondAttribute="centerX" id="YIX-4O-jHu"/>
+                                    <constraint firstItem="PDF-96-09y" firstAttribute="top" secondItem="BBm-1r-4Ua" secondAttribute="bottom" constant="13" id="dlb-Pr-v4S"/>
+                                    <constraint firstItem="tTv-kW-FLU" firstAttribute="centerY" secondItem="qPS-TW-QtY" secondAttribute="centerY" multiplier="0.4" constant="44" id="e5m-yB-nMY"/>
+                                    <constraint firstItem="tTv-kW-FLU" firstAttribute="centerX" secondItem="qPS-TW-QtY" secondAttribute="centerX" id="nDM-eb-nej"/>
+                                </constraints>
+                            </scrollView>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account yet? Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Aq-qb-0iw">
+                                <rect key="frame" x="160" y="558" width="280" height="21"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="9Zc-4S-fGj"/>
+                                    <constraint firstAttribute="height" constant="21" id="tGu-E2-6ys"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="9jg-Wg-7uj" appends="YES" id="EgT-pK-mNs"/>
+                                </connections>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOy-tl-DJb">
+                                <rect key="frame" x="160" y="500" width="280" height="42"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login with Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sra-bX-ffG">
+                                        <rect key="frame" x="61" y="10" width="200" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icn_btn_facebook" translatesAutoresizingMaskIntoConstraints="NO" id="rTc-DZ-mLB">
+                                        <rect key="frame" x="1" y="0.0" width="42" height="42"/>
+                                    </imageView>
+                                    <view alpha="0.40000000596046448" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rEr-48-PpN">
+                                        <rect key="frame" x="43" y="7" width="1" height="28"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="Vn7-2u-tc4"/>
+                                    <constraint firstAttribute="height" constant="42" id="xmS-9v-icJ"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="R51-UB-J0l" appends="YES" id="Gys-1B-ifZ"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6L-eM-zgn">
+                                <rect key="frame" x="160" y="445" width="280" height="42"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rnz-tN-ljE">
+                                        <rect key="frame" x="51" y="10" width="221" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="username" translatesAutoresizingMaskIntoConstraints="NO" id="zCD-WA-mz3" customClass="TintImageView" customModule="GraffiTab" customModuleProvider="target">
+                                        <rect key="frame" x="1" y="0.0" width="42" height="42"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </imageView>
+                                    <view alpha="0.40000000596046448" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nGK-Tl-mPk">
+                                        <rect key="frame" x="43" y="7" width="1" height="28"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.91372549020000005" green="0.63137254899999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="ccX-b3-W8F"/>
+                                    <constraint firstAttribute="height" constant="42" id="evy-vF-VVP"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="y8T-Cp-GXf" appends="YES" id="iHi-0H-ZHu"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Aq-qb-0iw" firstAttribute="centerX" secondItem="f9H-j3-R3e" secondAttribute="centerX" id="2Do-Xp-VXp"/>
+                            <constraint firstItem="XOy-tl-DJb" firstAttribute="top" secondItem="M6L-eM-zgn" secondAttribute="bottom" constant="13" id="8nS-FJ-pmf"/>
+                            <constraint firstItem="f9H-j3-R3e" firstAttribute="leading" secondItem="hEa-eY-Ru7" secondAttribute="leading" id="AEp-X2-jpS"/>
+                            <constraint firstItem="5Aq-qb-0iw" firstAttribute="top" secondItem="XOy-tl-DJb" secondAttribute="bottom" constant="16" id="AXG-lN-Prv"/>
+                            <constraint firstItem="y1C-Gw-L6Q" firstAttribute="top" secondItem="qPS-TW-QtY" secondAttribute="bottom" constant="220" id="B4R-l5-pie"/>
+                            <constraint firstItem="y1C-Gw-L6Q" firstAttribute="top" secondItem="f9H-j3-R3e" secondAttribute="bottom" id="MfE-Nj-ORf"/>
+                            <constraint firstItem="qPS-TW-QtY" firstAttribute="top" secondItem="hEa-eY-Ru7" secondAttribute="top" id="QQv-wj-1Sh"/>
+                            <constraint firstAttribute="trailing" secondItem="f9H-j3-R3e" secondAttribute="trailing" id="R5X-5i-ff1"/>
+                            <constraint firstItem="qPS-TW-QtY" firstAttribute="leading" secondItem="hEa-eY-Ru7" secondAttribute="leading" id="TQl-HL-ivY"/>
+                            <constraint firstItem="f9H-j3-R3e" firstAttribute="top" secondItem="hEa-eY-Ru7" secondAttribute="top" id="Ta6-lI-Vew"/>
+                            <constraint firstItem="y1C-Gw-L6Q" firstAttribute="top" secondItem="5Aq-qb-0iw" secondAttribute="bottom" constant="21" id="UIS-59-goo"/>
+                            <constraint firstAttribute="trailing" secondItem="qPS-TW-QtY" secondAttribute="trailing" id="ZsA-my-Zqw"/>
+                            <constraint firstItem="M6L-eM-zgn" firstAttribute="centerX" secondItem="XOy-tl-DJb" secondAttribute="centerX" id="fLN-No-HMB"/>
+                            <constraint firstItem="XOy-tl-DJb" firstAttribute="centerX" secondItem="5Aq-qb-0iw" secondAttribute="centerX" id="ohR-di-wCQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Lnd-HM-8dD"/>
+                    <connections>
+                        <outlet property="facebookBtn" destination="XOy-tl-DJb" id="pO9-jJ-Zv1"/>
+                        <outlet property="loginBtn" destination="M6L-eM-zgn" id="gUg-55-8iH"/>
+                        <outlet property="passwordField" destination="edi-6Z-qCh" id="2EU-4p-Rqz"/>
+                        <outlet property="signUpLbl" destination="5Aq-qb-0iw" id="oTc-Go-VXR"/>
+                        <outlet property="usernameField" destination="gjz-XX-TLo" id="rZO-3o-hz9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lI9-Ka-90j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="bye-wx-0d1">
+                    <connections>
+                        <action selector="onClickForgottenPassword:" destination="VXb-aq-r7q" id="7cQ-YT-IkR"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="9jg-Wg-7uj">
+                    <connections>
+                        <action selector="onClickSignUp:" destination="VXb-aq-r7q" id="okR-vg-hP5"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="y8T-Cp-GXf">
+                    <connections>
+                        <action selector="onClickLogin:" destination="VXb-aq-r7q" id="zb3-iD-Uyh"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="R51-UB-J0l">
+                    <connections>
+                        <action selector="onClickFacebookLogin:" destination="VXb-aq-r7q" id="WjC-Wh-adk"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="512" y="581"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="grafitab_login" width="320" height="568"/>
+        <image name="icn_btn_facebook" width="13" height="26"/>
+        <image name="logo" width="263" height="143"/>
+        <image name="password" width="25" height="25"/>
+        <image name="username" width="25" height="25"/>
+    </resources>
+</document>

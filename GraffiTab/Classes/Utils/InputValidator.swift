@@ -10,11 +10,7 @@ import UIKit
 
 class InputValidator: NSObject {
 
-    class func validateLogin(domain: String, username: String, password: String) -> Bool {
-        if (domain.characters.count <= 0) {
-            DialogBuilder.showErrorAlert("Please enter a domain.", title: App.Title)
-            return false
-        }
+    class func validateLogin(username: String, password: String) -> Bool {
         if (username.characters.count <= 0) {
             DialogBuilder.showErrorAlert("Please enter a username.", title: App.Title)
             return false
@@ -25,4 +21,5 @@ class InputValidator: NSObject {
         }
         
         return true
-    }}
+    }
+}
