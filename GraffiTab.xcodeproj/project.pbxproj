@@ -1,0 +1,586 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E3E6AF34F1E3AC30E600CBF /* Pods_GraffiTab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A858584C70AD43E9A1A96F8 /* Pods_GraffiTab.framework */; };
+		E5DFDBD61CB2BF9E00BB3D27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBD51CB2BF9E00BB3D27 /* AppDelegate.swift */; };
+		E5DFDBDD1CB2BF9E00BB3D27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDBDC1CB2BF9E00BB3D27 /* Assets.xcassets */; };
+		E5DFDC011CB2C31B00BB3D27 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBE91CB2C31B00BB3D27 /* Constants.swift */; };
+		E5DFDC021CB2C31B00BB3D27 /* DialogBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBEB1CB2C31B00BB3D27 /* DialogBuilder.swift */; };
+		E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBED1CB2C31B00BB3D27 /* InputValidator.swift */; };
+		E5DFDC041CB2C31B00BB3D27 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBEE1CB2C31B00BB3D27 /* Utils.swift */; };
+		E5DFDC051CB2C31B00BB3D27 /* TintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBF61CB2C31B00BB3D27 /* TintButton.swift */; };
+		E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBF81CB2C31B00BB3D27 /* TintImageView.swift */; };
+		E5DFDC071CB2C31B00BB3D27 /* BackButtonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBFB1CB2C31B00BB3D27 /* BackButtonTableViewController.swift */; };
+		E5DFDC081CB2C31B00BB3D27 /* BackButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBFC1CB2C31B00BB3D27 /* BackButtonViewController.swift */; };
+		E5DFDC091CB2C31B00BB3D27 /* libTestFairy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDBFE1CB2C31B00BB3D27 /* libTestFairy.a */; };
+		E5DFDC0D1CB2C39200BB3D27 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDC0C1CB2C39200BB3D27 /* Default-568h@2x.png */; };
+		E5DFDC0F1CB2C3AB00BB3D27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDC0E1CB2C3AB00BB3D27 /* LaunchScreen.storyboard */; };
+		E5DFDC121CB2C5B900BB3D27 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC111CB2C5B900BB3D27 /* CoreMedia.framework */; };
+		E5DFDC141CB2C5C100BB3D27 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC131CB2C5C100BB3D27 /* CoreMotion.framework */; };
+		E5DFDC161CB2C5C900BB3D27 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC151CB2C5C900BB3D27 /* AVFoundation.framework */; };
+		E5DFDC181CB2C5D100BB3D27 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC171CB2C5D100BB3D27 /* SystemConfiguration.framework */; };
+		E5DFDC1A1CB2C5D900BB3D27 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC191CB2C5D900BB3D27 /* OpenGLES.framework */; };
+		E5DFDC1C1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */; };
+		E5DFDC1D1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E5DFDC201CB2C71800BB3D27 /* SplashStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDC1F1CB2C71800BB3D27 /* SplashStoryboard.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E5DFDC1E1CB2C61500BB3D27 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E5DFDC1D1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3A858584C70AD43E9A1A96F8 /* Pods_GraffiTab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraffiTab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65C7EC7B6C44DA11DEAA502C /* Pods-GraffiTab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab.release.xcconfig"; sourceTree = "<group>"; };
+		68B6060E6C069394DFEF27BF /* Pods-GraffiTab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab.debug.xcconfig"; sourceTree = "<group>"; };
+		E5DFDBD21CB2BF9E00BB3D27 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5DFDBD51CB2BF9E00BB3D27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E5DFDBDC1CB2BF9E00BB3D27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E5DFDBE11CB2BF9E00BB3D27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5DFDBE91CB2C31B00BB3D27 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E5DFDBEB1CB2C31B00BB3D27 /* DialogBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogBuilder.swift; sourceTree = "<group>"; };
+		E5DFDBED1CB2C31B00BB3D27 /* InputValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
+		E5DFDBEE1CB2C31B00BB3D27 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		E5DFDBF61CB2C31B00BB3D27 /* TintButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintButton.swift; sourceTree = "<group>"; };
+		E5DFDBF81CB2C31B00BB3D27 /* TintImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintImageView.swift; sourceTree = "<group>"; };
+		E5DFDBFB1CB2C31B00BB3D27 /* BackButtonTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonTableViewController.swift; sourceTree = "<group>"; };
+		E5DFDBFC1CB2C31B00BB3D27 /* BackButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonViewController.swift; sourceTree = "<group>"; };
+		E5DFDBFE1CB2C31B00BB3D27 /* libTestFairy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFairy.a; sourceTree = "<group>"; };
+		E5DFDBFF1CB2C31B00BB3D27 /* TestFairy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFairy.h; sourceTree = "<group>"; };
+		E5DFDC0C1CB2C39200BB3D27 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E5DFDC0E1CB2C3AB00BB3D27 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E5DFDC101CB2C4B500BB3D27 /* Bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
+		E5DFDC111CB2C5B900BB3D27 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		E5DFDC131CB2C5C100BB3D27 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		E5DFDC151CB2C5C900BB3D27 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E5DFDC171CB2C5D100BB3D27 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E5DFDC191CB2C5D900BB3D27 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS-SDK/_Archive/iOS/Debug/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
+		E5DFDC1F1CB2C71800BB3D27 /* SplashStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SplashStoryboard.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E5DFDBCF1CB2BF9E00BB3D27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5DFDC1C1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework in Frameworks */,
+				E5DFDC1A1CB2C5D900BB3D27 /* OpenGLES.framework in Frameworks */,
+				E5DFDC181CB2C5D100BB3D27 /* SystemConfiguration.framework in Frameworks */,
+				E5DFDC161CB2C5C900BB3D27 /* AVFoundation.framework in Frameworks */,
+				E5DFDC141CB2C5C100BB3D27 /* CoreMotion.framework in Frameworks */,
+				E5DFDC121CB2C5B900BB3D27 /* CoreMedia.framework in Frameworks */,
+				6E3E6AF34F1E3AC30E600CBF /* Pods_GraffiTab.framework in Frameworks */,
+				E5DFDC091CB2C31B00BB3D27 /* libTestFairy.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A67BB771F4F2E46A2E3BA6E7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				68B6060E6C069394DFEF27BF /* Pods-GraffiTab.debug.xcconfig */,
+				65C7EC7B6C44DA11DEAA502C /* Pods-GraffiTab.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E5DFDBC91CB2BF9E00BB3D27 = {
+			isa = PBXGroup;
+			children = (
+				E5DFDC101CB2C4B500BB3D27 /* Bridging.h */,
+				E5DFDBD41CB2BF9E00BB3D27 /* GraffiTab */,
+				E5DFDBD31CB2BF9E00BB3D27 /* Products */,
+				A67BB771F4F2E46A2E3BA6E7 /* Pods */,
+				F89B9B6C7903A7912D4CD2E1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E5DFDBD31CB2BF9E00BB3D27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDBD21CB2BF9E00BB3D27 /* GraffiTab.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5DFDBD41CB2BF9E00BB3D27 /* GraffiTab */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDBF41CB2C31B00BB3D27 /* CustomUI */,
+				E5DFDBFD1CB2C31B00BB3D27 /* ExternalLibs */,
+				E5DFDBE71CB2C31B00BB3D27 /* Classes */,
+				E5DFDBD51CB2BF9E00BB3D27 /* AppDelegate.swift */,
+				E5DFDBDC1CB2BF9E00BB3D27 /* Assets.xcassets */,
+				E5DFDC001CB2C31B00BB3D27 /* Resources */,
+				E5DFDC0B1CB2C33800BB3D27 /* Supporting Files */,
+			);
+			path = GraffiTab;
+			sourceTree = "<group>";
+		};
+		E5DFDBE71CB2C31B00BB3D27 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDBE81CB2C31B00BB3D27 /* Constants */,
+				E5DFDBEA1CB2C31B00BB3D27 /* DialogBuilder */,
+				E5DFDBEC1CB2C31B00BB3D27 /* Utils */,
+				E5DFDBEF1CB2C31B00BB3D27 /* ViewControllers */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E5DFDBE81CB2C31B00BB3D27 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDBE91CB2C31B00BB3D27 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		E5DFDBEA1CB2C31B00BB3D27 /* DialogBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDBEB1CB2C31B00BB3D27 /* DialogBuilder.swift */,
+			);
+			path = DialogBuilder;
+			sourceTree = "<group>";
+		};
+		E5DFDBEC1CB2C31B00BB3D27 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDBED1CB2C31B00BB3D27 /* InputValidator.swift */,
+				E5DFDBEE1CB2C31B00BB3D27 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E5DFDBEF1CB2C31B00BB3D27 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDBF01CB2C31B00BB3D27 /* Main */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E5DFDBF01CB2C31B00BB3D27 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDBF11CB2C31B00BB3D27 /* Login */,
+				E5DFDBF21CB2C31B00BB3D27 /* Main */,
+				E5DFDBF31CB2C31B00BB3D27 /* Splash */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E5DFDBF11CB2C31B00BB3D27 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E5DFDBF21CB2C31B00BB3D27 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E5DFDBF31CB2C31B00BB3D27 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDC1F1CB2C71800BB3D27 /* SplashStoryboard.storyboard */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		E5DFDBF41CB2C31B00BB3D27 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDBF51CB2C31B00BB3D27 /* Buttons */,
+				E5DFDBF71CB2C31B00BB3D27 /* ImageViews */,
+				E5DFDBF91CB2C31B00BB3D27 /* ViewControllers */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		E5DFDBF51CB2C31B00BB3D27 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDBF61CB2C31B00BB3D27 /* TintButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		E5DFDBF71CB2C31B00BB3D27 /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDBF81CB2C31B00BB3D27 /* TintImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		E5DFDBF91CB2C31B00BB3D27 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDBFA1CB2C31B00BB3D27 /* BackButtons */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E5DFDBFA1CB2C31B00BB3D27 /* BackButtons */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDBFB1CB2C31B00BB3D27 /* BackButtonTableViewController.swift */,
+				E5DFDBFC1CB2C31B00BB3D27 /* BackButtonViewController.swift */,
+			);
+			path = BackButtons;
+			sourceTree = "<group>";
+		};
+		E5DFDBFD1CB2C31B00BB3D27 /* ExternalLibs */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDBFE1CB2C31B00BB3D27 /* libTestFairy.a */,
+				E5DFDBFF1CB2C31B00BB3D27 /* TestFairy.h */,
+			);
+			path = ExternalLibs;
+			sourceTree = "<group>";
+		};
+		E5DFDC001CB2C31B00BB3D27 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E5DFDC0B1CB2C33800BB3D27 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDC0C1CB2C39200BB3D27 /* Default-568h@2x.png */,
+				E5DFDBE11CB2BF9E00BB3D27 /* Info.plist */,
+				E5DFDC0E1CB2C3AB00BB3D27 /* LaunchScreen.storyboard */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F89B9B6C7903A7912D4CD2E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */,
+				E5DFDC191CB2C5D900BB3D27 /* OpenGLES.framework */,
+				E5DFDC171CB2C5D100BB3D27 /* SystemConfiguration.framework */,
+				E5DFDC151CB2C5C900BB3D27 /* AVFoundation.framework */,
+				E5DFDC131CB2C5C100BB3D27 /* CoreMotion.framework */,
+				E5DFDC111CB2C5B900BB3D27 /* CoreMedia.framework */,
+				3A858584C70AD43E9A1A96F8 /* Pods_GraffiTab.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E5DFDBD11CB2BF9E00BB3D27 /* GraffiTab */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5DFDBE41CB2BF9E00BB3D27 /* Build configuration list for PBXNativeTarget "GraffiTab" */;
+			buildPhases = (
+				E6A1E439568CA71B1D648516 /* 📦 Check Pods Manifest.lock */,
+				E5DFDBCE1CB2BF9E00BB3D27 /* Sources */,
+				E5DFDBCF1CB2BF9E00BB3D27 /* Frameworks */,
+				E5DFDBD01CB2BF9E00BB3D27 /* Resources */,
+				7EA2372C146857745E60E532 /* 📦 Embed Pods Frameworks */,
+				1749F4D5124E8DE931B8F539 /* 📦 Copy Pods Resources */,
+				E5DFDC1E1CB2C61500BB3D27 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GraffiTab;
+			productName = GraffiTab;
+			productReference = E5DFDBD21CB2BF9E00BB3D27 /* GraffiTab.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5DFDBCA1CB2BF9E00BB3D27 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = GraffiTab;
+				TargetAttributes = {
+					E5DFDBD11CB2BF9E00BB3D27 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = E5DFDBCD1CB2BF9E00BB3D27 /* Build configuration list for PBXProject "GraffiTab" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E5DFDBC91CB2BF9E00BB3D27;
+			productRefGroup = E5DFDBD31CB2BF9E00BB3D27 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E5DFDBD11CB2BF9E00BB3D27 /* GraffiTab */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E5DFDBD01CB2BF9E00BB3D27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5DFDC0F1CB2C3AB00BB3D27 /* LaunchScreen.storyboard in Resources */,
+				E5DFDBDD1CB2BF9E00BB3D27 /* Assets.xcassets in Resources */,
+				E5DFDC201CB2C71800BB3D27 /* SplashStoryboard.storyboard in Resources */,
+				E5DFDC0D1CB2C39200BB3D27 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1749F4D5124E8DE931B8F539 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7EA2372C146857745E60E532 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6A1E439568CA71B1D648516 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E5DFDBCE1CB2BF9E00BB3D27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5DFDC051CB2C31B00BB3D27 /* TintButton.swift in Sources */,
+				E5DFDC041CB2C31B00BB3D27 /* Utils.swift in Sources */,
+				E5DFDC071CB2C31B00BB3D27 /* BackButtonTableViewController.swift in Sources */,
+				E5DFDC021CB2C31B00BB3D27 /* DialogBuilder.swift in Sources */,
+				E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */,
+				E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */,
+				E5DFDBD61CB2BF9E00BB3D27 /* AppDelegate.swift in Sources */,
+				E5DFDC081CB2C31B00BB3D27 /* BackButtonViewController.swift in Sources */,
+				E5DFDC011CB2C31B00BB3D27 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E5DFDBE21CB2BF9E00BB3D27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E5DFDBE31CB2BF9E00BB3D27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E5DFDBE51CB2BF9E00BB3D27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68B6060E6C069394DFEF27BF /* Pods-GraffiTab.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
+				);
+				INFOPLIST_FILE = GraffiTab/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GraffiTab/ExternalLibs",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
+			};
+			name = Debug;
+		};
+		E5DFDBE61CB2BF9E00BB3D27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65C7EC7B6C44DA11DEAA502C /* Pods-GraffiTab.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
+				);
+				INFOPLIST_FILE = GraffiTab/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GraffiTab/ExternalLibs",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E5DFDBCD1CB2BF9E00BB3D27 /* Build configuration list for PBXProject "GraffiTab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5DFDBE21CB2BF9E00BB3D27 /* Debug */,
+				E5DFDBE31CB2BF9E00BB3D27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5DFDBE41CB2BF9E00BB3D27 /* Build configuration list for PBXNativeTarget "GraffiTab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5DFDBE51CB2BF9E00BB3D27 /* Debug */,
+				E5DFDBE61CB2BF9E00BB3D27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E5DFDBCA1CB2BF9E00BB3D27 /* Project object */;
+}
