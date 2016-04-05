@@ -8,6 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		6E3E6AF34F1E3AC30E600CBF /* Pods_GraffiTab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A858584C70AD43E9A1A96F8 /* Pods_GraffiTab.framework */; };
+		E50765D61CB4098D00EAE832 /* TintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBF61CB2C31B00BB3D27 /* TintButton.swift */; };
+		E50765D71CB4098D00EAE832 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBEE1CB2C31B00BB3D27 /* Utils.swift */; };
+		E50765D81CB4098D00EAE832 /* BackButtonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBFB1CB2C31B00BB3D27 /* BackButtonTableViewController.swift */; };
+		E50765D91CB4098D00EAE832 /* DialogBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBEB1CB2C31B00BB3D27 /* DialogBuilder.swift */; };
+		E50765DA1CB4098D00EAE832 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBED1CB2C31B00BB3D27 /* InputValidator.swift */; };
+		E50765DB1CB4098D00EAE832 /* TintImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBF81CB2C31B00BB3D27 /* TintImageView.swift */; };
+		E50765DC1CB4098D00EAE832 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBD51CB2BF9E00BB3D27 /* AppDelegate.swift */; };
+		E50765DD1CB4098D00EAE832 /* BackButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBFC1CB2C31B00BB3D27 /* BackButtonViewController.swift */; };
+		E50765DE1CB4098D00EAE832 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDC231CB2DD5D00BB3D27 /* LoginViewController.swift */; };
+		E50765DF1CB4098D00EAE832 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBE91CB2C31B00BB3D27 /* Constants.swift */; };
+		E50765E21CB4098D00EAE832 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC191CB2C5D900BB3D27 /* OpenGLES.framework */; };
+		E50765E31CB4098D00EAE832 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC171CB2C5D100BB3D27 /* SystemConfiguration.framework */; };
+		E50765E41CB4098D00EAE832 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC151CB2C5C900BB3D27 /* AVFoundation.framework */; };
+		E50765E51CB4098D00EAE832 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC131CB2C5C100BB3D27 /* CoreMotion.framework */; };
+		E50765E61CB4098D00EAE832 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC111CB2C5B900BB3D27 /* CoreMedia.framework */; };
+		E50765E71CB4098D00EAE832 /* Pods_GraffiTab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A858584C70AD43E9A1A96F8 /* Pods_GraffiTab.framework */; };
+		E50765E81CB4098D00EAE832 /* libTestFairy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDBFE1CB2C31B00BB3D27 /* libTestFairy.a */; };
+		E50765EA1CB4098D00EAE832 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */; };
+		E50765EB1CB4098D00EAE832 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDC0E1CB2C3AB00BB3D27 /* LaunchScreen.storyboard */; };
+		E50765EC1CB4098D00EAE832 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDC211CB2CD9800BB3D27 /* LoginStoryboard.storyboard */; };
+		E50765ED1CB4098D00EAE832 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDBDC1CB2BF9E00BB3D27 /* Assets.xcassets */; };
+		E50765EE1CB4098D00EAE832 /* SplashStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDC1F1CB2C71800BB3D27 /* SplashStoryboard.storyboard */; };
+		E50765EF1CB4098D00EAE832 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDC0C1CB2C39200BB3D27 /* Default-568h@2x.png */; };
+		E50765FA1CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50765F91CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework */; };
+		E50765FB1CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E50765F91CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E5B851F91CB2E75D00B24F84 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */; };
 		E5DFDBD61CB2BF9E00BB3D27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBD51CB2BF9E00BB3D27 /* AppDelegate.swift */; };
 		E5DFDBDD1CB2BF9E00BB3D27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDBDC1CB2BF9E00BB3D27 /* Assets.xcassets */; };
@@ -35,6 +60,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		E50765FC1CB409DF00EAE832 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E50765FB1CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5DFDC1E1CB2C61500BB3D27 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -52,6 +88,9 @@
 		3A858584C70AD43E9A1A96F8 /* Pods_GraffiTab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraffiTab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C7EC7B6C44DA11DEAA502C /* Pods-GraffiTab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab.release.xcconfig"; sourceTree = "<group>"; };
 		68B6060E6C069394DFEF27BF /* Pods-GraffiTab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab.debug.xcconfig"; sourceTree = "<group>"; };
+		E50765F71CB4098D00EAE832 /* GraffiTab Release.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraffiTab Release.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E50765F81CB4098D00EAE832 /* GraffiTab copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GraffiTab copy-Info.plist"; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS/GraffiTab copy-Info.plist"; sourceTree = "<absolute>"; };
+		E50765F91CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS-SDK/_Archive/iOS/Release/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
 		E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		E5DFDBD21CB2BF9E00BB3D27 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DFDBD51CB2BF9E00BB3D27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +121,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E50765E01CB4098D00EAE832 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E50765FA1CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework in Frameworks */,
+				E50765E21CB4098D00EAE832 /* OpenGLES.framework in Frameworks */,
+				E50765E31CB4098D00EAE832 /* SystemConfiguration.framework in Frameworks */,
+				E50765E41CB4098D00EAE832 /* AVFoundation.framework in Frameworks */,
+				E50765E51CB4098D00EAE832 /* CoreMotion.framework in Frameworks */,
+				E50765E61CB4098D00EAE832 /* CoreMedia.framework in Frameworks */,
+				E50765E71CB4098D00EAE832 /* Pods_GraffiTab.framework in Frameworks */,
+				E50765E81CB4098D00EAE832 /* libTestFairy.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5DFDBCF1CB2BF9E00BB3D27 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -117,6 +171,7 @@
 				E5DFDBD31CB2BF9E00BB3D27 /* Products */,
 				A67BB771F4F2E46A2E3BA6E7 /* Pods */,
 				F89B9B6C7903A7912D4CD2E1 /* Frameworks */,
+				E50765F81CB4098D00EAE832 /* GraffiTab copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				E5DFDBD21CB2BF9E00BB3D27 /* GraffiTab.app */,
+				E50765F71CB4098D00EAE832 /* GraffiTab Release.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -293,6 +349,7 @@
 		F89B9B6C7903A7912D4CD2E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E50765F91CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework */,
 				E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */,
 				E5DFDC191CB2C5D900BB3D27 /* OpenGLES.framework */,
 				E5DFDC171CB2C5D100BB3D27 /* SystemConfiguration.framework */,
@@ -307,6 +364,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E50765D31CB4098D00EAE832 /* GraffiTab Release */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E50765F41CB4098D00EAE832 /* Build configuration list for PBXNativeTarget "GraffiTab Release" */;
+			buildPhases = (
+				E50765D41CB4098D00EAE832 /* 📦 Check Pods Manifest.lock */,
+				E50765D51CB4098D00EAE832 /* Sources */,
+				E50765E01CB4098D00EAE832 /* Frameworks */,
+				E50765E91CB4098D00EAE832 /* Resources */,
+				E50765F01CB4098D00EAE832 /* 📦 Embed Pods Frameworks */,
+				E50765F11CB4098D00EAE832 /* 📦 Copy Pods Resources */,
+				E50765FC1CB409DF00EAE832 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GraffiTab Release";
+			productName = GraffiTab;
+			productReference = E50765F71CB4098D00EAE832 /* GraffiTab Release.app */;
+			productType = "com.apple.product-type.application";
+		};
 		E5DFDBD11CB2BF9E00BB3D27 /* GraffiTab */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5DFDBE41CB2BF9E00BB3D27 /* Build configuration list for PBXNativeTarget "GraffiTab" */;
@@ -340,6 +418,7 @@
 				TargetAttributes = {
 					E5DFDBD11CB2BF9E00BB3D27 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 869AJN3V33;
 					};
 				};
 			};
@@ -357,11 +436,25 @@
 			projectRoot = "";
 			targets = (
 				E5DFDBD11CB2BF9E00BB3D27 /* GraffiTab */,
+				E50765D31CB4098D00EAE832 /* GraffiTab Release */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E50765E91CB4098D00EAE832 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E50765EA1CB4098D00EAE832 /* MainStoryboard.storyboard in Resources */,
+				E50765EB1CB4098D00EAE832 /* LaunchScreen.storyboard in Resources */,
+				E50765EC1CB4098D00EAE832 /* LoginStoryboard.storyboard in Resources */,
+				E50765ED1CB4098D00EAE832 /* Assets.xcassets in Resources */,
+				E50765EE1CB4098D00EAE832 /* SplashStoryboard.storyboard in Resources */,
+				E50765EF1CB4098D00EAE832 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5DFDBD01CB2BF9E00BB3D27 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -408,6 +501,51 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E50765D41CB4098D00EAE832 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E50765F01CB4098D00EAE832 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E50765F11CB4098D00EAE832 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E6A1E439568CA71B1D648516 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -426,6 +564,23 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E50765D51CB4098D00EAE832 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E50765D61CB4098D00EAE832 /* TintButton.swift in Sources */,
+				E50765D71CB4098D00EAE832 /* Utils.swift in Sources */,
+				E50765D81CB4098D00EAE832 /* BackButtonTableViewController.swift in Sources */,
+				E50765D91CB4098D00EAE832 /* DialogBuilder.swift in Sources */,
+				E50765DA1CB4098D00EAE832 /* InputValidator.swift in Sources */,
+				E50765DB1CB4098D00EAE832 /* TintImageView.swift in Sources */,
+				E50765DC1CB4098D00EAE832 /* AppDelegate.swift in Sources */,
+				E50765DD1CB4098D00EAE832 /* BackButtonViewController.swift in Sources */,
+				E50765DE1CB4098D00EAE832 /* LoginViewController.swift in Sources */,
+				E50765DF1CB4098D00EAE832 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5DFDBCE1CB2BF9E00BB3D27 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -446,6 +601,54 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		E50765F51CB4098D00EAE832 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68B6060E6C069394DFEF27BF /* Pods-GraffiTab.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Christov (PD6JJX75F4)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
+					"$(PROJECT_DIR)-SDK/_Archive/iOS/Release",
+				);
+				INFOPLIST_FILE = "GraffiTab copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GraffiTab/ExternalLibs",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "abe7d2bf-b5d5-40c5-90b4-db38455dcd42";
+				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
+			};
+			name = Debug;
+		};
+		E50765F61CB4098D00EAE832 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65C7EC7B6C44DA11DEAA502C /* Pods-GraffiTab.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Christov (PD6JJX75F4)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
+					"$(PROJECT_DIR)-SDK/_Archive/iOS/Release",
+				);
+				INFOPLIST_FILE = "GraffiTab copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GraffiTab/ExternalLibs",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "abe7d2bf-b5d5-40c5-90b4-db38455dcd42";
+				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
+			};
+			name = Release;
+		};
 		E5DFDBE21CB2BF9E00BB3D27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -534,6 +737,7 @@
 			baseConfigurationReference = 68B6060E6C069394DFEF27BF /* Pods-GraffiTab.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Christov (PD6JJX75F4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
@@ -546,6 +750,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "abe7d2bf-b5d5-40c5-90b4-db38455dcd42";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 			};
 			name = Debug;
@@ -555,6 +760,7 @@
 			baseConfigurationReference = 65C7EC7B6C44DA11DEAA502C /* Pods-GraffiTab.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Christov (PD6JJX75F4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
@@ -567,6 +773,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "abe7d2bf-b5d5-40c5-90b4-db38455dcd42";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 			};
 			name = Release;
@@ -574,6 +781,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E50765F41CB4098D00EAE832 /* Build configuration list for PBXNativeTarget "GraffiTab Release" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E50765F51CB4098D00EAE832 /* Debug */,
+				E50765F61CB4098D00EAE832 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E5DFDBCD1CB2BF9E00BB3D27 /* Build configuration list for PBXProject "GraffiTab" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
