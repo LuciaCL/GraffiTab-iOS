@@ -84,7 +84,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         }
     }
     
-    func finishExternalProviderSignup() {
+    func finishExternalProviderSignup(askToImportAvatar: Bool) {
         let avatarImportHandler = {
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1.3 * Double(NSEC_PER_SEC)))
             dispatch_after(delayTime, dispatch_get_main_queue()) {
@@ -92,22 +92,27 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
             }
         }
         
-        DialogBuilder.showYesNoSuccessAlert("You have successfully registered with Facebook. Would you like to import your profile picture?", title: App.Title, yesTitle: "Import it!", noTitle: "Later", yesAction: { () -> Void in
-            self.view.showActivityViewWithLabel("Processing")
-            self.view.rn_activityView.dimBackground = false
-            
-            GTUserManager.importAvatar(.FACEBOOK, successBlock: { (response) -> Void in
-                self.view.hideActivityView()
+        if askToImportAvatar {
+            DialogBuilder.showYesNoSuccessAlert("You have successfully registered with Facebook. Would you like to import your profile picture?", title: App.Title, yesTitle: "Import it!", noTitle: "Later", yesAction: { () -> Void in
+                self.view.showActivityViewWithLabel("Processing")
+                self.view.rn_activityView.dimBackground = false
                 
-                avatarImportHandler()
-            }, failureBlock: { (response) -> Void in
-                self.view.hideActivityView()
-                
-                DialogBuilder.showErrorAlert(response.message, title: App.Title, okAction: {
+                GTUserManager.importAvatar(.FACEBOOK, successBlock: { (response) -> Void in
+                    self.view.hideActivityView()
+                    
                     avatarImportHandler()
+                }, failureBlock: { (response) -> Void in
+                    self.view.hideActivityView()
+                    
+                    DialogBuilder.showErrorAlert(response.message, title: App.Title, okAction: {
+                        avatarImportHandler()
+                    })
                 })
-            })
-        }) { () -> Void in
+            }) { () -> Void in
+                avatarImportHandler()
+            }
+        }
+        else {
             avatarImportHandler()
         }
     }
@@ -166,7 +171,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
                 
                 // Login with external provider is successful at this point.
                 // If forceLogin is false, this means that the user is registering with external provider, so ask if they want to import their avatar.
-                self.finishExternalProviderSignup()
+                self.finishExternalProviderSignup(!forceLogin)
             }, failureBlock: { (response) -> Void in
                 self.view.hideActivityView()
                 
