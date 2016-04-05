@@ -96,11 +96,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let deviceTokenStr = convertDeviceTokenToString(deviceToken)
-        print("Registering token: \(deviceTokenStr)")
+        print("DEBUG: Registering token: \(deviceTokenStr)")
+        GTUserManager.linkDevice(deviceTokenStr, successBlock: { (response) in
+            
+        }) { (response) in
+            
+        }
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        print("Device token for push notifications: FAIL -- ")
+        print("DEBUG: Device token for push notifications: FAIL -- ")
         print(error.description)
     }
     

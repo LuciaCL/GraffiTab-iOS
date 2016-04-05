@@ -88,7 +88,7 @@
 		3A858584C70AD43E9A1A96F8 /* Pods_GraffiTab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraffiTab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C7EC7B6C44DA11DEAA502C /* Pods-GraffiTab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab.release.xcconfig"; sourceTree = "<group>"; };
 		68B6060E6C069394DFEF27BF /* Pods-GraffiTab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab.debug.xcconfig"; sourceTree = "<group>"; };
-		E50765F71CB4098D00EAE832 /* GraffiTab Release.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraffiTab Release.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E50765F71CB4098D00EAE832 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50765F81CB4098D00EAE832 /* GraffiTab copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GraffiTab copy-Info.plist"; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS/GraffiTab copy-Info.plist"; sourceTree = "<absolute>"; };
 		E50765F91CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS-SDK/_Archive/iOS/Release/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
 		E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				E5DFDBD21CB2BF9E00BB3D27 /* GraffiTab.app */,
-				E50765F71CB4098D00EAE832 /* GraffiTab Release.app */,
+				E50765F71CB4098D00EAE832 /* GraffiTab.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -382,7 +382,7 @@
 			);
 			name = "GraffiTab Release";
 			productName = GraffiTab;
-			productReference = E50765F71CB4098D00EAE832 /* GraffiTab Release.app */;
+			productReference = E50765F71CB4098D00EAE832 /* GraffiTab.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E5DFDBD11CB2BF9E00BB3D27 /* GraffiTab */ = {
@@ -619,7 +619,7 @@
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GraffiTab;
 				PROVISIONING_PROFILE = "abe7d2bf-b5d5-40c5-90b4-db38455dcd42";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 			};
@@ -643,7 +643,7 @@
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GraffiTab;
 				PROVISIONING_PROFILE = "abe7d2bf-b5d5-40c5-90b4-db38455dcd42";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 			};
