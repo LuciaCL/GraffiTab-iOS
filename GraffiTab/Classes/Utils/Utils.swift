@@ -19,7 +19,7 @@ class Utils: NSObject {
         NSNotificationCenter.defaultCenter().postNotificationName(Notifications.UserLoggedOut, object: nil)
     }
     
-    private class func clearCookies() {
+    class func clearCookies() {
         for cookie in NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies! {
             NSHTTPCookieStorage.sharedHTTPCookieStorage().deleteCookie(cookie)
         }
