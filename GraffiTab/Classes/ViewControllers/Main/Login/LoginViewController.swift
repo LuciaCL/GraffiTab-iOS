@@ -93,7 +93,20 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         }
         
         DialogBuilder.showYesNoSuccessAlert("You have successfully registered with Facebook. Would you like to import your profile picture?", title: App.Title, yesTitle: "Import it!", noTitle: "Later", yesAction: { () -> Void in
+            self.view.showActivityViewWithLabel("Processing")
+            self.view.rn_activityView.dimBackground = false
             
+            GTUserManager.importAvatar(.FACEBOOK, successBlock: { (response) -> Void in
+                self.view.hideActivityView()
+                
+                avatarImportHandler()
+            }, failureBlock: { (response) -> Void in
+                self.view.hideActivityView()
+                
+                DialogBuilder.showErrorAlert(response.message, title: App.Title, okAction: {
+                    avatarImportHandler()
+                })
+            })
         }) { () -> Void in
             avatarImportHandler()
         }
