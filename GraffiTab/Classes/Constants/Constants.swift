@@ -12,8 +12,12 @@ struct Notifications {
 }
 
 struct Colors {
-    static let NavigationBackground = "cc3333"
-    static let TitleTint = "FFFFFF"
+    static let TitleTint = "#ffffff"
+    static let Awesome = "#3F739A"
+    static let Links = "#ef6a0e"
+    static let Main = "#005c86"
+    static let Orange = "#e9a13a"
+    static let Username = "#000000"
     static let TableBackground = "F2F3F4"
 }
 

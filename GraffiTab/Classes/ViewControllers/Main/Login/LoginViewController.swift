@@ -28,18 +28,11 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         setupLabels()
         setupButtons()
         setupTextFields()
-        
-        // Clear any cookies.
-        Utils.clearCookies()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func onClickForgottenPassword(sender: AnyObject) {
-        self.view.endEditing(true)
     }
     
     @IBAction func onClickSignUp(sender: AnyObject) {
@@ -58,14 +51,17 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         loginFacebook(true)
     }
     
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        self.view.endEditing(true)
+    }
+    
     // MARK: - Sign up
     
     func signUpWithFacebook(userId: String, token: String, email: String, firstName: String, lastName: String, username: String) {
         self.view.showActivityViewWithLabel("Processing")
         self.view.rn_activityView.dimBackground = false
-        
-        // TODO: Temporarily clear the cookies.
-        Utils.clearCookies()
         
         GTUserManager.register(.FACEBOOK, externalId: userId, accessToken: token, email: email, firstName: firstName, lastName: lastName, username: username, successBlock: { (response) -> Void in
             self.view.hideActivityView()
@@ -127,9 +123,6 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
             self.view.showActivityViewWithLabel("Processing")
             self.view.rn_activityView.dimBackground = false
             
-            // TODO: Temporarily clear the cookies.
-            Utils.clearCookies()
-            
             GTUserManager.login(un!, password: pa!, successBlock: { (response) -> Void in
                 self.view.hideActivityView()
                 
@@ -161,9 +154,6 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
             print("DEBUG: User first name: \(firstName)")
             print("DEBUG: User last name: \(lastName)")
             print("DEBUG: Access token: \(token)")
-            
-            // TODO: Temporarily clear the cookies.
-            Utils.clearCookies()
             
             // Attempt login with external provider.
             GTUserManager.login(.FACEBOOK, externalId: userId, accessToken: token, successBlock: { (response) -> Void in

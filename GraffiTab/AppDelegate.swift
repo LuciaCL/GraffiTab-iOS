@@ -95,6 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        print("DEBUG: Original token: \(deviceToken)")
         let deviceTokenStr = convertDeviceTokenToString(deviceToken)
         print("DEBUG: Registering token: \(deviceTokenStr)")
         GTUserManager.linkDevice(deviceTokenStr, successBlock: { (response) in
@@ -167,7 +168,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupTopBar() {
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
         
-        UINavigationBar.appearance().barTintColor = UIColor(hexString: Colors.NavigationBackground)
+        UINavigationBar.appearance().barTintColor = UIColor(hexString: Colors.Main)
         UINavigationBar.appearance().tintColor = UIColor(hexString: Colors.TitleTint)
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor(hexString: Colors.TitleTint)!]
     }

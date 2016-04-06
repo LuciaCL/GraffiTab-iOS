@@ -34,6 +34,8 @@
 		E50765FA1CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50765F91CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework */; };
 		E50765FB1CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E50765F91CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E5B851F91CB2E75D00B24F84 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */; };
+		E5BF3B8F1CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */; };
+		E5BF3B901CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */; };
 		E5DFDBD61CB2BF9E00BB3D27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBD51CB2BF9E00BB3D27 /* AppDelegate.swift */; };
 		E5DFDBDD1CB2BF9E00BB3D27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDBDC1CB2BF9E00BB3D27 /* Assets.xcassets */; };
 		E5DFDC011CB2C31B00BB3D27 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBE91CB2C31B00BB3D27 /* Constants.swift */; };
@@ -92,6 +94,7 @@
 		E50765F81CB4098D00EAE832 /* GraffiTab copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GraffiTab copy-Info.plist"; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS/GraffiTab copy-Info.plist"; sourceTree = "<absolute>"; };
 		E50765F91CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS-SDK/_Archive/iOS/Release/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
 		E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		E5DFDBD21CB2BF9E00BB3D27 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DFDBD51CB2BF9E00BB3D27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5DFDBDC1CB2BF9E00BB3D27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -255,6 +258,7 @@
 		E5DFDBF11CB2C31B00BB3D27 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */,
 				E5DFDC231CB2DD5D00BB3D27 /* LoginViewController.swift */,
 				E5DFDC211CB2CD9800BB3D27 /* LoginStoryboard.storyboard */,
 			);
@@ -571,6 +575,7 @@
 				E50765D61CB4098D00EAE832 /* TintButton.swift in Sources */,
 				E50765D71CB4098D00EAE832 /* Utils.swift in Sources */,
 				E50765D81CB4098D00EAE832 /* BackButtonTableViewController.swift in Sources */,
+				E5BF3B901CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */,
 				E50765D91CB4098D00EAE832 /* DialogBuilder.swift in Sources */,
 				E50765DA1CB4098D00EAE832 /* InputValidator.swift in Sources */,
 				E50765DB1CB4098D00EAE832 /* TintImageView.swift in Sources */,
@@ -588,6 +593,7 @@
 				E5DFDC051CB2C31B00BB3D27 /* TintButton.swift in Sources */,
 				E5DFDC041CB2C31B00BB3D27 /* Utils.swift in Sources */,
 				E5DFDC071CB2C31B00BB3D27 /* BackButtonTableViewController.swift in Sources */,
+				E5BF3B8F1CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */,
 				E5DFDC021CB2C31B00BB3D27 /* DialogBuilder.swift in Sources */,
 				E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */,
 				E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */,

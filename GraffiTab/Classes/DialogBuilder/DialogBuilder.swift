@@ -20,8 +20,14 @@ class DialogBuilder: NSObject {
         alertView.showInfo(title, subTitle: status)
     }
     
-    class func showSuccessAlert(status: String, title:String) {
-        SCLAlertView().showSuccess(title, subTitle: status, closeButtonTitle: "OK")
+    class func showSuccessAlert(status: String, title: String) {
+        let alertView = buildOKAlert(status, title: title, okAction: {})
+        alertView.showSuccess(title, subTitle: status)
+    }
+    
+    class func showSuccessAlert(status: String, title: String, okAction:() -> Void) {
+        let alertView = buildOKAlert(status, title: title, okAction: okAction)
+        alertView.showSuccess(title, subTitle: status)
     }
     
     class func showErrorAlert(status: String, title:String) {
