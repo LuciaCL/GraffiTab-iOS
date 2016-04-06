@@ -35,10 +35,6 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onClickSignUp(sender: AnyObject) {
-        self.view.endEditing(true)
-    }
-    
     @IBAction func onClickLogin(sender: AnyObject) {
         self.view.endEditing(true)
         
@@ -298,7 +294,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
     }
     
     func setupTextFields() {
-        usernameField.attributedPlaceholder = NSAttributedString(string:usernameField.placeholder!, attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
-        passwordField.attributedPlaceholder = NSAttributedString(string:passwordField.placeholder!, attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        usernameField.attributedPlaceholder = NSAttributedString(string:usernameField.placeholder!, attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.7)])
+        passwordField.attributedPlaceholder = NSAttributedString(string:passwordField.placeholder!, attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.7)])
     }
 }

@@ -33,6 +33,16 @@
 		E50765EF1CB4098D00EAE832 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDC0C1CB2C39200BB3D27 /* Default-568h@2x.png */; };
 		E50765FA1CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50765F91CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework */; };
 		E50765FB1CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E50765F91CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
+		E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
+		E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFD31CB5625700668D85 /* WebViewController.swift */; };
+		E554CFD51CB5625700668D85 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFD31CB5625700668D85 /* WebViewController.swift */; };
+		E554CFDA1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
+		E554CFDB1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
+		E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD81CB5641B00668D85 /* release_notes.html */; };
+		E554CFDD1CB5641B00668D85 /* release_notes.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD81CB5641B00668D85 /* release_notes.html */; };
+		E554CFDE1CB5641B00668D85 /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD91CB5641B00668D85 /* terms.html */; };
+		E554CFDF1CB5641B00668D85 /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD91CB5641B00668D85 /* terms.html */; };
 		E5B851F91CB2E75D00B24F84 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */; };
 		E5BF3B8F1CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */; };
 		E5BF3B901CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */; };
@@ -93,6 +103,11 @@
 		E50765F71CB4098D00EAE832 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50765F81CB4098D00EAE832 /* GraffiTab copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GraffiTab copy-Info.plist"; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS/GraffiTab copy-Info.plist"; sourceTree = "<absolute>"; };
 		E50765F91CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS-SDK/_Archive/iOS/Release/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
+		E554CFCD1CB547A800668D85 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		E554CFD31CB5625700668D85 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
+		E554CFD81CB5641B00668D85 /* release_notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = release_notes.html; sourceTree = "<group>"; };
+		E554CFD91CB5641B00668D85 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
 		E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		E5DFDBD21CB2BF9E00BB3D27 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +179,24 @@
 				65C7EC7B6C44DA11DEAA502C /* Pods-GraffiTab.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E554CFD21CB5624A00668D85 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				E554CFD31CB5625700668D85 /* WebViewController.swift */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		E554CFD61CB5641B00668D85 /* Html */ = {
+			isa = PBXGroup;
+			children = (
+				E554CFD71CB5641B00668D85 /* eula.html */,
+				E554CFD81CB5641B00668D85 /* release_notes.html */,
+				E554CFD91CB5641B00668D85 /* terms.html */,
+			);
+			path = Html;
 			sourceTree = "<group>";
 		};
 		E5DFDBC91CB2BF9E00BB3D27 = {
@@ -258,6 +291,7 @@
 		E5DFDBF11CB2C31B00BB3D27 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				E554CFCD1CB547A800668D85 /* SignUpViewController.swift */,
 				E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */,
 				E5DFDC231CB2DD5D00BB3D27 /* LoginViewController.swift */,
 				E5DFDC211CB2CD9800BB3D27 /* LoginStoryboard.storyboard */,
@@ -268,6 +302,7 @@
 		E5DFDBF21CB2C31B00BB3D27 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E554CFD21CB5624A00668D85 /* Web */,
 				E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */,
 			);
 			path = Main;
@@ -336,6 +371,7 @@
 		E5DFDC001CB2C31B00BB3D27 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E554CFD61CB5641B00668D85 /* Html */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -455,6 +491,9 @@
 				E50765EC1CB4098D00EAE832 /* LoginStoryboard.storyboard in Resources */,
 				E50765ED1CB4098D00EAE832 /* Assets.xcassets in Resources */,
 				E50765EE1CB4098D00EAE832 /* SplashStoryboard.storyboard in Resources */,
+				E554CFDF1CB5641B00668D85 /* terms.html in Resources */,
+				E554CFDB1CB5641B00668D85 /* eula.html in Resources */,
+				E554CFDD1CB5641B00668D85 /* release_notes.html in Resources */,
 				E50765EF1CB4098D00EAE832 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +507,9 @@
 				E5DFDC221CB2CD9800BB3D27 /* LoginStoryboard.storyboard in Resources */,
 				E5DFDBDD1CB2BF9E00BB3D27 /* Assets.xcassets in Resources */,
 				E5DFDC201CB2C71800BB3D27 /* SplashStoryboard.storyboard in Resources */,
+				E554CFDE1CB5641B00668D85 /* terms.html in Resources */,
+				E554CFDA1CB5641B00668D85 /* eula.html in Resources */,
+				E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */,
 				E5DFDC0D1CB2C39200BB3D27 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,10 +620,12 @@
 				E5BF3B901CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */,
 				E50765D91CB4098D00EAE832 /* DialogBuilder.swift in Sources */,
 				E50765DA1CB4098D00EAE832 /* InputValidator.swift in Sources */,
+				E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */,
 				E50765DB1CB4098D00EAE832 /* TintImageView.swift in Sources */,
 				E50765DC1CB4098D00EAE832 /* AppDelegate.swift in Sources */,
 				E50765DD1CB4098D00EAE832 /* BackButtonViewController.swift in Sources */,
 				E50765DE1CB4098D00EAE832 /* LoginViewController.swift in Sources */,
+				E554CFD51CB5625700668D85 /* WebViewController.swift in Sources */,
 				E50765DF1CB4098D00EAE832 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,10 +640,12 @@
 				E5BF3B8F1CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */,
 				E5DFDC021CB2C31B00BB3D27 /* DialogBuilder.swift in Sources */,
 				E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */,
+				E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */,
 				E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */,
 				E5DFDBD61CB2BF9E00BB3D27 /* AppDelegate.swift in Sources */,
 				E5DFDC081CB2C31B00BB3D27 /* BackButtonViewController.swift in Sources */,
 				E5DFDC241CB2DD5D00BB3D27 /* LoginViewController.swift in Sources */,
+				E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */,
 				E5DFDC011CB2C31B00BB3D27 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
