@@ -19,6 +19,7 @@
 #import <iCarousel/iCarousel.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import <EAIntroView/EAIntroView.h>
+#import <RESideMenu/RESideMenu.h>
 
 #import <MZFormSheetPresentationController/MZFormSheetPresentationController.h>
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewController.h>

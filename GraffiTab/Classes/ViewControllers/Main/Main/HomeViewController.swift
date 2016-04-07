@@ -33,6 +33,11 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onClickMenu(sender: AnyObject) {
+        let mainVC = UIApplication.sharedApplication().delegate?.window??.rootViewController as! MenuContainerViewController
+        mainVC.presentLeftMenuViewController()
+    }
+    
     @IBAction func onClickCreate(sender: AnyObject) {
         print("CREATE")
     }

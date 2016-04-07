@@ -8,7 +8,7 @@ def common_pods
     pod 'AlamofireImage'
     pod 'TPKeyboardAvoiding'
     pod 'RNActivityView'
-    pod 'SlideMenuControllerSwift'
+    pod 'RESideMenu'
     pod 'SwiftHEXColors'
     pod 'UIActionSheet+Blocks'
     pod 'SCLAlertView'
