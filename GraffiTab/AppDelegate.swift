@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Some code.
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:"userDidLogin", name:Notifications.UserLoggedIn, object:nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:"userDidLogout", name:Notifications.UserLoggedOut, object:nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogin), name:Notifications.UserLoggedIn, object:nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogout), name:Notifications.UserLoggedOut, object:nil)
         
         setupTopBar()
         setupCache()

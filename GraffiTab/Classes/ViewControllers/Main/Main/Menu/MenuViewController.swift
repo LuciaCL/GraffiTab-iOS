@@ -50,6 +50,23 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         return rowHeight
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let mainVC = UIApplication.sharedApplication().delegate?.window??.rootViewController as! MenuContainerViewController
+        mainVC.hideMenuViewController()
+        
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            let nav = mainVC.contentViewController as! UINavigationController
+            let homeVC = nav.viewControllers[0] as! HomeViewController
+            
+            if indexPath.row == 0 {
+                homeVC.onClickProfile(nil)
+            }
+        }
+    }
+    
     // MARK: - Setup
     
     func setupTableView() {

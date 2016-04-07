@@ -38,8 +38,12 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         mainVC.presentLeftMenuViewController()
     }
     
-    @IBAction func onClickCreate(sender: AnyObject) {
+    @IBAction func onClickCreate(sender: AnyObject?) {
         print("CREATE")
+    }
+    
+    @IBAction func onClickProfile(sender: AnyObject?) {
+        print("PROFILE")
     }
     
     // MARK: - Navigation
