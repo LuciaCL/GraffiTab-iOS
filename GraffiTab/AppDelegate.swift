@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Some code.
         }
         
+        // Initialize the location manager.
+        let _ = GTLocationManager.manager
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogin), name:Notifications.UserLoggedIn, object:nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogout), name:Notifications.UserLoggedOut, object:nil)
         
@@ -47,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
         
         GTLifecycleManager.applicationWillResignActive()
+        GTLocationManager.manager.stopLocationUpdates()
     }
     
     func applicationDidEnterBackground(application: UIApplication) {
@@ -65,6 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKAppEvents.activateApp()
         
         GTLifecycleManager.applicationDidBecomeActive()
+        GTLocationManager.manager.startLocationUpdates()
     }
     
     func applicationWillTerminate(application: UIApplication) {

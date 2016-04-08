@@ -59,7 +59,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
             let nav = mainVC.contentViewController as! UINavigationController
-            let homeVC = nav.viewControllers[0] as! HomeViewController
+            let homeVC = nav.viewControllers.first as! HomeViewController
             
             if indexPath.row == 0 {
                 homeVC.onClickProfile(nil)

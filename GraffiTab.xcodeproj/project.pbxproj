@@ -74,6 +74,10 @@
 		E510067A1CB7F06500AC66A5 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006781CB7F06500AC66A5 /* RecentViewController.swift */; };
 		E510067E1CB7F41000AC66A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E510067D1CB7F41000AC66A5 /* CoreLocation.framework */; };
 		E51006801CB7F41C00AC66A5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E510067F1CB7F41C00AC66A5 /* MapKit.framework */; };
+		E51006831CB7FE0F00AC66A5 /* GTLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006821CB7FE0F00AC66A5 /* GTLocationManager.swift */; };
+		E51006841CB7FE0F00AC66A5 /* GTLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006821CB7FE0F00AC66A5 /* GTLocationManager.swift */; };
+		E51006871CB8045800AC66A5 /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006861CB8045800AC66A5 /* NearMeViewController.swift */; };
+		E51006881CB8045800AC66A5 /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006861CB8045800AC66A5 /* NearMeViewController.swift */; };
 		E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFD31CB5625700668D85 /* WebViewController.swift */; };
@@ -168,6 +172,8 @@
 		E51006781CB7F06500AC66A5 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
 		E510067D1CB7F41000AC66A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E510067F1CB7F41C00AC66A5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E51006821CB7FE0F00AC66A5 /* GTLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTLocationManager.swift; sourceTree = "<group>"; };
+		E51006861CB8045800AC66A5 /* NearMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeViewController.swift; sourceTree = "<group>"; };
 		E554CFCD1CB547A800668D85 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E554CFD31CB5625700668D85 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
@@ -294,6 +300,7 @@
 		E51006421CB721D200AC66A5 /* Streamables */ = {
 			isa = PBXGroup;
 			children = (
+				E51006851CB803B300AC66A5 /* Search */,
 				E51006771CB7F04700AC66A5 /* Recent */,
 				E510066F1CB7E72E00AC66A5 /* Trending */,
 			);
@@ -366,6 +373,22 @@
 			path = Recent;
 			sourceTree = "<group>";
 		};
+		E51006811CB7FDF500AC66A5 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				E51006821CB7FE0F00AC66A5 /* GTLocationManager.swift */,
+			);
+			path = LocationManager;
+			sourceTree = "<group>";
+		};
+		E51006851CB803B300AC66A5 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E51006861CB8045800AC66A5 /* NearMeViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		E554CFD21CB5624A00668D85 /* Web */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +447,7 @@
 			children = (
 				E5DFDBE81CB2C31B00BB3D27 /* Constants */,
 				E5DFDBEA1CB2C31B00BB3D27 /* DialogBuilder */,
+				E51006811CB7FDF500AC66A5 /* LocationManager */,
 				E5DFDBEC1CB2C31B00BB3D27 /* Utils */,
 				E5DFDBEF1CB2C31B00BB3D27 /* ViewControllers */,
 			);
@@ -652,6 +676,14 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = GraffiTab;
 				TargetAttributes = {
+					E50765D31CB4098D00EAE832 = {
+						DevelopmentTeam = 869AJN3V33;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
 					E5DFDBD11CB2BF9E00BB3D27 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 869AJN3V33;
@@ -819,6 +851,7 @@
 				E50765D61CB4098D00EAE832 /* TintButton.swift in Sources */,
 				E50765D71CB4098D00EAE832 /* Utils.swift in Sources */,
 				E50765D81CB4098D00EAE832 /* BackButtonTableViewController.swift in Sources */,
+				E51006881CB8045800AC66A5 /* NearMeViewController.swift in Sources */,
 				E5BF3B901CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */,
 				E51006681CB7CE2300AC66A5 /* DateUtils.swift in Sources */,
 				E510063B1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */,
@@ -829,6 +862,7 @@
 				E51005F11CB691CD00AC66A5 /* MenuViewController.swift in Sources */,
 				E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */,
 				E50765DB1CB4098D00EAE832 /* TintImageView.swift in Sources */,
+				E51006841CB7FE0F00AC66A5 /* GTLocationManager.swift in Sources */,
 				E51006631CB7BC5A00AC66A5 /* StreamableListFullCell.swift in Sources */,
 				E51006311CB71C5900AC66A5 /* GenericStreamablesViewController.swift in Sources */,
 				E50765DC1CB4098D00EAE832 /* AppDelegate.swift in Sources */,
@@ -855,6 +889,7 @@
 				E5DFDC051CB2C31B00BB3D27 /* TintButton.swift in Sources */,
 				E5DFDC041CB2C31B00BB3D27 /* Utils.swift in Sources */,
 				E5DFDC071CB2C31B00BB3D27 /* BackButtonTableViewController.swift in Sources */,
+				E51006871CB8045800AC66A5 /* NearMeViewController.swift in Sources */,
 				E5BF3B8F1CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */,
 				E51006671CB7CE2300AC66A5 /* DateUtils.swift in Sources */,
 				E510063A1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */,
@@ -865,6 +900,7 @@
 				E51005F01CB691CD00AC66A5 /* MenuViewController.swift in Sources */,
 				E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */,
 				E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */,
+				E51006831CB7FE0F00AC66A5 /* GTLocationManager.swift in Sources */,
 				E51006621CB7BC5A00AC66A5 /* StreamableListFullCell.swift in Sources */,
 				E51006301CB71C5900AC66A5 /* GenericStreamablesViewController.swift in Sources */,
 				E5DFDBD61CB2BF9E00BB3D27 /* AppDelegate.swift in Sources */,

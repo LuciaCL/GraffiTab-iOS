@@ -333,6 +333,60 @@
             </objects>
             <point key="canvasLocation" x="1215" y="-328"/>
         </scene>
+        <!--Trending-->
+        <scene sceneID="hHp-Oa-AI6">
+            <objects>
+                <viewController storyboardIdentifier="NearMeViewController" title="Trending" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fwA-wb-Gd2" customClass="NearMeViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4CF-Vr-cxJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="oBo-kt-CyA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FwF-M6-jOp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dH9-nH-auW">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="okf-9Y-ERS">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="fwA-wb-Gd2" id="fee-2z-JFX"/>
+                                    <outlet property="delegate" destination="fwA-wb-Gd2" id="sF8-gc-bom"/>
+                                </connections>
+                            </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="jSX-fn-hZF">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="6fN-o8-wuU"/>
+                                    <constraint firstAttribute="height" constant="20" id="cvW-lw-WEq"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dH9-nH-auW" firstAttribute="leading" secondItem="FwF-M6-jOp" secondAttribute="leading" id="5hF-u7-39V"/>
+                            <constraint firstItem="jSX-fn-hZF" firstAttribute="centerX" secondItem="FwF-M6-jOp" secondAttribute="centerX" id="ODh-QP-DDY"/>
+                            <constraint firstItem="oBo-kt-CyA" firstAttribute="top" secondItem="dH9-nH-auW" secondAttribute="bottom" id="VdX-Ir-Nwg"/>
+                            <constraint firstAttribute="trailing" secondItem="dH9-nH-auW" secondAttribute="trailing" id="cK7-3k-xc8"/>
+                            <constraint firstItem="dH9-nH-auW" firstAttribute="top" secondItem="FwF-M6-jOp" secondAttribute="top" id="gQh-wn-9ww"/>
+                            <constraint firstItem="jSX-fn-hZF" firstAttribute="centerY" secondItem="FwF-M6-jOp" secondAttribute="centerY" id="nVx-91-eYW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="dH9-nH-auW" id="JKY-HH-LHq"/>
+                        <outlet property="loadingIndicator" destination="jSX-fn-hZF" id="3x9-9h-iGt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kRK-jg-Wv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1914" y="-328"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_menu_white" width="24" height="24"/>

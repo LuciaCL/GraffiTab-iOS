@@ -91,5 +91,15 @@
 	<array>
 		<string>fbauth2</string>
 	</array>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>We use your location to notify you when you enter any of your defined Places.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We use your location to show relative graffiti in your area.</string>
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>location</string>
+    </array>
+    <key>privacy - location usage description</key>
+    <string>We need to use your location to determine the position of the graffiti around the world.</string>
 </dict>
 </plist>
