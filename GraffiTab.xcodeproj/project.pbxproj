@@ -42,6 +42,36 @@
 		E51005F11CB691CD00AC66A5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51005EF1CB691CD00AC66A5 /* MenuViewController.swift */; };
 		E51005F41CB69BDE00AC66A5 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51005F31CB69BDE00AC66A5 /* MenuCell.swift */; };
 		E51005F51CB69BDE00AC66A5 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51005F31CB69BDE00AC66A5 /* MenuCell.swift */; };
+		E51006301CB71C5900AC66A5 /* GenericStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510062F1CB71C5900AC66A5 /* GenericStreamablesViewController.swift */; };
+		E51006311CB71C5900AC66A5 /* GenericStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510062F1CB71C5900AC66A5 /* GenericStreamablesViewController.swift */; };
+		E51006331CB71EB200AC66A5 /* GridStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006321CB71EB200AC66A5 /* GridStreamablesViewController.swift */; };
+		E51006341CB71EB200AC66A5 /* GridStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006321CB71EB200AC66A5 /* GridStreamablesViewController.swift */; };
+		E51006361CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006351CB71EE400AC66A5 /* TrendingStreamablesViewController.swift */; };
+		E51006371CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006351CB71EE400AC66A5 /* TrendingStreamablesViewController.swift */; };
+		E510063A1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006391CB71FAA00AC66A5 /* StreamableCell.swift */; };
+		E510063B1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006391CB71FAA00AC66A5 /* StreamableCell.swift */; };
+		E510064C1CB7A5CC00AC66A5 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510064B1CB7A5CC00AC66A5 /* FeedViewController.swift */; };
+		E510064D1CB7A5CC00AC66A5 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510064B1CB7A5CC00AC66A5 /* FeedViewController.swift */; };
+		E510064F1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510064E1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift */; };
+		E51006501CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510064E1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift */; };
+		E510065E1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006581CB7BC5A00AC66A5 /* StreamableGridCell.swift */; };
+		E510065F1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006581CB7BC5A00AC66A5 /* StreamableGridCell.swift */; };
+		E51006601CB7BC5A00AC66A5 /* StreamableGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51006591CB7BC5A00AC66A5 /* StreamableGridCell.xib */; };
+		E51006611CB7BC5A00AC66A5 /* StreamableGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51006591CB7BC5A00AC66A5 /* StreamableGridCell.xib */; };
+		E51006621CB7BC5A00AC66A5 /* StreamableListFullCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510065B1CB7BC5A00AC66A5 /* StreamableListFullCell.swift */; };
+		E51006631CB7BC5A00AC66A5 /* StreamableListFullCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510065B1CB7BC5A00AC66A5 /* StreamableListFullCell.swift */; };
+		E51006641CB7BC5A00AC66A5 /* StreamableListFullCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E510065C1CB7BC5A00AC66A5 /* StreamableListFullCell.xib */; };
+		E51006651CB7BC5A00AC66A5 /* StreamableListFullCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E510065C1CB7BC5A00AC66A5 /* StreamableListFullCell.xib */; };
+		E51006671CB7CE2300AC66A5 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006661CB7CE2300AC66A5 /* DateUtils.swift */; };
+		E51006681CB7CE2300AC66A5 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006661CB7CE2300AC66A5 /* DateUtils.swift */; };
+		E510066B1CB7DEB100AC66A5 /* StreamableTrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006691CB7DEB100AC66A5 /* StreamableTrendingCell.swift */; };
+		E510066C1CB7DEB100AC66A5 /* StreamableTrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006691CB7DEB100AC66A5 /* StreamableTrendingCell.swift */; };
+		E510066D1CB7DEB100AC66A5 /* StreamableTrendingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E510066A1CB7DEB100AC66A5 /* StreamableTrendingCell.xib */; };
+		E510066E1CB7DEB100AC66A5 /* StreamableTrendingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E510066A1CB7DEB100AC66A5 /* StreamableTrendingCell.xib */; };
+		E51006711CB7E72E00AC66A5 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006701CB7E72E00AC66A5 /* TrendingViewController.swift */; };
+		E51006721CB7E72E00AC66A5 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006701CB7E72E00AC66A5 /* TrendingViewController.swift */; };
+		E51006791CB7F06500AC66A5 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006781CB7F06500AC66A5 /* RecentViewController.swift */; };
+		E510067A1CB7F06500AC66A5 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006781CB7F06500AC66A5 /* RecentViewController.swift */; };
 		E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFD31CB5625700668D85 /* WebViewController.swift */; };
@@ -119,6 +149,21 @@
 		E51005EC1CB6782700AC66A5 /* MenuContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuContainerViewController.swift; sourceTree = "<group>"; };
 		E51005EF1CB691CD00AC66A5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		E51005F31CB69BDE00AC66A5 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		E510062F1CB71C5900AC66A5 /* GenericStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericStreamablesViewController.swift; sourceTree = "<group>"; };
+		E51006321CB71EB200AC66A5 /* GridStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridStreamablesViewController.swift; sourceTree = "<group>"; };
+		E51006351CB71EE400AC66A5 /* TrendingStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingStreamablesViewController.swift; sourceTree = "<group>"; };
+		E51006391CB71FAA00AC66A5 /* StreamableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableCell.swift; sourceTree = "<group>"; };
+		E510064B1CB7A5CC00AC66A5 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		E510064E1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFullStreamablesViewController.swift; sourceTree = "<group>"; };
+		E51006581CB7BC5A00AC66A5 /* StreamableGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableGridCell.swift; sourceTree = "<group>"; };
+		E51006591CB7BC5A00AC66A5 /* StreamableGridCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StreamableGridCell.xib; sourceTree = "<group>"; };
+		E510065B1CB7BC5A00AC66A5 /* StreamableListFullCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableListFullCell.swift; sourceTree = "<group>"; };
+		E510065C1CB7BC5A00AC66A5 /* StreamableListFullCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StreamableListFullCell.xib; sourceTree = "<group>"; };
+		E51006661CB7CE2300AC66A5 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		E51006691CB7DEB100AC66A5 /* StreamableTrendingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableTrendingCell.swift; sourceTree = "<group>"; };
+		E510066A1CB7DEB100AC66A5 /* StreamableTrendingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StreamableTrendingCell.xib; sourceTree = "<group>"; };
+		E51006701CB7E72E00AC66A5 /* TrendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
+		E51006781CB7F06500AC66A5 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
 		E554CFCD1CB547A800668D85 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E554CFD31CB5625700668D85 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
@@ -212,9 +257,107 @@
 		E51005F21CB69BC300AC66A5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				E51006381CB71F5000AC66A5 /* Streamables */,
 				E51005F31CB69BDE00AC66A5 /* MenuCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		E510062E1CB71C1300AC66A5 /* Streamables */ = {
+			isa = PBXGroup;
+			children = (
+				E510064E1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift */,
+				E51006351CB71EE400AC66A5 /* TrendingStreamablesViewController.swift */,
+				E51006321CB71EB200AC66A5 /* GridStreamablesViewController.swift */,
+				E510062F1CB71C5900AC66A5 /* GenericStreamablesViewController.swift */,
+			);
+			path = Streamables;
+			sourceTree = "<group>";
+		};
+		E51006381CB71F5000AC66A5 /* Streamables */ = {
+			isa = PBXGroup;
+			children = (
+				E51006391CB71FAA00AC66A5 /* StreamableCell.swift */,
+				E51006571CB7BC5A00AC66A5 /* Grid */,
+				E510065A1CB7BC5A00AC66A5 /* List */,
+				E510065D1CB7BC5A00AC66A5 /* Trending */,
+			);
+			path = Streamables;
+			sourceTree = "<group>";
+		};
+		E51006421CB721D200AC66A5 /* Streamables */ = {
+			isa = PBXGroup;
+			children = (
+				E51006771CB7F04700AC66A5 /* Recent */,
+				E510066F1CB7E72E00AC66A5 /* Trending */,
+			);
+			path = Streamables;
+			sourceTree = "<group>";
+		};
+		E51006481CB7A58700AC66A5 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				E510064A1CB7A5A100AC66A5 /* Feed */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		E51006491CB7A58700AC66A5 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		E510064A1CB7A5A100AC66A5 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				E510064B1CB7A5CC00AC66A5 /* FeedViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		E51006571CB7BC5A00AC66A5 /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				E51006581CB7BC5A00AC66A5 /* StreamableGridCell.swift */,
+				E51006591CB7BC5A00AC66A5 /* StreamableGridCell.xib */,
+			);
+			path = Grid;
+			sourceTree = "<group>";
+		};
+		E510065A1CB7BC5A00AC66A5 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				E510065B1CB7BC5A00AC66A5 /* StreamableListFullCell.swift */,
+				E510065C1CB7BC5A00AC66A5 /* StreamableListFullCell.xib */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		E510065D1CB7BC5A00AC66A5 /* Trending */ = {
+			isa = PBXGroup;
+			children = (
+				E51006691CB7DEB100AC66A5 /* StreamableTrendingCell.swift */,
+				E510066A1CB7DEB100AC66A5 /* StreamableTrendingCell.xib */,
+			);
+			path = Trending;
+			sourceTree = "<group>";
+		};
+		E510066F1CB7E72E00AC66A5 /* Trending */ = {
+			isa = PBXGroup;
+			children = (
+				E51006701CB7E72E00AC66A5 /* TrendingViewController.swift */,
+			);
+			path = Trending;
+			sourceTree = "<group>";
+		};
+		E51006771CB7F04700AC66A5 /* Recent */ = {
+			isa = PBXGroup;
+			children = (
+				E51006781CB7F06500AC66A5 /* RecentViewController.swift */,
+			);
+			path = Recent;
 			sourceTree = "<group>";
 		};
 		E554CFD21CB5624A00668D85 /* Web */ = {
@@ -302,6 +445,7 @@
 			children = (
 				E5DFDBED1CB2C31B00BB3D27 /* InputValidator.swift */,
 				E5DFDBEE1CB2C31B00BB3D27 /* Utils.swift */,
+				E51006661CB7CE2300AC66A5 /* DateUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -338,6 +482,9 @@
 		E5DFDBF21CB2C31B00BB3D27 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E51006481CB7A58700AC66A5 /* Me */,
+				E51006491CB7A58700AC66A5 /* Users */,
+				E51006421CB721D200AC66A5 /* Streamables */,
 				E554CFD21CB5624A00668D85 /* Web */,
 				E51005EB1CB6776300AC66A5 /* Menu */,
 				E51005E81CB56D9100AC66A5 /* HomeViewController.swift */,
@@ -385,6 +532,7 @@
 			isa = PBXGroup;
 			children = (
 				E5DFDBFA1CB2C31B00BB3D27 /* BackButtons */,
+				E510062E1CB71C1300AC66A5 /* Streamables */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -532,8 +680,11 @@
 				E50765ED1CB4098D00EAE832 /* Assets.xcassets in Resources */,
 				E50765EE1CB4098D00EAE832 /* SplashStoryboard.storyboard in Resources */,
 				E554CFDF1CB5641B00668D85 /* terms.html in Resources */,
+				E51006651CB7BC5A00AC66A5 /* StreamableListFullCell.xib in Resources */,
 				E554CFDB1CB5641B00668D85 /* eula.html in Resources */,
+				E51006611CB7BC5A00AC66A5 /* StreamableGridCell.xib in Resources */,
 				E554CFDD1CB5641B00668D85 /* release_notes.html in Resources */,
+				E510066E1CB7DEB100AC66A5 /* StreamableTrendingCell.xib in Resources */,
 				E50765EF1CB4098D00EAE832 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -548,8 +699,11 @@
 				E5DFDBDD1CB2BF9E00BB3D27 /* Assets.xcassets in Resources */,
 				E5DFDC201CB2C71800BB3D27 /* SplashStoryboard.storyboard in Resources */,
 				E554CFDE1CB5641B00668D85 /* terms.html in Resources */,
+				E51006641CB7BC5A00AC66A5 /* StreamableListFullCell.xib in Resources */,
 				E554CFDA1CB5641B00668D85 /* eula.html in Resources */,
+				E51006601CB7BC5A00AC66A5 /* StreamableGridCell.xib in Resources */,
 				E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */,
+				E510066D1CB7DEB100AC66A5 /* StreamableTrendingCell.xib in Resources */,
 				E5DFDC0D1CB2C39200BB3D27 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,19 +812,31 @@
 				E50765D71CB4098D00EAE832 /* Utils.swift in Sources */,
 				E50765D81CB4098D00EAE832 /* BackButtonTableViewController.swift in Sources */,
 				E5BF3B901CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */,
+				E51006681CB7CE2300AC66A5 /* DateUtils.swift in Sources */,
+				E510063B1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */,
 				E50765D91CB4098D00EAE832 /* DialogBuilder.swift in Sources */,
 				E51005EA1CB56D9100AC66A5 /* HomeViewController.swift in Sources */,
 				E50765DA1CB4098D00EAE832 /* InputValidator.swift in Sources */,
+				E510065F1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
 				E51005F11CB691CD00AC66A5 /* MenuViewController.swift in Sources */,
 				E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */,
 				E50765DB1CB4098D00EAE832 /* TintImageView.swift in Sources */,
+				E51006631CB7BC5A00AC66A5 /* StreamableListFullCell.swift in Sources */,
+				E51006311CB71C5900AC66A5 /* GenericStreamablesViewController.swift in Sources */,
 				E50765DC1CB4098D00EAE832 /* AppDelegate.swift in Sources */,
+				E51006341CB71EB200AC66A5 /* GridStreamablesViewController.swift in Sources */,
 				E50765DD1CB4098D00EAE832 /* BackButtonViewController.swift in Sources */,
 				E50765DE1CB4098D00EAE832 /* LoginViewController.swift in Sources */,
 				E51005EE1CB6782700AC66A5 /* MenuContainerViewController.swift in Sources */,
 				E554CFD51CB5625700668D85 /* WebViewController.swift in Sources */,
+				E51006721CB7E72E00AC66A5 /* TrendingViewController.swift in Sources */,
 				E51005F51CB69BDE00AC66A5 /* MenuCell.swift in Sources */,
+				E510067A1CB7F06500AC66A5 /* RecentViewController.swift in Sources */,
+				E510066C1CB7DEB100AC66A5 /* StreamableTrendingCell.swift in Sources */,
 				E50765DF1CB4098D00EAE832 /* Constants.swift in Sources */,
+				E51006371CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
+				E510064D1CB7A5CC00AC66A5 /* FeedViewController.swift in Sources */,
+				E51006501CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,19 +848,31 @@
 				E5DFDC041CB2C31B00BB3D27 /* Utils.swift in Sources */,
 				E5DFDC071CB2C31B00BB3D27 /* BackButtonTableViewController.swift in Sources */,
 				E5BF3B8F1CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */,
+				E51006671CB7CE2300AC66A5 /* DateUtils.swift in Sources */,
+				E510063A1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */,
 				E5DFDC021CB2C31B00BB3D27 /* DialogBuilder.swift in Sources */,
 				E51005E91CB56D9100AC66A5 /* HomeViewController.swift in Sources */,
 				E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */,
+				E510065E1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
 				E51005F01CB691CD00AC66A5 /* MenuViewController.swift in Sources */,
 				E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */,
 				E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */,
+				E51006621CB7BC5A00AC66A5 /* StreamableListFullCell.swift in Sources */,
+				E51006301CB71C5900AC66A5 /* GenericStreamablesViewController.swift in Sources */,
 				E5DFDBD61CB2BF9E00BB3D27 /* AppDelegate.swift in Sources */,
+				E51006331CB71EB200AC66A5 /* GridStreamablesViewController.swift in Sources */,
 				E5DFDC081CB2C31B00BB3D27 /* BackButtonViewController.swift in Sources */,
 				E5DFDC241CB2DD5D00BB3D27 /* LoginViewController.swift in Sources */,
 				E51005ED1CB6782700AC66A5 /* MenuContainerViewController.swift in Sources */,
 				E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */,
+				E51006711CB7E72E00AC66A5 /* TrendingViewController.swift in Sources */,
 				E51005F41CB69BDE00AC66A5 /* MenuCell.swift in Sources */,
+				E51006791CB7F06500AC66A5 /* RecentViewController.swift in Sources */,
+				E510066B1CB7DEB100AC66A5 /* StreamableTrendingCell.swift in Sources */,
 				E5DFDC011CB2C31B00BB3D27 /* Constants.swift in Sources */,
+				E51006361CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
+				E510064C1CB7A5CC00AC66A5 /* FeedViewController.swift in Sources */,
+				E510064F1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

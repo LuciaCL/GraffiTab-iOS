@@ -98,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("DEBUG: Original token: \(deviceToken)")
         let deviceTokenStr = convertDeviceTokenToString(deviceToken)
         print("DEBUG: Registering token: \(deviceTokenStr)")
-        GTUserManager.linkDevice(deviceTokenStr, successBlock: { (response) in
+        GTMeManager.linkDevice(deviceTokenStr, successBlock: { (response) in
             
         }) { (response) in
             
@@ -123,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func checkLoginStatus() {
         if (GTSettings.sharedInstance.isLoggedIn()) {
-            GTUserManager.getMe({ (response) -> Void in
+            GTMeManager.getMe({ (response) -> Void in
                 UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
                 
                 self.userDidLogin()

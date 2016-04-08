@@ -14,8 +14,9 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     @IBOutlet weak var createBtn: UIButton!
     
     var carbonTabSwipeNavigation: CarbonTabSwipeNavigation?
-    var controllers: [AnyObject]?
+    var tabs: [AnyObject]?
     var titles: [AnyObject]?
+    var controllers: [UIViewController]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,16 +56,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     // MARK: - CarbonKitTabSwipeDelegate
     
     func carbonTabSwipeNavigation(carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAtIndex index: UInt) -> UIViewController {
-//        switch index {
-//        case 0:
-//            return self.storyboard!.instantiateViewControllerWithIdentifier("ViewControllerOne")! as! ViewControllerOne
-//        case 1:
-//            return self.storyboard!.instantiateViewControllerWithIdentifier("ViewControllerTwo")! as! ViewControllerTwo
-//        default:
-//            return self.storyboard!.instantiateViewControllerWithIdentifier("ViewControllerThree")! as! ViewControllerThree
-//        }
-        let vs = UIViewController()
-        return vs
+        return controllers![Int(index)]
     }
     
     func carbonTabSwipeNavigation(carbonTabSwipeNavigation: CarbonTabSwipeNavigation, didMoveAtIndex index: UInt) {
@@ -78,9 +70,15 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     // MARK: - Setup
     
     func setupCarbonKit() {
-        controllers = [UIImage(named: "home")!, UIImage(named: "ic_whatshot_white")!, UIImage(named: "ic_thumb_up_white")!, UIImage(named: "ic_access_time_white")!]
+        controllers = [UIViewController]()
+        controllers?.append(self.storyboard!.instantiateViewControllerWithIdentifier("FeedViewController"))
+        controllers?.append(self.storyboard!.instantiateViewControllerWithIdentifier("TrendingViewController"))
+        controllers?.append(self.storyboard!.instantiateViewControllerWithIdentifier("FeedViewController"))
+        controllers?.append(self.storyboard!.instantiateViewControllerWithIdentifier("RecentViewController"))
+        
+        tabs = [UIImage(named: "home")!, UIImage(named: "ic_whatshot_white")!, UIImage(named: "ic_thumb_up_white")!, UIImage(named: "ic_access_time_white")!]
         titles = ["Home", "Trending", "Recommended", "Recent"]
-        carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: controllers, delegate: self)
+        carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: tabs, delegate: self)
         carbonTabSwipeNavigation!.insertIntoRootViewController(self)
         
         // Styling.
@@ -88,8 +86,8 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         carbonTabSwipeNavigation!.setIndicatorColor(tintColor)
         carbonTabSwipeNavigation!.setTabExtraWidth(30)
         
-        for (index, _) in (controllers?.enumerate())! {
-            carbonTabSwipeNavigation!.carbonSegmentedControl!.setWidth(self.view.frame.width / CGFloat((controllers?.count)!), forSegmentAtIndex: index)
+        for (index, _) in (tabs?.enumerate())! {
+            carbonTabSwipeNavigation!.carbonSegmentedControl!.setWidth(self.view.frame.width / CGFloat((tabs?.count)!), forSegmentAtIndex: index)
         }
         
         carbonTabSwipeNavigation!.setNormalColor(UIColor.blackColor().colorWithAlphaComponent(0.2))

@@ -89,7 +89,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
                 self.view.showActivityViewWithLabel("Processing")
                 self.view.rn_activityView.dimBackground = false
                 
-                GTUserManager.importAvatar(.FACEBOOK, successBlock: { (response) -> Void in
+                GTMeManager.importAvatar(.FACEBOOK, successBlock: { (response) -> Void in
                     self.view.hideActivityView()
                     
                     avatarImportHandler()
