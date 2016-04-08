@@ -72,6 +72,8 @@
 		E51006721CB7E72E00AC66A5 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006701CB7E72E00AC66A5 /* TrendingViewController.swift */; };
 		E51006791CB7F06500AC66A5 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006781CB7F06500AC66A5 /* RecentViewController.swift */; };
 		E510067A1CB7F06500AC66A5 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006781CB7F06500AC66A5 /* RecentViewController.swift */; };
+		E510067E1CB7F41000AC66A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E510067D1CB7F41000AC66A5 /* CoreLocation.framework */; };
+		E51006801CB7F41C00AC66A5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E510067F1CB7F41C00AC66A5 /* MapKit.framework */; };
 		E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFD31CB5625700668D85 /* WebViewController.swift */; };
@@ -164,6 +166,8 @@
 		E510066A1CB7DEB100AC66A5 /* StreamableTrendingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StreamableTrendingCell.xib; sourceTree = "<group>"; };
 		E51006701CB7E72E00AC66A5 /* TrendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
 		E51006781CB7F06500AC66A5 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
+		E510067D1CB7F41000AC66A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E510067F1CB7F41C00AC66A5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E554CFCD1CB547A800668D85 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E554CFD31CB5625700668D85 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E51006801CB7F41C00AC66A5 /* MapKit.framework in Frameworks */,
+				E510067E1CB7F41000AC66A5 /* CoreLocation.framework in Frameworks */,
 				E50765FA1CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework in Frameworks */,
 				E50765E21CB4098D00EAE832 /* OpenGLES.framework in Frameworks */,
 				E50765E31CB4098D00EAE832 /* SystemConfiguration.framework in Frameworks */,
@@ -576,6 +582,8 @@
 		F89B9B6C7903A7912D4CD2E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E510067F1CB7F41C00AC66A5 /* MapKit.framework */,
+				E510067D1CB7F41000AC66A5 /* CoreLocation.framework */,
 				E50765F91CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework */,
 				E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */,
 				E5DFDC191CB2C5D900BB3D27 /* OpenGLES.framework */,
