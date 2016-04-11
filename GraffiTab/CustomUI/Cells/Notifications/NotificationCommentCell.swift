@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 import GraffiTab_iOS_SDK
 
 class NotificationCommentCell: NotificationCell {

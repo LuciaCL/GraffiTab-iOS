@@ -96,6 +96,26 @@
 		E51006AA1CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006A81CBBDE8700AC66A5 /* NotificationMentionCell.swift */; };
 		E51006AC1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006AB1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift */; };
 		E51006AD1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006AB1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift */; };
+		E51006BC1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006BB1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift */; };
+		E51006BD1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006BB1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift */; };
+		E51006BF1CBC0FA100AC66A5 /* ActivitySingleLikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006BE1CBC0FA100AC66A5 /* ActivitySingleLikeCell.swift */; };
+		E51006C01CBC0FA100AC66A5 /* ActivitySingleLikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006BE1CBC0FA100AC66A5 /* ActivitySingleLikeCell.swift */; };
+		E51006C21CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006C11CBC118B00AC66A5 /* ActivitySingleCreateCell.swift */; };
+		E51006C31CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006C11CBC118B00AC66A5 /* ActivitySingleCreateCell.swift */; };
+		E51006C51CBC122E00AC66A5 /* ActivitySingleCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006C41CBC122E00AC66A5 /* ActivitySingleCommentCell.swift */; };
+		E51006C61CBC122E00AC66A5 /* ActivitySingleCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006C41CBC122E00AC66A5 /* ActivitySingleCommentCell.swift */; };
+		E51006C81CBC199B00AC66A5 /* ActivityGroupFollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006C71CBC199B00AC66A5 /* ActivityGroupFollowCell.swift */; };
+		E51006C91CBC199B00AC66A5 /* ActivityGroupFollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006C71CBC199B00AC66A5 /* ActivityGroupFollowCell.swift */; };
+		E51006CB1CBC1B8E00AC66A5 /* ActivitySingleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006CA1CBC1B8E00AC66A5 /* ActivitySingleCell.swift */; };
+		E51006CC1CBC1B8E00AC66A5 /* ActivitySingleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006CA1CBC1B8E00AC66A5 /* ActivitySingleCell.swift */; };
+		E51006CE1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006CD1CBC1B9C00AC66A5 /* ActivityGroupCell.swift */; };
+		E51006CF1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006CD1CBC1B9C00AC66A5 /* ActivityGroupCell.swift */; };
+		E51006D11CBC1F9700AC66A5 /* ActivityGroupLikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006D01CBC1F9700AC66A5 /* ActivityGroupLikeCell.swift */; };
+		E51006D21CBC1F9700AC66A5 /* ActivityGroupLikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006D01CBC1F9700AC66A5 /* ActivityGroupLikeCell.swift */; };
+		E51006D41CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006D31CBC205000AC66A5 /* ActivityGroupCreateCell.swift */; };
+		E51006D51CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006D31CBC205000AC66A5 /* ActivityGroupCreateCell.swift */; };
+		E51006D71CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006D61CBC210F00AC66A5 /* ActivityGroupCommentCell.swift */; };
+		E51006D81CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006D61CBC210F00AC66A5 /* ActivityGroupCommentCell.swift */; };
 		E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFD31CB5625700668D85 /* WebViewController.swift */; };
@@ -201,6 +221,16 @@
 		E51006A51CBBDD1D00AC66A5 /* NotificationLikeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationLikeCell.swift; sourceTree = "<group>"; };
 		E51006A81CBBDE8700AC66A5 /* NotificationMentionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationMentionCell.swift; sourceTree = "<group>"; };
 		E51006AB1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationWelcomeCell.swift; sourceTree = "<group>"; };
+		E51006BB1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitySingleFollowCell.swift; sourceTree = "<group>"; };
+		E51006BE1CBC0FA100AC66A5 /* ActivitySingleLikeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitySingleLikeCell.swift; sourceTree = "<group>"; };
+		E51006C11CBC118B00AC66A5 /* ActivitySingleCreateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitySingleCreateCell.swift; sourceTree = "<group>"; };
+		E51006C41CBC122E00AC66A5 /* ActivitySingleCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitySingleCommentCell.swift; sourceTree = "<group>"; };
+		E51006C71CBC199B00AC66A5 /* ActivityGroupFollowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityGroupFollowCell.swift; sourceTree = "<group>"; };
+		E51006CA1CBC1B8E00AC66A5 /* ActivitySingleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitySingleCell.swift; sourceTree = "<group>"; };
+		E51006CD1CBC1B9C00AC66A5 /* ActivityGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityGroupCell.swift; sourceTree = "<group>"; };
+		E51006D01CBC1F9700AC66A5 /* ActivityGroupLikeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityGroupLikeCell.swift; sourceTree = "<group>"; };
+		E51006D31CBC205000AC66A5 /* ActivityGroupCreateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityGroupCreateCell.swift; sourceTree = "<group>"; };
+		E51006D61CBC210F00AC66A5 /* ActivityGroupCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityGroupCommentCell.swift; sourceTree = "<group>"; };
 		E554CFCD1CB547A800668D85 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E554CFD31CB5625700668D85 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
@@ -296,6 +326,7 @@
 		E51005F21CB69BC300AC66A5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				E51006B51CBC051A00AC66A5 /* Activity */,
 				E510069B1CBBB49800AC66A5 /* Notifications */,
 				E51006381CB71F5000AC66A5 /* Streamables */,
 				E51005F31CB69BDE00AC66A5 /* MenuCell.swift */,
@@ -439,6 +470,39 @@
 				E51006AB1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		E51006B51CBC051A00AC66A5 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				E51006B61CBC053400AC66A5 /* Group */,
+				E51006B71CBC053400AC66A5 /* Single */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		E51006B61CBC053400AC66A5 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				E51006CD1CBC1B9C00AC66A5 /* ActivityGroupCell.swift */,
+				E51006C71CBC199B00AC66A5 /* ActivityGroupFollowCell.swift */,
+				E51006D01CBC1F9700AC66A5 /* ActivityGroupLikeCell.swift */,
+				E51006D31CBC205000AC66A5 /* ActivityGroupCreateCell.swift */,
+				E51006D61CBC210F00AC66A5 /* ActivityGroupCommentCell.swift */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		E51006B71CBC053400AC66A5 /* Single */ = {
+			isa = PBXGroup;
+			children = (
+				E51006CA1CBC1B8E00AC66A5 /* ActivitySingleCell.swift */,
+				E51006BB1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift */,
+				E51006BE1CBC0FA100AC66A5 /* ActivitySingleLikeCell.swift */,
+				E51006C11CBC118B00AC66A5 /* ActivitySingleCreateCell.swift */,
+				E51006C41CBC122E00AC66A5 /* ActivitySingleCommentCell.swift */,
+			);
+			path = Single;
 			sourceTree = "<group>";
 		};
 		E554CFD21CB5624A00668D85 /* Web */ = {
@@ -902,6 +966,10 @@
 			files = (
 				E50765D61CB4098D00EAE832 /* TintButton.swift in Sources */,
 				E51006941CBBA46B00AC66A5 /* FollowersActivityViewController.swift in Sources */,
+				E51006BD1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift in Sources */,
+				E51006C61CBC122E00AC66A5 /* ActivitySingleCommentCell.swift in Sources */,
+				E51006D51CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
+				E51006C31CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */,
 				E51006A41CBBCA7B00AC66A5 /* NotificationCommentCell.swift in Sources */,
 				E50765D71CB4098D00EAE832 /* Utils.swift in Sources */,
 				E50765D81CB4098D00EAE832 /* BackButtonTableViewController.swift in Sources */,
@@ -912,14 +980,17 @@
 				E50765D91CB4098D00EAE832 /* DialogBuilder.swift in Sources */,
 				E51005EA1CB56D9100AC66A5 /* HomeViewController.swift in Sources */,
 				E51006AA1CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
+				E51006D81CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
 				E50765DA1CB4098D00EAE832 /* InputValidator.swift in Sources */,
 				E510065F1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
 				E51005F11CB691CD00AC66A5 /* MenuViewController.swift in Sources */,
 				E510069E1CBBB4C900AC66A5 /* NotificationCell.swift in Sources */,
 				E51006A71CBBDD1D00AC66A5 /* NotificationLikeCell.swift in Sources */,
 				E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */,
+				E51006D21CBC1F9700AC66A5 /* ActivityGroupLikeCell.swift in Sources */,
 				E50765DB1CB4098D00EAE832 /* TintImageView.swift in Sources */,
 				E51006AD1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */,
+				E51006C01CBC0FA100AC66A5 /* ActivitySingleLikeCell.swift in Sources */,
 				E51006841CB7FE0F00AC66A5 /* GTLocationManager.swift in Sources */,
 				E51006A11CBBC0FD00AC66A5 /* NotificationFollowCell.swift in Sources */,
 				E51006631CB7BC5A00AC66A5 /* StreamableListFullCell.swift in Sources */,
@@ -929,12 +1000,15 @@
 				E50765DD1CB4098D00EAE832 /* BackButtonViewController.swift in Sources */,
 				E50765DE1CB4098D00EAE832 /* LoginViewController.swift in Sources */,
 				E51005EE1CB6782700AC66A5 /* MenuContainerViewController.swift in Sources */,
+				E51006CF1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,
 				E554CFD51CB5625700668D85 /* WebViewController.swift in Sources */,
 				E51006721CB7E72E00AC66A5 /* TrendingViewController.swift in Sources */,
 				E51005F51CB69BDE00AC66A5 /* MenuCell.swift in Sources */,
+				E51006C91CBC199B00AC66A5 /* ActivityGroupFollowCell.swift in Sources */,
 				E510067A1CB7F06500AC66A5 /* RecentViewController.swift in Sources */,
 				E510066C1CB7DEB100AC66A5 /* StreamableTrendingCell.swift in Sources */,
 				E50765DF1CB4098D00EAE832 /* Constants.swift in Sources */,
+				E51006CC1CBC1B8E00AC66A5 /* ActivitySingleCell.swift in Sources */,
 				E51006371CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
 				E51006911CBBA43600AC66A5 /* MyNotificationsViewController.swift in Sources */,
 				E510064D1CB7A5CC00AC66A5 /* FeedViewController.swift in Sources */,
@@ -949,6 +1023,10 @@
 			files = (
 				E5DFDC051CB2C31B00BB3D27 /* TintButton.swift in Sources */,
 				E51006931CBBA46B00AC66A5 /* FollowersActivityViewController.swift in Sources */,
+				E51006BC1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift in Sources */,
+				E51006C51CBC122E00AC66A5 /* ActivitySingleCommentCell.swift in Sources */,
+				E51006D41CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
+				E51006C21CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */,
 				E51006A31CBBCA7B00AC66A5 /* NotificationCommentCell.swift in Sources */,
 				E5DFDC041CB2C31B00BB3D27 /* Utils.swift in Sources */,
 				E5DFDC071CB2C31B00BB3D27 /* BackButtonTableViewController.swift in Sources */,
@@ -959,14 +1037,17 @@
 				E5DFDC021CB2C31B00BB3D27 /* DialogBuilder.swift in Sources */,
 				E51005E91CB56D9100AC66A5 /* HomeViewController.swift in Sources */,
 				E51006A91CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
+				E51006D71CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
 				E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */,
 				E510065E1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
 				E51005F01CB691CD00AC66A5 /* MenuViewController.swift in Sources */,
 				E510069D1CBBB4C900AC66A5 /* NotificationCell.swift in Sources */,
 				E51006A61CBBDD1D00AC66A5 /* NotificationLikeCell.swift in Sources */,
 				E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */,
+				E51006D11CBC1F9700AC66A5 /* ActivityGroupLikeCell.swift in Sources */,
 				E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */,
 				E51006AC1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */,
+				E51006BF1CBC0FA100AC66A5 /* ActivitySingleLikeCell.swift in Sources */,
 				E51006831CB7FE0F00AC66A5 /* GTLocationManager.swift in Sources */,
 				E51006A01CBBC0FD00AC66A5 /* NotificationFollowCell.swift in Sources */,
 				E51006621CB7BC5A00AC66A5 /* StreamableListFullCell.swift in Sources */,
@@ -976,12 +1057,15 @@
 				E5DFDC081CB2C31B00BB3D27 /* BackButtonViewController.swift in Sources */,
 				E5DFDC241CB2DD5D00BB3D27 /* LoginViewController.swift in Sources */,
 				E51005ED1CB6782700AC66A5 /* MenuContainerViewController.swift in Sources */,
+				E51006CE1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,
 				E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */,
 				E51006711CB7E72E00AC66A5 /* TrendingViewController.swift in Sources */,
 				E51005F41CB69BDE00AC66A5 /* MenuCell.swift in Sources */,
+				E51006C81CBC199B00AC66A5 /* ActivityGroupFollowCell.swift in Sources */,
 				E51006791CB7F06500AC66A5 /* RecentViewController.swift in Sources */,
 				E510066B1CB7DEB100AC66A5 /* StreamableTrendingCell.swift in Sources */,
 				E5DFDC011CB2C31B00BB3D27 /* Constants.swift in Sources */,
+				E51006CB1CBC1B8E00AC66A5 /* ActivitySingleCell.swift in Sources */,
 				E51006361CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
 				E51006901CBBA43600AC66A5 /* MyNotificationsViewController.swift in Sources */,
 				E510064C1CB7A5CC00AC66A5 /* FeedViewController.swift in Sources */,

@@ -7,18 +7,12 @@
 //
 
 import UIKit
-import Alamofire
 import GraffiTab_iOS_SDK
 
 class NotificationLikeCell: NotificationCell {
 
     override class func reusableIdentifier() -> String {
         return "NotificationLikeCell"
-    }
-    
-    override func setItem(item: GTNotification?) {
-        super.setItem(item)
-        
     }
     
     override func getActionUser() -> GTUser {
