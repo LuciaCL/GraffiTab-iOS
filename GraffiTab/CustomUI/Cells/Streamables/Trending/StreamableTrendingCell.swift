@@ -61,6 +61,7 @@ class StreamableTrendingCell: StreamableCell {
             avatar.image = nil
         }
     }
+    
     // MARK: - Setup
     
     func setupImageViews() {

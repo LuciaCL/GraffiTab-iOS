@@ -78,6 +78,24 @@
 		E51006841CB7FE0F00AC66A5 /* GTLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006821CB7FE0F00AC66A5 /* GTLocationManager.swift */; };
 		E51006871CB8045800AC66A5 /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006861CB8045800AC66A5 /* NearMeViewController.swift */; };
 		E51006881CB8045800AC66A5 /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006861CB8045800AC66A5 /* NearMeViewController.swift */; };
+		E510068D1CBBA1BA00AC66A5 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510068C1CBBA1BA00AC66A5 /* ActivityViewController.swift */; };
+		E510068E1CBBA1BA00AC66A5 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510068C1CBBA1BA00AC66A5 /* ActivityViewController.swift */; };
+		E51006901CBBA43600AC66A5 /* MyNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510068F1CBBA43600AC66A5 /* MyNotificationsViewController.swift */; };
+		E51006911CBBA43600AC66A5 /* MyNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510068F1CBBA43600AC66A5 /* MyNotificationsViewController.swift */; };
+		E51006931CBBA46B00AC66A5 /* FollowersActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006921CBBA46B00AC66A5 /* FollowersActivityViewController.swift */; };
+		E51006941CBBA46B00AC66A5 /* FollowersActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006921CBBA46B00AC66A5 /* FollowersActivityViewController.swift */; };
+		E510069D1CBBB4C900AC66A5 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510069C1CBBB4C900AC66A5 /* NotificationCell.swift */; };
+		E510069E1CBBB4C900AC66A5 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510069C1CBBB4C900AC66A5 /* NotificationCell.swift */; };
+		E51006A01CBBC0FD00AC66A5 /* NotificationFollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510069F1CBBC0FD00AC66A5 /* NotificationFollowCell.swift */; };
+		E51006A11CBBC0FD00AC66A5 /* NotificationFollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510069F1CBBC0FD00AC66A5 /* NotificationFollowCell.swift */; };
+		E51006A31CBBCA7B00AC66A5 /* NotificationCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006A21CBBCA7B00AC66A5 /* NotificationCommentCell.swift */; };
+		E51006A41CBBCA7B00AC66A5 /* NotificationCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006A21CBBCA7B00AC66A5 /* NotificationCommentCell.swift */; };
+		E51006A61CBBDD1D00AC66A5 /* NotificationLikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006A51CBBDD1D00AC66A5 /* NotificationLikeCell.swift */; };
+		E51006A71CBBDD1D00AC66A5 /* NotificationLikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006A51CBBDD1D00AC66A5 /* NotificationLikeCell.swift */; };
+		E51006A91CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006A81CBBDE8700AC66A5 /* NotificationMentionCell.swift */; };
+		E51006AA1CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006A81CBBDE8700AC66A5 /* NotificationMentionCell.swift */; };
+		E51006AC1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006AB1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift */; };
+		E51006AD1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006AB1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift */; };
 		E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFD31CB5625700668D85 /* WebViewController.swift */; };
@@ -174,6 +192,15 @@
 		E510067F1CB7F41C00AC66A5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E51006821CB7FE0F00AC66A5 /* GTLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTLocationManager.swift; sourceTree = "<group>"; };
 		E51006861CB8045800AC66A5 /* NearMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeViewController.swift; sourceTree = "<group>"; };
+		E510068C1CBBA1BA00AC66A5 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		E510068F1CBBA43600AC66A5 /* MyNotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNotificationsViewController.swift; sourceTree = "<group>"; };
+		E51006921CBBA46B00AC66A5 /* FollowersActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersActivityViewController.swift; sourceTree = "<group>"; };
+		E510069C1CBBB4C900AC66A5 /* NotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		E510069F1CBBC0FD00AC66A5 /* NotificationFollowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationFollowCell.swift; sourceTree = "<group>"; };
+		E51006A21CBBCA7B00AC66A5 /* NotificationCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCommentCell.swift; sourceTree = "<group>"; };
+		E51006A51CBBDD1D00AC66A5 /* NotificationLikeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationLikeCell.swift; sourceTree = "<group>"; };
+		E51006A81CBBDE8700AC66A5 /* NotificationMentionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationMentionCell.swift; sourceTree = "<group>"; };
+		E51006AB1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationWelcomeCell.swift; sourceTree = "<group>"; };
 		E554CFCD1CB547A800668D85 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E554CFD31CB5625700668D85 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
@@ -269,6 +296,7 @@
 		E51005F21CB69BC300AC66A5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				E510069B1CBBB49800AC66A5 /* Notifications */,
 				E51006381CB71F5000AC66A5 /* Streamables */,
 				E51005F31CB69BDE00AC66A5 /* MenuCell.swift */,
 			);
@@ -310,6 +338,7 @@
 		E51006481CB7A58700AC66A5 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				E510068B1CB9AE9900AC66A5 /* Notifications */,
 				E510064A1CB7A5A100AC66A5 /* Feed */,
 			);
 			path = Me;
@@ -387,6 +416,29 @@
 				E51006861CB8045800AC66A5 /* NearMeViewController.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		E510068B1CB9AE9900AC66A5 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				E51006921CBBA46B00AC66A5 /* FollowersActivityViewController.swift */,
+				E510068F1CBBA43600AC66A5 /* MyNotificationsViewController.swift */,
+				E510068C1CBBA1BA00AC66A5 /* ActivityViewController.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		E510069B1CBBB49800AC66A5 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				E510069C1CBBB4C900AC66A5 /* NotificationCell.swift */,
+				E510069F1CBBC0FD00AC66A5 /* NotificationFollowCell.swift */,
+				E51006A21CBBCA7B00AC66A5 /* NotificationCommentCell.swift */,
+				E51006A51CBBDD1D00AC66A5 /* NotificationLikeCell.swift */,
+				E51006A81CBBDE8700AC66A5 /* NotificationMentionCell.swift */,
+				E51006AB1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		E554CFD21CB5624A00668D85 /* Web */ = {
@@ -849,6 +901,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E50765D61CB4098D00EAE832 /* TintButton.swift in Sources */,
+				E51006941CBBA46B00AC66A5 /* FollowersActivityViewController.swift in Sources */,
+				E51006A41CBBCA7B00AC66A5 /* NotificationCommentCell.swift in Sources */,
 				E50765D71CB4098D00EAE832 /* Utils.swift in Sources */,
 				E50765D81CB4098D00EAE832 /* BackButtonTableViewController.swift in Sources */,
 				E51006881CB8045800AC66A5 /* NearMeViewController.swift in Sources */,
@@ -857,12 +911,17 @@
 				E510063B1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */,
 				E50765D91CB4098D00EAE832 /* DialogBuilder.swift in Sources */,
 				E51005EA1CB56D9100AC66A5 /* HomeViewController.swift in Sources */,
+				E51006AA1CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
 				E50765DA1CB4098D00EAE832 /* InputValidator.swift in Sources */,
 				E510065F1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
 				E51005F11CB691CD00AC66A5 /* MenuViewController.swift in Sources */,
+				E510069E1CBBB4C900AC66A5 /* NotificationCell.swift in Sources */,
+				E51006A71CBBDD1D00AC66A5 /* NotificationLikeCell.swift in Sources */,
 				E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */,
 				E50765DB1CB4098D00EAE832 /* TintImageView.swift in Sources */,
+				E51006AD1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */,
 				E51006841CB7FE0F00AC66A5 /* GTLocationManager.swift in Sources */,
+				E51006A11CBBC0FD00AC66A5 /* NotificationFollowCell.swift in Sources */,
 				E51006631CB7BC5A00AC66A5 /* StreamableListFullCell.swift in Sources */,
 				E51006311CB71C5900AC66A5 /* GenericStreamablesViewController.swift in Sources */,
 				E50765DC1CB4098D00EAE832 /* AppDelegate.swift in Sources */,
@@ -877,8 +936,10 @@
 				E510066C1CB7DEB100AC66A5 /* StreamableTrendingCell.swift in Sources */,
 				E50765DF1CB4098D00EAE832 /* Constants.swift in Sources */,
 				E51006371CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
+				E51006911CBBA43600AC66A5 /* MyNotificationsViewController.swift in Sources */,
 				E510064D1CB7A5CC00AC66A5 /* FeedViewController.swift in Sources */,
 				E51006501CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */,
+				E510068E1CBBA1BA00AC66A5 /* ActivityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -887,6 +948,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5DFDC051CB2C31B00BB3D27 /* TintButton.swift in Sources */,
+				E51006931CBBA46B00AC66A5 /* FollowersActivityViewController.swift in Sources */,
+				E51006A31CBBCA7B00AC66A5 /* NotificationCommentCell.swift in Sources */,
 				E5DFDC041CB2C31B00BB3D27 /* Utils.swift in Sources */,
 				E5DFDC071CB2C31B00BB3D27 /* BackButtonTableViewController.swift in Sources */,
 				E51006871CB8045800AC66A5 /* NearMeViewController.swift in Sources */,
@@ -895,12 +958,17 @@
 				E510063A1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */,
 				E5DFDC021CB2C31B00BB3D27 /* DialogBuilder.swift in Sources */,
 				E51005E91CB56D9100AC66A5 /* HomeViewController.swift in Sources */,
+				E51006A91CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
 				E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */,
 				E510065E1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
 				E51005F01CB691CD00AC66A5 /* MenuViewController.swift in Sources */,
+				E510069D1CBBB4C900AC66A5 /* NotificationCell.swift in Sources */,
+				E51006A61CBBDD1D00AC66A5 /* NotificationLikeCell.swift in Sources */,
 				E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */,
 				E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */,
+				E51006AC1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */,
 				E51006831CB7FE0F00AC66A5 /* GTLocationManager.swift in Sources */,
+				E51006A01CBBC0FD00AC66A5 /* NotificationFollowCell.swift in Sources */,
 				E51006621CB7BC5A00AC66A5 /* StreamableListFullCell.swift in Sources */,
 				E51006301CB71C5900AC66A5 /* GenericStreamablesViewController.swift in Sources */,
 				E5DFDBD61CB2BF9E00BB3D27 /* AppDelegate.swift in Sources */,
@@ -915,8 +983,10 @@
 				E510066B1CB7DEB100AC66A5 /* StreamableTrendingCell.swift in Sources */,
 				E5DFDC011CB2C31B00BB3D27 /* Constants.swift in Sources */,
 				E51006361CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
+				E51006901CBBA43600AC66A5 /* MyNotificationsViewController.swift in Sources */,
 				E510064C1CB7A5CC00AC66A5 /* FeedViewController.swift in Sources */,
 				E510064F1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */,
+				E510068D1CBBA1BA00AC66A5 /* ActivityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

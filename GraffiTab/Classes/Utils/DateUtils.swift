@@ -39,4 +39,31 @@ class DateUtils: NSObject {
         
         return date
     }
+    
+    class func notificationTimePassedSinceDate(date: NSDate) -> String {
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date, toDate: NSDate(), options: [])
+        
+        var date = "";
+        if components.year > 0 {
+            date = String(format: "%li year%@ ago", components.year, components.year != 1 ? "s" : "")
+        }
+        else if components.month > 0 {
+            date = String(format: "%li month%@ ago", components.month, components.month != 1 ? "s" : "")
+        }
+        else if components.day > 0 {
+            date = String(format: "%li day%@ ago", components.day, components.day != 1 ? "s" : "")
+        }
+        else if components.hour > 0 {
+            date = String(format: "%li hour%@ ago", components.hour, components.hour != 1 ? "s" : "")
+        }
+        else if components.minute > 0 {
+            date = String(format: "%li minute%@ ago", components.minute, components.minute != 1 ? "s" : "")
+        }
+        else {
+            date = "Just now"
+        }
+        
+        return date
+    }
 }

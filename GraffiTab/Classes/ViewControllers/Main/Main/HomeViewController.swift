@@ -47,10 +47,8 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         print("PROFILE")
     }
     
-    // MARK: - Navigation
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+    @IBAction func onClickNotifications(sender: AnyObject?) {
+        performSegueWithIdentifier("SEGUE_NOTIFICATIONS", sender: sender)
     }
     
     // MARK: - CarbonKitTabSwipeDelegate
