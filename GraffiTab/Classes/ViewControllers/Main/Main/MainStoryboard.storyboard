@@ -811,7 +811,7 @@
                                         <rect key="frame" x="0.0" y="185" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8io-2W-lP5" id="dIv-xd-GoD">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="GDy-md-bVU">
@@ -822,7 +822,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Georgi Christov commented on 7 graffiti." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhG-Yb-RTk">
-                                                    <rect key="frame" x="48" y="7" width="545" height="21"/>
+                                                    <rect key="frame" x="48" y="7" width="545" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="pYw-yl-lF5"/>
                                                     </constraints>
@@ -854,10 +854,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0TK-yc-utX">
-                                                    <rect key="frame" x="47" y="30" width="546" height="40"/>
+                                                    <rect key="frame" x="47" y="40" width="546" height="30"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="kfG-V2-1dZ"/>
+                                                        <constraint firstAttribute="height" constant="30" id="kfG-V2-1dZ"/>
                                                     </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3ev-Kz-1ez">
                                                         <size key="itemSize" width="38" height="39"/>
@@ -1022,7 +1022,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Georgi Christov started following 7 people." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kd-ex-KzE">
-                                                    <rect key="frame" x="48" y="7" width="545" height="21"/>
+                                                    <rect key="frame" x="48" y="7" width="545" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="h1X-qw-6AH"/>
                                                     </constraints>
@@ -1054,10 +1054,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zw8-lc-b5A">
-                                                    <rect key="frame" x="47" y="30" width="546" height="40"/>
+                                                    <rect key="frame" x="47" y="40" width="546" height="30"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="0Yj-Df-SwB"/>
+                                                        <constraint firstAttribute="height" constant="30" id="0Yj-Df-SwB"/>
                                                     </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Biv-Lp-PK4">
                                                         <size key="itemSize" width="38" height="39"/>
@@ -1223,7 +1223,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Georgi Christov likes 7 graffiti." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qd-L8-7xR">
-                                                    <rect key="frame" x="48" y="7" width="545" height="21"/>
+                                                    <rect key="frame" x="48" y="7" width="545" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="Ajp-wD-Jtu"/>
                                                     </constraints>
@@ -1255,10 +1255,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BA0-cJ-xoC">
-                                                    <rect key="frame" x="47" y="30" width="546" height="40"/>
+                                                    <rect key="frame" x="47" y="40" width="546" height="30"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="w4W-Dn-ikJ"/>
+                                                        <constraint firstAttribute="height" constant="30" id="w4W-Dn-ikJ"/>
                                                     </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="96k-S2-sg7">
                                                         <size key="itemSize" width="38" height="39"/>
@@ -1424,7 +1424,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Georgi Christov created 7 graffiti." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Maq-rp-dXe">
-                                                    <rect key="frame" x="48" y="7" width="545" height="21"/>
+                                                    <rect key="frame" x="48" y="7" width="545" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="txi-8x-cER"/>
                                                     </constraints>
@@ -1456,10 +1456,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CHT-PK-qMu">
-                                                    <rect key="frame" x="47" y="30" width="546" height="40"/>
+                                                    <rect key="frame" x="47" y="40" width="546" height="30"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="1Qx-Vn-3gx"/>
+                                                        <constraint firstAttribute="height" constant="30" id="1Qx-Vn-3gx"/>
                                                     </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VAd-PM-eAQ">
                                                         <size key="itemSize" width="38" height="39"/>
