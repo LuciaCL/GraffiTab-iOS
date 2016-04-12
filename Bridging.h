@@ -29,4 +29,6 @@
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewControllerInteractiveAnimator.h>
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewControllerInteractiveTransitioning.h>
 
+#import <JPSThumbnailAnnotation/JPSThumbnailAnnotation.h>
+
 #endif /* Bridging_h */

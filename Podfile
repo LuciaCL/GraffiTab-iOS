@@ -25,6 +25,7 @@ def common_pods
     pod 'CSStickyHeaderFlowLayout'
     pod 'CarbonKit'
     pod 'FBAnnotationClusteringSwift'
+    pod 'JPSThumbnailAnnotation'
 end
 
 target 'GraffiTab' do

@@ -118,6 +118,10 @@
 		E51006D81CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006D61CBC210F00AC66A5 /* ActivityGroupCommentCell.swift */; };
 		E51006DA1CBC5B8B00AC66A5 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006D91CBC5B8B00AC66A5 /* ExploreViewController.swift */; };
 		E51006DB1CBC5B8B00AC66A5 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006D91CBC5B8B00AC66A5 /* ExploreViewController.swift */; };
+		E51006DF1CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006DE1CBCF6B000AC66A5 /* StreamableAnnotation.swift */; };
+		E51006E01CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006DE1CBCF6B000AC66A5 /* StreamableAnnotation.swift */; };
+		E51006E21CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006E11CBCF6FB00AC66A5 /* StreamableThumbnail.swift */; };
+		E51006E31CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006E11CBCF6FB00AC66A5 /* StreamableThumbnail.swift */; };
 		E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFD31CB5625700668D85 /* WebViewController.swift */; };
@@ -234,6 +238,8 @@
 		E51006D31CBC205000AC66A5 /* ActivityGroupCreateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityGroupCreateCell.swift; sourceTree = "<group>"; };
 		E51006D61CBC210F00AC66A5 /* ActivityGroupCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityGroupCommentCell.swift; sourceTree = "<group>"; };
 		E51006D91CBC5B8B00AC66A5 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		E51006DE1CBCF6B000AC66A5 /* StreamableAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableAnnotation.swift; sourceTree = "<group>"; };
+		E51006E11CBCF6FB00AC66A5 /* StreamableThumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableThumbnail.swift; sourceTree = "<group>"; };
 		E554CFCD1CB547A800668D85 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E554CFD31CB5625700668D85 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
@@ -509,6 +515,23 @@
 			path = Single;
 			sourceTree = "<group>";
 		};
+		E51006DC1CBCF63B00AC66A5 /* MapKit */ = {
+			isa = PBXGroup;
+			children = (
+				E51006DD1CBCF63B00AC66A5 /* Annotations */,
+			);
+			path = MapKit;
+			sourceTree = "<group>";
+		};
+		E51006DD1CBCF63B00AC66A5 /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				E51006DE1CBCF6B000AC66A5 /* StreamableAnnotation.swift */,
+				E51006E11CBCF6FB00AC66A5 /* StreamableThumbnail.swift */,
+			);
+			path = Annotations;
+			sourceTree = "<group>";
+		};
 		E554CFD21CB5624A00668D85 /* Web */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,6 +677,7 @@
 		E5DFDBF41CB2C31B00BB3D27 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				E51006DC1CBCF63B00AC66A5 /* MapKit */,
 				E51005F21CB69BC300AC66A5 /* Cells */,
 				E5DFDBF51CB2C31B00BB3D27 /* Buttons */,
 				E5DFDBF71CB2C31B00BB3D27 /* ImageViews */,
@@ -970,6 +994,7 @@
 			files = (
 				E50765D61CB4098D00EAE832 /* TintButton.swift in Sources */,
 				E51006941CBBA46B00AC66A5 /* FollowersActivityViewController.swift in Sources */,
+				E51006E31CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */,
 				E51006BD1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift in Sources */,
 				E51006C61CBC122E00AC66A5 /* ActivitySingleCommentCell.swift in Sources */,
 				E51006D51CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
@@ -1004,6 +1029,7 @@
 				E50765DD1CB4098D00EAE832 /* BackButtonViewController.swift in Sources */,
 				E50765DE1CB4098D00EAE832 /* LoginViewController.swift in Sources */,
 				E51005EE1CB6782700AC66A5 /* MenuContainerViewController.swift in Sources */,
+				E51006E01CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */,
 				E51006CF1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,
 				E554CFD51CB5625700668D85 /* WebViewController.swift in Sources */,
 				E51006721CB7E72E00AC66A5 /* TrendingViewController.swift in Sources */,
@@ -1028,6 +1054,7 @@
 			files = (
 				E5DFDC051CB2C31B00BB3D27 /* TintButton.swift in Sources */,
 				E51006931CBBA46B00AC66A5 /* FollowersActivityViewController.swift in Sources */,
+				E51006E21CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */,
 				E51006BC1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift in Sources */,
 				E51006C51CBC122E00AC66A5 /* ActivitySingleCommentCell.swift in Sources */,
 				E51006D41CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
@@ -1062,6 +1089,7 @@
 				E5DFDC081CB2C31B00BB3D27 /* BackButtonViewController.swift in Sources */,
 				E5DFDC241CB2DD5D00BB3D27 /* LoginViewController.swift in Sources */,
 				E51005ED1CB6782700AC66A5 /* MenuContainerViewController.swift in Sources */,
+				E51006DF1CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */,
 				E51006CE1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,
 				E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */,
 				E51006711CB7E72E00AC66A5 /* TrendingViewController.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import GraffiTab_iOS_SDK
 import FBAnnotationClusteringSwift
+import JPSThumbnailAnnotation
 
 class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMapViewDelegate, FBClusteringManagerDelegate {
 
@@ -20,21 +21,17 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     @IBOutlet weak var searchContainer: UIView!
     @IBOutlet weak var searchWidthConstraint: NSLayoutConstraint!
     
-    var isSearching: Bool?
-    var showedFirstUserLocation: Bool?
-    var items: [GTStreamable]?
-    var annotations: [FBAnnotation]?
+    var isSearching = false
+    var showedFirstUserLocation = false
+    var items = [GTStreamable]()
+    var annotations = [StreamableAnnotation]()
+    var imageDownloadTasks = [NSURLSessionTask]()
     let clusteringManager = FBClusteringManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        items = [GTStreamable]()
-        annotations = [FBAnnotation]()
-        isSearching = false
-        showedFirstUserLocation = false
         
         setupButtons()
         setupMapView()
@@ -62,14 +59,16 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     @IBAction func onClickLocation(sender: AnyObject) {
-        centerToLocation(mapView.userLocation.location!)
+        if mapView.userLocation.location != nil {
+            centerToLocation(mapView.userLocation.location!)
+        }
     }
     
     @IBAction func onClickSearch(sender: AnyObject) {
-        isSearching = !isSearching!
+        isSearching = !isSearching
         
         let searchWidth: CGFloat
-        if isSearching! {
+        if isSearching {
             searchField.text = ""
             searchWidth = 220
         }
@@ -83,7 +82,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
             self.searchContainer.layoutIfNeeded()
         }) { (finished) in
             if finished {
-                if self.isSearching! {
+                if self.isSearching {
                     self.searchField.becomeFirstResponder()
                 }
                 else {
@@ -119,21 +118,21 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     
     func processAnnotations(streamables: [GTStreamable]) {
         for streamable in streamables {
-            if items?.contains({
+            if items.contains({
                 $0.id == streamable.id
             }) == false {
-                let annotation = FBAnnotation()
-                annotation.title = "Graffiti"
-                annotation.coordinate = CLLocationCoordinate2D(latitude: streamable.latitude!, longitude: streamable.longitude!)
+                let thumbnail = getThumbnailAnnotationForStreamable(streamable)
+                let annotation = StreamableAnnotation(thumbnail: thumbnail)
+                annotation.streamable = streamable
                 
-                items?.append(streamable)
-                annotations?.append(annotation)
+                items.append(streamable)
+                annotations.append(annotation)
             }
         }
     }
     
     func finalizeLoad() {
-        clusteringManager.setAnnotations(annotations!)
+        clusteringManager.setAnnotations(annotations)
         
         // Cluster annotations.
         NSOperationQueue().addOperationWithBlock({
@@ -144,7 +143,55 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
             let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(self.mapView.visibleMapRect, withZoomScale:scale)
             
             self.clusteringManager.displayAnnotations(annotationArray, onMapView:self.mapView)
+            
+            self.downloadImagesAndRefresh()
         })
+    }
+    
+    func downloadImagesAndRefresh() {
+        // Cancel all previous tasks
+        for task in imageDownloadTasks {
+            task.cancel()
+        }
+        imageDownloadTasks.removeAll()
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            for annotation in self.annotations {
+                // Download image.
+                let url = NSURL(string: (annotation.streamable?.asset?.link)!)!
+                let session = NSURLSession.sharedSession()
+                let task = session.dataTaskWithURL(url, completionHandler: { (data, response, error) in
+                    if error == nil {
+                        let image = UIImage(data: data!)
+                        dispatch_async( dispatch_get_main_queue(), {
+                            print("DEBUG: Downloaded image for url \(url)")
+                            
+                            // Update image thumbnail.
+                            let thumbnail = self.getThumbnailAnnotationForStreamable(annotation.streamable!)
+                            thumbnail.image = image
+                            annotation.updateThumbnail(thumbnail, animated: true)
+                        })
+                    }
+                    else {
+                        print("DEBUG: Failed to load image for url \(url)")
+                    }
+                })
+                self.imageDownloadTasks.append(task)
+                task.resume()
+            }
+        });
+    }
+    
+    func getThumbnailAnnotationForStreamable(streamable: GTStreamable) -> StreamableThumbnail {
+        let thumbnail = StreamableThumbnail()
+        thumbnail.title = streamable.user?.getFullName()
+        thumbnail.subtitle = streamable.user?.getMentionUsername()
+        thumbnail.coordinate = CLLocationCoordinate2D(latitude: streamable.latitude!, longitude: streamable.longitude!)
+        thumbnail.disclosureBlock = {
+            print("CLICK")
+        }
+        
+        return thumbnail
     }
     
     // MARK: - Search
@@ -205,7 +252,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-        if !showedFirstUserLocation! {
+        if !showedFirstUserLocation {
             centerToLocation(userLocation.location!)
         }
         
@@ -236,12 +283,22 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
             clusterView = FBAnnotationClusterView(annotation: annotation, reuseIdentifier: reuseId, options: nil)
             return clusterView
         }
-        else {
-            reuseId = "Pin"
-//            var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as! MKPinAnnotationView
-            let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView.pinTintColor = UIColor.greenColor()
-            return pinView
+        else if annotation.isKindOfClass(StreamableAnnotation) {
+            return (annotation as! StreamableAnnotation).annotationViewInMap(mapView)
+        }
+        
+        return nil
+    }
+    
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        if view.isKindOfClass(JPSThumbnailAnnotationView) {
+            return (view as! JPSThumbnailAnnotationView).didSelectAnnotationViewInMap(mapView)
+        }
+    }
+    
+    func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView) {
+        if view.isKindOfClass(JPSThumbnailAnnotationView) {
+            return (view as! JPSThumbnailAnnotationView).didDeselectAnnotationViewInMap(mapView)
         }
     }
     
