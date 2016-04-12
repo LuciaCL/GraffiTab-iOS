@@ -8,7 +8,6 @@
 
 import UIKit
 import GraffiTab_iOS_SDK
-import Alamofire
 
 class StreamableListFullCell: StreamableCell {
 

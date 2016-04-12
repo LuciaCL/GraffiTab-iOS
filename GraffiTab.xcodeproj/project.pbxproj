@@ -126,6 +126,20 @@
 		E51006E61CBD06BE00AC66A5 /* ClusterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006E41CBD06BE00AC66A5 /* ClusterViewController.swift */; };
 		E51006E91CBD0DE400AC66A5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006E81CBD0DE400AC66A5 /* SearchViewController.swift */; };
 		E51006EA1CBD0DE400AC66A5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006E81CBD0DE400AC66A5 /* SearchViewController.swift */; };
+		E51006F11CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006F01CBD193E00AC66A5 /* GenericUsersViewController.swift */; };
+		E51006F21CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006F01CBD193E00AC66A5 /* GenericUsersViewController.swift */; };
+		E51006F51CBD1B0000AC66A5 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006F41CBD1B0000AC66A5 /* UserCell.swift */; };
+		E51006F61CBD1B0000AC66A5 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006F41CBD1B0000AC66A5 /* UserCell.swift */; };
+		E51006FA1CBD1C3B00AC66A5 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006F81CBD1C3B00AC66A5 /* UserListCell.swift */; };
+		E51006FB1CBD1C3B00AC66A5 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006F81CBD1C3B00AC66A5 /* UserListCell.swift */; };
+		E51006FC1CBD1C3B00AC66A5 /* UserListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51006F91CBD1C3B00AC66A5 /* UserListCell.xib */; };
+		E51006FD1CBD1C3B00AC66A5 /* UserListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51006F91CBD1C3B00AC66A5 /* UserListCell.xib */; };
+		E51006FF1CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006FE1CBD1EBF00AC66A5 /* ListUsersViewController.swift */; };
+		E51007001CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006FE1CBD1EBF00AC66A5 /* ListUsersViewController.swift */; };
+		E51007021CBD1EF000AC66A5 /* SearchUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007011CBD1EF000AC66A5 /* SearchUsersViewController.swift */; };
+		E51007031CBD1EF000AC66A5 /* SearchUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007011CBD1EF000AC66A5 /* SearchUsersViewController.swift */; };
+		E51007071CBD279D00AC66A5 /* SearchStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007061CBD279D00AC66A5 /* SearchStreamablesViewController.swift */; };
+		E51007081CBD279D00AC66A5 /* SearchStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007061CBD279D00AC66A5 /* SearchStreamablesViewController.swift */; };
 		E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFD31CB5625700668D85 /* WebViewController.swift */; };
@@ -246,6 +260,13 @@
 		E51006E11CBCF6FB00AC66A5 /* StreamableThumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableThumbnail.swift; sourceTree = "<group>"; };
 		E51006E41CBD06BE00AC66A5 /* ClusterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterViewController.swift; sourceTree = "<group>"; };
 		E51006E81CBD0DE400AC66A5 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E51006F01CBD193E00AC66A5 /* GenericUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericUsersViewController.swift; sourceTree = "<group>"; };
+		E51006F41CBD1B0000AC66A5 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		E51006F81CBD1C3B00AC66A5 /* UserListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
+		E51006F91CBD1C3B00AC66A5 /* UserListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserListCell.xib; sourceTree = "<group>"; };
+		E51006FE1CBD1EBF00AC66A5 /* ListUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListUsersViewController.swift; sourceTree = "<group>"; };
+		E51007011CBD1EF000AC66A5 /* SearchUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUsersViewController.swift; sourceTree = "<group>"; };
+		E51007061CBD279D00AC66A5 /* SearchStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStreamablesViewController.swift; sourceTree = "<group>"; };
 		E554CFCD1CB547A800668D85 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E554CFD31CB5625700668D85 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
@@ -344,6 +365,7 @@
 				E51006B51CBC051A00AC66A5 /* Activity */,
 				E510069B1CBBB49800AC66A5 /* Notifications */,
 				E51006381CB71F5000AC66A5 /* Streamables */,
+				E51006F31CBD1ACF00AC66A5 /* Users */,
 				E51005F31CB69BDE00AC66A5 /* MenuCell.swift */,
 			);
 			path = Cells;
@@ -542,9 +564,38 @@
 		E51006E71CBD0DD200AC66A5 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				E51007061CBD279D00AC66A5 /* SearchStreamablesViewController.swift */,
+				E51007011CBD1EF000AC66A5 /* SearchUsersViewController.swift */,
 				E51006E81CBD0DE400AC66A5 /* SearchViewController.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		E51006EF1CBD191900AC66A5 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				E51006FE1CBD1EBF00AC66A5 /* ListUsersViewController.swift */,
+				E51006F01CBD193E00AC66A5 /* GenericUsersViewController.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		E51006F31CBD1ACF00AC66A5 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				E51006F41CBD1B0000AC66A5 /* UserCell.swift */,
+				E51006F71CBD1C1500AC66A5 /* List */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		E51006F71CBD1C1500AC66A5 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				E51006F81CBD1C3B00AC66A5 /* UserListCell.swift */,
+				E51006F91CBD1C3B00AC66A5 /* UserListCell.xib */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		E554CFD21CB5624A00668D85 /* Web */ = {
@@ -723,6 +774,7 @@
 			children = (
 				E5DFDBFA1CB2C31B00BB3D27 /* BackButtons */,
 				E510062E1CB71C1300AC66A5 /* Streamables */,
+				E51006EF1CBD191900AC66A5 /* Users */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -883,6 +935,7 @@
 				E51006651CB7BC5A00AC66A5 /* StreamableListFullCell.xib in Resources */,
 				E554CFDB1CB5641B00668D85 /* eula.html in Resources */,
 				E51006611CB7BC5A00AC66A5 /* StreamableGridCell.xib in Resources */,
+				E51006FD1CBD1C3B00AC66A5 /* UserListCell.xib in Resources */,
 				E554CFDD1CB5641B00668D85 /* release_notes.html in Resources */,
 				E510066E1CB7DEB100AC66A5 /* StreamableTrendingCell.xib in Resources */,
 				E50765EF1CB4098D00EAE832 /* Default-568h@2x.png in Resources */,
@@ -902,6 +955,7 @@
 				E51006641CB7BC5A00AC66A5 /* StreamableListFullCell.xib in Resources */,
 				E554CFDA1CB5641B00668D85 /* eula.html in Resources */,
 				E51006601CB7BC5A00AC66A5 /* StreamableGridCell.xib in Resources */,
+				E51006FC1CBD1C3B00AC66A5 /* UserListCell.xib in Resources */,
 				E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */,
 				E510066D1CB7DEB100AC66A5 /* StreamableTrendingCell.xib in Resources */,
 				E5DFDC0D1CB2C39200BB3D27 /* Default-568h@2x.png in Resources */,
@@ -1011,6 +1065,7 @@
 				E50765D61CB4098D00EAE832 /* TintButton.swift in Sources */,
 				E51006941CBBA46B00AC66A5 /* FollowersActivityViewController.swift in Sources */,
 				E51006E31CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */,
+				E51007081CBD279D00AC66A5 /* SearchStreamablesViewController.swift in Sources */,
 				E51006BD1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift in Sources */,
 				E51006C61CBC122E00AC66A5 /* ActivitySingleCommentCell.swift in Sources */,
 				E51006D51CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
@@ -1026,6 +1081,7 @@
 				E51005EA1CB56D9100AC66A5 /* HomeViewController.swift in Sources */,
 				E51006AA1CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
 				E51006E61CBD06BE00AC66A5 /* ClusterViewController.swift in Sources */,
+				E51006F21CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
 				E51006D81CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
 				E50765DA1CB4098D00EAE832 /* InputValidator.swift in Sources */,
 				E510065F1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
@@ -1033,6 +1089,7 @@
 				E510069E1CBBB4C900AC66A5 /* NotificationCell.swift in Sources */,
 				E51006A71CBBDD1D00AC66A5 /* NotificationLikeCell.swift in Sources */,
 				E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */,
+				E51006FB1CBD1C3B00AC66A5 /* UserListCell.swift in Sources */,
 				E51006D21CBC1F9700AC66A5 /* ActivityGroupLikeCell.swift in Sources */,
 				E50765DB1CB4098D00EAE832 /* TintImageView.swift in Sources */,
 				E51006AD1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */,
@@ -1051,6 +1108,7 @@
 				E554CFD51CB5625700668D85 /* WebViewController.swift in Sources */,
 				E51006721CB7E72E00AC66A5 /* TrendingViewController.swift in Sources */,
 				E51005F51CB69BDE00AC66A5 /* MenuCell.swift in Sources */,
+				E51006F61CBD1B0000AC66A5 /* UserCell.swift in Sources */,
 				E51006C91CBC199B00AC66A5 /* ActivityGroupFollowCell.swift in Sources */,
 				E51006DB1CBC5B8B00AC66A5 /* ExploreViewController.swift in Sources */,
 				E51006EA1CBD0DE400AC66A5 /* SearchViewController.swift in Sources */,
@@ -1058,9 +1116,11 @@
 				E510066C1CB7DEB100AC66A5 /* StreamableTrendingCell.swift in Sources */,
 				E50765DF1CB4098D00EAE832 /* Constants.swift in Sources */,
 				E51006CC1CBC1B8E00AC66A5 /* ActivitySingleCell.swift in Sources */,
+				E51007031CBD1EF000AC66A5 /* SearchUsersViewController.swift in Sources */,
 				E51006371CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
 				E51006911CBBA43600AC66A5 /* MyNotificationsViewController.swift in Sources */,
 				E510064D1CB7A5CC00AC66A5 /* FeedViewController.swift in Sources */,
+				E51007001CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */,
 				E51006501CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */,
 				E510068E1CBBA1BA00AC66A5 /* ActivityViewController.swift in Sources */,
 			);
@@ -1073,6 +1133,7 @@
 				E5DFDC051CB2C31B00BB3D27 /* TintButton.swift in Sources */,
 				E51006931CBBA46B00AC66A5 /* FollowersActivityViewController.swift in Sources */,
 				E51006E21CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */,
+				E51007071CBD279D00AC66A5 /* SearchStreamablesViewController.swift in Sources */,
 				E51006BC1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift in Sources */,
 				E51006C51CBC122E00AC66A5 /* ActivitySingleCommentCell.swift in Sources */,
 				E51006D41CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
@@ -1088,6 +1149,7 @@
 				E51005E91CB56D9100AC66A5 /* HomeViewController.swift in Sources */,
 				E51006A91CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
 				E51006E51CBD06BE00AC66A5 /* ClusterViewController.swift in Sources */,
+				E51006F11CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
 				E51006D71CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
 				E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */,
 				E510065E1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
@@ -1095,6 +1157,7 @@
 				E510069D1CBBB4C900AC66A5 /* NotificationCell.swift in Sources */,
 				E51006A61CBBDD1D00AC66A5 /* NotificationLikeCell.swift in Sources */,
 				E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */,
+				E51006FA1CBD1C3B00AC66A5 /* UserListCell.swift in Sources */,
 				E51006D11CBC1F9700AC66A5 /* ActivityGroupLikeCell.swift in Sources */,
 				E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */,
 				E51006AC1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */,
@@ -1113,6 +1176,7 @@
 				E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */,
 				E51006711CB7E72E00AC66A5 /* TrendingViewController.swift in Sources */,
 				E51005F41CB69BDE00AC66A5 /* MenuCell.swift in Sources */,
+				E51006F51CBD1B0000AC66A5 /* UserCell.swift in Sources */,
 				E51006C81CBC199B00AC66A5 /* ActivityGroupFollowCell.swift in Sources */,
 				E51006DA1CBC5B8B00AC66A5 /* ExploreViewController.swift in Sources */,
 				E51006E91CBD0DE400AC66A5 /* SearchViewController.swift in Sources */,
@@ -1120,9 +1184,11 @@
 				E510066B1CB7DEB100AC66A5 /* StreamableTrendingCell.swift in Sources */,
 				E5DFDC011CB2C31B00BB3D27 /* Constants.swift in Sources */,
 				E51006CB1CBC1B8E00AC66A5 /* ActivitySingleCell.swift in Sources */,
+				E51007021CBD1EF000AC66A5 /* SearchUsersViewController.swift in Sources */,
 				E51006361CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
 				E51006901CBBA43600AC66A5 /* MyNotificationsViewController.swift in Sources */,
 				E510064C1CB7A5CC00AC66A5 /* FeedViewController.swift in Sources */,
+				E51006FF1CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */,
 				E510064F1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */,
 				E510068D1CBBA1BA00AC66A5 /* ActivityViewController.swift in Sources */,
 			);

@@ -45,7 +45,17 @@ class SearchViewController: BackButtonViewController, UISearchBarDelegate {
     // MARK: - UISearchBarDelegate
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
         
+        let vc = controllers![Int(carbonTabSwipeNavigation!.currentTabIndex)]
+        if vc.isKindOfClass(SearchUsersViewController) {
+            let usersVC = vc as! SearchUsersViewController
+            usersVC.search(searchBar.text!)
+        }
+        else if vc.isKindOfClass(SearchStreamablesViewController) {
+            let streamablesVC = vc as! SearchStreamablesViewController
+            streamablesVC.search(searchBar.text!)
+        }
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {

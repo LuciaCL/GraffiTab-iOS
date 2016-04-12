@@ -1,8 +1,8 @@
 //
-//  GenericStreamablesViewController.swift
+//  GenericUsersViewController.swift
 //  GraffiTab
 //
-//  Created by Georgi Christov on 07/04/2016.
+//  Created by Georgi Christov on 12/04/2016.
 //  Copyright © 2016 GraffiTab. All rights reserved.
 //
 
@@ -10,23 +10,19 @@ import UIKit
 import DZNEmptyDataSet
 import GraffiTab_iOS_SDK
 
-enum StreamableViewType : Int {
-    case Grid
-    case Trending
-    case ListFull
+enum UserViewType : Int {
+    case List
 }
 
-class GenericStreamablesViewController: BackButtonViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+class GenericUsersViewController: BackButtonViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
-    var items = [GTStreamable]()
-    let colorPallete = ["5d6971", "4a545a", "6d7b84", "4a545a", "505b61", "637078", "5f6b73"]
+    var items = [GTUser]()
     var isDownloading = false
-    var showStaticCollection = false
     
-    private var viewType: StreamableViewType = .Grid
+    private var viewType: UserViewType = .List
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -59,32 +55,11 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         // Dispose of any resources that can be recreated.
     }
     
-    // Can be called from the Empty data set buttons.
-//    func onClickCreateChannel() {
-//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CreateChannelViewController")
-//        
-//        self.presentViewController(vc!, animated: true, completion: nil)
-//    }
-    
-    // Can be called from the Empty data set buttons.
-//    func onClickViewTrending() {
-//        var nav = self.navigationController
-//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("TrendingViewController") as! TrendingViewController
-//        
-//        if nav == nil {
-//            nav = UINavigationController(rootViewController: vc)
-//            self.presentViewController(nav!, animated: true, completion: nil)
-//        }
-//        else {
-//            nav?.pushViewController(vc, animated: true)
-//        }
-//    }
-    
     func basicInit() {
-        viewType = .Grid
+        viewType = .List
     }
     
-    func setViewType(type: StreamableViewType) {
+    func setViewType(type: UserViewType) {
         viewType = type
         
         if collectionView != nil {
@@ -98,32 +73,22 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     
     func getNumCols() -> Int {
         switch viewType {
-        case .Grid:
-            return 3
-        case .Trending:
-            return 2
-        case .ListFull:
+        case .List:
             return 1
         }
     }
     
     func getSpacing() -> Int {
         switch viewType {
-        case .Grid:
-            return 2
-        case .Trending, .ListFull:
-            return 7
+        case .List:
+            return 0
         }
     }
     
     func getHeight(width: CGFloat) -> CGFloat {
         switch viewType {
-        case .Grid:
-            return width
-        case .Trending:
-            return 250
-        case .ListFull:
-            return 464
+        case .List:
+            return 54
         }
     }
     
@@ -167,24 +132,19 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         
         isDownloading = true
         
-        if !showStaticCollection {
-            loadItems(isStart, offset: offset, successBlock: { (response) -> Void in
-                if offset == 0 {
-                    self.items.removeAll()
-                }
-                
-                let listItemsResult = response.object as! GTListItemsResult<GTStreamable>
-                self.items.appendContentsOf(listItemsResult.items!)
-                
-                self.finalizeLoad()
-            }) { (response) -> Void in
-                self.finalizeLoad()
-                
-                DialogBuilder.showErrorAlert(response.message, title: App.Title)
+        loadItems(isStart, offset: offset, successBlock: { (response) -> Void in
+            if offset == 0 {
+                self.items.removeAll()
             }
-        }
-        else {
+            
+            let listItemsResult = response.object as! GTListItemsResult<GTUser>
+            self.items.appendContentsOf(listItemsResult.items!)
+            
             self.finalizeLoad()
+        }) { (response) -> Void in
+            self.finalizeLoad()
+            
+            DialogBuilder.showErrorAlert(response.message, title: App.Title)
         }
     }
     
@@ -216,22 +176,6 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         self.navigationItem.setRightBarButtonItem(reload, animated: true)
     }
     
-    // MARK: - UIScrollViewDelegate
-    
-//    func scrollViewDidScroll(scrollView: UIScrollView) {
-//        if viewType == .ListFull {
-//            for c in collectionView.visibleCells() {
-//                let cell = c as! ChannelListFullCell
-//                
-//                cell.setImageOffset(CGPoint(x: 0, y: computeOffsetForCell(cell)))
-//            }
-//        }
-//    }
-//    
-//    func computeOffsetForCell(cell: ChannelListFullCell) -> CGFloat {
-//        return ((collectionView.contentOffset.y - cell.frame.origin.y) / (cell.thumbnail.frame.size.height)) * CGFloat(cell.imageOffsetSpeed)
-//    }
-    
     // MARK: - UICollectionViewDelegate
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -243,29 +187,10 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        if viewType == .Grid {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(StreamableGridCell.reusableIdentifier(), forIndexPath: indexPath) as! StreamableGridCell
+        if viewType == .List {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(UserListCell.reusableIdentifier(), forIndexPath: indexPath) as! UserListCell
             
             cell.setItem(items[indexPath.row])
-            cell.thumbnail.backgroundColor = UIColor(hexString: colorPallete[indexPath.row % colorPallete.count])
-            
-            return cell
-        }
-        else if viewType == .Trending {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(StreamableTrendingCell.reusableIdentifier(), forIndexPath: indexPath) as! StreamableTrendingCell
-            
-            cell.setItem(items[indexPath.row])
-            cell.thumbnail.backgroundColor = UIColor(hexString: colorPallete[indexPath.row % colorPallete.count])
-            
-            return cell
-        }
-        else if viewType == .ListFull {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(StreamableListFullCell.reusableIdentifier(), forIndexPath: indexPath) as! StreamableListFullCell
-            
-            cell.setItem(items[indexPath.row])
-            
-            // Set offset accordingly.
-//            cell.setImageOffset(CGPoint(x: 0, y: computeOffsetForCell(cell)))
             
             return cell
         }
@@ -285,7 +210,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
 //        var nav = self.navigationController
 //        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ChannelDetailsViewController") as! ChannelDetailsViewController
 //        vc.channel = items![indexPath.row]
-//        
+//
 //        if nav == nil {
 //            nav = UINavigationController(rootViewController: vc)
 //            self.presentViewController(nav!, animated: true, completion: nil)
@@ -302,11 +227,11 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func getEmptyDataSetTitle() -> String {
-        return "No graffiti"
+        return "No users"
     }
     
     func getEmptyDataSetDescription() -> String {
-        return "No graffiti were found over here. Please come back again."
+        return "No users were found. Please come back again."
     }
     
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
@@ -356,8 +281,6 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         collectionView.emptyDataSetSource = self
         collectionView.emptyDataSetDelegate = self
         
-        collectionView.registerNib(UINib(nibName: StreamableGridCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: StreamableGridCell.reusableIdentifier())
-        collectionView.registerNib(UINib(nibName: StreamableTrendingCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: StreamableTrendingCell.reusableIdentifier())
-        collectionView.registerNib(UINib(nibName: StreamableListFullCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: StreamableListFullCell.reusableIdentifier())
+        collectionView.registerNib(UINib(nibName: UserListCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: UserListCell.reusableIdentifier())
     }
 }

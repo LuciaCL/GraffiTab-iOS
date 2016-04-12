@@ -36,6 +36,10 @@ class StreamableCell: UICollectionViewCell {
         loadAvatar()
     }
     
+    func getClearAvatarImage() -> UIImage {
+        return UIImage(named: "default_avatar")!
+    }
+    
     // MARK: - Loading
     
     func loadImage() {
@@ -67,7 +71,7 @@ class StreamableCell: UICollectionViewCell {
                 }
             }
             else {
-                avatar.image = nil
+                avatar.image = getClearAvatarImage()
             }
         }
     }
