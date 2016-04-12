@@ -598,6 +598,13 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		E51007091CBD33C900AC66A5 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		E554CFD21CB5624A00668D85 /* Web */ = {
 			isa = PBXGroup;
 			children = (
@@ -721,6 +728,7 @@
 		E5DFDBF21CB2C31B00BB3D27 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E51007091CBD33C900AC66A5 /* Settings */,
 				E51006E71CBD0DD200AC66A5 /* Search */,
 				E51006481CB7A58700AC66A5 /* Me */,
 				E51006491CB7A58700AC66A5 /* Users */,

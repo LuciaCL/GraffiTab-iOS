@@ -737,6 +737,54 @@
             </objects>
             <point key="canvasLocation" x="-900" y="1828"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="f1Z-RS-YAp">
+            <objects>
+                <tableViewController id="xnR-NK-Ex6" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="J9t-jH-vEc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection id="zzh-jG-ewa">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Xv6-jU-SEs">
+                                        <rect key="frame" x="0.0" y="99" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xv6-jU-SEs" id="4pD-1z-KiG">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mHQ-J0-VAA">
+                                        <rect key="frame" x="0.0" y="143" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mHQ-J0-VAA" id="pEv-VW-m2c">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="5Ht-hC-dyh">
+                                        <rect key="frame" x="0.0" y="187" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Ht-hC-dyh" id="2g6-m5-zWf">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="xnR-NK-Ex6" id="tSA-Aq-7py"/>
+                            <outlet property="delegate" destination="xnR-NK-Ex6" id="jwa-fT-p5f"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k89-Ej-hPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-900" y="2550"/>
+        </scene>
         <!--Followers Activity View Controller-->
         <scene sceneID="wOZ-Ba-gjy">
             <objects>
@@ -1636,12 +1684,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jBg-kt-yNR">
-                        <barButtonItem key="leftBarButtonItem" image="ic_menu_white" id="AF9-WW-rac">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="onClickMenu:" destination="qng-4L-K63" id="VDb-mf-Qge"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_search_white" id="cJk-BM-0Ax">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -1653,6 +1695,7 @@
                         <outlet property="createBtn" destination="icN-kp-2ga" id="Cxn-gZ-2n7"/>
                         <segue destination="mh4-pf-ltc" kind="show" identifier="SEGUE_NOTIFICATIONS" id="QaR-q2-C5Y"/>
                         <segue destination="ngM-gj-hDw" kind="show" identifier="SEGUE_EXPLORE" id="zxd-jD-Jwi"/>
+                        <segue destination="xnR-NK-Ex6" kind="show" identifier="SEGUE_SETTINGS" id="bic-AR-lS3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfn-kr-cWo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2211,7 +2254,6 @@
         <image name="default_avatar" width="185" height="185"/>
         <image name="ic_apps_white" width="24" height="24"/>
         <image name="ic_arrow_back_white" width="24" height="24"/>
-        <image name="ic_menu_white" width="24" height="24"/>
         <image name="ic_my_location_white" width="24" height="24"/>
         <image name="ic_notifications" width="50" height="50"/>
         <image name="ic_search_white" width="24" height="24"/>

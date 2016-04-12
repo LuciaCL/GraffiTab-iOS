@@ -8,6 +8,8 @@
 
 import UIKit
 import CarbonKit
+import BBBadgeBarButtonItem
+import GraffiTab_iOS_SDK
 
 class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDelegate {
 
@@ -17,6 +19,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     var tabs: [AnyObject]?
     var titles: [AnyObject]?
     var controllers: [UIViewController]?
+    var badge: BBBadgeBarButtonItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +40,8 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         if self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(false, animated: true)
         }
+        
+        loadUnseenNotificationsCount()
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,6 +70,18 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         performSegueWithIdentifier("SEGUE_EXPLORE", sender: sender)
     }
     
+    @IBAction func onClickSettings(sender: AnyObject?) {
+        performSegueWithIdentifier("SEGUE_SETTINGS", sender: sender)
+    }
+    
+    // MARK: - Loading
+    
+    func loadUnseenNotificationsCount() {
+        GTMeManager.getUnseenNotificationsCount({ (response) in
+            self.badge?.badgeValue = response.object.stringValue
+        }) { (response) in}
+    }
+    
     // MARK: - CarbonKitTabSwipeDelegate
     
     func carbonTabSwipeNavigation(carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAtIndex index: UInt) -> UIViewController {
@@ -80,6 +97,23 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     }
     
     // MARK: - Setup
+    
+    override func setupTopBar() {
+        super.setupTopBar()
+        
+        let menuBtn = TintButton.init(frame: CGRectMake(0, 0, 25, 25))
+        menuBtn.setImage(UIImage(named: "ic_menu_white"), forState: .Normal)
+        menuBtn.tintColor = UIColor.whiteColor()
+        menuBtn.addTarget(self, action: #selector(HomeViewController.onClickMenu(_:)), forControlEvents: .TouchUpInside)
+        
+        badge = BBBadgeBarButtonItem.init(customUIButton: menuBtn)
+        badge!.shouldHideBadgeAtZero = true
+        badge!.badgeOriginX = 15
+        badge!.badgeOriginY = -6
+        badge!.badgeBGColor = UIColor(hexString: Colors.Orange)
+        badge!.badgeTextColor = UIColor.whiteColor()
+        self.navigationItem.leftBarButtonItem = badge!
+    }
     
     func setupCarbonKit() {
         controllers = [UIViewController]()

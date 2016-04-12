@@ -20,6 +20,8 @@
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import <EAIntroView/EAIntroView.h>
 #import <RESideMenu/RESideMenu.h>
+#import <JPSThumbnailAnnotation/JPSThumbnailAnnotation.h>
+#import <BBBadgeBarButtonItem/BBBadgeBarButtonItem.h>
 
 #import <MZFormSheetPresentationController/MZFormSheetPresentationController.h>
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewController.h>
@@ -28,7 +30,5 @@
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewControllerAnimator.h>
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewControllerInteractiveAnimator.h>
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewControllerInteractiveTransitioning.h>
-
-#import <JPSThumbnailAnnotation/JPSThumbnailAnnotation.h>
 
 #endif /* Bridging_h */

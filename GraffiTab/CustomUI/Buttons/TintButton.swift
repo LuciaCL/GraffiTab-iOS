@@ -23,7 +23,9 @@ class TintButton: UIButton {
     }
     
     func basicInit() {
-        self.setImage(self.imageView?.image!.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        if self.imageView?.image != nil {
+            self.setImage(self.imageView?.image!.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        }
     }
     
     override var tintColor: UIColor! {

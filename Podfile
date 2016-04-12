@@ -26,6 +26,7 @@ def common_pods
     pod 'CarbonKit'
     pod 'FBAnnotationClusteringSwift'
     pod 'JPSThumbnailAnnotation'
+    pod 'BBBadgeBarButtonItem'
 end
 
 target 'GraffiTab' do

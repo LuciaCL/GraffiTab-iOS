@@ -23,7 +23,9 @@ class TintImageView: UIImageView {
     }
     
     func basicInit() {
-        self.image = self.image!.imageWithRenderingMode(.AlwaysTemplate)
+        if self.image != nil {
+            self.image = self.image!.imageWithRenderingMode(.AlwaysTemplate)
+        }
     }
     
     override var tintColor: UIColor! {
