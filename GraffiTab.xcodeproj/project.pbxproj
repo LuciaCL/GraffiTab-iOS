@@ -122,6 +122,8 @@
 		E51006E01CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006DE1CBCF6B000AC66A5 /* StreamableAnnotation.swift */; };
 		E51006E21CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006E11CBCF6FB00AC66A5 /* StreamableThumbnail.swift */; };
 		E51006E31CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006E11CBCF6FB00AC66A5 /* StreamableThumbnail.swift */; };
+		E51006E51CBD06BE00AC66A5 /* ClusterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006E41CBD06BE00AC66A5 /* ClusterViewController.swift */; };
+		E51006E61CBD06BE00AC66A5 /* ClusterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006E41CBD06BE00AC66A5 /* ClusterViewController.swift */; };
 		E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFD31CB5625700668D85 /* WebViewController.swift */; };
@@ -240,6 +242,7 @@
 		E51006D91CBC5B8B00AC66A5 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		E51006DE1CBCF6B000AC66A5 /* StreamableAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableAnnotation.swift; sourceTree = "<group>"; };
 		E51006E11CBCF6FB00AC66A5 /* StreamableThumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableThumbnail.swift; sourceTree = "<group>"; };
+		E51006E41CBD06BE00AC66A5 /* ClusterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterViewController.swift; sourceTree = "<group>"; };
 		E554CFCD1CB547A800668D85 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E554CFD31CB5625700668D85 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
@@ -455,6 +458,7 @@
 			children = (
 				E51006861CB8045800AC66A5 /* NearMeViewController.swift */,
 				E51006D91CBC5B8B00AC66A5 /* ExploreViewController.swift */,
+				E51006E41CBD06BE00AC66A5 /* ClusterViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1009,6 +1013,7 @@
 				E50765D91CB4098D00EAE832 /* DialogBuilder.swift in Sources */,
 				E51005EA1CB56D9100AC66A5 /* HomeViewController.swift in Sources */,
 				E51006AA1CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
+				E51006E61CBD06BE00AC66A5 /* ClusterViewController.swift in Sources */,
 				E51006D81CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
 				E50765DA1CB4098D00EAE832 /* InputValidator.swift in Sources */,
 				E510065F1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
@@ -1069,6 +1074,7 @@
 				E5DFDC021CB2C31B00BB3D27 /* DialogBuilder.swift in Sources */,
 				E51005E91CB56D9100AC66A5 /* HomeViewController.swift in Sources */,
 				E51006A91CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
+				E51006E51CBD06BE00AC66A5 /* ClusterViewController.swift in Sources */,
 				E51006D71CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
 				E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */,
 				E510065E1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,

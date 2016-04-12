@@ -21,9 +21,10 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
-    var items: [GTStreamable]?
+    var items = [GTStreamable]()
     let colorPallete = ["5d6971", "4a545a", "6d7b84", "4a545a", "505b61", "637078", "5f6b73"]
-    var isDownloading: Bool?
+    var isDownloading = false
+    var showStaticCollection = false
     
     private var viewType: ChannelViewType = .Grid
     
@@ -43,9 +44,6 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
-        items = [GTStreamable]()
-        isDownloading = false
         
         setupCollectionView()
         
@@ -153,7 +151,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func loadItems(isStart: Bool, offset: Int) {
-        if items?.count <= 0 && isDownloading == false {
+        if items.count <= 0 && isDownloading == false {
             if isStart {
                 if loadingIndicator != nil {
                     loadingIndicator.startAnimating()
@@ -165,19 +163,24 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         
         isDownloading = true
         
-        loadItems(isStart, offset: offset, successBlock: { (response) -> Void in
-            if offset == 0 {
-                self.items?.removeAll()
+        if !showStaticCollection {
+            loadItems(isStart, offset: offset, successBlock: { (response) -> Void in
+                if offset == 0 {
+                    self.items.removeAll()
+                }
+                
+                let listItemsResult = response.object as! GTListItemsResult<GTStreamable>
+                self.items.appendContentsOf(listItemsResult.items!)
+                
+                self.finalizeLoad()
+            }) { (response) -> Void in
+                self.finalizeLoad()
+                
+                DialogBuilder.showErrorAlert(response.message, title: App.Title)
             }
-            
-            let listItemsResult = response.object as! GTListItemsResult<GTStreamable>
-            self.items?.appendContentsOf(listItemsResult.items!)
-            
+        }
+        else {
             self.finalizeLoad()
-        }) { (response) -> Void in
-            self.finalizeLoad()
-            
-            DialogBuilder.showErrorAlert(response.message, title: App.Title)
         }
     }
     
@@ -232,14 +235,14 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (items?.count)!
+        return items.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if viewType == .Grid {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(StreamableGridCell.reusableIdentifier(), forIndexPath: indexPath) as! StreamableGridCell
             
-            cell.setItem(items![indexPath.row])
+            cell.setItem(items[indexPath.row])
             cell.thumbnail.backgroundColor = UIColor(hexString: colorPallete[indexPath.row % colorPallete.count])
             
             return cell
@@ -247,7 +250,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         else if viewType == .Trending {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(StreamableTrendingCell.reusableIdentifier(), forIndexPath: indexPath) as! StreamableTrendingCell
             
-            cell.setItem(items![indexPath.row])
+            cell.setItem(items[indexPath.row])
             cell.thumbnail.backgroundColor = UIColor(hexString: colorPallete[indexPath.row % colorPallete.count])
             
             return cell
@@ -255,7 +258,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         else if viewType == .ListFull {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(StreamableListFullCell.reusableIdentifier(), forIndexPath: indexPath) as! StreamableListFullCell
             
-            cell.setItem(items![indexPath.row])
+            cell.setItem(items[indexPath.row])
             
             // Set offset accordingly.
 //            cell.setImageOffset(CGPoint(x: 0, y: computeOffsetForCell(cell)))

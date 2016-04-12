@@ -1756,6 +1756,22 @@
             </objects>
             <point key="canvasLocation" x="1215" y="395"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sSJ-Pc-cDe">
+            <objects>
+                <navigationController storyboardIdentifier="ClusterViewController" id="fJc-ef-KyH" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="koj-e6-SzH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sxh-ja-NGq" kind="relationship" relationship="rootViewController" id="P8u-1z-pYF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WyM-ea-HQS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1215" y="1115"/>
+        </scene>
         <!--Feed-->
         <scene sceneID="iej-4n-RvL">
             <objects>
@@ -1971,6 +1987,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kRK-jg-Wv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1914" y="-328"/>
+        </scene>
+        <!--Cluster View Controller-->
+        <scene sceneID="Liz-Bx-MQD">
+            <objects>
+                <viewController id="sxh-ja-NGq" customClass="ClusterViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3OJ-W8-lkW"/>
+                        <viewControllerLayoutGuide type="bottom" id="9iO-cN-gO2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PDA-Fe-Mok">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NDj-mY-6Wn">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NTa-kn-fFp">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="sxh-ja-NGq" id="CCb-Us-DhG"/>
+                                    <outlet property="delegate" destination="sxh-ja-NGq" id="XMl-pf-Oar"/>
+                                </connections>
+                            </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="WAv-yI-WaC">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="LUv-Es-9jY"/>
+                                    <constraint firstAttribute="width" constant="20" id="Yrh-BO-mnM"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NDj-mY-6Wn" firstAttribute="leading" secondItem="PDA-Fe-Mok" secondAttribute="leading" id="5Yj-Zb-WuB"/>
+                            <constraint firstItem="WAv-yI-WaC" firstAttribute="centerX" secondItem="PDA-Fe-Mok" secondAttribute="centerX" id="7gK-ki-HYl"/>
+                            <constraint firstItem="WAv-yI-WaC" firstAttribute="centerY" secondItem="PDA-Fe-Mok" secondAttribute="centerY" id="Bwg-ta-Jhg"/>
+                            <constraint firstItem="9iO-cN-gO2" firstAttribute="top" secondItem="NDj-mY-6Wn" secondAttribute="bottom" id="EuG-xd-QeO"/>
+                            <constraint firstAttribute="trailing" secondItem="NDj-mY-6Wn" secondAttribute="trailing" id="Vw6-hS-T1h"/>
+                            <constraint firstItem="NDj-mY-6Wn" firstAttribute="top" secondItem="PDA-Fe-Mok" secondAttribute="top" id="pxM-Ir-WFi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="knh-N1-roK">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="Aiq-WO-Yfd">
+                            <connections>
+                                <action selector="onClickClose:" destination="sxh-ja-NGq" id="5jJ-Tb-buA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="NDj-mY-6Wn" id="iUK-nu-8ze"/>
+                        <outlet property="loadingIndicator" destination="WAv-yI-WaC" id="i9P-kl-MRB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fp4-iy-h0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1914" y="1115"/>
         </scene>
     </scenes>
     <resources>

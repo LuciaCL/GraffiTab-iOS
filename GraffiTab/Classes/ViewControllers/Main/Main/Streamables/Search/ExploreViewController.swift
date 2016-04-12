@@ -11,6 +11,7 @@ import MapKit
 import GraffiTab_iOS_SDK
 import FBAnnotationClusteringSwift
 import JPSThumbnailAnnotation
+import MZFormSheetPresentationController
 
 class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMapViewDelegate, FBClusteringManagerDelegate {
 
@@ -55,7 +56,21 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     @IBAction func onClickGrid(sender: AnyObject) {
-        
+        if items.count > 0 {
+            MZFormSheetPresentationController.appearance().shouldApplyBackgroundBlurEffect = true
+            MZFormSheetPresentationController.appearance().shouldCenterHorizontally = true
+            MZFormSheetPresentationController.appearance().shouldCenterVertically = true
+            
+            let nav = self.storyboard!.instantiateViewControllerWithIdentifier("ClusterViewController") as! UINavigationController
+            let formSheetController = MZFormSheetPresentationViewController(contentViewController: nav)
+            formSheetController.presentationController?.contentViewSize = CGSizeMake(300, 344)
+            formSheetController.contentViewControllerTransitionStyle = .SlideFromBottom
+            
+            let vc = nav.viewControllers.first as! ClusterViewController
+            vc.items = items
+            
+            self.presentViewController(formSheetController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func onClickLocation(sender: AnyObject) {
