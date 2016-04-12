@@ -13,7 +13,8 @@ import AlamofireImage
 
 class StreamableCell: UICollectionViewCell {
     
-    @IBOutlet var thumbnail: UIImageView!
+    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var thumbnail: UIImageView!
     
     var item: GTStreamable?
     
@@ -21,10 +22,18 @@ class StreamableCell: UICollectionViewCell {
         return "StreamableCell"
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        
+        setupImageViews()
+    }
+    
     func setItem(item: GTStreamable?) {
         self.item = item
         
         loadImage()
+        loadAvatar()
     }
     
     // MARK: - Loading
@@ -42,6 +51,32 @@ class StreamableCell: UICollectionViewCell {
         }
         else {
             thumbnail.image = nil
+        }
+    }
+    
+    func loadAvatar() {
+        if avatar != nil {
+            if item?.user?.avatar != nil {
+                Alamofire.request(.GET, (item?.user!.avatar?.link)!)
+                    .responseImage { response in
+                        let image = response.result.value
+                        
+                        if response.request?.URLString == self.item?.user!.avatar?.link! { // Verify we're still loading the current image.
+                            self.avatar.image = image
+                        }
+                }
+            }
+            else {
+                avatar.image = nil
+            }
+        }
+    }
+    
+    // MARK: - Setup
+    
+    func setupImageViews() {
+        if avatar != nil {
+            avatar.layer.cornerRadius = 5
         }
     }
 }

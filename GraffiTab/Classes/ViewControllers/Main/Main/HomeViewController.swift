@@ -29,6 +29,16 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         configureTabBasedViews(0)
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+        
+        if self.navigationController!.navigationBarHidden {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,6 +59,10 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     
     @IBAction func onClickNotifications(sender: AnyObject?) {
         performSegueWithIdentifier("SEGUE_NOTIFICATIONS", sender: sender)
+    }
+    
+    @IBAction func onClickExplore(sender: AnyObject?) {
+        performSegueWithIdentifier("SEGUE_EXPLORE", sender: sender)
     }
     
     // MARK: - CarbonKitTabSwipeDelegate

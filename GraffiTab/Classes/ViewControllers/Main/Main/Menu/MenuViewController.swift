@@ -67,6 +67,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             else if indexPath.row == 1 {
                 homeVC.onClickNotifications(nil)
             }
+            else if indexPath.row == 2 {
+                homeVC.onClickExplore(nil)
+            }
         }
     }
     

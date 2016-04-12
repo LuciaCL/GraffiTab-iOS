@@ -12,7 +12,6 @@ import Alamofire
 
 class StreamableListFullCell: StreamableCell {
 
-    @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var usernameField: UILabel!
     @IBOutlet weak var dateField: UILabel!
@@ -31,7 +30,7 @@ class StreamableListFullCell: StreamableCell {
         super.awakeFromNib()
         // Initialization code
         
-        setupImageViews()
+        setupContainerViews()
     }
     
     override func setItem(item: GTStreamable?) {
@@ -47,49 +46,11 @@ class StreamableListFullCell: StreamableCell {
         let commentsCount = 0
         self.likesLbl.text = String(format: "%i %@", likesCount, likesCount == 1 ? "Like" : "Likes");
         self.commentsLbl.text = String(format: "%i %@", commentsCount, commentsCount == 1 ? "Comment" : "Comments");
-        
-        loadAvatar()
-    }
-    
-    // MARK: - Loading
-    
-    func loadAvatar() {
-        if item?.user?.avatar != nil {
-            Alamofire.request(.GET, (item?.user!.avatar?.link)!)
-                .responseImage { response in
-                    let image = response.result.value
-                    
-                    if response.request?.URLString == self.item?.user!.avatar?.link! { // Verify we're still loading the current image.
-                        self.avatar.image = image
-                    }
-            }
-        }
-        else {
-            avatar.image = nil
-        }
-    }
-    
-    override func loadImage() {
-        if item?.asset != nil {
-            Alamofire.request(.GET, (item?.asset?.link)!)
-                .responseImage { response in
-                    let image = response.result.value
-                    
-                    if response.request?.URLString == self.item?.asset?.link { // Verify we're still loading the current image.
-                        self.thumbnail.image = image
-                    }
-            }
-        }
-        else {
-            thumbnail.image = nil
-        }
     }
     
     // MARK: - Setup
     
-    func setupImageViews() {
+    func setupContainerViews() {
         Utils.applyShadowEffectToView(containerView)
-        
-        avatar.layer.cornerRadius = 5
     }
 }
