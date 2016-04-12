@@ -691,6 +691,52 @@
             </objects>
             <point key="canvasLocation" x="-189" y="1115"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="ouz-a9-o4Z">
+            <objects>
+                <viewController id="JDr-RB-R7R" customClass="SearchViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ITc-f2-X1d"/>
+                        <viewControllerLayoutGuide type="bottom" id="UQG-jw-6Q2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="csU-gq-dZ7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ffM-Pr-MN0"/>
+                    <connections>
+                        <outlet property="searchBar" destination="53W-Nd-1FM" id="jgX-QS-yvZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4BR-46-5vB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchBar contentMode="redraw" placeholder="Search" showsCancelButton="YES" id="53W-Nd-1FM">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="JDr-RB-R7R" id="orC-pD-8Nk"/>
+                    </connections>
+                </searchBar>
+            </objects>
+            <point key="canvasLocation" x="-189" y="1828"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IhD-Bt-CiH">
+            <objects>
+                <navigationController id="jsF-8F-xDQ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RiH-Hz-lRO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JDr-RB-R7R" kind="relationship" relationship="rootViewController" id="KRr-9H-Rgl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kTF-vZ-Fy7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-900" y="1828"/>
+        </scene>
         <!--Followers Activity View Controller-->
         <scene sceneID="wOZ-Ba-gjy">
             <objects>
@@ -1557,6 +1603,42 @@
             </objects>
             <point key="canvasLocation" x="515" y="1115"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="9aY-Ox-NTI">
+            <objects>
+                <viewController storyboardIdentifier="SearchUsersViewController" id="wRV-iH-8GT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UF2-C5-xn4"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fht-a0-rul"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dVs-cN-R6f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="abi-Vk-UVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="515" y="1828"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="1LN-VV-X0L">
+            <objects>
+                <viewController storyboardIdentifier="SearchStreamablesViewController" id="T4A-rH-vpz" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7bO-IG-SNp"/>
+                        <viewControllerLayoutGuide type="bottom" id="thx-qe-Nyh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jeQ-xz-apI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ahf-Ch-dWq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1215" y="1828"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="y6w-6z-jeH">
             <objects>
@@ -1598,6 +1680,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_search_white" id="cJk-BM-0Ax">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="jsF-8F-xDQ" kind="presentation" id="7TR-8u-h9d"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
