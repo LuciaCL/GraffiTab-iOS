@@ -8,6 +8,7 @@
 
 import UIKit
 import GraffiTab_iOS_SDK
+import UIActionSheet_Blocks
 
 class SettingsViewController: GeneralSettingsViewController {
 
@@ -42,7 +43,19 @@ class SettingsViewController: GeneralSettingsViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        if indexPath.section == 3 {
+        if indexPath.section == 2 {
+            if indexPath.row == 1 { // Report a problem.
+                UIActionSheet.showInView(self.view, withTitle: "Report a Problem", cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: ["Something went wrong", "General feedback"], tapBlock: { (actionSheet, index) in
+                    if index == 0 {
+                        self.performSegueWithIdentifier("SEGUE_PROBLEM", sender: nil)
+                    }
+                    else if index == 1 {
+                        self.performSegueWithIdentifier("SEGUE_FEEDBACK", sender: nil)
+                    }
+                })
+            }
+        }
+        else if indexPath.section == 3 {
             if indexPath.row == 0 { // Terms.
                 showInfoViewController("Terms of Use", file: NSBundle.mainBundle().pathForResource("terms", ofType: "html")!)
             }
@@ -52,9 +65,11 @@ class SettingsViewController: GeneralSettingsViewController {
         }
         else if indexPath.section == 4 {
             if indexPath.row == 0 { // Logout.
-                DialogBuilder.showYesNoAlert("Are you sure you want to log out?", title: App.Title, yesTitle: "Logout", noTitle: "Cancel", yesAction: { 
-                    self.onClickLogout()
-                }, noAction: {})
+                UIActionSheet.showInView(self.view, withTitle: "Are you sure you want to log out?", cancelButtonTitle: "Cancel", destructiveButtonTitle: "Logout", otherButtonTitles: nil, tapBlock: { (actionSheet, index) in
+                    if index == 0 {
+                        self.onClickLogout()
+                    }
+                })
             }
         }
     }

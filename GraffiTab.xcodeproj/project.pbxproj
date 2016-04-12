@@ -146,6 +146,8 @@
 		E51007121CBD547700AC66A5 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007101CBD547700AC66A5 /* AboutViewController.swift */; };
 		E51007141CBD588400AC66A5 /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007131CBD588400AC66A5 /* GeneralSettingsViewController.swift */; };
 		E51007151CBD588400AC66A5 /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007131CBD588400AC66A5 /* GeneralSettingsViewController.swift */; };
+		E51007191CBDB12E00AC66A5 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007181CBDB12E00AC66A5 /* FeedbackViewController.swift */; };
+		E510071A1CBDB12E00AC66A5 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007181CBDB12E00AC66A5 /* FeedbackViewController.swift */; };
 		E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFD31CB5625700668D85 /* WebViewController.swift */; };
@@ -276,6 +278,7 @@
 		E510070C1CBD4AED00AC66A5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E51007101CBD547700AC66A5 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		E51007131CBD588400AC66A5 /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
+		E51007181CBDB12E00AC66A5 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		E554CFCD1CB547A800668D85 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E554CFD31CB5625700668D85 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
@@ -613,6 +616,7 @@
 				E510070F1CBD546000AC66A5 /* About */,
 				E510070C1CBD4AED00AC66A5 /* SettingsViewController.swift */,
 				E51007131CBD588400AC66A5 /* GeneralSettingsViewController.swift */,
+				E51007181CBDB12E00AC66A5 /* FeedbackViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1113,6 +1117,7 @@
 				E51006F21CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
 				E51006D81CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
 				E50765DA1CB4098D00EAE832 /* InputValidator.swift in Sources */,
+				E510071A1CBDB12E00AC66A5 /* FeedbackViewController.swift in Sources */,
 				E510065F1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
 				E51005F11CB691CD00AC66A5 /* MenuViewController.swift in Sources */,
 				E510069E1CBBB4C900AC66A5 /* NotificationCell.swift in Sources */,
@@ -1184,6 +1189,7 @@
 				E51006F11CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
 				E51006D71CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
 				E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */,
+				E51007191CBDB12E00AC66A5 /* FeedbackViewController.swift in Sources */,
 				E510065E1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
 				E51005F01CB691CD00AC66A5 /* MenuViewController.swift in Sources */,
 				E510069D1CBBB4C900AC66A5 /* NotificationCell.swift in Sources */,

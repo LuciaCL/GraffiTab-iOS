@@ -1032,12 +1032,11 @@
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.91372549020000005" green="0.63137254899999995" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1047,6 +1046,10 @@
                             <outlet property="delegate" destination="xnR-NK-Ex6" id="jwa-fT-p5f"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="zOg-A0-oHF" kind="show" identifier="SEGUE_FEEDBACK" id="ImI-PD-fLz"/>
+                        <segue destination="QZC-s7-kAN" kind="show" identifier="SEGUE_PROBLEM" id="nU7-px-24M"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k89-Ej-hPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2462,6 +2465,55 @@
             </objects>
             <point key="canvasLocation" x="515" y="1828"/>
         </scene>
+        <!--Feedback View Controller-->
+        <scene sceneID="o7x-gA-cCb">
+            <objects>
+                <tableViewController id="zOg-A0-oHF" customClass="FeedbackViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="W3M-7J-ZPQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="What would you like to say?" footerTitle="You can send us suggestions for improvements, comments or anything else." id="hX3-hi-B9C">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="BY8-G2-WgW">
+                                        <rect key="frame" x="0.0" y="114" width="600" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BY8-G2-WgW" id="QCY-eJ-0lE">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpe-h6-uBV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="mpe-h6-uBV" secondAttribute="bottom" id="Wk5-be-3ju"/>
+                                                <constraint firstItem="mpe-h6-uBV" firstAttribute="leading" secondItem="QCY-eJ-0lE" secondAttribute="leading" id="e1g-4B-QBv"/>
+                                                <constraint firstAttribute="trailing" secondItem="mpe-h6-uBV" secondAttribute="trailing" id="sZf-IJ-4YF"/>
+                                                <constraint firstItem="mpe-h6-uBV" firstAttribute="top" secondItem="QCY-eJ-0lE" secondAttribute="top" id="vzo-eC-PmH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="zOg-A0-oHF" id="gRu-al-Gh1"/>
+                            <outlet property="delegate" destination="zOg-A0-oHF" id="MU3-Om-eEH"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="textField" destination="mpe-h6-uBV" id="e73-0B-klX"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gap-RX-YUQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="515" y="2550"/>
+        </scene>
         <!--Search Streamables View Controller-->
         <scene sceneID="DiA-oJ-1gm">
             <objects>
@@ -2515,6 +2567,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tnh-fj-CnZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1215" y="1828"/>
+        </scene>
+        <!--Feedback View Controller-->
+        <scene sceneID="ZAT-dE-Jdu">
+            <objects>
+                <tableViewController id="QZC-s7-kAN" customClass="FeedbackViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="NEV-cr-qXh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="What happened?" footerTitle="Describe what the problem is and please provide as much information as possible." id="AzM-cb-J55">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="lVZ-6v-TcT">
+                                        <rect key="frame" x="0.0" y="114" width="600" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lVZ-6v-TcT" id="lgy-UA-nPd">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Et3-MZ-xW5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Et3-MZ-xW5" secondAttribute="bottom" id="AIq-PR-LiQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="Et3-MZ-xW5" secondAttribute="trailing" id="f8J-Lm-nAa"/>
+                                                <constraint firstItem="Et3-MZ-xW5" firstAttribute="leading" secondItem="lgy-UA-nPd" secondAttribute="leading" id="fJJ-8x-ifI"/>
+                                                <constraint firstItem="Et3-MZ-xW5" firstAttribute="top" secondItem="lgy-UA-nPd" secondAttribute="top" id="mtU-6D-8bJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="QZC-s7-kAN" id="X2c-F1-tkb"/>
+                            <outlet property="delegate" destination="QZC-s7-kAN" id="xYz-Tm-d5m"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="textField" destination="Et3-MZ-xW5" id="ROc-ff-hDr"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rlW-Cz-sNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1215" y="2550"/>
         </scene>
     </scenes>
     <resources>
