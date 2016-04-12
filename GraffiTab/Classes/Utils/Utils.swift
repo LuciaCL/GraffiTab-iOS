@@ -12,19 +12,7 @@ import GraffiTab_iOS_SDK
 class Utils: NSObject {
 
     class func logoutUserAndShowLoginController() {
-        NSURLCache.sharedURLCache().removeAllCachedResponses()
-        
-        clearCookies()
-        
         NSNotificationCenter.defaultCenter().postNotificationName(Notifications.UserLoggedOut, object: nil)
-    }
-    
-    class func clearCookies() {
-        for cookie in NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies! {
-            NSHTTPCookieStorage.sharedHTTPCookieStorage().deleteCookie(cookie)
-        }
-        
-        GTLifecycleManager.applicationWillResignActive()
     }
     
     class func applyShadowEffectToView(view: UIView) {

@@ -883,7 +883,7 @@
         <!--Web View Controller-->
         <scene sceneID="eEB-Yg-04V">
             <objects>
-                <viewController id="kWv-l3-sA7" customClass="WebViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" id="kWv-l3-sA7" customClass="WebViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nzD-gs-MUG"/>
                         <viewControllerLayoutGuide type="bottom" id="FHh-le-dzi"/>
