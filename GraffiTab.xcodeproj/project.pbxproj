@@ -150,6 +150,12 @@
 		E510071A1CBDB12E00AC66A5 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007181CBDB12E00AC66A5 /* FeedbackViewController.swift */; };
 		E51007211CBE406E00AC66A5 /* EditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007201CBE406E00AC66A5 /* EditPasswordViewController.swift */; };
 		E51007221CBE406E00AC66A5 /* EditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007201CBE406E00AC66A5 /* EditPasswordViewController.swift */; };
+		E51007261CBE546100AC66A5 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007251CBE546100AC66A5 /* EditProfileViewController.swift */; };
+		E51007271CBE546100AC66A5 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007251CBE546100AC66A5 /* EditProfileViewController.swift */; };
+		E51007381CBE869E00AC66A5 /* EditTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007371CBE869E00AC66A5 /* EditTextFieldViewController.swift */; };
+		E51007391CBE869E00AC66A5 /* EditTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007371CBE869E00AC66A5 /* EditTextFieldViewController.swift */; };
+		E510073B1CBE8C0200AC66A5 /* EditTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510073A1CBE8C0200AC66A5 /* EditTextViewController.swift */; };
+		E510073C1CBE8C0200AC66A5 /* EditTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510073A1CBE8C0200AC66A5 /* EditTextViewController.swift */; };
 		E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFD31CB5625700668D85 /* WebViewController.swift */; };
@@ -282,6 +288,9 @@
 		E51007131CBD588400AC66A5 /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
 		E51007181CBDB12E00AC66A5 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		E51007201CBE406E00AC66A5 /* EditPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPasswordViewController.swift; sourceTree = "<group>"; };
+		E51007251CBE546100AC66A5 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		E51007371CBE869E00AC66A5 /* EditTextFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTextFieldViewController.swift; sourceTree = "<group>"; };
+		E510073A1CBE8C0200AC66A5 /* EditTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTextViewController.swift; sourceTree = "<group>"; };
 		E554CFCD1CB547A800668D85 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E554CFD31CB5625700668D85 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
@@ -636,9 +645,19 @@
 		E510071F1CBE405800AC66A5 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
+				E510073A1CBE8C0200AC66A5 /* EditTextViewController.swift */,
+				E51007371CBE869E00AC66A5 /* EditTextFieldViewController.swift */,
 				E51007201CBE406E00AC66A5 /* EditPasswordViewController.swift */,
+				E51007251CBE546100AC66A5 /* EditProfileViewController.swift */,
 			);
 			path = Edit;
+			sourceTree = "<group>";
+		};
+		E51007281CBE606C00AC66A5 /* Draw */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Draw;
 			sourceTree = "<group>";
 		};
 		E554CFD21CB5624A00668D85 /* Web */ = {
@@ -764,6 +783,7 @@
 		E5DFDBF21CB2C31B00BB3D27 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E51007281CBE606C00AC66A5 /* Draw */,
 				E51007091CBD33C900AC66A5 /* Settings */,
 				E51006E71CBD0DD200AC66A5 /* Search */,
 				E51006481CB7A58700AC66A5 /* Me */,
@@ -1125,6 +1145,7 @@
 				E510063B1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */,
 				E50765D91CB4098D00EAE832 /* DialogBuilder.swift in Sources */,
 				E51005EA1CB56D9100AC66A5 /* HomeViewController.swift in Sources */,
+				E51007271CBE546100AC66A5 /* EditProfileViewController.swift in Sources */,
 				E51006AA1CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
 				E51006E61CBD06BE00AC66A5 /* ClusterViewController.swift in Sources */,
 				E51006F21CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
@@ -1151,6 +1172,7 @@
 				E50765DE1CB4098D00EAE832 /* LoginViewController.swift in Sources */,
 				E51005EE1CB6782700AC66A5 /* MenuContainerViewController.swift in Sources */,
 				E51006E01CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */,
+				E51007391CBE869E00AC66A5 /* EditTextFieldViewController.swift in Sources */,
 				E51006CF1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,
 				E51007151CBD588400AC66A5 /* GeneralSettingsViewController.swift in Sources */,
 				E554CFD51CB5625700668D85 /* WebViewController.swift in Sources */,
@@ -1171,6 +1193,7 @@
 				E510064D1CB7A5CC00AC66A5 /* FeedViewController.swift in Sources */,
 				E51007001CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */,
 				E51006501CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */,
+				E510073C1CBE8C0200AC66A5 /* EditTextViewController.swift in Sources */,
 				E510068E1CBBA1BA00AC66A5 /* ActivityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1198,6 +1221,7 @@
 				E510063A1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */,
 				E5DFDC021CB2C31B00BB3D27 /* DialogBuilder.swift in Sources */,
 				E51005E91CB56D9100AC66A5 /* HomeViewController.swift in Sources */,
+				E51007261CBE546100AC66A5 /* EditProfileViewController.swift in Sources */,
 				E51006A91CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
 				E51006E51CBD06BE00AC66A5 /* ClusterViewController.swift in Sources */,
 				E51006F11CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
@@ -1224,6 +1248,7 @@
 				E5DFDC241CB2DD5D00BB3D27 /* LoginViewController.swift in Sources */,
 				E51005ED1CB6782700AC66A5 /* MenuContainerViewController.swift in Sources */,
 				E51006DF1CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */,
+				E51007381CBE869E00AC66A5 /* EditTextFieldViewController.swift in Sources */,
 				E51006CE1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,
 				E51007141CBD588400AC66A5 /* GeneralSettingsViewController.swift in Sources */,
 				E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */,
@@ -1244,6 +1269,7 @@
 				E510064C1CB7A5CC00AC66A5 /* FeedViewController.swift in Sources */,
 				E51006FF1CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */,
 				E510064F1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */,
+				E510073B1CBE8C0200AC66A5 /* EditTextViewController.swift in Sources */,
 				E510068D1CBBA1BA00AC66A5 /* ActivityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
