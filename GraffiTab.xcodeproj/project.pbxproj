@@ -148,6 +148,8 @@
 		E51007151CBD588400AC66A5 /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007131CBD588400AC66A5 /* GeneralSettingsViewController.swift */; };
 		E51007191CBDB12E00AC66A5 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007181CBDB12E00AC66A5 /* FeedbackViewController.swift */; };
 		E510071A1CBDB12E00AC66A5 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007181CBDB12E00AC66A5 /* FeedbackViewController.swift */; };
+		E51007211CBE406E00AC66A5 /* EditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007201CBE406E00AC66A5 /* EditPasswordViewController.swift */; };
+		E51007221CBE406E00AC66A5 /* EditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51007201CBE406E00AC66A5 /* EditPasswordViewController.swift */; };
 		E554CFCE1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFCF1CB547A800668D85 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFCD1CB547A800668D85 /* SignUpViewController.swift */; };
 		E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554CFD31CB5625700668D85 /* WebViewController.swift */; };
@@ -279,6 +281,7 @@
 		E51007101CBD547700AC66A5 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		E51007131CBD588400AC66A5 /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
 		E51007181CBDB12E00AC66A5 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		E51007201CBE406E00AC66A5 /* EditPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPasswordViewController.swift; sourceTree = "<group>"; };
 		E554CFCD1CB547A800668D85 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E554CFD31CB5625700668D85 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
@@ -418,6 +421,7 @@
 		E51006481CB7A58700AC66A5 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				E510071F1CBE405800AC66A5 /* Edit */,
 				E510068B1CB9AE9900AC66A5 /* Notifications */,
 				E510064A1CB7A5A100AC66A5 /* Feed */,
 			);
@@ -627,6 +631,14 @@
 				E51007101CBD547700AC66A5 /* AboutViewController.swift */,
 			);
 			path = About;
+			sourceTree = "<group>";
+		};
+		E510071F1CBE405800AC66A5 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				E51007201CBE406E00AC66A5 /* EditPasswordViewController.swift */,
+			);
+			path = Edit;
 			sourceTree = "<group>";
 		};
 		E554CFD21CB5624A00668D85 /* Web */ = {
@@ -1104,6 +1116,7 @@
 				E51006D51CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
 				E51006C31CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */,
 				E51006A41CBBCA7B00AC66A5 /* NotificationCommentCell.swift in Sources */,
+				E51007221CBE406E00AC66A5 /* EditPasswordViewController.swift in Sources */,
 				E50765D71CB4098D00EAE832 /* Utils.swift in Sources */,
 				E50765D81CB4098D00EAE832 /* BackButtonTableViewController.swift in Sources */,
 				E51006881CB8045800AC66A5 /* NearMeViewController.swift in Sources */,
@@ -1176,6 +1189,7 @@
 				E51006D41CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
 				E51006C21CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */,
 				E51006A31CBBCA7B00AC66A5 /* NotificationCommentCell.swift in Sources */,
+				E51007211CBE406E00AC66A5 /* EditPasswordViewController.swift in Sources */,
 				E5DFDC041CB2C31B00BB3D27 /* Utils.swift in Sources */,
 				E5DFDC071CB2C31B00BB3D27 /* BackButtonTableViewController.swift in Sources */,
 				E51006871CB8045800AC66A5 /* NearMeViewController.swift in Sources */,

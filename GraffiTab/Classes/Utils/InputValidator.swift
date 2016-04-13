@@ -55,4 +55,25 @@ class InputValidator: NSObject {
         
         return true
     }
+    
+    class func validateEditPassword(password: String, newPassword: String, confirmPassword: String) -> Bool {
+        if (password.characters.count <= 0) {
+            DialogBuilder.showErrorAlert("Please enter a password.", title: App.Title)
+            return false
+        }
+        if (newPassword.characters.count <= 0) {
+            DialogBuilder.showErrorAlert("Please enter your new password.", title: App.Title)
+            return false
+        }
+        if (confirmPassword.characters.count <= 0) {
+            DialogBuilder.showErrorAlert("Please confirm your new password.", title: App.Title)
+            return false
+        }
+        if (newPassword != confirmPassword) {
+            DialogBuilder.showErrorAlert("Your new passwords do not match.", title: App.Title)
+            return false
+        }
+        
+        return true
+    }
 }
