@@ -166,6 +166,8 @@
 		E554CFDD1CB5641B00668D85 /* release_notes.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD81CB5641B00668D85 /* release_notes.html */; };
 		E554CFDE1CB5641B00668D85 /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD91CB5641B00668D85 /* terms.html */; };
 		E554CFDF1CB5641B00668D85 /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD91CB5641B00668D85 /* terms.html */; };
+		E558A8A11CBFBB3300C2F9B1 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A01CBFBB3300C2F9B1 /* UserProfileViewController.swift */; };
+		E558A8A21CBFBB3300C2F9B1 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A01CBFBB3300C2F9B1 /* UserProfileViewController.swift */; };
 		E5B851F91CB2E75D00B24F84 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */; };
 		E5BF3B8F1CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */; };
 		E5BF3B901CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */; };
@@ -296,6 +298,7 @@
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
 		E554CFD81CB5641B00668D85 /* release_notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = release_notes.html; sourceTree = "<group>"; };
 		E554CFD91CB5641B00668D85 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
+		E558A8A01CBFBB3300C2F9B1 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		E5DFDBD21CB2BF9E00BB3D27 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -440,6 +443,7 @@
 		E51006491CB7A58700AC66A5 /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				E558A89F1CBFBB1700C2F9B1 /* Profile */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -678,6 +682,29 @@
 			path = Html;
 			sourceTree = "<group>";
 		};
+		E558A89F1CBFBB1700C2F9B1 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E558A8A01CBFBB3300C2F9B1 /* UserProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		E558A8A31CBFFCDC00C2F9B1 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				E558A8A41CBFFCDC00C2F9B1 /* User */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		E558A8A41CBFFCDC00C2F9B1 /* User */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		E5DFDBC91CB2BF9E00BB3D27 = {
 			isa = PBXGroup;
 			children = (
@@ -808,6 +835,7 @@
 		E5DFDBF41CB2C31B00BB3D27 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				E558A8A31CBFFCDC00C2F9B1 /* Headers */,
 				E51006DC1CBCF63B00AC66A5 /* MapKit */,
 				E51005F21CB69BC300AC66A5 /* Cells */,
 				E5DFDBF51CB2C31B00BB3D27 /* Buttons */,
@@ -1177,6 +1205,7 @@
 				E51007151CBD588400AC66A5 /* GeneralSettingsViewController.swift in Sources */,
 				E554CFD51CB5625700668D85 /* WebViewController.swift in Sources */,
 				E51006721CB7E72E00AC66A5 /* TrendingViewController.swift in Sources */,
+				E558A8A21CBFBB3300C2F9B1 /* UserProfileViewController.swift in Sources */,
 				E51005F51CB69BDE00AC66A5 /* MenuCell.swift in Sources */,
 				E51006F61CBD1B0000AC66A5 /* UserCell.swift in Sources */,
 				E51006C91CBC199B00AC66A5 /* ActivityGroupFollowCell.swift in Sources */,
@@ -1253,6 +1282,7 @@
 				E51007141CBD588400AC66A5 /* GeneralSettingsViewController.swift in Sources */,
 				E554CFD41CB5625700668D85 /* WebViewController.swift in Sources */,
 				E51006711CB7E72E00AC66A5 /* TrendingViewController.swift in Sources */,
+				E558A8A11CBFBB3300C2F9B1 /* UserProfileViewController.swift in Sources */,
 				E51005F41CB69BDE00AC66A5 /* MenuCell.swift in Sources */,
 				E51006F51CBD1B0000AC66A5 /* UserCell.swift in Sources */,
 				E51006C81CBC199B00AC66A5 /* ActivityGroupFollowCell.swift in Sources */,

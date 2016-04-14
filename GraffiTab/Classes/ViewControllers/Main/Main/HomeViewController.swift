@@ -59,7 +59,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     }
     
     @IBAction func onClickProfile(sender: AnyObject?) {
-        print("PROFILE")
+        performSegueWithIdentifier("SEGUE_PROFILE", sender: sender)
     }
     
     @IBAction func onClickNotifications(sender: AnyObject?) {
@@ -72,6 +72,15 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     
     @IBAction func onClickSettings(sender: AnyObject?) {
         performSegueWithIdentifier("SEGUE_SETTINGS", sender: sender)
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SEGUE_PROFILE" {
+            let vc = segue.destinationViewController as! UserProfileViewController
+            vc.user = GTSettings.sharedInstance.user
+        }
     }
     
     // MARK: - Loading

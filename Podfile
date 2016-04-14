@@ -27,6 +27,7 @@ def common_pods
     pod 'FBAnnotationClusteringSwift'
     pod 'JPSThumbnailAnnotation'
     pod 'BBBadgeBarButtonItem'
+    pod 'TLYShyNavBar'
 end
 
 target 'GraffiTab' do

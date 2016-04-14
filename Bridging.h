@@ -23,6 +23,8 @@
 #import <JPSThumbnailAnnotation/JPSThumbnailAnnotation.h>
 #import <BBBadgeBarButtonItem/BBBadgeBarButtonItem.h>
 
+#import <TLYShyNavBar/TLYShyNavBarManager.h>
+
 #import <MZFormSheetPresentationController/MZFormSheetPresentationController.h>
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewController.h>
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewControllerSegue.h>

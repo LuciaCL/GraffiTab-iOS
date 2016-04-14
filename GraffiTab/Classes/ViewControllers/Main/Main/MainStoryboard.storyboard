@@ -2464,6 +2464,7 @@
                         <segue destination="mh4-pf-ltc" kind="show" identifier="SEGUE_NOTIFICATIONS" id="QaR-q2-C5Y"/>
                         <segue destination="ngM-gj-hDw" kind="show" identifier="SEGUE_EXPLORE" id="zxd-jD-Jwi"/>
                         <segue destination="xnR-NK-Ex6" kind="show" identifier="SEGUE_SETTINGS" id="bic-AR-lS3"/>
+                        <segue destination="YO2-xp-61P" kind="show" identifier="SEGUE_PROFILE" id="2G9-SC-7Rg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfn-kr-cWo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3214,6 +3215,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nij-pP-b9X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1215" y="3269"/>
+        </scene>
+        <!--User Profile View Controller-->
+        <scene sceneID="AfL-q9-DDU">
+            <objects>
+                <viewController storyboardIdentifier="UserProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YO2-xp-61P" customClass="UserProfileViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pxZ-9u-3DL"/>
+                        <viewControllerLayoutGuide type="bottom" id="le1-Kq-4i2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g6L-pG-w2k">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="91p-iZ-9tu">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="27h-OC-PWl">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="YO2-xp-61P" id="20j-kk-oaq"/>
+                                    <outlet property="delegate" destination="YO2-xp-61P" id="YEA-f7-SZy"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="91p-iZ-9tu" firstAttribute="top" secondItem="g6L-pG-w2k" secondAttribute="top" id="9ai-TC-A4f"/>
+                            <constraint firstAttribute="trailing" secondItem="91p-iZ-9tu" secondAttribute="trailing" id="F5f-s8-i2W"/>
+                            <constraint firstItem="le1-Kq-4i2" firstAttribute="top" secondItem="91p-iZ-9tu" secondAttribute="bottom" id="sr5-HO-dQL"/>
+                            <constraint firstItem="91p-iZ-9tu" firstAttribute="leading" secondItem="g6L-pG-w2k" secondAttribute="leading" id="yfo-9k-BFJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="91p-iZ-9tu" id="BJ0-G6-Hnw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sTB-br-Udb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1914" y="395"/>
         </scene>
     </scenes>
     <resources>

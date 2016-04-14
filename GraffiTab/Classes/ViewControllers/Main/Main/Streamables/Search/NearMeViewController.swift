@@ -12,16 +12,6 @@ import MapKit
 
 class NearMeViewController: GridStreamablesViewController {
     
-    // MARK: - ViewType-specific helpers
-    
-    override func getNumCols() -> Int {
-        return 3
-    }
-    
-    override func getSpacing() -> Int {
-        return 2
-    }
-    
     // MARK: - Loading
     
     override func loadItems(isStart: Bool, offset: Int, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {

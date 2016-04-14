@@ -15,18 +15,8 @@ class ClusterViewController: GridStreamablesViewController {
     
     override func basicInit() {
         showStaticCollection = true
-        print("HERE")
+        
         super.basicInit()
-    }
-    
-    // MARK: - ViewType-specific helpers
-    
-    override func getNumCols() -> Int {
-        return 3
-    }
-    
-    override func getSpacing() -> Int {
-        return 2
     }
     
     @IBAction func onClickClose(sender: AnyObject) {
