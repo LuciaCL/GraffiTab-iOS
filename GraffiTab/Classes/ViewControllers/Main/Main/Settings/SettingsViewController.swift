@@ -12,10 +12,14 @@ import UIActionSheet_Blocks
 
 class SettingsViewController: GeneralSettingsViewController {
 
+    @IBOutlet weak var logoutCell: UITableViewCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +41,12 @@ class SettingsViewController: GeneralSettingsViewController {
             Utils.logoutUserAndShowLoginController()
         }
     }
+    
+    // MARK: - Loading
+    
+    func loadData() {
+        logoutCell.detailTextLabel?.text = GTSettings.sharedInstance.user?.getFullName()
+    }
 
     // MARK: - UITableViewController
     
@@ -45,7 +55,7 @@ class SettingsViewController: GeneralSettingsViewController {
         
         if indexPath.section == 2 {
             if indexPath.row == 1 { // Report a problem.
-                UIActionSheet.showInView(self.view, withTitle: "Report a Problem", cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: ["Something went wrong", "General feedback"], tapBlock: { (actionSheet, index) in
+                UIActionSheet.showInView(self.view, withTitle: "Report a Problem", cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: ["Something Is Wrong", "General Feedback"], tapBlock: { (actionSheet, index) in
                     if index == 0 {
                         self.performSegueWithIdentifier("SEGUE_PROBLEM", sender: nil)
                     }
