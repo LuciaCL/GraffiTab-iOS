@@ -47,6 +47,10 @@ class StreamableListFullCell: StreamableCell {
         self.commentsLbl.text = String(format: "%i %@", commentsCount, commentsCount == 1 ? "Comment" : "Comments");
     }
     
+    override func getStreamableImageUrl() -> String {
+        return item!.asset!.link!
+    }
+    
     // MARK: - Setup
     
     func setupContainerViews() {

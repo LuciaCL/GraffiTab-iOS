@@ -40,32 +40,31 @@ class StreamableCell: UICollectionViewCell {
         return UIImage(named: "default_avatar")!
     }
     
+    func getStreamableImageUrl() -> String {
+        return item!.asset!.thumbnail!
+    }
+    
     // MARK: - Loading
     
     func loadImage() {
-        if item?.asset != nil {
-            Alamofire.request(.GET, (item?.asset?.link)!)
-                .responseImage { response in
-                    let image = response.result.value
-                    
-                    if response.request?.URLString == self.item?.asset?.link { // Verify we're still loading the current image.
-                        self.thumbnail.image = image
-                    }
+        Alamofire.request(.GET, getStreamableImageUrl())
+            .responseImage { response in
+                let image = response.result.value
+                
+                if response.request?.URLString == self.getStreamableImageUrl() { // Verify we're still loading the current image.
+                    self.thumbnail.image = image
                 }
-        }
-        else {
-            thumbnail.image = nil
         }
     }
     
     func loadAvatar() {
         if avatar != nil {
             if item?.user?.avatar != nil {
-                Alamofire.request(.GET, (item?.user!.avatar?.link)!)
+                Alamofire.request(.GET, (item?.user!.avatar?.thumbnail)!)
                     .responseImage { response in
                         let image = response.result.value
                         
-                        if response.request?.URLString == self.item?.user!.avatar?.link! { // Verify we're still loading the current image.
+                        if response.request?.URLString == self.item?.user!.avatar?.thumbnail! { // Verify we're still loading the current image.
                             self.avatar.image = image
                         }
                 }

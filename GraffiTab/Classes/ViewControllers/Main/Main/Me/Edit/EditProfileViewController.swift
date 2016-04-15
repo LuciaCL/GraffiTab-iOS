@@ -219,7 +219,7 @@ class EditProfileViewController: BackButtonTableViewController, UIImagePickerCon
     
     func loadAvatar() {
         if user.avatar != nil {
-            Alamofire.request(.GET, user.avatar!.link!)
+            Alamofire.request(.GET, user.avatar!.thumbnail!)
                 .responseImage { response in
                     let image = response.result.value
                     
@@ -233,7 +233,7 @@ class EditProfileViewController: BackButtonTableViewController, UIImagePickerCon
     
     func loadCover() {
         if user.cover != nil {
-            Alamofire.request(.GET, user.cover!.link!)
+            Alamofire.request(.GET, user.cover!.thumbnail!)
                 .responseImage { response in
                     let image = response.result.value
                     

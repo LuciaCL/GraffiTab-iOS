@@ -173,7 +173,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             for annotation in self.annotations {
                 // Download image.
-                let url = NSURL(string: (annotation.streamable?.asset?.link)!)!
+                let url = NSURL(string: (annotation.streamable?.asset?.thumbnail)!)!
                 let session = NSURLSession.sharedSession()
                 let task = session.dataTaskWithURL(url, completionHandler: { (data, response, error) in
                     if error == nil {

@@ -71,18 +71,13 @@ class NotificationCell: UITableViewCell {
         let streamable = getActionStreamable()
         
         if streamable != nil {
-            if streamable?.asset != nil {
-                Alamofire.request(.GET, (streamable?.asset?.link)!)
-                    .responseImage { response in
-                        let image = response.result.value
-                        
-                        if response.request?.URLString == streamable?.asset?.link { // Verify we're still loading the current image.
-                            self.streamableThumbnail.image = image
-                        }
-                }
-            }
-            else {
-                streamableThumbnail.image = nil
+            Alamofire.request(.GET, (streamable?.asset?.thumbnail)!)
+                .responseImage { response in
+                    let image = response.result.value
+                    
+                    if response.request?.URLString == streamable?.asset?.thumbnail { // Verify we're still loading the current image.
+                        self.streamableThumbnail.image = image
+                    }
             }
         }
     }
@@ -91,11 +86,11 @@ class NotificationCell: UITableViewCell {
         let user = getActionUser()
         
         if user != nil && user!.avatar != nil {
-            Alamofire.request(.GET, (user!.avatar?.link)!)
+            Alamofire.request(.GET, (user!.avatar?.thumbnail)!)
                 .responseImage { response in
                     let image = response.result.value
                     
-                    if response.request?.URLString == user!.avatar?.link! { // Verify we're still loading the current image.
+                    if response.request?.URLString == user!.avatar?.thumbnail! { // Verify we're still loading the current image.
                         self.avatar.image = image
                     }
             }

@@ -42,11 +42,11 @@ class UserCell: UICollectionViewCell {
     
     func loadAvatar() {
         if item?.avatar != nil {
-            Alamofire.request(.GET, item!.avatar!.link!)
+            Alamofire.request(.GET, item!.avatar!.thumbnail!)
                 .responseImage { response in
                     let image = response.result.value
                     
-                    if response.request?.URLString == self.item!.avatar!.link! { // Verify we're still loading the current image.
+                    if response.request?.URLString == self.item!.avatar!.thumbnail! { // Verify we're still loading the current image.
                         self.avatar.image = image
                     }
             }

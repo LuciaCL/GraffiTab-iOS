@@ -36,11 +36,11 @@ class ActivityGroupFollowCell: ActivityGroupCell {
         let user = item!.activities![index].followed
         
         if user!.avatar != nil {
-            Alamofire.request(.GET, (user!.avatar?.link)!)
+            Alamofire.request(.GET, (user!.avatar?.thumbnail)!)
                 .responseImage { response in
                     let image = response.result.value
                     
-                    if response.request?.URLString == user!.avatar?.link! { // Verify we're still loading the current image.
+                    if response.request?.URLString == user!.avatar?.thumbnail! { // Verify we're still loading the current image.
                         view.image = image
                     }
             }
