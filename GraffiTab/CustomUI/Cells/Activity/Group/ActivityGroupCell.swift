@@ -70,6 +70,7 @@ class ActivityGroupCell: ActivitySingleCell, UICollectionViewDelegate, UICollect
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ActivityGroupCell", forIndexPath: indexPath)
         
         let image = cell.viewWithTag(1) as! UIImageView
+        image.image = nil
         loadImageForCollectionIndex(indexPath.row, view: image)
         
         return cell

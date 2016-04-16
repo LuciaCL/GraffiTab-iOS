@@ -47,12 +47,20 @@ class StreamableCell: UICollectionViewCell {
     // MARK: - Loading
     
     func loadImage() {
+        thumbnail.image = nil
+        
         Alamofire.request(.GET, getStreamableImageUrl())
             .responseImage { response in
                 let image = response.result.value
                 
                 if response.request?.URLString == self.getStreamableImageUrl() { // Verify we're still loading the current image.
-                    self.thumbnail.image = image
+                    UIView.transitionWithView(self.thumbnail,
+                        duration: App.ImageAnimationDuration,
+                        options: UIViewAnimationOptions.TransitionCrossDissolve,
+                        animations: {
+                            self.thumbnail.image = image
+                        },
+                        completion: nil)
                 }
         }
     }
@@ -60,12 +68,20 @@ class StreamableCell: UICollectionViewCell {
     func loadAvatar() {
         if avatar != nil {
             if item?.user?.avatar != nil {
+                avatar.image = nil
+                
                 Alamofire.request(.GET, (item?.user!.avatar?.thumbnail)!)
                     .responseImage { response in
                         let image = response.result.value
                         
                         if response.request?.URLString == self.item?.user!.avatar?.thumbnail! { // Verify we're still loading the current image.
-                            self.avatar.image = image
+                            UIView.transitionWithView(self.avatar,
+                                duration: App.ImageAnimationDuration,
+                                options: UIViewAnimationOptions.TransitionCrossDissolve,
+                                animations: {
+                                    self.avatar.image = image
+                                },
+                                completion: nil)
                         }
                 }
             }

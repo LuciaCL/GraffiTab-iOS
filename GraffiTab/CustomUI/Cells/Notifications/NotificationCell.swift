@@ -71,12 +71,20 @@ class NotificationCell: UITableViewCell {
         let streamable = getActionStreamable()
         
         if streamable != nil {
+            streamableThumbnail.image = nil
+            
             Alamofire.request(.GET, (streamable?.asset?.thumbnail)!)
                 .responseImage { response in
                     let image = response.result.value
                     
                     if response.request?.URLString == streamable?.asset?.thumbnail { // Verify we're still loading the current image.
-                        self.streamableThumbnail.image = image
+                        UIView.transitionWithView(self.streamableThumbnail,
+                            duration: App.ImageAnimationDuration,
+                            options: UIViewAnimationOptions.TransitionCrossDissolve,
+                            animations: {
+                                self.streamableThumbnail.image = image
+                            },
+                            completion: nil)
                     }
             }
         }
@@ -86,12 +94,20 @@ class NotificationCell: UITableViewCell {
         let user = getActionUser()
         
         if user != nil && user!.avatar != nil {
+            avatar.image = nil
+            
             Alamofire.request(.GET, (user!.avatar?.thumbnail)!)
                 .responseImage { response in
                     let image = response.result.value
                     
                     if response.request?.URLString == user!.avatar?.thumbnail! { // Verify we're still loading the current image.
-                        self.avatar.image = image
+                        UIView.transitionWithView(self.avatar,
+                            duration: App.ImageAnimationDuration,
+                            options: UIViewAnimationOptions.TransitionCrossDissolve,
+                            animations: {
+                                self.avatar.image = image
+                            },
+                            completion: nil)
                     }
             }
         }

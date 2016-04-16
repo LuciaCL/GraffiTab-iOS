@@ -24,6 +24,8 @@
 #import <BBBadgeBarButtonItem/BBBadgeBarButtonItem.h>
 
 #import <TLYShyNavBar/TLYShyNavBarManager.h>
+#import <FBLikeLayout/FBLikeLayout.h>
+#import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 
 #import <MZFormSheetPresentationController/MZFormSheetPresentationController.h>
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewController.h>

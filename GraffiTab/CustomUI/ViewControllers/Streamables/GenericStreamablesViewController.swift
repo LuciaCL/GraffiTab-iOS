@@ -9,14 +9,17 @@
 import UIKit
 import DZNEmptyDataSet
 import GraffiTab_iOS_SDK
+import FBLikeLayout
+import CHTCollectionViewWaterfallLayout
 
 enum StreamableViewType : Int {
     case Grid
     case Trending
     case ListFull
+    case Mosaic
 }
 
-class GenericStreamablesViewController: BackButtonViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+class GenericStreamablesViewController: BackButtonViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CHTCollectionViewDelegateWaterfallLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
@@ -104,12 +107,14 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
             return 2
         case .ListFull:
             return 1
+        case .Mosaic:
+            return 3
         }
     }
     
     func getSpacing() -> Int {
         switch viewType {
-        case .Grid:
+        case .Grid, .Mosaic:
             return 2
         case .Trending, .ListFull:
             return 7
@@ -122,7 +127,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
             return width
         case .Trending:
             return 250
-        case .ListFull:
+        case .ListFull, .Mosaic:
             return 464
         }
     }
@@ -141,11 +146,41 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         width = ((collectionView.frame.size.width - 2*padding) - CGFloat((numCols - 1)*spacing)) / CGFloat(numCols)
         height = getHeight(width)
         
-        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-        layout.itemSize = CGSize(width: width, height: height)
-        layout.minimumInteritemSpacing = spacing
-        layout.minimumLineSpacing = spacing
+        if viewType == .Mosaic {
+            if !collectionView.collectionViewLayout.isKindOfClass(FBLikeLayout.classForCoder()) {
+                let layout = FBLikeLayout()
+                layout.minimumInteritemSpacing = spacing
+                layout.singleCellWidth = width
+                layout.maxCellSpace = Int(spacing)
+                layout.forceCellWidthForMinimumInteritemSpacing = true
+                layout.fullImagePercentageOfOccurrency = 50
+                collectionView.collectionViewLayout = layout
+                [self.collectionView .reloadData()]
+            }
+            else {
+//                 collectionView.collectionViewLayout.invalidateLayout()
+            }
+        }
+        else if viewType == .Trending {
+            if !collectionView.collectionViewLayout.isKindOfClass(CHTCollectionViewWaterfallLayout.classForCoder()) {
+                let layout = CHTCollectionViewWaterfallLayout()
+                layout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+                layout.minimumInteritemSpacing = spacing
+                layout.minimumColumnSpacing = spacing
+                collectionView.collectionViewLayout = layout
+                [self.collectionView .reloadData()]
+            }
+            else {
+//                 collectionView.collectionViewLayout.invalidateLayout()
+            }
+        }
+        else {
+            let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+            layout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+            layout.itemSize = CGSize(width: width, height: height)
+            layout.minimumInteritemSpacing = spacing
+            layout.minimumLineSpacing = spacing
+        }
     }
     
     // MARK: - Loading
@@ -243,7 +278,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        if viewType == .Grid {
+        if viewType == .Grid || viewType == .Mosaic {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(StreamableGridCell.reusableIdentifier(), forIndexPath: indexPath) as! StreamableGridCell
             
             cell.setItem(items[indexPath.row])
@@ -285,7 +320,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
 //        var nav = self.navigationController
 //        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ChannelDetailsViewController") as! ChannelDetailsViewController
 //        vc.channel = items![indexPath.row]
-//        
+//
 //        if nav == nil {
 //            nav = UINavigationController(rootViewController: vc)
 //            self.presentViewController(nav!, animated: true, completion: nil)
@@ -293,6 +328,21 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
 //        else {
 //            nav?.pushViewController(vc, animated: true)
 //        }
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let item = items[indexPath.row]
+        
+        if viewType == .Mosaic {
+            return CGSizeMake(CGFloat(item.asset!.thumbnailWidth!), CGFloat(item.asset!.thumbnailHeight!))
+        }
+        else if viewType == .Trending {
+            let h = max(getHeight(0), CGFloat(item.asset!.thumbnailHeight!))
+            return CGSizeMake(CGFloat(item.asset!.thumbnailWidth!), h)
+        }
+        
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        return layout.itemSize
     }
     
     // MARK: - DZNEmptyDataSetDelegate

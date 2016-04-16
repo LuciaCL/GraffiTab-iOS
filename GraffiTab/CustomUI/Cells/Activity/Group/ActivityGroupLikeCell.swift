@@ -40,7 +40,13 @@ class ActivityGroupLikeCell: ActivityGroupCell {
                 let image = response.result.value
                 
                 if response.request?.URLString == streamable!.asset!.thumbnail! { // Verify we're still loading the current image.
-                    view.image = image
+                    UIView.transitionWithView(view,
+                        duration: App.ImageAnimationDuration,
+                        options: UIViewAnimationOptions.TransitionCrossDissolve,
+                        animations: {
+                            view.image = image
+                        },
+                        completion: nil)
                 }
         }
     }

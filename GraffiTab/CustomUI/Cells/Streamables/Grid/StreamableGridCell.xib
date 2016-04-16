@@ -13,12 +13,18 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rox-QQ-2AH">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rox-QQ-2AH">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="rox-QQ-2AH" secondAttribute="bottom" id="2d2-uu-eA5"/>
+                <constraint firstItem="rox-QQ-2AH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6ne-uF-0bo"/>
+                <constraint firstItem="rox-QQ-2AH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Mmn-ch-oCE"/>
+                <constraint firstAttribute="trailing" secondItem="rox-QQ-2AH" secondAttribute="trailing" id="PNK-dM-Nx4"/>
+            </constraints>
             <connections>
                 <outlet property="thumbnail" destination="rox-QQ-2AH" id="4PO-5v-uvC"/>
             </connections>

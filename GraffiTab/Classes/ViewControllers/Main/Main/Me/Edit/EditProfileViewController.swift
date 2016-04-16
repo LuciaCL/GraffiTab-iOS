@@ -219,11 +219,19 @@ class EditProfileViewController: BackButtonTableViewController, UIImagePickerCon
     
     func loadAvatar() {
         if user.avatar != nil {
+            avatar.image = nil
+            
             Alamofire.request(.GET, user.avatar!.thumbnail!)
                 .responseImage { response in
                     let image = response.result.value
                     
-                    self.avatar.image = image
+                    UIView.transitionWithView(self.avatar,
+                        duration: App.ImageAnimationDuration,
+                        options: UIViewAnimationOptions.TransitionCrossDissolve,
+                        animations: {
+                            self.avatar.image = image
+                        },
+                        completion: nil)
             }
         }
         else {
@@ -233,11 +241,19 @@ class EditProfileViewController: BackButtonTableViewController, UIImagePickerCon
     
     func loadCover() {
         if user.cover != nil {
+            cover.image = nil
+            
             Alamofire.request(.GET, user.cover!.thumbnail!)
                 .responseImage { response in
                     let image = response.result.value
                     
-                    self.cover.image = image
+                    UIView.transitionWithView(self.cover,
+                        duration: App.ImageAnimationDuration,
+                        options: UIViewAnimationOptions.TransitionCrossDissolve,
+                        animations: {
+                            self.cover.image = image
+                        },
+                        completion: nil)
             }
         }
         else {

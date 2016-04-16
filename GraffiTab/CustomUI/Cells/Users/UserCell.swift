@@ -42,12 +42,20 @@ class UserCell: UICollectionViewCell {
     
     func loadAvatar() {
         if item?.avatar != nil {
+            avatar.image = nil
+            
             Alamofire.request(.GET, item!.avatar!.thumbnail!)
                 .responseImage { response in
                     let image = response.result.value
                     
                     if response.request?.URLString == self.item!.avatar!.thumbnail! { // Verify we're still loading the current image.
-                        self.avatar.image = image
+                        UIView.transitionWithView(self.avatar,
+                            duration: App.ImageAnimationDuration,
+                            options: UIViewAnimationOptions.TransitionCrossDissolve,
+                            animations: {
+                                self.avatar.image = image
+                            },
+                            completion: nil)
                     }
             }
         }

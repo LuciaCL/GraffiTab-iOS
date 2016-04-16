@@ -28,6 +28,8 @@ def common_pods
     pod 'JPSThumbnailAnnotation'
     pod 'BBBadgeBarButtonItem'
     pod 'TLYShyNavBar'
+    pod 'FBLikeLayout'
+    pod 'CHTCollectionViewWaterfallLayout'
 end
 
 target 'GraffiTab' do

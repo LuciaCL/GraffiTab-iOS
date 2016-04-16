@@ -168,6 +168,8 @@
 		E554CFDF1CB5641B00668D85 /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD91CB5641B00668D85 /* terms.html */; };
 		E558A8A11CBFBB3300C2F9B1 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A01CBFBB3300C2F9B1 /* UserProfileViewController.swift */; };
 		E558A8A21CBFBB3300C2F9B1 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A01CBFBB3300C2F9B1 /* UserProfileViewController.swift */; };
+		E558A8A61CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */; };
+		E558A8A71CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */; };
 		E5B851F91CB2E75D00B24F84 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */; };
 		E5BF3B8F1CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */; };
 		E5BF3B901CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */; };
@@ -299,6 +301,7 @@
 		E554CFD81CB5641B00668D85 /* release_notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = release_notes.html; sourceTree = "<group>"; };
 		E554CFD91CB5641B00668D85 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
 		E558A8A01CBFBB3300C2F9B1 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicStreamablesViewController.swift; sourceTree = "<group>"; };
 		E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		E5DFDBD21CB2BF9E00BB3D27 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -401,6 +404,7 @@
 		E510062E1CB71C1300AC66A5 /* Streamables */ = {
 			isa = PBXGroup;
 			children = (
+				E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */,
 				E510064E1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift */,
 				E51006351CB71EE400AC66A5 /* TrendingStreamablesViewController.swift */,
 				E51006321CB71EB200AC66A5 /* GridStreamablesViewController.swift */,
@@ -1176,6 +1180,7 @@
 				E51007271CBE546100AC66A5 /* EditProfileViewController.swift in Sources */,
 				E51006AA1CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
 				E51006E61CBD06BE00AC66A5 /* ClusterViewController.swift in Sources */,
+				E558A8A71CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */,
 				E51006F21CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
 				E51006D81CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
 				E50765DA1CB4098D00EAE832 /* InputValidator.swift in Sources */,
@@ -1253,6 +1258,7 @@
 				E51007261CBE546100AC66A5 /* EditProfileViewController.swift in Sources */,
 				E51006A91CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
 				E51006E51CBD06BE00AC66A5 /* ClusterViewController.swift in Sources */,
+				E558A8A61CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */,
 				E51006F11CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
 				E51006D71CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
 				E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */,

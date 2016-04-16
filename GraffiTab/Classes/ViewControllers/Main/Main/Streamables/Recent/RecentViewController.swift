@@ -9,11 +9,11 @@
 import UIKit
 import GraffiTab_iOS_SDK
 
-class RecentViewController: GridStreamablesViewController {
+class RecentViewController: MosaicStreamablesViewController {
     
     // MARK: - Loading
     
     override func loadItems(isStart: Bool, offset: Int, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
-        GTStreamableManager.getNewest(offset, successBlock: successBlock, failureBlock: failureBlock)
+        GTStreamableManager.getNewest(offset, limit: 20, successBlock: successBlock, failureBlock: failureBlock)
     }
 }

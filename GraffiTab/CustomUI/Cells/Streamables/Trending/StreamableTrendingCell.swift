@@ -20,6 +20,12 @@ class StreamableTrendingCell: StreamableCell {
         return "StreamableTrendingCell"
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setupContainerViews()
+    }
+    
     override func setItem(item: GTStreamable?) {
         super.setItem(item)
         
@@ -31,5 +37,11 @@ class StreamableTrendingCell: StreamableCell {
         let commentsCount = 0
         self.likesLbl.text = String(format: "%i", likesCount);
         self.commentsLbl.text = String(format: "%i", commentsCount);
+    }
+    
+    // MARK: - Setup
+    
+    func setupContainerViews() {
+        Utils.applyShadowEffectToView(self)
     }
 }
