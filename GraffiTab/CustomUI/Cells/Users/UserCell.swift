@@ -21,29 +21,18 @@ class UserCell: UICollectionViewCell {
         return "UserCell"
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        
-        setupImageViews()
-    }
-    
     func setItem(item: GTUser?) {
         self.item = item
         
         loadAvatar()
     }
     
-    func getClearAvatarImage() -> UIImage {
-        return UIImage(named: "default_avatar")!
-    }
-    
     // MARK: - Loading
     
     func loadAvatar() {
+        avatar.image = nil
+        
         if item?.avatar != nil {
-            avatar.image = nil
-            
             Alamofire.request(.GET, item!.avatar!.thumbnail!)
                 .responseImage { response in
                     let image = response.result.value
@@ -59,14 +48,5 @@ class UserCell: UICollectionViewCell {
                     }
             }
         }
-        else {
-            avatar.image = getClearAvatarImage()
-        }
-    }
-    
-    // MARK: - Setup
-    
-    func setupImageViews() {
-        avatar.layer.cornerRadius = 5
     }
 }

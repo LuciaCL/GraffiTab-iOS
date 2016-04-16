@@ -22,22 +22,11 @@ class StreamableCell: UICollectionViewCell {
         return "StreamableCell"
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        
-        setupImageViews()
-    }
-    
     func setItem(item: GTStreamable?) {
         self.item = item
         
         loadImage()
         loadAvatar()
-    }
-    
-    func getClearAvatarImage() -> UIImage {
-        return UIImage(named: "default_avatar")!
     }
     
     func getStreamableImageUrl() -> String {
@@ -67,9 +56,9 @@ class StreamableCell: UICollectionViewCell {
     
     func loadAvatar() {
         if avatar != nil {
+            avatar.image = nil
+            
             if item?.user?.avatar != nil {
-                avatar.image = nil
-                
                 Alamofire.request(.GET, (item?.user!.avatar?.thumbnail)!)
                     .responseImage { response in
                         let image = response.result.value
@@ -85,17 +74,6 @@ class StreamableCell: UICollectionViewCell {
                         }
                 }
             }
-            else {
-                avatar.image = getClearAvatarImage()
-            }
-        }
-    }
-    
-    // MARK: - Setup
-    
-    func setupImageViews() {
-        if avatar != nil {
-            avatar.layer.cornerRadius = 5
         }
     }
 }

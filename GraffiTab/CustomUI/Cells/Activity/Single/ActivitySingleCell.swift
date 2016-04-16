@@ -30,7 +30,6 @@ class ActivitySingleCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        setupImageViews()
         setupLabels()
         setupTimelineIndicators()
     }
@@ -45,10 +44,6 @@ class ActivitySingleCell: UITableViewCell {
         loadAvatar()
         loadSecondaryAvatar()
         loadStreamable()
-    }
-    
-    func getClearAvatarImage() -> UIImage {
-        return UIImage(named: "default_avatar")!
     }
     
     func getActionStreamable() -> GTStreamable? {
@@ -90,10 +85,9 @@ class ActivitySingleCell: UITableViewCell {
     
     func loadAvatar() {
         let user = item?.user
+        avatar.image = nil
         
         if user != nil && user!.avatar != nil {
-            avatar.image = nil
-            
             Alamofire.request(.GET, (user!.avatar?.thumbnail)!)
                 .responseImage { response in
                     let image = response.result.value
@@ -109,18 +103,15 @@ class ActivitySingleCell: UITableViewCell {
                     }
             }
         }
-        else {
-            avatar.image = getClearAvatarImage()
-        }
     }
     
     func loadSecondaryAvatar() {
         let user = getSecondaryUser()
         
         if user != nil {
+            secondaryAvatar.image = nil
+            
             if user!.avatar != nil {
-                secondaryAvatar.image = nil
-                
                 Alamofire.request(.GET, (user!.avatar?.thumbnail)!)
                     .responseImage { response in
                         let image = response.result.value
@@ -136,21 +127,10 @@ class ActivitySingleCell: UITableViewCell {
                         }
                 }
             }
-            else {
-                secondaryAvatar.image = getClearAvatarImage()
-            }
         }
     }
     
     // MARK: - Setup
-    
-    func setupImageViews() {
-        avatar.layer.cornerRadius = 5
-        
-        if secondaryAvatar != nil {
-            secondaryAvatar.layer.cornerRadius = 5
-        }
-    }
     
     func setupLabels() {
         notificationField.textColor = UIColor(hexString: Colors.Main)

@@ -170,6 +170,8 @@
 		E558A8A21CBFBB3300C2F9B1 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A01CBFBB3300C2F9B1 /* UserProfileViewController.swift */; };
 		E558A8A61CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */; };
 		E558A8A71CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */; };
+		E5B6B54C1CC25A0E00DC8EFC /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */; };
+		E5B6B54D1CC25A0E00DC8EFC /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */; };
 		E5B851F91CB2E75D00B24F84 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */; };
 		E5BF3B8F1CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */; };
 		E5BF3B901CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */; };
@@ -302,6 +304,7 @@
 		E554CFD91CB5641B00668D85 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
 		E558A8A01CBFBB3300C2F9B1 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicStreamablesViewController.swift; sourceTree = "<group>"; };
+		E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		E5DFDBD21CB2BF9E00BB3D27 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -861,6 +864,7 @@
 			isa = PBXGroup;
 			children = (
 				E5DFDBF81CB2C31B00BB3D27 /* TintImageView.swift */,
+				E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */,
 			);
 			path = ImageViews;
 			sourceTree = "<group>";
@@ -1203,6 +1207,7 @@
 				E51006341CB71EB200AC66A5 /* GridStreamablesViewController.swift in Sources */,
 				E50765DD1CB4098D00EAE832 /* BackButtonViewController.swift in Sources */,
 				E50765DE1CB4098D00EAE832 /* LoginViewController.swift in Sources */,
+				E5B6B54D1CC25A0E00DC8EFC /* AvatarImageView.swift in Sources */,
 				E51005EE1CB6782700AC66A5 /* MenuContainerViewController.swift in Sources */,
 				E51006E01CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */,
 				E51007391CBE869E00AC66A5 /* EditTextFieldViewController.swift in Sources */,
@@ -1281,6 +1286,7 @@
 				E51006331CB71EB200AC66A5 /* GridStreamablesViewController.swift in Sources */,
 				E5DFDC081CB2C31B00BB3D27 /* BackButtonViewController.swift in Sources */,
 				E5DFDC241CB2DD5D00BB3D27 /* LoginViewController.swift in Sources */,
+				E5B6B54C1CC25A0E00DC8EFC /* AvatarImageView.swift in Sources */,
 				E51005ED1CB6782700AC66A5 /* MenuContainerViewController.swift in Sources */,
 				E51006DF1CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */,
 				E51007381CBE869E00AC66A5 /* EditTextFieldViewController.swift in Sources */,

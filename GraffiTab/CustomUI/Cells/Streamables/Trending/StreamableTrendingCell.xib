@@ -54,7 +54,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="sCc-HI-EhU">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="sCc-HI-EhU" customClass="AvatarImageView" customModule="GraffiTab" customModuleProvider="target">
                         <rect key="frame" x="5" y="253" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="35" id="4Yc-rq-guo"/>

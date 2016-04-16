@@ -361,7 +361,6 @@ class EditProfileViewController: BackButtonTableViewController, UIImagePickerCon
     }
     
     func setupImageViews() {
-        avatar.layer.cornerRadius = 5
         cover.layer.cornerRadius = 5
     }
     

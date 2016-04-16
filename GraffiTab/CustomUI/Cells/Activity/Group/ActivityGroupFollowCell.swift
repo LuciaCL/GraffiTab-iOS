@@ -51,8 +51,5 @@ class ActivityGroupFollowCell: ActivityGroupCell {
                     }
             }
         }
-        else {
-            view.image = getClearAvatarImage()
-        }
     }
 }
