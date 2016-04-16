@@ -172,6 +172,10 @@
 		E558A8A71CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */; };
 		E5B6B54C1CC25A0E00DC8EFC /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */; };
 		E5B6B54D1CC25A0E00DC8EFC /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */; };
+		E5B6B5501CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54E1CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift */; };
+		E5B6B5511CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54E1CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift */; };
+		E5B6B5521CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B54F1CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib */; };
+		E5B6B5531CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B54F1CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib */; };
 		E5B851F91CB2E75D00B24F84 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */; };
 		E5BF3B8F1CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */; };
 		E5BF3B901CB4904500A8F2F3 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */; };
@@ -305,6 +309,8 @@
 		E558A8A01CBFBB3300C2F9B1 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicStreamablesViewController.swift; sourceTree = "<group>"; };
 		E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
+		E5B6B54E1CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCollectionParallaxHeader.swift; sourceTree = "<group>"; };
+		E5B6B54F1CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCollectionParallaxHeader.xib; sourceTree = "<group>"; };
 		E5B851F81CB2E75D00B24F84 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		E5BF3B8E1CB4904500A8F2F3 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		E5DFDBD21CB2BF9E00BB3D27 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -708,6 +714,8 @@
 		E558A8A41CBFFCDC00C2F9B1 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				E5B6B54E1CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift */,
+				E5B6B54F1CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1032,6 +1040,7 @@
 				E50765ED1CB4098D00EAE832 /* Assets.xcassets in Resources */,
 				E50765EE1CB4098D00EAE832 /* SplashStoryboard.storyboard in Resources */,
 				E554CFDF1CB5641B00668D85 /* terms.html in Resources */,
+				E5B6B5531CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib in Resources */,
 				E51006651CB7BC5A00AC66A5 /* StreamableListFullCell.xib in Resources */,
 				E554CFDB1CB5641B00668D85 /* eula.html in Resources */,
 				E51006611CB7BC5A00AC66A5 /* StreamableGridCell.xib in Resources */,
@@ -1052,6 +1061,7 @@
 				E5DFDBDD1CB2BF9E00BB3D27 /* Assets.xcassets in Resources */,
 				E5DFDC201CB2C71800BB3D27 /* SplashStoryboard.storyboard in Resources */,
 				E554CFDE1CB5641B00668D85 /* terms.html in Resources */,
+				E5B6B5521CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib in Resources */,
 				E51006641CB7BC5A00AC66A5 /* StreamableListFullCell.xib in Resources */,
 				E554CFDA1CB5641B00668D85 /* eula.html in Resources */,
 				E51006601CB7BC5A00AC66A5 /* StreamableGridCell.xib in Resources */,
@@ -1166,6 +1176,7 @@
 				E51006941CBBA46B00AC66A5 /* FollowersActivityViewController.swift in Sources */,
 				E51006E31CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */,
 				E51007121CBD547700AC66A5 /* AboutViewController.swift in Sources */,
+				E5B6B5511CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift in Sources */,
 				E51007081CBD279D00AC66A5 /* SearchStreamablesViewController.swift in Sources */,
 				E51006BD1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift in Sources */,
 				E51006C61CBC122E00AC66A5 /* ActivitySingleCommentCell.swift in Sources */,
@@ -1245,6 +1256,7 @@
 				E51006931CBBA46B00AC66A5 /* FollowersActivityViewController.swift in Sources */,
 				E51006E21CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */,
 				E51007111CBD547700AC66A5 /* AboutViewController.swift in Sources */,
+				E5B6B5501CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift in Sources */,
 				E51007071CBD279D00AC66A5 /* SearchStreamablesViewController.swift in Sources */,
 				E51006BC1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift in Sources */,
 				E51006C51CBC122E00AC66A5 /* ActivitySingleCommentCell.swift in Sources */,

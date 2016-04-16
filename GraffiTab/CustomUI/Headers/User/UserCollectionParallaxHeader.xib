@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserCollectionParallaxHeader" id="G3b-uK-KwE" customClass="UserCollectionParallaxHeader" customModule="MassAlert" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="325"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grafitab_login" translatesAutoresizingMaskIntoConstraints="NO" id="cHD-2m-SRQ">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="273"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="PRj-KU-hYu" customClass="AvatarImageView" customModule="GraffiTab" customModuleProvider="target">
+                    <rect key="frame" x="118" y="43.5" width="85" height="85"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Georgi Christov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIO-tI-TH7">
+                    <rect key="frame" x="9" y="149.5" width="302" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ELD-7B-L4g">
+                    <rect key="frame" x="159" y="225" width="1" height="35"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="123K" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Is1-Yv-M3o">
+                    <rect key="frame" x="9" y="219" width="142" height="25"/>
+                    <gestureRecognizers/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="channels" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sT6-jj-cZ0">
+                    <rect key="frame" x="9" y="240" width="142" height="25"/>
+                    <gestureRecognizers/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="123K" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="778-QC-GTW">
+                    <rect key="frame" x="168" y="220" width="142" height="24"/>
+                    <gestureRecognizers/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="subscriptions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-CO-dL4">
+                    <rect key="frame" x="168" y="240" width="142" height="25"/>
+                    <gestureRecognizers/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3A-xk-wFQ" customClass="TintButton" customModule="MassAlert" customModuleProvider="target">
+                    <rect key="frame" x="8" y="281" width="89" height="35"/>
+                    <state key="normal" title="Grid">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onClickSegment:" destination="G3b-uK-KwE" eventType="touchUpInside" id="cYo-Zy-lBw"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TLB-m2-EyG">
+                    <rect key="frame" x="105" y="281" width="1" height="35"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wow-Bx-2z5" customClass="TintButton" customModule="MassAlert" customModuleProvider="target">
+                    <rect key="frame" x="114" y="281" width="90" height="35"/>
+                    <state key="normal" title="List">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onClickSegment:" destination="G3b-uK-KwE" eventType="touchUpInside" id="mKh-AA-f3i"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vXK-th-Xin">
+                    <rect key="frame" x="212" y="281" width="1" height="35"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCF-zV-gyv" customClass="TintButton" customModule="MassAlert" customModuleProvider="target">
+                    <rect key="frame" x="221" y="281" width="91" height="35"/>
+                    <state key="normal" title="Map">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onClickSegment:" destination="G3b-uK-KwE" eventType="touchUpInside" id="3CM-SL-smT"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@georgi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7m-9T-8ch">
+                    <rect key="frame" x="9" y="170" width="302" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="avatarImg" destination="PRj-KU-hYu" id="P9U-ek-SOe"/>
+                <outlet property="channelsCountLbl" destination="Is1-Yv-M3o" id="FTq-cW-9wR"/>
+                <outlet property="channelsLbl" destination="sT6-jj-cZ0" id="yLW-Fe-aAs"/>
+                <outlet property="frameBtn" destination="RCF-zV-gyv" id="1w2-Ca-tE9"/>
+                <outlet property="gridBtn" destination="c3A-xk-wFQ" id="gpy-bu-kFu"/>
+                <outlet property="listBtn" destination="wow-Bx-2z5" id="5O9-8Q-ntq"/>
+                <outlet property="subscriptionsCountLbl" destination="778-QC-GTW" id="NZc-Vd-G6w"/>
+                <outlet property="subscriptionsLbl" destination="b1d-CO-dL4" id="EaK-51-gN6"/>
+                <outlet property="usernameLbl" destination="HIO-tI-TH7" id="wMN-KY-z6u"/>
+            </connections>
+            <point key="canvasLocation" x="557" y="606.5"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="default_avatar" width="185" height="185"/>
+        <image name="grafitab_login" width="320" height="568"/>
+    </resources>
+</document>
