@@ -29,16 +29,16 @@ class UserListCell: UserCell {
         super.setItem(item)
         
         if item!.followedByCurrentUser! {
-            self.followBtn.layer.borderColor = UIColor(hexString: Colors.Orange)?.CGColor
-            self.followBtn.backgroundColor = UIColor(hexString: Colors.Orange)
+            self.followBtn.layer.borderColor = UIColor(hexString: Colors.Main)?.CGColor
+            self.followBtn.backgroundColor = UIColor(hexString: Colors.Main)
+            self.followBtn.setImage(UIImage(named: "ic_action_unfollow"), forState: .Normal)
             self.followBtn.tintColor = UIColor.whiteColor()
-            self.followBtn.setTitle("Following", forState: .Normal)
         }
         else {
             self.followBtn.layer.borderColor = UIColor(hexString: Colors.Main)?.CGColor
             self.followBtn.backgroundColor = UIColor.clearColor()
+            self.followBtn.setImage(UIImage(named: "ic_action_follow"), forState: .Normal)
             self.followBtn.tintColor = UIColor(hexString: Colors.Main)
-            self.followBtn.setTitle("Follow", forState: .Normal)
         }
         
         self.followBtn.hidden = item?.id == GTSettings.sharedInstance.user?.id
@@ -52,6 +52,6 @@ class UserListCell: UserCell {
     
     func setupButtons() {
         followBtn.layer.borderWidth = 1;
-        followBtn.layer.cornerRadius = 3;
+        followBtn.layer.cornerRadius = 5;
     }
 }

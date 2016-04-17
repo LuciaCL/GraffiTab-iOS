@@ -335,12 +335,8 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         let items = [backBtn, bottomContainer, searchContainer]
         
         for view in items {
+            Utils.applyShadowEffectToView(view)
             view.layer.cornerRadius = 5.0
-            view.layer.masksToBounds = false
-            view.layer.shadowRadius = 3.0
-            view.layer.shadowColor = UIColor.blackColor().CGColor;
-            view.layer.shadowOffset = CGSizeMake(1.6, 1.6)
-            view.layer.shadowOpacity = 0.5
         }
     }
     
