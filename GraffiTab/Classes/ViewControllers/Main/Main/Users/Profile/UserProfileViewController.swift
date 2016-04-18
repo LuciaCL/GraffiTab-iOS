@@ -59,6 +59,10 @@ class UserProfileViewController: ListFullStreamablesViewController {
         
     }
     
+    func onClickBack() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     func isMe() -> Bool {
         return user?.id == GTSettings.sharedInstance.user!.id
     }
@@ -126,7 +130,7 @@ class UserProfileViewController: ListFullStreamablesViewController {
         
         let negativeSpacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
         negativeSpacer.width = -14
-        let backBtn = UIBarButtonItem(image: UIImage(named: "back"), style: .Plain, target: nil, action: nil)
+        let backBtn = UIBarButtonItem(image: UIImage(named: "back"), style: .Plain, target: self, action: #selector(onClickBack))
         navigationBar.topItem?.leftBarButtonItems = [negativeSpacer, backBtn]
         
         titleView = UILabel()
