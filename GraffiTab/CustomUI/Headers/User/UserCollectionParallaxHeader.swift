@@ -73,7 +73,7 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
                     let image = response.result.value
                     
                     if response.request?.URLString == self.item!.cover!.link! { // Verify we're still loading the current image.
-                        UIView.transitionWithView(self.avatar,
+                        UIView.transitionWithView(self.cover,
                             duration: App.ImageAnimationDuration,
                             options: UIViewAnimationOptions.TransitionCrossDissolve,
                             animations: {

@@ -10,11 +10,13 @@ import UIKit
 import CarbonKit
 import BBBadgeBarButtonItem
 import GraffiTab_iOS_SDK
+import JTMaterialTransition
 
-class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDelegate {
+class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDelegate, UIViewControllerTransitioningDelegate {
 
     @IBOutlet weak var createBtn: UIButton!
     
+    var transition: JTMaterialTransition?
     var carbonTabSwipeNavigation: CarbonTabSwipeNavigation?
     var tabs: [AnyObject]?
     var titles: [AnyObject]?
@@ -28,6 +30,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         
         setupCarbonKit()
         setupButtons()
+        setupTransition()
         
         configureTabBasedViews(0)
     }
@@ -55,7 +58,12 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     }
     
     @IBAction func onClickCreate(sender: AnyObject?) {
-        print("CREATE")
+        let vc = UIStoryboard(name: "CreateStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CreateViewController")
+        
+        vc.modalPresentationStyle = .Custom
+        vc.transitioningDelegate = self
+        
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     @IBAction func onClickProfile(sender: AnyObject?) {
@@ -103,6 +111,20 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     
     func configureTabBasedViews(index: Int) {   
         self.title = titles![index] as? String
+    }
+    
+    // MARK: - UIViewControllerTransitioningDelegate
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition?.reverse = false
+        
+        return transition
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition?.reverse = true
+        
+        return transition
     }
     
     // MARK: - Setup
@@ -159,5 +181,9 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         createBtn.backgroundColor = UIColor(hexString: Colors.Main)
         
         self.view.bringSubviewToFront(createBtn)
+    }
+    
+    func setupTransition() {
+        transition = JTMaterialTransition(animatedView: createBtn)
     }
 }
