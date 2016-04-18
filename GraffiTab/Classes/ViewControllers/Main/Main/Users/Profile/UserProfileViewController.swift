@@ -12,8 +12,11 @@ import CSStickyHeaderFlowLayout
 
 class UserProfileViewController: ListFullStreamablesViewController {
 
-    @IBOutlet weak var editBtn: UIButton!
+    @IBOutlet weak var followBtn: UIButton!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
+    var header: UserCollectionParallaxHeader?
+    var titleView: UILabel?
     var user: GTUser?
     var layout : CSStickyHeaderFlowLayout? {
         return self.collectionView?.collectionViewLayout as? CSStickyHeaderFlowLayout
@@ -25,6 +28,7 @@ class UserProfileViewController: ListFullStreamablesViewController {
         // Do any additional setup after loading the view.
         
         setupButtons()
+        setupNavigationBar()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -35,16 +39,10 @@ class UserProfileViewController: ListFullStreamablesViewController {
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        checkEditEnabled()
-    }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.layout?.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, 410)
+        self.layout?.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, 405)
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,11 +51,16 @@ class UserProfileViewController: ListFullStreamablesViewController {
     }
     
     @IBAction func onClickEdit(sender: AnyObject) {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfileViewController")
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    @IBAction func onClickFollow(sender: AnyObject) {
         
     }
     
-    func checkEditEnabled() {
-        
+    func isMe() -> Bool {
+        return user?.id == GTSettings.sharedInstance.user!.id
     }
     
     // MARK: - Loading
@@ -66,16 +69,33 @@ class UserProfileViewController: ListFullStreamablesViewController {
         GTUserManager.getUserStreamables(user!.id!, offset: offset, successBlock: successBlock, failureBlock: failureBlock)
     }
     
+    // MARK: - UIScrollViewDelegate
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        super.scrollViewDidScroll(scrollView)
+        
+        // Configure header alpha.
+        let minScrollDistance = CGFloat(100)
+        let maxScrollDistance = CGFloat(145)
+        let scrollY = collectionView.contentOffset.y
+        let distanceToTravel = maxScrollDistance - minScrollDistance
+        
+        let offset = maxScrollDistance - scrollY
+        let alpha = (1.0 * offset) / distanceToTravel
+        navigationBar.backgroundColor = UIColor(hexString: Colors.Main)?.colorWithAlphaComponent(1.0 - alpha)
+        titleView!.alpha = 1.0 - alpha
+    }
+    
     // MARK: - UICollectionViewDelegate
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         if kind == CSStickyHeaderParallaxHeader {
-            let view = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: UserCollectionParallaxHeader.reusableIdentifier(), forIndexPath: indexPath) as! UserCollectionParallaxHeader
+            header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: UserCollectionParallaxHeader.reusableIdentifier(), forIndexPath: indexPath) as? UserCollectionParallaxHeader
             
-            view.setItem(user)
+            header!.setItem(user)
 //            view.delegate = self
             
-            return view
+            return header!
         }
         
         assert(false, "Unsupported collection view supplementary element.")
@@ -90,12 +110,32 @@ class UserProfileViewController: ListFullStreamablesViewController {
     }
     
     func setupButtons() {
-        editBtn.layer.cornerRadius = editBtn.frame.size.width / 2
-        editBtn.layer.shadowRadius = 3.0
-        editBtn.layer.shadowColor = UIColor.blackColor().CGColor;
-        editBtn.layer.shadowOffset = CGSizeMake(1.6, 1.6)
-        editBtn.layer.shadowOpacity = 0.5
-        editBtn.layer.masksToBounds = false
-        editBtn.backgroundColor = UIColor(hexString: Colors.Main)
+        followBtn.layer.cornerRadius = followBtn.frame.size.width / 2
+        followBtn.layer.shadowRadius = 3.0
+        followBtn.layer.shadowColor = UIColor.blackColor().CGColor;
+        followBtn.layer.shadowOffset = CGSizeMake(1.6, 1.6)
+        followBtn.layer.shadowOpacity = 0.5
+        followBtn.layer.masksToBounds = false
+        followBtn.backgroundColor = UIColor(hexString: Colors.Green)
+    }
+    
+    func setupNavigationBar() {
+        navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navigationBar.backgroundColor = .clearColor()
+        navigationBar.shadowImage = UIImage()
+        
+        let negativeSpacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
+        negativeSpacer.width = -14
+        let backBtn = UIBarButtonItem(image: UIImage(named: "back"), style: .Plain, target: nil, action: nil)
+        navigationBar.topItem?.leftBarButtonItems = [negativeSpacer, backBtn]
+        
+        titleView = UILabel()
+        titleView!.text = "Georgi Christov"
+        titleView!.textColor = .whiteColor()
+        titleView!.textAlignment = .Center
+        titleView!.font = UIFont.boldSystemFontOfSize(17)
+        titleView!.frame = CGRectMake(0, 0, self.view.frame.width - 120, 21)
+        navigationBar.topItem?.titleView = titleView
+        titleView!.alpha = 0.0
     }
 }

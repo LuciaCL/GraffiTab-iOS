@@ -253,7 +253,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     
     // MARK: - UIScrollViewDelegate
     
-//    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
 //        if viewType == .ListFull {
 //            for c in collectionView.visibleCells() {
 //                let cell = c as! ChannelListFullCell
@@ -261,8 +261,8 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
 //                cell.setImageOffset(CGPoint(x: 0, y: computeOffsetForCell(cell)))
 //            }
 //        }
-//    }
-//    
+    }
+
 //    func computeOffsetForCell(cell: ChannelListFullCell) -> CGFloat {
 //        return ((collectionView.contentOffset.y - cell.frame.origin.y) / (cell.thumbnail.frame.size.height)) * CGFloat(cell.imageOffsetSpeed)
 //    }

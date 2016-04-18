@@ -19,6 +19,7 @@ struct Colors {
     static let Orange = "#e9a13a"
     static let Username = "#000000"
     static let TableBackground = "#F2F3F4"
+    static let Green = "#6cbd52"
 }
 
 struct App {

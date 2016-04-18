@@ -29,8 +29,8 @@ class UserListCell: UserCell {
         super.setItem(item)
         
         if item!.followedByCurrentUser! {
-            self.followBtn.layer.borderColor = UIColor(hexString: Colors.Main)?.CGColor
-            self.followBtn.backgroundColor = UIColor(hexString: Colors.Main)
+            self.followBtn.layer.borderColor = UIColor(hexString: Colors.Green)?.CGColor
+            self.followBtn.backgroundColor = UIColor(hexString: Colors.Green)
             self.followBtn.setImage(UIImage(named: "ic_action_unfollow"), forState: .Normal)
             self.followBtn.tintColor = UIColor.whiteColor()
         }
