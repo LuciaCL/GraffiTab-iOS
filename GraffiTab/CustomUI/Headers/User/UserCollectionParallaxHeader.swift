@@ -53,6 +53,10 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
                 .responseImage { response in
                     let image = response.result.value
                     
+                    if self.item!.avatar == nil {
+                        return
+                    }
+                    
                     if response.request?.URLString == self.item!.avatar!.link! { // Verify we're still loading the current image.
                         UIView.transitionWithView(self.avatar,
                             duration: App.ImageAnimationDuration,
@@ -71,6 +75,10 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
             Alamofire.request(.GET, item!.cover!.link!)
                 .responseImage { response in
                     let image = response.result.value
+                    
+                    if self.item!.cover == nil {
+                        return
+                    }
                     
                     if response.request?.URLString == self.item!.cover!.link! { // Verify we're still loading the current image.
                         UIView.transitionWithView(self.cover,

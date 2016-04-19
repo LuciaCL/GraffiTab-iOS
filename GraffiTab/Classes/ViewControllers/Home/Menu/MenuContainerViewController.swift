@@ -36,6 +36,15 @@ class MenuContainerViewController: RESideMenu, RESideMenuDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Orientation
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        if self.presentedViewController != nil {
+            return self.presentedViewController!.supportedInterfaceOrientations()
+        }
+        return .All
+    }
+    
     // MARK: - RESideMenuDelegate
     
     func sideMenu(sideMenu: RESideMenu!, willShowMenuViewController menuViewController: UIViewController!) {

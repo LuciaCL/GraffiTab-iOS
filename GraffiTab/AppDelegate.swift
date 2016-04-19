@@ -37,8 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupTopBar()
         setupCache()
         
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
+        Utils.runWithDelay(2) { () in
             self.checkLoginStatus()
         }
         

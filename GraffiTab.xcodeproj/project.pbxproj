@@ -24,7 +24,6 @@
 		E50765E51CB4098D00EAE832 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC131CB2C5C100BB3D27 /* CoreMotion.framework */; };
 		E50765E61CB4098D00EAE832 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC111CB2C5B900BB3D27 /* CoreMedia.framework */; };
 		E50765E71CB4098D00EAE832 /* Pods_GraffiTab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A858584C70AD43E9A1A96F8 /* Pods_GraffiTab.framework */; };
-		E50765E81CB4098D00EAE832 /* libTestFairy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDBFE1CB2C31B00BB3D27 /* libTestFairy.a */; };
 		E50765EB1CB4098D00EAE832 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDC0E1CB2C3AB00BB3D27 /* LaunchScreen.storyboard */; };
 		E50765ED1CB4098D00EAE832 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDBDC1CB2BF9E00BB3D27 /* Assets.xcassets */; };
 		E50765EF1CB4098D00EAE832 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDC0C1CB2C39200BB3D27 /* Default-568h@2x.png */; };
@@ -106,6 +105,11 @@
 		E51006FD1CBD1C3B00AC66A5 /* UserListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51006F91CBD1C3B00AC66A5 /* UserListCell.xib */; };
 		E51006FF1CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006FE1CBD1EBF00AC66A5 /* ListUsersViewController.swift */; };
 		E51007001CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006FE1CBD1EBF00AC66A5 /* ListUsersViewController.swift */; };
+		E51CD0CC1CD0C77800D56C58 /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = E51CD0C71CD0C77800D56C58 /* blank.png */; };
+		E51CD0CD1CD0C77800D56C58 /* Brush.png in Resources */ = {isa = PBXBuildFile; fileRef = E51CD0C81CD0C77800D56C58 /* Brush.png */; };
+		E51CD0CE1CD0C77800D56C58 /* Chalk.png in Resources */ = {isa = PBXBuildFile; fileRef = E51CD0C91CD0C77800D56C58 /* Chalk.png */; };
+		E51CD0CF1CD0C77800D56C58 /* Eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = E51CD0CA1CD0C77800D56C58 /* Eraser.png */; };
+		E51CD0D01CD0C77800D56C58 /* Spray.png in Resources */ = {isa = PBXBuildFile; fileRef = E51CD0CB1CD0C77800D56C58 /* Spray.png */; };
 		E554CFDA1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
 		E554CFDB1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
 		E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD81CB5641B00668D85 /* release_notes.html */; };
@@ -114,6 +118,16 @@
 		E554CFDF1CB5641B00668D85 /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD91CB5641B00668D85 /* terms.html */; };
 		E558A8A61CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */; };
 		E558A8A71CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */; };
+		E56D1F231CDD1917007B3698 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D1F221CDD1917007B3698 /* ArrayUtils.swift */; };
+		E56D1F241CDD1917007B3698 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D1F221CDD1917007B3698 /* ArrayUtils.swift */; };
+		E57FAB231CD224B700C0D125 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57FAB221CD224B700C0D125 /* Photos.framework */; };
+		E57FAB241CD224BE00C0D125 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57FAB221CD224B700C0D125 /* Photos.framework */; };
+		E57FAB261CD4106E00C0D125 /* DrawToolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FAB251CD4106E00C0D125 /* DrawToolCell.swift */; };
+		E57FAB271CD4106E00C0D125 /* DrawToolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FAB251CD4106E00C0D125 /* DrawToolCell.swift */; };
+		E57FAB3A1CD8B2A800C0D125 /* OrientationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FAB391CD8B2A800C0D125 /* OrientationNavigationController.swift */; };
+		E57FAB3B1CD8B2A800C0D125 /* OrientationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FAB391CD8B2A800C0D125 /* OrientationNavigationController.swift */; };
+		E5A4F1041CE1EDF2005CF12C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */; };
+		E5A4F1051CE1EDF2005CF12C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */; };
 		E5B6B54C1CC25A0E00DC8EFC /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */; };
 		E5B6B54D1CC25A0E00DC8EFC /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */; };
 		E5B6B5501CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54E1CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift */; };
@@ -190,6 +204,44 @@
 		E5B6B5E01CC56F5800DC8EFC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B59E1CC56F5800DC8EFC /* SignUpViewController.swift */; };
 		E5B6B5E11CC56F5800DC8EFC /* SplashStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B5A01CC56F5800DC8EFC /* SplashStoryboard.storyboard */; };
 		E5B6B5E21CC56F5800DC8EFC /* SplashStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B5A01CC56F5800DC8EFC /* SplashStoryboard.storyboard */; };
+		E5B6B5ED1CC5A69E00DC8EFC /* libTestFairy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6B5EB1CC5A69E00DC8EFC /* libTestFairy.a */; };
+		E5B6B5FE1CC5A88800DC8EFC /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6B5F71CC5A7C900DC8EFC /* libcocos2d.a */; };
+		E5B6B6001CC5A89200DC8EFC /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6B5FF1CC5A89200DC8EFC /* GLKit.framework */; };
+		E5B6B6021CC5A89B00DC8EFC /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6B6011CC5A89B00DC8EFC /* CoreText.framework */; };
+		E5B6B6041CC5A8A700DC8EFC /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6B6031CC5A8A700DC8EFC /* OpenAL.framework */; };
+		E5B6B6061CC5A8B200DC8EFC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6B6051CC5A8B200DC8EFC /* AudioToolbox.framework */; };
+		E5B6B6081CC5A8CE00DC8EFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6B6071CC5A8CE00DC8EFC /* CoreGraphics.framework */; };
+		E5B6B6091CC5ADEA00DC8EFC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E510067D1CB7F41000AC66A5 /* CoreLocation.framework */; };
+		E5B6B60A1CC5ADF300DC8EFC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E510067F1CB7F41C00AC66A5 /* MapKit.framework */; };
+		E5B6B60B1CC5AE0200DC8EFC /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6B5F71CC5A7C900DC8EFC /* libcocos2d.a */; };
+		E5B6B60C1CC5AE1200DC8EFC /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6B5FF1CC5A89200DC8EFC /* GLKit.framework */; };
+		E5B6B60D1CC5AE1800DC8EFC /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6B6011CC5A89B00DC8EFC /* CoreText.framework */; };
+		E5B6B60E1CC5AE1D00DC8EFC /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6B6031CC5A8A700DC8EFC /* OpenAL.framework */; };
+		E5B6B60F1CC5AE2700DC8EFC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6B6051CC5A8B200DC8EFC /* AudioToolbox.framework */; };
+		E5B6B6101CC5AE3000DC8EFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6B6071CC5A8CE00DC8EFC /* CoreGraphics.framework */; };
+		E5B6B6141CC5B24500DC8EFC /* Release-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B6131CC5B24500DC8EFC /* Release-Info.plist */; };
+		E5B6B6271CC630B000DC8EFC /* CCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B6241CC630B000DC8EFC /* CCViewController.m */; };
+		E5B6B6281CC630B000DC8EFC /* CCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B6241CC630B000DC8EFC /* CCViewController.m */; };
+		E5B6B62E1CC64D4400DC8EFC /* ColorSprayCan.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B62D1CC64D4400DC8EFC /* ColorSprayCan.swift */; };
+		E5B6B62F1CC64D4400DC8EFC /* ColorSprayCan.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B62D1CC64D4400DC8EFC /* ColorSprayCan.swift */; };
+		E5B6B6321CC6566100DC8EFC /* ColorSprayCanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B6311CC6566100DC8EFC /* ColorSprayCanCell.swift */; };
+		E5B6B6331CC6566100DC8EFC /* ColorSprayCanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B6311CC6566100DC8EFC /* ColorSprayCanCell.swift */; };
+		E5B6B63D1CC6C40C00DC8EFC /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B6391CC6C40C00DC8EFC /* IntroScene.m */; };
+		E5B6B63E1CC6C40C00DC8EFC /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B6391CC6C40C00DC8EFC /* IntroScene.m */; };
+		E5B6B63F1CC6C40C00DC8EFC /* LineDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B63B1CC6C40C00DC8EFC /* LineDrawer.m */; };
+		E5B6B6401CC6C40C00DC8EFC /* LineDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B63B1CC6C40C00DC8EFC /* LineDrawer.m */; };
+		E5B6B64D1CC9A48200DC8EFC /* ViewController+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B64C1CC9A48200DC8EFC /* ViewController+ImagePicker.swift */; };
+		E5B6B64E1CC9A48200DC8EFC /* ViewController+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B64C1CC9A48200DC8EFC /* ViewController+ImagePicker.swift */; };
+		E5D085A71CD8D30000226589 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5D0857F1CD8D30000226589 /* TOCropViewControllerLocalizable.strings */; };
+		E5D085A81CD8D30000226589 /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0858D1CD8D30000226589 /* TOActivityCroppedImageProvider.m */; };
+		E5D085A91CD8D30000226589 /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0858F1CD8D30000226589 /* TOCroppedImageAttributes.m */; };
+		E5D085AA1CD8D30000226589 /* TOCropViewControllerTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085911CD8D30000226589 /* TOCropViewControllerTransitioning.m */; };
+		E5D085AB1CD8D30000226589 /* UIImage+CropRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085931CD8D30000226589 /* UIImage+CropRotate.m */; };
+		E5D085AC1CD8D30000226589 /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085991CD8D30000226589 /* TOCropViewController.m */; };
+		E5D085AD1CD8D30000226589 /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0859E1CD8D30000226589 /* TOCropOverlayView.m */; };
+		E5D085AE1CD8D30000226589 /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A01CD8D30000226589 /* TOCropScrollView.m */; };
+		E5D085AF1CD8D30000226589 /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A21CD8D30000226589 /* TOCropToolbar.m */; };
+		E5D085B01CD8D30000226589 /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A41CD8D30000226589 /* TOCropView.m */; };
 		E5DFDBD61CB2BF9E00BB3D27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBD51CB2BF9E00BB3D27 /* AppDelegate.swift */; };
 		E5DFDBDD1CB2BF9E00BB3D27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDBDC1CB2BF9E00BB3D27 /* Assets.xcassets */; };
 		E5DFDC011CB2C31B00BB3D27 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBE91CB2C31B00BB3D27 /* Constants.swift */; };
@@ -200,7 +252,6 @@
 		E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBF81CB2C31B00BB3D27 /* TintImageView.swift */; };
 		E5DFDC071CB2C31B00BB3D27 /* BackButtonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBFB1CB2C31B00BB3D27 /* BackButtonTableViewController.swift */; };
 		E5DFDC081CB2C31B00BB3D27 /* BackButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBFC1CB2C31B00BB3D27 /* BackButtonViewController.swift */; };
-		E5DFDC091CB2C31B00BB3D27 /* libTestFairy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDBFE1CB2C31B00BB3D27 /* libTestFairy.a */; };
 		E5DFDC0D1CB2C39200BB3D27 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDC0C1CB2C39200BB3D27 /* Default-568h@2x.png */; };
 		E5DFDC0F1CB2C3AB00BB3D27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDC0E1CB2C3AB00BB3D27 /* LaunchScreen.storyboard */; };
 		E5DFDC121CB2C5B900BB3D27 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC111CB2C5B900BB3D27 /* CoreMedia.framework */; };
@@ -211,6 +262,37 @@
 		E5DFDC1C1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */; };
 		E5DFDC1D1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5B6B5F61CC5A7C900DC8EFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5B6B5EE1CC5A7C800DC8EFC /* cocos2d.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5018F24D0DFDEAC400C013A5;
+			remoteInfo = "cocos2d-ios";
+		};
+		E5B6B5F81CC5A7C900DC8EFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5B6B5EE1CC5A7C800DC8EFC /* cocos2d.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A4037A819E37038007B6E8F;
+			remoteInfo = "cocos2d-mac";
+		};
+		E5B6B5FA1CC5A7C900DC8EFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5B6B5EE1CC5A7C800DC8EFC /* cocos2d.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B7E7DE341A76DB7D004234B7;
+			remoteInfo = cocos2dMacFramework;
+		};
+		E5B6B5FC1CC5A7C900DC8EFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5B6B5EE1CC5A7C800DC8EFC /* cocos2d.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 08F4AB671C6E98A1004DAAF7;
+			remoteInfo = "cocos2d-tvos";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		E50765FC1CB409DF00EAE832 /* Embed Frameworks */ = {
@@ -245,7 +327,6 @@
 		65C7EC7B6C44DA11DEAA502C /* Pods-GraffiTab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab.release.xcconfig"; sourceTree = "<group>"; };
 		68B6060E6C069394DFEF27BF /* Pods-GraffiTab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab.debug.xcconfig"; sourceTree = "<group>"; };
 		E50765F71CB4098D00EAE832 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E50765F81CB4098D00EAE832 /* GraffiTab copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GraffiTab copy-Info.plist"; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS/GraffiTab copy-Info.plist"; sourceTree = "<absolute>"; };
 		E50765F91CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS-SDK/_Archive/iOS/Release/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
 		E51005F31CB69BDE00AC66A5 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		E510062F1CB71C5900AC66A5 /* GenericStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericStreamablesViewController.swift; sourceTree = "<group>"; };
@@ -286,10 +367,21 @@
 		E51006F81CBD1C3B00AC66A5 /* UserListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
 		E51006F91CBD1C3B00AC66A5 /* UserListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserListCell.xib; sourceTree = "<group>"; };
 		E51006FE1CBD1EBF00AC66A5 /* ListUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListUsersViewController.swift; sourceTree = "<group>"; };
+		E51CD0C71CD0C77800D56C58 /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
+		E51CD0C81CD0C77800D56C58 /* Brush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Brush.png; sourceTree = "<group>"; };
+		E51CD0C91CD0C77800D56C58 /* Chalk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chalk.png; sourceTree = "<group>"; };
+		E51CD0CA1CD0C77800D56C58 /* Eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Eraser.png; sourceTree = "<group>"; };
+		E51CD0CB1CD0C77800D56C58 /* Spray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spray.png; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
 		E554CFD81CB5641B00668D85 /* release_notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = release_notes.html; sourceTree = "<group>"; };
 		E554CFD91CB5641B00668D85 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
 		E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicStreamablesViewController.swift; sourceTree = "<group>"; };
+		E56D1F221CDD1917007B3698 /* ArrayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
+		E57FAB1A1CD2245500C0D125 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		E57FAB221CD224B700C0D125 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		E57FAB251CD4106E00C0D125 /* DrawToolCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawToolCell.swift; sourceTree = "<group>"; };
+		E57FAB391CD8B2A800C0D125 /* OrientationNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrientationNavigationController.swift; sourceTree = "<group>"; };
+		E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		E5B6B54E1CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCollectionParallaxHeader.swift; sourceTree = "<group>"; };
 		E5B6B54F1CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCollectionParallaxHeader.xib; sourceTree = "<group>"; };
@@ -328,6 +420,61 @@
 		E5B6B59D1CC56F5800DC8EFC /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		E5B6B59E1CC56F5800DC8EFC /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E5B6B5A01CC56F5800DC8EFC /* SplashStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SplashStoryboard.storyboard; sourceTree = "<group>"; };
+		E5B6B5EB1CC5A69E00DC8EFC /* libTestFairy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFairy.a; sourceTree = "<group>"; };
+		E5B6B5EC1CC5A69E00DC8EFC /* TestFairy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFairy.h; sourceTree = "<group>"; };
+		E5B6B5EE1CC5A7C800DC8EFC /* cocos2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d.xcodeproj; path = Cocos2d/cocos2d.xcodeproj; sourceTree = "<group>"; };
+		E5B6B5FF1CC5A89200DC8EFC /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		E5B6B6011CC5A89B00DC8EFC /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		E5B6B6031CC5A8A700DC8EFC /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		E5B6B6051CC5A8B200DC8EFC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		E5B6B6071CC5A8CE00DC8EFC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E5B6B6131CC5B24500DC8EFC /* Release-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Release-Info.plist"; sourceTree = "<group>"; };
+		E5B6B6231CC630B000DC8EFC /* CCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCViewController.h; sourceTree = "<group>"; };
+		E5B6B6241CC630B000DC8EFC /* CCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCViewController.m; sourceTree = "<group>"; };
+		E5B6B62D1CC64D4400DC8EFC /* ColorSprayCan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSprayCan.swift; sourceTree = "<group>"; };
+		E5B6B6311CC6566100DC8EFC /* ColorSprayCanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSprayCanCell.swift; sourceTree = "<group>"; };
+		E5B6B6381CC6C40C00DC8EFC /* IntroScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroScene.h; sourceTree = "<group>"; };
+		E5B6B6391CC6C40C00DC8EFC /* IntroScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroScene.m; sourceTree = "<group>"; };
+		E5B6B63A1CC6C40C00DC8EFC /* LineDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineDrawer.h; sourceTree = "<group>"; };
+		E5B6B63B1CC6C40C00DC8EFC /* LineDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineDrawer.m; sourceTree = "<group>"; };
+		E5B6B64C1CC9A48200DC8EFC /* ViewController+ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+ImagePicker.swift"; sourceTree = "<group>"; };
+		E5D085801CD8D30000226589 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D085811CD8D30000226589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D085821CD8D30000226589 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D085831CD8D30000226589 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D085841CD8D30000226589 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D085851CD8D30000226589 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D085861CD8D30000226589 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D085871CD8D30000226589 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D085881CD8D30000226589 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D085891CD8D30000226589 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D0858A1CD8D30000226589 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D0858C1CD8D30000226589 /* TOActivityCroppedImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOActivityCroppedImageProvider.h; sourceTree = "<group>"; };
+		E5D0858D1CD8D30000226589 /* TOActivityCroppedImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOActivityCroppedImageProvider.m; sourceTree = "<group>"; };
+		E5D0858E1CD8D30000226589 /* TOCroppedImageAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCroppedImageAttributes.h; sourceTree = "<group>"; };
+		E5D0858F1CD8D30000226589 /* TOCroppedImageAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCroppedImageAttributes.m; sourceTree = "<group>"; };
+		E5D085901CD8D30000226589 /* TOCropViewControllerTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewControllerTransitioning.h; sourceTree = "<group>"; };
+		E5D085911CD8D30000226589 /* TOCropViewControllerTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewControllerTransitioning.m; sourceTree = "<group>"; };
+		E5D085921CD8D30000226589 /* UIImage+CropRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CropRotate.h"; sourceTree = "<group>"; };
+		E5D085931CD8D30000226589 /* UIImage+CropRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CropRotate.m"; sourceTree = "<group>"; };
+		E5D085941CD8D30000226589 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D085951CD8D30000226589 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D085961CD8D30000226589 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D085971CD8D30000226589 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D085981CD8D30000226589 /* TOCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewController.h; sourceTree = "<group>"; };
+		E5D085991CD8D30000226589 /* TOCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewController.m; sourceTree = "<group>"; };
+		E5D0859A1CD8D30000226589 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D0859B1CD8D30000226589 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		E5D0859D1CD8D30000226589 /* TOCropOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropOverlayView.h; sourceTree = "<group>"; };
+		E5D0859E1CD8D30000226589 /* TOCropOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropOverlayView.m; sourceTree = "<group>"; };
+		E5D0859F1CD8D30000226589 /* TOCropScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropScrollView.h; sourceTree = "<group>"; };
+		E5D085A01CD8D30000226589 /* TOCropScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropScrollView.m; sourceTree = "<group>"; };
+		E5D085A11CD8D30000226589 /* TOCropToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropToolbar.h; sourceTree = "<group>"; };
+		E5D085A21CD8D30000226589 /* TOCropToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropToolbar.m; sourceTree = "<group>"; };
+		E5D085A31CD8D30000226589 /* TOCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropView.h; sourceTree = "<group>"; };
+		E5D085A41CD8D30000226589 /* TOCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropView.m; sourceTree = "<group>"; };
+		E5D085A51CD8D30000226589 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
+		E5D085A61CD8D30000226589 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
 		E5DFDBD21CB2BF9E00BB3D27 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DFDBD51CB2BF9E00BB3D27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5DFDBDC1CB2BF9E00BB3D27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -340,8 +487,6 @@
 		E5DFDBF81CB2C31B00BB3D27 /* TintImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintImageView.swift; sourceTree = "<group>"; };
 		E5DFDBFB1CB2C31B00BB3D27 /* BackButtonTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonTableViewController.swift; sourceTree = "<group>"; };
 		E5DFDBFC1CB2C31B00BB3D27 /* BackButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonViewController.swift; sourceTree = "<group>"; };
-		E5DFDBFE1CB2C31B00BB3D27 /* libTestFairy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFairy.a; sourceTree = "<group>"; };
-		E5DFDBFF1CB2C31B00BB3D27 /* TestFairy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFairy.h; sourceTree = "<group>"; };
 		E5DFDC0C1CB2C39200BB3D27 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E5DFDC0E1CB2C3AB00BB3D27 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5DFDC101CB2C4B500BB3D27 /* Bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
@@ -358,6 +503,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E57FAB241CD224BE00C0D125 /* Photos.framework in Frameworks */,
+				E5B6B6081CC5A8CE00DC8EFC /* CoreGraphics.framework in Frameworks */,
+				E5B6B6061CC5A8B200DC8EFC /* AudioToolbox.framework in Frameworks */,
+				E5B6B6041CC5A8A700DC8EFC /* OpenAL.framework in Frameworks */,
+				E5B6B6021CC5A89B00DC8EFC /* CoreText.framework in Frameworks */,
+				E5B6B6001CC5A89200DC8EFC /* GLKit.framework in Frameworks */,
+				E5B6B5FE1CC5A88800DC8EFC /* libcocos2d.a in Frameworks */,
 				E51006801CB7F41C00AC66A5 /* MapKit.framework in Frameworks */,
 				E510067E1CB7F41000AC66A5 /* CoreLocation.framework in Frameworks */,
 				E50765FA1CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework in Frameworks */,
@@ -367,7 +519,6 @@
 				E50765E51CB4098D00EAE832 /* CoreMotion.framework in Frameworks */,
 				E50765E61CB4098D00EAE832 /* CoreMedia.framework in Frameworks */,
 				E50765E71CB4098D00EAE832 /* Pods_GraffiTab.framework in Frameworks */,
-				E50765E81CB4098D00EAE832 /* libTestFairy.a in Frameworks */,
 				90DA9BD142A6E1D3540613E8 /* Pods_GraffiTab_Release.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +527,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E57FAB231CD224B700C0D125 /* Photos.framework in Frameworks */,
+				E5B6B6101CC5AE3000DC8EFC /* CoreGraphics.framework in Frameworks */,
+				E5B6B60F1CC5AE2700DC8EFC /* AudioToolbox.framework in Frameworks */,
+				E5B6B60E1CC5AE1D00DC8EFC /* OpenAL.framework in Frameworks */,
+				E5B6B60D1CC5AE1800DC8EFC /* CoreText.framework in Frameworks */,
+				E5B6B60C1CC5AE1200DC8EFC /* GLKit.framework in Frameworks */,
+				E5B6B60B1CC5AE0200DC8EFC /* libcocos2d.a in Frameworks */,
+				E5B6B60A1CC5ADF300DC8EFC /* MapKit.framework in Frameworks */,
+				E5B6B6091CC5ADEA00DC8EFC /* CoreLocation.framework in Frameworks */,
 				E5DFDC1C1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework in Frameworks */,
 				E5DFDC1A1CB2C5D900BB3D27 /* OpenGLES.framework in Frameworks */,
 				E5DFDC181CB2C5D100BB3D27 /* SystemConfiguration.framework in Frameworks */,
@@ -383,7 +543,7 @@
 				E5DFDC141CB2C5C100BB3D27 /* CoreMotion.framework in Frameworks */,
 				E5DFDC121CB2C5B900BB3D27 /* CoreMedia.framework in Frameworks */,
 				6E3E6AF34F1E3AC30E600CBF /* Pods_GraffiTab.framework in Frameworks */,
-				E5DFDC091CB2C31B00BB3D27 /* libTestFairy.a in Frameworks */,
+				E5B6B5ED1CC5A69E00DC8EFC /* libTestFairy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +564,7 @@
 		E51005F21CB69BC300AC66A5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				E5B6B6301CC6562800DC8EFC /* Drawing */,
 				E51006B51CBC051A00AC66A5 /* Activity */,
 				E510069B1CBBB49800AC66A5 /* Notifications */,
 				E51006381CB71F5000AC66A5 /* Streamables */,
@@ -561,6 +722,18 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		E51CD0C61CD0C77800D56C58 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				E51CD0C71CD0C77800D56C58 /* blank.png */,
+				E51CD0C81CD0C77800D56C58 /* Brush.png */,
+				E51CD0C91CD0C77800D56C58 /* Chalk.png */,
+				E51CD0CA1CD0C77800D56C58 /* Eraser.png */,
+				E51CD0CB1CD0C77800D56C58 /* Spray.png */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		E554CFD61CB5641B00668D85 /* Html */ = {
 			isa = PBXGroup;
 			children = (
@@ -590,9 +763,18 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		E57FAB381CD8B28900C0D125 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				E57FAB391CD8B2A800C0D125 /* OrientationNavigationController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		E5B6B56D1CC56F5800DC8EFC /* Create */ = {
 			isa = PBXGroup;
 			children = (
+				E5B6B6151CC5B34600DC8EFC /* Cocos2d */,
 				E5B6B56E1CC56F5800DC8EFC /* CreateStoryboard.storyboard */,
 				E5B6B56F1CC56F5800DC8EFC /* CreateViewController.swift */,
 			);
@@ -767,8 +949,100 @@
 			isa = PBXGroup;
 			children = (
 				E5B6B5A01CC56F5800DC8EFC /* SplashStoryboard.storyboard */,
+				E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		E5B6B5EA1CC5A69E00DC8EFC /* TestFairy */ = {
+			isa = PBXGroup;
+			children = (
+				E5B6B5EB1CC5A69E00DC8EFC /* libTestFairy.a */,
+				E5B6B5EC1CC5A69E00DC8EFC /* TestFairy.h */,
+			);
+			path = TestFairy;
+			sourceTree = "<group>";
+		};
+		E5B6B5EF1CC5A7C800DC8EFC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5B6B5F71CC5A7C900DC8EFC /* libcocos2d.a */,
+				E5B6B5F91CC5A7C900DC8EFC /* libcocos2d-mac.a */,
+				E5B6B5FB1CC5A7C900DC8EFC /* cocos2dMacFramework.framework */,
+				E5B6B5FD1CC5A7C900DC8EFC /* libcocos2d-tvos.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5B6B6151CC5B34600DC8EFC /* Cocos2d */ = {
+			isa = PBXGroup;
+			children = (
+				E5B6B6231CC630B000DC8EFC /* CCViewController.h */,
+				E5B6B6241CC630B000DC8EFC /* CCViewController.m */,
+			);
+			path = Cocos2d;
+			sourceTree = "<group>";
+		};
+		E5B6B6301CC6562800DC8EFC /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				E5B6B6311CC6566100DC8EFC /* ColorSprayCanCell.swift */,
+				E57FAB251CD4106E00C0D125 /* DrawToolCell.swift */,
+			);
+			path = Drawing;
+			sourceTree = "<group>";
+		};
+		E5B6B6371CC6C40C00DC8EFC /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				E5B6B6381CC6C40C00DC8EFC /* IntroScene.h */,
+				E5B6B6391CC6C40C00DC8EFC /* IntroScene.m */,
+				E5B6B63A1CC6C40C00DC8EFC /* LineDrawer.h */,
+				E5B6B63B1CC6C40C00DC8EFC /* LineDrawer.m */,
+			);
+			path = Drawing;
+			sourceTree = "<group>";
+		};
+		E5D0857E1CD8D30000226589 /* TOCropViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E5D0857F1CD8D30000226589 /* TOCropViewControllerLocalizable.strings */,
+				E5D0858B1CD8D30000226589 /* Models */,
+				E5D085981CD8D30000226589 /* TOCropViewController.h */,
+				E5D085991CD8D30000226589 /* TOCropViewController.m */,
+				E5D0859C1CD8D30000226589 /* Views */,
+			);
+			path = TOCropViewController;
+			sourceTree = "<group>";
+		};
+		E5D0858B1CD8D30000226589 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E5D0858C1CD8D30000226589 /* TOActivityCroppedImageProvider.h */,
+				E5D0858D1CD8D30000226589 /* TOActivityCroppedImageProvider.m */,
+				E5D0858E1CD8D30000226589 /* TOCroppedImageAttributes.h */,
+				E5D0858F1CD8D30000226589 /* TOCroppedImageAttributes.m */,
+				E5D085901CD8D30000226589 /* TOCropViewControllerTransitioning.h */,
+				E5D085911CD8D30000226589 /* TOCropViewControllerTransitioning.m */,
+				E5D085921CD8D30000226589 /* UIImage+CropRotate.h */,
+				E5D085931CD8D30000226589 /* UIImage+CropRotate.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E5D0859C1CD8D30000226589 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E5D0859D1CD8D30000226589 /* TOCropOverlayView.h */,
+				E5D0859E1CD8D30000226589 /* TOCropOverlayView.m */,
+				E5D0859F1CD8D30000226589 /* TOCropScrollView.h */,
+				E5D085A01CD8D30000226589 /* TOCropScrollView.m */,
+				E5D085A11CD8D30000226589 /* TOCropToolbar.h */,
+				E5D085A21CD8D30000226589 /* TOCropToolbar.m */,
+				E5D085A31CD8D30000226589 /* TOCropView.h */,
+				E5D085A41CD8D30000226589 /* TOCropView.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E5DFDBC91CB2BF9E00BB3D27 = {
@@ -779,7 +1053,6 @@
 				E5DFDBD31CB2BF9E00BB3D27 /* Products */,
 				A67BB771F4F2E46A2E3BA6E7 /* Pods */,
 				F89B9B6C7903A7912D4CD2E1 /* Frameworks */,
-				E50765F81CB4098D00EAE832 /* GraffiTab copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -840,6 +1113,7 @@
 				E5DFDBED1CB2C31B00BB3D27 /* InputValidator.swift */,
 				E5DFDBEE1CB2C31B00BB3D27 /* Utils.swift */,
 				E51006661CB7CE2300AC66A5 /* DateUtils.swift */,
+				E56D1F221CDD1917007B3698 /* ArrayUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -858,6 +1132,7 @@
 		E5DFDBF41CB2C31B00BB3D27 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				E5B6B6371CC6C40C00DC8EFC /* Drawing */,
 				E558A8A31CBFFCDC00C2F9B1 /* Headers */,
 				E51006DC1CBCF63B00AC66A5 /* MapKit */,
 				E51005F21CB69BC300AC66A5 /* Cells */,
@@ -879,6 +1154,7 @@
 		E5DFDBF71CB2C31B00BB3D27 /* ImageViews */ = {
 			isa = PBXGroup;
 			children = (
+				E5B6B62D1CC64D4400DC8EFC /* ColorSprayCan.swift */,
 				E5DFDBF81CB2C31B00BB3D27 /* TintImageView.swift */,
 				E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */,
 			);
@@ -888,9 +1164,11 @@
 		E5DFDBF91CB2C31B00BB3D27 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E57FAB381CD8B28900C0D125 /* Navigation */,
 				E5DFDBFA1CB2C31B00BB3D27 /* BackButtons */,
 				E510062E1CB71C1300AC66A5 /* Streamables */,
 				E51006EF1CBD191900AC66A5 /* Users */,
+				E5B6B64C1CC9A48200DC8EFC /* ViewController+ImagePicker.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -907,8 +1185,9 @@
 		E5DFDBFD1CB2C31B00BB3D27 /* ExternalLibs */ = {
 			isa = PBXGroup;
 			children = (
-				E5DFDBFE1CB2C31B00BB3D27 /* libTestFairy.a */,
-				E5DFDBFF1CB2C31B00BB3D27 /* TestFairy.h */,
+				E5B6B5EE1CC5A7C800DC8EFC /* cocos2d.xcodeproj */,
+				E5D0857E1CD8D30000226589 /* TOCropViewController */,
+				E5B6B5EA1CC5A69E00DC8EFC /* TestFairy */,
 			);
 			path = ExternalLibs;
 			sourceTree = "<group>";
@@ -916,6 +1195,7 @@
 		E5DFDC001CB2C31B00BB3D27 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E51CD0C61CD0C77800D56C58 /* Tools */,
 				E554CFD61CB5641B00668D85 /* Html */,
 			);
 			path = Resources;
@@ -926,6 +1206,7 @@
 			children = (
 				E5DFDC0C1CB2C39200BB3D27 /* Default-568h@2x.png */,
 				E5DFDBE11CB2BF9E00BB3D27 /* Info.plist */,
+				E5B6B6131CC5B24500DC8EFC /* Release-Info.plist */,
 				E5DFDC0E1CB2C3AB00BB3D27 /* LaunchScreen.storyboard */,
 			);
 			name = "Supporting Files";
@@ -934,6 +1215,13 @@
 		F89B9B6C7903A7912D4CD2E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E57FAB221CD224B700C0D125 /* Photos.framework */,
+				E57FAB1A1CD2245500C0D125 /* AssetsLibrary.framework */,
+				E5B6B6071CC5A8CE00DC8EFC /* CoreGraphics.framework */,
+				E5B6B6051CC5A8B200DC8EFC /* AudioToolbox.framework */,
+				E5B6B6031CC5A8A700DC8EFC /* OpenAL.framework */,
+				E5B6B6011CC5A89B00DC8EFC /* CoreText.framework */,
+				E5B6B5FF1CC5A89200DC8EFC /* GLKit.framework */,
 				E510067F1CB7F41C00AC66A5 /* MapKit.framework */,
 				E510067D1CB7F41000AC66A5 /* CoreLocation.framework */,
 				E50765F91CB409DF00EAE832 /* GraffiTab_iOS_SDK.framework */,
@@ -1025,10 +1313,33 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
+				da,
+				de,
+				es,
+				fr,
+				id,
+				it,
+				ja,
+				ko,
+				nl,
+				pl,
+				pt,
+				ru,
+				tr,
+				vi,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = E5DFDBC91CB2BF9E00BB3D27;
 			productRefGroup = E5DFDBD31CB2BF9E00BB3D27 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E5B6B5EF1CC5A7C800DC8EFC /* Products */;
+					ProjectRef = E5B6B5EE1CC5A7C800DC8EFC /* cocos2d.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E5DFDBD11CB2BF9E00BB3D27 /* GraffiTab */,
@@ -1036,6 +1347,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E5B6B5F71CC5A7C900DC8EFC /* libcocos2d.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcocos2d.a;
+			remoteRef = E5B6B5F61CC5A7C900DC8EFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5B6B5F91CC5A7C900DC8EFC /* libcocos2d-mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d-mac.a";
+			remoteRef = E5B6B5F81CC5A7C900DC8EFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5B6B5FB1CC5A7C900DC8EFC /* cocos2dMacFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = cocos2dMacFramework.framework;
+			remoteRef = E5B6B5FA1CC5A7C900DC8EFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5B6B5FD1CC5A7C900DC8EFC /* libcocos2d-tvos.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d-tvos.a";
+			remoteRef = E5B6B5FC1CC5A7C900DC8EFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E50765E91CB4098D00EAE832 /* Resources */ = {
@@ -1066,20 +1408,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5DFDC0F1CB2C3AB00BB3D27 /* LaunchScreen.storyboard in Resources */,
+				E51CD0D01CD0C77800D56C58 /* Spray.png in Resources */,
 				E5DFDBDD1CB2BF9E00BB3D27 /* Assets.xcassets in Resources */,
+				E51CD0CD1CD0C77800D56C58 /* Brush.png in Resources */,
+				E51CD0CE1CD0C77800D56C58 /* Chalk.png in Resources */,
+				E51CD0CC1CD0C77800D56C58 /* blank.png in Resources */,
 				E554CFDE1CB5641B00668D85 /* terms.html in Resources */,
 				E5B6B5521CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib in Resources */,
 				E51006641CB7BC5A00AC66A5 /* StreamableListFullCell.xib in Resources */,
 				E5B6B5A11CC56F5800DC8EFC /* CreateStoryboard.storyboard in Resources */,
 				E5B6B5E11CC56F5800DC8EFC /* SplashStoryboard.storyboard in Resources */,
+				E51CD0CF1CD0C77800D56C58 /* Eraser.png in Resources */,
 				E5B6B5D91CC56F5800DC8EFC /* LoginStoryboard.storyboard in Resources */,
 				E554CFDA1CB5641B00668D85 /* eula.html in Resources */,
 				E51006601CB7BC5A00AC66A5 /* StreamableGridCell.xib in Resources */,
 				E51006FC1CBD1C3B00AC66A5 /* UserListCell.xib in Resources */,
 				E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */,
+				E5D085A71CD8D30000226589 /* TOCropViewControllerLocalizable.strings in Resources */,
 				E5B6B5A71CC56F5800DC8EFC /* MainStoryboard.storyboard in Resources */,
 				E510066D1CB7DEB100AC66A5 /* StreamableTrendingCell.xib in Resources */,
 				E5DFDC0D1CB2C39200BB3D27 /* Default-568h@2x.png in Resources */,
+				E5B6B6141CC5B24500DC8EFC /* Release-Info.plist in Resources */,
 				E5B6B55E1CC4E8D400DC8EFC /* UserAboutView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1205,6 +1554,8 @@
 				E5B6B5D61CC56F5800DC8EFC /* UserProfileViewController.swift in Sources */,
 				E5B6B5A61CC56F5800DC8EFC /* HomeViewController.swift in Sources */,
 				E51006681CB7CE2300AC66A5 /* DateUtils.swift in Sources */,
+				E57FAB3B1CD8B2A800C0D125 /* OrientationNavigationController.swift in Sources */,
+				E57FAB271CD4106E00C0D125 /* DrawToolCell.swift in Sources */,
 				E510063B1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */,
 				E50765D91CB4098D00EAE832 /* DialogBuilder.swift in Sources */,
 				E51006AA1CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
@@ -1217,10 +1568,12 @@
 				E5B6B5DC1CC56F5800DC8EFC /* LoginViewController.swift in Sources */,
 				E50765DA1CB4098D00EAE832 /* InputValidator.swift in Sources */,
 				E510065F1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
+				E5B6B6331CC6566100DC8EFC /* ColorSprayCanCell.swift in Sources */,
 				E510069E1CBBB4C900AC66A5 /* NotificationCell.swift in Sources */,
 				E51006A71CBBDD1D00AC66A5 /* NotificationLikeCell.swift in Sources */,
 				E51006FB1CBD1C3B00AC66A5 /* UserListCell.swift in Sources */,
 				E51006D21CBC1F9700AC66A5 /* ActivityGroupLikeCell.swift in Sources */,
+				E5B6B6281CC630B000DC8EFC /* CCViewController.m in Sources */,
 				E50765DB1CB4098D00EAE832 /* TintImageView.swift in Sources */,
 				E51006AD1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */,
 				E51006C01CBC0FA100AC66A5 /* ActivitySingleLikeCell.swift in Sources */,
@@ -1234,6 +1587,7 @@
 				E50765DC1CB4098D00EAE832 /* AppDelegate.swift in Sources */,
 				E5B6B5B21CC56F5800DC8EFC /* FeedViewController.swift in Sources */,
 				E5B6B5BA1CC56F5800DC8EFC /* MenuContainerViewController.swift in Sources */,
+				E5A4F1051CE1EDF2005CF12C /* SplashViewController.swift in Sources */,
 				E51006341CB71EB200AC66A5 /* GridStreamablesViewController.swift in Sources */,
 				E5B6B5C81CC56F5800DC8EFC /* GeneralSettingsViewController.swift in Sources */,
 				E50765DD1CB4098D00EAE832 /* BackButtonViewController.swift in Sources */,
@@ -1245,9 +1599,13 @@
 				E5B6B5D81CC56F5800DC8EFC /* WebViewController.swift in Sources */,
 				E51005F51CB69BDE00AC66A5 /* MenuCell.swift in Sources */,
 				E51006F61CBD1B0000AC66A5 /* UserCell.swift in Sources */,
+				E5B6B64E1CC9A48200DC8EFC /* ViewController+ImagePicker.swift in Sources */,
+				E5B6B63E1CC6C40C00DC8EFC /* IntroScene.m in Sources */,
+				E5B6B62F1CC64D4400DC8EFC /* ColorSprayCan.swift in Sources */,
 				E51006C91CBC199B00AC66A5 /* ActivityGroupFollowCell.swift in Sources */,
 				E5B6B5BE1CC56F5800DC8EFC /* SearchStreamablesViewController.swift in Sources */,
 				E5B6B5C61CC56F5800DC8EFC /* FeedbackViewController.swift in Sources */,
+				E5B6B6401CC6C40C00DC8EFC /* LineDrawer.m in Sources */,
 				E510066C1CB7DEB100AC66A5 /* StreamableTrendingCell.swift in Sources */,
 				E50765DF1CB4098D00EAE832 /* Constants.swift in Sources */,
 				E5B6B5CC1CC56F5800DC8EFC /* RecentViewController.swift in Sources */,
@@ -1255,6 +1613,7 @@
 				E5B6B5C01CC56F5800DC8EFC /* SearchUsersViewController.swift in Sources */,
 				E5B6B5AE1CC56F5800DC8EFC /* EditTextFieldViewController.swift in Sources */,
 				E51006371CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
+				E56D1F241CDD1917007B3698 /* ArrayUtils.swift in Sources */,
 				E51007001CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */,
 				E5B6B5B81CC56F5800DC8EFC /* MyNotificationsViewController.swift in Sources */,
 				E5B6B5AC1CC56F5800DC8EFC /* EditProfileViewController.swift in Sources */,
@@ -1278,34 +1637,46 @@
 				E5B6B5DD1CC56F5800DC8EFC /* ResetPasswordViewController.swift in Sources */,
 				E5B6B5C31CC56F5800DC8EFC /* AboutViewController.swift in Sources */,
 				E51006D41CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
+				E5D085A81CD8D30000226589 /* TOActivityCroppedImageProvider.m in Sources */,
 				E51006C21CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */,
 				E5B6B5BB1CC56F5800DC8EFC /* MenuViewController.swift in Sources */,
 				E51006A31CBBCA7B00AC66A5 /* NotificationCommentCell.swift in Sources */,
+				E56D1F231CDD1917007B3698 /* ArrayUtils.swift in Sources */,
 				E5B6B55B1CC4E8AD00DC8EFC /* UserAboutView.swift in Sources */,
 				E5DFDC041CB2C31B00BB3D27 /* Utils.swift in Sources */,
 				E5DFDC071CB2C31B00BB3D27 /* BackButtonTableViewController.swift in Sources */,
 				E5B6B5D51CC56F5800DC8EFC /* UserProfileViewController.swift in Sources */,
 				E5B6B5A51CC56F5800DC8EFC /* HomeViewController.swift in Sources */,
+				E5D085AA1CD8D30000226589 /* TOCropViewControllerTransitioning.m in Sources */,
 				E51006671CB7CE2300AC66A5 /* DateUtils.swift in Sources */,
+				E57FAB3A1CD8B2A800C0D125 /* OrientationNavigationController.swift in Sources */,
+				E57FAB261CD4106E00C0D125 /* DrawToolCell.swift in Sources */,
 				E510063A1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */,
+				E5D085A91CD8D30000226589 /* TOCroppedImageAttributes.m in Sources */,
 				E5DFDC021CB2C31B00BB3D27 /* DialogBuilder.swift in Sources */,
 				E51006A91CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
 				E5B6B5AF1CC56F5800DC8EFC /* EditTextViewController.swift in Sources */,
 				E558A8A61CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */,
 				E5B6B5C91CC56F5800DC8EFC /* SettingsViewController.swift in Sources */,
 				E5B6B5CF1CC56F5800DC8EFC /* ExploreViewController.swift in Sources */,
+				E5D085AF1CD8D30000226589 /* TOCropToolbar.m in Sources */,
 				E51006F11CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
 				E51006D71CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
 				E5B6B5DB1CC56F5800DC8EFC /* LoginViewController.swift in Sources */,
 				E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */,
 				E510065E1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
+				E5B6B6321CC6566100DC8EFC /* ColorSprayCanCell.swift in Sources */,
+				E5A4F1041CE1EDF2005CF12C /* SplashViewController.swift in Sources */,
 				E510069D1CBBB4C900AC66A5 /* NotificationCell.swift in Sources */,
 				E51006A61CBBDD1D00AC66A5 /* NotificationLikeCell.swift in Sources */,
 				E51006FA1CBD1C3B00AC66A5 /* UserListCell.swift in Sources */,
 				E51006D11CBC1F9700AC66A5 /* ActivityGroupLikeCell.swift in Sources */,
+				E5D085AD1CD8D30000226589 /* TOCropOverlayView.m in Sources */,
+				E5B6B6271CC630B000DC8EFC /* CCViewController.m in Sources */,
 				E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */,
 				E51006AC1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */,
 				E51006BF1CBC0FA100AC66A5 /* ActivitySingleLikeCell.swift in Sources */,
+				E5D085AC1CD8D30000226589 /* TOCropViewController.m in Sources */,
 				E51006831CB7FE0F00AC66A5 /* GTLocationManager.swift in Sources */,
 				E5B6B5B31CC56F5800DC8EFC /* ActivityViewController.swift in Sources */,
 				E5B6B5CD1CC56F5800DC8EFC /* ClusterViewController.swift in Sources */,
@@ -1325,26 +1696,62 @@
 				E51006CE1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,
 				E5B6B5D11CC56F5800DC8EFC /* NearMeViewController.swift in Sources */,
 				E5B6B5D71CC56F5800DC8EFC /* WebViewController.swift in Sources */,
+				E5D085AE1CD8D30000226589 /* TOCropScrollView.m in Sources */,
 				E51005F41CB69BDE00AC66A5 /* MenuCell.swift in Sources */,
 				E51006F51CBD1B0000AC66A5 /* UserCell.swift in Sources */,
+				E5B6B64D1CC9A48200DC8EFC /* ViewController+ImagePicker.swift in Sources */,
+				E5B6B63D1CC6C40C00DC8EFC /* IntroScene.m in Sources */,
+				E5B6B62E1CC64D4400DC8EFC /* ColorSprayCan.swift in Sources */,
 				E51006C81CBC199B00AC66A5 /* ActivityGroupFollowCell.swift in Sources */,
 				E5B6B5BD1CC56F5800DC8EFC /* SearchStreamablesViewController.swift in Sources */,
 				E5B6B5C51CC56F5800DC8EFC /* FeedbackViewController.swift in Sources */,
+				E5B6B63F1CC6C40C00DC8EFC /* LineDrawer.m in Sources */,
 				E510066B1CB7DEB100AC66A5 /* StreamableTrendingCell.swift in Sources */,
 				E5DFDC011CB2C31B00BB3D27 /* Constants.swift in Sources */,
 				E5B6B5CB1CC56F5800DC8EFC /* RecentViewController.swift in Sources */,
 				E51006CB1CBC1B8E00AC66A5 /* ActivitySingleCell.swift in Sources */,
 				E5B6B5BF1CC56F5800DC8EFC /* SearchUsersViewController.swift in Sources */,
 				E5B6B5AD1CC56F5800DC8EFC /* EditTextFieldViewController.swift in Sources */,
+				E5D085AB1CD8D30000226589 /* UIImage+CropRotate.m in Sources */,
 				E51006361CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
 				E51006FF1CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */,
 				E5B6B5B71CC56F5800DC8EFC /* MyNotificationsViewController.swift in Sources */,
+				E5D085B01CD8D30000226589 /* TOCropView.m in Sources */,
 				E5B6B5AB1CC56F5800DC8EFC /* EditProfileViewController.swift in Sources */,
 				E510064F1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E5D0857F1CD8D30000226589 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5D085801CD8D30000226589 /* ar */,
+				E5D085811CD8D30000226589 /* Base */,
+				E5D085821CD8D30000226589 /* da */,
+				E5D085831CD8D30000226589 /* de */,
+				E5D085841CD8D30000226589 /* en */,
+				E5D085851CD8D30000226589 /* es */,
+				E5D085861CD8D30000226589 /* fr */,
+				E5D085871CD8D30000226589 /* id */,
+				E5D085881CD8D30000226589 /* it */,
+				E5D085891CD8D30000226589 /* ja */,
+				E5D0858A1CD8D30000226589 /* ko */,
+				E5D085941CD8D30000226589 /* nl */,
+				E5D085951CD8D30000226589 /* pl */,
+				E5D085961CD8D30000226589 /* pt */,
+				E5D085971CD8D30000226589 /* ru */,
+				E5D0859A1CD8D30000226589 /* tr */,
+				E5D0859B1CD8D30000226589 /* vi */,
+				E5D085A51CD8D30000226589 /* zh-Hans */,
+				E5D085A61CD8D30000226589 /* zh-Hant */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E50765F51CB4098D00EAE832 /* Debug */ = {
@@ -1358,7 +1765,7 @@
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Release",
 				);
-				INFOPLIST_FILE = "GraffiTab copy-Info.plist";
+				INFOPLIST_FILE = "GraffiTab/Release-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1368,6 +1775,7 @@
 				PRODUCT_NAME = GraffiTab;
 				PROVISIONING_PROFILE = "abe7d2bf-b5d5-40c5-90b4-db38455dcd42";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1382,7 +1790,7 @@
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Release",
 				);
-				INFOPLIST_FILE = "GraffiTab copy-Info.plist";
+				INFOPLIST_FILE = "GraffiTab/Release-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1392,6 +1800,7 @@
 				PRODUCT_NAME = GraffiTab;
 				PROVISIONING_PROFILE = "abe7d2bf-b5d5-40c5-90b4-db38455dcd42";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1488,16 +1897,96 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/Chipmunk/objectivec/include",
+					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/cocos2d/**",
+					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/Chipmunk/include",
+					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/cocos2d-ui/**",
+					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/ObjectAL/**",
+				);
 				INFOPLIST_FILE = GraffiTab/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs",
+					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/TestFairy",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AlamofireImage\"",
+					"-framework",
+					"\"AlamofireObjectMapper\"",
+					"-framework",
+					"\"BBBadgeBarButtonItem\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"CHTCollectionViewWaterfallLayout\"",
+					"-framework",
+					"\"CSStickyHeaderFlowLayout\"",
+					"-framework",
+					"\"CarbonKit\"",
+					"-framework",
+					"\"DZNEmptyDataSet\"",
+					"-framework",
+					"\"EAIntroView\"",
+					"-framework",
+					"\"EARestrictedScrollView\"",
+					"-framework",
+					"\"FBAnnotationClusteringSwift\"",
+					"-framework",
+					"\"FBLikeLayout\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"JPSThumbnailAnnotation\"",
+					"-framework",
+					"\"JTMaterialTransition\"",
+					"-framework",
+					"\"JVFloatLabeledTextField\"",
+					"-framework",
+					"\"MZAppearance\"",
+					"-framework",
+					"\"MZFormSheetPresentationController\"",
+					"-framework",
+					"\"ObjectMapper\"",
+					"-framework",
+					"\"PTPPlaceholderTextView\"",
+					"-framework",
+					"\"RESideMenu\"",
+					"-framework",
+					"\"RNActivityView\"",
+					"-framework",
+					"\"RSKGrowingTextView\"",
+					"-framework",
+					"\"RSKPlaceholderTextView\"",
+					"-framework",
+					"\"SABlurImageView\"",
+					"-framework",
+					"\"SCLAlertView\"",
+					"-framework",
+					"\"SwiftHEXColors\"",
+					"-framework",
+					"\"TLYShyNavBar\"",
+					"-framework",
+					"\"TPKeyboardAvoiding\"",
+					"-framework",
+					"\"UIActionSheet_Blocks\"",
+					"-framework",
+					"\"iCarousel\"",
+					"-ObjC",
+					"-lz",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "abe7d2bf-b5d5-40c5-90b4-db38455dcd42";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1511,16 +2000,96 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/Chipmunk/objectivec/include",
+					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/cocos2d/**",
+					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/Chipmunk/include",
+					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/cocos2d-ui/**",
+					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/ObjectAL/**",
+				);
 				INFOPLIST_FILE = GraffiTab/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs",
+					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/TestFairy",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AlamofireImage\"",
+					"-framework",
+					"\"AlamofireObjectMapper\"",
+					"-framework",
+					"\"BBBadgeBarButtonItem\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"CHTCollectionViewWaterfallLayout\"",
+					"-framework",
+					"\"CSStickyHeaderFlowLayout\"",
+					"-framework",
+					"\"CarbonKit\"",
+					"-framework",
+					"\"DZNEmptyDataSet\"",
+					"-framework",
+					"\"EAIntroView\"",
+					"-framework",
+					"\"EARestrictedScrollView\"",
+					"-framework",
+					"\"FBAnnotationClusteringSwift\"",
+					"-framework",
+					"\"FBLikeLayout\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"JPSThumbnailAnnotation\"",
+					"-framework",
+					"\"JTMaterialTransition\"",
+					"-framework",
+					"\"JVFloatLabeledTextField\"",
+					"-framework",
+					"\"MZAppearance\"",
+					"-framework",
+					"\"MZFormSheetPresentationController\"",
+					"-framework",
+					"\"ObjectMapper\"",
+					"-framework",
+					"\"PTPPlaceholderTextView\"",
+					"-framework",
+					"\"RESideMenu\"",
+					"-framework",
+					"\"RNActivityView\"",
+					"-framework",
+					"\"RSKGrowingTextView\"",
+					"-framework",
+					"\"RSKPlaceholderTextView\"",
+					"-framework",
+					"\"SABlurImageView\"",
+					"-framework",
+					"\"SCLAlertView\"",
+					"-framework",
+					"\"SwiftHEXColors\"",
+					"-framework",
+					"\"TLYShyNavBar\"",
+					"-framework",
+					"\"TPKeyboardAvoiding\"",
+					"-framework",
+					"\"UIActionSheet_Blocks\"",
+					"-framework",
+					"\"iCarousel\"",
+					"-ObjC",
+					"-lz",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "abe7d2bf-b5d5-40c5-90b4-db38455dcd42";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

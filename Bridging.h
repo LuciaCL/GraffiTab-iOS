@@ -11,6 +11,13 @@
 
 #import "TestFairy.h"
 
+#import "cocos2d.h"
+#import "cocos2d-ui.h"
+#import "IntroScene.h"
+#import "LineDrawer.h"
+#import "CCViewController.h"
+#import "TOCropViewController.h"
+
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 

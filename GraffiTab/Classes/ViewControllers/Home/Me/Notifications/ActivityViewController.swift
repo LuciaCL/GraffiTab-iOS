@@ -23,9 +23,21 @@ class ActivityViewController: BackButtonViewController, CarbonTabSwipeNavigation
         setupCarbonKit()
     }
 
+    override func viewDidLayoutSubviews() {
+        configureTabsSize()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func configureTabsSize() {
+        for (index, _) in (tabs?.enumerate())! {
+            carbonTabSwipeNavigation!.carbonSegmentedControl!.setWidth(self.view.frame.width / CGFloat((tabs?.count)!), forSegmentAtIndex: index)
+        }
+        
+        carbonTabSwipeNavigation!.carbonSegmentedControl?.setNeedsDisplay()
     }
     
     // MARK: - CarbonKitTabSwipeDelegate
@@ -56,11 +68,9 @@ class ActivityViewController: BackButtonViewController, CarbonTabSwipeNavigation
         carbonTabSwipeNavigation!.setIndicatorColor(tintColor)
         carbonTabSwipeNavigation!.setTabExtraWidth(30)
         
-        for (index, _) in (tabs?.enumerate())! {
-            carbonTabSwipeNavigation!.carbonSegmentedControl!.setWidth(self.view.frame.width / CGFloat((tabs?.count)!), forSegmentAtIndex: index)
-        }
-        
         carbonTabSwipeNavigation!.setNormalColor(UIColor.blackColor().colorWithAlphaComponent(0.2))
         carbonTabSwipeNavigation!.setSelectedColor(tintColor!, font: UIFont.boldSystemFontOfSize(14))
+        
+        configureTabsSize()
     }
 }

@@ -78,8 +78,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
     
     func finishExternalProviderSignup(askToImportAvatar: Bool) {
         let avatarImportHandler = {
-            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1.3 * Double(NSEC_PER_SEC)))
-            dispatch_after(delayTime, dispatch_get_main_queue()) {
+            Utils.runWithDelay(1.3) { () in
                 NSNotificationCenter.defaultCenter().postNotificationName(Notifications.UserLoggedIn, object: nil)
             }
         }
@@ -122,8 +121,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
             GTUserManager.login(un!, password: pa!, successBlock: { (response) -> Void in
                 self.view.hideActivityView()
                 
-                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1.3 * Double(NSEC_PER_SEC)))
-                dispatch_after(delayTime, dispatch_get_main_queue()) {
+                Utils.runWithDelay(1.3) { () in
                     NSNotificationCenter.defaultCenter().postNotificationName(Notifications.UserLoggedIn, object: nil)
                 }
             }, failureBlock: { (response) -> Void in
@@ -276,6 +274,12 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         }
         
         return true
+    }
+    
+    // MARK: - Orientation
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [.Portrait, .PortraitUpsideDown]
     }
     
     // MARK: - Setup

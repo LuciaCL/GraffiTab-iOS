@@ -1,0 +1,3 @@
+[submodule "GraffiTab/ExternalLibs/Cocos2d"]
+	path = GraffiTab/ExternalLibs/Cocos2d
+	url = https://github.com/cocos2d/cocos2d-objc.git

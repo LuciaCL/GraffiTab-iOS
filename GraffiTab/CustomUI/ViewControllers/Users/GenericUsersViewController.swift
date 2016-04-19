@@ -48,6 +48,8 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
     
     override func viewDidLayoutSubviews() {
         configureLayout()
+        
+        collectionView.collectionViewLayout.invalidateLayout()
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,7 +67,7 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
         if collectionView != nil {
             configureLayout()
             
-            collectionView.reloadData()
+            collectionView.collectionViewLayout.invalidateLayout()
         }
     }
     

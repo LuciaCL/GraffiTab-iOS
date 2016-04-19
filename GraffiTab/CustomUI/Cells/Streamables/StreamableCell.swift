@@ -42,6 +42,10 @@ class StreamableCell: UICollectionViewCell {
             .responseImage { response in
                 let image = response.result.value
                 
+                if self.item!.asset == nil {
+                    return
+                }
+                
                 if response.request?.URLString == self.getStreamableImageUrl() { // Verify we're still loading the current image.
                     UIView.transitionWithView(self.thumbnail,
                         duration: App.ImageAnimationDuration,
@@ -62,6 +66,10 @@ class StreamableCell: UICollectionViewCell {
                 Alamofire.request(.GET, (item?.user!.avatar?.thumbnail)!)
                     .responseImage { response in
                         let image = response.result.value
+                        
+                        if self.item!.user!.avatar == nil {
+                            return
+                        }
                         
                         if response.request?.URLString == self.item?.user!.avatar?.thumbnail! { // Verify we're still loading the current image.
                             UIView.transitionWithView(self.avatar,

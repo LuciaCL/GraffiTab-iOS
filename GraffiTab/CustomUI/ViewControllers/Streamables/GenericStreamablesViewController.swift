@@ -55,6 +55,8 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     
     override func viewDidLayoutSubviews() {
         configureLayout()
+        
+        collectionView.collectionViewLayout.invalidateLayout()
     }
     
     override func didReceiveMemoryWarning() {
@@ -93,7 +95,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         if collectionView != nil {
             configureLayout()
             
-            collectionView.reloadData()
+            collectionView.collectionViewLayout.invalidateLayout()
         }
     }
     
@@ -155,10 +157,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
                 layout.forceCellWidthForMinimumInteritemSpacing = true
                 layout.fullImagePercentageOfOccurrency = 50
                 collectionView.collectionViewLayout = layout
-                [self.collectionView .reloadData()]
-            }
-            else {
-//                 collectionView.collectionViewLayout.invalidateLayout()
+                self.collectionView.reloadData()
             }
         }
         else if viewType == .Trending {
@@ -168,10 +167,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
                 layout.minimumInteritemSpacing = spacing
                 layout.minimumColumnSpacing = spacing
                 collectionView.collectionViewLayout = layout
-                [self.collectionView .reloadData()]
-            }
-            else {
-//                 collectionView.collectionViewLayout.invalidateLayout()
+                self.collectionView.reloadData()
             }
         }
         else {

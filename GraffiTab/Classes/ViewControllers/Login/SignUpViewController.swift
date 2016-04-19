@@ -129,6 +129,12 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
         return UITableViewAutomaticDimension
     }
     
+    // MARK: - Orientation
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [.Portrait, .PortraitUpsideDown]
+    }
+    
     // MARK: - Setup
     
     func setupTableView() {
@@ -154,7 +160,6 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
         let title = termsLbl.text! as String
         let attString = NSMutableAttributedString(string: title)
         let range = (title as NSString).rangeOfString("Terms of Use")
-        print(range)
         attString.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 99, green: 131, blue: 151, alpha: 1.0), range: range)
         termsLbl.attributedText = attString;
     }

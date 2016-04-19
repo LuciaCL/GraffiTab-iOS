@@ -11,6 +11,7 @@ import CarbonKit
 import BBBadgeBarButtonItem
 import GraffiTab_iOS_SDK
 import JTMaterialTransition
+import Photos
 
 class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDelegate, UIViewControllerTransitioningDelegate {
 
@@ -47,6 +48,10 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         loadUnseenNotificationsCount()
     }
     
+    override func viewDidLayoutSubviews() {
+        configureTabsSize()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -58,12 +63,30 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     }
     
     @IBAction func onClickCreate(sender: AnyObject?) {
-        let vc = UIStoryboard(name: "CreateStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CreateViewController")
+        let successBlock = {
+            let vc = UIStoryboard(name: "CreateStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CreateViewController")
+            
+            vc.modalPresentationStyle = .Custom
+            vc.transitioningDelegate = self
+            
+            self.presentViewController(vc, animated: true, completion: nil)
+        }
         
-        vc.modalPresentationStyle = .Custom
-        vc.transitioningDelegate = self
-        
-        self.presentViewController(vc, animated: true, completion: nil)
+        PHPhotoLibrary.requestAuthorization { status in
+            dispatch_async(dispatch_get_main_queue(),{
+                switch status {
+                    case .Authorized:
+                        successBlock()
+                        break
+                    case .Restricted, .Denied:
+                        successBlock()
+                        break
+                    default:
+                        successBlock()
+                        break
+                }
+            })
+        }
     }
     
     @IBAction func onClickProfile(sender: AnyObject?) {
@@ -80,6 +103,14 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     
     @IBAction func onClickSettings(sender: AnyObject?) {
         performSegueWithIdentifier("SEGUE_SETTINGS", sender: sender)
+    }
+    
+    func configureTabsSize() {
+        for (index, _) in (tabs?.enumerate())! {
+            carbonTabSwipeNavigation!.carbonSegmentedControl!.setWidth(self.view.frame.width / CGFloat((tabs?.count)!), forSegmentAtIndex: index)
+        }
+        
+        carbonTabSwipeNavigation!.carbonSegmentedControl?.setNeedsDisplay()
     }
     
     // MARK: - Navigation
@@ -117,7 +148,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition?.reverse = false
-        
+        print("\(presented), \(presenting), \(source)")
         return transition
     }
     
@@ -163,12 +194,10 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         carbonTabSwipeNavigation!.setIndicatorColor(tintColor)
         carbonTabSwipeNavigation!.setTabExtraWidth(30)
         
-        for (index, _) in (tabs?.enumerate())! {
-            carbonTabSwipeNavigation!.carbonSegmentedControl!.setWidth(self.view.frame.width / CGFloat((tabs?.count)!), forSegmentAtIndex: index)
-        }
-        
         carbonTabSwipeNavigation!.setNormalColor(UIColor.blackColor().colorWithAlphaComponent(0.2))
         carbonTabSwipeNavigation!.setSelectedColor(tintColor!, font: UIFont.boldSystemFontOfSize(14))
+        
+        configureTabsSize()
     }
     
     func setupButtons() {

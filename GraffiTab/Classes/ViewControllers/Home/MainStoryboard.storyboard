@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="-900" y="1115"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Orientation Navigation Controller-->
         <scene sceneID="Zqi-DI-mvL">
             <objects>
-                <navigationController storyboardIdentifier="HomeViewController" id="huk-Ch-8en" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeViewController" id="huk-Ch-8en" customClass="OrientationNavigationController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="anS-sH-ufs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1163,10 +1163,10 @@
             </objects>
             <point key="canvasLocation" x="-189" y="3269"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Orientation Navigation Controller-->
         <scene sceneID="IhD-Bt-CiH">
             <objects>
-                <navigationController id="jsF-8F-xDQ" sceneMemberID="viewController">
+                <navigationController id="jsF-8F-xDQ" customClass="OrientationNavigationController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RiH-Hz-lRO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2617,10 +2617,10 @@
             </objects>
             <point key="canvasLocation" x="1215" y="395"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Orientation Navigation Controller-->
         <scene sceneID="sSJ-Pc-cDe">
             <objects>
-                <navigationController storyboardIdentifier="ClusterViewController" id="fJc-ef-KyH" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ClusterViewController" id="fJc-ef-KyH" customClass="OrientationNavigationController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="koj-e6-SzH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

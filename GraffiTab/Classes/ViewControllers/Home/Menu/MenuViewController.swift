@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MenuViewController: BackButtonViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -56,8 +56,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let mainVC = UIApplication.sharedApplication().delegate?.window??.rootViewController as! MenuContainerViewController
         mainVC.hideMenuViewController()
         
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
+        Utils.runWithDelay(0.3) { () in
             let nav = mainVC.contentViewController as! UINavigationController
             let homeVC = nav.viewControllers.first as! HomeViewController
             

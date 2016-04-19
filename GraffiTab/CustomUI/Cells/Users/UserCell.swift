@@ -37,6 +37,10 @@ class UserCell: UICollectionViewCell {
                 .responseImage { response in
                     let image = response.result.value
                     
+                    if self.item!.avatar == nil {
+                        return
+                    }
+                    
                     if response.request?.URLString == self.item!.avatar!.thumbnail! { // Verify we're still loading the current image.
                         UIView.transitionWithView(self.avatar,
                             duration: App.ImageAnimationDuration,

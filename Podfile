@@ -30,6 +30,7 @@ def common_pods
     pod 'TLYShyNavBar'
     pod 'FBLikeLayout'
     pod 'CHTCollectionViewWaterfallLayout'
+    pod 'ALGReversedFlowLayout'
 end
 
 target 'GraffiTab' do

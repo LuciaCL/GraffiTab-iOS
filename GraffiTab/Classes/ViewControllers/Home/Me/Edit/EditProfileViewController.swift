@@ -15,7 +15,7 @@ enum ImageType {
     case Cover
 }
 
-class EditProfileViewController: BackButtonTableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditProfileViewController: BackButtonTableViewController {
 
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var cover: UIImageView!
@@ -27,7 +27,6 @@ class EditProfileViewController: BackButtonTableViewController, UIImagePickerCon
     
     var user: GTUser = GTSettings.sharedInstance.user!
     var imageType: ImageType?
-    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +34,6 @@ class EditProfileViewController: BackButtonTableViewController, UIImagePickerCon
         // Do any additional setup after loading the view.
         
         setupImageViews()
-        setupImagePicker()
         
         loadData()
     }
@@ -76,8 +74,7 @@ class EditProfileViewController: BackButtonTableViewController, UIImagePickerCon
             self.user = GTSettings.sharedInstance.user!
             self.loadData()
             
-            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
-            dispatch_after(delayTime, dispatch_get_main_queue()) {
+            Utils.runWithDelay(0.3) { () in
                 DialogBuilder.showSuccessAlert("Your profile has been changed!", title: App.Title)
             }
         }, failureBlock: { (response) in
@@ -94,48 +91,13 @@ class EditProfileViewController: BackButtonTableViewController, UIImagePickerCon
     
     // MARK: - Images
     
-    func askForImage() {
-        UIActionSheet.showInView(self.view, withTitle: "What would you like to do?", cancelButtonTitle: "Cancel", destructiveButtonTitle: "Remove image", otherButtonTitles: ["Choose from gallery", "Take new"], tapBlock: { (actionSheet, index) in
-            if index == 0 {
-                self.saveImage(nil)
-            }
-            else if index == 1 {
-                self.chooseFromGallery()
-            }
-            else if index == 2 {
-                self.takeNew()
-            }
-        })
-    }
-    
-    func chooseFromGallery() {
-        if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
-            imagePicker.sourceType = .PhotoLibrary
-            presentViewController(imagePicker, animated: true, completion: nil)
-        }
-        else {
-            print("DEBUG: Source type .PhotoLibrary not available")
-        }
-    }
-    
-    func takeNew() {
-        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            imagePicker.sourceType = .Camera
-            presentViewController(imagePicker, animated: true, completion: nil)
-        }
-        else {
-            print("DEBUG: Source type .Camera not available")
-        }
-    }
-    
-    func saveImage(image: UIImage?) {
+    override func didChooseImage(image: UIImage?) {
         let avatarSuccessBlock = {
             self.view.hideActivityView()
             
             self.loadAvatar()
             
-            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
-            dispatch_after(delayTime, dispatch_get_main_queue()) {
+            Utils.runWithDelay(0.3) { () in
                 DialogBuilder.showSuccessAlert("Your avatar has been changed!", title: App.Title)
             }
         }
@@ -144,8 +106,7 @@ class EditProfileViewController: BackButtonTableViewController, UIImagePickerCon
             
             self.loadCover()
             
-            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
-            dispatch_after(delayTime, dispatch_get_main_queue()) {
+            Utils.runWithDelay(0.3) { () in
                 DialogBuilder.showSuccessAlert("Your cover has been changed!", title: App.Title)
             }
         }
@@ -202,6 +163,13 @@ class EditProfileViewController: BackButtonTableViewController, UIImagePickerCon
                 })
             }
         }
+    }
+    
+    override func cropAspectRatio() -> CGSize {
+        let width = CGFloat(imageType == .Avatar ? 300 : 1024);
+        let height = imageType == .Avatar ? width : 768;
+        
+        return CGSizeMake(width, width / (width / height))
     }
     
     // MARK: - Loading
@@ -311,16 +279,6 @@ class EditProfileViewController: BackButtonTableViewController, UIImagePickerCon
         }
     }
     
-    // MARK: - UIImagePickerControllerDelegate
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            saveImage(pickedImage)
-        }
-        
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     // MARK: - UITableViewDelegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -362,10 +320,5 @@ class EditProfileViewController: BackButtonTableViewController, UIImagePickerCon
     
     func setupImageViews() {
         cover.layer.cornerRadius = 5
-    }
-    
-    func setupImagePicker() {
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
     }
 }

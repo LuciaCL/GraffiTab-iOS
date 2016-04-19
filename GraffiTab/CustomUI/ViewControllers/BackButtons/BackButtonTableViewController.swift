@@ -23,6 +23,18 @@ class BackButtonTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Orientation
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return .All
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
+        // TODO: Respond to size change.
+    }
+    
     // MARK: - Setup
     
     func setupTopBar() {

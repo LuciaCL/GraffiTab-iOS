@@ -95,6 +95,12 @@ class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate
         return true
     }
     
+    // MARK: - Orientation
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [.Portrait, .PortraitUpsideDown]
+    }
+    
     // MARK: - Setup
     
     func setupButtons() {

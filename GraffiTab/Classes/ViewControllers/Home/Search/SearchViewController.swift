@@ -9,7 +9,7 @@
 import UIKit
 import CarbonKit
 
-class SearchViewController: BackButtonViewController, UISearchBarDelegate {
+class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDelegate, UISearchBarDelegate {
 
     @IBOutlet var searchBar: UISearchBar!
     
@@ -31,9 +31,21 @@ class SearchViewController: BackButtonViewController, UISearchBarDelegate {
         searchBar.becomeFirstResponder()
     }
     
+    override func viewDidLayoutSubviews() {
+        configureTabsSize()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func configureTabsSize() {
+        for (index, _) in (tabs?.enumerate())! {
+            carbonTabSwipeNavigation!.carbonSegmentedControl!.setWidth(self.view.frame.width / CGFloat((tabs?.count)!), forSegmentAtIndex: index)
+        }
+        
+        carbonTabSwipeNavigation!.carbonSegmentedControl?.setNeedsDisplay()
     }
     
     // MARK: - CarbonKitTabSwipeDelegate
@@ -61,8 +73,7 @@ class SearchViewController: BackButtonViewController, UISearchBarDelegate {
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
+        Utils.runWithDelay(0.3) { () in
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
@@ -89,11 +100,9 @@ class SearchViewController: BackButtonViewController, UISearchBarDelegate {
         carbonTabSwipeNavigation!.setIndicatorColor(tintColor)
         carbonTabSwipeNavigation!.setTabExtraWidth(30)
         
-        for (index, _) in (tabs?.enumerate())! {
-            carbonTabSwipeNavigation!.carbonSegmentedControl!.setWidth(self.view.frame.width / CGFloat((tabs?.count)!), forSegmentAtIndex: index)
-        }
-        
         carbonTabSwipeNavigation!.setNormalColor(UIColor.blackColor().colorWithAlphaComponent(0.2))
         carbonTabSwipeNavigation!.setSelectedColor(tintColor!, font: UIFont.boldSystemFontOfSize(14))
+        
+        configureTabsSize()
     }
 }

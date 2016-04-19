@@ -25,4 +25,5 @@ struct Colors {
 struct App {
     static let Title = "GraffiTab"
     static let ImageAnimationDuration = 0.2
+    static let ColorsPerRow = 4
 }

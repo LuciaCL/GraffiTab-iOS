@@ -23,4 +23,20 @@ class Utils: NSObject {
         layer.shadowRadius = 2.0
         view.clipsToBounds = false
     }
+    
+    class func applyCanvasShadowEffectToView(view: UIView) {
+        let layer = view.layer
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOpacity = 0.3
+        layer.shadowOffset = CGSizeMake(-2, -2)
+        layer.shadowRadius = 2.0
+        view.clipsToBounds = false
+    }
+    
+    class func runWithDelay(sec: Double, block: (Void) -> Void) {
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(sec * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            block()
+        }
+    }
 }
