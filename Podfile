@@ -32,6 +32,7 @@ def common_pods
     pod 'CHTCollectionViewWaterfallLayout'
     pod 'ALGReversedFlowLayout'
     pod 'SlackTextViewController'
+    pod 'ActiveLabel'
 end
 
 target 'GraffiTab' do

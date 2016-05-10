@@ -25,6 +25,14 @@ class CommentsViewController: BackButtonSlackViewController {
         setupSlackController()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if self.navigationController!.navigationBarHidden {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -104,8 +112,6 @@ class CommentsViewController: BackButtonSlackViewController {
         // Fixes the cell from blinking (because of the transform, when using translucent cells)
         // See https://github.com/slackhq/SlackTextViewController/issues/94#issuecomment-69929927
         self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        
-//        self.checkNoItemsHeader()
         
 //        self.findAutocompletes()
         

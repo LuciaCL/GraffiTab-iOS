@@ -9,11 +9,12 @@
 import UIKit
 import GraffiTab_iOS_SDK
 import Alamofire
+import ActiveLabel
 
 class CommentCell: UITableViewCell {
 
     @IBOutlet weak var nameLbl: UILabel!
-    @IBOutlet weak var textLbl: UILabel!
+    @IBOutlet weak var textLbl: ActiveLabel!
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var avatar: AvatarImageView!
     
@@ -21,6 +22,12 @@ class CommentCell: UITableViewCell {
     
     class func reusableIdentifier() -> String {
         return "CommentCell"
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setupLabels()
     }
     
     func setItem(item: GTComment?) {
@@ -64,6 +71,24 @@ class CommentCell: UITableViewCell {
                             completion: nil)
                     }
             }
+        }
+    }
+    
+    // MARK: - Setup
+    
+    func setupLabels() {
+        textLbl.hashtagColor = UIColor(hexString: Colors.Awesome)!
+        textLbl.mentionColor = UIColor(hexString: Colors.Awesome)!
+        textLbl.URLColor = UIColor(hexString: Colors.Links)!
+        
+        textLbl.handleURLTap { (url) in
+            print(url)
+        }
+        textLbl.handleHashtagTap { (hashtag) in
+            print(hashtag)
+        }
+        textLbl.handleMentionTap { (mention) in
+            print(mention)
         }
     }
 }
