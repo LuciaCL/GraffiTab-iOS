@@ -19,7 +19,7 @@ enum StreamableViewType : Int {
     case Mosaic
 }
 
-class GenericStreamablesViewController: BackButtonViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CHTCollectionViewDelegateWaterfallLayout {
+class GenericStreamablesViewController: BackButtonViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CHTCollectionViewDelegateWaterfallLayout, StreamableDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
@@ -279,6 +279,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
             
             cell.setItem(items[indexPath.row])
             cell.thumbnail.backgroundColor = UIColor(hexString: colorPallete[indexPath.row % colorPallete.count])
+            cell.delegate = self
             
             return cell
         }
@@ -287,6 +288,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
             
             cell.setItem(items[indexPath.row])
             cell.thumbnail.backgroundColor = UIColor(hexString: colorPallete[indexPath.row % colorPallete.count])
+            cell.delegate = self
             
             return cell
         }
@@ -294,6 +296,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(StreamableListFullCell.reusableIdentifier(), forIndexPath: indexPath) as! StreamableListFullCell
             
             cell.setItem(items[indexPath.row])
+            cell.delegate = self
             
             // Set offset accordingly.
 //            cell.setImageOffset(CGPoint(x: 0, y: computeOffsetForCell(cell)))
@@ -393,6 +396,32 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     
     func emptyDataSetShouldAllowScroll(scrollView: UIScrollView!) -> Bool {
         return false
+    }
+    
+    // MARK: - StreamableDelegate
+    
+    func didTapLikes(streamable: GTStreamable) {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("LikersViewController") as! LikersViewController
+        vc.streamable = streamable
+        
+        if self.navigationController != nil {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            assert(false, "Unable to show likers - Unknown parent.")
+        }
+    }
+    
+    func didTapComments(streamable: GTStreamable) {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CommentsViewController") as! CommentsViewController
+        vc.streamable = streamable
+        
+        if self.navigationController != nil {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            assert(false, "Unable to show likers - Unknown parent.")
+        }
     }
     
     // MARK: - Setup

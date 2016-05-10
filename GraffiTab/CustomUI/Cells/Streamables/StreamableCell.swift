@@ -11,11 +11,18 @@ import GraffiTab_iOS_SDK
 import Alamofire
 import AlamofireImage
 
+protocol StreamableDelegate {
+    
+    func didTapLikes(streamable: GTStreamable)
+    func didTapComments(streamable: GTStreamable)
+}
+
 class StreamableCell: UICollectionViewCell {
     
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var thumbnail: UIImageView!
     
+    var delegate: StreamableDelegate?
     var item: GTStreamable?
     
     class func reusableIdentifier() -> String {
@@ -31,6 +38,18 @@ class StreamableCell: UICollectionViewCell {
     
     func getStreamableImageUrl() -> String {
         return item!.asset!.thumbnail!
+    }
+    
+    @IBAction func onClickLikers(sender: AnyObject) {
+        if delegate != nil {
+            delegate?.didTapLikes(item!)
+        }
+    }
+    
+    @IBAction func onClickComments(sender: AnyObject) {
+        if delegate != nil {
+            delegate?.didTapComments(item!)
+        }
     }
     
     // MARK: - Loading

@@ -31,6 +31,7 @@ def common_pods
     pod 'FBLikeLayout'
     pod 'CHTCollectionViewWaterfallLayout'
     pod 'ALGReversedFlowLayout'
+    pod 'SlackTextViewController'
 end
 
 target 'GraffiTab' do

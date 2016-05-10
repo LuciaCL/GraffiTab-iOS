@@ -30,6 +30,7 @@ class StreamableListFullCell: StreamableCell {
         // Initialization code
         
         setupContainerViews()
+        setupGestureRecognizers()
     }
     
     override func setItem(item: GTStreamable?) {
@@ -41,10 +42,8 @@ class StreamableListFullCell: StreamableCell {
         self.nameField.text = item!.user?.getFullName();
         self.usernameField.text = item!.user?.getMentionUsername();
         
-        let likesCount = 0
-        let commentsCount = 0
-        self.likesLbl.text = String(format: "%i %@", likesCount, likesCount == 1 ? "Like" : "Likes");
-        self.commentsLbl.text = String(format: "%i %@", commentsCount, commentsCount == 1 ? "Comment" : "Comments");
+        self.likesLbl.text = String(format: "%i %@", item!.likersCount!, item!.likersCount! == 1 ? "Like" : "Likes");
+        self.commentsLbl.text = String(format: "%i %@", item!.commentsCount!, item!.commentsCount! == 1 ? "Comment" : "Comments");
     }
     
     override func getStreamableImageUrl() -> String {
@@ -55,5 +54,10 @@ class StreamableListFullCell: StreamableCell {
     
     func setupContainerViews() {
         Utils.applyShadowEffectToView(containerView)
+    }
+    
+    func setupGestureRecognizers() {
+        likesLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickLikers)))
+        commentsLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickComments)))
     }
 }

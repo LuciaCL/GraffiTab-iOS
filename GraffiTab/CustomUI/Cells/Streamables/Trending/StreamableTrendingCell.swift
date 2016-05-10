@@ -14,7 +14,9 @@ class StreamableTrendingCell: StreamableCell {
     @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var usernameField: UILabel!
     @IBOutlet weak var likesLbl: UILabel!
+    @IBOutlet weak var likesImg: TintImageView!
     @IBOutlet weak var commentsLbl: UILabel!
+    @IBOutlet weak var commentsImg: TintImageView!
     
     override class func reusableIdentifier() -> String {
         return "StreamableTrendingCell"
@@ -24,6 +26,7 @@ class StreamableTrendingCell: StreamableCell {
         super.awakeFromNib()
         
         setupContainerViews()
+        setupGestureRecognizers()
     }
     
     override func setItem(item: GTStreamable?) {
@@ -33,15 +36,20 @@ class StreamableTrendingCell: StreamableCell {
         self.nameField.text = item!.user?.getFullName();
         self.usernameField.text = item!.user?.getMentionUsername();
         
-        let likesCount = 0
-        let commentsCount = 0
-        self.likesLbl.text = String(format: "%i", likesCount);
-        self.commentsLbl.text = String(format: "%i", commentsCount);
+        self.likesLbl.text = String(format: "%i", item!.likersCount!);
+        self.commentsLbl.text = String(format: "%i", item!.commentsCount!);
     }
     
     // MARK: - Setup
     
     func setupContainerViews() {
         Utils.applyShadowEffectToView(self)
+    }
+    
+    func setupGestureRecognizers() {
+        likesLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickLikers)))
+        likesImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickLikers)))
+        commentsLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickComments)))
+        commentsImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickComments)))
     }
 }
