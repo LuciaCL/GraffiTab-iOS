@@ -254,6 +254,14 @@
 		E5D085AE1CD8D30000226589 /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A01CD8D30000226589 /* TOCropScrollView.m */; };
 		E5D085AF1CD8D30000226589 /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A21CD8D30000226589 /* TOCropToolbar.m */; };
 		E5D085B01CD8D30000226589 /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A41CD8D30000226589 /* TOCropView.m */; };
+		E5DAA8971CE37A26000CB2F4 /* AutocompleteHashCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAA8951CE37A26000CB2F4 /* AutocompleteHashCell.swift */; };
+		E5DAA8981CE37A26000CB2F4 /* AutocompleteHashCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAA8951CE37A26000CB2F4 /* AutocompleteHashCell.swift */; };
+		E5DAA8991CE37A26000CB2F4 /* AutocompleteHashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DAA8961CE37A26000CB2F4 /* AutocompleteHashCell.xib */; };
+		E5DAA89A1CE37A26000CB2F4 /* AutocompleteHashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DAA8961CE37A26000CB2F4 /* AutocompleteHashCell.xib */; };
+		E5DAA89D1CE37A5F000CB2F4 /* AutocompleteUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAA89B1CE37A5F000CB2F4 /* AutocompleteUserCell.swift */; };
+		E5DAA89E1CE37A5F000CB2F4 /* AutocompleteUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAA89B1CE37A5F000CB2F4 /* AutocompleteUserCell.swift */; };
+		E5DAA89F1CE37A5F000CB2F4 /* AutocompleteUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DAA89C1CE37A5F000CB2F4 /* AutocompleteUserCell.xib */; };
+		E5DAA8A01CE37A5F000CB2F4 /* AutocompleteUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DAA89C1CE37A5F000CB2F4 /* AutocompleteUserCell.xib */; };
 		E5DFDBD61CB2BF9E00BB3D27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBD51CB2BF9E00BB3D27 /* AppDelegate.swift */; };
 		E5DFDBDD1CB2BF9E00BB3D27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDBDC1CB2BF9E00BB3D27 /* Assets.xcassets */; };
 		E5DFDC011CB2C31B00BB3D27 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBE91CB2C31B00BB3D27 /* Constants.swift */; };
@@ -493,6 +501,10 @@
 		E5D085A41CD8D30000226589 /* TOCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropView.m; sourceTree = "<group>"; };
 		E5D085A51CD8D30000226589 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
 		E5D085A61CD8D30000226589 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
+		E5DAA8951CE37A26000CB2F4 /* AutocompleteHashCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteHashCell.swift; sourceTree = "<group>"; };
+		E5DAA8961CE37A26000CB2F4 /* AutocompleteHashCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocompleteHashCell.xib; sourceTree = "<group>"; };
+		E5DAA89B1CE37A5F000CB2F4 /* AutocompleteUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteUserCell.swift; sourceTree = "<group>"; };
+		E5DAA89C1CE37A5F000CB2F4 /* AutocompleteUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocompleteUserCell.xib; sourceTree = "<group>"; };
 		E5DFDBD21CB2BF9E00BB3D27 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DFDBD51CB2BF9E00BB3D27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5DFDBDC1CB2BF9E00BB3D27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -809,6 +821,7 @@
 		E5A4F12B1CE22580005CF12C /* Comments */ = {
 			isa = PBXGroup;
 			children = (
+				E5DAA88F1CE37A01000CB2F4 /* Autocomplete */,
 				E5A4F12C1CE225AA005CF12C /* CommentCell.swift */,
 				E5A4F12D1CE225AA005CF12C /* CommentCell.xib */,
 			);
@@ -1097,6 +1110,17 @@
 				E5D085A41CD8D30000226589 /* TOCropView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E5DAA88F1CE37A01000CB2F4 /* Autocomplete */ = {
+			isa = PBXGroup;
+			children = (
+				E5DAA8951CE37A26000CB2F4 /* AutocompleteHashCell.swift */,
+				E5DAA8961CE37A26000CB2F4 /* AutocompleteHashCell.xib */,
+				E5DAA89B1CE37A5F000CB2F4 /* AutocompleteUserCell.swift */,
+				E5DAA89C1CE37A5F000CB2F4 /* AutocompleteUserCell.xib */,
+			);
+			path = Autocomplete;
 			sourceTree = "<group>";
 		};
 		E5DFDBC91CB2BF9E00BB3D27 = {
@@ -1441,6 +1465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E50765EB1CB4098D00EAE832 /* LaunchScreen.storyboard in Resources */,
+				E5DAA89A1CE37A26000CB2F4 /* AutocompleteHashCell.xib in Resources */,
 				E50765ED1CB4098D00EAE832 /* Assets.xcassets in Resources */,
 				E554CFDF1CB5641B00668D85 /* terms.html in Resources */,
 				E5B6B5531CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib in Resources */,
@@ -1454,6 +1479,7 @@
 				E51006FD1CBD1C3B00AC66A5 /* UserListCell.xib in Resources */,
 				E554CFDD1CB5641B00668D85 /* release_notes.html in Resources */,
 				E5B6B5A81CC56F5800DC8EFC /* MainStoryboard.storyboard in Resources */,
+				E5DAA8A01CE37A5F000CB2F4 /* AutocompleteUserCell.xib in Resources */,
 				E510066E1CB7DEB100AC66A5 /* StreamableTrendingCell.xib in Resources */,
 				E50765EF1CB4098D00EAE832 /* Default-568h@2x.png in Resources */,
 				E5B6B55F1CC4E8D400DC8EFC /* UserAboutView.xib in Resources */,
@@ -1474,6 +1500,7 @@
 				E554CFDE1CB5641B00668D85 /* terms.html in Resources */,
 				E5B6B5521CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib in Resources */,
 				E51006641CB7BC5A00AC66A5 /* StreamableListFullCell.xib in Resources */,
+				E5DAA89F1CE37A5F000CB2F4 /* AutocompleteUserCell.xib in Resources */,
 				E5B6B5A11CC56F5800DC8EFC /* CreateStoryboard.storyboard in Resources */,
 				E5B6B5E11CC56F5800DC8EFC /* SplashStoryboard.storyboard in Resources */,
 				E51CD0CF1CD0C77800D56C58 /* Eraser.png in Resources */,
@@ -1485,6 +1512,7 @@
 				E5D085A71CD8D30000226589 /* TOCropViewControllerLocalizable.strings in Resources */,
 				E5B6B5A71CC56F5800DC8EFC /* MainStoryboard.storyboard in Resources */,
 				E510066D1CB7DEB100AC66A5 /* StreamableTrendingCell.xib in Resources */,
+				E5DAA8991CE37A26000CB2F4 /* AutocompleteHashCell.xib in Resources */,
 				E5DFDC0D1CB2C39200BB3D27 /* Default-568h@2x.png in Resources */,
 				E5B6B6141CC5B24500DC8EFC /* Release-Info.plist in Resources */,
 				E5B6B55E1CC4E8D400DC8EFC /* UserAboutView.xib in Resources */,
@@ -1606,6 +1634,7 @@
 				E51006C31CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */,
 				E5B6B5BC1CC56F5800DC8EFC /* MenuViewController.swift in Sources */,
 				E51006A41CBBCA7B00AC66A5 /* NotificationCommentCell.swift in Sources */,
+				E5DAA8981CE37A26000CB2F4 /* AutocompleteHashCell.swift in Sources */,
 				E5B6B55C1CC4E8AD00DC8EFC /* UserAboutView.swift in Sources */,
 				E5A4F12A1CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */,
 				E50765D71CB4098D00EAE832 /* Utils.swift in Sources */,
@@ -1652,6 +1681,7 @@
 				E50765DD1CB4098D00EAE832 /* BackButtonViewController.swift in Sources */,
 				E5B6B54D1CC25A0E00DC8EFC /* AvatarImageView.swift in Sources */,
 				E5B6B5E01CC56F5800DC8EFC /* SignUpViewController.swift in Sources */,
+				E5DAA89E1CE37A5F000CB2F4 /* AutocompleteUserCell.swift in Sources */,
 				E51006E01CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */,
 				E51006CF1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,
 				E5B6B5D21CC56F5800DC8EFC /* NearMeViewController.swift in Sources */,
@@ -1701,6 +1731,7 @@
 				E5B6B5C31CC56F5800DC8EFC /* AboutViewController.swift in Sources */,
 				E51006D41CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
 				E5D085A81CD8D30000226589 /* TOActivityCroppedImageProvider.m in Sources */,
+				E5DAA89D1CE37A5F000CB2F4 /* AutocompleteUserCell.swift in Sources */,
 				E51006C21CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */,
 				E5A4F13D1CE34846005CF12C /* GTComment+Sender.swift in Sources */,
 				E5B6B5BB1CC56F5800DC8EFC /* MenuViewController.swift in Sources */,
@@ -1739,6 +1770,7 @@
 				E5B6B6271CC630B000DC8EFC /* CCViewController.m in Sources */,
 				E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */,
 				E51006AC1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */,
+				E5DAA8971CE37A26000CB2F4 /* AutocompleteHashCell.swift in Sources */,
 				E51006BF1CBC0FA100AC66A5 /* ActivitySingleLikeCell.swift in Sources */,
 				E5D085AC1CD8D30000226589 /* TOCropViewController.m in Sources */,
 				E51006831CB7FE0F00AC66A5 /* GTLocationManager.swift in Sources */,

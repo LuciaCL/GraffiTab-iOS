@@ -13,6 +13,7 @@ import ObjectMapper
 class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
 
     var items = [GTComment]()
+    var searchResults = NSMutableArray()
     var isDownloading = false
     var streamable: GTStreamable?
     var commentToEdit: GTComment?
@@ -103,20 +104,40 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     // MARK: - UITableViewDelegate
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        if tableView == self.tableView {
+            return items.count
+        }
+        
+        return searchResults.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(CommentCell.reusableIdentifier()) as! CommentCell
-        
-        cell.item = items[indexPath.row]
-        cell.delegate = self
-        
-        // Cells must inherit the table view's transform
-        // This is very important, since the main table view may be inverted
-        cell.transform = self.tableView.transform
-        
-        return cell
+        if tableView == self.tableView {
+            let cell = tableView.dequeueReusableCellWithIdentifier(CommentCell.reusableIdentifier()) as! CommentCell
+            
+            cell.item = items[indexPath.row]
+            cell.delegate = self
+            
+            // Cells must inherit the table view's transform
+            // This is very important, since the main table view may be inverted
+            cell.transform = self.tableView.transform
+            
+            return cell
+        }
+        else {
+            if self.foundPrefix == "@" {
+                let cell = tableView.dequeueReusableCellWithIdentifier(AutocompleteUserCell.reusableIdentifier()) as! AutocompleteUserCell
+                cell.item = searchResults[indexPath.row] as? GTUser
+                return cell
+            }
+            else if self.foundPrefix == "#" {
+                let cell = tableView.dequeueReusableCellWithIdentifier(AutocompleteHashCell.reusableIdentifier()) as! AutocompleteHashCell
+                cell.item = searchResults[indexPath.row] as? String
+                return cell
+            }
+            
+            assert(false, "Unsupported prefix - \(self.foundPrefix)")
+        }
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -140,40 +161,54 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let comment = items[indexPath.row]
-        var actions: [String]
-        var destructiveTitle: String?
-        let canEdit = comment.user!.isEqual(GTSettings.sharedInstance.user)
-        if canEdit {
-            actions = ["Edit", "Copy"]
-            destructiveTitle = "Delete"
+        if tableView == self.tableView {
+            let comment = items[indexPath.row]
+            var actions: [String]
+            var destructiveTitle: String?
+            let canEdit = comment.user!.isEqual(GTSettings.sharedInstance.user)
+            if canEdit {
+                actions = ["Edit", "Copy"]
+                destructiveTitle = "Delete"
+            }
+            else {
+                actions = ["Copy"]
+            }
+            
+            UIActionSheet.showInView(view, withTitle: "What would you like to do?", cancelButtonTitle: "Cancel", destructiveButtonTitle: destructiveTitle, otherButtonTitles: actions, tapBlock: { (actionSheet, index) in
+                Utils.runWithDelay(0.3, block: {
+                    if canEdit {
+                        if index == 0 { // Delete.
+                            self.doDeleteComment(comment, shouldDeleteRemotely: true)
+                        }
+                        else if index == 1 { // Edit.
+                            self.commentToEdit = comment
+                            self.editText(comment.text)
+                            self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
+                        }
+                        else if index == 2 { // Copy.
+                            UIPasteboard.generalPasteboard().string = comment.text
+                        }
+                    }
+                    else {
+                        if index == 0 { // Copy.
+                            UIPasteboard.generalPasteboard().string = comment.text
+                        }
+                    }
+                })
+            })
         }
         else {
-            actions = ["Copy"]
+            var string: String?
+            if self.foundPrefix == "@" {
+                string = (searchResults[indexPath.row] as? GTUser)?.username
+            }
+            else {
+                string = searchResults[indexPath.row] as? String
+            }
+            
+            string = string! + " "
+            self.acceptAutoCompletionWithString(string, keepPrefix: true)
         }
-        
-        UIActionSheet.showInView(view, withTitle: "What would you like to do?", cancelButtonTitle: "Cancel", destructiveButtonTitle: destructiveTitle, otherButtonTitles: actions, tapBlock: { (actionSheet, index) in
-            Utils.runWithDelay(0.3, block: {
-                if canEdit {
-                    if index == 0 { // Delete.
-                        self.doDeleteComment(comment, shouldDeleteRemotely: true)
-                    }
-                    else if index == 1 { // Edit.
-                        self.commentToEdit = comment
-                        self.editText(comment.text)
-                        self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
-                    }
-                    else if index == 2 { // Copy.
-                        UIPasteboard.generalPasteboard().string = comment.text
-                    }
-                }
-                else {
-                    if index == 0 { // Copy.
-                        UIPasteboard.generalPasteboard().string = comment.text
-                    }
-                }
-            })
-        })
     }
     
     // MARK: - SLKTextViewController
@@ -212,8 +247,6 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         // See https://github.com/slackhq/SlackTextViewController/issues/94#issuecomment-69929927
         self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         
-//        self.findAutocompletes()
-        
         super.didPressRightButton(sender)
     }
     
@@ -233,14 +266,39 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         super.didCommitTextEditing(sender)
     }
     
-    override func canShowAutoCompletion() -> Bool {
-        // TODO:
-        return false
+    override func didChangeAutoCompletionPrefix(prefix: String!, andWord word: String!) {
+        searchResults.removeAllObjects()
+        
+        if prefix == "@" {
+            if word.characters.count > 0 {
+                GTUserManager.search(word, successBlock: { (response) in
+                    let listItemsResult = response.object as! GTListItemsResult<GTUser>
+                    self.searchResults.addObjectsFromArray(listItemsResult.items!)
+                    
+                    let show = (self.searchResults.count > 0)
+                    self.showAutoCompletionView(show)
+                    }, failureBlock: { (response) in
+                        
+                })
+            }
+        }
+        else if prefix == "#" {
+            if word.characters.count > 0 {
+                GTStreamableManager.searchHashtags(word, successBlock: { (response) in
+                    let listItemsResult = response.object as! GTListItemsResult<String>
+                    self.searchResults.addObjectsFromArray(listItemsResult.items!)
+                    
+                    let show = (self.searchResults.count > 0)
+                    self.showAutoCompletionView(show)
+                    }, failureBlock: { (response) in
+                        
+                })
+            }
+        }
     }
     
     override func heightForAutoCompletionView() -> CGFloat {
-        // TODO:
-        return 0
+        return self.autoCompletionView.rowHeight * CGFloat(min(searchResults.count, 5))
     }
     
     func doPostComment(comment: GTComment, shouldRefresh: Bool) {
@@ -320,6 +378,10 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         self.tableView.tableFooterView = UIView()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 160.0
+        
+        self.autoCompletionView.tableFooterView = UIView()
+        self.autoCompletionView.rowHeight = 44
+        self.autoCompletionView.separatorStyle = .None
     }
     
     func setupSlackController() {
@@ -330,8 +392,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         self.inverted = true
         
         self.tableView.separatorStyle = .None
-        let commentCellNib = UINib(nibName: CommentCell.reusableIdentifier(), bundle: NSBundle.mainBundle())
-        self.tableView.registerNib(commentCellNib, forCellReuseIdentifier: CommentCell.reusableIdentifier())
+        self.tableView.registerNib(UINib(nibName: CommentCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellReuseIdentifier: CommentCell.reusableIdentifier())
         
         self.rightButton.setTitle("Post", forState: .Normal)
         
@@ -344,8 +405,8 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         
         self.typingIndicatorView.canResignByTouch = true
         
-//        [self.autoCompletionView registerNib:[UINib nibWithNibName:@"AutocompleteUserCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"AutocompleteUserCell"];
-//        [self.autoCompletionView registerNib:[UINib nibWithNibName:@"AutocompleteHashCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"AutocompleteHashCell"];
-//        [self registerPrefixesForAutoCompletion:@[@"@", @"#"]];
+        self.autoCompletionView.registerNib(UINib(nibName: AutocompleteUserCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellReuseIdentifier: AutocompleteUserCell.reusableIdentifier())
+        self.autoCompletionView.registerNib(UINib(nibName: AutocompleteHashCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellReuseIdentifier: AutocompleteHashCell.reusableIdentifier())
+        self.registerPrefixesForAutoCompletion(["@", "#"])
     }
 }
