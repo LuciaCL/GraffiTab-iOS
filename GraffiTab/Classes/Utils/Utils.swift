@@ -39,4 +39,16 @@ class Utils: NSObject {
             block()
         }
     }
+    
+    class func openUrl(link: String) {
+        var text = link
+        var url = NSURL(string: text)
+        
+        if (url!.scheme.characters.count <= 0) {
+            text = "http://" + text
+            url = NSURL(string: text)
+        }
+        
+        UIApplication.sharedApplication().openURL(url!)
+    }
 }

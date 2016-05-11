@@ -11,14 +11,29 @@ import GraffiTab_iOS_SDK
 import Alamofire
 import ActiveLabel
 
+protocol MessageDelegate {
+    
+    func didTapErrorView(comment: GTComment)
+    func didTapHashtag(hashtag: String)
+    func didTapUsername(username: String)
+    func didTapLink(link: String)
+}
+
 class CommentCell: UITableViewCell {
 
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var textLbl: ActiveLabel!
+    @IBOutlet weak var textLblTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var dateLbl: UILabel!
-    @IBOutlet weak var avatar: AvatarImageView!
+    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var errorView: UIImageView!
     
-    var item: GTComment?
+    var delegate: MessageDelegate?
+    var item: GTComment? {
+        didSet {
+            setItem()
+        }
+    }
     
     class func reusableIdentifier() -> String {
         return "CommentCell"
@@ -28,11 +43,10 @@ class CommentCell: UITableViewCell {
         super.awakeFromNib()
         
         setupLabels()
+        setupGestureRecognizers()
     }
     
-    func setItem(item: GTComment?) {
-        self.item = item
-        
+    func setItem() {
         // Setup labels.
         let name = String(format: "%@ %@", item!.user!.getFullName(), item!.user!.getMentionUsername())
         let attString = NSMutableAttributedString(string: name)
@@ -41,10 +55,37 @@ class CommentCell: UITableViewCell {
         attString.addAttribute(NSForegroundColorAttributeName, value: UIColor.lightGrayColor(), range: range)
         self.nameLbl.attributedText = attString
         
-        textLbl.text = item!.text
+        if item?.updatedOn != nil {
+            let text = String(format: "%@ (edited)", item!.text!)
+            let attString = NSMutableAttributedString(string: text)
+            let range = (text as NSString).rangeOfString("(edited)")
+            attString.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(textLbl.font.pointSize - 4), range: range)
+            attString.addAttribute(NSForegroundColorAttributeName, value: UIColor.lightGrayColor(), range: range)
+            self.textLbl.attributedText = attString
+        }
+        else {
+            textLbl.text = item!.text
+        }
+        
         dateLbl.text = DateUtils.notificationTimePassedSinceDate((item?.createdOn)!);
         
+        // Setup error view.
+        if item?.status == .Failed {
+            errorView.hidden = false
+            textLblTrailingConstraint.constant = 2 * 8 + errorView.frame.width
+        }
+        else {
+            errorView.hidden = true
+            textLblTrailingConstraint.constant = 8
+        }
+        
         loadAvatar()
+    }
+    
+    func onClickErrorView() {
+        if delegate != nil {
+            delegate?.didTapErrorView(item!)
+        }
     }
     
     // MARK: - Loading
@@ -82,13 +123,23 @@ class CommentCell: UITableViewCell {
         textLbl.URLColor = UIColor(hexString: Colors.Links)!
         
         textLbl.handleURLTap { (url) in
-            print(url)
+            if self.delegate != nil {
+                self.delegate?.didTapLink(url.absoluteString)
+            }
         }
         textLbl.handleHashtagTap { (hashtag) in
-            print(hashtag)
+            if self.delegate != nil {
+                self.delegate?.didTapHashtag(hashtag)
+            }
         }
         textLbl.handleMentionTap { (mention) in
-            print(mention)
+            if self.delegate != nil {
+                self.delegate?.didTapUsername(mention)
+            }
         }
+    }
+    
+    func setupGestureRecognizers() {
+        errorView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickErrorView)))
     }
 }

@@ -20,7 +20,11 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
     @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var usernameField: UILabel!
     
-    var item: GTUser?
+    var item: GTUser? {
+        didSet {
+            setItem()
+        }
+    }
     
     class func reusableIdentifier() -> String {
         return "UserCollectionParallaxHeader"
@@ -36,9 +40,7 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
         setupPageControl()
     }
     
-    func setItem(item: GTUser?) {
-        self.item = item
-        
+    func setItem() {
         loadAvatar()
         loadCover()
     }

@@ -29,8 +29,8 @@ class StreamableTrendingCell: StreamableCell {
         setupGestureRecognizers()
     }
     
-    override func setItem(item: GTStreamable?) {
-        super.setItem(item)
+    override func setItem() {
+        super.setItem()
         
         // Setup labels.
         self.nameField.text = item!.user?.getFullName();

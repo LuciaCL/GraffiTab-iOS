@@ -33,8 +33,8 @@ class StreamableListFullCell: StreamableCell {
         setupGestureRecognizers()
     }
     
-    override func setItem(item: GTStreamable?) {
-        super.setItem(item)
+    override func setItem() {
+        super.setItem()
         
         // Setup labels.
         self.dateField.text = DateUtils.timePassedSinceDate((item?.createdOn)!);

@@ -23,15 +23,17 @@ class StreamableCell: UICollectionViewCell {
     @IBOutlet weak var thumbnail: UIImageView!
     
     var delegate: StreamableDelegate?
-    var item: GTStreamable?
+    var item: GTStreamable? {
+        didSet {
+            setItem()
+        }
+    }
     
     class func reusableIdentifier() -> String {
         return "StreamableCell"
     }
     
-    func setItem(item: GTStreamable?) {
-        self.item = item
-        
+    func setItem() {
         loadImage()
         loadAvatar()
     }

@@ -138,6 +138,8 @@
 		E5A4F12F1CE225AA005CF12C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
 		E5A4F1301CE225AA005CF12C /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A4F12D1CE225AA005CF12C /* CommentCell.xib */; };
 		E5A4F1311CE225AA005CF12C /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A4F12D1CE225AA005CF12C /* CommentCell.xib */; };
+		E5A4F13D1CE34846005CF12C /* GTComment+Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F13C1CE34846005CF12C /* GTComment+Sender.swift */; };
+		E5A4F13E1CE34846005CF12C /* GTComment+Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F13C1CE34846005CF12C /* GTComment+Sender.swift */; };
 		E5B6B54C1CC25A0E00DC8EFC /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */; };
 		E5B6B54D1CC25A0E00DC8EFC /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */; };
 		E5B6B5501CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54E1CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift */; };
@@ -397,6 +399,7 @@
 		E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonSlackViewController.swift; sourceTree = "<group>"; };
 		E5A4F12C1CE225AA005CF12C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		E5A4F12D1CE225AA005CF12C /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
+		E5A4F13C1CE34846005CF12C /* GTComment+Sender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTComment+Sender.swift"; sourceTree = "<group>"; };
 		E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		E5B6B54E1CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCollectionParallaxHeader.swift; sourceTree = "<group>"; };
 		E5B6B54F1CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCollectionParallaxHeader.xib; sourceTree = "<group>"; };
@@ -812,6 +815,14 @@
 			path = Comments;
 			sourceTree = "<group>";
 		};
+		E5A4F1361CE34825005CF12C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E5A4F13C1CE34846005CF12C /* GTComment+Sender.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E5B6B56D1CC56F5800DC8EFC /* Create */ = {
 			isa = PBXGroup;
 			children = (
@@ -1125,6 +1136,7 @@
 		E5DFDBE71CB2C31B00BB3D27 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E5A4F1361CE34825005CF12C /* Model */,
 				E5DFDBE81CB2C31B00BB3D27 /* Constants */,
 				E5DFDBEA1CB2C31B00BB3D27 /* DialogBuilder */,
 				E51006811CB7FDF500AC66A5 /* LocationManager */,
@@ -1665,6 +1677,7 @@
 				E51006371CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
 				E56D1F241CDD1917007B3698 /* ArrayUtils.swift in Sources */,
 				E51007001CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */,
+				E5A4F13E1CE34846005CF12C /* GTComment+Sender.swift in Sources */,
 				E5B6B5B81CC56F5800DC8EFC /* MyNotificationsViewController.swift in Sources */,
 				E5B6B5AC1CC56F5800DC8EFC /* EditProfileViewController.swift in Sources */,
 				E51006501CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */,
@@ -1689,6 +1702,7 @@
 				E51006D41CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
 				E5D085A81CD8D30000226589 /* TOActivityCroppedImageProvider.m in Sources */,
 				E51006C21CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */,
+				E5A4F13D1CE34846005CF12C /* GTComment+Sender.swift in Sources */,
 				E5B6B5BB1CC56F5800DC8EFC /* MenuViewController.swift in Sources */,
 				E51006A31CBBCA7B00AC66A5 /* NotificationCommentCell.swift in Sources */,
 				E56D1F231CDD1917007B3698 /* ArrayUtils.swift in Sources */,

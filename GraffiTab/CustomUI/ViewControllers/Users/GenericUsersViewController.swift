@@ -192,7 +192,7 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
         if viewType == .List {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(UserListCell.reusableIdentifier(), forIndexPath: indexPath) as! UserListCell
             
-            cell.setItem(items[indexPath.row])
+            cell.item = items[indexPath.row]
             
             return cell
         }

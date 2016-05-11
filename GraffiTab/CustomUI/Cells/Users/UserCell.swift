@@ -15,15 +15,17 @@ class UserCell: UICollectionViewCell {
     
     @IBOutlet weak var avatar: UIImageView!
     
-    var item: GTUser?
+    var item: GTUser? {
+        didSet {
+            setItem()
+        }
+    }
     
     class func reusableIdentifier() -> String {
         return "UserCell"
     }
     
-    func setItem(item: GTUser?) {
-        self.item = item
-        
+    func setItem() {
         loadAvatar()
     }
     

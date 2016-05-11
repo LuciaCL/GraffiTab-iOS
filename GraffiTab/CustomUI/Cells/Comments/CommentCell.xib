@@ -31,7 +31,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jq-gs-ubI" customClass="ActiveLabel" customModule="ActiveLabel">
-                        <rect key="frame" x="46" y="32" width="266" height="237"/>
+                        <rect key="frame" x="46" y="32" width="235" height="237"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="ADX-so-FaQ"/>
                         </constraints>
@@ -46,16 +46,26 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="L84-uZ-V6l" customClass="TintImageView" customModule="GraffiTab" customModuleProvider="target">
+                        <rect key="frame" x="289" y="139" width="23" height="23"/>
+                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="OKa-xY-xqQ"/>
+                            <constraint firstAttribute="width" constant="23" id="ULU-D0-lC4"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="L84-uZ-V6l" firstAttribute="centerY" secondItem="8jq-gs-ubI" secondAttribute="centerY" id="6dn-hM-m6f"/>
                     <constraint firstItem="8jq-gs-ubI" firstAttribute="top" secondItem="obo-ie-zDs" secondAttribute="bottom" constant="3" id="De6-kK-qd6"/>
                     <constraint firstAttribute="trailing" secondItem="obo-ie-zDs" secondAttribute="trailing" constant="8" id="H5w-Ou-rw2"/>
                     <constraint firstAttribute="trailing" secondItem="giJ-lm-x1x" secondAttribute="trailing" constant="8" id="H6j-Vm-EY2"/>
                     <constraint firstAttribute="bottom" secondItem="giJ-lm-x1x" secondAttribute="bottom" constant="8" id="MqG-qI-HdZ"/>
                     <constraint firstItem="8jq-gs-ubI" firstAttribute="leading" secondItem="kSI-1e-6da" secondAttribute="trailing" constant="8" id="VuQ-XR-Cho"/>
                     <constraint firstItem="obo-ie-zDs" firstAttribute="leading" secondItem="kSI-1e-6da" secondAttribute="trailing" constant="8" id="YZ0-Y2-B9y"/>
+                    <constraint firstAttribute="trailing" secondItem="L84-uZ-V6l" secondAttribute="trailing" constant="8" id="cg3-Jb-b0n"/>
                     <constraint firstItem="obo-ie-zDs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="dqf-S5-Ob4"/>
-                    <constraint firstAttribute="trailing" secondItem="8jq-gs-ubI" secondAttribute="trailing" constant="8" id="dxI-P6-Vx1"/>
+                    <constraint firstAttribute="trailing" secondItem="8jq-gs-ubI" secondAttribute="trailing" constant="39" id="eRS-3B-JUX"/>
                     <constraint firstItem="giJ-lm-x1x" firstAttribute="top" secondItem="8jq-gs-ubI" secondAttribute="bottom" constant="10" id="fel-Ft-wpG"/>
                     <constraint firstItem="kSI-1e-6da" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="oBL-Qk-Z31"/>
                     <constraint firstItem="giJ-lm-x1x" firstAttribute="leading" secondItem="kSI-1e-6da" secondAttribute="trailing" constant="8" id="qSF-QS-T5C"/>
@@ -65,13 +75,16 @@
             <connections>
                 <outlet property="avatar" destination="kSI-1e-6da" id="CmK-RF-2ir"/>
                 <outlet property="dateLbl" destination="giJ-lm-x1x" id="Oiv-at-fBQ"/>
+                <outlet property="errorView" destination="L84-uZ-V6l" id="Vhx-i3-GOr"/>
                 <outlet property="nameLbl" destination="obo-ie-zDs" id="gt9-GB-OLn"/>
                 <outlet property="textLbl" destination="8jq-gs-ubI" id="qtB-2v-GQY"/>
+                <outlet property="textLblTrailingConstraint" destination="eRS-3B-JUX" id="oba-1b-6iY"/>
             </connections>
             <point key="canvasLocation" x="743" y="617"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="default_avatar" width="185" height="185"/>
+        <image name="info" width="25" height="25"/>
     </resources>
 </document>

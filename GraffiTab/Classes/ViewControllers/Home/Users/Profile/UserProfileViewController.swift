@@ -96,7 +96,7 @@ class UserProfileViewController: ListFullStreamablesViewController {
         if kind == CSStickyHeaderParallaxHeader {
             header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: UserCollectionParallaxHeader.reusableIdentifier(), forIndexPath: indexPath) as? UserCollectionParallaxHeader
             
-            header!.setItem(user)
+            header?.item = user
 //            view.delegate = self
             
             return header!

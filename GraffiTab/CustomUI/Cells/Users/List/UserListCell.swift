@@ -25,8 +25,8 @@ class UserListCell: UserCell {
         setupButtons()
     }
     
-    override func setItem(item: GTUser?) {
-        super.setItem(item)
+    override func setItem() {
+        super.setItem()
         
         if item!.followedByCurrentUser! {
             self.followBtn.layer.borderColor = UIColor(hexString: Colors.Green)?.CGColor

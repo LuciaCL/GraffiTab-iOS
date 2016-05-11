@@ -277,7 +277,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         if viewType == .Grid || viewType == .Mosaic {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(StreamableGridCell.reusableIdentifier(), forIndexPath: indexPath) as! StreamableGridCell
             
-            cell.setItem(items[indexPath.row])
+            cell.item = items[indexPath.row]
             cell.thumbnail.backgroundColor = UIColor(hexString: colorPallete[indexPath.row % colorPallete.count])
             cell.delegate = self
             
@@ -286,7 +286,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         else if viewType == .Trending {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(StreamableTrendingCell.reusableIdentifier(), forIndexPath: indexPath) as! StreamableTrendingCell
             
-            cell.setItem(items[indexPath.row])
+            cell.item = items[indexPath.row]
             cell.thumbnail.backgroundColor = UIColor(hexString: colorPallete[indexPath.row % colorPallete.count])
             cell.delegate = self
             
@@ -295,7 +295,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         else if viewType == .ListFull {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(StreamableListFullCell.reusableIdentifier(), forIndexPath: indexPath) as! StreamableListFullCell
             
-            cell.setItem(items[indexPath.row])
+            cell.item = items[indexPath.row]
             cell.delegate = self
             
             // Set offset accordingly.

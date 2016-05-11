@@ -10,11 +10,12 @@ import UIKit
 import GraffiTab_iOS_SDK
 import ObjectMapper
 
-class CommentsViewController: BackButtonSlackViewController {
+class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
 
     var items = [GTComment]()
     var isDownloading = false
     var streamable: GTStreamable?
+    var commentToEdit: GTComment?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,8 @@ class CommentsViewController: BackButtonSlackViewController {
         
         setupTableView()
         setupSlackController()
+        
+        loadItems(true, offset: 0)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -38,6 +41,65 @@ class CommentsViewController: BackButtonSlackViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Loading
+    
+    func refresh() {
+        loadItems(false, offset: 0)
+    }
+    
+    func loadItems(isStart: Bool, offset: Int) {
+//        if items.count <= 0 && isDownloading == false {
+//            if isStart {
+//                if loadingIndicator != nil {
+//                    loadingIndicator.startAnimating()
+//                }
+//            }
+//        }
+        
+        showLoadingIndicator()
+        
+        isDownloading = true
+        
+        GTStreamableManager.getComments(streamable!.id!, offset: offset, successBlock: { (response) in
+            if offset == 0 {
+                self.items.removeAll()
+            }
+            
+            let listItemsResult = response.object as! GTListItemsResult<GTComment>
+            self.items.appendContentsOf(listItemsResult.items!)
+            
+            self.finalizeLoad()
+        }) { (response) in
+            self.finalizeLoad()
+            
+            DialogBuilder.showErrorAlert(response.message, title: App.Title)
+        }
+    }
+    
+    func loadItems(isStart: Bool, offset: Int, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
+        assert(false, "Method should be overridden by subclass.")
+    }
+    
+    func finalizeLoad() {
+        removeLoadingIndicator()
+        
+        isDownloading = false
+        
+        self.tableView.reloadData()
+    }
+    
+    func showLoadingIndicator() {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .White)
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        self.navigationItem.setRightBarButtonItem(UIBarButtonItem(customView: activityIndicator), animated: true)
+    }
+    
+    func removeLoadingIndicator() {
+        let reload = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(refresh))
+        self.navigationItem.setRightBarButtonItem(reload, animated: true)
+    }
+    
     // MARK: - UITableViewDelegate
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,7 +109,8 @@ class CommentsViewController: BackButtonSlackViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CommentCell.reusableIdentifier()) as! CommentCell
         
-        cell.setItem(items[indexPath.row])
+        cell.item = items[indexPath.row]
+        cell.delegate = self
         
         // Cells must inherit the table view's transform
         // This is very important, since the main table view may be inverted
@@ -77,7 +140,40 @@ class CommentsViewController: BackButtonSlackViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        // TODO:
+        let comment = items[indexPath.row]
+        var actions: [String]
+        var destructiveTitle: String?
+        let canEdit = comment.user!.isEqual(GTSettings.sharedInstance.user)
+        if canEdit {
+            actions = ["Edit", "Copy"]
+            destructiveTitle = "Delete"
+        }
+        else {
+            actions = ["Copy"]
+        }
+        
+        UIActionSheet.showInView(view, withTitle: "What would you like to do?", cancelButtonTitle: "Cancel", destructiveButtonTitle: destructiveTitle, otherButtonTitles: actions, tapBlock: { (actionSheet, index) in
+            Utils.runWithDelay(0.3, block: {
+                if canEdit {
+                    if index == 0 { // Delete.
+                        self.doDeleteComment(comment, shouldDeleteRemotely: true)
+                    }
+                    else if index == 1 { // Edit.
+                        self.commentToEdit = comment
+                        self.editText(comment.text)
+                        self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
+                    }
+                    else if index == 2 { // Copy.
+                        UIPasteboard.generalPasteboard().string = comment.text
+                    }
+                }
+                else {
+                    if index == 0 { // Copy.
+                        UIPasteboard.generalPasteboard().string = comment.text
+                    }
+                }
+            })
+        })
     }
     
     // MARK: - SLKTextViewController
@@ -87,15 +183,18 @@ class CommentsViewController: BackButtonSlackViewController {
         self.textView.refreshFirstResponder()
         
         let text = self.textView.text.copy()
+        let id = random()
         
         // Create new comment.
         let comment = GTComment(Map(mappingType: .FromJSON, JSONDictionary: [:]))
+        comment?.id = id
         comment?.createdOn = NSDate()
         comment?.text = text as? String
         comment?.streamable = streamable
         comment?.user = GTSettings.sharedInstance.user
         
         // Create comment in the backend.
+        doPostComment(comment!, shouldRefresh: false)
         
         // Add as new comment in the UI.
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
@@ -119,7 +218,18 @@ class CommentsViewController: BackButtonSlackViewController {
     }
     
     override func didCommitTextEditing(sender: AnyObject!) {
-        // TODO:
+        let text = self.textView.text.copy()
+        
+        commentToEdit?.text = text as? String
+        commentToEdit?.updatedOn = NSDate()
+        self.tableView.reloadData()
+        
+        GTStreamableManager.editComment(streamable!.id!, commentId: commentToEdit!.id!, text: commentToEdit!.text!, successBlock: { (response) in
+            
+        }) { (response) in
+            DialogBuilder.showErrorAlert(response.message, title: App.Title)
+        }
+        
         super.didCommitTextEditing(sender)
     }
     
@@ -131,6 +241,71 @@ class CommentsViewController: BackButtonSlackViewController {
     override func heightForAutoCompletionView() -> CGFloat {
         // TODO:
         return 0
+    }
+    
+    func doPostComment(comment: GTComment, shouldRefresh: Bool) {
+        comment.status = .Sending
+        
+        if shouldRefresh {
+            self.tableView.reloadData()
+        }
+        
+        GTStreamableManager.postComment(streamable!.id!, text: comment.text!, successBlock: { (response) in
+            let newComment = response.object as! GTComment
+            comment.id = newComment.id
+            comment.status = .Sent
+            
+            self.tableView.reloadData()
+        }) { (response) in
+            comment.status = .Failed
+            
+            self.tableView.reloadData()
+            
+            DialogBuilder.showErrorAlert(response.message, title: App.Title)
+        }
+    }
+    
+    func doDeleteComment(comment: GTComment, shouldDeleteRemotely: Bool) {
+        let indexPath = NSIndexPath(forRow: self.items.indexOf(comment)!, inSection: 0)
+        self.tableView.beginUpdates()
+        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+        self.items.removeAtIndex(indexPath.row)
+        self.tableView.endUpdates()
+        
+        if shouldDeleteRemotely {
+            GTStreamableManager.deleteComment(streamable!.id!, commentId: comment.id!, successBlock: { (response) in
+                
+            }, failureBlock: { (response) in
+                DialogBuilder.showErrorAlert(response.message, title: App.Title)
+            })
+        }
+    }
+    
+    // MARK: - MessageDelegate
+    
+    func didTapLink(link: String) {
+        Utils.openUrl(link)
+    }
+    
+    func didTapHashtag(hashtag: String) {
+        // TODO:
+    }
+    
+    func didTapUsername(username: String) {
+        // TODO:
+    }
+    
+    func didTapErrorView(comment: GTComment) {
+        UIActionSheet.showInView(view, withTitle: "What would you like to do?", cancelButtonTitle: "Cancel", destructiveButtonTitle: "Delete", otherButtonTitles: ["Try again"], tapBlock: { (actionSheet, index) in
+            if index == 0 {
+                Utils.runWithDelay(0.3, block: {
+                    self.doDeleteComment(comment, shouldDeleteRemotely: false)
+                })
+            }
+            else if index == 1 {
+                self.doPostComment(comment, shouldRefresh: true)
+            }
+        })
     }
     
     // MARK: - Setup
