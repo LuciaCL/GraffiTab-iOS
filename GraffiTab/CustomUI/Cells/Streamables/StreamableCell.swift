@@ -54,6 +54,10 @@ class StreamableCell: UICollectionViewCell {
         }
     }
     
+    @IBAction func onClickLike(sender: AnyObject) {
+        
+    }
+    
     // MARK: - Loading
     
     func loadImage() {

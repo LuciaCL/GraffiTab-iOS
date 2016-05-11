@@ -29,6 +29,10 @@ class UserCell: UICollectionViewCell {
         loadAvatar()
     }
     
+    @IBAction func onClickFollow(sender: AnyObject) {
+        
+    }
+    
     // MARK: - Loading
     
     func loadAvatar() {

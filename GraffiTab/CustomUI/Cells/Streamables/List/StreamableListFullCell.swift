@@ -42,12 +42,45 @@ class StreamableListFullCell: StreamableCell {
         self.nameField.text = item!.user?.getFullName();
         self.usernameField.text = item!.user?.getMentionUsername();
         
+        setStats()
+    }
+    
+    func setStats() {
         self.likesLbl.text = String(format: "%i %@", item!.likersCount!, item!.likersCount! == 1 ? "Like" : "Likes");
         self.commentsLbl.text = String(format: "%i %@", item!.commentsCount!, item!.commentsCount! == 1 ? "Comment" : "Comments");
+        
+        self.likeBtn.setTitle(item!.likedByCurrentUser! ? "Liked" : "Like", forState: .Normal)
+        self.likeBtn.tintColor = item!.likedByCurrentUser! ? UIColor(hexString: Colors.Green) : UIColor(hexString: Colors.Main)
+        self.likeBtn.setTitleColor(self.likeBtn.tintColor, forState: .Normal)
     }
     
     override func getStreamableImageUrl() -> String {
         return item!.asset!.link!
+    }
+    
+    override func onClickLike(sender: AnyObject) {
+        if item!.likedByCurrentUser! { // Unlike.
+            item!.likersCount! -= 1
+            
+            GTStreamableManager.unlike(item!.id!, successBlock: { (response) in
+                
+            }, failureBlock: { (response) in
+                
+            })
+        }
+        else { // Like.
+            item!.likersCount! += 1
+            
+            GTStreamableManager.like(item!.id!, successBlock: { (response) in
+                
+            }, failureBlock: { (response) in
+                    
+            })
+        }
+        
+        item?.likedByCurrentUser = !item!.likedByCurrentUser!
+        
+        setStats()
     }
     
     // MARK: - Setup

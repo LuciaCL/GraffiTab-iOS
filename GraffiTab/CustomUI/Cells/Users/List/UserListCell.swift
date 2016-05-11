@@ -28,6 +28,14 @@ class UserListCell: UserCell {
     override func setItem() {
         super.setItem()
         
+        // Setup labels.
+        self.nameField.text = item!.getFullName()
+        self.usernameField.text = item!.getMentionUsername()
+        
+        setStats()
+    }
+    
+    func setStats() {
         if item!.followedByCurrentUser! {
             self.followBtn.layer.borderColor = UIColor(hexString: Colors.Green)?.CGColor
             self.followBtn.backgroundColor = UIColor(hexString: Colors.Green)
@@ -42,10 +50,27 @@ class UserListCell: UserCell {
         }
         
         self.followBtn.hidden = item?.id == GTSettings.sharedInstance.user?.id
+    }
+    
+    override func onClickFollow(sender: AnyObject) {
+        if item!.followedByCurrentUser! { // Unfollow.
+            GTUserManager.unfollow(item!.id!, successBlock: { (response) in
+                
+            }, failureBlock: { (response) in
+                    
+            })
+        }
+        else { // Follow.
+            GTUserManager.follow(item!.id!, successBlock: { (response) in
+                
+            }, failureBlock: { (response) in
+                    
+            })
+        }
         
-        // Setup labels.
-        self.nameField.text = item!.getFullName()
-        self.usernameField.text = item!.getMentionUsername()
+        item?.followedByCurrentUser = !item!.followedByCurrentUser!
+        
+        setStats()
     }
     
     // MARK: - Setup

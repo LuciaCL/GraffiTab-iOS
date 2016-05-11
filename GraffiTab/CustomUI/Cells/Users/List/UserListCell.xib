@@ -46,6 +46,9 @@
                         </constraints>
                         <inset key="imageEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                         <state key="normal" image="ic_action_follow"/>
+                        <connections>
+                            <action selector="onClickFollow:" destination="gTV-IL-0wX" eventType="touchUpInside" id="7bw-ai-3yF"/>
+                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
