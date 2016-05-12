@@ -28,7 +28,7 @@
                         <constraint firstAttribute="height" constant="37" id="NzA-Vk-nJ9"/>
                     </constraints>
                 </pageControl>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="PRj-KU-hYu" customClass="AvatarImageView" customModule="GraffiTab" customModuleProvider="target">
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="PRj-KU-hYu" customClass="AvatarImageView" customModule="GraffiTab" customModuleProvider="target">
                     <rect key="frame" x="13" y="207" width="85" height="85"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -54,6 +54,9 @@
                     <state key="normal" image="ic_menu_white">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="onClickList:" destination="G3b-uK-KwE" eventType="touchUpInside" id="St4-1r-xNR"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLB-m2-EyG">
                     <rect key="frame" x="83" y="369" width="1" height="25"/>
@@ -69,6 +72,9 @@
                     <state key="normal" image="ic_thumb_up_white">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="onClickFavourites:" destination="G3b-uK-KwE" eventType="touchUpInside" id="8pl-d8-Xrr"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhh-CJ-ckj">
                     <rect key="frame" x="235" y="369" width="1" height="25"/>
@@ -83,6 +89,9 @@
                     <state key="normal" image="ic_apps_white">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="onClickGrid:" destination="G3b-uK-KwE" eventType="touchUpInside" id="zOJ-OU-rPQ"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXK-th-Xin">
                     <rect key="frame" x="159" y="369" width="1" height="25"/>
@@ -97,6 +106,9 @@
                     <state key="normal" image="ic_near_me_white">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="onClickMap:" destination="G3b-uK-KwE" eventType="touchUpInside" id="PR0-xD-PfC"/>
+                    </connections>
                 </button>
                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123K" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Is1-Yv-M3o">
                     <rect key="frame" x="8" y="307" width="101" height="25"/>
@@ -261,8 +273,14 @@
                 <outlet property="avatar" destination="PRj-KU-hYu" id="j66-V2-ht5"/>
                 <outlet property="carousel" destination="okP-nb-cud" id="RSC-4u-bot"/>
                 <outlet property="cover" destination="cHD-2m-SRQ" id="lmK-qH-2tW"/>
+                <outlet property="followersCountLbl" destination="13V-J2-V75" id="aEm-lU-oM2"/>
+                <outlet property="followersLbl" destination="uZV-lI-9M2" id="vA1-gl-1j6"/>
+                <outlet property="followingCountLbl" destination="CHo-00-0LE" id="oll-Aw-8tA"/>
+                <outlet property="followingLbl" destination="WjZ-x2-Db2" id="LNT-dH-ggh"/>
                 <outlet property="nameField" destination="Aws-tH-8Uf" id="TEe-Y4-Za9"/>
                 <outlet property="pageControl" destination="5jv-4R-m6V" id="ah4-bQ-6Xm"/>
+                <outlet property="streamablesCountLbl" destination="Is1-Yv-M3o" id="Osj-01-jqL"/>
+                <outlet property="streamablesLbl" destination="sT6-jj-cZ0" id="hpi-Gk-zdX"/>
                 <outlet property="usernameField" destination="cNj-Z6-Q72" id="MET-SL-TbL"/>
             </connections>
             <point key="canvasLocation" x="524" y="959.5"/>

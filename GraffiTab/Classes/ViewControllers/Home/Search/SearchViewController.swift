@@ -25,6 +25,14 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
         setupCarbonKit()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if self.navigationController!.navigationBarHidden {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+        }
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         

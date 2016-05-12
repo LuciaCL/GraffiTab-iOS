@@ -13,6 +13,6 @@ class GridStreamablesViewController: GenericStreamablesViewController {
     override func basicInit() {
         super.basicInit()
         
-        setViewType(.Grid)
+        self.viewType = .Grid
     }
 }

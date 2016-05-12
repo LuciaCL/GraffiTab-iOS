@@ -17,13 +17,13 @@ class ListFullStreamablesViewController: GenericStreamablesViewController {
         
         shownIndexes = Set()
         
-        setViewType(.ListFull)
+        self.viewType = .ListFull
     }
     
     // MARK: - UICollectionViewDelegate
     
     override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        if !(shownIndexes?.contains(indexPath))! {
+        if !shownIndexes!.contains(indexPath) && self.viewType == .ListFull {
             shownIndexes?.insert(indexPath)
             
             let layer = cell.layer

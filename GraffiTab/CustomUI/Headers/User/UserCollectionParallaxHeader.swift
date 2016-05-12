@@ -11,6 +11,22 @@ import GraffiTab_iOS_SDK
 import Alamofire
 import iCarousel
 
+protocol UserHeaderDelegate {
+    
+    func didTapCover(user: GTUser)
+    func didTapAvatar(user: GTUser)
+    func didTapAbout(user: GTUser)
+    
+    func didTapStreamables(user: GTUser)
+    func didTapFollowers(user: GTUser)
+    func didTapFollowing(user: GTUser)
+    
+    func didTapList(user: GTUser)
+    func didTapGrid(user: GTUser)
+    func didTapFavourites(user: GTUser)
+    func didTapMap(user: GTUser)
+}
+
 class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate, iCarouselDataSource {
 
     @IBOutlet weak var cover: UIImageView!
@@ -19,7 +35,14 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var usernameField: UILabel!
+    @IBOutlet weak var streamablesCountLbl: UILabel!
+    @IBOutlet weak var streamablesLbl: UILabel!
+    @IBOutlet weak var followersCountLbl: UILabel!
+    @IBOutlet weak var followersLbl: UILabel!
+    @IBOutlet weak var followingCountLbl: UILabel!
+    @IBOutlet weak var followingLbl: UILabel!
     
+    var delegate: UserHeaderDelegate?
     var item: GTUser? {
         didSet {
             setItem()
@@ -38,11 +61,95 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
         setupImageViews()
         setupCarousel()
         setupPageControl()
+        setupGestureRecognizers()
     }
     
     func setItem() {
+        // Setup labels.
+        self.nameField.text = item!.getFullName()
+        self.usernameField.text = item!.getMentionUsername()
+        
+        setStatsAndAdditionalInfo()
+        
         loadAvatar()
         loadCover()
+    }
+    
+    func setStatsAndAdditionalInfo() {
+        if item?.streamablesCount != nil {
+            self.streamablesCountLbl.text = item?.streamablesCountAsString()
+            self.followersCountLbl.text = item?.followersCountAsString()
+            self.followingCountLbl.text = item?.followingCountAsString()
+        }
+        else {
+            self.streamablesCountLbl.text = "--"
+            self.followersCountLbl.text = "--"
+            self.followingCountLbl.text = "--"
+        }
+        
+        carousel.reloadData()
+        
+        setupPageControl()
+    }
+    
+    @IBAction func onClickAbout(sender: AnyObject?) {
+        if delegate != nil {
+            delegate?.didTapAbout(item!)
+        }
+    }
+    
+    @IBAction func onClickAvatar(sender: AnyObject?) {
+        if delegate != nil {
+            delegate?.didTapAvatar(item!)
+        }
+    }
+    
+    @IBAction func onClickCover(sender: AnyObject?) {
+        if delegate != nil {
+            delegate?.didTapCover(item!)
+        }
+    }
+    
+    @IBAction func onClickList(sender: AnyObject) {
+        if delegate != nil {
+            delegate?.didTapList(item!)
+        }
+    }
+    
+    @IBAction func onClickGrid(sender: AnyObject) {
+        if delegate != nil {
+            delegate?.didTapGrid(item!)
+        }
+    }
+    
+    @IBAction func onClickFavourites(sender: AnyObject) {
+        if delegate != nil {
+            delegate?.didTapFavourites(item!)
+        }
+    }
+    
+    @IBAction func onClickMap(sender: AnyObject) {
+        if delegate != nil {
+            delegate?.didTapMap(item!)
+        }
+    }
+    
+    @IBAction func onClickGraffiti(sender: AnyObject) {
+        if delegate != nil {
+            delegate?.didTapStreamables(item!)
+        }
+    }
+    
+    @IBAction func onClickFollowers(sender: AnyObject) {
+        if delegate != nil {
+            delegate?.didTapFollowers(item!)
+        }
+    }
+    
+    @IBAction func onClickFollowing(sender: AnyObject) {
+        if delegate != nil {
+            delegate?.didTapFollowing(item!)
+        }
     }
     
     // MARK: - Loading
@@ -98,7 +205,8 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
     // MARK: - iCarouselDelegate
     
     func numberOfItemsInCarousel(carousel: iCarousel) -> Int {
-        return 2
+        let pagerVisible = (item?.about != nil || item?.website != nil)
+        return pagerVisible ? 2 : 1
     }
     
     func carousel(carousel: iCarousel, viewForItemAtIndex index: Int, reusingView view: UIView?) -> UIView {
@@ -119,6 +227,8 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
             aboutView.frame = carousel.bounds;
         }
         
+        aboutView.item = item
+        
         return aboutView
     }
     
@@ -134,6 +244,15 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
     
     func carouselItemWidth(carousel: iCarousel) -> CGFloat {
         return carousel.frame.width
+    }
+    
+    func carousel(carousel: iCarousel, didSelectItemAtIndex index: Int) {
+        if index == 0 {
+            onClickCover(nil)
+        }
+        else if index == 1 {
+            onClickAbout(nil)
+        }
     }
     
     // MARK: - Setup
@@ -155,5 +274,14 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
     
     func setupPageControl() {
         pageControl.numberOfPages = numberOfItemsInCarousel(carousel)
+        pageControl.hidesForSinglePage = true
+    }
+    
+    func setupGestureRecognizers() {
+        avatar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickAvatar)))
+        
+        streamablesLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickGraffiti)))
+        followersLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickFollowers)))
+        followingLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickFollowing)))
     }
 }

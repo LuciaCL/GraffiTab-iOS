@@ -12,11 +12,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2DY-sC-ayV">
-                    <rect key="frame" x="13" y="75" width="294" height="51"/>
+                    <rect key="frame" x="13" y="64" width="294" height="72"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="SoV-vF-YWn"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -29,6 +29,9 @@
                 <constraint firstItem="2DY-sC-ayV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lpm-Ua-xsk"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="infoLbl" destination="2DY-sC-ayV" id="8hA-Ee-JdG"/>
+            </connections>
             <point key="canvasLocation" x="218" y="317"/>
         </view>
     </objects>

@@ -13,6 +13,6 @@ class TrendingStreamablesViewController: GenericStreamablesViewController {
     override func basicInit() {
         super.basicInit()
         
-        setViewType(.Trending)
+        self.viewType = .Trending
     }
 }

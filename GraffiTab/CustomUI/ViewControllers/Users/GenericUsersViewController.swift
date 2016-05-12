@@ -209,17 +209,17 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         collectionView.deselectItemAtIndexPath(indexPath, animated: true)
         
-//        var nav = self.navigationController
-//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ChannelDetailsViewController") as! ChannelDetailsViewController
-//        vc.channel = items![indexPath.row]
-//
-//        if nav == nil {
-//            nav = UINavigationController(rootViewController: vc)
-//            self.presentViewController(nav!, animated: true, completion: nil)
-//        }
-//        else {
-//            nav?.pushViewController(vc, animated: true)
-//        }
+        let user = items[indexPath.row]
+        
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("UserProfileViewController") as! UserProfileViewController
+        vc.user = user
+        
+        if self.navigationController != nil {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            assert(false, "Unable to show user profile - Unknown parent.")
+        }
     }
     
     // MARK: - DZNEmptyDataSetDelegate

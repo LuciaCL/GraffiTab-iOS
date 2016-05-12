@@ -138,8 +138,8 @@
 		E5A4F12F1CE225AA005CF12C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
 		E5A4F1301CE225AA005CF12C /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A4F12D1CE225AA005CF12C /* CommentCell.xib */; };
 		E5A4F1311CE225AA005CF12C /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A4F12D1CE225AA005CF12C /* CommentCell.xib */; };
-		E5A4F13D1CE34846005CF12C /* GTComment+Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F13C1CE34846005CF12C /* GTComment+Sender.swift */; };
-		E5A4F13E1CE34846005CF12C /* GTComment+Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F13C1CE34846005CF12C /* GTComment+Sender.swift */; };
+		E5A4F13D1CE34846005CF12C /* GTComment+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F13C1CE34846005CF12C /* GTComment+Extra.swift */; };
+		E5A4F13E1CE34846005CF12C /* GTComment+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F13C1CE34846005CF12C /* GTComment+Extra.swift */; };
 		E5B6B54C1CC25A0E00DC8EFC /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */; };
 		E5B6B54D1CC25A0E00DC8EFC /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */; };
 		E5B6B5501CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54E1CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift */; };
@@ -262,6 +262,8 @@
 		E5DAA89E1CE37A5F000CB2F4 /* AutocompleteUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAA89B1CE37A5F000CB2F4 /* AutocompleteUserCell.swift */; };
 		E5DAA89F1CE37A5F000CB2F4 /* AutocompleteUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DAA89C1CE37A5F000CB2F4 /* AutocompleteUserCell.xib */; };
 		E5DAA8A01CE37A5F000CB2F4 /* AutocompleteUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DAA89C1CE37A5F000CB2F4 /* AutocompleteUserCell.xib */; };
+		E5DAA8B61CE49418000CB2F4 /* GTUser+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAA8B51CE49418000CB2F4 /* GTUser+Extra.swift */; };
+		E5DAA8B71CE49418000CB2F4 /* GTUser+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAA8B51CE49418000CB2F4 /* GTUser+Extra.swift */; };
 		E5DFDBD61CB2BF9E00BB3D27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBD51CB2BF9E00BB3D27 /* AppDelegate.swift */; };
 		E5DFDBDD1CB2BF9E00BB3D27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDBDC1CB2BF9E00BB3D27 /* Assets.xcassets */; };
 		E5DFDC011CB2C31B00BB3D27 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBE91CB2C31B00BB3D27 /* Constants.swift */; };
@@ -407,7 +409,7 @@
 		E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonSlackViewController.swift; sourceTree = "<group>"; };
 		E5A4F12C1CE225AA005CF12C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		E5A4F12D1CE225AA005CF12C /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
-		E5A4F13C1CE34846005CF12C /* GTComment+Sender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTComment+Sender.swift"; sourceTree = "<group>"; };
+		E5A4F13C1CE34846005CF12C /* GTComment+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTComment+Extra.swift"; sourceTree = "<group>"; };
 		E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		E5B6B54E1CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCollectionParallaxHeader.swift; sourceTree = "<group>"; };
 		E5B6B54F1CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCollectionParallaxHeader.xib; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 		E5DAA8961CE37A26000CB2F4 /* AutocompleteHashCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocompleteHashCell.xib; sourceTree = "<group>"; };
 		E5DAA89B1CE37A5F000CB2F4 /* AutocompleteUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteUserCell.swift; sourceTree = "<group>"; };
 		E5DAA89C1CE37A5F000CB2F4 /* AutocompleteUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocompleteUserCell.xib; sourceTree = "<group>"; };
+		E5DAA8B51CE49418000CB2F4 /* GTUser+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTUser+Extra.swift"; sourceTree = "<group>"; };
 		E5DFDBD21CB2BF9E00BB3D27 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DFDBD51CB2BF9E00BB3D27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5DFDBDC1CB2BF9E00BB3D27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -831,7 +834,8 @@
 		E5A4F1361CE34825005CF12C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E5A4F13C1CE34846005CF12C /* GTComment+Sender.swift */,
+				E5A4F13C1CE34846005CF12C /* GTComment+Extra.swift */,
+				E5DAA8B51CE49418000CB2F4 /* GTUser+Extra.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1635,6 +1639,7 @@
 				E5B6B5BC1CC56F5800DC8EFC /* MenuViewController.swift in Sources */,
 				E51006A41CBBCA7B00AC66A5 /* NotificationCommentCell.swift in Sources */,
 				E5DAA8981CE37A26000CB2F4 /* AutocompleteHashCell.swift in Sources */,
+				E5DAA8B71CE49418000CB2F4 /* GTUser+Extra.swift in Sources */,
 				E5B6B55C1CC4E8AD00DC8EFC /* UserAboutView.swift in Sources */,
 				E5A4F12A1CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */,
 				E50765D71CB4098D00EAE832 /* Utils.swift in Sources */,
@@ -1707,7 +1712,7 @@
 				E51006371CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
 				E56D1F241CDD1917007B3698 /* ArrayUtils.swift in Sources */,
 				E51007001CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */,
-				E5A4F13E1CE34846005CF12C /* GTComment+Sender.swift in Sources */,
+				E5A4F13E1CE34846005CF12C /* GTComment+Extra.swift in Sources */,
 				E5B6B5B81CC56F5800DC8EFC /* MyNotificationsViewController.swift in Sources */,
 				E5B6B5AC1CC56F5800DC8EFC /* EditProfileViewController.swift in Sources */,
 				E51006501CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */,
@@ -1733,7 +1738,7 @@
 				E5D085A81CD8D30000226589 /* TOActivityCroppedImageProvider.m in Sources */,
 				E5DAA89D1CE37A5F000CB2F4 /* AutocompleteUserCell.swift in Sources */,
 				E51006C21CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */,
-				E5A4F13D1CE34846005CF12C /* GTComment+Sender.swift in Sources */,
+				E5A4F13D1CE34846005CF12C /* GTComment+Extra.swift in Sources */,
 				E5B6B5BB1CC56F5800DC8EFC /* MenuViewController.swift in Sources */,
 				E51006A31CBBCA7B00AC66A5 /* NotificationCommentCell.swift in Sources */,
 				E56D1F231CDD1917007B3698 /* ArrayUtils.swift in Sources */,
@@ -1818,6 +1823,7 @@
 				E5A4F1211CE21EFA005CF12C /* CommentsViewController.swift in Sources */,
 				E5D085B01CD8D30000226589 /* TOCropView.m in Sources */,
 				E5B6B5AB1CC56F5800DC8EFC /* EditProfileViewController.swift in Sources */,
+				E5DAA8B61CE49418000CB2F4 /* GTUser+Extra.swift in Sources */,
 				E510064F1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  GTComment+Sender.swift
+//  GTComment+Extra.swift
 //  GraffiTab
 //
 //  Created by Georgi Christov on 11/05/2016.

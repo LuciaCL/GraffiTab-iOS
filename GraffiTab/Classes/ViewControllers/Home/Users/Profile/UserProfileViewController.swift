@@ -10,7 +10,7 @@ import UIKit
 import GraffiTab_iOS_SDK
 import CSStickyHeaderFlowLayout
 
-class UserProfileViewController: ListFullStreamablesViewController {
+class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDelegate {
 
     @IBOutlet weak var followBtn: UIButton!
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -29,6 +29,9 @@ class UserProfileViewController: ListFullStreamablesViewController {
         
         setupButtons()
         setupNavigationBar()
+        
+        loadData()
+        loadUserProfile()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -69,6 +72,27 @@ class UserProfileViewController: ListFullStreamablesViewController {
     
     // MARK: - Loading
     
+    func loadData() {
+        followBtn.hidden = isMe()
+        
+        if !isMe() {
+            navigationBar.topItem?.rightBarButtonItem = nil
+            navigationBar.topItem?.rightBarButtonItems = nil
+        }
+    }
+    
+    func loadUserProfile() {
+        GTUserManager.getUserFullProfile(user!.id!, successBlock: { (response) in
+            self.user = response.object as? GTUser
+            
+            if self.header != nil {
+                self.header?.item = self.user
+            }
+        }) { (response) in
+            DialogBuilder.showErrorAlert(response.message, title: App.Title)
+        }
+    }
+    
     override func loadItems(isStart: Bool, offset: Int, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
         GTUserManager.getUserStreamables(user!.id!, offset: offset, successBlock: successBlock, failureBlock: failureBlock)
     }
@@ -97,12 +121,58 @@ class UserProfileViewController: ListFullStreamablesViewController {
             header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: UserCollectionParallaxHeader.reusableIdentifier(), forIndexPath: indexPath) as? UserCollectionParallaxHeader
             
             header?.item = user
-//            view.delegate = self
+            header?.delegate = self
             
             return header!
         }
         
         assert(false, "Unsupported collection view supplementary element.")
+    }
+    
+    // MARK: - UserHeaderDelegate
+    
+    func didTapAbout(user: GTUser) {
+        if user.website != nil {
+            Utils.openUrl(user.website!)
+        }
+    }
+    
+    func didTapCover(user: GTUser) {
+        // TODO:
+    }
+    
+    func didTapAvatar(user: GTUser) {
+        // TODO:
+    }
+    
+    func didTapStreamables(user: GTUser) {
+        // TODO:
+    }
+    
+    func didTapFollowers(user: GTUser) {
+        // TODO:
+    }
+    
+    func didTapFollowing(user: GTUser) {
+        // TODO:
+    }
+    
+    func didTapList(user: GTUser) {
+        self.viewType = .ListFull
+        collectionView.reloadData()
+    }
+    
+    func didTapGrid(user: GTUser) {
+        self.viewType = .Grid
+        collectionView.reloadData()
+    }
+    
+    func didTapFavourites(user: GTUser) {
+        // TODO:
+    }
+    
+    func didTapMap(user: GTUser) {
+        // TODO:
     }
     
     // MARK: - Orientation

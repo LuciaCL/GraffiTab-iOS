@@ -13,6 +13,6 @@ class MosaicStreamablesViewController: GenericStreamablesViewController {
     override func basicInit() {
         super.basicInit()
         
-        setViewType(.Mosaic)
+        self.viewType = .Mosaic
     }
 }

@@ -28,8 +28,15 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     let colorPallete = ["5d6971", "4a545a", "6d7b84", "4a545a", "505b61", "637078", "5f6b73"]
     var isDownloading = false
     var showStaticCollection = false
-    
-    private var viewType: StreamableViewType = .Grid
+    var viewType: StreamableViewType = .Grid {
+        didSet {
+            if collectionView != nil {
+                configureLayout()
+                
+                collectionView.collectionViewLayout.invalidateLayout()
+            }
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -87,16 +94,6 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     
     func basicInit() {
         viewType = .Grid
-    }
-    
-    func setViewType(type: StreamableViewType) {
-        viewType = type
-        
-        if collectionView != nil {
-            configureLayout()
-            
-            collectionView.collectionViewLayout.invalidateLayout()
-        }
     }
     
     // MARK: - ViewType-specific helpers
