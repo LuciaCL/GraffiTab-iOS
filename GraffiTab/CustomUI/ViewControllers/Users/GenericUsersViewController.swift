@@ -9,6 +9,7 @@
 import UIKit
 import DZNEmptyDataSet
 import GraffiTab_iOS_SDK
+import CarbonKit
 
 enum UserViewType : Int {
     case List
@@ -18,6 +19,8 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
+    var pullToRefresh = CarbonSwipeRefresh()
     
     var items = [GTUser]()
     var isDownloading = false
@@ -152,6 +155,7 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
     }
     
     func finalizeLoad() {
+        pullToRefresh.endRefreshing()
         removeLoadingIndicator()
         
         if loadingIndicator != nil {
@@ -289,5 +293,12 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
         collectionView.emptyDataSetDelegate = self
         
         collectionView.registerNib(UINib(nibName: UserListCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: UserListCell.reusableIdentifier())
+        
+        // Setup pull to refresh.
+        pullToRefresh = CarbonSwipeRefresh(scrollView: collectionView)
+        pullToRefresh.setMarginTop(0)
+        pullToRefresh.colors = [UIColor(hexString: Colors.Main)!, UIColor(hexString: Colors.Orange)!, UIColor(hexString: Colors.Green)!]
+        self.view.addSubview(pullToRefresh)
+        pullToRefresh.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
     }
 }

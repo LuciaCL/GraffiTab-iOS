@@ -97,8 +97,8 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         performSegueWithIdentifier("SEGUE_NOTIFICATIONS", sender: sender)
     }
     
-    @IBAction func onClickExplore(sender: AnyObject?) {
-        performSegueWithIdentifier("SEGUE_EXPLORE", sender: sender)
+    @IBAction func onClickSearch(sender: AnyObject?) {
+        performSegueWithIdentifier("SEGUE_SEARCH", sender: sender)
     }
     
     @IBAction func onClickSettings(sender: AnyObject?) {

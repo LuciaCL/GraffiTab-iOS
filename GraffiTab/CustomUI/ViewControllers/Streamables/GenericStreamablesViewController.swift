@@ -11,6 +11,7 @@ import DZNEmptyDataSet
 import GraffiTab_iOS_SDK
 import FBLikeLayout
 import CHTCollectionViewWaterfallLayout
+import CarbonKit
 
 enum StreamableViewType : Int {
     case Grid
@@ -23,6 +24,8 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
+    var pullToRefresh = CarbonSwipeRefresh()
     
     var items = [GTStreamable]()
     let colorPallete = ["5d6971", "4a545a", "6d7b84", "4a545a", "505b61", "637078", "5f6b73"]
@@ -221,6 +224,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func finalizeLoad() {
+        pullToRefresh.endRefreshing()
         removeLoadingIndicator()
         
         if loadingIndicator != nil {
@@ -447,5 +451,12 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         collectionView.registerNib(UINib(nibName: StreamableGridCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: StreamableGridCell.reusableIdentifier())
         collectionView.registerNib(UINib(nibName: StreamableTrendingCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: StreamableTrendingCell.reusableIdentifier())
         collectionView.registerNib(UINib(nibName: StreamableListFullCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: StreamableListFullCell.reusableIdentifier())
+        
+        // Setup pull to refresh.
+        pullToRefresh = CarbonSwipeRefresh(scrollView: collectionView)
+        pullToRefresh.setMarginTop(0)
+        pullToRefresh.colors = [UIColor(hexString: Colors.Main)!, UIColor(hexString: Colors.Orange)!, UIColor(hexString: Colors.Green)!]
+        self.view.addSubview(pullToRefresh)
+        pullToRefresh.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
     }
 }
