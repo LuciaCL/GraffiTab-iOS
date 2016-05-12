@@ -59,7 +59,38 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     }
     
     @IBAction func onClickFollow(sender: AnyObject) {
+        var followers = user?.followersCount != nil ? user?.followersCount : 0
         
+        if user!.followedByCurrentUser! { // Unfollow.
+            followers = followers! - 1
+            if followers < 0 {
+                followers = 0
+            }
+            
+            GTUserManager.unfollow(user!.id!, successBlock: { (response) in
+                self.user = response.object as? GTUser
+                self.header?.item = self.user
+            }, failureBlock: { (response) in
+                    
+            })
+        }
+        else { // Follow.
+            followers = followers! + 1
+            
+            GTUserManager.follow(user!.id!, successBlock: { (response) in
+                self.user = response.object as? GTUser
+                self.header?.item = self.user
+            }, failureBlock: { (response) in
+                    
+            })
+        }
+        
+        // Update UI.
+        user?.followedByCurrentUser = !user!.followedByCurrentUser!
+        user?.followersCount = followers
+        header?.item = user
+        
+        loadData()
     }
     
     func onClickBack() {
@@ -79,15 +110,17 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             navigationBar.topItem?.rightBarButtonItem = nil
             navigationBar.topItem?.rightBarButtonItems = nil
         }
+        
+        // Set follow button.
+        followBtn.setImage(UIImage(named: user!.followedByCurrentUser! ? "ic_action_unfollow" : "ic_action_follow"), forState: .Normal)
+        followBtn.backgroundColor = user!.followedByCurrentUser! ? UIColor(hexString: Colors.Green) : UIColor.whiteColor()
+        followBtn.tintColor = user!.followedByCurrentUser! ? UIColor.whiteColor() : UIColor(hexString: Colors.Main)
     }
     
     func loadUserProfile() {
         GTUserManager.getUserFullProfile(user!.id!, successBlock: { (response) in
             self.user = response.object as? GTUser
-            
-            if self.header != nil {
-                self.header?.item = self.user
-            }
+            self.header?.item = self.user
         }) { (response) in
             DialogBuilder.showErrorAlert(response.message, title: App.Title)
         }
@@ -181,9 +214,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         
         coordinator.animateAlongsideTransition({ (context) in
-            if self.header != nil {
-                self.header?.carousel.reloadData()
-            }
+            self.header?.carousel.reloadData()
         }, completion: nil)
     }
     
@@ -202,7 +233,6 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         followBtn.layer.shadowOffset = CGSizeMake(1.6, 1.6)
         followBtn.layer.shadowOpacity = 0.5
         followBtn.layer.masksToBounds = false
-        followBtn.backgroundColor = UIColor(hexString: Colors.Green)
     }
     
     func setupNavigationBar() {
@@ -216,7 +246,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         navigationBar.topItem?.leftBarButtonItems = [negativeSpacer, backBtn]
         
         titleView = UILabel()
-        titleView!.text = "Georgi Christov"
+        titleView!.text = user?.getFullName()
         titleView!.textColor = .whiteColor()
         titleView!.textAlignment = .Center
         titleView!.font = UIFont.boldSystemFontOfSize(17)
