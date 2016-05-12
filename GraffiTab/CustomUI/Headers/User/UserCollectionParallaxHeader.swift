@@ -192,7 +192,12 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
                             duration: App.ImageAnimationDuration,
                             options: UIViewAnimationOptions.TransitionCrossDissolve,
                             animations: {
-                                self.cover.image = image
+                                if image != nil {
+                                    self.cover.image = image
+                                }
+                                else {
+                                    self.cover.image = UIImage(named: "grafitab_login")
+                                }
                             },
                             completion: nil)
                     }
