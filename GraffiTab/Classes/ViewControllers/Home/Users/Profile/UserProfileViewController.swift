@@ -215,7 +215,31 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         
         coordinator.animateAlongsideTransition({ (context) in
             self.header?.carousel.reloadData()
+            self.collectionView.reloadEmptyDataSet()
         }, completion: nil)
+    }
+    
+    // MARK: - DZNEmptyDataSetDelegate
+    
+    override func getEmptyDataSetTitle() -> String! {
+        return nil
+    }
+    
+    override func getEmptyDataSetDescription() -> String! {
+        return "No graffiti"
+    }
+    
+    override func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+        return nil
+    }
+    
+    override func verticalOffsetForEmptyDataSet(scrollView: UIScrollView!) -> CGFloat {
+        let emptySpaceOffset = self.layout!.parallaxHeaderReferenceSize.height - self.view.center.y
+        return emptySpaceOffset + 30
+    }
+    
+    override func emptyDataSetShouldAllowScroll(scrollView: UIScrollView!) -> Bool {
+        return true
     }
     
     // MARK: - Setup

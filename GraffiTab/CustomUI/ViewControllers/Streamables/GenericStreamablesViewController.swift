@@ -33,7 +33,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
             if collectionView != nil {
                 configureLayout()
                 
-                collectionView.collectionViewLayout.invalidateLayout()
+                collectionView.performBatchUpdates(nil, completion: nil)
             }
         }
     }
@@ -63,7 +63,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     override func viewDidLayoutSubviews() {
         configureLayout()
         
-        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.performBatchUpdates(nil, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -347,11 +347,11 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         return "empty_placeholder"
     }
     
-    func getEmptyDataSetTitle() -> String {
+    func getEmptyDataSetTitle() -> String! {
         return "No graffiti"
     }
     
-    func getEmptyDataSetDescription() -> String {
+    func getEmptyDataSetDescription() -> String! {
         return "No graffiti were found over here. Please come back again."
     }
     
@@ -366,6 +366,10 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let text = getEmptyDataSetTitle()
         
+        if text == nil {
+            return nil
+        }
+        
         let attributes = [NSFontAttributeName:UIFont.boldSystemFontOfSize(18), NSForegroundColorAttributeName:UIColor.darkGrayColor()]
         
         return NSAttributedString(string: text, attributes: attributes)
@@ -373,6 +377,10 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     
     func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let text = getEmptyDataSetDescription()
+        
+        if text == nil {
+            return nil
+        }
         
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineBreakMode = .ByWordWrapping
@@ -419,6 +427,14 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         else {
             assert(false, "Unable to show likers - Unknown parent.")
         }
+    }
+    
+    // MARK: - Orientation
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
+        configureLayout()
     }
     
     // MARK: - Setup

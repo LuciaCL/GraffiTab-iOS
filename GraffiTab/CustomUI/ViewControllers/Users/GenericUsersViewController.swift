@@ -21,8 +21,15 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
     
     var items = [GTUser]()
     var isDownloading = false
-    
-    private var viewType: UserViewType = .List
+    var viewType: UserViewType = .List {
+        didSet {
+            if collectionView != nil {
+                configureLayout()
+                
+                collectionView.performBatchUpdates(nil, completion: nil)
+            }
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -49,7 +56,7 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
     override func viewDidLayoutSubviews() {
         configureLayout()
         
-        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.performBatchUpdates(nil, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,16 +66,6 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
     
     func basicInit() {
         viewType = .List
-    }
-    
-    func setViewType(type: UserViewType) {
-        viewType = type
-        
-        if collectionView != nil {
-            configureLayout()
-            
-            collectionView.collectionViewLayout.invalidateLayout()
-        }
     }
     
     // MARK: - ViewType-specific helpers
@@ -228,11 +225,11 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
         return "empty_placeholder"
     }
     
-    func getEmptyDataSetTitle() -> String {
+    func getEmptyDataSetTitle() -> String! {
         return "No users"
     }
     
-    func getEmptyDataSetDescription() -> String {
+    func getEmptyDataSetDescription() -> String! {
         return "No users were found. Please come back again."
     }
     
@@ -247,6 +244,10 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let text = getEmptyDataSetTitle()
         
+        if text == nil {
+            return nil
+        }
+        
         let attributes = [NSFontAttributeName:UIFont.boldSystemFontOfSize(18), NSForegroundColorAttributeName:UIColor.darkGrayColor()]
         
         return NSAttributedString(string: text, attributes: attributes)
@@ -254,6 +255,10 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
     
     func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let text = getEmptyDataSetDescription()
+        
+        if text == nil {
+            return nil
+        }
         
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineBreakMode = .ByWordWrapping

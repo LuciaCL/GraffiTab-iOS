@@ -13,6 +13,6 @@ class ListUsersViewController: GenericUsersViewController {
     override func basicInit() {
         super.basicInit()
         
-        setViewType(.List)
+        self.viewType = .List
     }
 }
