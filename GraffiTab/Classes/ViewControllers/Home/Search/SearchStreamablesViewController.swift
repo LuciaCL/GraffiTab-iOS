@@ -14,6 +14,7 @@ class SearchStreamablesViewController: GridStreamablesViewController {
     var searchQuery: String?
     
     func search(query: String) {
+        pullToRefresh.startRefreshing()
         searchQuery = query
         
         refresh()
