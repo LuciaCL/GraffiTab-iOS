@@ -2439,7 +2439,7 @@
                                     <constraint firstAttribute="height" constant="55" id="isl-Ew-e6g"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="ic_spray"/>
+                                <state key="normal" image="ic_spray_2"/>
                                 <connections>
                                     <action selector="onClickCreate:" destination="qng-4L-K63" eventType="touchUpInside" id="s1o-yO-XtD"/>
                                 </connections>
@@ -3378,7 +3378,7 @@
         <image name="ic_notifications" width="50" height="50"/>
         <image name="ic_search_white" width="24" height="24"/>
         <image name="ic_settings" width="25" height="25"/>
-        <image name="ic_spray" width="300" height="300"/>
+        <image name="ic_spray_2" width="300" height="300"/>
         <image name="icn_facebook" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
