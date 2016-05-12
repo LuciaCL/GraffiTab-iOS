@@ -30,6 +30,8 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     var items = [GTStreamable]()
     let colorPallete = ["5d6971", "4a545a", "6d7b84", "4a545a", "505b61", "637078", "5f6b73"]
     var isDownloading = false
+    var canLoadMore = true
+    var offset = 0
     var showStaticCollection = false
     var viewType: StreamableViewType = .Grid {
         didSet {
@@ -60,7 +62,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         
         setupCollectionView()
         
-        loadItems(true, offset: 0)
+        loadItems(true, offset: offset)
     }
     
     override func viewDidLayoutSubviews() {
@@ -182,7 +184,10 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     // MARK: - Loading
     
     func refresh() {
-        loadItems(false, offset: 0)
+        offset = 0
+        canLoadMore = true
+        
+        loadItems(false, offset: offset)
     }
     
     func loadItems(isStart: Bool, offset: Int) {
@@ -207,8 +212,14 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
                 let listItemsResult = response.object as! GTListItemsResult<GTStreamable>
                 self.items.appendContentsOf(listItemsResult.items!)
                 
+                if listItemsResult.items!.count <= 0 && listItemsResult.items!.count < GTConstants.MaxItems {
+                    self.canLoadMore = false
+                }
+                
                 self.finalizeLoad()
             }) { (response) -> Void in
+                self.canLoadMore = false
+                
                 self.finalizeLoad()
                 
                 DialogBuilder.showErrorAlert(response.message, title: App.Title)
@@ -233,6 +244,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         
         isDownloading = false
         
+        collectionView.finishInfiniteScroll()
         collectionView.reloadData()
     }
     
@@ -458,5 +470,18 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         pullToRefresh.colors = [UIColor(hexString: Colors.Main)!, UIColor(hexString: Colors.Orange)!, UIColor(hexString: Colors.Green)!]
         self.view.addSubview(pullToRefresh)
         pullToRefresh.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
+        
+        // Setup infite scroll.
+        collectionView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
+        collectionView?.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
+            if self!.canLoadMore && !self!.isDownloading {
+                self!.offset = self!.offset + GTConstants.MaxItems
+                self?.loadItems(false, offset: self!.offset)
+            }
+            else {
+                self?.isDownloading = false
+                self?.collectionView.finishInfiniteScroll()
+            }
+        }
     }
 }

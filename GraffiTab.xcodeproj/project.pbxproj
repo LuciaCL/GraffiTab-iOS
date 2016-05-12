@@ -110,6 +110,8 @@
 		E51CD0CE1CD0C77800D56C58 /* Chalk.png in Resources */ = {isa = PBXBuildFile; fileRef = E51CD0C91CD0C77800D56C58 /* Chalk.png */; };
 		E51CD0CF1CD0C77800D56C58 /* Eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = E51CD0CA1CD0C77800D56C58 /* Eraser.png */; };
 		E51CD0D01CD0C77800D56C58 /* Spray.png in Resources */ = {isa = PBXBuildFile; fileRef = E51CD0CB1CD0C77800D56C58 /* Spray.png */; };
+		E52DC7381CE5085900375828 /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7371CE5085900375828 /* CustomInfiniteIndicator.swift */; };
+		E52DC7391CE5085900375828 /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7371CE5085900375828 /* CustomInfiniteIndicator.swift */; };
 		E554CFDA1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
 		E554CFDB1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
 		E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD81CB5641B00668D85 /* release_notes.html */; };
@@ -394,6 +396,7 @@
 		E51CD0C91CD0C77800D56C58 /* Chalk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chalk.png; sourceTree = "<group>"; };
 		E51CD0CA1CD0C77800D56C58 /* Eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Eraser.png; sourceTree = "<group>"; };
 		E51CD0CB1CD0C77800D56C58 /* Spray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spray.png; sourceTree = "<group>"; };
+		E52DC7371CE5085900375828 /* CustomInfiniteIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfiniteIndicator.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
 		E554CFD81CB5641B00668D85 /* release_notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = release_notes.html; sourceTree = "<group>"; };
 		E554CFD91CB5641B00668D85 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
@@ -766,6 +769,14 @@
 				E51CD0CB1CD0C77800D56C58 /* Spray.png */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		E52DC7311CE5084000375828 /* LoadingIndicators */ = {
+			isa = PBXGroup;
+			children = (
+				E52DC7371CE5085900375828 /* CustomInfiniteIndicator.swift */,
+			);
+			path = LoadingIndicators;
 			sourceTree = "<group>";
 		};
 		E554CFD61CB5641B00668D85 /* Html */ = {
@@ -1215,6 +1226,7 @@
 		E5DFDBF41CB2C31B00BB3D27 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				E52DC7311CE5084000375828 /* LoadingIndicators */,
 				E5B6B6371CC6C40C00DC8EFC /* Drawing */,
 				E558A8A31CBFFCDC00C2F9B1 /* Headers */,
 				E51006DC1CBCF63B00AC66A5 /* MapKit */,
@@ -1655,6 +1667,7 @@
 				E5B6B5B01CC56F5800DC8EFC /* EditTextViewController.swift in Sources */,
 				E558A8A71CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */,
 				E5B6B5CA1CC56F5800DC8EFC /* SettingsViewController.swift in Sources */,
+				E52DC7391CE5085900375828 /* CustomInfiniteIndicator.swift in Sources */,
 				E5B6B5D01CC56F5800DC8EFC /* ExploreViewController.swift in Sources */,
 				E51006F21CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
 				E51006D81CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
@@ -1759,6 +1772,7 @@
 				E558A8A61CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */,
 				E5B6B5C91CC56F5800DC8EFC /* SettingsViewController.swift in Sources */,
 				E5B6B5CF1CC56F5800DC8EFC /* ExploreViewController.swift in Sources */,
+				E52DC7381CE5085900375828 /* CustomInfiniteIndicator.swift in Sources */,
 				E5D085AF1CD8D30000226589 /* TOCropToolbar.m in Sources */,
 				E51006F11CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
 				E51006D71CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,

@@ -34,6 +34,7 @@ def common_pods
     pod 'SlackTextViewController'
     pod 'ActiveLabel'
     pod 'FLAnimatedImage'
+    pod 'UIScrollView-InfiniteScroll'
 end
 
 target 'GraffiTab' do

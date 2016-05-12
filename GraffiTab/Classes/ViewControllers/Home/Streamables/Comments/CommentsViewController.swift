@@ -9,12 +9,17 @@
 import UIKit
 import GraffiTab_iOS_SDK
 import ObjectMapper
+import CarbonKit
 
 class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
 
+    var pullToRefresh = CarbonSwipeRefresh()
+    
     var items = [GTComment]()
     var searchResults = NSMutableArray()
     var isDownloading = false
+    var canLoadMore = true
+    var offset = 0
     var streamable: GTStreamable?
     var commentToEdit: GTComment?
     
@@ -26,7 +31,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         setupTableView()
         setupSlackController()
         
-        loadItems(true, offset: 0)
+        loadItems(true, offset: offset)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -45,7 +50,10 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     // MARK: - Loading
     
     func refresh() {
-        loadItems(false, offset: 0)
+        offset = 0
+        canLoadMore = true
+        
+        loadItems(false, offset: offset)
     }
     
     func loadItems(isStart: Bool, offset: Int) {
@@ -69,8 +77,14 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             let listItemsResult = response.object as! GTListItemsResult<GTComment>
             self.items.appendContentsOf(listItemsResult.items!)
             
+            if listItemsResult.items!.count <= 0 && listItemsResult.items!.count < GTConstants.MaxItems {
+                self.canLoadMore = false
+            }
+            
             self.finalizeLoad()
         }) { (response) in
+            self.canLoadMore = false
+            
             self.finalizeLoad()
             
             DialogBuilder.showErrorAlert(response.message, title: App.Title)
@@ -82,10 +96,12 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     }
     
     func finalizeLoad() {
+        pullToRefresh.endRefreshing()
         removeLoadingIndicator()
         
         isDownloading = false
         
+        self.tableView.finishInfiniteScroll()
         self.tableView.reloadData()
     }
     
@@ -408,5 +424,25 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         self.autoCompletionView.registerNib(UINib(nibName: AutocompleteUserCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellReuseIdentifier: AutocompleteUserCell.reusableIdentifier())
         self.autoCompletionView.registerNib(UINib(nibName: AutocompleteHashCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellReuseIdentifier: AutocompleteHashCell.reusableIdentifier())
         self.registerPrefixesForAutoCompletion(["@", "#"])
+        
+        // Setup pull to refresh.
+        pullToRefresh = CarbonSwipeRefresh(scrollView: self.tableView)
+        pullToRefresh.setMarginTop(0)
+        pullToRefresh.colors = [UIColor(hexString: Colors.Main)!, UIColor(hexString: Colors.Orange)!, UIColor(hexString: Colors.Green)!]
+        self.tableView.addSubview(pullToRefresh)
+        pullToRefresh.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
+        
+        // Setup infite scroll.
+        self.tableView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
+        self.tableView?.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
+            if self!.canLoadMore && !self!.isDownloading {
+                self!.offset = self!.offset + GTConstants.MaxItems
+                self?.loadItems(false, offset: self!.offset)
+            }
+            else {
+                self?.isDownloading = false
+                self?.tableView.finishInfiniteScroll()
+            }
+        }
     }
 }

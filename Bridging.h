@@ -33,6 +33,7 @@
 #import <TLYShyNavBar/TLYShyNavBarManager.h>
 #import <FBLikeLayout/FBLikeLayout.h>
 #import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
+#import <UIScrollView_InfiniteScroll/UIScrollView+InfiniteScroll.h>
 
 #import <MZFormSheetPresentationController/MZFormSheetPresentationController.h>
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewController.h>
