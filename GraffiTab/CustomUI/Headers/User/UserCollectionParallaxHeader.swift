@@ -132,6 +132,10 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
         pageControl.currentPage = carousel.currentItemIndex
     }
     
+    func carouselItemWidth(carousel: iCarousel) -> CGFloat {
+        return carousel.frame.width
+    }
+    
     // MARK: - Setup
     
     func setupContainerViews() {

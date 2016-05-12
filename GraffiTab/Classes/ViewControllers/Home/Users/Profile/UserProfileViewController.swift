@@ -105,6 +105,18 @@ class UserProfileViewController: ListFullStreamablesViewController {
         assert(false, "Unsupported collection view supplementary element.")
     }
     
+    // MARK: - Orientation
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
+        coordinator.animateAlongsideTransition({ (context) in
+            if self.header != nil {
+                self.header?.carousel.reloadData()
+            }
+        }, completion: nil)
+    }
+    
     // MARK: - Setup
     
     override func setupCollectionView() {

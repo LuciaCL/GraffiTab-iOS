@@ -33,6 +33,7 @@ def common_pods
     pod 'ALGReversedFlowLayout'
     pod 'SlackTextViewController'
     pod 'ActiveLabel'
+    pod 'FLAnimatedImage'
 end
 
 target 'GraffiTab' do
