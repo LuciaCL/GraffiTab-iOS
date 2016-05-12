@@ -23,7 +23,6 @@ enum StreamableViewType : Int {
 class GenericStreamablesViewController: BackButtonViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CHTCollectionViewDelegateWaterfallLayout, StreamableDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     var pullToRefresh = CarbonSwipeRefresh()
     
@@ -193,9 +192,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     func loadItems(isStart: Bool, offset: Int) {
         if items.count <= 0 && isDownloading == false {
             if isStart {
-                if loadingIndicator != nil {
-                    loadingIndicator.startAnimating()
-                }
+                pullToRefresh.startRefreshing()
             }
         }
         
@@ -237,10 +234,6 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     func finalizeLoad() {
         pullToRefresh.endRefreshing()
         removeLoadingIndicator()
-        
-        if loadingIndicator != nil {
-            loadingIndicator.stopAnimating()
-        }
         
         isDownloading = false
         

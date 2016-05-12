@@ -57,13 +57,11 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     }
     
     func loadItems(isStart: Bool, offset: Int) {
-//        if items.count <= 0 && isDownloading == false {
-//            if isStart {
-//                if loadingIndicator != nil {
-//                    loadingIndicator.startAnimating()
-//                }
-//            }
-//        }
+        if items.count <= 0 && isDownloading == false {
+            if isStart {
+                pullToRefresh.startRefreshing()
+            }
+        }
         
         showLoadingIndicator()
         

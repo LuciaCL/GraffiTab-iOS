@@ -9,26 +9,27 @@
 import UIKit
 import DZNEmptyDataSet
 import GraffiTab_iOS_SDK
+import CarbonKit
 
 class MyNotificationsViewController: BackButtonViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
-    var items: [GTNotification]?
-    var isDownloading: Bool?
+    var pullToRefresh = CarbonSwipeRefresh()
+    
+    var items = [GTNotification]()
+    var isDownloading = false
+    var canLoadMore = true
+    var offset = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        items = [GTNotification]()
-        isDownloading = false
-        
         setupTableView()
         
-        loadItems(true, offset: 0)
+        loadItems(true, offset: offset)
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,15 +40,16 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
     // MARK: - Loading
     
     func refresh() {
-        loadItems(false, offset: 0)
+        offset = 0
+        canLoadMore = true
+        
+        loadItems(false, offset: offset)
     }
     
     func loadItems(isStart: Bool, offset: Int) {
-        if items?.count <= 0 && isDownloading == false {
+        if items.count <= 0 && isDownloading == false {
             if isStart {
-                if loadingIndicator != nil {
-                    loadingIndicator.startAnimating()
-                }
+                pullToRefresh.startRefreshing()
             }
         }
         
@@ -57,14 +59,20 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
         
         GTMeManager.getNotifications(offset, successBlock: { (response) in
             if offset == 0 {
-                self.items?.removeAll()
+                self.items.removeAll()
             }
             
             let listItemsResult = response.object as! GTListItemsResult<GTNotification>
-            self.items?.appendContentsOf(listItemsResult.items!)
+            self.items.appendContentsOf(listItemsResult.items!)
+            
+            if listItemsResult.items!.count <= 0 && listItemsResult.items!.count < GTConstants.MaxItems {
+                self.canLoadMore = false
+            }
             
             self.finalizeLoad()
         }) { (response) in
+            self.canLoadMore = false
+            
             self.finalizeLoad()
             
             DialogBuilder.showErrorAlert(response.message, title: App.Title)
@@ -72,14 +80,12 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
     }
     
     func finalizeLoad() {
+        pullToRefresh.endRefreshing()
         removeLoadingIndicator()
-        
-        if loadingIndicator != nil {
-            loadingIndicator.stopAnimating()
-        }
         
         isDownloading = false
         
+        tableView.finishInfiniteScroll()
         tableView.reloadData()
     }
     
@@ -98,12 +104,12 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
     // MARK: - UITableViewDelegate
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items!.count
+        return items.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: NotificationCell
-        let item = items![indexPath.row]
+        let item = items[indexPath.row]
         
         if item.type == .FOLLOW {
             cell = tableView.dequeueReusableCellWithIdentifier(NotificationFollowCell.reusableIdentifier()) as! NotificationFollowCell
@@ -125,7 +131,7 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
         
         // Setup timeline views.
         cell.timelineTopView.hidden = indexPath.row == 0 ? true : false
-        cell.timelineBottomView.hidden = indexPath.row == (items?.count)! - 1 ? true : false
+        cell.timelineBottomView.hidden = indexPath.row == items.count - 1 ? true : false
         
         return cell
     }
@@ -204,5 +210,25 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
         tableView.estimatedRowHeight = 160.0
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
+        
+        // Setup pull to refresh.
+        pullToRefresh = CarbonSwipeRefresh(scrollView: self.tableView)
+        pullToRefresh.setMarginTop(0)
+        pullToRefresh.colors = [UIColor(hexString: Colors.Main)!, UIColor(hexString: Colors.Orange)!, UIColor(hexString: Colors.Green)!]
+        self.view.addSubview(pullToRefresh)
+        pullToRefresh.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
+        
+        // Setup infite scroll.
+        tableView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
+        tableView?.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
+            if self!.canLoadMore && !self!.isDownloading {
+                self!.offset = self!.offset + GTConstants.MaxItems
+                self?.loadItems(false, offset: self!.offset)
+            }
+            else {
+                self?.isDownloading = false
+                self?.tableView.finishInfiniteScroll()
+            }
+        }
     }
 }
