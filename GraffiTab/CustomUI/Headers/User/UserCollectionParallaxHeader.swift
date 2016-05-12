@@ -155,8 +155,6 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
     // MARK: - Loading
     
     func loadAvatar() {
-        avatar.image = nil
-        
         if item?.avatar != nil {
             Alamofire.request(.GET, item!.avatar!.link!)
                 .responseImage { response in

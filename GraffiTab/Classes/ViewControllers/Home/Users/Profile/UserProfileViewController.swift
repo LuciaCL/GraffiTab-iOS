@@ -192,12 +192,16 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     
     func didTapList(user: GTUser) {
         self.viewType = .ListFull
-        collectionView.reloadData()
+        Utils.runWithDelay(0.01) {
+            self.collectionView.reloadData()
+        }
     }
     
     func didTapGrid(user: GTUser) {
         self.viewType = .Grid
-        collectionView.reloadData()
+        Utils.runWithDelay(0.01) {
+            self.collectionView.reloadData()
+        }
     }
     
     func didTapFavourites(user: GTUser) {
