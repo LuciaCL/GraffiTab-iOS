@@ -103,35 +103,38 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     // MARK: - ViewType-specific helpers
     
     func getNumCols() -> Int {
+        let orientation = UIApplication.sharedApplication().statusBarOrientation
+        let landscape = orientation == .LandscapeLeft || orientation == .LandscapeRight
+        
         switch viewType {
-        case .Grid:
-            return 3
-        case .Trending:
-            return 2
-        case .ListFull:
-            return 1
-        case .Mosaic:
-            return 3
+            case .Grid:
+                return landscape ? 4 : 3
+            case .Trending:
+                return landscape ? 3 : 2
+            case .ListFull:
+                return 1
+            case .Mosaic:
+                return landscape ? 4 : 3
         }
     }
     
     func getSpacing() -> Int {
         switch viewType {
-        case .Grid, .Mosaic:
-            return 2
-        case .Trending, .ListFull:
-            return 7
+            case .Grid, .Mosaic:
+                return 2
+            case .Trending, .ListFull:
+                return 7
         }
     }
     
     func getHeight(width: CGFloat) -> CGFloat {
         switch viewType {
-        case .Grid:
-            return width
-        case .Trending:
-            return 250
-        case .ListFull, .Mosaic:
-            return 464
+            case .Grid:
+                return width
+            case .Trending:
+                return 250
+            case .ListFull, .Mosaic:
+                return 464
         }
     }
     
@@ -150,26 +153,37 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         height = getHeight(width)
         
         if viewType == .Mosaic {
+            let layout: FBLikeLayout
+            
             if !collectionView.collectionViewLayout.isKindOfClass(FBLikeLayout.classForCoder()) {
-                let layout = FBLikeLayout()
-                layout.minimumInteritemSpacing = spacing
-                layout.singleCellWidth = width
-                layout.maxCellSpace = Int(spacing)
-                layout.forceCellWidthForMinimumInteritemSpacing = true
-                layout.fullImagePercentageOfOccurrency = 50
-                collectionView.collectionViewLayout = layout
-                self.collectionView.reloadData()
+                layout = FBLikeLayout()
             }
+            else {
+                layout = collectionView.collectionViewLayout as! FBLikeLayout
+            }
+            
+            layout.minimumInteritemSpacing = spacing
+            layout.singleCellWidth = width
+            layout.maxCellSpace = Int(spacing)
+            layout.forceCellWidthForMinimumInteritemSpacing = true
+            layout.fullImagePercentageOfOccurrency = 50
+            collectionView.collectionViewLayout = layout
         }
         else if viewType == .Trending {
+            let layout: CHTCollectionViewWaterfallLayout
+            
             if !collectionView.collectionViewLayout.isKindOfClass(CHTCollectionViewWaterfallLayout.classForCoder()) {
-                let layout = CHTCollectionViewWaterfallLayout()
-                layout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-                layout.minimumInteritemSpacing = spacing
-                layout.minimumColumnSpacing = spacing
-                collectionView.collectionViewLayout = layout
-                self.collectionView.reloadData()
+                layout = CHTCollectionViewWaterfallLayout()
             }
+            else {
+                layout = collectionView.collectionViewLayout as! CHTCollectionViewWaterfallLayout
+            }
+            
+            layout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+            layout.minimumInteritemSpacing = spacing
+            layout.minimumColumnSpacing = spacing
+            layout.columnCount = Int(numCols)
+            collectionView.collectionViewLayout = layout
         }
         else {
             let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -416,27 +430,19 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     // MARK: - StreamableDelegate
     
     func didTapLikes(streamable: GTStreamable) {
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("LikersViewController") as! LikersViewController
-        vc.streamable = streamable
-        
-        if self.navigationController != nil {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        else {
-            assert(false, "Unable to show likers - Unknown parent.")
-        }
+        ViewControllerUtils.showLikers(streamable, viewController: self)
     }
     
     func didTapComments(streamable: GTStreamable) {
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CommentsViewController") as! CommentsViewController
-        vc.streamable = streamable
-        
-        if self.navigationController != nil {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        else {
-            assert(false, "Unable to show likers - Unknown parent.")
-        }
+        ViewControllerUtils.showComments(streamable, viewController: self)
+    }
+    
+    func didTapUser(user: GTUser) {
+        ViewControllerUtils.showUserProfile(user, viewController: self)
+    }
+    
+    func didTapShare(streamable: GTStreamable) {
+        // TODO:
     }
     
     // MARK: - Orientation

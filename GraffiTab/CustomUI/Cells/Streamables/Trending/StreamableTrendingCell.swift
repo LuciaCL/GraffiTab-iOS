@@ -51,5 +51,9 @@ class StreamableTrendingCell: StreamableCell {
         likesImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickLikers)))
         commentsLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickComments)))
         commentsImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickComments)))
+        
+        avatar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickUser)))
+        usernameField.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickUser)))
+        nameField.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickUser)))
     }
 }

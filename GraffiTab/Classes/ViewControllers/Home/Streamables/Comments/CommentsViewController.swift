@@ -364,7 +364,23 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     }
     
     func didTapUsername(username: String) {
-        // TODO:
+        self.view.showActivityViewWithLabel("Processing")
+        self.view.rn_activityView.dimBackground = false
+        
+        GTUserManager.getUserProfileByUsername(username, successBlock: { (response) in
+            self.view.hideActivityView()
+            
+            self.showUserProfile(response.object as! GTUser)
+        }) { (response) in
+            self.view.hideActivityView()
+            
+            if response.reason == .NotFound {
+                DialogBuilder.showErrorAlert(String(format: "User with username '\(username)' does not exist."), title: App.Title)
+                return
+            }
+            
+            DialogBuilder.showErrorAlert(response.message, title: App.Title)
+        }
     }
     
     func didTapErrorView(comment: GTComment) {
@@ -378,6 +394,10 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
                 self.doPostComment(comment, shouldRefresh: true)
             }
         })
+    }
+    
+    func showUserProfile(user: GTUser) {
+        ViewControllerUtils.showUserProfile(user, viewController: self)
     }
     
     // MARK: - Setup

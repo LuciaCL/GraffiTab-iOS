@@ -15,6 +15,9 @@ protocol StreamableDelegate {
     
     func didTapLikes(streamable: GTStreamable)
     func didTapComments(streamable: GTStreamable)
+    func didTapShare(streamable: GTStreamable)
+    
+    func didTapUser(user: GTUser)
 }
 
 class StreamableCell: UICollectionViewCell {
@@ -51,6 +54,18 @@ class StreamableCell: UICollectionViewCell {
     @IBAction func onClickComments(sender: AnyObject) {
         if delegate != nil {
             delegate?.didTapComments(item!)
+        }
+    }
+    
+    @IBAction func onClickUser(sender: AnyObject) {
+        if delegate != nil {
+            delegate?.didTapUser(item!.user!)
+        }
+    }
+    
+    @IBAction func onClickShare(sender: AnyObject) {
+        if delegate != nil {
+            delegate?.didTapShare(item!)
         }
     }
     

@@ -217,15 +217,7 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
         
         let user = items[indexPath.row]
         
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("UserProfileViewController") as! UserProfileViewController
-        vc.user = user
-        
-        if self.navigationController != nil {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        else {
-            assert(false, "Unable to show user profile - Unknown parent.")
-        }
+        ViewControllerUtils.showUserProfile(user, viewController: self)
     }
     
     // MARK: - DZNEmptyDataSetDelegate
