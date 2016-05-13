@@ -17,6 +17,8 @@
 #import "LineDrawer.h"
 #import "CCViewController.h"
 #import "TOCropViewController.h"
+#import "ZoomableImageView.h"
+#import "JTCollectionMaterialTransition.h"
 
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>

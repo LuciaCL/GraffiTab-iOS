@@ -51,4 +51,16 @@ class Utils: NSObject {
         
         UIApplication.sharedApplication().openURL(url!)
     }
+    
+    class func showView(view: UIView) {
+        UIView.animateWithDuration(0.3) { 
+            view.alpha = 1
+        }
+    }
+    
+    class func hideView(view: UIView) {
+        UIView.animateWithDuration(0.3) {
+            view.alpha = 0
+        }
+    }
 }

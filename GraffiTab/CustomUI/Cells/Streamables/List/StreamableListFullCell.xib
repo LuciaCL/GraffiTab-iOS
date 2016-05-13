@@ -155,7 +155,7 @@
                             <constraint firstItem="Qgg-oq-Fb0" firstAttribute="height" secondItem="iUM-ac-1EA" secondAttribute="height" id="xCn-IQ-BrX"/>
                         </constraints>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EkX-tZ-xUK">
+                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EkX-tZ-xUK">
                         <rect key="frame" x="0.0" y="54" width="320" height="320"/>
                         <color key="backgroundColor" red="0.81568627450980391" green="0.81568627450980391" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>

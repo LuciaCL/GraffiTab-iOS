@@ -40,13 +40,19 @@ class StreamableTrendingCell: StreamableCell {
         self.commentsLbl.text = String(format: "%i", item!.commentsCount!);
     }
     
+    override func thumbnailFullyLoaded() -> Bool {
+        return false
+    }
+    
     // MARK: - Setup
     
     func setupContainerViews() {
         Utils.applyShadowEffectToView(self)
     }
     
-    func setupGestureRecognizers() {
+    override func setupGestureRecognizers() {
+        super.setupGestureRecognizers()
+        
         likesLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickLikers)))
         likesImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickLikers)))
         commentsLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickComments)))

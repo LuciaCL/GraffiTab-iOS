@@ -142,6 +142,8 @@
 		E52DC77B1CE5E09900375828 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7731CE5E09900375828 /* TrendingViewController.swift */; };
 		E52DC77D1CE5E0BD00375828 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC77C1CE5E0BD00375828 /* WebViewController.swift */; };
 		E52DC77E1CE5E0BD00375828 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC77C1CE5E0BD00375828 /* WebViewController.swift */; };
+		E52DC7801CE5E37A00375828 /* StreamableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC77F1CE5E37A00375828 /* StreamableDetailViewController.swift */; };
+		E52DC7811CE5E37A00375828 /* StreamableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC77F1CE5E37A00375828 /* StreamableDetailViewController.swift */; };
 		E554CFDA1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
 		E554CFDB1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
 		E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD81CB5641B00668D85 /* release_notes.html */; };
@@ -152,6 +154,8 @@
 		E558A8A71CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */; };
 		E56D1F231CDD1917007B3698 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D1F221CDD1917007B3698 /* ArrayUtils.swift */; };
 		E56D1F241CDD1917007B3698 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D1F221CDD1917007B3698 /* ArrayUtils.swift */; };
+		E57716881CE6008600006572 /* ZoomableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E57716871CE6008600006572 /* ZoomableImageView.m */; };
+		E577168B1CE600C100006572 /* JTCollectionMaterialTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = E577168A1CE600C100006572 /* JTCollectionMaterialTransition.m */; };
 		E57FAB231CD224B700C0D125 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57FAB221CD224B700C0D125 /* Photos.framework */; };
 		E57FAB241CD224BE00C0D125 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57FAB221CD224B700C0D125 /* Photos.framework */; };
 		E57FAB261CD4106E00C0D125 /* DrawToolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FAB251CD4106E00C0D125 /* DrawToolCell.swift */; };
@@ -426,11 +430,16 @@
 		E52DC7721CE5E09900375828 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
 		E52DC7731CE5E09900375828 /* TrendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
 		E52DC77C1CE5E0BD00375828 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		E52DC77F1CE5E37A00375828 /* StreamableDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableDetailViewController.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
 		E554CFD81CB5641B00668D85 /* release_notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = release_notes.html; sourceTree = "<group>"; };
 		E554CFD91CB5641B00668D85 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
 		E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicStreamablesViewController.swift; sourceTree = "<group>"; };
 		E56D1F221CDD1917007B3698 /* ArrayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
+		E57716861CE6008600006572 /* ZoomableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomableImageView.h; sourceTree = "<group>"; };
+		E57716871CE6008600006572 /* ZoomableImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomableImageView.m; sourceTree = "<group>"; };
+		E57716891CE600C100006572 /* JTCollectionMaterialTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCollectionMaterialTransition.h; sourceTree = "<group>"; };
+		E577168A1CE600C100006572 /* JTCollectionMaterialTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCollectionMaterialTransition.m; sourceTree = "<group>"; };
 		E57FAB1A1CD2245500C0D125 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		E57FAB221CD224B700C0D125 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		E57FAB251CD4106E00C0D125 /* DrawToolCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawToolCell.swift; sourceTree = "<group>"; };
@@ -830,6 +839,15 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		E57716851CE6007B00006572 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				E57716891CE600C100006572 /* JTCollectionMaterialTransition.h */,
+				E577168A1CE600C100006572 /* JTCollectionMaterialTransition.m */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
 		E57FAB381CD8B28900C0D125 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -948,6 +966,7 @@
 		E5B6B58C1CC56F5800DC8EFC /* Streamables */ = {
 			isa = PBXGroup;
 			children = (
+				E52DC77F1CE5E37A00375828 /* StreamableDetailViewController.swift */,
 				E52DC7701CE5E09900375828 /* CommentsViewController.swift */,
 				E52DC7711CE5E09900375828 /* LikersViewController.swift */,
 				E52DC7721CE5E09900375828 /* RecentViewController.swift */,
@@ -1190,6 +1209,7 @@
 		E5DFDBF41CB2C31B00BB3D27 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				E57716851CE6007B00006572 /* Transitions */,
 				E52DC7311CE5084000375828 /* LoadingIndicators */,
 				E5B6B6371CC6C40C00DC8EFC /* Drawing */,
 				E558A8A31CBFFCDC00C2F9B1 /* Headers */,
@@ -1213,6 +1233,8 @@
 		E5DFDBF71CB2C31B00BB3D27 /* ImageViews */ = {
 			isa = PBXGroup;
 			children = (
+				E57716861CE6008600006572 /* ZoomableImageView.h */,
+				E57716871CE6008600006572 /* ZoomableImageView.m */,
 				E5B6B62D1CC64D4400DC8EFC /* ColorSprayCan.swift */,
 				E5DFDBF81CB2C31B00BB3D27 /* TintImageView.swift */,
 				E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */,
@@ -1642,6 +1664,7 @@
 				E52DC7601CE56B7D00375828 /* UserStreamablesViewController.swift in Sources */,
 				E50765DA1CB4098D00EAE832 /* InputValidator.swift in Sources */,
 				E510065F1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
+				E52DC7811CE5E37A00375828 /* StreamableDetailViewController.swift in Sources */,
 				E5B6B6331CC6566100DC8EFC /* ColorSprayCanCell.swift in Sources */,
 				E510069E1CBBB4C900AC66A5 /* NotificationCell.swift in Sources */,
 				E51006A71CBBDD1D00AC66A5 /* NotificationLikeCell.swift in Sources */,
@@ -1786,6 +1809,7 @@
 				E5B6B54C1CC25A0E00DC8EFC /* AvatarImageView.swift in Sources */,
 				E52DC7561CE55F1300375828 /* UserProfileViewController.swift in Sources */,
 				E52DC75F1CE56B7D00375828 /* UserStreamablesViewController.swift in Sources */,
+				E52DC7801CE5E37A00375828 /* StreamableDetailViewController.swift in Sources */,
 				E5B6B5DF1CC56F5800DC8EFC /* SignUpViewController.swift in Sources */,
 				E51006DF1CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */,
 				E51006CE1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,
@@ -1807,11 +1831,13 @@
 				E52DC76B1CE5DFE700375828 /* PrivateStreamablesViewController.swift in Sources */,
 				E5B6B5BF1CC56F5800DC8EFC /* SearchUsersViewController.swift in Sources */,
 				E5B6B5AD1CC56F5800DC8EFC /* EditTextFieldViewController.swift in Sources */,
+				E57716881CE6008600006572 /* ZoomableImageView.m in Sources */,
 				E5D085AB1CD8D30000226589 /* UIImage+CropRotate.m in Sources */,
 				E51006361CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
 				E52DC7741CE5E09900375828 /* CommentsViewController.swift in Sources */,
 				E51006FF1CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */,
 				E5B6B5B71CC56F5800DC8EFC /* MyNotificationsViewController.swift in Sources */,
+				E577168B1CE600C100006572 /* JTCollectionMaterialTransition.m in Sources */,
 				E5D085B01CD8D30000226589 /* TOCropView.m in Sources */,
 				E52DC7781CE5E09900375828 /* RecentViewController.swift in Sources */,
 				E5B6B5AB1CC56F5800DC8EFC /* EditProfileViewController.swift in Sources */,

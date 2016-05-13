@@ -18,6 +18,8 @@ protocol StreamableDelegate {
     func didTapShare(streamable: GTStreamable)
     
     func didTapUser(user: GTUser)
+    
+    func didTapThumbnail(cell: UICollectionViewCell, streamable: GTStreamable, thumbnailImage: UIImage, isFullyLoaded: Bool)
 }
 
 class StreamableCell: UICollectionViewCell {
@@ -34,6 +36,12 @@ class StreamableCell: UICollectionViewCell {
     
     class func reusableIdentifier() -> String {
         return "StreamableCell"
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setupGestureRecognizers()
     }
     
     func setItem() {
@@ -69,8 +77,18 @@ class StreamableCell: UICollectionViewCell {
         }
     }
     
+    @IBAction func onClickThumbnail(sender: AnyObject) {
+        if delegate != nil {
+            delegate?.didTapThumbnail(self, streamable: item!, thumbnailImage: thumbnail!.image!, isFullyLoaded: thumbnailFullyLoaded())
+        }
+    }
+    
     @IBAction func onClickLike(sender: AnyObject) {
         
+    }
+    
+    func thumbnailFullyLoaded() -> Bool {
+        assert(false, "Must be implemented by subclasses.")
     }
     
     // MARK: - Loading
@@ -123,5 +141,11 @@ class StreamableCell: UICollectionViewCell {
                 }
             }
         }
+    }
+    
+    // MARK: - Setup
+    
+    func setupGestureRecognizers() {
+        thumbnail.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickThumbnail)))
     }
 }

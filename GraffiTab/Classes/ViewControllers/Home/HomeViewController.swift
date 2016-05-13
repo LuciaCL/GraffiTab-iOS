@@ -148,7 +148,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition?.reverse = false
-        print("\(presented), \(presenting), \(source)")
+        
         return transition
     }
     

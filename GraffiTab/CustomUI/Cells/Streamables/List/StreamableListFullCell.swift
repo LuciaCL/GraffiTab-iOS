@@ -58,6 +58,10 @@ class StreamableListFullCell: StreamableCell {
         return item!.asset!.link!
     }
     
+    override func thumbnailFullyLoaded() -> Bool {
+        return true
+    }
+    
     override func onClickLike(sender: AnyObject) {
         if item!.likedByCurrentUser! { // Unlike.
             item!.likersCount! -= 1
@@ -89,7 +93,9 @@ class StreamableListFullCell: StreamableCell {
         Utils.applyShadowEffectToView(containerView)
     }
     
-    func setupGestureRecognizers() {
+    override func setupGestureRecognizers() {
+        super.setupGestureRecognizers()
+        
         likesLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickLikers)))
         commentsLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickComments)))
         

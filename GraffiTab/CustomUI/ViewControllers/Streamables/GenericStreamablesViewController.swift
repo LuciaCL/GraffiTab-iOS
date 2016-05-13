@@ -20,12 +20,13 @@ enum StreamableViewType : Int {
     case Mosaic
 }
 
-class GenericStreamablesViewController: BackButtonViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CHTCollectionViewDelegateWaterfallLayout, StreamableDelegate {
+class GenericStreamablesViewController: BackButtonViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CHTCollectionViewDelegateWaterfallLayout, StreamableDelegate, UIViewControllerTransitioningDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     var pullToRefresh = CarbonSwipeRefresh()
     
+    var transition: JTCollectionMaterialTransition?
     var items = [GTStreamable]()
     let colorPallete = ["cad0cc", "cdc7b9", "a9b3b2", "b9bbb8", "c2d1cc", "c2c8c4", "b4bfb9"]
     var isDownloading = false
@@ -334,22 +335,6 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         cell.selectedBackgroundView = cellBGView
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
-        
-//        var nav = self.navigationController
-//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ChannelDetailsViewController") as! ChannelDetailsViewController
-//        vc.channel = items![indexPath.row]
-//
-//        if nav == nil {
-//            nav = UINavigationController(rootViewController: vc)
-//            self.presentViewController(nav!, animated: true, completion: nil)
-//        }
-//        else {
-//            nav?.pushViewController(vc, animated: true)
-//        }
-    }
-    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let item = items[indexPath.row]
         
@@ -363,6 +348,10 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         return layout.itemSize
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
     }
     
     // MARK: - DZNEmptyDataSetDelegate
@@ -445,12 +434,39 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         // TODO:
     }
     
+    func didTapThumbnail(cell: UICollectionViewCell, streamable: GTStreamable, thumbnailImage: UIImage, isFullyLoaded: Bool) {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("StreamableDetailViewController") as! StreamableDetailViewController
+        vc.streamable = streamable
+        vc.thumbnailImage = thumbnailImage
+        vc.fullyLoadedThumbnail = isFullyLoaded
+        
+        transition = JTCollectionMaterialTransition(animatedView: (cell as! StreamableCell).thumbnail)
+        vc.modalPresentationStyle = .Custom
+        vc.transitioningDelegate = self
+        
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
     // MARK: - Orientation
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         
         configureLayout()
+    }
+    
+    // MARK: - UIViewControllerTransitioningDelegate
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition?.reverse = false
+        
+        return transition
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition?.reverse = true
+        
+        return transition
     }
     
     // MARK: - Setup
