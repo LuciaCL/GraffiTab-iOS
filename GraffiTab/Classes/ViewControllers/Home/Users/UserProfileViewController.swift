@@ -200,6 +200,10 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             let vc = segue.destinationViewController as! UserStreamablesViewController
             vc.user = user
         }
+        else if segue.identifier == "SEGUE_LIKES" {
+            let vc = segue.destinationViewController as! UserLikedStreamablesViewController
+            vc.user = user
+        }
     }
     
     // MARK: - Loading
@@ -312,7 +316,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     }
     
     func didTapFavourites(user: GTUser) {
-        // TODO:
+        performSegueWithIdentifier("SEGUE_LIKES", sender: nil)
     }
     
     func didTapMap(user: GTUser) {
@@ -351,6 +355,12 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     
     override func emptyDataSetShouldAllowScroll(scrollView: UIScrollView!) -> Bool {
         return true
+    }
+    
+    // MARK: - StreamableDelegate
+    
+    override func didTapUser(user: GTUser) {
+        
     }
     
     // MARK: - Setup

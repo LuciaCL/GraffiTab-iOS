@@ -1,5 +1,5 @@
 //
-//  UserStreamablesViewController.swift
+//  UserLikedStreamablesViewController.swift
 //  GraffiTab
 //
 //  Created by Georgi Christov on 13/05/2016.
@@ -9,7 +9,7 @@
 import UIKit
 import GraffiTab_iOS_SDK
 
-class UserStreamablesViewController: ToggleStreamablesViewController {
+class UserLikedStreamablesViewController: ToggleStreamablesViewController {
     
     var user: GTUser?
     
@@ -24,7 +24,7 @@ class UserStreamablesViewController: ToggleStreamablesViewController {
     // MARK: - Loading
     
     override func loadItems(isStart: Bool, offset: Int, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
-        GTUserManager.getUserStreamables(user!.id!, offset: offset, successBlock: successBlock, failureBlock: failureBlock)
+        GTUserManager.getLikedStreamables(user!.id!, offset: offset, successBlock: successBlock, failureBlock: failureBlock)
     }
     
     // MARK: - Setup
@@ -32,6 +32,6 @@ class UserStreamablesViewController: ToggleStreamablesViewController {
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = "Graffiti"
+        self.title = "Likes"
     }
 }
