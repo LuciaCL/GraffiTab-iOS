@@ -63,4 +63,12 @@ class Utils: NSObject {
             view.alpha = 0
         }
     }
+    
+    class func shareImage(image: UIImage, viewController: UIViewController) {
+        let messageStr = "Check out my awesome graffiti at GraffiTab!"
+        let shareItems = [image, messageStr]
+        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [UIActivityTypePrint, UIActivityTypePostToWeibo, UIActivityTypeCopyToPasteboard, UIActivityTypeAddToReadingList, UIActivityTypePostToVimeo]
+        viewController.presentViewController(activityViewController, animated: true, completion: nil)
+    }
 }

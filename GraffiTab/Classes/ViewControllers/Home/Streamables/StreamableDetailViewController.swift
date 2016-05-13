@@ -57,7 +57,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     @IBAction func onClickShare(sender: AnyObject) {
-        // TODO:
+        Utils.shareImage(streamableImage.imageView!.image!, viewController: self)
     }
     
     @IBAction func onClickLike(sender: AnyObject) {
