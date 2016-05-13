@@ -3217,16 +3217,18 @@
                         <outlet property="collectionView" destination="91p-iZ-9tu" id="BJ0-G6-Hnw"/>
                         <outlet property="followBtn" destination="o0u-oK-Df2" id="ocG-Qg-rjU"/>
                         <outlet property="navigationBar" destination="Rs7-ch-3qN" id="BPJ-Pp-git"/>
+                        <segue destination="1GV-Jl-Tq2" kind="show" identifier="SEGUE_FOLLOWERS" id="8Ph-MR-dMr"/>
+                        <segue destination="FhH-pa-Alw" kind="show" identifier="SEGUE_FOLLOWING" id="UAS-Us-2u2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTB-br-Udb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1914" y="395"/>
         </scene>
-        <!--Likers View Controller-->
+        <!--Followers View Controller-->
         <scene sceneID="Vv2-SS-ZJN">
             <objects>
-                <viewController storyboardIdentifier="LikersViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1GV-Jl-Tq2" customClass="LikersViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FollowersViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1GV-Jl-Tq2" customClass="FollowersViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="36h-YN-0K6"/>
                         <viewControllerLayoutGuide type="bottom" id="GJF-FQ-Wji"/>
@@ -3265,7 +3267,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gs5-rP-Wgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2611" y="395"/>
+        </scene>
+        <!--Likers View Controller-->
+        <scene sceneID="uUS-mo-2Eg">
+            <objects>
+                <viewController storyboardIdentifier="LikersViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QbT-km-81X" customClass="LikersViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Oxp-bn-Cyr"/>
+                        <viewControllerLayoutGuide type="bottom" id="dNX-vz-V8y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NgZ-wd-50T">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VhB-UW-EhC">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="us6-8d-0UU">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="QbT-km-81X" id="LLT-t5-jEh"/>
+                                    <outlet property="delegate" destination="QbT-km-81X" id="9hx-cg-dFF"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VhB-UW-EhC" secondAttribute="trailing" id="AsE-aG-IPu"/>
+                            <constraint firstItem="dNX-vz-V8y" firstAttribute="top" secondItem="VhB-UW-EhC" secondAttribute="bottom" id="CWG-Ew-n18"/>
+                            <constraint firstItem="VhB-UW-EhC" firstAttribute="top" secondItem="NgZ-wd-50T" secondAttribute="top" id="CgC-N9-qRM"/>
+                            <constraint firstItem="VhB-UW-EhC" firstAttribute="leading" secondItem="NgZ-wd-50T" secondAttribute="leading" id="rOU-iL-tUX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="VhB-UW-EhC" id="C9h-eE-jQh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2DG-eH-bBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="-900" y="-1060"/>
+        </scene>
+        <!--Following View Controller-->
+        <scene sceneID="iYh-cx-Jnn">
+            <objects>
+                <viewController storyboardIdentifier="FollowingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FhH-pa-Alw" customClass="FollowingViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NfE-rB-7Gu"/>
+                        <viewControllerLayoutGuide type="bottom" id="biM-0q-PCR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Yc-EO-BoH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aMW-BM-Eem">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I9U-dG-Bad">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="FhH-pa-Alw" id="WMH-SG-bMR"/>
+                                    <outlet property="delegate" destination="FhH-pa-Alw" id="r3S-ZI-Lvu"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="biM-0q-PCR" firstAttribute="top" secondItem="aMW-BM-Eem" secondAttribute="bottom" id="W6c-xV-SO1"/>
+                            <constraint firstItem="aMW-BM-Eem" firstAttribute="leading" secondItem="9Yc-EO-BoH" secondAttribute="leading" id="hx2-mI-oTC"/>
+                            <constraint firstAttribute="trailing" secondItem="aMW-BM-Eem" secondAttribute="trailing" id="jdX-9h-nXs"/>
+                            <constraint firstItem="aMW-BM-Eem" firstAttribute="top" secondItem="9Yc-EO-BoH" secondAttribute="top" id="qVs-UW-q4S"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="aMW-BM-Eem" id="YD9-Qe-hui"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MJF-hg-g2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3303" y="395"/>
         </scene>
     </scenes>
     <resources>

@@ -466,7 +466,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         
         // Setup pull to refresh.
         pullToRefresh = CarbonSwipeRefresh(scrollView: collectionView)
-        pullToRefresh.setMarginTop(0)
+        pullToRefresh.setMarginTop(self.parentViewController!.isKindOfClass(UINavigationController) ? 64 : 0)
         pullToRefresh.colors = [UIColor(hexString: Colors.Main)!, UIColor(hexString: Colors.Orange)!, UIColor(hexString: Colors.Green)!]
         self.view.addSubview(pullToRefresh)
         pullToRefresh.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)

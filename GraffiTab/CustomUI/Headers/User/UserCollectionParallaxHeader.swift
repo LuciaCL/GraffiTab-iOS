@@ -283,8 +283,11 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
     func setupGestureRecognizers() {
         avatar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickAvatar)))
         
+        streamablesCountLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickGraffiti)))
         streamablesLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickGraffiti)))
+        followersCountLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickFollowers)))
         followersLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickFollowers)))
+        followingCountLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickFollowing)))
         followingLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickFollowing)))
     }
 }

@@ -101,6 +101,19 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         return user?.id == GTSettings.sharedInstance.user!.id
     }
     
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SEGUE_FOLLOWERS" {
+            let vc = segue.destinationViewController as! FollowersViewController
+            vc.user = user
+        }
+        else if segue.identifier == "SEGUE_FOLLOWING" {
+            let vc = segue.destinationViewController as! FollowingViewController
+            vc.user = user
+        }
+    }
+    
     // MARK: - Loading
     
     func loadData() {
@@ -183,11 +196,11 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     }
     
     func didTapFollowers(user: GTUser) {
-        // TODO:
+        performSegueWithIdentifier("SEGUE_FOLLOWERS", sender: nil)
     }
     
     func didTapFollowing(user: GTUser) {
-        // TODO:
+        performSegueWithIdentifier("SEGUE_FOLLOWING", sender: nil)
     }
     
     func didTapList(user: GTUser) {
@@ -250,6 +263,8 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     
     override func setupCollectionView() {
         super.setupCollectionView()
+        
+        pullToRefresh.setMarginTop(0)
         
         collectionView.registerNib(UINib(nibName: UserCollectionParallaxHeader.reusableIdentifier(), bundle: NSBundle.mainBundle()), forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, withReuseIdentifier: UserCollectionParallaxHeader.reusableIdentifier())
     }

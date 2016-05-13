@@ -114,6 +114,12 @@
 		E52DC7391CE5085900375828 /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7371CE5085900375828 /* CustomInfiniteIndicator.swift */; };
 		E52DC73F1CE551D300375828 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC73E1CE551D300375828 /* ViewControllerUtils.swift */; };
 		E52DC7401CE551D300375828 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC73E1CE551D300375828 /* ViewControllerUtils.swift */; };
+		E52DC7561CE55F1300375828 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7551CE55F1300375828 /* UserProfileViewController.swift */; };
+		E52DC7571CE55F1300375828 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7551CE55F1300375828 /* UserProfileViewController.swift */; };
+		E52DC7591CE55F5A00375828 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7581CE55F5A00375828 /* FollowersViewController.swift */; };
+		E52DC75A1CE55F5A00375828 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7581CE55F5A00375828 /* FollowersViewController.swift */; };
+		E52DC75C1CE55FA900375828 /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC75B1CE55FA900375828 /* FollowingViewController.swift */; };
+		E52DC75D1CE55FA900375828 /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC75B1CE55FA900375828 /* FollowingViewController.swift */; };
 		E554CFDA1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
 		E554CFDB1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
 		E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD81CB5641B00668D85 /* release_notes.html */; };
@@ -206,8 +212,6 @@
 		E5B6B5D21CC56F5800DC8EFC /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5921CC56F5800DC8EFC /* NearMeViewController.swift */; };
 		E5B6B5D31CC56F5800DC8EFC /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5941CC56F5800DC8EFC /* TrendingViewController.swift */; };
 		E5B6B5D41CC56F5800DC8EFC /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5941CC56F5800DC8EFC /* TrendingViewController.swift */; };
-		E5B6B5D51CC56F5800DC8EFC /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5971CC56F5800DC8EFC /* UserProfileViewController.swift */; };
-		E5B6B5D61CC56F5800DC8EFC /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5971CC56F5800DC8EFC /* UserProfileViewController.swift */; };
 		E5B6B5D71CC56F5800DC8EFC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5991CC56F5800DC8EFC /* WebViewController.swift */; };
 		E5B6B5D81CC56F5800DC8EFC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5991CC56F5800DC8EFC /* WebViewController.swift */; };
 		E5B6B5D91CC56F5800DC8EFC /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B59B1CC56F5800DC8EFC /* LoginStoryboard.storyboard */; };
@@ -400,6 +404,9 @@
 		E51CD0CB1CD0C77800D56C58 /* Spray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spray.png; sourceTree = "<group>"; };
 		E52DC7371CE5085900375828 /* CustomInfiniteIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfiniteIndicator.swift; sourceTree = "<group>"; };
 		E52DC73E1CE551D300375828 /* ViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
+		E52DC7551CE55F1300375828 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		E52DC7581CE55F5A00375828 /* FollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
+		E52DC75B1CE55FA900375828 /* FollowingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
 		E554CFD81CB5641B00668D85 /* release_notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = release_notes.html; sourceTree = "<group>"; };
 		E554CFD91CB5641B00668D85 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
@@ -447,7 +454,6 @@
 		E5B6B5911CC56F5800DC8EFC /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		E5B6B5921CC56F5800DC8EFC /* NearMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeViewController.swift; sourceTree = "<group>"; };
 		E5B6B5941CC56F5800DC8EFC /* TrendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
-		E5B6B5971CC56F5800DC8EFC /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		E5B6B5991CC56F5800DC8EFC /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E5B6B59B1CC56F5800DC8EFC /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		E5B6B59C1CC56F5800DC8EFC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -998,17 +1004,11 @@
 		E5B6B5951CC56F5800DC8EFC /* Users */ = {
 			isa = PBXGroup;
 			children = (
-				E5B6B5961CC56F5800DC8EFC /* Profile */,
+				E52DC7551CE55F1300375828 /* UserProfileViewController.swift */,
+				E52DC7581CE55F5A00375828 /* FollowersViewController.swift */,
+				E52DC75B1CE55FA900375828 /* FollowingViewController.swift */,
 			);
 			path = Users;
-			sourceTree = "<group>";
-		};
-		E5B6B5961CC56F5800DC8EFC /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				E5B6B5971CC56F5800DC8EFC /* UserProfileViewController.swift */,
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 		E5B6B5981CC56F5800DC8EFC /* Web */ = {
@@ -1660,7 +1660,7 @@
 				E5A4F12A1CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */,
 				E50765D71CB4098D00EAE832 /* Utils.swift in Sources */,
 				E50765D81CB4098D00EAE832 /* BackButtonTableViewController.swift in Sources */,
-				E5B6B5D61CC56F5800DC8EFC /* UserProfileViewController.swift in Sources */,
+				E52DC7571CE55F1300375828 /* UserProfileViewController.swift in Sources */,
 				E5B6B5A61CC56F5800DC8EFC /* HomeViewController.swift in Sources */,
 				E51006681CB7CE2300AC66A5 /* DateUtils.swift in Sources */,
 				E57FAB3B1CD8B2A800C0D125 /* OrientationNavigationController.swift in Sources */,
@@ -1690,6 +1690,7 @@
 				E51006841CB7FE0F00AC66A5 /* GTLocationManager.swift in Sources */,
 				E5B6B5B41CC56F5800DC8EFC /* ActivityViewController.swift in Sources */,
 				E5B6B5CE1CC56F5800DC8EFC /* ClusterViewController.swift in Sources */,
+				E52DC75D1CE55FA900375828 /* FollowingViewController.swift in Sources */,
 				E51006A11CBBC0FD00AC66A5 /* NotificationFollowCell.swift in Sources */,
 				E5B6B5A41CC56F5800DC8EFC /* CreateViewController.swift in Sources */,
 				E51006631CB7BC5A00AC66A5 /* StreamableListFullCell.swift in Sources */,
@@ -1723,6 +1724,7 @@
 				E5A4F11A1CE203E7005CF12C /* LikersViewController.swift in Sources */,
 				E50765DF1CB4098D00EAE832 /* Constants.swift in Sources */,
 				E5B6B5CC1CC56F5800DC8EFC /* RecentViewController.swift in Sources */,
+				E52DC75A1CE55F5A00375828 /* FollowersViewController.swift in Sources */,
 				E5A4F1221CE21EFA005CF12C /* CommentsViewController.swift in Sources */,
 				E51006CC1CBC1B8E00AC66A5 /* ActivitySingleCell.swift in Sources */,
 				E5B6B5C01CC56F5800DC8EFC /* SearchUsersViewController.swift in Sources */,
@@ -1747,6 +1749,7 @@
 				E51006E21CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */,
 				E52DC73F1CE551D300375828 /* ViewControllerUtils.swift in Sources */,
 				E5B6B5B51CC56F5800DC8EFC /* FollowersActivityViewController.swift in Sources */,
+				E52DC75C1CE55FA900375828 /* FollowingViewController.swift in Sources */,
 				E5B6B5501CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift in Sources */,
 				E51006BC1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift in Sources */,
 				E5B6B5D31CC56F5800DC8EFC /* TrendingViewController.swift in Sources */,
@@ -1764,7 +1767,6 @@
 				E5B6B55B1CC4E8AD00DC8EFC /* UserAboutView.swift in Sources */,
 				E5DFDC041CB2C31B00BB3D27 /* Utils.swift in Sources */,
 				E5DFDC071CB2C31B00BB3D27 /* BackButtonTableViewController.swift in Sources */,
-				E5B6B5D51CC56F5800DC8EFC /* UserProfileViewController.swift in Sources */,
 				E5B6B5A51CC56F5800DC8EFC /* HomeViewController.swift in Sources */,
 				E5D085AA1CD8D30000226589 /* TOCropViewControllerTransitioning.m in Sources */,
 				E51006671CB7CE2300AC66A5 /* DateUtils.swift in Sources */,
@@ -1814,7 +1816,9 @@
 				E51006331CB71EB200AC66A5 /* GridStreamablesViewController.swift in Sources */,
 				E5B6B5C71CC56F5800DC8EFC /* GeneralSettingsViewController.swift in Sources */,
 				E5DFDC081CB2C31B00BB3D27 /* BackButtonViewController.swift in Sources */,
+				E52DC7591CE55F5A00375828 /* FollowersViewController.swift in Sources */,
 				E5B6B54C1CC25A0E00DC8EFC /* AvatarImageView.swift in Sources */,
+				E52DC7561CE55F1300375828 /* UserProfileViewController.swift in Sources */,
 				E5B6B5DF1CC56F5800DC8EFC /* SignUpViewController.swift in Sources */,
 				E51006DF1CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */,
 				E51006CE1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,
