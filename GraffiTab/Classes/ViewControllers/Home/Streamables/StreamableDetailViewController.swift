@@ -15,6 +15,15 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     @IBOutlet weak var streamableImage: ZoomableImageView!
     @IBOutlet weak var topMenu: UIView!
     @IBOutlet weak var bottomMenu: UIView!
+    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var nameField: UILabel!
+    @IBOutlet weak var usernameField: UILabel!
+    @IBOutlet weak var likesContainer: UIView!
+    @IBOutlet weak var commentsContainer: UIView!
+    @IBOutlet weak var menuContainer: UIView!
+    @IBOutlet weak var shareContainer: UIView!
+    @IBOutlet weak var likesLbl: UILabel!
+    @IBOutlet weak var commentsLbl: UILabel!
     
     var streamable: GTStreamable?
     var thumbnailImage: UIImage?
@@ -27,7 +36,10 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         // Do any additional setup after loading the view.
         
         setupImageViews()
+        setupContainers()
         
+        loadData()
+        loadAvatar()
         loadStreamableImage()
     }
     
@@ -40,7 +52,76 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func onClickMenu(sender: AnyObject) {
+        // TODO:
+    }
+    
+    @IBAction func onClickShare(sender: AnyObject) {
+        // TODO:
+    }
+    
+    @IBAction func onClickLike(sender: AnyObject) {
+        if streamable!.likedByCurrentUser! { // Unlike.
+            streamable!.likersCount! -= 1
+            
+            GTStreamableManager.unlike(streamable!.id!, successBlock: { (response) in
+                
+            }, failureBlock: { (response) in
+                    
+            })
+        }
+        else { // Like.
+            streamable!.likersCount! += 1
+            
+            GTStreamableManager.like(streamable!.id!, successBlock: { (response) in
+                
+            }, failureBlock: { (response) in
+                    
+            })
+        }
+        
+        streamable?.likedByCurrentUser = !streamable!.likedByCurrentUser!
+        
+        loadData()
+    }
+    
+    @IBAction func onClickComment(sender: AnyObject) {
+        // TODO:
+    }
+    
     // MARK: - Loading
+    
+    func loadData() {
+        // Setup labels.
+        self.nameField.text = streamable?.user!.getFullName()
+        self.usernameField.text = streamable?.user!.getMentionUsername()
+        
+        self.likesLbl.text = "\(streamable!.likersCount!)"
+        self.commentsLbl.text = "\(streamable!.commentsCount!)"
+        
+        self.likesContainer.backgroundColor = streamable!.likedByCurrentUser! ? UIColor(hexString: Colors.Green) : UIColor.blackColor().colorWithAlphaComponent(0.2)
+    }
+    
+    func loadAvatar() {
+        avatar.image = nil
+        
+        if streamable?.user?.avatar != nil {
+            Alamofire.request(.GET, streamable!.user!.avatar!.thumbnail!)
+                .responseImage { response in
+                    let image = response.result.value
+                    
+                    if response.request?.URLString == self.streamable?.user!.avatar!.thumbnail! { // Verify we're still loading the current image.
+                        UIView.transitionWithView(self.avatar,
+                            duration: App.ImageAnimationDuration,
+                            options: UIViewAnimationOptions.TransitionCrossDissolve,
+                            animations: {
+                                self.avatar.image = image
+                            },
+                            completion: nil)
+                    }
+            }
+        }
+    }
     
     func loadStreamableImage() {
         streamableImage.imageView.image = thumbnailImage
@@ -108,5 +189,12 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     
     func setupImageViews() {
         streamableImage.delegate = self
+    }
+    
+    func setupContainers() {
+        likesContainer.layer.cornerRadius = 3
+        commentsContainer.layer.cornerRadius = likesContainer.layer.cornerRadius
+        menuContainer.layer.cornerRadius = likesContainer.layer.cornerRadius
+        shareContainer.layer.cornerRadius = likesContainer.layer.cornerRadius
     }
 }

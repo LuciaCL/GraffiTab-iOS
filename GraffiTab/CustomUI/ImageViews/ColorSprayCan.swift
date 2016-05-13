@@ -10,6 +10,8 @@ import UIKit
 
 class ColorSprayCan: UIImageView {
 
+    var overlay = UIImageView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -23,11 +25,19 @@ class ColorSprayCan: UIImageView {
     }
     
     func basicInit() {
-        let image = UIImage(named: "spray_can")
+        let image = UIImage(named: "can_bottom")
         let img = processPixelsInImage(image!)
         
         self.image = img
         self.contentMode = .ScaleAspectFit
+        
+        overlay.frame = self.bounds
+        if overlay.image == nil {
+            self.addSubview(overlay)
+        }
+        overlay.image = UIImage(named: "can_top")
+        overlay.contentMode = .ScaleAspectFit
+        overlay.autoresizingMask = [.FlexibleBottomMargin, .FlexibleTopMargin, .FlexibleLeftMargin, .FlexibleRightMargin, .FlexibleWidth, .FlexibleHeight]
     }
     
     override var tintColor: UIColor! {
@@ -62,7 +72,7 @@ class ColorSprayCan: UIImageView {
         for var i = 0; i < Int(height); i+=1 {
             for var j = 0; j < Int(width); j+=1 {
                 let pixel = currentPixel.memory
-                if red(pixel) == 238 && green(pixel) == 255 && blue(pixel) == 0 {
+                if red(pixel) == 255 && green(pixel) == 0 && blue(pixel) == 0 {
                     currentPixel.memory = rgba(red: UInt8(r * 255.0), green: UInt8(g * 255.0), blue: UInt8(b * 255.0), alpha: 255)
                 }
                 currentPixel+=1
