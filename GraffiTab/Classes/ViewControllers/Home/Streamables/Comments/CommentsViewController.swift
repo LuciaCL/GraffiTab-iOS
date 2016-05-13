@@ -370,7 +370,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         GTUserManager.getUserProfileByUsername(username, successBlock: { (response) in
             self.view.hideActivityView()
             
-            self.showUserProfile(response.object as! GTUser)
+            ViewControllerUtils.showUserProfile(response.object as! GTUser, viewController: self)
         }) { (response) in
             self.view.hideActivityView()
             
@@ -396,7 +396,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         })
     }
     
-    func showUserProfile(user: GTUser) {
+    func didTapAvatar(user: GTUser) {
         ViewControllerUtils.showUserProfile(user, viewController: self)
     }
     

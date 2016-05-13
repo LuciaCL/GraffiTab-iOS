@@ -120,6 +120,8 @@
 		E52DC75A1CE55F5A00375828 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7581CE55F5A00375828 /* FollowersViewController.swift */; };
 		E52DC75C1CE55FA900375828 /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC75B1CE55FA900375828 /* FollowingViewController.swift */; };
 		E52DC75D1CE55FA900375828 /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC75B1CE55FA900375828 /* FollowingViewController.swift */; };
+		E52DC75F1CE56B7D00375828 /* UserStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC75E1CE56B7D00375828 /* UserStreamablesViewController.swift */; };
+		E52DC7601CE56B7D00375828 /* UserStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC75E1CE56B7D00375828 /* UserStreamablesViewController.swift */; };
 		E554CFDA1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
 		E554CFDB1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
 		E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD81CB5641B00668D85 /* release_notes.html */; };
@@ -407,6 +409,7 @@
 		E52DC7551CE55F1300375828 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		E52DC7581CE55F5A00375828 /* FollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		E52DC75B1CE55FA900375828 /* FollowingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
+		E52DC75E1CE56B7D00375828 /* UserStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStreamablesViewController.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
 		E554CFD81CB5641B00668D85 /* release_notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = release_notes.html; sourceTree = "<group>"; };
 		E554CFD91CB5641B00668D85 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
@@ -1007,6 +1010,7 @@
 				E52DC7551CE55F1300375828 /* UserProfileViewController.swift */,
 				E52DC7581CE55F5A00375828 /* FollowersViewController.swift */,
 				E52DC75B1CE55FA900375828 /* FollowingViewController.swift */,
+				E52DC75E1CE56B7D00375828 /* UserStreamablesViewController.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -1676,6 +1680,7 @@
 				E51006F21CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
 				E51006D81CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
 				E5B6B5DC1CC56F5800DC8EFC /* LoginViewController.swift in Sources */,
+				E52DC7601CE56B7D00375828 /* UserStreamablesViewController.swift in Sources */,
 				E50765DA1CB4098D00EAE832 /* InputValidator.swift in Sources */,
 				E510065F1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
 				E5B6B6331CC6566100DC8EFC /* ColorSprayCanCell.swift in Sources */,
@@ -1819,6 +1824,7 @@
 				E52DC7591CE55F5A00375828 /* FollowersViewController.swift in Sources */,
 				E5B6B54C1CC25A0E00DC8EFC /* AvatarImageView.swift in Sources */,
 				E52DC7561CE55F1300375828 /* UserProfileViewController.swift in Sources */,
+				E52DC75F1CE56B7D00375828 /* UserStreamablesViewController.swift in Sources */,
 				E5B6B5DF1CC56F5800DC8EFC /* SignUpViewController.swift in Sources */,
 				E51006DF1CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */,
 				E51006CE1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,

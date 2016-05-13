@@ -175,6 +175,9 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
                     }
             }
         }
+        else {
+            self.avatar.image = nil
+        }
     }
     
     func loadCover() {
@@ -202,6 +205,9 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
                             completion: nil)
                     }
             }
+        }
+        else {
+            self.cover.image = UIImage(named: "grafitab_login")
         }
     }
     

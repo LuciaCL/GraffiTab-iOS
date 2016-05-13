@@ -15,6 +15,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     @IBOutlet weak var followBtn: UIButton!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
+    var imageType: ImageType?
     var header: UserCollectionParallaxHeader?
     var titleView: UILabel?
     var user: GTUser?
@@ -101,6 +102,89 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         return user?.id == GTSettings.sharedInstance.user!.id
     }
     
+    // MARK: - Images
+    
+    override func didChooseImage(image: UIImage?) {
+        let avatarSuccessBlock = {
+            self.view.hideActivityView()
+            
+            self.header?.item = GTSettings.sharedInstance.user
+            
+            Utils.runWithDelay(0.3) { () in
+                DialogBuilder.showSuccessAlert("Your avatar has been changed!", title: App.Title)
+            }
+        }
+        let coverSuccessBlock = {
+            self.view.hideActivityView()
+            
+            self.header?.item = GTSettings.sharedInstance.user
+            
+            Utils.runWithDelay(0.3) { () in
+                DialogBuilder.showSuccessAlert("Your cover has been changed!", title: App.Title)
+            }
+        }
+        
+        if image != nil { // Saving a new image.
+            if imageType == .Avatar {
+                self.view.showActivityViewWithLabel("Processing")
+                self.view.rn_activityView.dimBackground = false
+                
+                GTMeManager.editAvatar(image!, successBlock: { (response) in
+                    avatarSuccessBlock()
+                }, failureBlock: { (response) in
+                    self.view.hideActivityView()
+                    
+                    DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                })
+            }
+            else {
+                self.view.showActivityViewWithLabel("Processing")
+                self.view.rn_activityView.dimBackground = false
+                
+                GTMeManager.editCover(image!, successBlock: { (response) in
+                    coverSuccessBlock()
+                }, failureBlock: { (response) in
+                    self.view.hideActivityView()
+                    
+                    DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                })
+            }
+        }
+        else { // Removing an image.
+            if imageType == .Avatar {
+                self.view.showActivityViewWithLabel("Processing")
+                self.view.rn_activityView.dimBackground = false
+                
+                GTMeManager.deleteAvatar({ (response) in
+                    avatarSuccessBlock()
+                }, failureBlock: { (response) in
+                    self.view.hideActivityView()
+                    
+                    DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                })
+            }
+            else {
+                self.view.showActivityViewWithLabel("Processing")
+                self.view.rn_activityView.dimBackground = false
+                
+                GTMeManager.deleteCover({ (response) in
+                    coverSuccessBlock()
+                }, failureBlock: { (response) in
+                    self.view.hideActivityView()
+                    
+                    DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                })
+            }
+        }
+    }
+    
+    override func cropAspectRatio() -> CGSize {
+        let width = CGFloat(imageType == .Avatar ? 300 : 1024);
+        let height = imageType == .Avatar ? width : 768;
+        
+        return CGSizeMake(width, width / (width / height))
+    }
+    
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -110,6 +194,10 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         }
         else if segue.identifier == "SEGUE_FOLLOWING" {
             let vc = segue.destinationViewController as! FollowingViewController
+            vc.user = user
+        }
+        else if segue.identifier == "SEGUE_STREAMABLES" {
+            let vc = segue.destinationViewController as! UserStreamablesViewController
             vc.user = user
         }
     }
@@ -184,15 +272,21 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     }
     
     func didTapCover(user: GTUser) {
-        // TODO:
+        if isMe() {
+            imageType = .Cover
+            askForImage()
+        }
     }
     
     func didTapAvatar(user: GTUser) {
-        // TODO:
+        if isMe() {
+            imageType = .Avatar
+            askForImage()
+        }
     }
     
     func didTapStreamables(user: GTUser) {
-        // TODO:
+        performSegueWithIdentifier("SEGUE_STREAMABLES", sender: nil)
     }
     
     func didTapFollowers(user: GTUser) {

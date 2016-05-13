@@ -3219,6 +3219,7 @@
                         <outlet property="navigationBar" destination="Rs7-ch-3qN" id="BPJ-Pp-git"/>
                         <segue destination="1GV-Jl-Tq2" kind="show" identifier="SEGUE_FOLLOWERS" id="8Ph-MR-dMr"/>
                         <segue destination="FhH-pa-Alw" kind="show" identifier="SEGUE_FOLLOWING" id="UAS-Us-2u2"/>
+                        <segue destination="dPg-Tj-MDI" kind="show" identifier="SEGUE_STREAMABLES" id="6Ul-sH-lb2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTB-br-Udb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3356,6 +3357,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJF-hg-g2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3303" y="395"/>
+        </scene>
+        <!--User Streamables View Controller-->
+        <scene sceneID="Srf-Va-K4u">
+            <objects>
+                <viewController storyboardIdentifier="UserStreamablesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dPg-Tj-MDI" customClass="UserStreamablesViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aPV-Kf-fYC"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Qg-ZH-cNs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Nv-ON-cys">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="40X-dq-deF">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HXi-Yu-MaT">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="dPg-Tj-MDI" id="06Q-k3-eyi"/>
+                                    <outlet property="delegate" destination="dPg-Tj-MDI" id="Ct9-S1-8Ht"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Qg-ZH-cNs" firstAttribute="top" secondItem="40X-dq-deF" secondAttribute="bottom" id="9fB-Py-Wno"/>
+                            <constraint firstItem="40X-dq-deF" firstAttribute="top" secondItem="2Nv-ON-cys" secondAttribute="top" id="Hc1-bb-veH"/>
+                            <constraint firstAttribute="trailing" secondItem="40X-dq-deF" secondAttribute="trailing" id="aiw-VD-QiH"/>
+                            <constraint firstItem="40X-dq-deF" firstAttribute="leading" secondItem="2Nv-ON-cys" secondAttribute="leading" id="sKv-sg-cZC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="40X-dq-deF" id="z5w-Q4-EdI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FAL-yE-bSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3995" y="395"/>
         </scene>
     </scenes>
     <resources>

@@ -13,7 +13,10 @@ import ActiveLabel
 
 protocol MessageDelegate {
     
+    func didTapAvatar(user: GTUser)
+    
     func didTapErrorView(comment: GTComment)
+    
     func didTapHashtag(hashtag: String)
     func didTapUsername(username: String)
     func didTapLink(link: String)
@@ -88,6 +91,12 @@ class CommentCell: UITableViewCell {
         }
     }
     
+    func onClickAvatar() {
+        if delegate != nil {
+            delegate?.didTapAvatar(item!.user!)
+        }
+    }
+    
     // MARK: - Loading
     
     func loadAvatar() {
@@ -141,5 +150,7 @@ class CommentCell: UITableViewCell {
     
     func setupGestureRecognizers() {
         errorView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickErrorView)))
+        avatar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickAvatar)))
+        nameLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickAvatar)))
     }
 }

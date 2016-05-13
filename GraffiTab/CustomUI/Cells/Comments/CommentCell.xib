@@ -11,17 +11,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="302"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="301"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="301.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="kSI-1e-6da" customClass="AvatarImageView" customModule="GraffiTab" customModuleProvider="target">
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="kSI-1e-6da" customClass="AvatarImageView" customModule="GraffiTab" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="6dG-rt-BFf"/>
                             <constraint firstAttribute="width" constant="30" id="o1Q-Wn-j2J"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Georgi Christov" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obo-ie-zDs">
+                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Georgi Christov" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obo-ie-zDs">
                         <rect key="frame" x="46" y="8" width="266" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="IIT-w0-Asi"/>
