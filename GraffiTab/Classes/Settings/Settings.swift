@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KeychainAccess
 
 class Settings: NSObject {
 
@@ -22,20 +23,22 @@ class Settings: NSObject {
     }
     var username: String? {
         get {
-            return getStringPreference(SettingsKeys.kUsername)
+            return keychain[SettingsKeys.kUsername]
         }
         set(newValue) {
-            setStringPreference(newValue!, key: SettingsKeys.kUsername)
+            keychain[SettingsKeys.kUsername] = newValue
         }
     }
     var password: String? {
         get {
-            return getStringPreference(SettingsKeys.kPassword)
+            return keychain[SettingsKeys.kPassword]
         }
         set(newValue) {
-            setStringPreference(newValue!, key: SettingsKeys.kPassword)
+            keychain[SettingsKeys.kPassword] = newValue
         }
     }
+    
+    var keychain = Keychain()
     
     override init() {
         super.init()

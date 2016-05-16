@@ -52,12 +52,12 @@
 }
 
 - (void)onTapImageView {
-    if (scrollView.zoomScale == minZoomScale) {
-        if (delegate && [delegate respondsToSelector:@selector(didTapImageView:)])
-            [delegate didTapImageView:self];
-    }
-    else
+    if (scrollView.zoomScale != minZoomScale) {
         [scrollView setZoomScale:minZoomScale animated:YES];
+    }
+    
+    if (delegate && [delegate respondsToSelector:@selector(didTapImageView:)])
+        [delegate didTapImageView:self];
 }
 
 - (void)setImage:(UIImage *)i {
