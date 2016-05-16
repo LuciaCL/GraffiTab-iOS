@@ -28,6 +28,8 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         setupLabels()
         setupButtons()
         setupTextFields()
+        
+        loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +47,15 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         self.view.endEditing(true)
         
         loginFacebook(true)
+    }
+    
+    // MARK: - Loading
+    
+    func loadData() {
+        if Settings.sharedInstance.rememberCredentials! {
+            usernameField.text = Settings.sharedInstance.username
+            passwordField.text = Settings.sharedInstance.password
+        }
     }
     
     // MARK: - Navigation
@@ -120,6 +131,10 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
             
             GTUserManager.login(un!, password: pa!, successBlock: { (response) -> Void in
                 self.view.hideActivityView()
+                
+                // TODO: Add these to security chain.
+                Settings.sharedInstance.username = un
+                Settings.sharedInstance.password = pa
                 
                 Utils.runWithDelay(1.3) { () in
                     NSNotificationCenter.defaultCenter().postNotificationName(Notifications.UserLoggedIn, object: nil)

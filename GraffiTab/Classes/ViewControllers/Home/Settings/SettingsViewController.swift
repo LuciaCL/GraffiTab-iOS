@@ -13,6 +13,7 @@ import UIActionSheet_Blocks
 class SettingsViewController: GeneralSettingsViewController {
 
     @IBOutlet weak var logoutCell: UITableViewCell!
+    @IBOutlet weak var rememberCredentialsSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,10 @@ class SettingsViewController: GeneralSettingsViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func onSwitchRememberCredentials(sender: AnyObject) {
+        Settings.sharedInstance.rememberCredentials = rememberCredentialsSwitch.on
     }
     
     func onClickLogout() {
@@ -46,6 +51,8 @@ class SettingsViewController: GeneralSettingsViewController {
     
     func loadData() {
         logoutCell.detailTextLabel?.text = GTSettings.sharedInstance.user?.getFullName()
+        
+        rememberCredentialsSwitch.on = Settings.sharedInstance.rememberCredentials!
     }
 
     // MARK: - UITableViewController

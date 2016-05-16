@@ -235,6 +235,8 @@
 		E58432CD1CE940F900FB1E50 /* Release-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E58432CC1CE940F900FB1E50 /* Release-Info.plist */; };
 		E58432CF1CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58432CE1CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework */; };
 		E58432D01CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E58432CE1CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E58432DA1CEA469B00FB1E50 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58432D91CEA469B00FB1E50 /* Settings.swift */; };
+		E58432DB1CEA469B00FB1E50 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58432D91CEA469B00FB1E50 /* Settings.swift */; };
 		E5A4F1041CE1EDF2005CF12C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */; };
 		E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */; };
 		E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
@@ -463,6 +465,7 @@
 		E58432CA1CE9242000FB1E50 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58432CC1CE940F900FB1E50 /* Release-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Release-Info.plist"; sourceTree = "<group>"; };
 		E58432CE1CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS-SDK/_Archive/iOS/Release/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
+		E58432D91CEA469B00FB1E50 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonSlackViewController.swift; sourceTree = "<group>"; };
 		E5A4F12C1CE225AA005CF12C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -875,6 +878,14 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		E58432D31CEA468700FB1E50 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E58432D91CEA469B00FB1E50 /* Settings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		E5A4F12B1CE22580005CF12C /* Comments */ = {
 			isa = PBXGroup;
 			children = (
@@ -1176,6 +1187,7 @@
 		E5DFDBE71CB2C31B00BB3D27 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E58432D31CEA468700FB1E50 /* Settings */,
 				E5A4F1361CE34825005CF12C /* Model */,
 				E5DFDBE81CB2C31B00BB3D27 /* Constants */,
 				E5DFDBEA1CB2C31B00BB3D27 /* DialogBuilder */,
@@ -1659,6 +1671,7 @@
 				E58432341CE9242000FB1E50 /* ActivitySingleCreateCell.swift in Sources */,
 				E58432351CE9242000FB1E50 /* GTComment+Extra.swift in Sources */,
 				E58432361CE9242000FB1E50 /* MenuViewController.swift in Sources */,
+				E58432DB1CEA469B00FB1E50 /* Settings.swift in Sources */,
 				E58432371CE9242000FB1E50 /* NotificationCommentCell.swift in Sources */,
 				E58432381CE9242000FB1E50 /* ArrayUtils.swift in Sources */,
 				E58432391CE9242000FB1E50 /* UserAboutView.swift in Sources */,
@@ -1779,6 +1792,7 @@
 				E51006C21CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */,
 				E5A4F13D1CE34846005CF12C /* GTComment+Extra.swift in Sources */,
 				E5B6B5BB1CC56F5800DC8EFC /* MenuViewController.swift in Sources */,
+				E58432DA1CEA469B00FB1E50 /* Settings.swift in Sources */,
 				E51006A31CBBCA7B00AC66A5 /* NotificationCommentCell.swift in Sources */,
 				E56D1F231CDD1917007B3698 /* ArrayUtils.swift in Sources */,
 				E5B6B55B1CC4E8AD00DC8EFC /* UserAboutView.swift in Sources */,

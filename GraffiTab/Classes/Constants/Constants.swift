@@ -27,3 +27,9 @@ struct App {
     static let ImageAnimationDuration = 0.2
     static let ColorsPerRow = 4
 }
+
+struct SettingsKeys {
+    static let kRememberCredentials = "kRememberCredentials"
+    static let kUsername = "kUsername"
+    static let kPassword = "kPassword"
+}
