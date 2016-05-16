@@ -99,7 +99,12 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     }
     
     func onClickBack() {
-        self.navigationController?.popViewControllerAnimated(true)
+        if self.navigationController?.viewControllers.count <= 1 { // We're running in a container so show a close button.
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        else {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
     }
     
     func isMe() -> Bool {

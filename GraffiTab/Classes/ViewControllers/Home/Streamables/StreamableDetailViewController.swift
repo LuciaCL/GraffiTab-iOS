@@ -48,6 +48,10 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onClickUser(sender: AnyObject) {
+        ViewControllerUtils.showUserProfile(streamable!.user!, viewController: self)
+    }
+    
     @IBAction func onClickClose(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -86,7 +90,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     @IBAction func onClickComment(sender: AnyObject) {
-        // TODO:
+        ViewControllerUtils.showComments(streamable!, viewController: self)
     }
     
     // MARK: - Loading

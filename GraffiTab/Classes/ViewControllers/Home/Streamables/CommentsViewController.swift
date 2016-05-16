@@ -56,6 +56,10 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func onClickClose() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     // MARK: - Loading
     
     func refresh() {
@@ -415,6 +419,10 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         super.setupTopBar()
         
         self.title = "Comments"
+        
+        if self.navigationController?.viewControllers.count <= 1 { // We're running in a container so show a close button.
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .Plain, target: self, action: #selector(onClickClose))
+        }
     }
     
     func setupTableView() {

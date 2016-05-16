@@ -12,31 +12,33 @@ import GraffiTab_iOS_SDK
 class ViewControllerUtils: NSObject {
 
     class func showUserProfile(user: GTUser, viewController: UIViewController) {
-        let vc = viewController.storyboard?.instantiateViewControllerWithIdentifier("UserProfileViewController") as! UserProfileViewController
+        let vc = UIStoryboard(name: "MainStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("UserProfileViewController") as! UserProfileViewController
         vc.user = user
         
         if viewController.navigationController != nil {
             viewController.navigationController?.pushViewController(vc, animated: true)
         }
         else {
-            assert(false, "Unable to show user profile - Unknown parent.")
+            let nav = UINavigationController(rootViewController: vc)
+            viewController.presentViewController(nav, animated: true, completion: nil)
         }
     }
     
     class func showComments(streamable: GTStreamable, viewController: UIViewController) {
-        let vc = viewController.storyboard?.instantiateViewControllerWithIdentifier("CommentsViewController") as! CommentsViewController
+        let vc = UIStoryboard(name: "MainStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CommentsViewController") as! CommentsViewController
         vc.streamable = streamable
         
         if viewController.navigationController != nil {
             viewController.navigationController?.pushViewController(vc, animated: true)
         }
         else {
-            assert(false, "Unable to show comments - Unknown parent.")
+            let nav = UINavigationController(rootViewController: vc)
+            viewController.presentViewController(nav, animated: true, completion: nil)
         }
     }
     
     class func showLikers(streamable: GTStreamable, viewController: UIViewController) {
-        let vc = viewController.storyboard?.instantiateViewControllerWithIdentifier("LikersViewController") as! LikersViewController
+        let vc = UIStoryboard(name: "MainStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LikersViewController") as! LikersViewController
         vc.streamable = streamable
         
         if viewController.navigationController != nil {
