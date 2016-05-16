@@ -62,6 +62,8 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         // Do any additional setup after loading the view.
         
         setupCollectionView()
+        
+        pullToRefresh.startRefreshing()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -214,12 +216,6 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func loadItems(isStart: Bool, offset: Int) {
-        if items.count <= 0 && isDownloading == false {
-            if isStart {
-                pullToRefresh.startRefreshing()
-            }
-        }
-        
         showLoadingIndicator()
         
         isDownloading = true
@@ -261,6 +257,8 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         
         isDownloading = false
         
+        self.collectionView.emptyDataSetSource = self
+        self.collectionView.emptyDataSetDelegate = self
         collectionView.finishInfiniteScroll()
         collectionView.reloadData()
     }
@@ -414,7 +412,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func verticalOffsetForEmptyDataSet(scrollView: UIScrollView!) -> CGFloat {
-        return -10
+        return self.parentViewController?.isKindOfClass(UINavigationController) == true ? 64 / 2 : 0
     }
     
     func emptyDataSetShouldDisplay(scrollView: UIScrollView!) -> Bool {
@@ -422,7 +420,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func emptyDataSetShouldAllowScroll(scrollView: UIScrollView!) -> Bool {
-        return false
+        return true
     }
     
     // MARK: - StreamableDelegate
@@ -482,8 +480,6 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     
     func setupCollectionView() {
         collectionView.alwaysBounceVertical = true
-        collectionView.emptyDataSetSource = self
-        collectionView.emptyDataSetDelegate = self
         
         collectionView.registerNib(UINib(nibName: StreamableGridCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: StreamableGridCell.reusableIdentifier())
         collectionView.registerNib(UINib(nibName: StreamableTrendingCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: StreamableTrendingCell.reusableIdentifier())

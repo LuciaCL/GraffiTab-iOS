@@ -35,6 +35,7 @@ def common_pods
     pod 'ActiveLabel'
     pod 'FLAnimatedImage'
     pod 'UIScrollView-InfiniteScroll'
+    pod 'WYPopoverController'
 end
 
 target 'GraffiTab' do

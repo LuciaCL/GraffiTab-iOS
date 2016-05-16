@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6120B15580E6E4D49C4FE058 /* Pods_GraffiTab_Release.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040A2F38D09E539338496576 /* Pods_GraffiTab_Release.framework */; };
 		6E3E6AF34F1E3AC30E600CBF /* Pods_GraffiTab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A858584C70AD43E9A1A96F8 /* Pods_GraffiTab.framework */; };
 		E51005F41CB69BDE00AC66A5 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51005F31CB69BDE00AC66A5 /* MenuCell.swift */; };
 		E51006301CB71C5900AC66A5 /* GenericStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510062F1CB71C5900AC66A5 /* GenericStreamablesViewController.swift */; };
@@ -603,6 +604,7 @@
 				E58432A51CE9242000FB1E50 /* CoreMedia.framework in Frameworks */,
 				E58432A61CE9242000FB1E50 /* Pods_GraffiTab.framework in Frameworks */,
 				E58432A71CE9242000FB1E50 /* libTestFairy.a in Frameworks */,
+				6120B15580E6E4D49C4FE058 /* Pods_GraffiTab_Release.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1599,7 +1601,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GraffiTab Release/Pods-GraffiTab Release-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E58432C41CE9242000FB1E50 /* 📦 Copy Pods Resources */ = {
@@ -1614,7 +1616,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GraffiTab Release/Pods-GraffiTab Release-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E6A1E439568CA71B1D648516 /* 📦 Check Pods Manifest.lock */ = {
@@ -1909,7 +1911,7 @@
 /* Begin XCBuildConfiguration section */
 		E58432C81CE9242000FB1E50 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 68B6060E6C069394DFEF27BF /* Pods-GraffiTab.debug.xcconfig */;
+			baseConfigurationReference = 24C98BA1BC7B845CA3355791 /* Pods-GraffiTab Release.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2013,7 +2015,7 @@
 		};
 		E58432C91CE9242000FB1E50 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65C7EC7B6C44DA11DEAA502C /* Pods-GraffiTab.release.xcconfig */;
+			baseConfigurationReference = 60414BAA024EE71CB76A1383 /* Pods-GraffiTab Release.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

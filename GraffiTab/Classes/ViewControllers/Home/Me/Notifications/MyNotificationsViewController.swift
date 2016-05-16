@@ -29,6 +29,8 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
         // Do any additional setup after loading the view.
         
         setupTableView()
+        
+        pullToRefresh.startRefreshing()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -56,12 +58,6 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
     }
     
     func loadItems(isStart: Bool, offset: Int) {
-        if items.count <= 0 && isDownloading == false {
-            if isStart {
-                pullToRefresh.startRefreshing()
-            }
-        }
-        
         showLoadingIndicator()
         
         isDownloading = true
@@ -94,6 +90,8 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
         
         isDownloading = false
         
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         tableView.finishInfiniteScroll()
         tableView.reloadData()
     }
@@ -200,7 +198,7 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
     }
     
     func verticalOffsetForEmptyDataSet(scrollView: UIScrollView!) -> CGFloat {
-        return -10
+        return self.parentViewController?.isKindOfClass(UINavigationController) == true ? 64 / 2 : 0
     }
     
     func emptyDataSetShouldDisplay(scrollView: UIScrollView!) -> Bool {
@@ -208,7 +206,7 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
     }
     
     func emptyDataSetShouldAllowScroll(scrollView: UIScrollView!) -> Bool {
-        return false
+        return true
     }
     
     // MARK: - Setup
@@ -217,8 +215,6 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 160.0
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
         
         // Setup pull to refresh.
         pullToRefresh = CarbonSwipeRefresh(scrollView: self.tableView)
