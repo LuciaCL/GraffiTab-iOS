@@ -8,7 +8,7 @@
         <!--Create View Controller-->
         <scene sceneID="3ql-xg-tnF">
             <objects>
-                <viewController storyboardIdentifier="CreateViewController" id="F9h-bV-H5F" customClass="CreateViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="F9h-bV-H5F" customClass="CreateViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gIM-Nl-dt9"/>
                         <viewControllerLayoutGuide type="bottom" id="7ZK-8e-rZY"/>
@@ -24,10 +24,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="55" height="600"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOA-yg-LVz" customClass="TintButton" customModule="GraffiTab" customModuleProvider="target">
-                                                <rect key="frame" x="13" y="12" width="30" height="30"/>
+                                                <rect key="frame" x="10" y="12" width="35" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="Ows-y5-y7P"/>
-                                                    <constraint firstAttribute="width" constant="30" id="s4o-J4-SN3"/>
+                                                    <constraint firstAttribute="height" constant="35" id="Ows-y5-y7P"/>
+                                                    <constraint firstAttribute="width" constant="35" id="s4o-J4-SN3"/>
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" image="add_image"/>
@@ -71,7 +71,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DrawToolCell" id="aVB-FG-Wt9" customClass="DrawToolCell" customModule="GraffiTab" customModuleProvider="target">
-                                                        <rect key="frame" x="3" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="2.5" y="0.0" width="50" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -110,10 +110,10 @@
                                             <constraint firstAttribute="trailing" secondItem="OVJ-76-A0p" secondAttribute="trailing" id="GKu-Qu-bPk"/>
                                             <constraint firstItem="MBZ-v0-gRR" firstAttribute="top" secondItem="OVJ-76-A0p" secondAttribute="bottom" constant="12" id="GOp-52-5gc"/>
                                             <constraint firstItem="X2G-Kj-kWA" firstAttribute="leading" secondItem="2Hl-Br-rIP" secondAttribute="leading" id="HhT-Ex-vqB"/>
-                                            <constraint firstItem="LK3-iv-tp7" firstAttribute="top" secondItem="SOA-yg-LVz" secondAttribute="bottom" constant="12" id="Lu8-hZ-Ri1"/>
+                                            <constraint firstItem="LK3-iv-tp7" firstAttribute="top" secondItem="SOA-yg-LVz" secondAttribute="bottom" constant="7" id="Lu8-hZ-Ri1"/>
                                             <constraint firstItem="MBZ-v0-gRR" firstAttribute="top" secondItem="X2G-Kj-kWA" secondAttribute="bottom" constant="12" id="NTq-Gp-7hd"/>
                                             <constraint firstItem="MBZ-v0-gRR" firstAttribute="centerX" secondItem="2Hl-Br-rIP" secondAttribute="centerX" id="baV-6x-dCk"/>
-                                            <constraint firstItem="X2G-Kj-kWA" firstAttribute="top" secondItem="SOA-yg-LVz" secondAttribute="bottom" constant="12" id="poY-nc-ofy"/>
+                                            <constraint firstItem="X2G-Kj-kWA" firstAttribute="top" secondItem="SOA-yg-LVz" secondAttribute="bottom" constant="7" id="poY-nc-ofy"/>
                                             <constraint firstItem="LK3-iv-tp7" firstAttribute="leading" secondItem="2Hl-Br-rIP" secondAttribute="leading" id="tQc-SO-2Na"/>
                                             <constraint firstAttribute="width" constant="55" id="tyC-qG-qxn"/>
                                             <constraint firstAttribute="trailing" secondItem="LK3-iv-tp7" secondAttribute="trailing" id="uvm-JV-mvj"/>
@@ -128,10 +128,10 @@
                                         <rect key="frame" x="55" y="0.0" width="545" height="55"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6f-xY-P0d" customClass="TintButton" customModule="GraffiTab" customModuleProvider="target">
-                                                <rect key="frame" x="503" y="13" width="30" height="30"/>
+                                                <rect key="frame" x="498" y="10" width="35" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="ZNv-rG-znG"/>
-                                                    <constraint firstAttribute="width" constant="30" id="r5l-2W-AZb"/>
+                                                    <constraint firstAttribute="height" constant="35" id="ZNv-rG-znG"/>
+                                                    <constraint firstAttribute="width" constant="35" id="r5l-2W-AZb"/>
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" image="ic_settings"/>
@@ -210,8 +210,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="F9h-bV-H5F" id="U1s-TC-R4e"/>
-                                    <outlet property="delegate" destination="F9h-bV-H5F" id="8dg-Mf-uUC"/>
+                                    <outlet property="dataSource" destination="F9h-bV-H5F" id="fP9-UO-IXc"/>
+                                    <outlet property="delegate" destination="F9h-bV-H5F" id="eZV-Jp-93h"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -246,7 +246,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="672" y="185"/>
+            <point key="canvasLocation" x="344" y="170"/>
         </scene>
     </scenes>
     <resources>

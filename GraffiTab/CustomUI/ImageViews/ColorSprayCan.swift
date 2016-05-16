@@ -26,9 +26,18 @@ class ColorSprayCan: UIImageView {
     
     func basicInit() {
         let image = UIImage(named: "can_bottom")
-        let img = processPixelsInImage(image!)
         
-        self.image = img
+        let qualityOfServiceClass = QOS_CLASS_BACKGROUND
+        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+        dispatch_async(backgroundQueue, {
+            let img = self.processPixelsInImage(image!)
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.image = img
+            })
+        })
+        
+        self.image = image
         self.contentMode = .ScaleAspectFit
         
         overlay.frame = self.bounds
