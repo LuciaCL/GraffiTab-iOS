@@ -21,6 +21,7 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
     var isDownloading = false
     var canLoadMore = true
     var offset = 0
+    var initialLoad = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,16 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
         // Do any additional setup after loading the view.
         
         setupTableView()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
-        loadItems(true, offset: offset)
+        if !initialLoad {
+            initialLoad = true
+            
+            loadItems(true, offset: offset)
+        }
     }
 
     override func didReceiveMemoryWarning() {

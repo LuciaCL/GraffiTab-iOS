@@ -32,9 +32,13 @@ class CommentCell: UITableViewCell {
     @IBOutlet weak var errorView: UIImageView!
     
     var delegate: MessageDelegate?
+    var previousItem: GTComment?
+    var previousItemRequest: Request?
     var item: GTComment? {
         didSet {
             setItem()
+            
+            previousItem = item
         }
     }
     
@@ -100,25 +104,25 @@ class CommentCell: UITableViewCell {
     // MARK: - Loading
     
     func loadAvatar() {
-        avatar.image = nil
+        if item?.user?.avatar == nil {
+            avatar.image = nil
+            previousItemRequest?.cancel()
+        }
+        else if previousItem != nil && previousItem!.user?.id != item?.user?.id {
+            avatar.image = nil
+            previousItemRequest?.cancel()
+        }
         
         if item!.user!.avatar != nil {
-            Alamofire.request(.GET, item!.user!.avatar!.thumbnail!)
+            previousItemRequest = Alamofire.request(.GET, item!.user!.avatar!.thumbnail!)
                 .responseImage { response in
                     let image = response.result.value
                     
                     if self.item!.user!.avatar == nil {
-                        return
+                        self.avatar.image = nil
                     }
-                    
-                    if response.request?.URLString == self.item!.user!.avatar!.thumbnail! { // Verify we're still loading the current image.
-                        UIView.transitionWithView(self.avatar,
-                            duration: App.ImageAnimationDuration,
-                            options: UIViewAnimationOptions.TransitionCrossDissolve,
-                            animations: {
-                                self.avatar.image = image
-                            },
-                            completion: nil)
+                    else if response.request?.URLString == self.item?.user!.avatar?.thumbnail! { // Verify we're still loading the current image.
+                        self.avatar.image = image
                     }
             }
         }

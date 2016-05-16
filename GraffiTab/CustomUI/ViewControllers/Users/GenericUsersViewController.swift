@@ -25,6 +25,7 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
     var isDownloading = false
     var canLoadMore = true
     var offset = 0
+    var initialLoad = false
     var viewType: UserViewType = .List {
         didSet {
             if collectionView != nil {
@@ -53,8 +54,16 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
         // Do any additional setup after loading the view.
         
         setupCollectionView()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
-        loadItems(true, offset: offset)
+        if !initialLoad {
+            initialLoad = true
+            
+            loadItems(true, offset: offset)
+        }
     }
     
     override func viewDidLayoutSubviews() {

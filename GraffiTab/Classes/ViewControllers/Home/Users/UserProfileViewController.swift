@@ -15,6 +15,8 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     @IBOutlet weak var followBtn: UIButton!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
+    let parallaxHeaderHeight = CGFloat(405)
+    
     var imageType: ImageType?
     var header: UserCollectionParallaxHeader?
     var titleView: UILabel?
@@ -27,6 +29,8 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.layout?.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, parallaxHeaderHeight)
         
         setupButtons()
         setupNavigationBar()
@@ -46,7 +50,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.layout?.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, 405)
+        self.layout?.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, parallaxHeaderHeight)
     }
 
     override func didReceiveMemoryWarning() {
@@ -368,7 +372,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     override func setupCollectionView() {
         super.setupCollectionView()
         
-        pullToRefresh.setMarginTop(0)
+        pullToRefresh.setMarginTop(20)
         
         collectionView.registerNib(UINib(nibName: UserCollectionParallaxHeader.reusableIdentifier(), bundle: NSBundle.mainBundle()), forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, withReuseIdentifier: UserCollectionParallaxHeader.reusableIdentifier())
     }

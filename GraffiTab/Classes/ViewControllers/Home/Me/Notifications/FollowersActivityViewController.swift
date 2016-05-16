@@ -21,6 +21,7 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
     var isDownloading = false
     var canLoadMore = true
     var offset = 0
+    var initialLoad = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +29,18 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
         // Do any additional setup after loading the view.
         
         setupTableView()
-        
-        loadItems(true, offset: offset)
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !initialLoad {
+            initialLoad = true
+            
+            loadItems(true, offset: offset)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

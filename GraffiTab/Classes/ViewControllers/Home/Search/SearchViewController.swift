@@ -33,12 +33,6 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        searchBar.becomeFirstResponder()
-    }
-    
     override func viewDidLayoutSubviews() {
         configureTabsSize()
     }

@@ -71,13 +71,7 @@ class ActivitySingleCell: UITableViewCell {
                     let image = response.result.value
                     
                     if response.request?.URLString == streamable?.asset?.thumbnail { // Verify we're still loading the current image.
-                        UIView.transitionWithView(self.streamableThumbnail,
-                            duration: App.ImageAnimationDuration,
-                            options: UIViewAnimationOptions.TransitionCrossDissolve,
-                            animations: {
-                                self.streamableThumbnail.image = image
-                            },
-                            completion: nil)
+                        self.streamableThumbnail.image = image
                     }
             }
         }
@@ -93,13 +87,7 @@ class ActivitySingleCell: UITableViewCell {
                     let image = response.result.value
                     
                     if response.request?.URLString == user!.avatar?.thumbnail! { // Verify we're still loading the current image.
-                        UIView.transitionWithView(self.avatar,
-                            duration: App.ImageAnimationDuration,
-                            options: UIViewAnimationOptions.TransitionCrossDissolve,
-                            animations: {
-                                self.avatar.image = image
-                            },
-                            completion: nil)
+                        self.avatar.image = image
                     }
             }
         }
@@ -117,13 +105,7 @@ class ActivitySingleCell: UITableViewCell {
                         let image = response.result.value
                         
                         if response.request?.URLString == user!.avatar?.thumbnail! { // Verify we're still loading the current image.
-                            UIView.transitionWithView(self.secondaryAvatar,
-                                duration: App.ImageAnimationDuration,
-                                options: UIViewAnimationOptions.TransitionCrossDissolve,
-                                animations: {
-                                    self.secondaryAvatar.image = image
-                                },
-                                completion: nil)
+                            self.secondaryAvatar.image = image
                         }
                 }
             }

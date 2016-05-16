@@ -10,28 +10,28 @@ import UIKit
 
 class ListFullStreamablesViewController: GenericStreamablesViewController {
 
-    var shownIndexes: Set<NSIndexPath>?
+//    var shownIndexes: Set<NSIndexPath>?
     
     override func basicInit() {
         super.basicInit()
         
-        shownIndexes = Set()
+//        shownIndexes = Set()
         
         self.viewType = .ListFull
     }
     
-    // MARK: - UICollectionViewDelegate
-    
-    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        if !shownIndexes!.contains(indexPath) && self.viewType == .ListFull {
-            shownIndexes?.insert(indexPath)
-            
-            let layer = cell.layer
-            layer.transform = CATransform3DMakeTranslation(0, self.collectionView.frame.height - 50, 0.0);
-            
-            UIView.animateWithDuration(indexPath.row == 0 ? 0.0 : 0.8, delay: 0, options: .CurveEaseOut, animations: {
-                cell.layer.transform = CATransform3DIdentity
-            }, completion: nil)
-        }
-    }
+//    // MARK: - UICollectionViewDelegate
+//    
+//    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+//        if !shownIndexes!.contains(indexPath) && self.viewType == .ListFull {
+//            shownIndexes?.insert(indexPath)
+//            
+//            let layer = cell.layer
+//            layer.transform = CATransform3DMakeTranslation(0, self.collectionView.frame.height - 50, 0.0);
+//            
+//            UIView.animateWithDuration(indexPath.row == 0 ? 0.0 : 0.8, delay: 0, options: .CurveEaseOut, animations: {
+//                cell.layer.transform = CATransform3DIdentity
+//            }, completion: nil)
+//        }
+//    }
 }

@@ -165,13 +165,7 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
                     }
                     
                     if response.request?.URLString == self.item!.avatar!.link! { // Verify we're still loading the current image.
-                        UIView.transitionWithView(self.avatar,
-                            duration: App.ImageAnimationDuration,
-                            options: UIViewAnimationOptions.TransitionCrossDissolve,
-                            animations: {
-                                self.avatar.image = image
-                            },
-                            completion: nil)
+                        self.avatar.image = image
                     }
             }
         }
@@ -191,18 +185,12 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
                     }
                     
                     if response.request?.URLString == self.item!.cover!.link! { // Verify we're still loading the current image.
-                        UIView.transitionWithView(self.cover,
-                            duration: App.ImageAnimationDuration,
-                            options: UIViewAnimationOptions.TransitionCrossDissolve,
-                            animations: {
-                                if image != nil {
-                                    self.cover.image = image
-                                }
-                                else {
-                                    self.cover.image = UIImage(named: "grafitab_login")
-                                }
-                            },
-                            completion: nil)
+                        if image != nil {
+                            self.cover.image = image
+                        }
+                        else {
+                            self.cover.image = UIImage(named: "grafitab_login")
+                        }
                     }
             }
         }

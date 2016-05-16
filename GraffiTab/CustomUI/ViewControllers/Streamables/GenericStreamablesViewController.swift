@@ -33,6 +33,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     var canLoadMore = true
     var offset = 0
     var showStaticCollection = false
+    var initialLoad = false
     var viewType: StreamableViewType = .Grid {
         didSet {
             if collectionView != nil {
@@ -61,8 +62,16 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         // Do any additional setup after loading the view.
         
         setupCollectionView()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
-        loadItems(true, offset: offset)
+        if !initialLoad {
+            initialLoad = true
+            
+            loadItems(true, offset: offset)
+        }
     }
     
     override func viewDidLayoutSubviews() {

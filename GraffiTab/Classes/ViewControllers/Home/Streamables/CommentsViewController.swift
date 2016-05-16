@@ -22,6 +22,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     var offset = 0
     var streamable: GTStreamable?
     var commentToEdit: GTComment?
+    var initialLoad = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,6 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         
         setupTableView()
         setupSlackController()
-        
-        loadItems(true, offset: offset)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -39,6 +38,16 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         
         if self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(false, animated: true)
+        }
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !initialLoad {
+            initialLoad = true
+            
+            loadItems(true, offset: offset)
         }
     }
     
