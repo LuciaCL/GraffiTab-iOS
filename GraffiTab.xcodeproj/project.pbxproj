@@ -68,6 +68,11 @@
 		E52DC77A1CE5E09900375828 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7731CE5E09900375828 /* TrendingViewController.swift */; };
 		E52DC77D1CE5E0BD00375828 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC77C1CE5E0BD00375828 /* WebViewController.swift */; };
 		E52DC7801CE5E37A00375828 /* StreamableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC77F1CE5E37A00375828 /* StreamableDetailViewController.swift */; };
+		E53F3FA81CEAA63900537D1B /* DrawingOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F3FA71CEAA63900537D1B /* DrawingOptionButton.swift */; };
+		E53F3FA91CEAA63900537D1B /* DrawingOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F3FA71CEAA63900537D1B /* DrawingOptionButton.swift */; };
+		E53F3FAF1CEAB6D000537D1B /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E53F3FAE1CEAB6D000537D1B /* libc++.tbd */; };
+		E53F3FB11CEAB6DE00537D1B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E53F3FB01CEAB6DE00537D1B /* libz.tbd */; };
+		E53F3FB31CEAB6F400537D1B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53F3FB21CEAB6F400537D1B /* MobileCoreServices.framework */; };
 		E554CFDA1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
 		E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD81CB5641B00668D85 /* release_notes.html */; };
 		E554CFDE1CB5641B00668D85 /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD91CB5641B00668D85 /* terms.html */; };
@@ -449,6 +454,11 @@
 		E52DC7731CE5E09900375828 /* TrendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
 		E52DC77C1CE5E0BD00375828 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E52DC77F1CE5E37A00375828 /* StreamableDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableDetailViewController.swift; sourceTree = "<group>"; };
+		E53F3FA71CEAA63900537D1B /* DrawingOptionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingOptionButton.swift; sourceTree = "<group>"; };
+		E53F3FAC1CEAB69600537D1B /* AdobeCreativeSDKImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdobeCreativeSDKImage.framework; path = ../../../Adobe_SDK/AdobeCreativeSDKImage.framework; sourceTree = "<group>"; };
+		E53F3FAE1CEAB6D000537D1B /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		E53F3FB01CEAB6DE00537D1B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E53F3FB21CEAB6F400537D1B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
 		E554CFD81CB5641B00668D85 /* release_notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = release_notes.html; sourceTree = "<group>"; };
 		E554CFD91CB5641B00668D85 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
@@ -590,6 +600,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E53F3FB31CEAB6F400537D1B /* MobileCoreServices.framework in Frameworks */,
+				E53F3FB11CEAB6DE00537D1B /* libz.tbd in Frameworks */,
+				E53F3FAF1CEAB6D000537D1B /* libc++.tbd in Frameworks */,
 				E58432971CE9242000FB1E50 /* Photos.framework in Frameworks */,
 				E58432981CE9242000FB1E50 /* CoreGraphics.framework in Frameworks */,
 				E58432991CE9242000FB1E50 /* AudioToolbox.framework in Frameworks */,
@@ -1257,6 +1270,7 @@
 			isa = PBXGroup;
 			children = (
 				E5DFDBF61CB2C31B00BB3D27 /* TintButton.swift */,
+				E53F3FA71CEAA63900537D1B /* DrawingOptionButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1328,6 +1342,10 @@
 		F89B9B6C7903A7912D4CD2E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E53F3FB21CEAB6F400537D1B /* MobileCoreServices.framework */,
+				E53F3FB01CEAB6DE00537D1B /* libz.tbd */,
+				E53F3FAE1CEAB6D000537D1B /* libc++.tbd */,
+				E53F3FAC1CEAB69600537D1B /* AdobeCreativeSDKImage.framework */,
 				E58432CE1CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework */,
 				E57FAB221CD224B700C0D125 /* Photos.framework */,
 				E57FAB1A1CD2245500C0D125 /* AssetsLibrary.framework */,
@@ -1660,6 +1678,7 @@
 				E58432291CE9242000FB1E50 /* ViewControllerUtils.swift in Sources */,
 				E584322A1CE9242000FB1E50 /* FollowersActivityViewController.swift in Sources */,
 				E584322B1CE9242000FB1E50 /* FollowingViewController.swift in Sources */,
+				E53F3FA91CEAA63900537D1B /* DrawingOptionButton.swift in Sources */,
 				E584322C1CE9242000FB1E50 /* UserCollectionParallaxHeader.swift in Sources */,
 				E584322D1CE9242000FB1E50 /* ActivitySingleFollowCell.swift in Sources */,
 				E584322E1CE9242000FB1E50 /* ActivitySingleCommentCell.swift in Sources */,
@@ -1781,6 +1800,7 @@
 				E52DC73F1CE551D300375828 /* ViewControllerUtils.swift in Sources */,
 				E5B6B5B51CC56F5800DC8EFC /* FollowersActivityViewController.swift in Sources */,
 				E52DC75C1CE55FA900375828 /* FollowingViewController.swift in Sources */,
+				E53F3FA81CEAA63900537D1B /* DrawingOptionButton.swift in Sources */,
 				E5B6B5501CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift in Sources */,
 				E51006BC1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift in Sources */,
 				E51006C51CBC122E00AC66A5 /* ActivitySingleCommentCell.swift in Sources */,
@@ -1934,6 +1954,11 @@
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Release",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					USE_CSDK_COMPONENTS,
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/Chipmunk/objectivec/include",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/cocos2d/**",
@@ -2037,6 +2062,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Release",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					USE_CSDK_COMPONENTS,
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/Chipmunk/objectivec/include",

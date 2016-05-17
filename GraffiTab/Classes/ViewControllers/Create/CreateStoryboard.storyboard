@@ -23,14 +23,16 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Hl-Br-rIP">
                                         <rect key="frame" x="0.0" y="0.0" width="55" height="600"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOA-yg-LVz" customClass="TintButton" customModule="GraffiTab" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="12" width="35" height="35"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOA-yg-LVz" customClass="DrawingOptionButton" customModule="GraffiTab" customModuleProvider="target">
+                                                <rect key="frame" x="7.5" y="7" width="40" height="40"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40359724813432835" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="35" id="Ows-y5-y7P"/>
-                                                    <constraint firstAttribute="width" constant="35" id="s4o-J4-SN3"/>
+                                                    <constraint firstAttribute="height" constant="40" id="Ows-y5-y7P"/>
+                                                    <constraint firstAttribute="width" constant="40" id="s4o-J4-SN3"/>
                                                 </constraints>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <state key="normal" image="add_image"/>
+                                                <color key="tintColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                                <inset key="contentEdgeInsets" minX="9" minY="9" maxX="9" maxY="9"/>
+                                                <state key="normal" image="ic_photo_camera_white"/>
                                                 <connections>
                                                     <action selector="onClickChangeBackground:" destination="F9h-bV-H5F" eventType="touchUpInside" id="ZH5-OG-U6v"/>
                                                 </connections>
@@ -117,7 +119,7 @@
                                             <constraint firstItem="LK3-iv-tp7" firstAttribute="leading" secondItem="2Hl-Br-rIP" secondAttribute="leading" id="tQc-SO-2Na"/>
                                             <constraint firstAttribute="width" constant="55" id="tyC-qG-qxn"/>
                                             <constraint firstAttribute="trailing" secondItem="LK3-iv-tp7" secondAttribute="trailing" id="uvm-JV-mvj"/>
-                                            <constraint firstItem="SOA-yg-LVz" firstAttribute="top" secondItem="2Hl-Br-rIP" secondAttribute="top" constant="12" id="wKe-r1-4G8"/>
+                                            <constraint firstItem="SOA-yg-LVz" firstAttribute="top" secondItem="2Hl-Br-rIP" secondAttribute="top" constant="7" id="wKe-r1-4G8"/>
                                             <constraint firstItem="OVJ-76-A0p" firstAttribute="leading" secondItem="2Hl-Br-rIP" secondAttribute="leading" id="yzM-0C-lmJ"/>
                                         </constraints>
                                         <connections>
@@ -128,27 +130,45 @@
                                         <rect key="frame" x="55" y="0.0" width="545" height="55"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6f-xY-P0d" customClass="TintButton" customModule="GraffiTab" customModuleProvider="target">
-                                                <rect key="frame" x="498" y="10" width="35" height="35"/>
+                                                <rect key="frame" x="490" y="0.0" width="55" height="55"/>
+                                                <color key="backgroundColor" red="0.42352941176470588" green="0.74117647058823533" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="35" id="ZNv-rG-znG"/>
-                                                    <constraint firstAttribute="width" constant="35" id="r5l-2W-AZb"/>
+                                                    <constraint firstAttribute="height" constant="55" id="ZNv-rG-znG"/>
+                                                    <constraint firstAttribute="width" constant="55" id="r5l-2W-AZb"/>
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <state key="normal" image="ic_settings"/>
+                                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                                <state key="normal" image="ic_done_white"/>
                                                 <connections>
                                                     <action selector="onClickClose:" destination="F9h-bV-H5F" eventType="touchUpInside" id="MPX-Qh-oBx"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DX7-Jl-Ods" customClass="DrawingOptionButton" customModule="GraffiTab" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="7" width="40" height="40"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="dw2-tb-GAb"/>
+                                                    <constraint firstAttribute="height" constant="40" id="mWT-gZ-3h5"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                <inset key="imageEdgeInsets" minX="9" minY="9" maxX="9" maxY="9"/>
+                                                <state key="normal" image="ic_photo_filter_white"/>
+                                                <connections>
+                                                    <action selector="onClickEnhance:" destination="F9h-bV-H5F" eventType="touchUpInside" id="3RO-jy-ek1"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="T6f-xY-P0d" secondAttribute="trailing" constant="12" id="EgU-WT-glx"/>
+                                            <constraint firstAttribute="trailing" secondItem="T6f-xY-P0d" secondAttribute="trailing" id="EgU-WT-glx"/>
                                             <constraint firstAttribute="height" constant="55" id="IKZ-Hz-IUD"/>
                                             <constraint firstItem="T6f-xY-P0d" firstAttribute="centerY" secondItem="Rrk-r8-yd7" secondAttribute="centerY" id="MTr-GZ-EBz"/>
+                                            <constraint firstItem="DX7-Jl-Ods" firstAttribute="leading" secondItem="Rrk-r8-yd7" secondAttribute="leading" id="i03-CM-W4u"/>
+                                            <constraint firstItem="DX7-Jl-Ods" firstAttribute="centerY" secondItem="Rrk-r8-yd7" secondAttribute="centerY" id="rak-F9-HZs"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TvL-dT-yP8">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TvL-dT-yP8">
+                                        <rect key="frame" x="0.0" y="63" width="600" height="537"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -250,8 +270,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add_image" width="25" height="25"/>
-        <image name="ic_settings" width="25" height="25"/>
+        <image name="ic_done_white" width="24" height="24"/>
+        <image name="ic_photo_camera_white" width="24" height="24"/>
+        <image name="ic_photo_filter_white" width="24" height="24"/>
         <image name="shelves_segment" width="267" height="116"/>
         <image name="shelves_top" width="267" height="25"/>
         <image name="t_spray" width="38" height="26"/>

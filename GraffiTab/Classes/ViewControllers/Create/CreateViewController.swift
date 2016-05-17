@@ -19,6 +19,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var colorsTableView: UITableView!
     @IBOutlet weak var drawingContainer: UIView!
     @IBOutlet weak var colorBtn: UIButton!
+    @IBOutlet weak var pointWidthSlider: UISlider!
     
     var canvasScene: IntroScene?
     var canvas: LineDrawer?
@@ -80,6 +81,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func onClickEnhance(sender: AnyObject?) {
+        
     }
     
     @IBAction func onClickColor(sender: AnyObject?) {
