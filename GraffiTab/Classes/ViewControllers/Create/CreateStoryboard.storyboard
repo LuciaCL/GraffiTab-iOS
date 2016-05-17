@@ -24,11 +24,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="55" height="600"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOA-yg-LVz" customClass="DrawingOptionButton" customModule="GraffiTab" customModuleProvider="target">
-                                                <rect key="frame" x="7.5" y="7" width="40" height="40"/>
+                                                <rect key="frame" x="8.5" y="8" width="38" height="38"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40359724813432835" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="Ows-y5-y7P"/>
-                                                    <constraint firstAttribute="width" constant="40" id="s4o-J4-SN3"/>
+                                                    <constraint firstAttribute="height" constant="38" id="Ows-y5-y7P"/>
+                                                    <constraint firstAttribute="width" constant="38" id="s4o-J4-SN3"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
                                                 <inset key="contentEdgeInsets" minX="9" minY="9" maxX="9" maxY="9"/>
@@ -112,14 +112,14 @@
                                             <constraint firstAttribute="trailing" secondItem="OVJ-76-A0p" secondAttribute="trailing" id="GKu-Qu-bPk"/>
                                             <constraint firstItem="MBZ-v0-gRR" firstAttribute="top" secondItem="OVJ-76-A0p" secondAttribute="bottom" constant="12" id="GOp-52-5gc"/>
                                             <constraint firstItem="X2G-Kj-kWA" firstAttribute="leading" secondItem="2Hl-Br-rIP" secondAttribute="leading" id="HhT-Ex-vqB"/>
-                                            <constraint firstItem="LK3-iv-tp7" firstAttribute="top" secondItem="SOA-yg-LVz" secondAttribute="bottom" constant="7" id="Lu8-hZ-Ri1"/>
+                                            <constraint firstItem="LK3-iv-tp7" firstAttribute="top" secondItem="SOA-yg-LVz" secondAttribute="bottom" constant="8" id="Lu8-hZ-Ri1"/>
                                             <constraint firstItem="MBZ-v0-gRR" firstAttribute="top" secondItem="X2G-Kj-kWA" secondAttribute="bottom" constant="12" id="NTq-Gp-7hd"/>
                                             <constraint firstItem="MBZ-v0-gRR" firstAttribute="centerX" secondItem="2Hl-Br-rIP" secondAttribute="centerX" id="baV-6x-dCk"/>
-                                            <constraint firstItem="X2G-Kj-kWA" firstAttribute="top" secondItem="SOA-yg-LVz" secondAttribute="bottom" constant="7" id="poY-nc-ofy"/>
+                                            <constraint firstItem="X2G-Kj-kWA" firstAttribute="top" secondItem="SOA-yg-LVz" secondAttribute="bottom" constant="8" id="poY-nc-ofy"/>
                                             <constraint firstItem="LK3-iv-tp7" firstAttribute="leading" secondItem="2Hl-Br-rIP" secondAttribute="leading" id="tQc-SO-2Na"/>
                                             <constraint firstAttribute="width" constant="55" id="tyC-qG-qxn"/>
                                             <constraint firstAttribute="trailing" secondItem="LK3-iv-tp7" secondAttribute="trailing" id="uvm-JV-mvj"/>
-                                            <constraint firstItem="SOA-yg-LVz" firstAttribute="top" secondItem="2Hl-Br-rIP" secondAttribute="top" constant="7" id="wKe-r1-4G8"/>
+                                            <constraint firstItem="SOA-yg-LVz" firstAttribute="top" secondItem="2Hl-Br-rIP" secondAttribute="top" constant="8" id="wKe-r1-4G8"/>
                                             <constraint firstItem="OVJ-76-A0p" firstAttribute="leading" secondItem="2Hl-Br-rIP" secondAttribute="leading" id="yzM-0C-lmJ"/>
                                         </constraints>
                                         <connections>
@@ -144,11 +144,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DX7-Jl-Ods" customClass="DrawingOptionButton" customModule="GraffiTab" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="7" width="40" height="40"/>
+                                                <rect key="frame" x="0.0" y="8" width="38" height="38"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="dw2-tb-GAb"/>
-                                                    <constraint firstAttribute="height" constant="40" id="mWT-gZ-3h5"/>
+                                                    <constraint firstAttribute="width" constant="38" id="dw2-tb-GAb"/>
+                                                    <constraint firstAttribute="height" constant="38" id="mWT-gZ-3h5"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <inset key="imageEdgeInsets" minX="9" minY="9" maxX="9" maxY="9"/>
