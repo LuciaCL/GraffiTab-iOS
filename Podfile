@@ -38,6 +38,7 @@ def common_pods
     pod 'WYPopoverController'
     pod 'KeychainAccess'
     pod 'FlatUIKit'
+    pod 'imglyKit'
 end
 
 target 'GraffiTab' do

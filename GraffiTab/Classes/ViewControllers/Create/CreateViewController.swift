@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import imglyKit
 
 class CreateViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, ColorSprayCanCellDelegate {
 
@@ -84,7 +85,23 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickEnhance(sender: AnyObject?) {
+        let sampleImage = UIImage(named: "grafitab_login")
+        let editorViewController = IMGLYMainEditorViewController()
+        editorViewController.highResolutionImage = sampleImage
+        editorViewController.initialFilterType = .None
+        editorViewController.initialFilterIntensity = 0.5
+        editorViewController.completionBlock = { (result, image) in
+            editorViewController.dismissViewControllerAnimated(true, completion: {
+                if result == .Done {
+                    self.canvas!.setBackground(image)
+                }
+            })
+        }
         
+        let nav = UINavigationController(rootViewController: editorViewController)
+        nav.navigationBar.barTintColor = UIColor(hexString: "#222222")
+        nav.navigationBar.translucent = false
+        presentViewController(nav, animated: true, completion: nil)
     }
     
     @IBAction func onClickColor(sender: AnyObject?) {

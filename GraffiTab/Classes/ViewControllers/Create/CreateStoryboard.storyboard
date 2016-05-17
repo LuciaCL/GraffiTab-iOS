@@ -24,7 +24,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="55" height="600"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOA-yg-LVz" customClass="DrawingOptionButton" customModule="GraffiTab" customModuleProvider="target">
-                                                <rect key="frame" x="8.5" y="8" width="38" height="38"/>
+                                                <rect key="frame" x="9" y="8" width="38" height="38"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40359724813432835" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="38" id="Ows-y5-y7P"/>
@@ -73,7 +73,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DrawToolCell" id="aVB-FG-Wt9" customClass="DrawToolCell" customModule="GraffiTab" customModuleProvider="target">
-                                                        <rect key="frame" x="2.5" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="3" y="0.0" width="50" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
