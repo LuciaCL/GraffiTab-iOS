@@ -201,14 +201,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     }
     
     func setupButtons() {
-        createBtn.layer.cornerRadius = createBtn.frame.size.width / 2
-        createBtn.layer.shadowRadius = 3.0
-        createBtn.layer.shadowColor = UIColor.blackColor().CGColor;
-        createBtn.layer.shadowOffset = CGSizeMake(1.6, 1.6)
-        createBtn.layer.shadowOpacity = 0.5
-        createBtn.layer.masksToBounds = false
         createBtn.backgroundColor = UIColor(hexString: Colors.Main)
-        
         self.view.bringSubviewToFront(createBtn)
     }
     

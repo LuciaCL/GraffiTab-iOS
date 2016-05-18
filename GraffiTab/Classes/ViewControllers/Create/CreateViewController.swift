@@ -88,7 +88,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     @IBAction func onClickPublish(sender: AnyObject?) {
         let sampleImage = self.canvas?.grabFrame()
-        // TODO:
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PublishViewController") as! PublishViewController
+        vc.streamableImage = sampleImage
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     @IBAction func onClickShare(sender: AnyObject?) {
@@ -107,8 +109,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         let sideBar = RNFrostedSidebar(images: [UIImage(named: "ic_done_white")!, UIImage(named: "ic_share_white")!, UIImage(named: "ic_file_download_white")!, UIImage(named: "ic_delete_white")!])
         sideBar.delegate = self
         sideBar.showFromRight = true
-        sideBar.width = 120
+        sideBar.width = 110
         sideBar.itemSize = CGSizeMake(60, 60)
+        sideBar.itemBackgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
         sideBar.show()
     }
     
@@ -218,7 +221,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     func handleSwipeLeftGesture(recognizer: UIGestureRecognizer?) {
         if isMenuOpen! {
-            hideMenu()
+            hideMenu(nil)
         }
         else if !isColorsOpen! {
             showColors()
@@ -236,7 +239,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             }, completion: nil)
     }
     
-    func hideMenu() {
+    func hideMenu(completionBlock: (() -> ())?) {
         isMenuOpen = false
         
         UIView.animateWithDuration(0.4, delay: 0, options: .CurveEaseInOut, animations: {
@@ -244,7 +247,11 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             self.canvasYconstraint.constant = 0
             self.canvasView.superview!.setNeedsUpdateConstraints()
             self.canvasView.superview!.layoutIfNeeded()
-            }, completion: nil)
+        }, completion: {(finished) in
+            if finished && completionBlock != nil {
+                completionBlock!()
+            }
+        })
     }
     
     func showColors() {
@@ -418,7 +425,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         
         Utils.runWithDelay(0.3) {
             if index == 0 {
-                self.onClickPublish(nil)
+                self.hideMenu({
+                    self.onClickPublish(nil)
+                })
             }
             else if index == 1 {
                 self.onClickShare(nil)

@@ -32,7 +32,6 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         
         self.layout?.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, parallaxHeaderHeight)
         
-        setupButtons()
         setupNavigationBar()
         
         loadData()
@@ -380,15 +379,6 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         pullToRefresh.setMarginTop(20)
         
         collectionView.registerNib(UINib(nibName: UserCollectionParallaxHeader.reusableIdentifier(), bundle: NSBundle.mainBundle()), forSupplementaryViewOfKind: CSStickyHeaderParallaxHeader, withReuseIdentifier: UserCollectionParallaxHeader.reusableIdentifier())
-    }
-    
-    func setupButtons() {
-        followBtn.layer.cornerRadius = followBtn.frame.size.width / 2
-        followBtn.layer.shadowRadius = 3.0
-        followBtn.layer.shadowColor = UIColor.blackColor().CGColor;
-        followBtn.layer.shadowOffset = CGSizeMake(1.6, 1.6)
-        followBtn.layer.shadowOpacity = 0.5
-        followBtn.layer.masksToBounds = false
     }
     
     func setupNavigationBar() {

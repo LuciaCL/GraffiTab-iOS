@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		6120B15580E6E4D49C4FE058 /* Pods_GraffiTab_Release.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040A2F38D09E539338496576 /* Pods_GraffiTab_Release.framework */; };
 		6E3E6AF34F1E3AC30E600CBF /* Pods_GraffiTab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A858584C70AD43E9A1A96F8 /* Pods_GraffiTab.framework */; };
+		E50564CC1CEC774000A42E56 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50564CB1CEC774000A42E56 /* PublishViewController.swift */; };
+		E50564CD1CEC774000A42E56 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50564CB1CEC774000A42E56 /* PublishViewController.swift */; };
+		E50564D41CEC882B00A42E56 /* MaterializeRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50564D31CEC882B00A42E56 /* MaterializeRoundButton.swift */; };
+		E50564D51CEC882B00A42E56 /* MaterializeRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50564D31CEC882B00A42E56 /* MaterializeRoundButton.swift */; };
+		E50564D81CECAE0400A42E56 /* GTDeviceMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50564D71CECAE0400A42E56 /* GTDeviceMotionManager.swift */; };
+		E50564D91CECAE0400A42E56 /* GTDeviceMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50564D71CECAE0400A42E56 /* GTDeviceMotionManager.swift */; };
 		E51005F41CB69BDE00AC66A5 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51005F31CB69BDE00AC66A5 /* MenuCell.swift */; };
 		E51006301CB71C5900AC66A5 /* GenericStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510062F1CB71C5900AC66A5 /* GenericStreamablesViewController.swift */; };
 		E51006331CB71EB200AC66A5 /* GridStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006321CB71EB200AC66A5 /* GridStreamablesViewController.swift */; };
@@ -390,6 +396,9 @@
 		60414BAA024EE71CB76A1383 /* Pods-GraffiTab Release.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab Release.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab Release/Pods-GraffiTab Release.release.xcconfig"; sourceTree = "<group>"; };
 		65C7EC7B6C44DA11DEAA502C /* Pods-GraffiTab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab.release.xcconfig"; sourceTree = "<group>"; };
 		68B6060E6C069394DFEF27BF /* Pods-GraffiTab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab.debug.xcconfig"; sourceTree = "<group>"; };
+		E50564CB1CEC774000A42E56 /* PublishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
+		E50564D31CEC882B00A42E56 /* MaterializeRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterializeRoundButton.swift; sourceTree = "<group>"; };
+		E50564D71CECAE0400A42E56 /* GTDeviceMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTDeviceMotionManager.swift; sourceTree = "<group>"; };
 		E51005F31CB69BDE00AC66A5 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		E510062F1CB71C5900AC66A5 /* GenericStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericStreamablesViewController.swift; sourceTree = "<group>"; };
 		E51006321CB71EB200AC66A5 /* GridStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridStreamablesViewController.swift; sourceTree = "<group>"; };
@@ -657,6 +666,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E50564D61CECADE700A42E56 /* MotionManager */ = {
+			isa = PBXGroup;
+			children = (
+				E50564D71CECAE0400A42E56 /* GTDeviceMotionManager.swift */,
+			);
+			path = MotionManager;
+			sourceTree = "<group>";
+		};
 		E51005F21CB69BC300AC66A5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -919,6 +936,7 @@
 				E5B6B6151CC5B34600DC8EFC /* Cocos2d */,
 				E5B6B56E1CC56F5800DC8EFC /* CreateStoryboard.storyboard */,
 				E5B6B56F1CC56F5800DC8EFC /* CreateViewController.swift */,
+				E50564CB1CEC774000A42E56 /* PublishViewController.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -1195,6 +1213,7 @@
 		E5DFDBE71CB2C31B00BB3D27 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E50564D61CECADE700A42E56 /* MotionManager */,
 				E58432D31CEA468700FB1E50 /* Settings */,
 				E5A4F1361CE34825005CF12C /* Model */,
 				E5DFDBE81CB2C31B00BB3D27 /* Constants */,
@@ -1266,6 +1285,7 @@
 			children = (
 				E5DFDBF61CB2C31B00BB3D27 /* TintButton.swift */,
 				E53F3FA71CEAA63900537D1B /* DrawingOptionButton.swift */,
+				E50564D31CEC882B00A42E56 /* MaterializeRoundButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1671,6 +1691,7 @@
 				E58432261CE9242000FB1E50 /* EditPasswordViewController.swift in Sources */,
 				E58432271CE9242000FB1E50 /* TintButton.swift in Sources */,
 				E58432281CE9242000FB1E50 /* StreamableThumbnail.swift in Sources */,
+				E50564D91CECAE0400A42E56 /* GTDeviceMotionManager.swift in Sources */,
 				E58432291CE9242000FB1E50 /* ViewControllerUtils.swift in Sources */,
 				E584322A1CE9242000FB1E50 /* FollowersActivityViewController.swift in Sources */,
 				E584322B1CE9242000FB1E50 /* FollowingViewController.swift in Sources */,
@@ -1692,6 +1713,7 @@
 				E58432391CE9242000FB1E50 /* UserAboutView.swift in Sources */,
 				E584323A1CE9242000FB1E50 /* Utils.swift in Sources */,
 				E584323B1CE9242000FB1E50 /* BackButtonTableViewController.swift in Sources */,
+				E50564D51CEC882B00A42E56 /* MaterializeRoundButton.swift in Sources */,
 				E584323C1CE9242000FB1E50 /* WebViewController.swift in Sources */,
 				E584323D1CE9242000FB1E50 /* HomeViewController.swift in Sources */,
 				E584323E1CE9242000FB1E50 /* TOCropViewControllerTransitioning.m in Sources */,
@@ -1727,6 +1749,7 @@
 				E584325C1CE9242000FB1E50 /* AutocompleteHashCell.swift in Sources */,
 				E584325D1CE9242000FB1E50 /* ActivitySingleLikeCell.swift in Sources */,
 				E584325E1CE9242000FB1E50 /* TOCropViewController.m in Sources */,
+				E50564CD1CEC774000A42E56 /* PublishViewController.swift in Sources */,
 				E584325F1CE9242000FB1E50 /* TrendingViewController.swift in Sources */,
 				E58432601CE9242000FB1E50 /* UserLikedStreamablesViewController.swift in Sources */,
 				E58432611CE9242000FB1E50 /* GTLocationManager.swift in Sources */,
@@ -1793,6 +1816,7 @@
 				E5B6B5A91CC56F5800DC8EFC /* EditPasswordViewController.swift in Sources */,
 				E5DFDC051CB2C31B00BB3D27 /* TintButton.swift in Sources */,
 				E51006E21CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */,
+				E50564D81CECAE0400A42E56 /* GTDeviceMotionManager.swift in Sources */,
 				E52DC73F1CE551D300375828 /* ViewControllerUtils.swift in Sources */,
 				E5B6B5B51CC56F5800DC8EFC /* FollowersActivityViewController.swift in Sources */,
 				E52DC75C1CE55FA900375828 /* FollowingViewController.swift in Sources */,
@@ -1814,6 +1838,7 @@
 				E5B6B55B1CC4E8AD00DC8EFC /* UserAboutView.swift in Sources */,
 				E5DFDC041CB2C31B00BB3D27 /* Utils.swift in Sources */,
 				E5DFDC071CB2C31B00BB3D27 /* BackButtonTableViewController.swift in Sources */,
+				E50564D41CEC882B00A42E56 /* MaterializeRoundButton.swift in Sources */,
 				E52DC77D1CE5E0BD00375828 /* WebViewController.swift in Sources */,
 				E5B6B5A51CC56F5800DC8EFC /* HomeViewController.swift in Sources */,
 				E5D085AA1CD8D30000226589 /* TOCropViewControllerTransitioning.m in Sources */,
@@ -1849,6 +1874,7 @@
 				E5DAA8971CE37A26000CB2F4 /* AutocompleteHashCell.swift in Sources */,
 				E51006BF1CBC0FA100AC66A5 /* ActivitySingleLikeCell.swift in Sources */,
 				E5D085AC1CD8D30000226589 /* TOCropViewController.m in Sources */,
+				E50564CC1CEC774000A42E56 /* PublishViewController.swift in Sources */,
 				E52DC77A1CE5E09900375828 /* TrendingViewController.swift in Sources */,
 				E52DC7621CE5DA2A00375828 /* UserLikedStreamablesViewController.swift in Sources */,
 				E51006831CB7FE0F00AC66A5 /* GTLocationManager.swift in Sources */,

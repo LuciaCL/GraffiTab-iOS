@@ -24,6 +24,15 @@ class Utils: NSObject {
         view.clipsToBounds = false
     }
     
+    class func applyPublishShadowEffectToView(view: UIView) {
+        let layer = view.layer
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOpacity = 0.3
+        layer.shadowOffset = CGSizeMake(1, 1)
+        layer.shadowRadius = 2.0
+        view.clipsToBounds = false
+    }
+    
     class func applyCanvasShadowEffectToView(view: UIView) {
         let layer = view.layer
         layer.shadowColor = UIColor.blackColor().CGColor

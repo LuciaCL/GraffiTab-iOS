@@ -33,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize the location manager.
         let _ = GTLocationManager.manager
         
+        // Initialize the device motion manager.
+        let _ = GTDeviceMotionManager.manager
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogin), name:Notifications.UserLoggedIn, object:nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogout), name:Notifications.UserLoggedOut, object:nil)
         
