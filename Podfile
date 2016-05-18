@@ -40,7 +40,7 @@ def common_pods
     pod 'FlatUIKit'
     pod 'imglyKit'
     pod 'Reachability'
-    pod 'ALAlertBanner'
+    pod 'RNFrostedSidebar'
 end
 
 target 'GraffiTab' do

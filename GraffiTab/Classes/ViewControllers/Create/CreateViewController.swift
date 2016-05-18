@@ -9,8 +9,10 @@
 import UIKit
 import Photos
 import imglyKit
+import RNFrostedSidebar
+import RNActivityView
 
-class CreateViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, ColorSprayCanCellDelegate {
+class CreateViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, ColorSprayCanCellDelegate, RNFrostedSidebarDelegate {
 
     @IBOutlet weak var toolCollectionView: UICollectionView!
     @IBOutlet weak var canvasContainerXconstraint: NSLayoutConstraint!
@@ -82,6 +84,32 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func onClickPublish(sender: AnyObject?) {
+        let sampleImage = self.canvas?.grabFrame()
+        // TODO:
+    }
+    
+    @IBAction func onClickShare(sender: AnyObject?) {
+        let sampleImage = self.canvas?.grabFrame()
+        Utils.shareImage(sampleImage!, viewController: self)
+    }
+    
+    @IBAction func onClickSave(sender: AnyObject?) {
+        let sampleImage = self.canvas?.grabFrame()
+        UIImageWriteToSavedPhotosAlbum(sampleImage!, nil, nil, nil);
+        
+        DialogBuilder.showSuccessAlert("Your graffiti was saved in your photos album", title: App.Title)
+    }
+    
+    @IBAction func onClickDone(sender: AnyObject) {
+        let sideBar = RNFrostedSidebar(images: [UIImage(named: "ic_done_white")!, UIImage(named: "ic_share_white")!, UIImage(named: "ic_file_download_white")!, UIImage(named: "ic_delete_white")!])
+        sideBar.delegate = self
+        sideBar.showFromRight = true
+        sideBar.width = 120
+        sideBar.itemSize = CGSizeMake(60, 60)
+        sideBar.show()
     }
     
     @IBAction func onClickEnhance(sender: AnyObject?) {
@@ -381,6 +409,27 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         colorBtn.backgroundColor = color
         self.canvas!.setDrawColor(color)
         hideColors()
+    }
+    
+    // MARK: - RNFrostedSidebarDelegate
+    
+    func sidebar(sidebar: RNFrostedSidebar!, didTapItemAtIndex index: UInt) {
+        sidebar.dismissAnimated(true)
+        
+        Utils.runWithDelay(0.3) {
+            if index == 0 {
+                self.onClickPublish(nil)
+            }
+            else if index == 1 {
+                self.onClickShare(nil)
+            }
+            else if index == 2 {
+                self.onClickSave(nil)
+            }
+            else if index == 3 {
+                self.onClickClose(nil)
+            }
+        }
     }
     
     // MARK: - UIGestureRecognizerDelegate

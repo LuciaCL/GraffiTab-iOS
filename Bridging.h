@@ -35,7 +35,6 @@
 #import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 #import <UIScrollView_InfiniteScroll/UIScrollView+InfiniteScroll.h>
 #import <Reachability/Reachability.h>
-#import <ALAlertBanner/ALAlertBanner.h>
 
 #import <MZFormSheetPresentationController/MZFormSheetPresentationController.h>
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewController.h>

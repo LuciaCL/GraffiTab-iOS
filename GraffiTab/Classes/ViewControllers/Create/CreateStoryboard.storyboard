@@ -73,7 +73,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DrawToolCell" id="aVB-FG-Wt9" customClass="DrawToolCell" customModule="GraffiTab" customModuleProvider="target">
-                                                        <rect key="frame" x="3" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="2.5" y="0.0" width="50" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -140,7 +140,7 @@
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" image="ic_done_white"/>
                                                 <connections>
-                                                    <action selector="onClickClose:" destination="F9h-bV-H5F" eventType="touchUpInside" id="MPX-Qh-oBx"/>
+                                                    <action selector="onClickDone:" destination="F9h-bV-H5F" eventType="touchUpInside" id="abG-gp-L25"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DX7-Jl-Ods" customClass="DrawingOptionButton" customModule="GraffiTab" customModuleProvider="target">
