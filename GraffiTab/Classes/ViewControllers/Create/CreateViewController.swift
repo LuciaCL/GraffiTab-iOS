@@ -85,7 +85,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickEnhance(sender: AnyObject?) {
-        let sampleImage = UIImage(named: "grafitab_login")
+        let sampleImage = self.canvas?.grabFrame()
         let editorViewController = IMGLYMainEditorViewController()
         editorViewController.highResolutionImage = sampleImage
         editorViewController.initialFilterType = .None

@@ -261,6 +261,18 @@ typedef struct {
     }
 }
 
+- (UIImage *)grabFrame {
+    [CCDirector sharedDirector].nextDeltaTimeZero = YES;
+    
+    CGSize winSize = [[CCDirector sharedDirector] viewSize];
+    CCRenderTexture *renTxture = [CCRenderTexture renderTextureWithWidth:winSize.width height:winSize.height];
+    [renTxture begin];
+    [self visit];
+    [renTxture end];
+    
+    return [renTxture getUIImage];
+}
+
 #pragma mark - Handling points
 
 - (void)startNewLineFrom:(CGPoint)newPoint withSize:(CGFloat)aSize {

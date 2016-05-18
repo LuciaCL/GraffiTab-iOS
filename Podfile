@@ -39,6 +39,8 @@ def common_pods
     pod 'KeychainAccess'
     pod 'FlatUIKit'
     pod 'imglyKit'
+    pod 'Reachability'
+    pod 'ALAlertBanner'
 end
 
 target 'GraffiTab' do

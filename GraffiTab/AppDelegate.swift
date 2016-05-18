@@ -11,12 +11,14 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import SwiftHEXColors
 import GraffiTab_iOS_SDK
+import Reachability
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var networkBanner: UILabel?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -36,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setupTopBar()
         setupCache()
+        setupRechability()
         
         Utils.runWithDelay(2) { () in
             self.checkLoginStatus()
@@ -182,6 +185,83 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let cacheSizeDisk = 100 * 1024 * 1024
         let sharedCache = NSURLCache(memoryCapacity: cacheSizeMemory, diskCapacity: cacheSizeDisk, diskPath: nil)
         NSURLCache.setSharedURLCache(sharedCache)
+    }
+    
+    func setupRechability() {
+        // Setup info label.
+        self.networkBanner = UILabel(frame: CGRectMake(0, self.window!.bounds.height, self.window!.bounds.width, 27))
+        self.networkBanner?.textColor = .whiteColor()
+        self.networkBanner?.textAlignment = .Center
+        self.networkBanner?.font = UIFont.systemFontOfSize(13)
+        self.networkBanner?.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin, .FlexibleWidth, .FlexibleTopMargin]
+        self.networkBanner?.hidden = true
+        self.window?.addSubview(self.networkBanner!)
+        
+        // Allocate a reachability object.
+        let reach = Reachability(hostName: "www.google.com")
+        
+        // Set the blocks.
+        reach.reachableBlock = { (reachability) in
+            // keep in mind this is called on a background thread
+            // and if you are updating the UI it needs to happen
+            // on the main thread, like this:
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                if !self.networkBanner!.hidden {
+                    self.window?.bringSubviewToFront(self.networkBanner!)
+                    self.networkBanner?.text = "Connected"
+                    
+                    UIView.animateWithDuration(0.3, animations: { 
+                        self.networkBanner?.layer.backgroundColor = UIColor(hexString: Colors.Green)!.CGColor
+                    }, completion: { (finished) in
+                        if finished {
+                            Utils.runWithDelay(2, block: {
+                                UIView.animateWithDuration(0.3, animations: {
+                                    var f = self.networkBanner?.frame
+                                    f!.origin.y = self.window!.bounds.height
+                                    self.networkBanner?.frame = f!
+                                    
+                                    f = self.window?.rootViewController?.view.frame
+                                    f!.size.height = self.window!.bounds.height
+                                    self.window?.rootViewController?.view.frame = f!
+                                    self.window?.rootViewController?.view.setNeedsUpdateConstraints()
+                                    self.window?.rootViewController?.view.layoutIfNeeded()
+                                }, completion: { (finished) in
+                                    if finished {
+                                        self.networkBanner?.hidden = true
+                                    }
+                                })
+                            })
+                        }
+                    })
+                }
+            });
+        }
+        reach.unreachableBlock = { (reachability) in
+            dispatch_async(dispatch_get_main_queue(), {
+                if self.networkBanner!.hidden {
+                    self.window?.bringSubviewToFront(self.networkBanner!)
+                    self.networkBanner?.hidden = false
+                    self.networkBanner?.layer.backgroundColor = UIColor.blackColor().CGColor
+                    self.networkBanner?.text = "No Internet connection"
+                    
+                    UIView.animateWithDuration(0.3, animations: { 
+                        var f = self.networkBanner?.frame
+                        f!.origin.y = self.window!.bounds.height - self.networkBanner!.frame.height
+                        self.networkBanner?.frame = f!
+                        
+                        f = self.window?.rootViewController?.view.frame
+                        f!.size.height = self.window!.bounds.height - self.networkBanner!.frame.height
+                        self.window?.rootViewController?.view.frame = f!
+                        self.window?.rootViewController?.view.setNeedsUpdateConstraints()
+                        self.window?.rootViewController?.view.layoutIfNeeded()
+                    })
+                }
+            });
+        }
+        
+        // Start the notifier, which will cause the reachability object to retain itself!
+        reach.startNotifier()
     }
 }
 

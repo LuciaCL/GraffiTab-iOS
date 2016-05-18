@@ -10,7 +10,6 @@
 #define Bridging_h
 
 #import "TestFairy.h"
-
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 #import "IntroScene.h"
@@ -31,11 +30,12 @@
 #import <RESideMenu/RESideMenu.h>
 #import <JPSThumbnailAnnotation/JPSThumbnailAnnotation.h>
 #import <BBBadgeBarButtonItem/BBBadgeBarButtonItem.h>
-
 #import <TLYShyNavBar/TLYShyNavBarManager.h>
 #import <FBLikeLayout/FBLikeLayout.h>
 #import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 #import <UIScrollView_InfiniteScroll/UIScrollView+InfiniteScroll.h>
+#import <Reachability/Reachability.h>
+#import <ALAlertBanner/ALAlertBanner.h>
 
 #import <MZFormSheetPresentationController/MZFormSheetPresentationController.h>
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewController.h>

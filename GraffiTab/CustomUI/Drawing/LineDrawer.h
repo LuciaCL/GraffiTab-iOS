@@ -50,4 +50,6 @@ typedef enum {
 - (void)clearBackground;
 - (void)clearCanvas;
 
+- (UIImage *)grabFrame;
+
 @end
