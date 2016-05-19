@@ -76,7 +76,7 @@ class PublishViewController: UIViewController {
         let roll = GTDeviceMotionManager.manager.roll
         let yaw = GTDeviceMotionManager.manager.yaw
         let latitude = GTLocationManager.manager.lastLocation?.coordinate.latitude
-        let longitude = GTLocationManager.manager.lastLocation?.coordinate.latitude
+        let longitude = GTLocationManager.manager.lastLocation?.coordinate.longitude
         
         GTMeManager.createGraffiti(streamableImage!, latitude: latitude!, longitude: longitude!, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
             self.view.hideActivityView()

@@ -21,6 +21,8 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     @IBOutlet weak var backBtn: TintButton!
     @IBOutlet weak var searchContainer: UIView!
     @IBOutlet weak var searchWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var terrainBtn: TintButton!
+    @IBOutlet weak var streetViewBtn: TintButton!
     
     var isSearching = false
     var showedFirstUserLocation = false
@@ -105,6 +107,21 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
                 }
             }
         }
+    }
+    
+    @IBAction func onClickTerrain(sender: AnyObject) {
+        if mapView.mapType == .Satellite {
+            mapView.mapType = .Standard
+            terrainBtn.tintColor = UIColor(hexString: "#e0e0e0")
+        }
+        else {
+            mapView.mapType = .Satellite
+            terrainBtn.tintColor = UIColor(hexString: Colors.Main)
+        }
+    }
+    
+    @IBAction func onClickStreetView(sender: AnyObject) {
+        // TODO:
     }
     
     // MARK: - Loading
@@ -332,7 +349,9 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     func setupButtons() {
-        let items = [backBtn, bottomContainer, searchContainer]
+        terrainBtn.tintColor = UIColor(hexString: "#e0e0e0")
+        
+        let items = [backBtn, bottomContainer, searchContainer, terrainBtn, streetViewBtn]
         
         for view in items {
             Utils.applyShadowEffectToView(view)

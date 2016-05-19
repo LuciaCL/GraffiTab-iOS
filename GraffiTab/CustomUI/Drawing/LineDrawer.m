@@ -132,8 +132,6 @@ typedef struct {
     CGPoint previousPoint;
 	
 	CGFloat forceFraction; // Used when a stylus or 3D touch is giving force values. 0 < forceFraction <= 1 when force active. <= 0 when no force value available
-    
-    int backgroundCounter;
 }
 
 - (id)init {
@@ -143,8 +141,6 @@ typedef struct {
 		points = [NSMutableArray array];
 		velocities = [NSMutableArray array];
 		circlesPoints = [NSMutableArray array];
-		
-        backgroundCounter = 0;
         
         // Setup constants and tools.
 		overdraw = 2.0;
@@ -247,17 +243,17 @@ typedef struct {
     [backgroundTexture removeChildByName:@"background"];
     
     if (image) {
-        [self scheduleBlock:^(CCTimer *timer) {
-            backgroundCounter++;
-            CGRect frame = CGRectMake(0, 0, [[CCDirector sharedDirector] viewSize].width + 1, [[CCDirector sharedDirector] viewSize].height + 1);
-            
-            CCSprite *backgroundSprite = [[CCSprite alloc] initWithCGImage:image.CGImage key:[NSString stringWithFormat:@"_spriteframe_%d", backgroundCounter]];
-            backgroundSprite.scaleX = frame.size.width/backgroundSprite.contentSize.width;
-            backgroundSprite.scaleY = frame.size.height/backgroundSprite.contentSize.height;
-            backgroundSprite.position = ccp(0.5, 0.5);
-            backgroundSprite.anchorPoint = ccp(0.5, 0.5);
-            [backgroundTexture addChild:backgroundSprite z:0 name:@"background"];
-        } delay:0.3];
+//        [self scheduleBlock:^(CCTimer *timer) {
+        CGRect frame = CGRectMake(0, 0, [[CCDirector sharedDirector] viewSize].width + 1, [[CCDirector sharedDirector] viewSize].height + 1);
+        
+        CCSprite *backgroundSprite = [[CCSprite alloc] initWithCGImage:image.CGImage key:[NSString stringWithFormat:@"_spriteframe_%d", rand()]];
+        backgroundSprite.scaleX = frame.size.width/backgroundSprite.contentSize.width;
+        backgroundSprite.scaleY = frame.size.height/backgroundSprite.contentSize.height;
+        backgroundSprite.position = ccp(0.5, 0.5);
+        backgroundSprite.anchorPoint = ccp(0.5, 0.5);
+        backgroundSprite.cascadeOpacityEnabled = YES;
+        [backgroundTexture addChild:backgroundSprite z:0 name:@"background"];
+//        } delay:0.3];
     }
 }
 
