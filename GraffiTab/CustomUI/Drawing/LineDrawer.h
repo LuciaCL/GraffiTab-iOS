@@ -51,5 +51,7 @@ typedef enum {
 - (void)clearCanvas;
 
 - (UIImage *)grabFrame;
+- (BOOL)canUndo;
+- (void)undo;
 
 @end

@@ -33,6 +33,7 @@
 #import "CCRenderer_private.h"
 
 #define ADD_TRIANGLE(A, B, C, Z) vertices[index].pos = A, vertices[index++].z = Z, vertices[index].pos = B, vertices[index++].z = Z, vertices[index].pos = C, vertices[index++].z = Z
+#define MAX_UNDO 15
 
 @protocol LineDrawGestureRecognizerDelegate <UIGestureRecognizerDelegate>;
 
@@ -113,7 +114,8 @@ typedef struct {
     NSMutableArray<LinePoint*>* points;
 	NSMutableArray<NSNumber*>* velocities;
 	NSMutableArray<LinePoint*>* circlesPoints;
-	
+    NSMutableArray *undos;
+    
 	BOOL connectingLine;
 	CGPoint prevC, prevD;
 	CGPoint prevG;
@@ -141,6 +143,7 @@ typedef struct {
 		points = [NSMutableArray array];
 		velocities = [NSMutableArray array];
 		circlesPoints = [NSMutableArray array];
+        undos = [NSMutableArray array];
         
         // Setup constants and tools.
 		overdraw = 2.0;
@@ -178,10 +181,6 @@ typedef struct {
 		renderTexture.anchorPoint = ccp(0, 0);
 		renderTexture.position = ccp(0.5, 0.5);
 		
-        [renderTexture.sprite setBlendMode:[CCBlendMode blendModeWithOptions:@{
-                                                                               CCBlendFuncSrcColor: @GL_SRC_ALPHA,
-                                                                               CCBlendFuncDstColor: @GL_ONE_MINUS_SRC_ALPHA,
-                                                                               }]];
 		[renderTexture clear:0.0 g:0.0 b:0.0 a:0.0];
 		[self addChild:renderTexture];
 		
@@ -207,8 +206,7 @@ typedef struct {
 }
 
 - (void)clearDrawingLayer {
-    [renderTexture beginWithClear:1.0 g:1.0 b:1.0 a:0];
-    [renderTexture end];
+    [renderTexture clear:0.0 g:0.0 b:0.0 a:0.0];
 }
 
 - (void)clearBackground {
@@ -251,22 +249,29 @@ typedef struct {
         backgroundSprite.scaleY = frame.size.height/backgroundSprite.contentSize.height;
         backgroundSprite.position = ccp(0.5, 0.5);
         backgroundSprite.anchorPoint = ccp(0.5, 0.5);
-        backgroundSprite.cascadeOpacityEnabled = YES;
         [backgroundTexture addChild:backgroundSprite z:0 name:@"background"];
 //        } delay:0.3];
     }
 }
 
 - (UIImage *)grabFrame {
+    CCRenderTexture *renTxture = [self grabTexture:self];
+    return [renTxture getUIImage];
+}
+
+- (CCRenderTexture *)grabTexture:(CCNode *)node {
     [CCDirector sharedDirector].nextDeltaTimeZero = YES;
     
     CGSize winSize = [[CCDirector sharedDirector] viewSize];
     CCRenderTexture *renTxture = [CCRenderTexture renderTextureWithWidth:winSize.width height:winSize.height];
+    CGPoint pos = node.position;
+    node.position = ccp(1.0, 1.0);
     [renTxture begin];
-    [self visit];
+    [node visit];
     [renTxture end];
+    node.position = pos;
     
-    return [renTxture getUIImage];
+    return renTxture;
 }
 
 #pragma mark - Handling points
@@ -583,6 +588,33 @@ typedef struct {
 	return size;
 }
 
+#pragma mark - Undo
+
+- (void)addUndoDrawAction {
+    // Capture snapshot and add it to the undo queue.
+    [undos addObject:[self grabTexture:renderTexture]];
+    if (undos.count > MAX_UNDO) { // We only allow a certain number of undos.
+        [undos removeObjectAtIndex:0];
+    }
+}
+
+- (BOOL)canUndo {
+    return undos.count > 0;
+}
+
+- (void)undo {
+    if (undos.count > 0) {
+        CCRenderTexture *previous = undos.lastObject;
+        
+        [self clearDrawingLayer];
+        [renderTexture begin];
+        [previous visit];
+        [renderTexture end];
+        
+        [undos removeLastObject];
+    }
+}
+
 #pragma mark - GestureRecognizer handling
 
 - (void)handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer {
@@ -592,6 +624,12 @@ typedef struct {
 #pragma mark Getting access to the touches of the Pan gesture to work out if they have force values
 
 - (void) gestureRecognizer:(UIGestureRecognizer *)gr beganWithTouches:(NSSet<UITouch*>*)touches andEvent:(UIEvent *)event {
+    if (touches.count > ((UIPanGestureRecognizer *)gr).maximumNumberOfTouches) {
+        return;
+    }
+    
+    [self addUndoDrawAction];
+    
 	if ([UITouch instancesRespondToSelector:@selector(force)]) {
 		UITouch* t1 = touches.anyObject; // We only allow one touch so this will get it
 		forceFraction = t1.force/t1.maximumPossibleForce;
@@ -612,6 +650,10 @@ typedef struct {
 }
 
 - (void) gestureRecognizer:(UIGestureRecognizer *)gr movedWithTouches:(NSSet<UITouch*>*)touches andEvent:(UIEvent *)event {
+    if (touches.count > ((UIPanGestureRecognizer *)gr).maximumNumberOfTouches) {
+        return;
+    }
+    
 	if ([UITouch instancesRespondToSelector:@selector(force)]) {
 		UITouch* t1 = touches.anyObject;
 		forceFraction = t1.force/t1.maximumPossibleForce;
@@ -707,6 +749,10 @@ typedef struct {
 }
 
 - (void) gestureRecognizer:(UIGestureRecognizer *)gr endedWithTouches:(NSSet<UITouch*>*)touches andEvent:(UIEvent *)event {
+    if (touches.count > ((UIPanGestureRecognizer *)gr).maximumNumberOfTouches) {
+        return;
+    }
+    
 	if ([UITouch instancesRespondToSelector:@selector(force)]) {
 		UITouch* t1 = touches.anyObject;
 		forceFraction = t1.force/t1.maximumPossibleForce;

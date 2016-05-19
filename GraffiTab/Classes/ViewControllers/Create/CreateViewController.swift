@@ -22,7 +22,6 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var colorsTableView: UITableView!
     @IBOutlet weak var drawingContainer: UIView!
     @IBOutlet weak var colorBtn: UIButton!
-    @IBOutlet weak var pointWidthSlider: UISlider!
     
     var canvasScene: IntroScene?
     var canvas: LineDrawer?
@@ -187,6 +186,12 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                     })
                 }
             }
+        }
+    }
+    
+    @IBAction func onClickUndo(sender: AnyObject) {
+        if canvas!.canUndo() {
+            canvas!.undo()
         }
     }
     
@@ -493,6 +498,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         menuCloseRecognizer.delegate = self
         menuCloseRecognizer.direction = .Left
         self.view.addGestureRecognizer(menuCloseRecognizer)
+        
+        // Setup gestures.
+        menuOpenRecognizer.requireGestureRecognizerToFail(canvas!.panRecognizer())
+        menuCloseRecognizer.requireGestureRecognizerToFail(canvas!.panRecognizer())
     }
     
     func setupColorConstants() {
