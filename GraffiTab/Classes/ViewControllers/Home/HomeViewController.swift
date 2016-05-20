@@ -72,17 +72,34 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
             self.presentViewController(vc, animated: true, completion: nil)
         }
         
+        // Check camera permission.
+        let checkCameraPermission = {
+            let status = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
+            switch status {
+                case .Authorized:
+                    successBlock()
+                    break
+                case .NotDetermined:
+                    successBlock()
+                    break
+                case .Denied, .Restricted:
+                    successBlock()
+                    break
+            }
+        }
+        
+        // Check photos permission.
         PHPhotoLibrary.requestAuthorization { status in
             dispatch_async(dispatch_get_main_queue(),{
                 switch status {
                     case .Authorized:
-                        successBlock()
+                        checkCameraPermission()
                         break
                     case .Restricted, .Denied:
-                        successBlock()
+                        checkCameraPermission()
                         break
                     default:
-                        successBlock()
+                        checkCameraPermission()
                         break
                 }
             })
