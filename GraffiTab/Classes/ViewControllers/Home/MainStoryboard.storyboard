@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ec5-xR-0eD">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -2604,10 +2603,18 @@
                                             <outlet property="delegate" destination="ngM-gj-hDw" id="O9C-fv-jn2"/>
                                         </connections>
                                     </textField>
+                                    <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vhy-WK-mJ2">
+                                        <rect key="frame" x="10" y="10" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="gqA-Pf-saV"/>
+                                            <constraint firstAttribute="width" constant="20" id="rVX-XD-3T7"/>
+                                        </constraints>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Us4-VN-J1P" secondAttribute="bottom" id="BgS-Vo-oHB"/>
+                                    <constraint firstItem="vhy-WK-mJ2" firstAttribute="centerX" secondItem="tKl-P9-n03" secondAttribute="centerX" id="FTF-Ho-X6u"/>
                                     <constraint firstItem="Us4-VN-J1P" firstAttribute="top" secondItem="Bd3-Tw-Igz" secondAttribute="top" id="GM1-E5-Ek8"/>
                                     <constraint firstItem="Us4-VN-J1P" firstAttribute="leading" secondItem="tKl-P9-n03" secondAttribute="trailing" id="Iuh-GB-y1y"/>
                                     <constraint firstItem="tKl-P9-n03" firstAttribute="top" secondItem="Bd3-Tw-Igz" secondAttribute="top" id="M1d-Cu-Iz4"/>
@@ -2615,6 +2622,7 @@
                                     <constraint firstItem="tKl-P9-n03" firstAttribute="leading" secondItem="Bd3-Tw-Igz" secondAttribute="leading" id="TUg-q9-Ui9"/>
                                     <constraint firstAttribute="trailing" secondItem="Us4-VN-J1P" secondAttribute="trailing" id="WAL-fi-kpu"/>
                                     <constraint firstAttribute="bottom" secondItem="tKl-P9-n03" secondAttribute="bottom" id="hxj-3m-hv5"/>
+                                    <constraint firstItem="vhy-WK-mJ2" firstAttribute="centerY" secondItem="tKl-P9-n03" secondAttribute="centerY" id="igV-Ie-iAu"/>
                                     <constraint firstAttribute="width" constant="40" id="u1r-u8-eZU"/>
                                 </constraints>
                             </view>
@@ -2654,7 +2662,9 @@
                     <connections>
                         <outlet property="backBtn" destination="KyY-PQ-UX7" id="rUV-Uf-LTh"/>
                         <outlet property="bottomContainer" destination="8uV-Hi-2Tp" id="vy5-a9-NTD"/>
+                        <outlet property="loadingIndicator" destination="vhy-WK-mJ2" id="UyW-fh-Nl1"/>
                         <outlet property="mapView" destination="N7O-QM-cdF" id="TWY-ZU-SwH"/>
+                        <outlet property="searchBtn" destination="tKl-P9-n03" id="hTw-Mz-PQS"/>
                         <outlet property="searchContainer" destination="Bd3-Tw-Igz" id="0Yx-g6-G2s"/>
                         <outlet property="searchField" destination="Us4-VN-J1P" id="aFr-k2-Klx"/>
                         <outlet property="searchWidthConstraint" destination="u1r-u8-eZU" id="hts-db-feG"/>

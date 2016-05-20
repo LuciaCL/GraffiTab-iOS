@@ -72,11 +72,21 @@ class PublishViewController: UIViewController {
         self.view.showActivityViewWithLabel("Processing")
         self.view.rn_activityView.dimBackground = false
         
-        let pitch = GTDeviceMotionManager.manager.pitch
-        let roll = GTDeviceMotionManager.manager.roll
-        let yaw = GTDeviceMotionManager.manager.yaw
+        var pitch = GTDeviceMotionManager.manager.pitch
+        var roll = GTDeviceMotionManager.manager.roll
+        var yaw = GTDeviceMotionManager.manager.yaw
         let latitude = GTLocationManager.manager.lastLocation?.coordinate.latitude
         let longitude = GTLocationManager.manager.lastLocation?.coordinate.longitude
+        
+        if pitch == nil {
+            pitch = 0.0
+        }
+        if roll == nil {
+            roll = 0.0
+        }
+        if yaw == nil {
+            yaw = 0.0
+        }
         
         GTMeManager.createGraffiti(streamableImage!, latitude: latitude!, longitude: longitude!, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
             self.view.hideActivityView()

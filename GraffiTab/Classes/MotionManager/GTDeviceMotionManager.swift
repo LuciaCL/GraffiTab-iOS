@@ -28,15 +28,20 @@ class GTDeviceMotionManager: NSObject {
     
     func startMotionUpdates() {
         motionManager?.startDeviceMotionUpdatesUsingReferenceFrame(CMAttitudeReferenceFrame.XTrueNorthZVertical, toQueue: NSOperationQueue.currentQueue()!, withHandler: { (deviceMotion, error) in
-            let currentAttitude = deviceMotion?.attitude
-            
-            self.pitch = CGFloat(currentAttitude!.pitch*180/M_PI)
-            self.roll = CGFloat(currentAttitude!.roll*180/M_PI)
-            self.yaw = CGFloat(currentAttitude!.yaw*180/M_PI)
-            
-            self.pitch = round(100 * self.pitch!) / 100.0
-            self.roll = round(100 * self.roll!) / 100.0
-            self.yaw = round(100 * self.yaw!) / 100.0
+            if error != nil {
+                print("DEBUG: Error obtaining device motion update - \(error)")
+            }
+            else {
+                let currentAttitude = deviceMotion?.attitude
+                
+                self.pitch = CGFloat(currentAttitude!.pitch*180/M_PI)
+                self.roll = CGFloat(currentAttitude!.roll*180/M_PI)
+                self.yaw = CGFloat(currentAttitude!.yaw*180/M_PI)
+                
+                self.pitch = round(100 * self.pitch!) / 100.0
+                self.roll = round(100 * self.roll!) / 100.0
+                self.yaw = round(100 * self.yaw!) / 100.0
+            }
         })
     }
     

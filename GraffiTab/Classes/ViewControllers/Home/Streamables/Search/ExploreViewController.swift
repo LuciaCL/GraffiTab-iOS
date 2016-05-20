@@ -19,17 +19,22 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var bottomContainer: UIView!
     @IBOutlet weak var backBtn: TintButton!
+    @IBOutlet weak var searchBtn: TintButton!
     @IBOutlet weak var searchContainer: UIView!
     @IBOutlet weak var searchWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var terrainBtn: TintButton!
     @IBOutlet weak var streetViewBtn: TintButton!
     
+    var isMovedByTap = false
     var isSearching = false
     var showedFirstUserLocation = false
     var items = [GTStreamable]()
     var annotations = [StreamableAnnotation]()
     var imageDownloadTasks = [NSURLSessionTask]()
+    var refreshTimer: NSTimer?
     let clusteringManager = FBClusteringManager()
+    let imageCache = NSCache()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,6 +144,9 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         GTStreamableManager.searchForLocation(neCoord.latitude, neLongitude: neCoord.longitude, swLatitude: swCoord.latitude, swLongitude: swCoord.longitude, successBlock: { (response) -> Void in
             let listItemsResult = response.object as! GTListItemsResult<GTStreamable>
             
+            self.items.removeAll()
+            self.annotations.removeAll()
+            
             self.processAnnotations(listItemsResult.items!)
             self.finalizeLoad()
         }) { (response) -> Void in
@@ -164,9 +172,16 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     func finalizeLoad() {
+        searchBtn.tintColor = UIColor(hexString: Colors.Main)
+        loadingIndicator.stopAnimating()
+        
         clusteringManager.setAnnotations(annotations)
         
         // Cluster annotations.
+        doClusterAnnotations()
+    }
+    
+    func doClusterAnnotations() {
         NSOperationQueue().addOperationWithBlock({
             let mapBoundsWidth = Double(self.mapView.bounds.size.width)
             let mapRectWidth: Double = self.mapView.visibleMapRect.size.width
@@ -189,27 +204,45 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             for annotation in self.annotations {
-                // Download image.
+                // Success block.
+                let successBlock = {(url: NSURL, image: UIImage, annotation: StreamableAnnotation) in
+                    dispatch_async( dispatch_get_main_queue(), {
+                        // Update image thumbnail.
+                        let thumbnail = self.getThumbnailAnnotationForStreamable(annotation.streamable!)
+                        thumbnail.image = image
+                        annotation.updateThumbnail(thumbnail, animated: true)
+                    })
+                }
+                
+                // Fetch image either from cache or web.
                 let url = NSURL(string: (annotation.streamable?.asset?.thumbnail)!)!
-                let session = NSURLSession.sharedSession()
-                let task = session.dataTaskWithURL(url, completionHandler: { (data, response, error) in
-                    if error == nil {
-                        let image = UIImage(data: data!)
-                        dispatch_async( dispatch_get_main_queue(), {
+                let cachedImage = self.imageCache.objectForKey(url) as? UIImage
+                
+                if cachedImage != nil { // Use cached image.
+                    print("DEBUG: Cache hit image for url \(url)")
+                    
+                    successBlock(url, cachedImage!, annotation)
+                }
+                else { // Download image.
+                    let session = NSURLSession.sharedSession()
+                    let task = session.dataTaskWithURL(url, completionHandler: { (data, response, error) in
+                        if error == nil {
                             print("DEBUG: Downloaded image for url \(url)")
                             
-                            // Update image thumbnail.
-                            let thumbnail = self.getThumbnailAnnotationForStreamable(annotation.streamable!)
-                            thumbnail.image = image
-                            annotation.updateThumbnail(thumbnail, animated: true)
-                        })
-                    }
-                    else {
-                        print("DEBUG: Failed to load image for url \(url)")
-                    }
-                })
-                self.imageDownloadTasks.append(task)
-                task.resume()
+                            let image = UIImage(data: data!)
+                            
+                            // Add image to cache.
+                            self.imageCache.setObject(image!, forKey: url)
+                            
+                            successBlock(url, image!, annotation)
+                        }
+                        else {
+                            print("DEBUG: Failed to load image for url \(url)")
+                        }
+                    })
+                    self.imageDownloadTasks.append(task)
+                    task.resume()
+                }
             }
         });
     }
@@ -283,6 +316,28 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         mapView.setRegion(region, animated: true)
     }
     
+    func didEndMapRegionChange() {
+        if isMovedByTap {
+            searchBtn.tintColor = UIColor(hexString: Colors.Main)
+            loadingIndicator.stopAnimating()
+            
+            isMovedByTap = false
+            return
+        }
+        
+        if mapView.region.span.latitudeDelta > 11.0 || mapView.region.span.longitudeDelta > 11.0 {
+            searchBtn.tintColor = UIColor(hexString: Colors.Main)
+            loadingIndicator.stopAnimating()
+            
+            var region = mapView.region
+            region.span = MKCoordinateSpanMake(10.0, 10.0)
+            mapView.setRegion(region, animated: true)
+        }
+        else {
+            loadItems()
+        }
+    }
+    
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
         if !showedFirstUserLocation {
             centerToLocation(userLocation.location!)
@@ -292,14 +347,19 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        if mapView.region.span.latitudeDelta > 11.0 || mapView.region.span.longitudeDelta > 11.0 {
-            var region = mapView.region
-            region.span = MKCoordinateSpanMake(10.0, 10.0)
-            mapView.setRegion(region, animated: true)
+        searchBtn.tintColor = UIColor(hexString: "#efefef")
+        if !loadingIndicator!.isAnimating() {
+            loadingIndicator.startAnimating()
         }
-        else {
-            loadItems()
+        
+        doClusterAnnotations()
+        
+        if refreshTimer != nil { // Kill previous timer.
+            refreshTimer?.invalidate()
+            refreshTimer = nil
         }
+        
+        refreshTimer = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(didEndMapRegionChange), userInfo: nil, repeats: false)
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -324,6 +384,8 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         if view.isKindOfClass(JPSThumbnailAnnotationView) {
+            isMovedByTap = true
+            
             return (view as! JPSThumbnailAnnotationView).didSelectAnnotationViewInMap(mapView)
         }
     }
