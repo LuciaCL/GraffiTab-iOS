@@ -264,14 +264,41 @@ typedef struct {
     
     CGSize winSize = [[CCDirector sharedDirector] viewSize];
     CCRenderTexture *renTxture = [CCRenderTexture renderTextureWithWidth:winSize.width height:winSize.height];
-    CGPoint pos = node.position;
-    node.position = ccp(1.0, 1.0);
     [renTxture begin];
     [node visit];
     [renTxture end];
-    node.position = pos;
     
     return renTxture;
+}
+
+#pragma mark - Undo
+
+- (void)addUndoDrawAction {
+    NSLog(@"HERE");
+    // Capture snapshot and add it to the undo queue.
+    [undos addObject:[self grabTexture:renderTexture]];
+    if (undos.count > MAX_UNDO) { // We only allow a certain number of undos.
+        [undos removeObjectAtIndex:0];
+    }
+}
+
+- (BOOL)canUndo {
+    return undos.count > 0;
+}
+
+- (void)undo {
+    if (undos.count > 0) {
+        CCRenderTexture *previous = undos.lastObject;
+        previous.position = ccp(-0.5, -0.5);
+        previous.anchorPoint = ccp(-0.5, -0.5);
+        
+        [self clearDrawingLayer];
+        [renderTexture begin];
+        [previous visit];
+        [renderTexture end];
+        
+        [undos removeLastObject];
+    }
 }
 
 #pragma mark - Handling points
@@ -586,33 +613,6 @@ typedef struct {
 	
 	[velocities addObject:@(size)];
 	return size;
-}
-
-#pragma mark - Undo
-
-- (void)addUndoDrawAction {
-    // Capture snapshot and add it to the undo queue.
-    [undos addObject:[self grabTexture:renderTexture]];
-    if (undos.count > MAX_UNDO) { // We only allow a certain number of undos.
-        [undos removeObjectAtIndex:0];
-    }
-}
-
-- (BOOL)canUndo {
-    return undos.count > 0;
-}
-
-- (void)undo {
-    if (undos.count > 0) {
-        CCRenderTexture *previous = undos.lastObject;
-        
-        [self clearDrawingLayer];
-        [renderTexture begin];
-        [previous visit];
-        [renderTexture end];
-        
-        [undos removeLastObject];
-    }
 }
 
 #pragma mark - GestureRecognizer handling
