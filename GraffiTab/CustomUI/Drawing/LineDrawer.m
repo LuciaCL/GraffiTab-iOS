@@ -207,6 +207,7 @@ typedef struct {
 
 - (void)clearDrawingLayer {
     [renderTexture clear:0.0 g:0.0 b:0.0 a:0.0];
+    [undos removeAllObjects];
 }
 
 - (void)clearBackground {
@@ -274,7 +275,6 @@ typedef struct {
 #pragma mark - Undo
 
 - (void)addUndoDrawAction {
-    NSLog(@"HERE");
     // Capture snapshot and add it to the undo queue.
     [undos addObject:[self grabTexture:renderTexture]];
     if (undos.count > MAX_UNDO) { // We only allow a certain number of undos.

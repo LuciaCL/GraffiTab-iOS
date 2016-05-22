@@ -46,7 +46,6 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         isColorsOpen = false
         
         setupCocos2D()
-        setupMenuRecognizer()
         
         loadColors()
         setupColorConstants()
@@ -134,12 +133,6 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         presentViewController(nav, animated: true, completion: nil)
     }
     
-    @IBAction func onClickColor(sender: AnyObject?) {
-        handleSwipeLeftGesture(nil)
-        
-        showColors()
-    }
-    
     @IBAction func onClickClose(sender: AnyObject?) {
         super.close(sender)
     }
@@ -195,6 +188,34 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         }
     }
     
+    @IBAction func onClickMenu(recognizer: AnyObject?) {
+        if isColorsOpen! {
+            hideColors({ 
+                self.showMenu()
+            })
+        }
+        else if !isMenuOpen! {
+            showMenu()
+        }
+        else if isMenuOpen! {
+            hideMenu(nil)
+        }
+    }
+    
+    @IBAction func onClickColors(sender: AnyObject?) {
+        if isMenuOpen! {
+            hideMenu({
+                self.showColors()
+            })
+        }
+        else if !isColorsOpen! {
+            showColors()
+        }
+        else if isColorsOpen! {
+            hideColors(nil)
+        }
+    }
+    
     // MARK: - Menus
     
     func hintMenu() {
@@ -213,24 +234,6 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                 }, completion: nil)
             }
         })
-    }
-    
-    func handleSwipeRightGesture(recognizer: UIGestureRecognizer?) {
-        if isColorsOpen! {
-            hideColors()
-        }
-        else if !isMenuOpen! {
-            showMenu()
-        }
-    }
-    
-    func handleSwipeLeftGesture(recognizer: UIGestureRecognizer?) {
-        if isMenuOpen! {
-            hideMenu(nil)
-        }
-        else if !isColorsOpen! {
-            showColors()
-        }
     }
     
     func showMenu() {
@@ -270,7 +273,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             }, completion: nil)
     }
     
-    func hideColors() {
+    func hideColors(completionBlock: (() -> ())?) {
         self.isColorsOpen = false
         
         UIView.animateWithDuration(0.4, delay: 0, options: .CurveEaseInOut, animations: {
@@ -278,7 +281,11 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             self.colorsTrailingconstraint.constant = -self.colorsTableView.frame.width
             self.view.setNeedsUpdateConstraints()
             self.view.layoutIfNeeded()
-            }, completion: nil)
+        }, completion: {(finished) in
+            if finished && completionBlock != nil {
+                completionBlock!()
+            }
+        })
     }
     
     // MARK: - Images
@@ -420,7 +427,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     func didChooseColor(color: UIColor) {
         colorBtn.backgroundColor = color
         self.canvas!.setDrawColor(color)
-        hideColors()
+        hideColors(nil)
     }
     
     // MARK: - RNFrostedSidebarDelegate
@@ -484,24 +491,6 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         
         // Setup canvas view.
         Utils.applyCanvasShadowEffectToView(self.canvasView)
-    }
-    
-    func setupMenuRecognizer() {
-        let menuOpenRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(CreateViewController.handleSwipeRightGesture(_:)))
-        menuOpenRecognizer.numberOfTouchesRequired = 2
-        menuOpenRecognizer.delegate = self
-        menuOpenRecognizer.direction = .Right
-        self.view.addGestureRecognizer(menuOpenRecognizer)
-        
-        let menuCloseRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(CreateViewController.handleSwipeLeftGesture(_:)))
-        menuCloseRecognizer.numberOfTouchesRequired = 2
-        menuCloseRecognizer.delegate = self
-        menuCloseRecognizer.direction = .Left
-        self.view.addGestureRecognizer(menuCloseRecognizer)
-        
-        // Setup gestures.
-        menuOpenRecognizer.requireGestureRecognizerToFail(canvas!.panRecognizer())
-        menuCloseRecognizer.requireGestureRecognizerToFail(canvas!.panRecognizer())
     }
     
     func setupColorConstants() {
