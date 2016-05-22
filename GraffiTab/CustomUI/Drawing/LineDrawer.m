@@ -181,7 +181,7 @@ typedef struct {
 		renderTexture.anchorPoint = ccp(0, 0);
 		renderTexture.position = ccp(0.5, 0.5);
 		
-		[renderTexture clear:0.0 g:0.0 b:0.0 a:0.0];
+        [self clearTexture];
 		[self addChild:renderTexture];
 		
 		[[[CCDirector sharedDirector] view] setUserInteractionEnabled:YES];
@@ -206,8 +206,12 @@ typedef struct {
 }
 
 - (void)clearDrawingLayer {
-    [renderTexture clear:0.0 g:0.0 b:0.0 a:0.0];
+    [self clearTexture];
     [undos removeAllObjects];
+}
+
+- (void)clearTexture {
+    [renderTexture clear:0.0 g:0.0 b:0.0 a:0.0];
 }
 
 - (void)clearBackground {
@@ -292,7 +296,7 @@ typedef struct {
         previous.position = ccp(-0.5, -0.5);
         previous.anchorPoint = ccp(-0.5, -0.5);
         
-        [self clearDrawingLayer];
+        [self clearTexture];
         [renderTexture begin];
         [previous visit];
         [renderTexture end];

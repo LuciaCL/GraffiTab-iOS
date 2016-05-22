@@ -296,7 +296,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     override func cropAspectRatio() -> CGSize {
         let view = self.canvasView != nil ? self.canvasView : self.view;
-        return CGSizeMake(view.frame.size.width, view.frame.size.width / (view.frame.size.width / view.frame.size.height))
+        let offset = view.frame.height > view.frame.width ? 25 : -45
+        return CGSizeMake(view.frame.size.width + CGFloat(offset), view.frame.size.width / (view.frame.size.width / view.frame.size.height))
     }
     
     // MARK: - Loading
