@@ -12,7 +12,7 @@ import imglyKit
 import RNFrostedSidebar
 import GraffiTab_iOS_SDK
 
-class CreateViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, ColorSprayCanCellDelegate, RNFrostedSidebarDelegate {
+class CreateViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, ColorSprayCanCellDelegate, RNFrostedSidebarDelegate, PublishDelegate, CanvasDelegate {
 
     @IBOutlet weak var toolCollectionView: UICollectionView!
     @IBOutlet weak var canvasContainerXconstraint: NSLayoutConstraint!
@@ -22,6 +22,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var colorsTableView: UITableView!
     @IBOutlet weak var drawingContainer: UIView!
     @IBOutlet weak var colorBtn: UIButton!
+    @IBOutlet weak var phraseTextLbl: UILabel!
+    @IBOutlet weak var phraseAuthorLbl: UILabel!
+    @IBOutlet weak var phraseContainer: UIView!
     
     var toEdit: GTStreamable?
     var toEditImage: UIImage?
@@ -54,6 +57,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         setupColorConstants()
         
         loadTools()
+        loadPhrase()
         
         if toEdit != nil {
             Utils.runWithDelay(0.3, block: {
@@ -98,6 +102,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PublishViewController") as! PublishViewController
         vc.streamableImage = sampleImage
         vc.toEdit = toEdit
+        vc.delegate = self
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
@@ -324,6 +329,24 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     // MARK: - Loading
     
+    func loadPhrase() {
+        var phrases = [[String : String]]()
+        phrases.append(["author":"Salvador Dali", "text":"Drawing is the honesty of the art. There is no possibility of cheating. It is either good or bad."])
+        phrases.append(["author":"Paul Klee", "text":"A drawing is simply a line going for a walk."])
+        phrases.append(["author":"Henri Cartier-Bresson", "text":"Photography is an immediate reaction, drawing is a meditation."])
+        phrases.append(["author":"John W. Gardner", "text":"Life is the art of drawing without an eraser."])
+        phrases.append(["author":"David Hockney", "text":"Drawing is rather like playing chess: your mind races ahead of the moves that you eventually make."])
+        phrases.append(["author":"John Ruskin", "text":"All art is but dirtying the paper delicately."])
+        phrases.append(["author":"Criss Jami", "text":"Create with the heart; build with the mind."])
+        phrases.append(["author":"Vincent van Gogh", "text":"I sometimes think there is nothing so delightful as drawing."])
+        phrases.append(["author":"Jean-Auguste-Dominique Ingres", "text":"Faites des lignes. Faites beaucoup de lignes."])
+        phrases.append(["author":"Edgar Degas", "text":"Drawing is not what one sees but what one can make others see."])
+        
+        let phraseDict = phrases[random() % phrases.count]
+        phraseTextLbl.text = "\"\(phraseDict["text"]!)\""
+        phraseAuthorLbl.text = "- \(phraseDict["author"]!)"
+    }
+    
     func loadColors() {
         colors = [UIColor]()
         colors?.append(UIColor(hexString: "000000")!)
@@ -497,6 +520,26 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         }
     }
     
+    // MARK: - PublishDelegate
+    
+    func didPublish() {
+        Utils.runWithDelay(0.3) {
+            self.onClickClose(nil)
+        }
+    }
+    
+    func didCancel() {
+        
+    }
+    
+    // MARK: - CanvasDelegate
+    
+    func didInteractWithCanvas() {
+        if phraseContainer.alpha > 0 {
+            Utils.hideView(phraseContainer)
+        }
+    }
+    
     // MARK: - Setup
     
     func setupCocos2D() {
@@ -510,6 +553,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         }
         
         canvas = canvasScene!.canvas
+        canvas?.delegate = self
         
         // Setup default colors.
         let color = UIColor.blackColor()

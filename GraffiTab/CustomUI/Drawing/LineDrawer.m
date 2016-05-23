@@ -243,6 +243,9 @@ typedef struct {
 }
 
 - (void)setBackground:(UIImage *)image {
+    if (_delegate != nil && [_delegate respondsToSelector:@selector(didInteractWithCanvas)])
+        [_delegate didInteractWithCanvas];
+    
     [backgroundTexture removeChildByName:@"background"];
     
     if (image) {
@@ -626,6 +629,9 @@ typedef struct {
 #pragma mark Getting access to the touches of the Pan gesture to work out if they have force values
 
 - (void) gestureRecognizer:(UIGestureRecognizer *)gr beganWithTouches:(NSSet<UITouch*>*)touches andEvent:(UIEvent *)event {
+    if (_delegate != nil && [_delegate respondsToSelector:@selector(didInteractWithCanvas)])
+        [_delegate didInteractWithCanvas];
+    
     if (touches.count > ((UIPanGestureRecognizer *)gr).maximumNumberOfTouches) {
         return;
     }

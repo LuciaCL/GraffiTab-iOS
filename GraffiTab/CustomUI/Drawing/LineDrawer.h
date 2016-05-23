@@ -36,8 +36,16 @@ typedef enum {
     ERASER
 } ToolType;
 
+@protocol CanvasDelegate <NSObject>
+
+@optional
+- (void)didInteractWithCanvas;
+
+@end
+
 @interface LineDrawer : CCNode
 
+@property (nonatomic, weak)id<CanvasDelegate> delegate;
 @property (nonatomic, assign) ccColor4F strokeColor;
 @property (nonatomic, assign) ToolType tool;
 

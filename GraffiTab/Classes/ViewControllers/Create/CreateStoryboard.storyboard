@@ -213,10 +213,47 @@
                                                     <action selector="onClickColors:" destination="F9h-bV-H5F" eventType="touchUpInside" id="qYs-ke-SkF"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhu-Zf-Sf7">
+                                                <rect key="frame" x="180" y="265" width="240" height="71"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch to draw your masterpiece!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wN-5R-pJ3">
+                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="48"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="aUd-eq-Bph"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8G4-ZA-fvb">
+                                                        <rect key="frame" x="0.0" y="55" width="240" height="16"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="v6o-lX-HkZ"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                        <color key="textColor" red="0.0" green="0.36078431372549019" blue="0.52549019607843139" alpha="0.69711986940298509" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="8G4-ZA-fvb" firstAttribute="leading" secondItem="rhu-Zf-Sf7" secondAttribute="leading" id="1xo-Qa-iqE"/>
+                                                    <constraint firstAttribute="width" constant="240" id="S0A-9H-t2z"/>
+                                                    <constraint firstItem="4wN-5R-pJ3" firstAttribute="leading" secondItem="rhu-Zf-Sf7" secondAttribute="leading" id="fZb-3Q-H1Z"/>
+                                                    <constraint firstAttribute="trailing" secondItem="8G4-ZA-fvb" secondAttribute="trailing" id="fjx-mG-4Fv"/>
+                                                    <constraint firstItem="4wN-5R-pJ3" firstAttribute="top" secondItem="rhu-Zf-Sf7" secondAttribute="top" id="k4s-5n-PoC"/>
+                                                    <constraint firstAttribute="bottom" secondItem="8G4-ZA-fvb" secondAttribute="bottom" id="mzV-we-EgI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="4wN-5R-pJ3" secondAttribute="trailing" id="rXO-A9-j4Q"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="row-9A-KTA"/>
+                                                    <constraint firstItem="8G4-ZA-fvb" firstAttribute="top" secondItem="4wN-5R-pJ3" secondAttribute="bottom" constant="7" id="z1T-4f-nl9"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="rhu-Zf-Sf7" firstAttribute="centerX" secondItem="TvL-dT-yP8" secondAttribute="centerX" id="i97-YZ-uMd"/>
                                             <constraint firstItem="cJs-Hi-oHp" firstAttribute="centerX" secondItem="QbB-j2-onO" secondAttribute="centerX" id="lMo-Es-V6j"/>
+                                            <constraint firstItem="rhu-Zf-Sf7" firstAttribute="centerY" secondItem="TvL-dT-yP8" secondAttribute="centerY" id="lsO-aE-rqj"/>
                                             <constraint firstItem="QbB-j2-onO" firstAttribute="top" secondItem="cJs-Hi-oHp" secondAttribute="bottom" constant="10" id="xsW-tD-xjx"/>
                                         </constraints>
                                     </view>
@@ -307,6 +344,9 @@
                         <outlet property="colorsTableView" destination="oKo-4x-Uqe" id="obz-aK-R5e"/>
                         <outlet property="colorsTrailingconstraint" destination="V5R-wM-yd8" id="hE3-bv-sfc"/>
                         <outlet property="drawingContainer" destination="fMz-pD-gGX" id="HaF-yj-d4g"/>
+                        <outlet property="phraseAuthorLbl" destination="8G4-ZA-fvb" id="0lP-8Z-UgM"/>
+                        <outlet property="phraseContainer" destination="rhu-Zf-Sf7" id="gKN-sr-7I5"/>
+                        <outlet property="phraseTextLbl" destination="4wN-5R-pJ3" id="iRk-dp-YJt"/>
                         <outlet property="toolCollectionView" destination="X2G-Kj-kWA" id="usT-Lt-EFJ"/>
                     </connections>
                 </viewController>

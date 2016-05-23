@@ -11,6 +11,12 @@ import AVFoundation
 import RNActivityView
 import GraffiTab_iOS_SDK
 
+protocol PublishDelegate {
+    
+    func didPublish()
+    func didCancel()
+}
+
 class PublishViewController: UIViewController {
 
     @IBOutlet weak var cameraView: UIView!
@@ -22,6 +28,7 @@ class PublishViewController: UIViewController {
     
     var toEdit: GTStreamable?
     
+    var delegate: PublishDelegate?
     let captureSession = AVCaptureSession()
     let stillImageOutput = AVCaptureStillImageOutput()
     var error: NSError?
@@ -62,6 +69,10 @@ class PublishViewController: UIViewController {
     }
     
     @IBAction func onClickCancel(sender: AnyObject) {
+        if self.delegate != nil {
+            self.delegate?.didCancel()
+        }
+        
         captureSession.stopRunning()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -94,6 +105,10 @@ class PublishViewController: UIViewController {
             self.view.hideActivityView()
             
             Utils.runWithDelay(0.3, block: {
+                if self.delegate != nil {
+                    self.delegate?.didPublish()
+                }
+                
                 self.dismissViewControllerAnimated(true, completion: nil)
             })
         }
