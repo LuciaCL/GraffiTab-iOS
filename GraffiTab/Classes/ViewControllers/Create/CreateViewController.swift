@@ -10,7 +10,6 @@ import UIKit
 import Photos
 import imglyKit
 import RNFrostedSidebar
-import RNActivityView
 
 class CreateViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, ColorSprayCanCellDelegate, RNFrostedSidebarDelegate {
 
@@ -97,10 +96,22 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickSave(sender: AnyObject?) {
-        let sampleImage = self.canvas?.grabFrame()
-        UIImageWriteToSavedPhotosAlbum(sampleImage!, nil, nil, nil);
+        self.view.showActivityViewWithLabel("Processing")
+        self.view.rn_activityView.dimBackground = false
         
-        DialogBuilder.showSuccessAlert("Your graffiti was saved in your photos album", title: App.Title)
+        let sampleImage = self.canvas?.grabFrame()
+        
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
+            UIImageWriteToSavedPhotosAlbum(sampleImage!, nil, nil, nil);
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.view.hideActivityView()
+                
+                Utils.runWithDelay(0.3, block: {
+                    DialogBuilder.showSuccessAlert("Your graffiti was saved in your photos album", title: App.Title)
+                })
+            })
+        })
     }
     
     @IBAction func onClickDone(sender: AnyObject) {

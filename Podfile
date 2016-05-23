@@ -41,6 +41,7 @@ def common_pods
     pod 'imglyKit'
     pod 'Reachability'
     pod 'RNFrostedSidebar'
+    pod 'CNPGridMenu'
 end
 
 target 'GraffiTab' do
