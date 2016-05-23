@@ -202,6 +202,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             
             GTMeManager.deleteStreamable(self.streamable!.id!, successBlock: { (response) in
                 Utils.runWithDelay(0.3, block: {
+                    self.transitioningDelegate = nil
                     self.dismissViewControllerAnimated(true, completion: nil)
                 })
             }, failureBlock: { (response) in
@@ -213,7 +214,18 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     func edit() {
-        // TODO:
+        let parent = self.presentingViewController
+        
+        self.transitioningDelegate = nil
+        self.dismissViewControllerAnimated(true, completion: {
+            ViewControllerUtils.checkCameraAndPhotosPermissions {
+                let vc = UIStoryboard(name: "CreateStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CreateViewController") as! CreateViewController
+                vc.toEdit = self.streamable
+                vc.toEditImage = self.streamableImage.imageView.image
+                
+                parent!.presentViewController(vc, animated: true, completion: nil)
+            }
+        })
     }
     
     func togglePrivacy() {

@@ -11,7 +11,6 @@ import CarbonKit
 import BBBadgeBarButtonItem
 import GraffiTab_iOS_SDK
 import JTMaterialTransition
-import Photos
 
 class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDelegate, UIViewControllerTransitioningDelegate {
 
@@ -63,46 +62,13 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     }
     
     @IBAction func onClickCreate(sender: AnyObject?) {
-        let successBlock = {
+        ViewControllerUtils.checkCameraAndPhotosPermissions { 
             let vc = UIStoryboard(name: "CreateStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CreateViewController")
             
             vc.modalPresentationStyle = .Custom
             vc.transitioningDelegate = self
             
             self.presentViewController(vc, animated: true, completion: nil)
-        }
-        
-        // Check camera permission.
-        let checkCameraPermission = {
-            let status = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
-            switch status {
-                case .Authorized:
-                    successBlock()
-                    break
-                case .NotDetermined:
-                    successBlock()
-                    break
-                case .Denied, .Restricted:
-                    successBlock()
-                    break
-            }
-        }
-        
-        // Check photos permission.
-        PHPhotoLibrary.requestAuthorization { status in
-            dispatch_async(dispatch_get_main_queue(),{
-                switch status {
-                    case .Authorized:
-                        checkCameraPermission()
-                        break
-                    case .Restricted, .Denied:
-                        checkCameraPermission()
-                        break
-                    default:
-                        checkCameraPermission()
-                        break
-                }
-            })
         }
     }
     

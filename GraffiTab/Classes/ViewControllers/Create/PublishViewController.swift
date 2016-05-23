@@ -20,6 +20,8 @@ class PublishViewController: UIViewController {
     @IBOutlet weak var imageContainer: UIView!
     @IBOutlet weak var streamableImageView: UIImageView!
     
+    var toEdit: GTStreamable?
+    
     let captureSession = AVCaptureSession()
     let stillImageOutput = AVCaptureStillImageOutput()
     var error: NSError?
@@ -88,21 +90,32 @@ class PublishViewController: UIViewController {
             yaw = 0.0
         }
         
-        GTMeManager.createGraffiti(streamableImage!, latitude: latitude!, longitude: longitude!, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
+        let successBlock = {
             self.view.hideActivityView()
             
             Utils.runWithDelay(0.3, block: {
                 self.dismissViewControllerAnimated(true, completion: nil)
             })
-        }) { (response) -> Void in
+        }
+        let failBlock = { (response: GTResponseObject) in
             self.view.hideActivityView()
             
-            if (response.reason == .BadRequest || response.reason == .AlreadyExists) {
-                DialogBuilder.showErrorAlert("A user with these details already exists.", title: App.Title)
-                return
-            }
-            
             DialogBuilder.showErrorAlert(response.message, title: App.Title)
+        }
+        
+        if toEdit != nil {
+            GTMeManager.editGraffiti(toEdit!.id!, image: streamableImage!, latitude: latitude!, longitude: longitude!, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
+                successBlock()
+            }) { (response) -> Void in
+                failBlock(response)
+            }
+        }
+        else {
+            GTMeManager.createGraffiti(streamableImage!, latitude: latitude!, longitude: longitude!, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
+                successBlock()
+            }) { (response) -> Void in
+                failBlock(response)
+            }
         }
     }
     

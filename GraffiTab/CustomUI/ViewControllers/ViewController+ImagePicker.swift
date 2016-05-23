@@ -62,18 +62,22 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
         return CGSizeMake(view.frame.size.width, view.frame.size.width / (view.frame.size.width / view.frame.size.height))
     }
     
+    func startCropperForImage(pickedImage: UIImage) {
+        let cropController = TOCropViewController(image: pickedImage)
+        cropController.delegate = self
+        cropController.cropView.cropBoxResizeEnabled = false
+        presentViewController(cropController, animated: true, completion: {
+            cropController.cropView.setAspectLockEnabledWithAspectRatio(self.cropAspectRatio(), animated: true)
+        })
+    }
+    
     // MARK: - UIImagePickerControllerDelegate
     
     public func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         dismissViewControllerAnimated(true, completion: nil)
         
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            let cropController = TOCropViewController(image: pickedImage)
-            cropController.delegate = self
-            cropController.cropView.cropBoxResizeEnabled = false
-            presentViewController(cropController, animated: true, completion: {
-                cropController.cropView.setAspectLockEnabledWithAspectRatio(self.cropAspectRatio(), animated: true)
-            })
+            self.startCropperForImage(pickedImage)
         }
     }
     

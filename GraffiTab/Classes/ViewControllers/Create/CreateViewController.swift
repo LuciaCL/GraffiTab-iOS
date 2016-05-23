@@ -10,6 +10,7 @@ import UIKit
 import Photos
 import imglyKit
 import RNFrostedSidebar
+import GraffiTab_iOS_SDK
 
 class CreateViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, ColorSprayCanCellDelegate, RNFrostedSidebarDelegate {
 
@@ -21,6 +22,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var colorsTableView: UITableView!
     @IBOutlet weak var drawingContainer: UIView!
     @IBOutlet weak var colorBtn: UIButton!
+    
+    var toEdit: GTStreamable?
+    var toEditImage: UIImage?
     
     var canvasScene: IntroScene?
     var canvas: LineDrawer?
@@ -50,6 +54,12 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         setupColorConstants()
         
         loadTools()
+        
+        if toEdit != nil {
+            Utils.runWithDelay(0.3, block: {
+                self.loadEdit()
+            })
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -87,6 +97,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         let sampleImage = self.canvas?.grabFrame()
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PublishViewController") as! PublishViewController
         vc.streamableImage = sampleImage
+        vc.toEdit = toEdit
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
@@ -337,6 +348,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         tools?.append("t_chalk")
         tools?.append("t_eraser")
         tools = tools?.reverse()
+    }
+    
+    func loadEdit() {
+        startCropperForImage(toEditImage!)
     }
     
     // MARK: - UICollectionViewDelegate
