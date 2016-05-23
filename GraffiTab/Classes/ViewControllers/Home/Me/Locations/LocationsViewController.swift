@@ -344,6 +344,8 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     }
     
     func doDeleteLocation(location: GTLocation, indexPath: NSIndexPath) {
+        removeGeofenceForLocation(location, indexPath: indexPath)
+        
         self.collectionView.performBatchUpdates({
             if indexPath.row < self.items.count {
                 self.items.removeAtIndex(indexPath.row)
