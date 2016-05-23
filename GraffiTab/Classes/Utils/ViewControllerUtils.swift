@@ -50,6 +50,20 @@ class ViewControllerUtils: NSObject {
         }
     }
     
+    class func showExplorer(latitude: CLLocationDegrees?, longitude: CLLocationDegrees?, viewController: UIViewController) {
+        let vc = UIStoryboard(name: "MainStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("ExploreViewController") as! ExploreViewController
+        vc.toShowLatitude = latitude
+        vc.toShowLongitude = longitude
+        
+        if viewController.navigationController != nil {
+            viewController.navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            let nav = UINavigationController(rootViewController: vc)
+            viewController.presentViewController(nav, animated: true, completion: nil)
+        }
+    }
+    
     class func checkCameraAndPhotosPermissions(successBlock: () -> Void) {
         // Check camera permission.
         let checkCameraPermission = {

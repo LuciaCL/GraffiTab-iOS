@@ -26,6 +26,9 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     @IBOutlet weak var terrainBtn: TintButton!
     @IBOutlet weak var streetViewBtn: TintButton!
     
+    var toShowLatitude: CLLocationDegrees?
+    var toShowLongitude: CLLocationDegrees?
+    
     var isMovedByTap = false
     var isSearching = false
     var showedFirstUserLocation = false
@@ -43,12 +46,16 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         
         setupButtons()
         setupMapView()
+        
+        if toShowLatitude != nil && toShowLongitude != nil {
+            centerToLocation(CLLocation(latitude: toShowLatitude!, longitude: toShowLongitude!))
+        }
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if !self.navigationController!.navigationBarHidden {
+        if self.navigationController != nil && !self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(true, animated: true)
         }
     }
@@ -59,7 +66,12 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     @IBAction func onClickBack(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+        if self.navigationController?.viewControllers.count <= 1 { // We're running in a container so show a close button.
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        else {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
     }
     
     @IBAction func onClickGrid(sender: AnyObject) {
@@ -340,7 +352,9 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
         if !showedFirstUserLocation {
-            centerToLocation(userLocation.location!)
+            if toShowLatitude == nil && toShowLongitude == nil {
+                centerToLocation(userLocation.location!)
+            }
         }
         
         showedFirstUserLocation = true

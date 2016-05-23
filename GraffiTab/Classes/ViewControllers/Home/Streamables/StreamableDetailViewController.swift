@@ -53,6 +53,12 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         loadStreamableImage()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -171,7 +177,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     func exploreArea() {
-        // TODO:
+        ViewControllerUtils.showExplorer(streamable?.latitude, longitude: streamable?.longitude, viewController: self)
     }
     
     func save() {
