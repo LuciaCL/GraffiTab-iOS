@@ -2481,6 +2481,7 @@
                         <segue destination="xnR-NK-Ex6" kind="show" identifier="SEGUE_SETTINGS" id="bic-AR-lS3"/>
                         <segue destination="YO2-xp-61P" kind="show" identifier="SEGUE_PROFILE" id="2G9-SC-7Rg"/>
                         <segue destination="jsF-8F-xDQ" kind="presentation" identifier="SEGUE_SEARCH" id="20V-eu-eF7"/>
+                        <segue destination="yNc-5V-Uyk" kind="show" identifier="SEGUE_LOCATIONS" id="vl2-Hr-vw2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfn-kr-cWo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3864,17 +3865,208 @@
             </objects>
             <point key="canvasLocation" x="1914" y="3269"/>
         </scene>
+        <!--Create Location View Controller-->
+        <scene sceneID="lOH-UO-L8m">
+            <objects>
+                <viewController storyboardIdentifier="CreateLocationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mug-OZ-SJN" customClass="CreateLocationViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1H3-rz-qXd"/>
+                        <viewControllerLayoutGuide type="bottom" id="noX-Qk-4AR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rit-t4-UZW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rqE-af-7KP">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <outlet property="delegate" destination="mug-OZ-SJN" id="LsJ-YM-6ir"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y61-U3-Z6F" customClass="TintButton" customModule="GraffiTab" customModuleProvider="target">
+                                <rect key="frame" x="10" y="32" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="1r6-Jt-wc3"/>
+                                    <constraint firstAttribute="height" constant="40" id="X3o-c7-7PP"/>
+                                </constraints>
+                                <color key="tintColor" red="0.0" green="0.36078431370000003" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="ic_arrow_back_white"/>
+                                <connections>
+                                    <action selector="onClickBack:" destination="mug-OZ-SJN" eventType="touchUpInside" id="YQt-QL-xrv"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m4Q-vY-MTK">
+                                <rect key="frame" x="550" y="32" width="40" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ff-6B-Pvv" customClass="TintButton" customModule="GraffiTab" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="8WW-vi-23d"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.0" green="0.36078431370000003" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="ic_search_white"/>
+                                        <connections>
+                                            <action selector="onClickSearch:" destination="mug-OZ-SJN" eventType="touchUpInside" id="T0s-w8-wxO"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mSQ-hq-9Hw">
+                                        <rect key="frame" x="40" y="0.0" width="0.0" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="search"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="mug-OZ-SJN" id="T0g-cD-NvQ"/>
+                                        </connections>
+                                    </textField>
+                                    <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="grS-Zu-sVN">
+                                        <rect key="frame" x="10" y="10" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="6cM-ju-Nfk"/>
+                                            <constraint firstAttribute="width" constant="20" id="Vvs-9s-Okx"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="5Ff-6B-Pvv" secondAttribute="bottom" id="4YV-dr-pQN"/>
+                                    <constraint firstAttribute="bottom" secondItem="mSQ-hq-9Hw" secondAttribute="bottom" id="8BV-h4-Yqh"/>
+                                    <constraint firstItem="grS-Zu-sVN" firstAttribute="centerY" secondItem="5Ff-6B-Pvv" secondAttribute="centerY" id="CyF-4r-9Xh"/>
+                                    <constraint firstItem="5Ff-6B-Pvv" firstAttribute="leading" secondItem="m4Q-vY-MTK" secondAttribute="leading" id="NG4-Iz-34k"/>
+                                    <constraint firstAttribute="width" constant="40" id="OqX-AW-KLt"/>
+                                    <constraint firstItem="5Ff-6B-Pvv" firstAttribute="top" secondItem="m4Q-vY-MTK" secondAttribute="top" id="OsG-eh-e1x"/>
+                                    <constraint firstItem="grS-Zu-sVN" firstAttribute="centerX" secondItem="5Ff-6B-Pvv" secondAttribute="centerX" id="Xz8-YN-ocA"/>
+                                    <constraint firstAttribute="height" constant="40" id="YZR-So-ddz"/>
+                                    <constraint firstItem="mSQ-hq-9Hw" firstAttribute="leading" secondItem="5Ff-6B-Pvv" secondAttribute="trailing" id="czC-Cc-aWS"/>
+                                    <constraint firstItem="mSQ-hq-9Hw" firstAttribute="top" secondItem="m4Q-vY-MTK" secondAttribute="top" id="gyo-TT-hjn"/>
+                                    <constraint firstAttribute="trailing" secondItem="mSQ-hq-9Hw" secondAttribute="trailing" id="hPK-o1-JZZ"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bS-9X-t01" customClass="MaterializeRoundButton" customModule="GraffiTab" customModuleProvider="target">
+                                <rect key="frame" x="525" y="525" width="55" height="55"/>
+                                <color key="backgroundColor" red="0.42352941176470588" green="0.74117647058823533" blue="0.32156862745098036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="9Qf-qw-lfK"/>
+                                    <constraint firstAttribute="height" constant="55" id="U7F-NI-aKm"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="ic_done_white"/>
+                                <connections>
+                                    <action selector="onClickCreate:" destination="mug-OZ-SJN" eventType="touchUpInside" id="SnJ-RF-6Ey"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_near_me_white" translatesAutoresizingMaskIntoConstraints="NO" id="Z3M-qC-2BX" customClass="TintImageView" customModule="GraffiTab" customModuleProvider="target">
+                                <rect key="frame" x="283" y="278" width="35" height="35"/>
+                                <color key="tintColor" red="0.0" green="0.36078431370000003" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="Tkk-Vg-xkb"/>
+                                    <constraint firstAttribute="height" constant="35" id="sbP-Re-hHn"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rqE-af-7KP" firstAttribute="leading" secondItem="Rit-t4-UZW" secondAttribute="leading" id="2O0-d2-Wfk"/>
+                            <constraint firstItem="Z3M-qC-2BX" firstAttribute="centerY" secondItem="rqE-af-7KP" secondAttribute="centerY" constant="-5" id="3nT-S2-tNe"/>
+                            <constraint firstItem="rqE-af-7KP" firstAttribute="top" secondItem="Rit-t4-UZW" secondAttribute="top" id="IGc-dt-xbh"/>
+                            <constraint firstItem="Y61-U3-Z6F" firstAttribute="leading" secondItem="Rit-t4-UZW" secondAttribute="leading" constant="10" id="MCO-Zu-rIG"/>
+                            <constraint firstAttribute="trailing" secondItem="rqE-af-7KP" secondAttribute="trailing" id="Pje-5h-OdR"/>
+                            <constraint firstAttribute="trailing" secondItem="4bS-9X-t01" secondAttribute="trailing" constant="20" id="QEy-w7-d3I"/>
+                            <constraint firstAttribute="trailing" secondItem="m4Q-vY-MTK" secondAttribute="trailing" constant="10" id="TCi-Ir-S0z"/>
+                            <constraint firstItem="noX-Qk-4AR" firstAttribute="top" secondItem="rqE-af-7KP" secondAttribute="bottom" id="a3k-kn-5sf"/>
+                            <constraint firstItem="Z3M-qC-2BX" firstAttribute="centerX" secondItem="rqE-af-7KP" secondAttribute="centerX" id="h5e-Fk-dM3"/>
+                            <constraint firstItem="noX-Qk-4AR" firstAttribute="top" secondItem="4bS-9X-t01" secondAttribute="bottom" constant="20" id="vlr-HV-Yv5"/>
+                            <constraint firstItem="Y61-U3-Z6F" firstAttribute="top" secondItem="1H3-rz-qXd" secondAttribute="bottom" constant="12" id="wNA-rb-GRJ"/>
+                            <constraint firstItem="m4Q-vY-MTK" firstAttribute="top" secondItem="1H3-rz-qXd" secondAttribute="bottom" constant="12" id="yvE-Nh-p8C"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="backBtn" destination="Y61-U3-Z6F" id="64g-PM-xeJ"/>
+                        <outlet property="loadingIndicator" destination="grS-Zu-sVN" id="lZE-d1-GY9"/>
+                        <outlet property="mapView" destination="rqE-af-7KP" id="yd5-zT-8wq"/>
+                        <outlet property="searchBtn" destination="5Ff-6B-Pvv" id="jyX-l7-lc2"/>
+                        <outlet property="searchContainer" destination="m4Q-vY-MTK" id="QD0-A2-pDz"/>
+                        <outlet property="searchField" destination="mSQ-hq-9Hw" id="GRV-KE-gAn"/>
+                        <outlet property="searchWidthConstraint" destination="OqX-AW-KLt" id="azy-TI-7ww"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GM5-kX-NCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3303" y="1115"/>
+        </scene>
+        <!--Locations View Controller-->
+        <scene sceneID="USC-lT-QqM">
+            <objects>
+                <viewController storyboardIdentifier="LocationsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yNc-5V-Uyk" customClass="LocationsViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PZD-gx-SbM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y1s-qB-tE9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n03-7h-jwn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wkB-Wv-XW0">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Uze-Wk-xH9">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="yNc-5V-Uyk" id="csC-Ko-a1G"/>
+                                    <outlet property="delegate" destination="yNc-5V-Uyk" id="D8O-ul-5hP"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9R-Na-pfR" customClass="MaterializeRoundButton" customModule="GraffiTab" customModuleProvider="target">
+                                <rect key="frame" x="525" y="525" width="55" height="55"/>
+                                <color key="backgroundColor" red="0.0" green="0.36078431370000003" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="NKz-6b-5UD"/>
+                                    <constraint firstAttribute="height" constant="55" id="QkP-vx-DKJ"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="ic_add_location_white"/>
+                                <connections>
+                                    <segue destination="mug-OZ-SJN" kind="show" identifier="SEGUE_EDIT_LOCATION" id="S9M-FT-5NW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wkB-Wv-XW0" firstAttribute="leading" secondItem="n03-7h-jwn" secondAttribute="leading" id="1oR-dr-4FT"/>
+                            <constraint firstAttribute="trailing" secondItem="wkB-Wv-XW0" secondAttribute="trailing" id="JKQ-Jo-pfI"/>
+                            <constraint firstAttribute="trailing" secondItem="U9R-Na-pfR" secondAttribute="trailing" constant="20" id="KMP-qy-UjS"/>
+                            <constraint firstItem="Y1s-qB-tE9" firstAttribute="top" secondItem="wkB-Wv-XW0" secondAttribute="bottom" id="kVQ-4C-iGT"/>
+                            <constraint firstItem="Y1s-qB-tE9" firstAttribute="top" secondItem="U9R-Na-pfR" secondAttribute="bottom" constant="20" id="pIb-nE-PjZ"/>
+                            <constraint firstItem="wkB-Wv-XW0" firstAttribute="top" secondItem="n03-7h-jwn" secondAttribute="top" id="rHT-M6-oHp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="wkB-Wv-XW0" id="VJV-fD-rQo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="urU-Cf-cbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2611" y="1115"/>
+        </scene>
     </scenes>
     <resources>
         <image name="default_avatar" width="185" height="185"/>
         <image name="ic_action_unfollow" width="25" height="25"/>
+        <image name="ic_add_location_white" width="24" height="24"/>
         <image name="ic_apps_white" width="24" height="24"/>
         <image name="ic_arrow_back_white" width="24" height="24"/>
         <image name="ic_clear_white" width="24" height="24"/>
         <image name="ic_comment_white" width="24" height="24"/>
+        <image name="ic_done_white" width="24" height="24"/>
         <image name="ic_map_white" width="24" height="24"/>
         <image name="ic_more_horiz_white" width="24" height="24"/>
         <image name="ic_my_location_white" width="24" height="24"/>
+        <image name="ic_near_me_white" width="24" height="24"/>
         <image name="ic_notifications" width="50" height="50"/>
         <image name="ic_search_white" width="24" height="24"/>
         <image name="ic_settings" width="25" height="25"/>

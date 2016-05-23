@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LocationListCell" id="oAt-95-I2U" customClass="LocationListCell" customModule="GraffiTab" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="282" height="54"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="282" height="54"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w19-M2-RB4">
+                        <rect key="frame" x="33" y="5" width="44" height="44"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="w19-M2-RB4" secondAttribute="height" multiplier="1:1" id="qCc-eY-nGd"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNY-Sl-OrJ">
+                        <rect key="frame" x="85" y="7" width="161" height="40"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_more_vert" translatesAutoresizingMaskIntoConstraints="NO" id="gJa-19-I7k" customClass="TintImageView" customModule="GraffiTab" customModuleProvider="target">
+                        <rect key="frame" x="249" y="12" width="30" height="30"/>
+                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="kEt-1w-Z7t"/>
+                            <constraint firstAttribute="width" constant="30" id="mWC-nU-xAt"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="track" translatesAutoresizingMaskIntoConstraints="NO" id="Imy-5I-Uqh" customClass="TintImageView" customModule="GraffiTab" customModuleProvider="target">
+                        <rect key="frame" x="10" y="21" width="13" height="13"/>
+                        <color key="tintColor" red="0.0" green="0.36078431370000003" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="13" id="2iU-AP-1ry"/>
+                            <constraint firstAttribute="height" constant="13" id="Am6-EY-HZG"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Imy-5I-Uqh" firstAttribute="centerY" secondItem="oAt-95-I2U" secondAttribute="centerY" id="4iX-uD-9AD"/>
+                <constraint firstItem="Imy-5I-Uqh" firstAttribute="leading" secondItem="oAt-95-I2U" secondAttribute="leading" constant="10" id="B0L-dz-9xa"/>
+                <constraint firstAttribute="trailing" secondItem="gJa-19-I7k" secondAttribute="trailing" constant="3" id="Hji-jz-Omm"/>
+                <constraint firstAttribute="bottom" secondItem="rNY-Sl-OrJ" secondAttribute="bottom" constant="7" id="I20-Us-dlE"/>
+                <constraint firstAttribute="bottom" secondItem="w19-M2-RB4" secondAttribute="bottom" constant="5" id="LM3-x7-ThT"/>
+                <constraint firstItem="rNY-Sl-OrJ" firstAttribute="top" secondItem="oAt-95-I2U" secondAttribute="top" constant="7" id="MtS-16-PZ1"/>
+                <constraint firstItem="gJa-19-I7k" firstAttribute="centerY" secondItem="oAt-95-I2U" secondAttribute="centerY" id="O4i-uM-DJ4"/>
+                <constraint firstItem="w19-M2-RB4" firstAttribute="leading" secondItem="oAt-95-I2U" secondAttribute="leading" constant="33" id="g5I-Vx-nN9"/>
+                <constraint firstItem="gJa-19-I7k" firstAttribute="leading" secondItem="rNY-Sl-OrJ" secondAttribute="trailing" constant="3" id="t0R-sj-DQx"/>
+                <constraint firstItem="w19-M2-RB4" firstAttribute="top" secondItem="oAt-95-I2U" secondAttribute="top" constant="5" id="wJy-ix-HkG"/>
+                <constraint firstItem="rNY-Sl-OrJ" firstAttribute="leading" secondItem="w19-M2-RB4" secondAttribute="trailing" constant="8" id="wrC-Zu-9MT"/>
+            </constraints>
+            <size key="customSize" width="282" height="56"/>
+            <connections>
+                <outlet property="addressLbl" destination="rNY-Sl-OrJ" id="HdG-Jk-FOL"/>
+                <outlet property="menuBtn" destination="gJa-19-I7k" id="AOC-eY-t9u"/>
+                <outlet property="thumbnail" destination="w19-M2-RB4" id="Fwd-0O-PMV"/>
+                <outlet property="thumbnailLeadingConstraint" destination="g5I-Vx-nN9" id="bbw-zM-vyi"/>
+                <outlet property="trackerImg" destination="Imy-5I-Uqh" id="n9Q-8g-HWp"/>
+            </connections>
+            <point key="canvasLocation" x="314" y="498"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ic_more_vert" width="24" height="24"/>
+        <image name="track" width="128" height="128"/>
+    </resources>
+</document>

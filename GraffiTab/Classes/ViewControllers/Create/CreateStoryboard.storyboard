@@ -221,7 +221,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="aUd-eq-Bph"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                                         <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -230,12 +230,12 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="v6o-lX-HkZ"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                                                         <color key="textColor" red="0.0" green="0.36078431372549019" blue="0.52549019607843139" alpha="0.69711986940298509" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="8G4-ZA-fvb" firstAttribute="leading" secondItem="rhu-Zf-Sf7" secondAttribute="leading" id="1xo-Qa-iqE"/>
                                                     <constraint firstAttribute="width" constant="240" id="S0A-9H-t2z"/>

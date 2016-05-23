@@ -130,10 +130,14 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         if mapView.mapType == .Satellite {
             mapView.mapType = .Standard
             terrainBtn.tintColor = UIColor(hexString: "#e0e0e0")
+            
+            UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
         }
         else {
             mapView.mapType = .Satellite
             terrainBtn.tintColor = UIColor(hexString: Colors.Main)
+            
+            UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
         }
     }
     

@@ -13,8 +13,8 @@ class MenuViewController: BackButtonViewController, UITableViewDelegate, UITable
     @IBOutlet weak var tableView: UITableView!
     
     var rowHeight: CGFloat = 50
-    var rowTitles: [String] = ["Profile", "Notifications", "Search", "Settings"]
-    var rowIcons: [String] = ["user_male4", "ic_notifications", "search", "settings"]
+    var rowTitles: [String] = ["Profile", "Notifications", "Locations", "Search", "Settings"]
+    var rowIcons: [String] = ["user_male4", "ic_notifications", "map_marker", "search", "settings"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,9 +67,12 @@ class MenuViewController: BackButtonViewController, UITableViewDelegate, UITable
                 homeVC.onClickNotifications(nil)
             }
             else if indexPath.row == 2 {
-                homeVC.onClickSearch(nil)
+                homeVC.onClickLocations(nil)
             }
             else if indexPath.row == 3 {
+                homeVC.onClickSearch(nil)
+            }
+            else if indexPath.row == 4 {
                 homeVC.onClickSettings(nil)
             }
         }

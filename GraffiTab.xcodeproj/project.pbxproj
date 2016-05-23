@@ -76,6 +76,20 @@
 		E52DC7801CE5E37A00375828 /* StreamableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC77F1CE5E37A00375828 /* StreamableDetailViewController.swift */; };
 		E53F3FA81CEAA63900537D1B /* DrawingOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F3FA71CEAA63900537D1B /* DrawingOptionButton.swift */; };
 		E53F3FA91CEAA63900537D1B /* DrawingOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F3FA71CEAA63900537D1B /* DrawingOptionButton.swift */; };
+		E55452D51CF3154C0076CEC9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452D41CF3154C0076CEC9 /* LocationsViewController.swift */; };
+		E55452D61CF3154C0076CEC9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452D41CF3154C0076CEC9 /* LocationsViewController.swift */; };
+		E55452E41CF329580076CEC9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452E31CF329580076CEC9 /* LocationCell.swift */; };
+		E55452E51CF329580076CEC9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452E31CF329580076CEC9 /* LocationCell.swift */; };
+		E55452E71CF336A50076CEC9 /* LocationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452E61CF336A50076CEC9 /* LocationListCell.swift */; };
+		E55452E81CF336A50076CEC9 /* LocationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452E61CF336A50076CEC9 /* LocationListCell.swift */; };
+		E55452EA1CF336CC0076CEC9 /* LocationListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E55452E91CF336CC0076CEC9 /* LocationListCell.xib */; };
+		E55452EB1CF336CC0076CEC9 /* LocationListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E55452E91CF336CC0076CEC9 /* LocationListCell.xib */; };
+		E55452ED1CF340C20076CEC9 /* CreateLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452EC1CF340C20076CEC9 /* CreateLocationViewController.swift */; };
+		E55452EE1CF340C20076CEC9 /* CreateLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452EC1CF340C20076CEC9 /* CreateLocationViewController.swift */; };
+		E55452F01CF3507D0076CEC9 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55452EF1CF3507D0076CEC9 /* AddressBookUI.framework */; };
+		E55452F11CF350860076CEC9 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55452EF1CF3507D0076CEC9 /* AddressBookUI.framework */; };
+		E55452F31CF3586F0076CEC9 /* GoogleStaticApiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452F21CF3586F0076CEC9 /* GoogleStaticApiUtils.swift */; };
+		E55452F41CF3586F0076CEC9 /* GoogleStaticApiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452F21CF3586F0076CEC9 /* GoogleStaticApiUtils.swift */; };
 		E554CFDA1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
 		E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD81CB5641B00668D85 /* release_notes.html */; };
 		E554CFDE1CB5641B00668D85 /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD91CB5641B00668D85 /* terms.html */; };
@@ -465,6 +479,13 @@
 		E53F3FAE1CEAB6D000537D1B /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E53F3FB01CEAB6DE00537D1B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E53F3FB21CEAB6F400537D1B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		E55452D41CF3154C0076CEC9 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		E55452E31CF329580076CEC9 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		E55452E61CF336A50076CEC9 /* LocationListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListCell.swift; sourceTree = "<group>"; };
+		E55452E91CF336CC0076CEC9 /* LocationListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationListCell.xib; sourceTree = "<group>"; };
+		E55452EC1CF340C20076CEC9 /* CreateLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateLocationViewController.swift; sourceTree = "<group>"; };
+		E55452EF1CF3507D0076CEC9 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		E55452F21CF3586F0076CEC9 /* GoogleStaticApiUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleStaticApiUtils.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
 		E554CFD81CB5641B00668D85 /* release_notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = release_notes.html; sourceTree = "<group>"; };
 		E554CFD91CB5641B00668D85 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
@@ -607,6 +628,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E55452F01CF3507D0076CEC9 /* AddressBookUI.framework in Frameworks */,
 				E58432971CE9242000FB1E50 /* Photos.framework in Frameworks */,
 				E58432981CE9242000FB1E50 /* CoreGraphics.framework in Frameworks */,
 				E58432991CE9242000FB1E50 /* AudioToolbox.framework in Frameworks */,
@@ -632,6 +654,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E55452F11CF350860076CEC9 /* AddressBookUI.framework in Frameworks */,
 				E57FAB231CD224B700C0D125 /* Photos.framework in Frameworks */,
 				E5B6B6101CC5AE3000DC8EFC /* CoreGraphics.framework in Frameworks */,
 				E5B6B60F1CC5AE2700DC8EFC /* AudioToolbox.framework in Frameworks */,
@@ -677,6 +700,7 @@
 		E51005F21CB69BC300AC66A5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				E55452E11CF327AE0076CEC9 /* Locations */,
 				E5A4F12B1CE22580005CF12C /* Comments */,
 				E5B6B6301CC6562800DC8EFC /* Drawing */,
 				E51006B51CBC051A00AC66A5 /* Activity */,
@@ -857,6 +881,33 @@
 			path = LoadingIndicators;
 			sourceTree = "<group>";
 		};
+		E55452CE1CF3150A0076CEC9 /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				E55452D41CF3154C0076CEC9 /* LocationsViewController.swift */,
+				E55452EC1CF340C20076CEC9 /* CreateLocationViewController.swift */,
+			);
+			path = Locations;
+			sourceTree = "<group>";
+		};
+		E55452E11CF327AE0076CEC9 /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				E55452E31CF329580076CEC9 /* LocationCell.swift */,
+				E55452E21CF327AE0076CEC9 /* List */,
+			);
+			path = Locations;
+			sourceTree = "<group>";
+		};
+		E55452E21CF327AE0076CEC9 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				E55452E61CF336A50076CEC9 /* LocationListCell.swift */,
+				E55452E91CF336CC0076CEC9 /* LocationListCell.xib */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		E554CFD61CB5641B00668D85 /* Html */ = {
 			isa = PBXGroup;
 			children = (
@@ -962,6 +1013,7 @@
 			children = (
 				E52DC76A1CE5DFE700375828 /* PrivateStreamablesViewController.swift */,
 				E52DC7671CE5DFC700375828 /* FeedViewController.swift */,
+				E55452CE1CF3150A0076CEC9 /* Locations */,
 				E5B6B5741CC56F5800DC8EFC /* Edit */,
 				E5B6B57B1CC56F5800DC8EFC /* Notifications */,
 			);
@@ -1249,6 +1301,7 @@
 				E51006661CB7CE2300AC66A5 /* DateUtils.swift */,
 				E56D1F221CDD1917007B3698 /* ArrayUtils.swift */,
 				E52DC73E1CE551D300375828 /* ViewControllerUtils.swift */,
+				E55452F21CF3586F0076CEC9 /* GoogleStaticApiUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1357,6 +1410,7 @@
 		F89B9B6C7903A7912D4CD2E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E55452EF1CF3507D0076CEC9 /* AddressBookUI.framework */,
 				E57295D01CEB2FE400875AF3 /* libsqlite3.tbd */,
 				E53F3FB21CEAB6F400537D1B /* MobileCoreServices.framework */,
 				E53F3FB01CEAB6DE00537D1B /* libz.tbd */,
@@ -1542,6 +1596,7 @@
 				E58432B61CE9242000FB1E50 /* Eraser.png in Resources */,
 				E58432B71CE9242000FB1E50 /* LoginStoryboard.storyboard in Resources */,
 				E58432B81CE9242000FB1E50 /* eula.html in Resources */,
+				E55452EB1CF336CC0076CEC9 /* LocationListCell.xib in Resources */,
 				E58432B91CE9242000FB1E50 /* StreamableGridCell.xib in Resources */,
 				E58432BA1CE9242000FB1E50 /* UserListCell.xib in Resources */,
 				E58432BB1CE9242000FB1E50 /* release_notes.html in Resources */,
@@ -1575,6 +1630,7 @@
 				E5B6B5D91CC56F5800DC8EFC /* LoginStoryboard.storyboard in Resources */,
 				E554CFDA1CB5641B00668D85 /* eula.html in Resources */,
 				E51006601CB7BC5A00AC66A5 /* StreamableGridCell.xib in Resources */,
+				E55452EA1CF336CC0076CEC9 /* LocationListCell.xib in Resources */,
 				E51006FC1CBD1C3B00AC66A5 /* UserListCell.xib in Resources */,
 				E58432CD1CE940F900FB1E50 /* Release-Info.plist in Resources */,
 				E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */,
@@ -1693,9 +1749,11 @@
 				E58432281CE9242000FB1E50 /* StreamableThumbnail.swift in Sources */,
 				E50564D91CECAE0400A42E56 /* GTDeviceMotionManager.swift in Sources */,
 				E58432291CE9242000FB1E50 /* ViewControllerUtils.swift in Sources */,
+				E55452E51CF329580076CEC9 /* LocationCell.swift in Sources */,
 				E584322A1CE9242000FB1E50 /* FollowersActivityViewController.swift in Sources */,
 				E584322B1CE9242000FB1E50 /* FollowingViewController.swift in Sources */,
 				E53F3FA91CEAA63900537D1B /* DrawingOptionButton.swift in Sources */,
+				E55452E81CF336A50076CEC9 /* LocationListCell.swift in Sources */,
 				E584322C1CE9242000FB1E50 /* UserCollectionParallaxHeader.swift in Sources */,
 				E584322D1CE9242000FB1E50 /* ActivitySingleFollowCell.swift in Sources */,
 				E584322E1CE9242000FB1E50 /* ActivitySingleCommentCell.swift in Sources */,
@@ -1757,6 +1815,7 @@
 				E58432631CE9242000FB1E50 /* ClusterViewController.swift in Sources */,
 				E58432641CE9242000FB1E50 /* CommentCell.swift in Sources */,
 				E58432651CE9242000FB1E50 /* BackButtonSlackViewController.swift in Sources */,
+				E55452D61CF3154C0076CEC9 /* LocationsViewController.swift in Sources */,
 				E58432661CE9242000FB1E50 /* NotificationFollowCell.swift in Sources */,
 				E58432671CE9242000FB1E50 /* CreateViewController.swift in Sources */,
 				E58432681CE9242000FB1E50 /* StreamableListFullCell.swift in Sources */,
@@ -1764,6 +1823,7 @@
 				E584326A1CE9242000FB1E50 /* AboutViewController.swift in Sources */,
 				E584326B1CE9242000FB1E50 /* AppDelegate.swift in Sources */,
 				E584326C1CE9242000FB1E50 /* MenuContainerViewController.swift in Sources */,
+				E55452F41CF3586F0076CEC9 /* GoogleStaticApiUtils.swift in Sources */,
 				E584326D1CE9242000FB1E50 /* GridStreamablesViewController.swift in Sources */,
 				E584326E1CE9242000FB1E50 /* GeneralSettingsViewController.swift in Sources */,
 				E584326F1CE9242000FB1E50 /* BackButtonViewController.swift in Sources */,
@@ -1777,6 +1837,7 @@
 				E58432771CE9242000FB1E50 /* ActivityGroupCell.swift in Sources */,
 				E58432781CE9242000FB1E50 /* NearMeViewController.swift in Sources */,
 				E58432791CE9242000FB1E50 /* TOCropScrollView.m in Sources */,
+				E55452EE1CF340C20076CEC9 /* CreateLocationViewController.swift in Sources */,
 				E584327A1CE9242000FB1E50 /* MenuCell.swift in Sources */,
 				E584327B1CE9242000FB1E50 /* UserCell.swift in Sources */,
 				E584327C1CE9242000FB1E50 /* ViewController+ImagePicker.swift in Sources */,
@@ -1818,9 +1879,11 @@
 				E51006E21CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */,
 				E50564D81CECAE0400A42E56 /* GTDeviceMotionManager.swift in Sources */,
 				E52DC73F1CE551D300375828 /* ViewControllerUtils.swift in Sources */,
+				E55452E41CF329580076CEC9 /* LocationCell.swift in Sources */,
 				E5B6B5B51CC56F5800DC8EFC /* FollowersActivityViewController.swift in Sources */,
 				E52DC75C1CE55FA900375828 /* FollowingViewController.swift in Sources */,
 				E53F3FA81CEAA63900537D1B /* DrawingOptionButton.swift in Sources */,
+				E55452E71CF336A50076CEC9 /* LocationListCell.swift in Sources */,
 				E5B6B5501CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift in Sources */,
 				E51006BC1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift in Sources */,
 				E51006C51CBC122E00AC66A5 /* ActivitySingleCommentCell.swift in Sources */,
@@ -1882,6 +1945,7 @@
 				E5B6B5CD1CC56F5800DC8EFC /* ClusterViewController.swift in Sources */,
 				E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */,
 				E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */,
+				E55452D51CF3154C0076CEC9 /* LocationsViewController.swift in Sources */,
 				E51006A01CBBC0FD00AC66A5 /* NotificationFollowCell.swift in Sources */,
 				E5B6B5A31CC56F5800DC8EFC /* CreateViewController.swift in Sources */,
 				E51006621CB7BC5A00AC66A5 /* StreamableListFullCell.swift in Sources */,
@@ -1889,6 +1953,7 @@
 				E52DC76E1CE5E05600375828 /* AboutViewController.swift in Sources */,
 				E5DFDBD61CB2BF9E00BB3D27 /* AppDelegate.swift in Sources */,
 				E5B6B5B91CC56F5800DC8EFC /* MenuContainerViewController.swift in Sources */,
+				E55452F31CF3586F0076CEC9 /* GoogleStaticApiUtils.swift in Sources */,
 				E51006331CB71EB200AC66A5 /* GridStreamablesViewController.swift in Sources */,
 				E5B6B5C71CC56F5800DC8EFC /* GeneralSettingsViewController.swift in Sources */,
 				E5DFDC081CB2C31B00BB3D27 /* BackButtonViewController.swift in Sources */,
@@ -1902,6 +1967,7 @@
 				E51006CE1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,
 				E5B6B5D11CC56F5800DC8EFC /* NearMeViewController.swift in Sources */,
 				E5D085AE1CD8D30000226589 /* TOCropScrollView.m in Sources */,
+				E55452ED1CF340C20076CEC9 /* CreateLocationViewController.swift in Sources */,
 				E51005F41CB69BDE00AC66A5 /* MenuCell.swift in Sources */,
 				E51006F51CBD1B0000AC66A5 /* UserCell.swift in Sources */,
 				E5B6B64D1CC9A48200DC8EFC /* ViewController+ImagePicker.swift in Sources */,
