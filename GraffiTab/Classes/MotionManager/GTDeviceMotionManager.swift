@@ -9,10 +9,16 @@
 import UIKit
 import CoreMotion
 
+protocol MotionDelegate {
+    
+    func didReceiveMotionUpdate(pitch: CGFloat, roll: CGFloat, yaw: CGFloat)
+}
+
 class GTDeviceMotionManager: NSObject {
 
     static var manager: GTDeviceMotionManager = GTDeviceMotionManager()
     
+    var delegate: MotionDelegate?
     var motionManager: CMMotionManager?
     var pitch: CGFloat?
     var roll: CGFloat?
@@ -41,6 +47,10 @@ class GTDeviceMotionManager: NSObject {
                 self.pitch = round(100 * self.pitch!) / 100.0
                 self.roll = round(100 * self.roll!) / 100.0
                 self.yaw = round(100 * self.yaw!) / 100.0
+                
+                if self.delegate != nil {
+                    self.delegate?.didReceiveMotionUpdate(self.pitch!, roll: self.roll!, yaw: self.yaw!)
+                }
             }
         })
     }

@@ -21,7 +21,7 @@ class NearMeViewController: GridStreamablesViewController {
             let center = location!.coordinate
             
             // Search for items within 1km radius of the user's current location.
-            let region = MKCoordinateRegionMakeWithDistance(center, 1000.0, 1000.0)
+            let region = MKCoordinateRegionMakeWithDistance(center, App.Radius, App.Radius)
             
             // Obtain bounding box GPS coordinates.
             var northEastCorner: CLLocationCoordinate2D = CLLocationCoordinate2D()
