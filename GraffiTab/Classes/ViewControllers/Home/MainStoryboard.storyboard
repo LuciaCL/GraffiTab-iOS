@@ -3777,6 +3777,55 @@
             </objects>
             <point key="canvasLocation" x="3995" y="395"/>
         </scene>
+        <!--Street View Controller-->
+        <scene sceneID="egg-tF-sRL">
+            <objects>
+                <viewController storyboardIdentifier="StreetViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="24t-qW-rJ9" customClass="StreetViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cHW-ud-5K4"/>
+                        <viewControllerLayoutGuide type="bottom" id="EcX-gH-rZa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dgh-Rs-EJp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rce-4Y-rUx">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyv-he-u6I" customClass="MaterializeRoundButton" customModule="GraffiTab" customModuleProvider="target">
+                                <rect key="frame" x="535" y="535" width="45" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="8xH-Bl-6gR"/>
+                                    <constraint firstAttribute="height" constant="45" id="rcE-mw-Iwb"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="ic_clear_white"/>
+                                <connections>
+                                    <action selector="onClickCancel:" destination="24t-qW-rJ9" eventType="touchUpInside" id="Lpj-n7-7b0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EcX-gH-rZa" firstAttribute="top" secondItem="uyv-he-u6I" secondAttribute="bottom" constant="20" id="6Ft-4J-P9e"/>
+                            <constraint firstAttribute="trailing" secondItem="rce-4Y-rUx" secondAttribute="trailing" id="Mc3-Ig-kE3"/>
+                            <constraint firstItem="rce-4Y-rUx" firstAttribute="top" secondItem="Dgh-Rs-EJp" secondAttribute="top" id="V2M-13-dZx"/>
+                            <constraint firstItem="EcX-gH-rZa" firstAttribute="top" secondItem="rce-4Y-rUx" secondAttribute="bottom" id="Vtq-ll-NGz"/>
+                            <constraint firstAttribute="trailing" secondItem="uyv-he-u6I" secondAttribute="trailing" constant="20" id="lo0-gS-Z1F"/>
+                            <constraint firstItem="rce-4Y-rUx" firstAttribute="leading" secondItem="Dgh-Rs-EJp" secondAttribute="leading" id="zt3-Xr-h8t"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cameraView" destination="rce-4Y-rUx" id="1xH-p1-8nk"/>
+                        <outlet property="cancelBtn" destination="uyv-he-u6I" id="s2y-1t-uRf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FiB-oq-1XD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3995" y="1115"/>
+        </scene>
         <!--User Liked Streamables View Controller-->
         <scene sceneID="I0V-dG-CCw">
             <objects>

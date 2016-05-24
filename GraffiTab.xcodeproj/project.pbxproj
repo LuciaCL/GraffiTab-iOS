@@ -90,6 +90,8 @@
 		E55452F11CF350860076CEC9 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55452EF1CF3507D0076CEC9 /* AddressBookUI.framework */; };
 		E55452F31CF3586F0076CEC9 /* GoogleStaticApiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452F21CF3586F0076CEC9 /* GoogleStaticApiUtils.swift */; };
 		E55452F41CF3586F0076CEC9 /* GoogleStaticApiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452F21CF3586F0076CEC9 /* GoogleStaticApiUtils.swift */; };
+		E55452F61CF4950E0076CEC9 /* StreetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452F51CF4950E0076CEC9 /* StreetViewController.swift */; };
+		E55452F71CF4950E0076CEC9 /* StreetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452F51CF4950E0076CEC9 /* StreetViewController.swift */; };
 		E554CFDA1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
 		E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD81CB5641B00668D85 /* release_notes.html */; };
 		E554CFDE1CB5641B00668D85 /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD91CB5641B00668D85 /* terms.html */; };
@@ -486,6 +488,7 @@
 		E55452EC1CF340C20076CEC9 /* CreateLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateLocationViewController.swift; sourceTree = "<group>"; };
 		E55452EF1CF3507D0076CEC9 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		E55452F21CF3586F0076CEC9 /* GoogleStaticApiUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleStaticApiUtils.swift; sourceTree = "<group>"; };
+		E55452F51CF4950E0076CEC9 /* StreetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreetViewController.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
 		E554CFD81CB5641B00668D85 /* release_notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = release_notes.html; sourceTree = "<group>"; };
 		E554CFD91CB5641B00668D85 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
@@ -1090,6 +1093,7 @@
 				E5B6B5901CC56F5800DC8EFC /* ClusterViewController.swift */,
 				E5B6B5911CC56F5800DC8EFC /* ExploreViewController.swift */,
 				E5B6B5921CC56F5800DC8EFC /* NearMeViewController.swift */,
+				E55452F51CF4950E0076CEC9 /* StreetViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1778,6 +1782,7 @@
 				E584323F1CE9242000FB1E50 /* DateUtils.swift in Sources */,
 				E58432401CE9242000FB1E50 /* OrientationNavigationController.swift in Sources */,
 				E58432411CE9242000FB1E50 /* DrawToolCell.swift in Sources */,
+				E55452F71CF4950E0076CEC9 /* StreetViewController.swift in Sources */,
 				E58432421CE9242000FB1E50 /* StreamableCell.swift in Sources */,
 				E58432431CE9242000FB1E50 /* TOCroppedImageAttributes.m in Sources */,
 				E58432441CE9242000FB1E50 /* LikersViewController.swift in Sources */,
@@ -1908,6 +1913,7 @@
 				E51006671CB7CE2300AC66A5 /* DateUtils.swift in Sources */,
 				E57FAB3A1CD8B2A800C0D125 /* OrientationNavigationController.swift in Sources */,
 				E57FAB261CD4106E00C0D125 /* DrawToolCell.swift in Sources */,
+				E55452F61CF4950E0076CEC9 /* StreetViewController.swift in Sources */,
 				E510063A1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */,
 				E5D085A91CD8D30000226589 /* TOCroppedImageAttributes.m in Sources */,
 				E52DC7761CE5E09900375828 /* LikersViewController.swift in Sources */,

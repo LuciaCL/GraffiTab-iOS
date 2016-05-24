@@ -396,7 +396,7 @@
                                     <constraint firstAttribute="width" constant="45" id="MjH-jO-DSy"/>
                                     <constraint firstAttribute="height" constant="45" id="ggi-oq-FRk"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="ic_clear_white"/>
                                 <connections>
                                     <action selector="onClickCancel:" destination="Sm4-dK-yn6" eventType="touchUpInside" id="N0F-I9-Vtd"/>
@@ -410,7 +410,7 @@
                                     <constraint firstAttribute="width" constant="45" id="oD4-cs-uqh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="?">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

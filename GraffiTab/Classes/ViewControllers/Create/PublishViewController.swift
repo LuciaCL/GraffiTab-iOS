@@ -34,13 +34,13 @@ class PublishViewController: UIViewController {
     var error: NSError?
     var previewLayer: AVCaptureVideoPreviewLayer?
     var streamableImage: UIImage?
+    var loadedCamera = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        setupCameraView()
         setupButtons()
         setupImageContainer()
         
@@ -63,6 +63,16 @@ class PublishViewController: UIViewController {
         UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !loadedCamera {
+            loadedCamera = true
+            
+            setupCameraView()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -187,9 +197,7 @@ class PublishViewController: UIViewController {
     func setupButtons() {
         createBtn.backgroundColor = UIColor(hexString: Colors.Green)
         cancelBtn.backgroundColor = UIColor.whiteColor()
-        cancelBtn.tintColor = UIColor.lightGrayColor()
         infoBtn.backgroundColor = UIColor.whiteColor()
-        infoBtn.tintColor = UIColor.lightGrayColor()
     }
     
     func setupImageContainer() {

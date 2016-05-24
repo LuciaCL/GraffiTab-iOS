@@ -12,8 +12,9 @@ import GraffiTab_iOS_SDK
 import FBAnnotationClusteringSwift
 import JPSThumbnailAnnotation
 import MZFormSheetPresentationController
+import JTMaterialTransition
 
-class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMapViewDelegate, FBClusteringManagerDelegate {
+class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMapViewDelegate, FBClusteringManagerDelegate, UIViewControllerTransitioningDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchField: UITextField!
@@ -29,6 +30,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     var toShowLatitude: CLLocationDegrees?
     var toShowLongitude: CLLocationDegrees?
     
+    var transition: JTMaterialTransition?
     var isMovedByTap = false
     var isSearching = false
     var showedFirstUserLocation = false
@@ -46,6 +48,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         
         setupButtons()
         setupMapView()
+        setupTransition()
         
         if toShowLatitude != nil && toShowLongitude != nil {
             centerToLocation(CLLocation(latitude: toShowLatitude!, longitude: toShowLongitude!))
@@ -142,7 +145,12 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     @IBAction func onClickStreetView(sender: AnyObject) {
-        // TODO:
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("StreetViewController")
+        
+        vc.modalPresentationStyle = .Custom
+        vc.transitioningDelegate = self
+        
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     // MARK: - Loading
@@ -420,6 +428,20 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         return 1.0
     }
     
+    // MARK: - UIViewControllerTransitioningDelegate
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition?.reverse = false
+        
+        return transition
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition?.reverse = true
+        
+        return transition
+    }
+    
     // MARK: - Setup
     
     override func setupTopBar() {
@@ -441,5 +463,9 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     
     func setupMapView() {
         mapView.rotateEnabled = false
+    }
+    
+    func setupTransition() {
+        transition = JTMaterialTransition(animatedView: streetViewBtn)
     }
 }
