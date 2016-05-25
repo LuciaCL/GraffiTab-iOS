@@ -270,6 +270,8 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         // See https://github.com/slackhq/SlackTextViewController/issues/94#issuecomment-69929927
         self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         
+        streamable?.commentsCount! += 1
+        
         super.didPressRightButton(sender)
     }
     
@@ -359,6 +361,11 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             }, failureBlock: { (response) in
                 DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
             })
+        }
+        
+        streamable?.commentsCount! -= 1
+        if streamable?.commentsCount < 0 {
+            streamable?.commentsCount = 0
         }
     }
     

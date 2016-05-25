@@ -36,6 +36,10 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
         }
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -52,6 +56,8 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        registerForEvents()
         
         setupCollectionView()
         
@@ -125,6 +131,30 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
         layout.itemSize = CGSize(width: width, height: height)
         layout.minimumInteritemSpacing = spacing
         layout.minimumLineSpacing = spacing
+    }
+    
+    // MARK: - Events
+    
+    func registerForEvents() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.genericEventHandler(_:)), name: GTEvents.UserAvatarChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleUserEventHandler(_:)), name: GTEvents.UserFollowersChanged, object: nil)
+    }
+    
+    func singleUserEventHandler(notification: NSNotification) {
+        print("DEBUG: Received app event - \(notification)")
+        let user = notification.userInfo!["user"] as! GTUser
+        if let index = items.indexOf(user) {
+            items[index].softCopy(user)
+            
+            self.collectionView.performBatchUpdates({
+                self.collectionView.reloadItemsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)])
+                }, completion: nil)
+        }
+    }
+    
+    func genericEventHandler(notification: NSNotification) {
+        print("DEBUG: Received app event - \(notification)")
+        collectionView.reloadData()
     }
     
     // MARK: - Loading

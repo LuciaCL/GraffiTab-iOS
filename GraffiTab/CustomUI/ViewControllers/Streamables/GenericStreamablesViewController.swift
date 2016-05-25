@@ -44,6 +44,10 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         }
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -60,6 +64,8 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        registerForEvents()
         
         setupCollectionView()
         
@@ -204,6 +210,33 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
             layout.minimumInteritemSpacing = spacing
             layout.minimumLineSpacing = spacing
         }
+    }
+    
+    // MARK: - Events
+    
+    func registerForEvents() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleStreamableEventHandler(_:)), name: GTEvents.StreamableLikesChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.genericEventHandler(_:)), name: GTEvents.CommentPosted, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.genericEventHandler(_:)), name: GTEvents.CommentChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.genericEventHandler(_:)), name: GTEvents.UserAvatarChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleStreamableEventHandler(_:)), name: GTEvents.StreamableChanged, object: nil)
+    }
+    
+    func singleStreamableEventHandler(notification: NSNotification) {
+        print("DEBUG: Received app event - \(notification)")
+        let streamable = notification.userInfo!["streamable"] as! GTStreamable
+        if let index = items.indexOf(streamable) {
+            items[index].softCopy(streamable)
+            
+            self.collectionView.performBatchUpdates({
+                self.collectionView.reloadItemsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)])
+                }, completion: nil)
+        }
+    }
+    
+    func genericEventHandler(notification: NSNotification) {
+        print("DEBUG: Received app event - \(notification)")
+        collectionView.reloadData()
     }
     
     // MARK: - Loading

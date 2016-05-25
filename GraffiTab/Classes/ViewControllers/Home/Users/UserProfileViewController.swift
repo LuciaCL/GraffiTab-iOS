@@ -72,7 +72,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             }
             
             GTUserManager.unfollow(user!.id!, successBlock: { (response) in
-                self.user = response.object as? GTUser
+                self.user?.softCopy(response.object as! GTUser)
                 self.header?.item = self.user
             }, failureBlock: { (response) in
                     
@@ -82,7 +82,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             followers = followers! + 1
             
             GTUserManager.follow(user!.id!, successBlock: { (response) in
-                self.user = response.object as? GTUser
+                self.user?.softCopy(response.object as! GTUser)
                 self.header?.item = self.user
             }, failureBlock: { (response) in
                     
@@ -232,7 +232,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     
     func loadUserProfile() {
         GTUserManager.getUserFullProfile(user!.id!, successBlock: { (response) in
-            self.user = response.object as? GTUser
+            self.user?.softCopy(response.object as! GTUser)
             self.header?.item = self.user
         }) { (response) in
             DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
