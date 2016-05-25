@@ -11,6 +11,8 @@ import SCLAlertView
 
 class DialogBuilder: NSObject {
 
+    static var lastErrorDate: NSDate?
+    
     class func showOKAlert(status: String, title: String) {
         self.showOKAlert(status, title: title, okAction: {})
     }
@@ -37,6 +39,32 @@ class DialogBuilder: NSObject {
     class func showErrorAlert(status: String, title: String, okAction:() -> Void) {
         let alertView = buildOKAlert(status, title: title, okAction: okAction)
         alertView.showError(title, subTitle: status)
+    }
+    
+    class func showAPIErrorAlert(status: String, title:String, forceShow: (Bool?) = false) {
+        self.showAPIErrorAlert(status, title: title, forceShow: forceShow, okAction: {})
+    }
+    
+    class func showAPIErrorAlert(status: String, title:String, forceShow: (Bool?) = false, okAction:() -> Void) {
+        let errorDate = NSDate()
+        
+        if forceShow != nil && forceShow! {
+            self.showErrorAlert(status, title: title, okAction: okAction)
+            lastErrorDate = errorDate
+            return
+        }
+        
+        if lastErrorDate != nil {
+            let secondsPassed = errorDate.timeIntervalSinceDate(lastErrorDate!)
+            if secondsPassed > 10 {
+                self.showErrorAlert(status, title: title, okAction: okAction)
+                lastErrorDate = errorDate
+            }
+        }
+        else {
+            self.showErrorAlert(status, title: title, okAction: okAction)
+            lastErrorDate = errorDate
+        }
     }
     
     class func showYesNoAlert(status: String, title: String, yesTitle: String="Yes", noTitle: String="No", yesAction:() -> Void, noAction:() -> Void) {

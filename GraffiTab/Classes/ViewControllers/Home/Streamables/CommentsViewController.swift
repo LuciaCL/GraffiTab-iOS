@@ -94,7 +94,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             
             self.finalizeLoad()
             
-            DialogBuilder.showErrorAlert(response.message, title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
         }
     }
     
@@ -283,7 +283,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         GTStreamableManager.editComment(streamable!.id!, commentId: commentToEdit!.id!, text: commentToEdit!.text!, successBlock: { (response) in
             
         }) { (response) in
-            DialogBuilder.showErrorAlert(response.message, title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
         }
         
         super.didCommitTextEditing(sender)
@@ -342,7 +342,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             
             self.tableView.reloadData()
             
-            DialogBuilder.showErrorAlert(response.message, title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
         }
     }
     
@@ -357,7 +357,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             GTStreamableManager.deleteComment(streamable!.id!, commentId: comment.id!, successBlock: { (response) in
                 
             }, failureBlock: { (response) in
-                DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
             })
         }
     }
@@ -384,11 +384,11 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             self.view.hideActivityView()
             
             if response.reason == .NotFound {
-                DialogBuilder.showErrorAlert(String(format: "User with username '\(username)' does not exist."), title: App.Title)
+                DialogBuilder.showAPIErrorAlert(String(format: "User with username '\(username)' does not exist."), title: App.Title, forceShow: true)
                 return
             }
             
-            DialogBuilder.showErrorAlert(response.message, title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
         }
     }
     

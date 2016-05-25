@@ -159,7 +159,7 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
             
             self.finalizeLoad()
             
-            DialogBuilder.showErrorAlert(response.message, title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
         }
     }
     

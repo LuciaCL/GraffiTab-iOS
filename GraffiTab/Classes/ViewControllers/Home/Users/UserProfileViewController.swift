@@ -142,7 +142,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
                 })
             }
             else {
@@ -154,7 +154,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
                 })
             }
         }
@@ -168,7 +168,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
                 })
             }
             else {
@@ -180,7 +180,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
                 })
             }
         }
@@ -235,7 +235,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             self.user = response.object as? GTUser
             self.header?.item = self.user
         }) { (response) in
-            DialogBuilder.showErrorAlert(response.message, title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
         }
     }
     

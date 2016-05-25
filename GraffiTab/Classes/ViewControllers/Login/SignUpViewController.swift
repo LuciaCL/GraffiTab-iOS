@@ -73,11 +73,11 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
                 self.view.hideActivityView()
                 
                 if (response.reason == .BadRequest) {
-                    DialogBuilder.showErrorAlert("We have found another user that matches these details. Please consider choosing a different email address or username.", title: App.Title)
+                    DialogBuilder.showAPIErrorAlert("We have found another user that matches these details. Please consider choosing a different email address or username.", title: App.Title, forceShow: true)
                     return
                 }
                 
-                DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
             })
         }
     }

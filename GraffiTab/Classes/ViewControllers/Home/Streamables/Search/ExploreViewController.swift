@@ -145,12 +145,12 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     @IBAction func onClickStreetView(sender: AnyObject) {
-        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("StreetViewController")
-        
-        vc.modalPresentationStyle = .Custom
-        vc.transitioningDelegate = self
-        
-        self.presentViewController(vc, animated: true, completion: nil)
+//        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("StreetViewController")
+//        
+//        vc.modalPresentationStyle = .Custom
+//        vc.transitioningDelegate = self
+//        
+//        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     // MARK: - Loading
@@ -176,7 +176,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         }) { (response) -> Void in
             self.finalizeLoad()
             
-            DialogBuilder.showErrorAlert(response.message, title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
         }
     }
     

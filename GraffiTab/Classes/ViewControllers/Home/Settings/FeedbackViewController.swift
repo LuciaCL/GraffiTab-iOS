@@ -45,7 +45,7 @@ class FeedbackViewController: BackButtonTableViewController {
             }) { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
             }
         }
     }

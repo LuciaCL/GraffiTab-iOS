@@ -125,7 +125,7 @@ class PublishViewController: UIViewController {
         let failBlock = { (response: GTResponseObject) in
             self.view.hideActivityView()
             
-            DialogBuilder.showErrorAlert(response.message, title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
         }
         
         if toEdit != nil {
@@ -163,7 +163,7 @@ class PublishViewController: UIViewController {
     // MARK: - Orientation
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [.Portrait, .PortraitUpsideDown]
+        return [.Portrait]
     }
     
     // MARK: - Setup

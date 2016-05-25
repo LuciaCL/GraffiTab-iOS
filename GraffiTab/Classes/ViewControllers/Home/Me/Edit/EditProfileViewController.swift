@@ -81,11 +81,11 @@ class EditProfileViewController: BackButtonTableViewController {
             self.view.hideActivityView()
             
             if response.reason == .BadRequest {
-                DialogBuilder.showErrorAlert("This email is already used by another user.", title: App.Title)
+                DialogBuilder.showAPIErrorAlert("This email is already used by another user.", title: App.Title, forceShow: true)
                 return
             }
             
-            DialogBuilder.showErrorAlert(response.message, title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
         })
     }
     
@@ -121,7 +121,7 @@ class EditProfileViewController: BackButtonTableViewController {
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
                 })
             }
             else {
@@ -133,7 +133,7 @@ class EditProfileViewController: BackButtonTableViewController {
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
                 })
             }
         }
@@ -147,7 +147,7 @@ class EditProfileViewController: BackButtonTableViewController {
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
                 })
             }
             else {
@@ -159,7 +159,7 @@ class EditProfileViewController: BackButtonTableViewController {
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
                 })
             }
         }

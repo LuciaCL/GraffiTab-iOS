@@ -79,11 +79,11 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
             self.view.hideActivityView()
             
             if (response.reason == .BadRequest || response.reason == .AlreadyExists) {
-                DialogBuilder.showErrorAlert("A user with these details already exists.", title: App.Title)
+                DialogBuilder.showAPIErrorAlert("A user with these details already exists.", title: App.Title, forceShow: true)
                 return
             }
             
-            DialogBuilder.showErrorAlert(response.message, title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
         }
     }
     
@@ -106,7 +106,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
                 }, failureBlock: { (response) -> Void in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showErrorAlert(response.message, title: App.Title, okAction: {
+                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true, okAction: {
                         avatarImportHandler()
                     })
                 })
@@ -143,11 +143,11 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
                 self.view.hideActivityView()
                 
                 if (response.reason == .AuthorizationNeeded) {
-                    DialogBuilder.showErrorAlert("Invalid login credentials. Please try again.", title: App.Title)
+                    DialogBuilder.showAPIErrorAlert("Invalid login credentials. Please try again.", title: App.Title, forceShow: true)
                     return
                 }
                 
-                DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
             })
         }
     }
@@ -182,7 +182,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
                     return
                 }
                 
-                DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
             })
         }) { (error: NSError?) -> () in
             self.view.hideActivityView()

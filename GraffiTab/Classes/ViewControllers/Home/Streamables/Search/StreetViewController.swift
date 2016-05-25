@@ -24,6 +24,7 @@ class StreetViewController: UIViewController, MotionDelegate {
     var initialLoad = false
     var items = [GTStreamable]()
     var imageDownloadTasks = [NSURLSessionTask]()
+    var imageViews = [UIImageView]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,12 +106,10 @@ class StreetViewController: UIViewController, MotionDelegate {
             GTStreamableManager.searchForLocation(northEastCorner.latitude, neLongitude: northEastCorner.longitude, swLatitude: southWestCorner.latitude, swLongitude: southWestCorner.longitude, successBlock: {(response) in
                 let listItemsResult = response.object as! GTListItemsResult<GTStreamable>
                 
-                self.items.removeAll()
-                
                 self.processAnnotations(listItemsResult.items!)
                 self.downloadImagesAndRefresh()
             }, failureBlock: {(response) in
-                DialogBuilder.showErrorAlert(response.message, title: App.Title)
+                DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
             })
         }
         else {
@@ -120,10 +119,15 @@ class StreetViewController: UIViewController, MotionDelegate {
     
     func processAnnotations(streamables: [GTStreamable]) {
         for streamable in streamables {
-            if items.contains({
-                $0.id == streamable.id
-            }) == false {
+            if items.contains({$0.id == streamable.id}) == false {
+                let imageView = UIImageView()
+                imageView.contentMode = .ScaleAspectFit
+                imageView.backgroundColor = UIColor.darkGrayColor()
+                imageView.frame = CGRectZero
+                self.view.addSubview(imageView)
+                
                 items.append(streamable)
+                imageViews.append(imageView)
             }
         }
     }
@@ -183,7 +187,42 @@ class StreetViewController: UIViewController, MotionDelegate {
     // MARK: - MotionDelegate
     
     func didReceiveMotionUpdate(pitch: CGFloat, roll: CGFloat, yaw: CGFloat) {
-        
+        for (index, streamable) in items.enumerate() {
+            var imageView = imageViews[index]
+            let viewCenter = self.view.center
+            
+            // Calculate offsets.
+//            let offsetXDegrees = CGFloat(streamable.yaw!) - yaw
+            let offsetYDegrees = CGFloat(streamable.pitch!) - pitch
+//            let offsetZDegrees = CGFloat(streamable.roll!) - roll
+            
+//            print("target=\(streamable.pitch), current=\(pitch), offset=\(offsetYDegrees)")
+            
+            // Apply transformations to the view's frame.
+            var frame = imageView.frame
+            
+            // TODO: Calculate size based on how far the user is from the graffiti.
+            frame.size.width = 100
+            frame.size.height = 100
+            
+            imageView.frame = frame
+            
+            // Calculate position based on x/y offsets.
+            var imageCenter = imageView.center
+            imageCenter.x = /*viewCenter.x - (offsetZDegrees * 2)*/viewCenter.x
+            imageCenter.y = viewCenter.y - (offsetYDegrees * 2)
+            imageView.center = imageCenter
+            
+            // TODO: Calculate 3D rotation based on z offset.
+            
+            break
+        }
+    }
+    
+    // MARK: - Orientation
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [.Portrait]
     }
     
     // MARK: - Setup
