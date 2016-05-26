@@ -110,6 +110,26 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         return user?.id == GTSettings.sharedInstance.user!.id
     }
     
+    // MARK: - Events
+    
+    override func registerForEvents() {
+        super.registerForEvents()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.ownerChangeEventHandler(_:)), name: GTEvents.UserFollowersChanged, object: nil)
+    }
+    
+    override func ownerChangeEventHandler(notification: NSNotification) {
+        super.ownerChangeEventHandler(notification)
+        
+        let u = notification.userInfo!["user"] as! GTUser
+        if self.user!.isEqual(u) {
+            self.user?.softCopy(u)
+            self.header?.item = self.user
+            
+            loadData()
+        }
+    }
+    
     // MARK: - Images
     
     override func didChooseImage(image: UIImage?) {

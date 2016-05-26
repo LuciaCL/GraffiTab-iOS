@@ -40,10 +40,16 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     var viewsVisible = true
     var fullyLoadedThumbnail = false
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        registerForEvents()
         
         setupImageViews()
         setupContainers()
@@ -160,6 +166,46 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     
     func isMe() -> Bool {
         return self.streamable!.user!.id == GTSettings.sharedInstance.user!.id
+    }
+    
+    // MARK: - Events
+    
+    func registerForEvents() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.genericEventHandler(_:)), name: GTEvents.CommentPosted, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.genericEventHandler(_:)), name: GTEvents.CommentDeleted, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.ownerChangeEventHandler(_:)), name: GTEvents.UserAvatarChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.ownerChangeEventHandler(_:)), name: GTEvents.UserProfileChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleStreamableEventHandler(_:)), name: GTEvents.StreamableChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleStreamableEventHandler(_:)), name: GTEvents.StreamableLikesChanged, object: nil)
+    }
+    
+    func ownerChangeEventHandler(notification: NSNotification) {
+        print("DEBUG: Received app event - \(notification)")
+        let user = notification.userInfo!["user"] as! GTUser
+        if streamable!.user!.isEqual(user) {
+            streamable!.user!.softCopy(user)
+            
+            self.loadData()
+            self.loadAvatar()
+        }
+    }
+    
+    func singleStreamableEventHandler(notification: NSNotification) {
+        print("DEBUG: Received app event - \(notification)")
+        let s = notification.userInfo!["streamable"] as! GTStreamable
+        if streamable!.user!.isEqual(s) {
+            streamable!.softCopy(s)
+            
+            self.fullyLoadedThumbnail = false
+            
+            self.loadData()
+            self.loadStreamableImage()
+        }
+    }
+    
+    func genericEventHandler(notification: NSNotification) {
+        print("DEBUG: Received app event - \(notification)")
+        loadData()
     }
     
     // MARK: - Actions
@@ -296,6 +342,8 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
                     let image = response.result.value
                     
                     if response.request?.URLString == self.streamable!.asset!.link! { // Verify we're still loading the current image.
+                        self.fullyLoadedThumbnail = true
+                        
                         UIView.transitionWithView(self.streamableImage.imageView,
                             duration: App.ImageAnimationDuration,
                             options: UIViewAnimationOptions.TransitionCrossDissolve,

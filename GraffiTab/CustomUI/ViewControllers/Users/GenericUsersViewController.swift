@@ -136,7 +136,8 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
     // MARK: - Events
     
     func registerForEvents() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.genericEventHandler(_:)), name: GTEvents.UserAvatarChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleUserEventHandler(_:)), name: GTEvents.UserAvatarChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleUserEventHandler(_:)), name: GTEvents.UserProfileChanged, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleUserEventHandler(_:)), name: GTEvents.UserFollowersChanged, object: nil)
     }
     
@@ -150,11 +151,6 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
                 self.collectionView.reloadItemsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)])
                 }, completion: nil)
         }
-    }
-    
-    func genericEventHandler(notification: NSNotification) {
-        print("DEBUG: Received app event - \(notification)")
-        collectionView.reloadData()
     }
     
     // MARK: - Loading

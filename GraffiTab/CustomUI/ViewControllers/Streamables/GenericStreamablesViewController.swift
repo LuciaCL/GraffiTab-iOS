@@ -215,11 +215,42 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     // MARK: - Events
     
     func registerForEvents() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleStreamableEventHandler(_:)), name: GTEvents.StreamableLikesChanged, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.genericEventHandler(_:)), name: GTEvents.CommentPosted, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.genericEventHandler(_:)), name: GTEvents.CommentChanged, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.genericEventHandler(_:)), name: GTEvents.UserAvatarChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.genericEventHandler(_:)), name: GTEvents.CommentDeleted, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.ownerChangeEventHandler(_:)), name: GTEvents.UserAvatarChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.ownerChangeEventHandler(_:)), name: GTEvents.UserProfileChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.deleteStreamableEventHandler(_:)), name: GTEvents.StreamableDeleted, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleStreamableEventHandler(_:)), name: GTEvents.StreamableChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleStreamableEventHandler(_:)), name: GTEvents.StreamableLikesChanged, object: nil)
+    }
+    
+    func ownerChangeEventHandler(notification: NSNotification) {
+        print("DEBUG: Received app event - \(notification)")
+        let user = notification.userInfo!["user"] as! GTUser
+        for (index, streamable) in items.enumerate() {
+            if streamable.user!.isEqual(user) {
+                streamable.user!.softCopy(user)
+                
+                self.collectionView.performBatchUpdates({
+                    self.collectionView.reloadItemsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)])
+                    }, completion: nil)
+            }
+        }
+    }
+    
+    func deleteStreamableEventHandler(notification: NSNotification) {
+        print("DEBUG: Received app event - \(notification)")
+        let streamableId = notification.userInfo!["streamableId"] as! Int
+        if let index = items.indexOf({$0.id == streamableId}) {
+            self.collectionView.performBatchUpdates({
+                self.items.removeAtIndex(index)
+                self.collectionView.deleteItemsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)])
+                }, completion: {(finished) in
+                    if finished {
+                        self.collectionView.reloadData()
+                    }
+            })
+        }
     }
     
     func singleStreamableEventHandler(notification: NSNotification) {

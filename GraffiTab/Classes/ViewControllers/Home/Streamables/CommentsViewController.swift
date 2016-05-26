@@ -24,10 +24,16 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     var commentToEdit: GTComment?
     var initialLoad = false
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        registerForEvents()
         
         setupTableView()
         setupSlackController()
@@ -60,6 +66,25 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     
     func onClickClose() {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: - Events
+    
+    func registerForEvents() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleUserEventHandler(_:)), name: GTEvents.UserAvatarChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleUserEventHandler(_:)), name: GTEvents.UserProfileChanged, object: nil)
+    }
+    
+    func singleUserEventHandler(notification: NSNotification) {
+        print("DEBUG: Received app event - \(notification)")
+        let u = notification.userInfo!["user"] as! GTUser
+        for (index, comment) in items.enumerate() {
+            if comment.user!.isEqual(u) {
+                comment.user!.softCopy(u)
+                
+                self.tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)], withRowAnimation: .None)
+            }
+        }
     }
     
     // MARK: - Loading

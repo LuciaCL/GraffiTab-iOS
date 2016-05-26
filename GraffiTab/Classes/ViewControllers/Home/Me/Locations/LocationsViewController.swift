@@ -36,6 +36,10 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
         }
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -52,6 +56,8 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        registerForEvents()
         
         setupCollectionView()
         
@@ -147,6 +153,54 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
         layout.itemSize = CGSize(width: width, height: height)
         layout.minimumInteritemSpacing = spacing
         layout.minimumLineSpacing = spacing
+    }
+    
+    // MARK: - Events
+    
+    func registerForEvents() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleLocationEventHandler(_:)), name: GTEvents.LocationChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.deleteLocationEventHandler(_:)), name: GTEvents.LocationDeleted, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.locationCreatedEventHandler(_:)), name: GTEvents.LocationCreated, object: nil)
+    }
+    
+    func singleLocationEventHandler(notification: NSNotification) {
+        print("DEBUG: Received app event - \(notification)")
+        let location = notification.userInfo!["location"] as! GTLocation
+        if let index = items.indexOf(location) {
+            items[index].softCopy(location)
+            
+            self.collectionView.performBatchUpdates({
+                self.collectionView.reloadItemsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)])
+            }, completion: {(finished) in
+                if finished {
+                    self.collectionView.reloadData()
+                }
+            })
+        }
+    }
+    
+    func deleteLocationEventHandler(notification: NSNotification) {
+        print("DEBUG: Received app event - \(notification)")
+        let locationId = notification.userInfo!["locationId"] as! Int
+        if let index = items.indexOf({$0.id == locationId}) {
+            self.collectionView.performBatchUpdates({
+                self.items.removeAtIndex(index)
+                self.collectionView.deleteItemsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)])
+            }, completion: {(finished) in
+                if finished {
+                    self.collectionView.reloadData()
+                }
+            })
+        }
+    }
+    
+    func locationCreatedEventHandler(notification: NSNotification) {
+        print("DEBUG: Received app event - \(notification)")
+        let location = notification.userInfo!["location"] as! GTLocation
+        
+        self.items.append(location)
+        self.collectionView.insertItemsAtIndexPaths([NSIndexPath(forRow: self.items.count - 1, inSection: 0)])
+        self.collectionView.reloadData()
     }
     
     // MARK: - Loading
