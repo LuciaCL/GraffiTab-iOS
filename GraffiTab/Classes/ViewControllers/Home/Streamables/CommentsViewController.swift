@@ -10,6 +10,7 @@ import UIKit
 import GraffiTab_iOS_SDK
 import ObjectMapper
 import CarbonKit
+import Alamofire
 
 class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
 
@@ -17,12 +18,16 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     
     var items = [GTComment]()
     var searchResults = NSMutableArray()
+    var cachedUsers = [GTUser]()
+    var cachedHashtags = [String]()
     var isDownloading = false
     var canLoadMore = true
     var offset = 0
     var streamable: GTStreamable?
     var commentToEdit: GTComment?
     var initialLoad = false
+    var previousUserSearchRequest: Request?
+    var previousHashSearchRequest: Request?
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -321,28 +326,74 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         
         if prefix == "@" {
             if word.characters.count > 0 {
-                GTUserManager.search(word, successBlock: { (response) in
-                    let listItemsResult = response.object as! GTListItemsResult<GTUser>
-                    self.searchResults.addObjectsFromArray(listItemsResult.items!)
+                // Check local cache.
+                let cachedResults = cachedUsers.filter({$0.username!.containsString(word) || $0.getFullName().containsString(word)})
+                self.searchResults.addObjectsFromArray(cachedResults)
+                
+                let show = self.searchResults.count > 0
+                self.showAutoCompletionView(show)
+                
+                if !show {
+                    print("DEBUG: Local search didn't return any results. Fetching results")
+                    // If there are no matches, fetch results.
+                    if previousUserSearchRequest != nil {
+                        previousUserSearchRequest?.cancel()
+                        previousUserSearchRequest = nil
+                    }
                     
-                    let show = (self.searchResults.count > 0)
-                    self.showAutoCompletionView(show)
-                    }, failureBlock: { (response) in
+                    previousUserSearchRequest = GTUserManager.search(word, successBlock: { (response) in
+                        let listItemsResult = response.object as! GTListItemsResult<GTUser>
+                        self.searchResults.addObjectsFromArray(listItemsResult.items!)
                         
-                })
+                        // Add users to cache.
+                        for user in listItemsResult.items! {
+                            if !self.cachedUsers.contains(user) {
+                                self.cachedUsers.append(user)
+                            }
+                        }
+                        
+                        let show = (self.searchResults.count > 0)
+                        self.showAutoCompletionView(show)
+                        }, failureBlock: { (response) in
+                            
+                    })
+                }
             }
         }
         else if prefix == "#" {
             if word.characters.count > 0 {
-                GTStreamableManager.searchHashtags(word, successBlock: { (response) in
-                    let listItemsResult = response.object as! GTListItemsResult<String>
-                    self.searchResults.addObjectsFromArray(listItemsResult.items!)
+                // Check local cache.
+                let cachedResults = cachedHashtags.filter({$0.containsString(word)})
+                self.searchResults.addObjectsFromArray(cachedResults)
+                
+                let show = self.searchResults.count > 0
+                self.showAutoCompletionView(show)
+                
+                if !show {
+                    print("DEBUG: Local search didn't return any results. Fetching results")
+                    // If there are no matches, fetch results.
+                    if previousHashSearchRequest != nil {
+                        previousHashSearchRequest?.cancel()
+                        previousHashSearchRequest = nil
+                    }
                     
-                    let show = (self.searchResults.count > 0)
-                    self.showAutoCompletionView(show)
-                    }, failureBlock: { (response) in
+                    previousHashSearchRequest = GTStreamableManager.searchHashtags(word, successBlock: { (response) in
+                        let listItemsResult = response.object as! GTListItemsResult<String>
+                        self.searchResults.addObjectsFromArray(listItemsResult.items!)
                         
-                })
+                        // Add hashtags to cache.
+                        for hashtag in listItemsResult.items! {
+                            if !self.cachedHashtags.contains(hashtag) {
+                                self.cachedHashtags.append(hashtag)
+                            }
+                        }
+                        
+                        let show = (self.searchResults.count > 0)
+                        self.showAutoCompletionView(show)
+                        }, failureBlock: { (response) in
+                            
+                    })
+                }
             }
         }
     }

@@ -217,14 +217,14 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     func registerForEvents() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.genericEventHandler(_:)), name: GTEvents.CommentPosted, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.genericEventHandler(_:)), name: GTEvents.CommentDeleted, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.ownerChangeEventHandler(_:)), name: GTEvents.UserAvatarChanged, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.ownerChangeEventHandler(_:)), name: GTEvents.UserProfileChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.avatarChangeEventHandler(_:)), name: GTEvents.UserAvatarChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.profileChangeEventHandler(_:)), name: GTEvents.UserProfileChanged, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.deleteStreamableEventHandler(_:)), name: GTEvents.StreamableDeleted, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleStreamableEventHandler(_:)), name: GTEvents.StreamableChanged, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleStreamableEventHandler(_:)), name: GTEvents.StreamableLikesChanged, object: nil)
     }
     
-    func ownerChangeEventHandler(notification: NSNotification) {
+    func profileChangeEventHandler(notification: NSNotification) {
         print("DEBUG: Received app event - \(notification)")
         let user = notification.userInfo!["user"] as! GTUser
         for (index, streamable) in items.enumerate() {
@@ -236,6 +236,10 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
                     }, completion: nil)
             }
         }
+    }
+    
+    func avatarChangeEventHandler(notification: NSNotification) {
+        profileChangeEventHandler(notification)
     }
     
     func deleteStreamableEventHandler(notification: NSNotification) {

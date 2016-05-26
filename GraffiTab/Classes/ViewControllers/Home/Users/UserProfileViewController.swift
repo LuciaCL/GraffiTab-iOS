@@ -115,15 +115,23 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     override func registerForEvents() {
         super.registerForEvents()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.ownerChangeEventHandler(_:)), name: GTEvents.UserFollowersChanged, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.profileChangeEventHandler(_:)), name: GTEvents.UserFollowersChanged, object: nil)
     }
     
-    override func ownerChangeEventHandler(notification: NSNotification) {
-        super.ownerChangeEventHandler(notification)
+    override func profileChangeEventHandler(notification: NSNotification) {
+        super.profileChangeEventHandler(notification)
         
         let u = notification.userInfo!["user"] as! GTUser
         if self.user!.isEqual(u) {
+            let streamablesCount = self.user?.streamablesCount
+            let followersCount = self.user?.followersCount
+            let followingCount = self.user?.followingCount
+            
             self.user?.softCopy(u)
+            self.user?.streamablesCount = streamablesCount
+            self.user?.followersCount = followersCount
+            self.user?.followingCount = followingCount
+            
             self.header?.item = self.user
             
             loadData()
