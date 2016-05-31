@@ -402,7 +402,16 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
             return clusterView
         }
         else if annotation.isKindOfClass(StreamableAnnotation) {
-            return (annotation as! StreamableAnnotation).annotationViewInMap(mapView)
+            let thumbnailAnnotation = (annotation as! StreamableAnnotation).annotationViewInMap(mapView)
+            
+            for view in thumbnailAnnotation.subviews {
+                if view.isKindOfClass(UIImageView) {
+                    (view as? UIImageView)?.contentMode = .ScaleAspectFill
+                    (view as? UIImageView)?.clipsToBounds = true
+                }
+            }
+            
+            return thumbnailAnnotation
         }
         
         return nil
