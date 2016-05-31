@@ -193,7 +193,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     func singleStreamableEventHandler(notification: NSNotification) {
         print("DEBUG: Received app event - \(notification)")
         let s = notification.userInfo!["streamable"] as! GTStreamable
-        if streamable!.user!.isEqual(s) {
+        if streamable!.isEqual(s) {
             streamable!.softCopy(s)
             
             self.fullyLoadedThumbnail = false

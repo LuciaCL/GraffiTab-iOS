@@ -188,7 +188,7 @@
     CCDirector *director = [CCDirector sharedDirector];
     
     // Set up some common director properties.
-    [director setAnimationInterval:1.0f/60.0f];
+    [director setAnimationInterval:1.0f/1.0f];
 }
 
 @end

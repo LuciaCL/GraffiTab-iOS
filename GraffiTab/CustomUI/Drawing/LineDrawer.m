@@ -293,6 +293,8 @@ typedef struct {
 
 - (void)undo {
     if (undos.count > 0) {
+        [self resumeDirector];
+        
         CCRenderTexture *previous = undos.lastObject;
         previous.position = ccp(-0.5, -0.5);
         previous.anchorPoint = ccp(-0.5, -0.5);
@@ -303,6 +305,8 @@ typedef struct {
         [renderTexture end];
         
         [undos removeLastObject];
+        
+        [self pauseDirector];
     }
 }
 
@@ -628,7 +632,21 @@ typedef struct {
 
 #pragma mark Getting access to the touches of the Pan gesture to work out if they have force values
 
+- (void)pauseDirector {
+    // Update the FPS.
+    CCDirector *director = [CCDirector sharedDirector];
+    [director setAnimationInterval:1.0f/1.0f];
+}
+
+- (void)resumeDirector {
+    // Update the FPS.
+    CCDirector *director = [CCDirector sharedDirector];
+    [director setAnimationInterval:1.0f/30.0f];
+}
+
 - (void) gestureRecognizer:(UIGestureRecognizer *)gr beganWithTouches:(NSSet<UITouch*>*)touches andEvent:(UIEvent *)event {
+    [self resumeDirector];
+    
     if (_delegate != nil && [_delegate respondsToSelector:@selector(didInteractWithCanvas)])
         [_delegate didInteractWithCanvas];
     
@@ -757,6 +775,8 @@ typedef struct {
 }
 
 - (void) gestureRecognizer:(UIGestureRecognizer *)gr endedWithTouches:(NSSet<UITouch*>*)touches andEvent:(UIEvent *)event {
+    [self pauseDirector];
+    
     if (touches.count > ((UIPanGestureRecognizer *)gr).maximumNumberOfTouches) {
         return;
     }
