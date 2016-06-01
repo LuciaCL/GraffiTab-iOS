@@ -28,6 +28,8 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
 
         // Do any additional setup after loading the view.
         
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        
         setupTableView()
         
         pullToRefresh.startRefreshing()
