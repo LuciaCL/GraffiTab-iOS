@@ -18,7 +18,7 @@ enum ImageType {
 class EditProfileViewController: BackButtonTableViewController {
 
     @IBOutlet weak var avatar: AvatarImageView!
-    @IBOutlet weak var cover: UIImageView!
+    @IBOutlet weak var cover: CoverImageView!
     @IBOutlet weak var firstnameField: UILabel!
     @IBOutlet weak var lastnameField: UILabel!
     @IBOutlet weak var emailField: UILabel!
@@ -186,22 +186,11 @@ class EditProfileViewController: BackButtonTableViewController {
     }
     
     func loadAvatar() {
-        self.avatar.user = user
+        self.avatar.asset = user.avatar
     }
     
     func loadCover() {
-        if user.cover != nil {
-            cover.image = nil
-            
-            Alamofire.request(.GET, user.cover!.thumbnail!)
-                .responseImage { response in
-                    let image = response.result.value
-                    self.cover.image = image
-            }
-        }
-        else {
-            cover.image = nil
-        }
+        self.cover.asset = user.cover
     }
     
     // MARK: - Navigation

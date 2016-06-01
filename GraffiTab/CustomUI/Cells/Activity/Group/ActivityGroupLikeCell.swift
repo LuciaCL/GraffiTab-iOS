@@ -36,6 +36,6 @@ class ActivityGroupLikeCell: ActivityGroupCell {
         let streamable = item!.activities![index].likedStreamable
         
         let thumbnail = view as? StreamableImageView
-        thumbnail?.streamable = streamable
+        thumbnail?.asset = streamable!.asset
     }
 }

@@ -36,6 +36,6 @@ class ActivityGroupCommentCell: ActivityGroupCell {
         let streamable = item!.activities![index].commentedStreamable
         
         let thumbnail = view as? StreamableImageView
-        thumbnail?.streamable = streamable
+        thumbnail?.asset = streamable!.asset
     }
 }

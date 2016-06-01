@@ -86,7 +86,7 @@ class CommentCell: UITableViewCell {
             textLblTrailingConstraint.constant = 8
         }
         
-        self.avatar.user = item!.user
+        self.avatar.asset = item!.user!.avatar
     }
     
     func onClickErrorView() {

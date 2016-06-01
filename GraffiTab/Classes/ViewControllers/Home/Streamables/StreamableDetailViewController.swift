@@ -313,7 +313,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     func loadAvatar() {
-        self.avatar.user = streamable?.user
+        self.avatar.asset = streamable!.user!.avatar
     }
     
     func loadStreamableImage() {

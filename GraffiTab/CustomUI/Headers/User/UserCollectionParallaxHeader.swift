@@ -29,7 +29,7 @@ protocol UserHeaderDelegate {
 
 class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate, iCarouselDataSource {
 
-    @IBOutlet weak var cover: UIImageView!
+    @IBOutlet weak var cover: CoverImageView!
     @IBOutlet weak var avatar: AvatarImageView!
     @IBOutlet weak var carousel: iCarousel!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -155,32 +155,11 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
     // MARK: - Loading
     
     func loadAvatar() {
-        self.avatar.user = item
+        self.avatar.asset = item!.avatar
     }
     
     func loadCover() {
-        if item?.cover != nil {
-            Alamofire.request(.GET, item!.cover!.link!)
-                .responseImage { response in
-                    let image = response.result.value
-                    
-                    if self.item!.cover == nil {
-                        return
-                    }
-                    
-                    if response.request?.URLString == self.item!.cover!.link! { // Verify we're still loading the current image.
-                        if image != nil {
-                            self.cover.image = image
-                        }
-                        else {
-                            self.cover.image = UIImage(named: "grafitab_login")
-                        }
-                    }
-            }
-        }
-        else {
-            self.cover.image = UIImage(named: "grafitab_login")
-        }
+        self.cover.asset = item!.cover
     }
     
     // MARK: - iCarouselDelegate
@@ -245,7 +224,8 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
     func setupImageViews() {
         avatar.layer.borderColor = UIColor.whiteColor().CGColor
         avatar.layer.borderWidth = 3
-        avatar.shouldLoadFullAvatar = true
+        avatar.shouldLoadFullAsset = true
+        cover.shouldLoadFullAsset = true
     }
     
     func setupCarousel() {

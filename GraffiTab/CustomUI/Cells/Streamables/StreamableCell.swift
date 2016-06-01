@@ -100,12 +100,12 @@ class StreamableCell: UICollectionViewCell {
     // MARK: - Loading
     
     func loadImage() {
-        thumbnail.streamable = item
+        thumbnail.asset = item!.asset
     }
     
     func loadAvatar() {
         if avatar != nil {
-            avatar.user = item?.user
+            avatar.asset = item!.user!.avatar
         }
     }
     

@@ -66,7 +66,7 @@ class NotificationCell: UITableViewCell {
         let streamable = getActionStreamable()
         
         if streamable != nil {
-            streamableThumbnail.streamable = streamable
+            streamableThumbnail.asset = streamable!.asset
         }
     }
     
@@ -74,7 +74,7 @@ class NotificationCell: UITableViewCell {
         let user = getActionUser()
         
         if user != nil {
-            self.avatar.user = user
+            self.avatar.asset = user!.avatar
         }
     }
     

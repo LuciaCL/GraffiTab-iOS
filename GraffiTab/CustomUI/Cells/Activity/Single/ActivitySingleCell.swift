@@ -64,7 +64,7 @@ class ActivitySingleCell: UITableViewCell {
         let streamable = getActionStreamable()
         
         if streamable != nil {
-            self.streamableThumbnail.streamable = streamable
+            self.streamableThumbnail.asset = streamable!.asset
         }
     }
     
@@ -72,7 +72,7 @@ class ActivitySingleCell: UITableViewCell {
         let user = item?.user
         
         if user != nil {
-            self.avatar.user = user
+            self.avatar.asset = user!.avatar
         }
     }
     
@@ -80,7 +80,7 @@ class ActivitySingleCell: UITableViewCell {
         let user = getSecondaryUser()
         
         if user != nil {
-            self.secondaryAvatar.user = user
+            self.secondaryAvatar.asset = user!.avatar
         }
     }
     

@@ -30,7 +30,7 @@ class UserCell: UICollectionViewCell {
     }
     
     func setItem() {
-        self.avatar.user = item
+        self.avatar.asset = item!.avatar
     }
     
     @IBAction func onClickFollow(sender: AnyObject) {

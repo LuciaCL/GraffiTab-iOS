@@ -1,8 +1,8 @@
 //
-//  AvatarImageView.swift
+//  AssetImageView.swift
 //  GraffiTab
 //
-//  Created by Georgi Christov on 16/04/2016.
+//  Created by Georgi Christov on 01/06/2016.
 //  Copyright © 2016 GraffiTab. All rights reserved.
 //
 
@@ -10,16 +10,16 @@ import UIKit
 import Alamofire
 import GraffiTab_iOS_SDK
 
-class AvatarImageView: UIImageView {
-
-    var shouldLoadFullAvatar: Bool = false
-    var previousUser: GTUser?
-    var previousUserRequest: Request?
-    var user: GTUser? {
+class AssetImageView: UIImageView {
+    
+    var shouldLoadFullAsset: Bool = false
+    var previousAsset: GTAsset?
+    var previousAssetRequest: Request?
+    var asset: GTAsset? {
         didSet {
             loadImages()
             
-            previousUser = user
+            previousAsset = asset
         }
     }
     
@@ -35,59 +35,49 @@ class AvatarImageView: UIImageView {
         basicInit()
     }
     
-    override var image: UIImage? {
-        didSet {
-            basicInit()
-        }
-    }
-    
     func basicInit() {
-        if self.image == nil {
-            self.image = getClearAvatarImage()
-        }
         
-        self.layer.cornerRadius = 5
     }
     
     // MARK: - Loading
     
     func loadImages() {
-        if user?.avatar == nil {
+        if asset == nil {
             self.image = nil
-            previousUserRequest?.cancel()
+            previousAssetRequest?.cancel()
         }
-        else if previousUser != nil && previousUser!.id != user?.id {
+        else if previousAsset != nil && previousAsset!.guid != asset?.guid {
             self.image = nil
-            previousUserRequest?.cancel()
+            previousAssetRequest?.cancel()
         }
         
-        if user?.avatar != nil {
-            previousUserRequest = Alamofire.request(.GET, user!.avatar!.thumbnail!)
+        if asset != nil {
+            previousAssetRequest = Alamofire.request(.GET, asset!.thumbnail!)
                 .responseImage { response in
                     let image = response.result.value != nil ? response.result.value : nil
                     
-                    let targetUrl = self.user != nil && self.user!.avatar!.thumbnail != nil ? self.user!.avatar!.thumbnail! : ""
+                    let targetUrl = self.asset != nil ? self.asset!.thumbnail! : ""
                     self.finishLoadingImage(response.request!.URLString, targetUrl: targetUrl, image: image, completionHandler: { (imageSet: Bool) in
-                        if imageSet && self.shouldLoadFullAvatar {
-                            self.loadFullAvatar()
+                        if imageSet && self.shouldLoadFullAsset {
+                            self.loadFullAsset()
                         }
                     })
             }
         }
     }
     
-    func loadFullAvatar() {
-        previousUserRequest = Alamofire.request(.GET, user!.avatar!.link!)
+    func loadFullAsset() {
+        previousAssetRequest = Alamofire.request(.GET, asset!.link!)
             .responseImage { response in
                 let image = response.result.value != nil ? response.result.value : nil
                 
-                let targetUrl = self.user != nil && self.user!.avatar!.link != nil ? self.user!.avatar!.link! : ""
+                let targetUrl = self.asset != nil ? self.asset!.link! : ""
                 self.finishLoadingImage(response.request!.URLString, targetUrl: targetUrl, image: image, completionHandler: nil)
         }
     }
     
     func finishLoadingImage(url: String, targetUrl: String, image: UIImage?, completionHandler: ((imageSet: Bool) -> ())?) {
-        if self.user == nil || self.user!.avatar == nil {
+        if self.asset == nil {
             self.image = nil
             
             if completionHandler != nil {
@@ -101,11 +91,5 @@ class AvatarImageView: UIImageView {
                 completionHandler!(imageSet: true)
             }
         }
-    }
-    
-    // MARK: - Default image loading
-    
-    func getClearAvatarImage() -> UIImage {
-        return UIImage(named: "default_avatar")!
     }
 }

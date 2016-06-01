@@ -31,6 +31,6 @@ class AutocompleteUserCell: UITableViewCell {
         self.nameField.text = item!.getFullName()
         self.usernameField.text = item!.getMentionUsername()
         
-        self.avatar.user = item
+        self.avatar.asset = item!.avatar
     }
 }

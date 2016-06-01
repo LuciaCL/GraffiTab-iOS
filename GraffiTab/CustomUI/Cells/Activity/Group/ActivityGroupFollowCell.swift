@@ -36,6 +36,6 @@ class ActivityGroupFollowCell: ActivityGroupCell {
         let user = item!.activities![index].followed
         
         let avatar = view as? AvatarImageView
-        avatar?.user = user
+        avatar?.asset = user!.avatar
     }
 }

@@ -91,7 +91,7 @@ class StreamableListFullCell: StreamableCell {
     // MARK: - Setup
     
     func setupImageViews() {
-        thumbnail.shouldLoadFullStreamable = true
+        thumbnail.shouldLoadFullAsset = true
     }
     
     func setupContainerViews() {
