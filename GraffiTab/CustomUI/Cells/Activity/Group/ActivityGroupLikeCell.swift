@@ -35,13 +35,7 @@ class ActivityGroupLikeCell: ActivityGroupCell {
     override func loadImageForCollectionIndex(index: Int, view: UIImageView) {
         let streamable = item!.activities![index].likedStreamable
         
-        Alamofire.request(.GET, streamable!.asset!.thumbnail!)
-            .responseImage { response in
-                let image = response.result.value
-                
-                if response.request?.URLString == streamable!.asset!.thumbnail! { // Verify we're still loading the current image.
-                    view.image = image
-                }
-        }
+        let thumbnail = view as? StreamableImageView
+        thumbnail?.streamable = streamable
     }
 }

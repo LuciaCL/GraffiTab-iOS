@@ -1,8 +1,8 @@
 //
-//  AvatarImageView.swift
+//  StreamableImageView.swift
 //  GraffiTab
 //
-//  Created by Georgi Christov on 16/04/2016.
+//  Created by Georgi Christov on 01/06/2016.
 //  Copyright © 2016 GraffiTab. All rights reserved.
 //
 
@@ -10,16 +10,16 @@ import UIKit
 import Alamofire
 import GraffiTab_iOS_SDK
 
-class AvatarImageView: UIImageView {
-
-    var shouldLoadFullAvatar: Bool = false
-    var previousUser: GTUser?
-    var previousUserRequest: Request?
-    var user: GTUser? {
+class StreamableImageView: UIImageView {
+    
+    var shouldLoadFullStreamable: Bool = false
+    var previousStreamable: GTStreamable?
+    var previousStreamableRequest: Request?
+    var streamable: GTStreamable? {
         didSet {
             loadImages()
             
-            previousUser = user
+            previousStreamable = streamable
         }
     }
     
@@ -42,50 +42,47 @@ class AvatarImageView: UIImageView {
     }
     
     func basicInit() {
-        if self.image == nil {
-            self.image = getClearAvatarImage()
-        }
         
-        self.layer.cornerRadius = 5
     }
     
     // MARK: - Loading
     
     func loadImages() {
-        if user?.avatar == nil {
+        if streamable?.asset == nil {
             self.image = nil
-            previousUserRequest?.cancel()
+            previousStreamableRequest?.cancel()
         }
-        else if previousUser != nil && previousUser!.id != user?.id {
+        else if previousStreamable != nil && previousStreamable!.id != streamable?.id {
             self.image = nil
-            previousUserRequest?.cancel()
+            previousStreamableRequest?.cancel()
         }
         
-        if user?.avatar != nil {
-            previousUserRequest = Alamofire.request(.GET, user!.avatar!.thumbnail!)
+        if streamable?.asset != nil {
+            previousStreamableRequest = Alamofire.request(.GET, streamable!.asset!.thumbnail!)
                 .responseImage { response in
                     let image = response.result.value
                     
-                    self.finishLoadingImage(response.request!.URLString, targetUrl: self.user!.avatar!.thumbnail!, image: image!, completionHandler: { (imageSet: Bool) in
-                        if imageSet && self.shouldLoadFullAvatar {
-                            self.loadFullAvatar()
+                    self.finishLoadingImage(response.request!.URLString, targetUrl: self.streamable!.asset!.thumbnail!, image: image!, completionHandler: { (imageSet: Bool) in
+                        if imageSet && self.shouldLoadFullStreamable {
+                            self.loadFullStreamable()
                         }
                     })
             }
         }
     }
     
-    func loadFullAvatar() {
-        previousUserRequest = Alamofire.request(.GET, user!.avatar!.link!)
+    func loadFullStreamable() {
+        print("FULL STREAMABLE")
+        previousStreamableRequest = Alamofire.request(.GET, streamable!.asset!.link!)
             .responseImage { response in
                 let image = response.result.value
                 
-                self.finishLoadingImage(response.request!.URLString, targetUrl: self.user!.avatar!.link!, image: image!, completionHandler: nil)
+                self.finishLoadingImage(response.request!.URLString, targetUrl: self.streamable!.asset!.link!, image: image!, completionHandler: nil)
         }
     }
     
     func finishLoadingImage(url: String, targetUrl: String, image: UIImage, completionHandler: ((imageSet: Bool) -> ())?) {
-        if self.user!.avatar == nil {
+        if self.streamable!.asset == nil {
             self.image = nil
             
             if completionHandler != nil {
@@ -99,11 +96,5 @@ class AvatarImageView: UIImageView {
                 completionHandler!(imageSet: true)
             }
         }
-    }
-    
-    // MARK: - Default image loading
-    
-    func getClearAvatarImage() -> UIImage {
-        return UIImage(named: "default_avatar")!
     }
 }

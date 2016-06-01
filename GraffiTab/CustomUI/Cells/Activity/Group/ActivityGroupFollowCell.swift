@@ -35,15 +35,7 @@ class ActivityGroupFollowCell: ActivityGroupCell {
     override func loadImageForCollectionIndex(index: Int, view: UIImageView) {
         let user = item!.activities![index].followed
         
-        if user!.avatar != nil {
-            Alamofire.request(.GET, (user!.avatar?.thumbnail)!)
-                .responseImage { response in
-                    let image = response.result.value
-                    
-                    if response.request?.URLString == user!.avatar?.thumbnail! { // Verify we're still loading the current image.
-                        view.image = image
-                    }
-            }
-        }
+        let avatar = view as? AvatarImageView
+        avatar?.user = user
     }
 }

@@ -28,17 +28,13 @@ class CommentCell: UITableViewCell {
     @IBOutlet weak var textLbl: ActiveLabel!
     @IBOutlet weak var textLblTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var dateLbl: UILabel!
-    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var avatar: AvatarImageView!
     @IBOutlet weak var errorView: UIImageView!
     
     var delegate: MessageDelegate?
-    var previousItem: GTComment?
-    var previousItemRequest: Request?
     var item: GTComment? {
         didSet {
             setItem()
-            
-            previousItem = item
         }
     }
     
@@ -86,7 +82,7 @@ class CommentCell: UITableViewCell {
             textLblTrailingConstraint.constant = 8
         }
         
-        loadAvatar()
+        self.avatar.user = item!.user
     }
     
     func onClickErrorView() {
@@ -98,33 +94,6 @@ class CommentCell: UITableViewCell {
     func onClickAvatar() {
         if delegate != nil {
             delegate?.didTapAvatar(item!.user!)
-        }
-    }
-    
-    // MARK: - Loading
-    
-    func loadAvatar() {
-        if item?.user?.avatar == nil {
-            avatar.image = nil
-            previousItemRequest?.cancel()
-        }
-        else if previousItem != nil && previousItem!.user?.id != item?.user?.id {
-            avatar.image = nil
-            previousItemRequest?.cancel()
-        }
-        
-        if item!.user!.avatar != nil {
-            previousItemRequest = Alamofire.request(.GET, item!.user!.avatar!.thumbnail!)
-                .responseImage { response in
-                    let image = response.result.value
-                    
-                    if self.item!.user!.avatar == nil {
-                        self.avatar.image = nil
-                    }
-                    else if response.request?.URLString == self.item?.user!.avatar?.thumbnail! { // Verify we're still loading the current image.
-                        self.avatar.image = image
-                    }
-            }
         }
     }
     

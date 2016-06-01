@@ -15,9 +15,9 @@ class ActivitySingleCell: UITableViewCell {
     @IBOutlet var dateField: UILabel!
     @IBOutlet var timelineTopView: UIView!
     @IBOutlet var timelineBottomView: UIView!
-    @IBOutlet weak var avatar: UIImageView!
-    @IBOutlet weak var secondaryAvatar: UIImageView!
-    @IBOutlet weak var streamableThumbnail: UIImageView!
+    @IBOutlet weak var avatar: AvatarImageView!
+    @IBOutlet weak var secondaryAvatar: AvatarImageView!
+    @IBOutlet weak var streamableThumbnail: StreamableImageView!
     @IBOutlet weak var notificationField: UILabel!
     
     var item: GTActivityContainer?
@@ -64,32 +64,15 @@ class ActivitySingleCell: UITableViewCell {
         let streamable = getActionStreamable()
         
         if streamable != nil {
-            streamableThumbnail.image = nil
-            
-            Alamofire.request(.GET, (streamable?.asset?.thumbnail)!)
-                .responseImage { response in
-                    let image = response.result.value
-                    
-                    if response.request?.URLString == streamable?.asset?.thumbnail { // Verify we're still loading the current image.
-                        self.streamableThumbnail.image = image
-                    }
-            }
+            self.streamableThumbnail.streamable = streamable
         }
     }
     
     func loadAvatar() {
         let user = item?.user
-        avatar.image = nil
         
-        if user != nil && user!.avatar != nil {
-            Alamofire.request(.GET, (user!.avatar?.thumbnail)!)
-                .responseImage { response in
-                    let image = response.result.value
-                    
-                    if response.request?.URLString == user!.avatar?.thumbnail! { // Verify we're still loading the current image.
-                        self.avatar.image = image
-                    }
-            }
+        if user != nil {
+            self.avatar.user = user
         }
     }
     
@@ -97,18 +80,7 @@ class ActivitySingleCell: UITableViewCell {
         let user = getSecondaryUser()
         
         if user != nil {
-            secondaryAvatar.image = nil
-            
-            if user!.avatar != nil {
-                Alamofire.request(.GET, (user!.avatar?.thumbnail)!)
-                    .responseImage { response in
-                        let image = response.result.value
-                        
-                        if response.request?.URLString == user!.avatar?.thumbnail! { // Verify we're still loading the current image.
-                            self.secondaryAvatar.image = image
-                        }
-                }
-            }
+            self.secondaryAvatar.user = user
         }
     }
     

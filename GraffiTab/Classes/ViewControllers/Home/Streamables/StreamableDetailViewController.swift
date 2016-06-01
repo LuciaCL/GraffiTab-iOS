@@ -25,7 +25,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     @IBOutlet weak var streamableImage: ZoomableImageView!
     @IBOutlet weak var topMenu: UIView!
     @IBOutlet weak var bottomMenu: UIView!
-    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var avatar: AvatarImageView!
     @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var usernameField: UILabel!
     @IBOutlet weak var likesContainer: UIView!
@@ -313,24 +313,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     func loadAvatar() {
-        avatar.image = nil
-        
-        if streamable?.user?.avatar != nil {
-            Alamofire.request(.GET, streamable!.user!.avatar!.thumbnail!)
-                .responseImage { response in
-                    let image = response.result.value
-                    
-                    if response.request?.URLString == self.streamable?.user!.avatar!.thumbnail! { // Verify we're still loading the current image.
-                        UIView.transitionWithView(self.avatar,
-                            duration: App.ImageAnimationDuration,
-                            options: UIViewAnimationOptions.TransitionCrossDissolve,
-                            animations: {
-                                self.avatar.image = image
-                            },
-                            completion: nil)
-                    }
-            }
-        }
+        self.avatar.user = streamable?.user
     }
     
     func loadStreamableImage() {
@@ -344,13 +327,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
                     if response.request?.URLString == self.streamable!.asset!.link! { // Verify we're still loading the current image.
                         self.fullyLoadedThumbnail = true
                         
-                        UIView.transitionWithView(self.streamableImage.imageView,
-                            duration: App.ImageAnimationDuration,
-                            options: UIViewAnimationOptions.TransitionCrossDissolve,
-                            animations: {
-                                self.streamableImage.imageView.image = image
-                            },
-                            completion: nil)
+                        self.streamableImage.imageView.image = image
                     }
             }
         }

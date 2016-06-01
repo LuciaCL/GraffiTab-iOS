@@ -24,8 +24,8 @@ protocol StreamableDelegate {
 
 class StreamableCell: UICollectionViewCell {
     
-    @IBOutlet weak var avatar: UIImageView!
-    @IBOutlet weak var thumbnail: UIImageView!
+    @IBOutlet weak var avatar: AvatarImageView!
+    @IBOutlet weak var thumbnail: StreamableImageView!
     
     var delegate: StreamableDelegate?
     var previousItem: GTStreamable?
@@ -99,45 +99,12 @@ class StreamableCell: UICollectionViewCell {
     // MARK: - Loading
     
     func loadImage() {
-        if previousItem?.id != item?.id {
-            thumbnail.image = nil
-            previousItemRequest?.cancel()
-        }
-        
-        previousItemRequest = Alamofire.request(.GET, getStreamableImageUrl())
-            .responseImage { response in
-                let image = response.result.value
-                
-                if response.request?.URLString == self.getStreamableImageUrl() { // Verify we're still loading the current image.
-                    self.thumbnail.image = image
-                }
-        }
+        thumbnail.streamable = item
     }
     
     func loadAvatar() {
         if avatar != nil {
-            if item?.user?.avatar == nil {
-                avatar.image = nil
-                previousAvatarRequest?.cancel()
-            }
-            else if previousItem != nil && previousItem!.user?.id != item?.user?.id {
-                avatar.image = nil
-                previousAvatarRequest?.cancel()
-            }
-            
-            if item?.user?.avatar != nil {
-                previousAvatarRequest = Alamofire.request(.GET, (item?.user!.avatar?.thumbnail)!)
-                    .responseImage { response in
-                        let image = response.result.value
-                        
-                        if self.item!.user!.avatar == nil {
-                            self.avatar.image = nil
-                        }
-                        else if response.request?.URLString == self.item?.user!.avatar?.thumbnail! { // Verify we're still loading the current image.
-                            self.avatar.image = image
-                        }
-                }
-            }
+            avatar.user = item?.user
         }
     }
     

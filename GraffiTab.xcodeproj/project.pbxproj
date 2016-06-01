@@ -347,6 +347,8 @@
 		E5DFDC1A1CB2C5D900BB3D27 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC191CB2C5D900BB3D27 /* OpenGLES.framework */; };
 		E5DFDC1C1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */; };
 		E5DFDC1D1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E5FE1D731CFE5697009CFB72 /* StreamableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D721CFE5697009CFB72 /* StreamableImageView.swift */; };
+		E5FE1D741CFE5697009CFB72 /* StreamableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D721CFE5697009CFB72 /* StreamableImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -624,6 +626,7 @@
 		E5DFDC171CB2C5D100BB3D27 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E5DFDC191CB2C5D900BB3D27 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS-SDK/_Archive/iOS/Debug/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
+		E5FE1D721CFE5697009CFB72 /* StreamableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1355,6 +1358,7 @@
 				E5B6B62D1CC64D4400DC8EFC /* ColorSprayCan.swift */,
 				E5DFDBF81CB2C31B00BB3D27 /* TintImageView.swift */,
 				E5B6B54B1CC25A0E00DC8EFC /* AvatarImageView.swift */,
+				E5FE1D721CFE5697009CFB72 /* StreamableImageView.swift */,
 			);
 			path = ImageViews;
 			sourceTree = "<group>";
@@ -1829,6 +1833,7 @@
 				E584326B1CE9242000FB1E50 /* AppDelegate.swift in Sources */,
 				E584326C1CE9242000FB1E50 /* MenuContainerViewController.swift in Sources */,
 				E55452F41CF3586F0076CEC9 /* GoogleStaticApiUtils.swift in Sources */,
+				E5FE1D741CFE5697009CFB72 /* StreamableImageView.swift in Sources */,
 				E584326D1CE9242000FB1E50 /* GridStreamablesViewController.swift in Sources */,
 				E584326E1CE9242000FB1E50 /* GeneralSettingsViewController.swift in Sources */,
 				E584326F1CE9242000FB1E50 /* BackButtonViewController.swift in Sources */,
@@ -1960,6 +1965,7 @@
 				E5DFDBD61CB2BF9E00BB3D27 /* AppDelegate.swift in Sources */,
 				E5B6B5B91CC56F5800DC8EFC /* MenuContainerViewController.swift in Sources */,
 				E55452F31CF3586F0076CEC9 /* GoogleStaticApiUtils.swift in Sources */,
+				E5FE1D731CFE5697009CFB72 /* StreamableImageView.swift in Sources */,
 				E51006331CB71EB200AC66A5 /* GridStreamablesViewController.swift in Sources */,
 				E5B6B5C71CC56F5800DC8EFC /* GeneralSettingsViewController.swift in Sources */,
 				E5DFDC081CB2C31B00BB3D27 /* BackButtonViewController.swift in Sources */,
@@ -2436,7 +2442,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "abe7d2bf-b5d5-40c5-90b4-db38455dcd42";
+				PROVISIONING_PROFILE = "fe0669c4-3b3b-409c-8c17-c932697c2a95";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2540,7 +2546,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "abe7d2bf-b5d5-40c5-90b4-db38455dcd42";
+				PROVISIONING_PROFILE = "fe0669c4-3b3b-409c-8c17-c932697c2a95";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

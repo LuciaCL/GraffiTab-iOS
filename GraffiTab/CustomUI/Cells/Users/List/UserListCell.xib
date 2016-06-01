@@ -73,7 +73,7 @@
                 <outlet property="nameField" destination="da4-u5-XR3" id="IUI-c3-lo6"/>
                 <outlet property="usernameField" destination="vQH-Wb-zK4" id="L0h-Py-tLW"/>
             </connections>
-            <point key="canvasLocation" x="314" y="498"/>
+            <point key="canvasLocation" x="129" y="444"/>
         </collectionViewCell>
     </objects>
     <resources>

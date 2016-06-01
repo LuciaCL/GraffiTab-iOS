@@ -16,8 +16,8 @@ class NotificationCell: UITableViewCell {
     @IBOutlet var unreadIndicator: UIView!
     @IBOutlet var timelineTopView: UIView!
     @IBOutlet var timelineBottomView: UIView!
-    @IBOutlet weak var avatar: UIImageView!
-    @IBOutlet weak var streamableThumbnail: UIImageView!
+    @IBOutlet weak var avatar: AvatarImageView!
+    @IBOutlet weak var streamableThumbnail: StreamableImageView!
     @IBOutlet weak var notificationField: UILabel!
     
     var item: GTNotification?
@@ -66,33 +66,15 @@ class NotificationCell: UITableViewCell {
         let streamable = getActionStreamable()
         
         if streamable != nil {
-            streamableThumbnail.image = nil
-            
-            Alamofire.request(.GET, (streamable?.asset?.thumbnail)!)
-                .responseImage { response in
-                    let image = response.result.value
-                    
-                    if response.request?.URLString == streamable?.asset?.thumbnail { // Verify we're still loading the current image.
-                        self.streamableThumbnail.image = image
-                    }
-            }
+            streamableThumbnail.streamable = streamable
         }
     }
     
     func loadAvatar() {
         let user = getActionUser()
         
-        avatar.image = nil
-        
-        if user != nil && user!.avatar != nil {
-            Alamofire.request(.GET, (user!.avatar?.thumbnail)!)
-                .responseImage { response in
-                    let image = response.result.value
-                    
-                    if response.request?.URLString == user!.avatar?.thumbnail! { // Verify we're still loading the current image.
-                        self.avatar.image = image
-                    }
-            }
+        if user != nil {
+            self.avatar.user = user
         }
     }
     

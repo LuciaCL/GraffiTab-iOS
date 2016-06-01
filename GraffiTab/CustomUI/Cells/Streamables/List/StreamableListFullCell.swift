@@ -29,6 +29,7 @@ class StreamableListFullCell: StreamableCell {
         super.awakeFromNib()
         // Initialization code
         
+        setupImageViews()
         setupContainerViews()
         setupGestureRecognizers()
     }
@@ -88,6 +89,10 @@ class StreamableListFullCell: StreamableCell {
     }
     
     // MARK: - Setup
+    
+    func setupImageViews() {
+        thumbnail.shouldLoadFullStreamable = true
+    }
     
     func setupContainerViews() {
         Utils.applyShadowEffectToView(containerView)

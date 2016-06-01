@@ -30,7 +30,7 @@ protocol UserHeaderDelegate {
 class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate, iCarouselDataSource {
 
     @IBOutlet weak var cover: UIImageView!
-    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var avatar: AvatarImageView!
     @IBOutlet weak var carousel: iCarousel!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var nameField: UILabel!
@@ -155,25 +155,7 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
     // MARK: - Loading
     
     func loadAvatar() {
-        if item?.avatar != nil {
-            Alamofire.request(.GET, item!.avatar!.link!)
-                .responseImage { response in
-                    let image = response.result.value
-                    
-                    if self.item!.avatar == nil {
-                        return
-                    }
-                    
-                    UIView.animateWithDuration(App.ImageAnimationDuration, animations: {
-                        if response.request?.URLString == self.item!.avatar!.link! { // Verify we're still loading the current image.
-                            self.avatar.image = image
-                        }
-                    })
-            }
-        }
-        else {
-            self.avatar.image = nil
-        }
+        self.avatar.user = item
     }
     
     func loadCover() {
@@ -187,14 +169,12 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
                     }
                     
                     if response.request?.URLString == self.item!.cover!.link! { // Verify we're still loading the current image.
-                        UIView.animateWithDuration(App.ImageAnimationDuration, animations: { 
-                            if image != nil {
-                                self.cover.image = image
-                            }
-                            else {
-                                self.cover.image = UIImage(named: "grafitab_login")
-                            }
-                        })
+                        if image != nil {
+                            self.cover.image = image
+                        }
+                        else {
+                            self.cover.image = UIImage(named: "grafitab_login")
+                        }
                     }
             }
         }
@@ -265,6 +245,7 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
     func setupImageViews() {
         avatar.layer.borderColor = UIColor.whiteColor().CGColor
         avatar.layer.borderWidth = 3
+        avatar.shouldLoadFullAvatar = true
     }
     
     func setupCarousel() {
