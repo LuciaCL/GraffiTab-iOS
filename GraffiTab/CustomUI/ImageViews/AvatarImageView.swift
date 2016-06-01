@@ -64,9 +64,10 @@ class AvatarImageView: UIImageView {
         if user?.avatar != nil {
             previousUserRequest = Alamofire.request(.GET, user!.avatar!.thumbnail!)
                 .responseImage { response in
-                    let image = response.result.value
+                    let image = response.result.value != nil ? response.result.value : nil
                     
-                    self.finishLoadingImage(response.request!.URLString, targetUrl: self.user!.avatar!.thumbnail!, image: image!, completionHandler: { (imageSet: Bool) in
+                    let targetUrl = self.user != nil && self.user!.avatar!.thumbnail != nil ? self.user!.avatar!.thumbnail! : ""
+                    self.finishLoadingImage(response.request!.URLString, targetUrl: targetUrl, image: image, completionHandler: { (imageSet: Bool) in
                         if imageSet && self.shouldLoadFullAvatar {
                             self.loadFullAvatar()
                         }
@@ -78,14 +79,15 @@ class AvatarImageView: UIImageView {
     func loadFullAvatar() {
         previousUserRequest = Alamofire.request(.GET, user!.avatar!.link!)
             .responseImage { response in
-                let image = response.result.value
+                let image = response.result.value != nil ? response.result.value : nil
                 
-                self.finishLoadingImage(response.request!.URLString, targetUrl: self.user!.avatar!.link!, image: image!, completionHandler: nil)
+                let targetUrl = self.user != nil && self.user!.avatar!.link != nil ? self.user!.avatar!.link! : ""
+                self.finishLoadingImage(response.request!.URLString, targetUrl: targetUrl, image: image, completionHandler: nil)
         }
     }
     
-    func finishLoadingImage(url: String, targetUrl: String, image: UIImage, completionHandler: ((imageSet: Bool) -> ())?) {
-        if self.user!.avatar == nil {
+    func finishLoadingImage(url: String, targetUrl: String, image: UIImage?, completionHandler: ((imageSet: Bool) -> ())?) {
+        if self.user == nil || self.user!.avatar == nil {
             self.image = nil
             
             if completionHandler != nil {

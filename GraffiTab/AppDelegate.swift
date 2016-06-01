@@ -184,8 +184,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupCache() {
-        let cacheSizeMemory = 20 * 1024 * 1024
-        let cacheSizeDisk = 100 * 1024 * 1024
+        let cacheSizeMemory = 50 * 1024 * 1024
+        let cacheSizeDisk = 300 * 1024 * 1024
         let sharedCache = NSURLCache(memoryCapacity: cacheSizeMemory, diskCapacity: cacheSizeDisk, diskPath: nil)
         NSURLCache.setSharedURLCache(sharedCache)
     }

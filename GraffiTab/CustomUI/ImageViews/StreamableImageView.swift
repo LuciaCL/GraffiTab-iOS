@@ -60,9 +60,10 @@ class StreamableImageView: UIImageView {
         if streamable?.asset != nil {
             previousStreamableRequest = Alamofire.request(.GET, streamable!.asset!.thumbnail!)
                 .responseImage { response in
-                    let image = response.result.value
+                    let image = response.result.value != nil ? response.result.value : nil
                     
-                    self.finishLoadingImage(response.request!.URLString, targetUrl: self.streamable!.asset!.thumbnail!, image: image!, completionHandler: { (imageSet: Bool) in
+                    let targetUrl = self.streamable != nil ? self.streamable!.asset!.thumbnail! : ""
+                    self.finishLoadingImage(response.request!.URLString, targetUrl: targetUrl, image: image, completionHandler: { (imageSet: Bool) in
                         if imageSet && self.shouldLoadFullStreamable {
                             self.loadFullStreamable()
                         }
@@ -72,17 +73,17 @@ class StreamableImageView: UIImageView {
     }
     
     func loadFullStreamable() {
-        print("FULL STREAMABLE")
         previousStreamableRequest = Alamofire.request(.GET, streamable!.asset!.link!)
             .responseImage { response in
-                let image = response.result.value
+                let image = response.result.value != nil ? response.result.value : nil
                 
-                self.finishLoadingImage(response.request!.URLString, targetUrl: self.streamable!.asset!.link!, image: image!, completionHandler: nil)
+                let targetUrl = self.streamable != nil ? self.streamable!.asset!.link! : ""
+                self.finishLoadingImage(response.request!.URLString, targetUrl: targetUrl, image: image, completionHandler: nil)
         }
     }
     
-    func finishLoadingImage(url: String, targetUrl: String, image: UIImage, completionHandler: ((imageSet: Bool) -> ())?) {
-        if self.streamable!.asset == nil {
+    func finishLoadingImage(url: String, targetUrl: String, image: UIImage?, completionHandler: ((imageSet: Bool) -> ())?) {
+        if self.streamable == nil || self.streamable!.asset == nil {
             self.image = nil
             
             if completionHandler != nil {
