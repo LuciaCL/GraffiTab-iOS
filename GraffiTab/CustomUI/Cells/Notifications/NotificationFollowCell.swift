@@ -20,6 +20,6 @@ class NotificationFollowCell: NotificationCell {
     }
     
     override func getActionText() -> String? {
-        return "%@ started following you."
+        return NSLocalizedString("NOTIF_FOLLOW", comment: "")
     }
 }

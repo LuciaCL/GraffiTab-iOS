@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  GraffiTab
+
+  Created by Georgi Christov on 01/06/2016.
+  Copyright © 2016 GraffiTab. All rights reserved.
+*/
+
+"NOTIF_FOLLOW" = "%@ started following you.";
+"NOTIF_COMMENT" = "%@ commented on your graffiti:";
+"NOTIF_LIKE" = "%@ liked your graffiti.";
+"NOTIF_MENTION" = "%@ mentioned you in a comment:";

@@ -28,7 +28,7 @@ class NotificationMentionCell: NotificationCell {
     }
     
     override func getActionText() -> String? {
-        return "%@ mentioned you in a comment:"
+        return NSLocalizedString("NOTIF_MENTION", comment: "")
     }
     
     override func getActionStreamable() -> GTStreamable? {

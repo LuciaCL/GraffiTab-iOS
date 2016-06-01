@@ -74,10 +74,14 @@ class CommentCell: UITableViewCell {
         
         // Setup error view.
         if item?.status == .Failed {
+            textLbl.textColor = UIColor(hexString: "#d0d0d0")
+            dateLbl.textColor = textLbl.textColor
             errorView.hidden = false
             textLblTrailingConstraint.constant = 2 * 8 + errorView.frame.width
         }
         else {
+            textLbl.textColor = item?.status == .Sending ? UIColor(hexString: "#d0d0d0") : UIColor.darkGrayColor()
+            dateLbl.textColor = item?.status == .Sending ? textLbl.textColor : UIColor.lightGrayColor()
             errorView.hidden = true
             textLblTrailingConstraint.constant = 8
         }

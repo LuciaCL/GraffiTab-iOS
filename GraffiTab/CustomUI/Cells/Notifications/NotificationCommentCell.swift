@@ -28,7 +28,7 @@ class NotificationCommentCell: NotificationCell {
     }
     
     override func getActionText() -> String? {
-        return "%@ commented on your graffiti:"
+        return NSLocalizedString("NOTIF_COMMENT", comment: "")
     }
     
     override func getActionStreamable() -> GTStreamable? {

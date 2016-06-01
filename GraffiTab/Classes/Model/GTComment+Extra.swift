@@ -23,7 +23,7 @@ extension GTComment {
         get {
             let rawvalue = objc_getAssociatedObject(self, &statusKey)
             if rawvalue == nil {
-                return .Sending
+                return .Sent
             }else{
                 return SendStatus(rawValue: rawvalue as! String)!;
             }

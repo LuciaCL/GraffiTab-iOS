@@ -20,7 +20,7 @@ class NotificationLikeCell: NotificationCell {
     }
     
     override func getActionText() -> String? {
-        return "%@ liked your graffiti."
+        return NSLocalizedString("NOTIF_LIKE", comment: "")
     }
     
     override func getActionStreamable() -> GTStreamable? {

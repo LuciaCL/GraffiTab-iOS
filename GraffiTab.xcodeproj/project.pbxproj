@@ -349,6 +349,8 @@
 		E5DFDC1D1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E5FE1D731CFE5697009CFB72 /* StreamableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D721CFE5697009CFB72 /* StreamableImageView.swift */; };
 		E5FE1D741CFE5697009CFB72 /* StreamableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D721CFE5697009CFB72 /* StreamableImageView.swift */; };
+		E5FE1D7E1CFEF71B009CFB72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5FE1D811CFEF71B009CFB72 /* Localizable.strings */; };
+		E5FE1D7F1CFEF71B009CFB72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5FE1D811CFEF71B009CFB72 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -627,6 +629,7 @@
 		E5DFDC191CB2C5D900BB3D27 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS-SDK/_Archive/iOS/Debug/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
 		E5FE1D721CFE5697009CFB72 /* StreamableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableImageView.swift; sourceTree = "<group>"; };
+		E5FE1D801CFEF71B009CFB72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1411,6 +1414,7 @@
 				E5DFDBE11CB2BF9E00BB3D27 /* Info.plist */,
 				E58432CC1CE940F900FB1E50 /* Release-Info.plist */,
 				E5DFDC0E1CB2C3AB00BB3D27 /* LaunchScreen.storyboard */,
+				E5FE1D811CFEF71B009CFB72 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1534,6 +1538,7 @@
 				vi,
 				"zh-Hans",
 				"zh-Hant",
+				"bg-BG",
 			);
 			mainGroup = E5DFDBC91CB2BF9E00BB3D27;
 			productRefGroup = E5DFDBD31CB2BF9E00BB3D27 /* Products */;
@@ -1592,6 +1597,7 @@
 				E58432AA1CE9242000FB1E50 /* Spray.png in Resources */,
 				E58432AB1CE9242000FB1E50 /* Assets.xcassets in Resources */,
 				E58432AC1CE9242000FB1E50 /* CommentCell.xib in Resources */,
+				E5FE1D7F1CFEF71B009CFB72 /* Localizable.strings in Resources */,
 				E58432AD1CE9242000FB1E50 /* Brush.png in Resources */,
 				E58432AE1CE9242000FB1E50 /* Chalk.png in Resources */,
 				E58432AF1CE9242000FB1E50 /* blank.png in Resources */,
@@ -1638,6 +1644,7 @@
 				E5B6B5D91CC56F5800DC8EFC /* LoginStoryboard.storyboard in Resources */,
 				E554CFDA1CB5641B00668D85 /* eula.html in Resources */,
 				E51006601CB7BC5A00AC66A5 /* StreamableGridCell.xib in Resources */,
+				E5FE1D7E1CFEF71B009CFB72 /* Localizable.strings in Resources */,
 				E55452EA1CF336CC0076CEC9 /* LocationListCell.xib in Resources */,
 				E51006FC1CBD1C3B00AC66A5 /* UserListCell.xib in Resources */,
 				E58432CD1CE940F900FB1E50 /* Release-Info.plist in Resources */,
@@ -2038,6 +2045,14 @@
 				E5D085A61CD8D30000226589 /* zh-Hant */,
 			);
 			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		E5FE1D811CFEF71B009CFB72 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5FE1D801CFEF71B009CFB72 /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
