@@ -190,6 +190,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             }
             
             assert(false, "Unsupported prefix - \(self.foundPrefix)")
+            return UITableViewCell()
         }
     }
     

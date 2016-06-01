@@ -301,6 +301,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         }
         
         assert(false, "Unsupported collection view supplementary element.")
+        return UICollectionViewCell()
     }
     
     // MARK: - UserHeaderDelegate

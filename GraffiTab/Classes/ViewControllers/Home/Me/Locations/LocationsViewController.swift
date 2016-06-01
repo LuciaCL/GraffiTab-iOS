@@ -290,6 +290,7 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
         }
         
         assert(false, "Unsupported collection view cell.")
+        return UICollectionViewCell()
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {

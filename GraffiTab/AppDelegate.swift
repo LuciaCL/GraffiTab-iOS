@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-//        TestFairy.begin("d32aea7783e618827035d36925eba3ff505a7542")
+//        TestFairy.begin("70be1b90ec3e2c91eefd4b0883691d0194ac5185")
         
         // Facebook-specific call.
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

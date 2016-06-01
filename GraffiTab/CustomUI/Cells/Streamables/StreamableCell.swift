@@ -94,6 +94,7 @@ class StreamableCell: UICollectionViewCell {
     
     func thumbnailFullyLoaded() -> Bool {
         assert(false, "Must be implemented by subclasses.")
+        return false
     }
     
     // MARK: - Loading
