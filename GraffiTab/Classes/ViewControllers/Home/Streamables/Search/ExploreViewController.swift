@@ -79,19 +79,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     
     @IBAction func onClickGrid(sender: AnyObject) {
         if items.count > 0 {
-            MZFormSheetPresentationController.appearance().shouldApplyBackgroundBlurEffect = true
-            MZFormSheetPresentationController.appearance().shouldCenterHorizontally = true
-            MZFormSheetPresentationController.appearance().shouldCenterVertically = true
-            
-            let nav = self.storyboard!.instantiateViewControllerWithIdentifier("ClusterViewController") as! UINavigationController
-            let formSheetController = MZFormSheetPresentationViewController(contentViewController: nav)
-            formSheetController.presentationController?.contentViewSize = CGSizeMake(300, 344)
-            formSheetController.contentViewControllerTransitionStyle = .SlideFromBottom
-            
-            let vc = nav.viewControllers.first as! ClusterViewController
-            vc.items = items
-            
-            self.presentViewController(formSheetController, animated: true, completion: nil)
+            openClusterView(items)
         }
     }
     
@@ -151,6 +139,24 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
 //        vc.transitioningDelegate = self
 //        
 //        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    func openClusterView(streamables: [GTStreamable]) {
+        if streamables.count > 0 {
+            MZFormSheetPresentationController.appearance().shouldApplyBackgroundBlurEffect = true
+            MZFormSheetPresentationController.appearance().shouldCenterHorizontally = true
+            MZFormSheetPresentationController.appearance().shouldCenterVertically = true
+            
+            let nav = self.storyboard!.instantiateViewControllerWithIdentifier("ClusterViewController") as! UINavigationController
+            let formSheetController = MZFormSheetPresentationViewController(contentViewController: nav)
+            formSheetController.presentationController?.contentViewSize = CGSizeMake(300, 344)
+            formSheetController.contentViewControllerTransitionStyle = .SlideFromBottom
+            
+            let vc = nav.viewControllers.first as! ClusterViewController
+            vc.items = streamables
+            
+            self.presentViewController(formSheetController, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Loading
@@ -277,7 +283,15 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         thumbnail.subtitle = streamable.user?.getMentionUsername()
         thumbnail.coordinate = CLLocationCoordinate2D(latitude: streamable.latitude!, longitude: streamable.longitude!)
         thumbnail.disclosureBlock = {
-            print("CLICK")
+            let url = NSURL(string: (streamable.asset?.thumbnail)!)!
+            let cachedImage = self.imageCache.objectForKey(url) as? UIImage
+            
+            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("StreamableDetailViewController") as! StreamableDetailViewController
+            vc.streamable = streamable
+            vc.thumbnailImage = cachedImage
+            vc.fullyLoadedThumbnail = false
+            
+            self.presentViewController(vc, animated: true, completion: nil)
         }
         
         return thumbnail
@@ -418,10 +432,28 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-        if view.isKindOfClass(JPSThumbnailAnnotationView) {
+        if view.isKindOfClass(JPSThumbnailAnnotationView) { // Select single item.
             isMovedByTap = true
             
             return (view as! JPSThumbnailAnnotationView).didSelectAnnotationViewInMap(mapView)
+        }
+        else if view.isKindOfClass(FBAnnotationClusterView) { // Select cluster.
+            // Process cluster click.
+            let annotation = view.annotation as! FBAnnotationCluster
+            var streamables = [GTStreamable]()
+            for streamableAnnotation in annotation.annotations {
+                streamables.append((streamableAnnotation as! StreamableAnnotation).streamable!)
+            }
+            if streamables.count > 0 {
+                openClusterView(streamables)
+            }
+            
+            // Deselect annotation so that it can be clicked again.
+            Utils.runWithDelay(0.5, block: {
+                for annotation in self.mapView.selectedAnnotations {
+                    self.mapView.deselectAnnotation(annotation, animated: false)
+                }
+            })
         }
     }
     
