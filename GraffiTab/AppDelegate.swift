@@ -36,15 +36,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize the device motion manager.
         let _ = GTDeviceMotionManager.manager
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogin), name:Notifications.UserLoggedIn, object:nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogin(_:)), name:Notifications.UserLoggedIn, object:nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogout), name:Notifications.UserLoggedOut, object:nil)
         
         setupTopBar()
         setupCache()
         setupRechability()
         
-        Utils.runWithDelay(2) { () in
-            self.checkLoginStatus()
+        Utils.runWithDelay(1) { () in
+            self.checkLoginStatus(launchOptions)
         }
         
         return true
@@ -120,6 +120,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(error.description)
     }
     
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        if application.applicationState == .Active {
+            print("DEBUG: Received push notification in Active state")
+        }
+        else { // This method is called when the app is in suspended state and the push notification is pressed.
+            print("DEBUG: Received push notification in Background state")
+            // Check if app has been started by clicking on a push notification.
+            processPushNotificationInfo(userInfo)
+        }
+    }
+    
     func convertDeviceTokenToString(deviceToken: NSData) -> String {
         //  Convert binary Device Token to a String (and remove the <,> and white space charaters).
         var deviceTokenStr = deviceToken.description.stringByReplacingOccurrencesOfString(">", withString: "", options: [], range: nil)
@@ -129,14 +140,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return deviceTokenStr
     }
     
+    func processPushNotificationInfo(userInfo: [NSObject : AnyObject]?) {
+        Utils.runWithDelay(1) {
+            if userInfo != nil {
+                print("DEBUG: Processing push notification with contents - \(userInfo)")
+                // TODO: Ignore tapping on notification for now.
+            }
+        }
+    }
+    
     // MARK: - Login management
     
-    func checkLoginStatus() {
+    func checkLoginStatus(launchOptions: [NSObject: AnyObject]?) {
         if (GTSettings.sharedInstance.isLoggedIn()) {
             GTMeManager.getMe({ (response) -> Void in
                 UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
                 
-                self.userDidLogin()
+                self.userDidLogin(launchOptions)
             }, failureBlock: { (response) -> Void in
                 UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
                 
@@ -150,10 +170,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func userDidLogin() {
+    func userDidLogin(launchOptions: [NSObject: AnyObject]?) {
         showStoryboard("MainStoryboard", duration: 0.3);
         
         registerPushNotifications()
+        
+        // Check if app has been started by clicking on a push notification.
+        processPushNotificationInfo(launchOptions)
     }
     
     func userDidLogout() {

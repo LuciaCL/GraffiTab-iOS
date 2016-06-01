@@ -355,6 +355,8 @@
 		E5FE1D8F1CFF7DFE009CFB72 /* StreamableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D891CFF7DFE009CFB72 /* StreamableImageView.swift */; };
 		E5FE1D911CFF840B009CFB72 /* CoverImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D901CFF840B009CFB72 /* CoverImageView.swift */; };
 		E5FE1D921CFF840B009CFB72 /* CoverImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D901CFF840B009CFB72 /* CoverImageView.swift */; };
+		E5FE1D941CFF8C85009CFB72 /* UIApplication+TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D931CFF8C85009CFB72 /* UIApplication+TopViewController.swift */; };
+		E5FE1D951CFF8C85009CFB72 /* UIApplication+TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D931CFF8C85009CFB72 /* UIApplication+TopViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -636,6 +638,7 @@
 		E5FE1D881CFF7DFE009CFB72 /* AvatarImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		E5FE1D891CFF7DFE009CFB72 /* StreamableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableImageView.swift; sourceTree = "<group>"; };
 		E5FE1D901CFF840B009CFB72 /* CoverImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverImageView.swift; sourceTree = "<group>"; };
+		E5FE1D931CFF8C85009CFB72 /* UIApplication+TopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+TopViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -992,6 +995,7 @@
 			children = (
 				E5A4F13C1CE34846005CF12C /* GTComment+Extra.swift */,
 				E5DAA8B51CE49418000CB2F4 /* GTUser+Extra.swift */,
+				E5FE1D931CFF8C85009CFB72 /* UIApplication+TopViewController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1789,6 +1793,7 @@
 				E584322C1CE9242000FB1E50 /* UserCollectionParallaxHeader.swift in Sources */,
 				E584322D1CE9242000FB1E50 /* ActivitySingleFollowCell.swift in Sources */,
 				E584322E1CE9242000FB1E50 /* ActivitySingleCommentCell.swift in Sources */,
+				E5FE1D951CFF8C85009CFB72 /* UIApplication+TopViewController.swift in Sources */,
 				E584322F1CE9242000FB1E50 /* ResetPasswordViewController.swift in Sources */,
 				E58432301CE9242000FB1E50 /* FeedViewController.swift in Sources */,
 				E58432311CE9242000FB1E50 /* ActivityGroupCreateCell.swift in Sources */,
@@ -1923,6 +1928,7 @@
 				E5B6B5501CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift in Sources */,
 				E51006BC1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift in Sources */,
 				E51006C51CBC122E00AC66A5 /* ActivitySingleCommentCell.swift in Sources */,
+				E5FE1D941CFF8C85009CFB72 /* UIApplication+TopViewController.swift in Sources */,
 				E5B6B5DD1CC56F5800DC8EFC /* ResetPasswordViewController.swift in Sources */,
 				E52DC7681CE5DFC700375828 /* FeedViewController.swift in Sources */,
 				E51006D41CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
