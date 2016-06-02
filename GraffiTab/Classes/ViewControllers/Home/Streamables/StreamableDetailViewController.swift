@@ -36,9 +36,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     @IBOutlet weak var commentsLbl: UILabel!
     
     var streamable: GTStreamable?
-    var thumbnailImage: UIImage?
     var viewsVisible = true
-    var fullyLoadedThumbnail = false
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -196,8 +194,6 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         if streamable!.isEqual(s) {
             streamable!.softCopy(s)
             
-            self.fullyLoadedThumbnail = false
-            
             self.loadData()
             self.loadStreamableImage()
         }
@@ -317,20 +313,8 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     func loadStreamableImage() {
-        streamableImage.imageView.image = thumbnailImage
-        
-        if !fullyLoadedThumbnail {
-            Alamofire.request(.GET, streamable!.asset!.link!)
-                .responseImage { response in
-                    let image = response.result.value
-                    
-                    if response.request?.URLString == self.streamable!.asset!.link! { // Verify we're still loading the current image.
-                        self.fullyLoadedThumbnail = true
-                        
-                        self.streamableImage.imageView.image = image
-                    }
-            }
-        }
+        let streamableImageView = streamableImage.imageView as! StreamableImageView
+        streamableImageView.asset = streamable?.asset
     }
     
     // MARK: - ZoomableImageViewDelegate
@@ -410,6 +394,10 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     
     func setupImageViews() {
         streamableImage.delegate = self
+        
+        let streamableImageView = StreamableImageView(frame: CGRectZero)
+        streamableImageView.shouldLoadFullAsset = true
+        streamableImage.replaceImageView(streamableImageView)
     }
     
     func setupContainers() {

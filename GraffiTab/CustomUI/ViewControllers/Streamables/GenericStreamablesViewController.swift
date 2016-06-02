@@ -510,10 +510,10 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         Utils.shareImage(image, viewController: self)
     }
     
-    func didTapThumbnail(cell: UICollectionViewCell, streamable: GTStreamable, thumbnailImage: UIImage, isFullyLoaded: Bool) {
+    func didTapThumbnail(cell: UICollectionViewCell, streamable: GTStreamable) {
         transition = JTCollectionMaterialTransition(animatedView: (cell as! StreamableCell).thumbnail)
         
-        ViewControllerUtils.showStreamableDetails(streamable, thumbnailImage: thumbnailImage, isFullyLoaded: isFullyLoaded, modalPresentationStyle: .Custom, transitioningDelegate: self, viewController: self)
+        ViewControllerUtils.showStreamableDetails(streamable, modalPresentationStyle: .Custom, transitioningDelegate: self, viewController: self)
     }
     
     // MARK: - Orientation

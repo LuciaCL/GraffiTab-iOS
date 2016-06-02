@@ -118,7 +118,7 @@
 		E58432321CE9242000FB1E50 /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0858D1CD8D30000226589 /* TOActivityCroppedImageProvider.m */; };
 		E58432331CE9242000FB1E50 /* AutocompleteUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAA89B1CE37A5F000CB2F4 /* AutocompleteUserCell.swift */; };
 		E58432341CE9242000FB1E50 /* ActivitySingleCreateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006C11CBC118B00AC66A5 /* ActivitySingleCreateCell.swift */; };
-		E58432351CE9242000FB1E50 /* GTComment+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F13C1CE34846005CF12C /* GTComment+Extra.swift */; };
+		E58432351CE9242000FB1E50 /* GTComment+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F13C1CE34846005CF12C /* GTComment+Status.swift */; };
 		E58432361CE9242000FB1E50 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5811CC56F5800DC8EFC /* MenuViewController.swift */; };
 		E58432371CE9242000FB1E50 /* NotificationCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006A21CBBCA7B00AC66A5 /* NotificationCommentCell.swift */; };
 		E58432381CE9242000FB1E50 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D1F221CDD1917007B3698 /* ArrayUtils.swift */; };
@@ -264,7 +264,7 @@
 		E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */; };
 		E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
 		E5A4F1301CE225AA005CF12C /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A4F12D1CE225AA005CF12C /* CommentCell.xib */; };
-		E5A4F13D1CE34846005CF12C /* GTComment+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F13C1CE34846005CF12C /* GTComment+Extra.swift */; };
+		E5A4F13D1CE34846005CF12C /* GTComment+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F13C1CE34846005CF12C /* GTComment+Status.swift */; };
 		E5B6B5501CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54E1CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift */; };
 		E5B6B5521CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B54F1CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib */; };
 		E5B6B55B1CC4E8AD00DC8EFC /* UserAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B55A1CC4E8AD00DC8EFC /* UserAboutView.swift */; };
@@ -357,6 +357,8 @@
 		E5FE1D921CFF840B009CFB72 /* CoverImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D901CFF840B009CFB72 /* CoverImageView.swift */; };
 		E5FE1D941CFF8C85009CFB72 /* UIApplication+TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D931CFF8C85009CFB72 /* UIApplication+TopViewController.swift */; };
 		E5FE1D951CFF8C85009CFB72 /* UIApplication+TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D931CFF8C85009CFB72 /* UIApplication+TopViewController.swift */; };
+		E5FE1D9E1D004208009CFB72 /* GTLocation+Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D9D1D004208009CFB72 /* GTLocation+Asset.swift */; };
+		E5FE1D9F1D004208009CFB72 /* GTLocation+Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D9D1D004208009CFB72 /* GTLocation+Asset.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -521,7 +523,7 @@
 		E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonSlackViewController.swift; sourceTree = "<group>"; };
 		E5A4F12C1CE225AA005CF12C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		E5A4F12D1CE225AA005CF12C /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
-		E5A4F13C1CE34846005CF12C /* GTComment+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTComment+Extra.swift"; sourceTree = "<group>"; };
+		E5A4F13C1CE34846005CF12C /* GTComment+Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTComment+Status.swift"; sourceTree = "<group>"; };
 		E5B6B54E1CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCollectionParallaxHeader.swift; sourceTree = "<group>"; };
 		E5B6B54F1CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCollectionParallaxHeader.xib; sourceTree = "<group>"; };
 		E5B6B55A1CC4E8AD00DC8EFC /* UserAboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAboutView.swift; sourceTree = "<group>"; };
@@ -639,6 +641,7 @@
 		E5FE1D891CFF7DFE009CFB72 /* StreamableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableImageView.swift; sourceTree = "<group>"; };
 		E5FE1D901CFF840B009CFB72 /* CoverImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverImageView.swift; sourceTree = "<group>"; };
 		E5FE1D931CFF8C85009CFB72 /* UIApplication+TopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+TopViewController.swift"; sourceTree = "<group>"; };
+		E5FE1D9D1D004208009CFB72 /* GTLocation+Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTLocation+Asset.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -993,9 +996,10 @@
 		E5A4F1361CE34825005CF12C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E5A4F13C1CE34846005CF12C /* GTComment+Extra.swift */,
+				E5A4F13C1CE34846005CF12C /* GTComment+Status.swift */,
 				E5DAA8B51CE49418000CB2F4 /* GTUser+Extra.swift */,
 				E5FE1D931CFF8C85009CFB72 /* UIApplication+TopViewController.swift */,
+				E5FE1D9D1D004208009CFB72 /* GTLocation+Asset.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1808,7 +1812,7 @@
 				E58432321CE9242000FB1E50 /* TOActivityCroppedImageProvider.m in Sources */,
 				E58432331CE9242000FB1E50 /* AutocompleteUserCell.swift in Sources */,
 				E58432341CE9242000FB1E50 /* ActivitySingleCreateCell.swift in Sources */,
-				E58432351CE9242000FB1E50 /* GTComment+Extra.swift in Sources */,
+				E58432351CE9242000FB1E50 /* GTComment+Status.swift in Sources */,
 				E58432361CE9242000FB1E50 /* MenuViewController.swift in Sources */,
 				E58432DB1CEA469B00FB1E50 /* Settings.swift in Sources */,
 				E58432371CE9242000FB1E50 /* NotificationCommentCell.swift in Sources */,
@@ -1867,6 +1871,7 @@
 				E58432671CE9242000FB1E50 /* CreateViewController.swift in Sources */,
 				E58432681CE9242000FB1E50 /* StreamableListFullCell.swift in Sources */,
 				E5FE1D8B1CFF7DFE009CFB72 /* AssetImageView.swift in Sources */,
+				E5FE1D9F1D004208009CFB72 /* GTLocation+Asset.swift in Sources */,
 				E58432691CE9242000FB1E50 /* GenericStreamablesViewController.swift in Sources */,
 				E584326A1CE9242000FB1E50 /* AboutViewController.swift in Sources */,
 				E584326B1CE9242000FB1E50 /* AppDelegate.swift in Sources */,
@@ -1943,7 +1948,7 @@
 				E5D085A81CD8D30000226589 /* TOActivityCroppedImageProvider.m in Sources */,
 				E5DAA89D1CE37A5F000CB2F4 /* AutocompleteUserCell.swift in Sources */,
 				E51006C21CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */,
-				E5A4F13D1CE34846005CF12C /* GTComment+Extra.swift in Sources */,
+				E5A4F13D1CE34846005CF12C /* GTComment+Status.swift in Sources */,
 				E5B6B5BB1CC56F5800DC8EFC /* MenuViewController.swift in Sources */,
 				E58432DA1CEA469B00FB1E50 /* Settings.swift in Sources */,
 				E51006A31CBBCA7B00AC66A5 /* NotificationCommentCell.swift in Sources */,
@@ -2002,6 +2007,7 @@
 				E5B6B5A31CC56F5800DC8EFC /* CreateViewController.swift in Sources */,
 				E51006621CB7BC5A00AC66A5 /* StreamableListFullCell.swift in Sources */,
 				E5FE1D8A1CFF7DFE009CFB72 /* AssetImageView.swift in Sources */,
+				E5FE1D9E1D004208009CFB72 /* GTLocation+Asset.swift in Sources */,
 				E51006301CB71C5900AC66A5 /* GenericStreamablesViewController.swift in Sources */,
 				E52DC76E1CE5E05600375828 /* AboutViewController.swift in Sources */,
 				E5DFDBD61CB2BF9E00BB3D27 /* AppDelegate.swift in Sources */,

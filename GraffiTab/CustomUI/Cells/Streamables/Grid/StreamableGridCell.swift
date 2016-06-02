@@ -13,8 +13,4 @@ class StreamableGridCell: StreamableCell {
     override class func reusableIdentifier() -> String {
         return "StreamableGridCell"
     }
-    
-    override func thumbnailFullyLoaded() -> Bool {
-        return false
-    }
 }

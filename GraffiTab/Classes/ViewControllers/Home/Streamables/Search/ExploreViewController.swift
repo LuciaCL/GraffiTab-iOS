@@ -283,10 +283,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         thumbnail.subtitle = streamable.user?.getMentionUsername()
         thumbnail.coordinate = CLLocationCoordinate2D(latitude: streamable.latitude!, longitude: streamable.longitude!)
         thumbnail.disclosureBlock = {
-            let url = NSURL(string: (streamable.asset?.thumbnail)!)!
-            let cachedImage = self.imageCache.objectForKey(url) as? UIImage
-            
-            ViewControllerUtils.showStreamableDetails(streamable, thumbnailImage: cachedImage!, isFullyLoaded: false, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
+            ViewControllerUtils.showStreamableDetails(streamable, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
         }
         
         return thumbnail

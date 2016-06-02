@@ -164,8 +164,40 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let item = items[indexPath.row]
         
-        
+        if item.activities?.count == 1 { // List single activities.
+            if item.type == .FOLLOW {
+                let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! ActivitySingleFollowCell
+                ViewControllerUtils.showUserProfile(cell.getSecondaryUser()!, viewController: self)
+            }
+            else if item.type == .COMMENT {
+                let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! ActivitySingleCommentCell
+                ViewControllerUtils.showStreamableDetails(cell.getActionStreamable()!, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
+            }
+            else if item.type == .LIKE {
+                let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! ActivitySingleLikeCell
+                ViewControllerUtils.showStreamableDetails(cell.getActionStreamable()!, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
+            }
+            else {
+                let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! ActivitySingleCreateCell
+                ViewControllerUtils.showStreamableDetails(cell.getActionStreamable()!, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
+            }
+        }
+        else { // List grouped activities.
+            if item.type == .FOLLOW {
+                let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! ActivityGroupFollowCell
+            }
+            else if item.type == .COMMENT {
+                let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! ActivityGroupCommentCell
+            }
+            else if item.type == .LIKE {
+                let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! ActivityGroupLikeCell
+            }
+            else {
+                let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! ActivityGroupCreateCell
+            }
+        }
     }
     
     // MARK: - DZNEmptyDataSetDelegate

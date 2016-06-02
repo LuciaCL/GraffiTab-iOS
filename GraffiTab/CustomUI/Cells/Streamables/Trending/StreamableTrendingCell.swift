@@ -41,10 +41,6 @@ class StreamableTrendingCell: StreamableCell {
         self.commentsLbl.text = String(format: "%i", item!.commentsCount!);
     }
     
-    override func thumbnailFullyLoaded() -> Bool {
-        return false
-    }
-    
     // MARK: - Setup
     
     func setupImageViews() {

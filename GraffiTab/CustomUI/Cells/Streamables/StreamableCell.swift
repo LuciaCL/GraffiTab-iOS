@@ -19,7 +19,7 @@ protocol StreamableDelegate {
     
     func didTapUser(user: GTUser)
     
-    func didTapThumbnail(cell: UICollectionViewCell, streamable: GTStreamable, thumbnailImage: UIImage, isFullyLoaded: Bool)
+    func didTapThumbnail(cell: UICollectionViewCell, streamable: GTStreamable)
 }
 
 class StreamableCell: UICollectionViewCell {
@@ -84,17 +84,12 @@ class StreamableCell: UICollectionViewCell {
     
     @IBAction func onClickThumbnail(sender: AnyObject) {
         if delegate != nil {
-            delegate?.didTapThumbnail(self, streamable: item!, thumbnailImage: thumbnail!.image!, isFullyLoaded: thumbnailFullyLoaded())
+            delegate?.didTapThumbnail(self, streamable: item!)
         }
     }
     
     @IBAction func onClickLike(sender: AnyObject) {
         
-    }
-    
-    func thumbnailFullyLoaded() -> Bool {
-        assert(false, "Must be implemented by subclasses.")
-        return false
     }
     
     // MARK: - Loading

@@ -162,15 +162,15 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
         }
         else if item.type == .COMMENT {
             let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! NotificationCommentCell
-            ViewControllerUtils.showStreamableDetails(cell.getActionStreamable()!, thumbnailImage: nil, isFullyLoaded: false, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
+            ViewControllerUtils.showStreamableDetails(cell.getActionStreamable()!, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
         }
         else if item.type == .LIKE {
             let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! NotificationLikeCell
-            ViewControllerUtils.showStreamableDetails(cell.getActionStreamable()!, thumbnailImage: nil, isFullyLoaded: false, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
+            ViewControllerUtils.showStreamableDetails(cell.getActionStreamable()!, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
         }
         else if item.type == .MENTION {
             let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! NotificationMentionCell
-            ViewControllerUtils.showStreamableDetails(cell.getActionStreamable()!, thumbnailImage: nil, isFullyLoaded: false, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
+            ViewControllerUtils.showStreamableDetails(cell.getActionStreamable()!, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
         }
         else { // Welcome.
             

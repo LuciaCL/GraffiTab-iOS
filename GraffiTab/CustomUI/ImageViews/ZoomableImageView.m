@@ -99,18 +99,20 @@
     [scrollView setScrollEnabled:YES];
     
     // Setup image view.
-    imageView = [[UIImageView alloc] initWithFrame:scrollView.frame];
-    imageView.backgroundColor = [UIColor clearColor];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    imageView.userInteractionEnabled = YES;
-    imageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
+    imageView = [[UIImageView alloc] init];
+    [self setupImageView];
     
-    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapImageView)];
-    [imageView addGestureRecognizer:tgr];
-    tgr = nil;
-    
-    [scrollView addSubview:imageView];
     [self addSubview:scrollView];
+}
+
+- (void)replaceImageView:(UIImageView *)view {
+    if (self.imageView) {
+        [self.imageView removeFromSuperview];
+        self.imageView = nil;
+    }
+    
+    self.imageView = view;
+    [self setupImageView];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -130,6 +132,22 @@
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return imageView;
+}
+
+#pragma mark - Setup
+
+- (void)setupImageView {
+    imageView.frame = scrollView.bounds;
+    imageView.backgroundColor = [UIColor clearColor];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.userInteractionEnabled = YES;
+    imageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
+    
+    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapImageView)];
+    [imageView addGestureRecognizer:tgr];
+    tgr = nil;
+    
+    [scrollView addSubview:imageView];
 }
 
 @end

@@ -64,11 +64,9 @@ class ViewControllerUtils: NSObject {
         }
     }
     
-    class func showStreamableDetails(streamable: GTStreamable, thumbnailImage: UIImage?, isFullyLoaded: Bool, modalPresentationStyle: UIModalPresentationStyle?, transitioningDelegate: UIViewControllerTransitioningDelegate?, viewController: UIViewController) {
+    class func showStreamableDetails(streamable: GTStreamable, modalPresentationStyle: UIModalPresentationStyle?, transitioningDelegate: UIViewControllerTransitioningDelegate?, viewController: UIViewController) {
         let vc = UIStoryboard(name: "MainStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("StreamableDetailViewController") as! StreamableDetailViewController
         vc.streamable = streamable
-        vc.thumbnailImage = thumbnailImage
-        vc.fullyLoadedThumbnail = isFullyLoaded
         
         if modalPresentationStyle != nil {
             vc.modalPresentationStyle = modalPresentationStyle!

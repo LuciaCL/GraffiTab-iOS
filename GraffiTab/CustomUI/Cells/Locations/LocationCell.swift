@@ -18,7 +18,7 @@ protocol LocationCellDelegate {
 
 class LocationCell: UICollectionViewCell {
     
-    @IBOutlet weak var thumbnail: UIImageView!
+    @IBOutlet weak var thumbnail: AssetImageView!
     @IBOutlet weak var addressLbl: UILabel!
     
     var delegate: LocationCellDelegate?
@@ -59,19 +59,7 @@ class LocationCell: UICollectionViewCell {
     // MARK: - Loading
     
     func loadThumbnail() {
-        if previousItem != nil && previousItem!.id != item?.id {
-            thumbnail.image = nil
-            previousItemRequest?.cancel()
-        }
-        
-        previousItemRequest = Alamofire.request(.GET, GoogleStaticApiUtils.getStaticMapUrl(item!.latitude!, longitude: item!.longitude!))
-            .responseImage { response in
-                let image = response.result.value
-                
-                if response.request?.URLString == GoogleStaticApiUtils.getStaticMapUrl(self.item!.latitude!, longitude: self.item!.longitude!) { // Verify we're still loading the current image.
-                    self.thumbnail.image = image
-                }
-        }
+        thumbnail.asset = item?.asset
     }
     
     // MARK: - Setup

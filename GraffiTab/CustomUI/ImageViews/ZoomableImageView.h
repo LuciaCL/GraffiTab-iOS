@@ -27,5 +27,6 @@
 @property (nonatomic, assign) CGFloat maxZoomScale;
 
 - (void)setImage:(UIImage *)i;
+- (void)replaceImageView:(UIImageView *)view;
 
 @end
