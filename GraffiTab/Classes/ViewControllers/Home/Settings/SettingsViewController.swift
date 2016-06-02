@@ -60,7 +60,15 @@ class SettingsViewController: GeneralSettingsViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        if indexPath.section == 2 {
+        if indexPath.section == 0 {
+            if indexPath.row == 2 {
+                let vc = self.storyboard?.instantiateViewControllerWithIdentifier("UserLikedStreamablesViewController") as! UserLikedStreamablesViewController
+                vc.user = GTSettings.sharedInstance.user
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        else if indexPath.section == 3 {
             if indexPath.row == 1 { // Report a problem.
                 UIActionSheet.showInView(self.view, withTitle: "Report a Problem", cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: ["Something Is Wrong", "General Feedback"], tapBlock: { (actionSheet, index) in
                     if index == 0 {
@@ -72,7 +80,7 @@ class SettingsViewController: GeneralSettingsViewController {
                 })
             }
         }
-        else if indexPath.section == 3 {
+        else if indexPath.section == 4 {
             if indexPath.row == 0 { // Terms.
                 showInfoViewController("Terms of Use", file: NSBundle.mainBundle().pathForResource("terms", ofType: "html")!)
             }
@@ -80,7 +88,7 @@ class SettingsViewController: GeneralSettingsViewController {
                 showInfoViewController("End User License Agreement", file: NSBundle.mainBundle().pathForResource("eula", ofType: "html")!)
             }
         }
-        else if indexPath.section == 4 {
+        else if indexPath.section == 5 {
             if indexPath.row == 0 { // Logout.
                 UIActionSheet.showInView(self.view, withTitle: "Are you sure you want to log out?", cancelButtonTitle: "Cancel", destructiveButtonTitle: "Logout", otherButtonTitles: nil, tapBlock: { (actionSheet, index) in
                     if index == 0 {
