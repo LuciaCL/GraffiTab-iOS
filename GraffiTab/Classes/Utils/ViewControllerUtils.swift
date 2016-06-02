@@ -64,6 +64,30 @@ class ViewControllerUtils: NSObject {
         }
     }
     
+    class func showStaticStreamables(streamables: [GTStreamable], viewController: UIViewController) {
+        let vc = UIStoryboard(name: "MainStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("StaticStreamablesViewController") as! StaticStreamablesViewController
+        vc.items = streamables
+        
+        if viewController.navigationController != nil {
+            viewController.navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            assert(false, "Unable to show static streamables - Unknown parent.")
+        }
+    }
+    
+    class func showStaticUsers(users: [GTUser], viewController: UIViewController) {
+        let vc = UIStoryboard(name: "MainStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("StaticUsersViewController") as! StaticUsersViewController
+        vc.items = users
+        
+        if viewController.navigationController != nil {
+            viewController.navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            assert(false, "Unable to show static users - Unknown parent.")
+        }
+    }
+    
     class func showStreamableDetails(streamable: GTStreamable, modalPresentationStyle: UIModalPresentationStyle?, transitioningDelegate: UIViewControllerTransitioningDelegate?, viewController: UIViewController) {
         let vc = UIStoryboard(name: "MainStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("StreamableDetailViewController") as! StreamableDetailViewController
         vc.streamable = streamable

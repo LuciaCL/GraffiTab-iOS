@@ -26,6 +26,7 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
     var canLoadMore = true
     var offset = 0
     var initialLoad = false
+    var showStaticCollection = false
     var viewType: UserViewType = .List {
         didSet {
             if collectionView != nil {
@@ -167,25 +168,30 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
         
         isDownloading = true
         
-        loadItems(isStart, offset: offset, successBlock: { (response) -> Void in
-            if offset == 0 {
-                self.items.removeAll()
-            }
-            
-            let listItemsResult = response.object as! GTListItemsResult<GTUser>
-            self.items.appendContentsOf(listItemsResult.items!)
-            
-            if listItemsResult.items!.count <= 0 && listItemsResult.items!.count < GTConstants.MaxItems {
+        if !showStaticCollection {
+            loadItems(isStart, offset: offset, successBlock: { (response) -> Void in
+                if offset == 0 {
+                    self.items.removeAll()
+                }
+                
+                let listItemsResult = response.object as! GTListItemsResult<GTUser>
+                self.items.appendContentsOf(listItemsResult.items!)
+                
+                if listItemsResult.items!.count <= 0 && listItemsResult.items!.count < GTConstants.MaxItems {
+                    self.canLoadMore = false
+                }
+                
+                self.finalizeLoad()
+            }) { (response) -> Void in
                 self.canLoadMore = false
+                
+                self.finalizeLoad()
+                
+                DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
             }
-            
+        }
+        else {
             self.finalizeLoad()
-        }) { (response) -> Void in
-            self.canLoadMore = false
-            
-            self.finalizeLoad()
-            
-            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
         }
     }
     

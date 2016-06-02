@@ -179,23 +179,47 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
                 let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! ActivitySingleLikeCell
                 ViewControllerUtils.showStreamableDetails(cell.getActionStreamable()!, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
             }
-            else {
+            else if item.type == .CREATE_STREAMABLE {
                 let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! ActivitySingleCreateCell
                 ViewControllerUtils.showStreamableDetails(cell.getActionStreamable()!, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
             }
         }
         else { // List grouped activities.
             if item.type == .FOLLOW {
-                let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! ActivityGroupFollowCell
+                var users = [GTUser]()
+                for activity in item.activities! {
+                    users.append(activity.followed!)
+                }
+                if users.count > 0 {
+                    ViewControllerUtils.showStaticUsers(users, viewController: self)
+                }
             }
             else if item.type == .COMMENT {
-                let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! ActivityGroupCommentCell
+                var streamables = [GTStreamable]()
+                for activity in item.activities! {
+                    streamables.append(activity.commentedStreamable!)
+                }
+                if streamables.count > 0 {
+                    ViewControllerUtils.showStaticStreamables(streamables, viewController: self)
+                }
             }
             else if item.type == .LIKE {
-                let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! ActivityGroupLikeCell
+                var streamables = [GTStreamable]()
+                for activity in item.activities! {
+                    streamables.append(activity.likedStreamable!)
+                }
+                if streamables.count > 0 {
+                    ViewControllerUtils.showStaticStreamables(streamables, viewController: self)
+                }
             }
-            else {
-                let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! ActivityGroupCreateCell
+            else if item.type == .CREATE_STREAMABLE {
+                var streamables = [GTStreamable]()
+                for activity in item.activities! {
+                    streamables.append(activity.createdStreamable!)
+                }
+                if streamables.count > 0 {
+                    ViewControllerUtils.showStaticStreamables(streamables, viewController: self)
+                }
             }
         }
     }

@@ -164,7 +164,6 @@
 		E58432601CE9242000FB1E50 /* UserLikedStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7611CE5DA2A00375828 /* UserLikedStreamablesViewController.swift */; };
 		E58432611CE9242000FB1E50 /* GTLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006821CB7FE0F00AC66A5 /* GTLocationManager.swift */; };
 		E58432621CE9242000FB1E50 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B57C1CC56F5800DC8EFC /* ActivityViewController.swift */; };
-		E58432631CE9242000FB1E50 /* ClusterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5901CC56F5800DC8EFC /* ClusterViewController.swift */; };
 		E58432641CE9242000FB1E50 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
 		E58432651CE9242000FB1E50 /* BackButtonSlackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */; };
 		E58432661CE9242000FB1E50 /* NotificationFollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510069F1CBBC0FD00AC66A5 /* NotificationFollowCell.swift */; };
@@ -288,7 +287,6 @@
 		E5B6B5C51CC56F5800DC8EFC /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5891CC56F5800DC8EFC /* FeedbackViewController.swift */; };
 		E5B6B5C71CC56F5800DC8EFC /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B58A1CC56F5800DC8EFC /* GeneralSettingsViewController.swift */; };
 		E5B6B5C91CC56F5800DC8EFC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B58B1CC56F5800DC8EFC /* SettingsViewController.swift */; };
-		E5B6B5CD1CC56F5800DC8EFC /* ClusterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5901CC56F5800DC8EFC /* ClusterViewController.swift */; };
 		E5B6B5CF1CC56F5800DC8EFC /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5911CC56F5800DC8EFC /* ExploreViewController.swift */; };
 		E5B6B5D11CC56F5800DC8EFC /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5921CC56F5800DC8EFC /* NearMeViewController.swift */; };
 		E5B6B5D91CC56F5800DC8EFC /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B59B1CC56F5800DC8EFC /* LoginStoryboard.storyboard */; };
@@ -359,6 +357,12 @@
 		E5FE1D951CFF8C85009CFB72 /* UIApplication+TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D931CFF8C85009CFB72 /* UIApplication+TopViewController.swift */; };
 		E5FE1D9E1D004208009CFB72 /* GTLocation+Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D9D1D004208009CFB72 /* GTLocation+Asset.swift */; };
 		E5FE1D9F1D004208009CFB72 /* GTLocation+Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D9D1D004208009CFB72 /* GTLocation+Asset.swift */; };
+		E5FE1DA21D0060F9009CFB72 /* ClusterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA11D0060F9009CFB72 /* ClusterViewController.swift */; };
+		E5FE1DA31D0060F9009CFB72 /* ClusterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA11D0060F9009CFB72 /* ClusterViewController.swift */; };
+		E5FE1DA51D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA41D006154009CFB72 /* StaticStreamablesViewController.swift */; };
+		E5FE1DA61D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA41D006154009CFB72 /* StaticStreamablesViewController.swift */; };
+		E5FE1DA81D0067CA009CFB72 /* StaticUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA71D0067CA009CFB72 /* StaticUsersViewController.swift */; };
+		E5FE1DA91D0067CA009CFB72 /* StaticUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA71D0067CA009CFB72 /* StaticUsersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -547,7 +551,6 @@
 		E5B6B5891CC56F5800DC8EFC /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		E5B6B58A1CC56F5800DC8EFC /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
 		E5B6B58B1CC56F5800DC8EFC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		E5B6B5901CC56F5800DC8EFC /* ClusterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterViewController.swift; sourceTree = "<group>"; };
 		E5B6B5911CC56F5800DC8EFC /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		E5B6B5921CC56F5800DC8EFC /* NearMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeViewController.swift; sourceTree = "<group>"; };
 		E5B6B59B1CC56F5800DC8EFC /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
@@ -642,6 +645,9 @@
 		E5FE1D901CFF840B009CFB72 /* CoverImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverImageView.swift; sourceTree = "<group>"; };
 		E5FE1D931CFF8C85009CFB72 /* UIApplication+TopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+TopViewController.swift"; sourceTree = "<group>"; };
 		E5FE1D9D1D004208009CFB72 /* GTLocation+Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTLocation+Asset.swift"; sourceTree = "<group>"; };
+		E5FE1DA11D0060F9009CFB72 /* ClusterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterViewController.swift; sourceTree = "<group>"; };
+		E5FE1DA41D006154009CFB72 /* StaticStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticStreamablesViewController.swift; sourceTree = "<group>"; };
+		E5FE1DA71D0067CA009CFB72 /* StaticUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticUsersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1103,6 +1109,7 @@
 				E52DC7711CE5E09900375828 /* LikersViewController.swift */,
 				E52DC7721CE5E09900375828 /* RecentViewController.swift */,
 				E52DC7731CE5E09900375828 /* TrendingViewController.swift */,
+				E5FE1DA01D0060F9009CFB72 /* Static */,
 				E5B6B58F1CC56F5800DC8EFC /* Search */,
 			);
 			path = Streamables;
@@ -1111,7 +1118,6 @@
 		E5B6B58F1CC56F5800DC8EFC /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				E5B6B5901CC56F5800DC8EFC /* ClusterViewController.swift */,
 				E5B6B5911CC56F5800DC8EFC /* ExploreViewController.swift */,
 				E5B6B5921CC56F5800DC8EFC /* NearMeViewController.swift */,
 				E55452F51CF4950E0076CEC9 /* StreetViewController.swift */,
@@ -1449,6 +1455,16 @@
 			children = (
 			);
 			path = Social;
+			sourceTree = "<group>";
+		};
+		E5FE1DA01D0060F9009CFB72 /* Static */ = {
+			isa = PBXGroup;
+			children = (
+				E5FE1DA11D0060F9009CFB72 /* ClusterViewController.swift */,
+				E5FE1DA41D006154009CFB72 /* StaticStreamablesViewController.swift */,
+				E5FE1DA71D0067CA009CFB72 /* StaticUsersViewController.swift */,
+			);
+			path = Static;
 			sourceTree = "<group>";
 		};
 		F89B9B6C7903A7912D4CD2E1 /* Frameworks */ = {
@@ -1793,6 +1809,7 @@
 				E58432251CE9242000FB1E50 /* SearchViewController.swift in Sources */,
 				E58432261CE9242000FB1E50 /* EditPasswordViewController.swift in Sources */,
 				E5FE1D921CFF840B009CFB72 /* CoverImageView.swift in Sources */,
+				E5FE1DA91D0067CA009CFB72 /* StaticUsersViewController.swift in Sources */,
 				E58432271CE9242000FB1E50 /* TintButton.swift in Sources */,
 				E58432281CE9242000FB1E50 /* StreamableThumbnail.swift in Sources */,
 				E50564D91CECAE0400A42E56 /* GTDeviceMotionManager.swift in Sources */,
@@ -1825,10 +1842,12 @@
 				E584323D1CE9242000FB1E50 /* HomeViewController.swift in Sources */,
 				E584323E1CE9242000FB1E50 /* TOCropViewControllerTransitioning.m in Sources */,
 				E584323F1CE9242000FB1E50 /* DateUtils.swift in Sources */,
+				E5FE1DA31D0060F9009CFB72 /* ClusterViewController.swift in Sources */,
 				E58432401CE9242000FB1E50 /* OrientationNavigationController.swift in Sources */,
 				E58432411CE9242000FB1E50 /* DrawToolCell.swift in Sources */,
 				E55452F71CF4950E0076CEC9 /* StreetViewController.swift in Sources */,
 				E58432421CE9242000FB1E50 /* StreamableCell.swift in Sources */,
+				E5FE1DA61D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */,
 				E58432431CE9242000FB1E50 /* TOCroppedImageAttributes.m in Sources */,
 				E58432441CE9242000FB1E50 /* LikersViewController.swift in Sources */,
 				E58432451CE9242000FB1E50 /* DialogBuilder.swift in Sources */,
@@ -1863,7 +1882,6 @@
 				E58432601CE9242000FB1E50 /* UserLikedStreamablesViewController.swift in Sources */,
 				E58432611CE9242000FB1E50 /* GTLocationManager.swift in Sources */,
 				E58432621CE9242000FB1E50 /* ActivityViewController.swift in Sources */,
-				E58432631CE9242000FB1E50 /* ClusterViewController.swift in Sources */,
 				E58432641CE9242000FB1E50 /* CommentCell.swift in Sources */,
 				E58432651CE9242000FB1E50 /* BackButtonSlackViewController.swift in Sources */,
 				E55452D61CF3154C0076CEC9 /* LocationsViewController.swift in Sources */,
@@ -1929,6 +1947,7 @@
 				E5B6B5C11CC56F5800DC8EFC /* SearchViewController.swift in Sources */,
 				E5B6B5A91CC56F5800DC8EFC /* EditPasswordViewController.swift in Sources */,
 				E5FE1D911CFF840B009CFB72 /* CoverImageView.swift in Sources */,
+				E5FE1DA81D0067CA009CFB72 /* StaticUsersViewController.swift in Sources */,
 				E5DFDC051CB2C31B00BB3D27 /* TintButton.swift in Sources */,
 				E51006E21CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */,
 				E50564D81CECAE0400A42E56 /* GTDeviceMotionManager.swift in Sources */,
@@ -1961,10 +1980,12 @@
 				E5B6B5A51CC56F5800DC8EFC /* HomeViewController.swift in Sources */,
 				E5D085AA1CD8D30000226589 /* TOCropViewControllerTransitioning.m in Sources */,
 				E51006671CB7CE2300AC66A5 /* DateUtils.swift in Sources */,
+				E5FE1DA21D0060F9009CFB72 /* ClusterViewController.swift in Sources */,
 				E57FAB3A1CD8B2A800C0D125 /* OrientationNavigationController.swift in Sources */,
 				E57FAB261CD4106E00C0D125 /* DrawToolCell.swift in Sources */,
 				E55452F61CF4950E0076CEC9 /* StreetViewController.swift in Sources */,
 				E510063A1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */,
+				E5FE1DA51D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */,
 				E5D085A91CD8D30000226589 /* TOCroppedImageAttributes.m in Sources */,
 				E52DC7761CE5E09900375828 /* LikersViewController.swift in Sources */,
 				E5DFDC021CB2C31B00BB3D27 /* DialogBuilder.swift in Sources */,
@@ -1999,7 +2020,6 @@
 				E52DC7621CE5DA2A00375828 /* UserLikedStreamablesViewController.swift in Sources */,
 				E51006831CB7FE0F00AC66A5 /* GTLocationManager.swift in Sources */,
 				E5B6B5B31CC56F5800DC8EFC /* ActivityViewController.swift in Sources */,
-				E5B6B5CD1CC56F5800DC8EFC /* ClusterViewController.swift in Sources */,
 				E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */,
 				E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */,
 				E55452D51CF3154C0076CEC9 /* LocationsViewController.swift in Sources */,

@@ -4126,6 +4126,94 @@
             </objects>
             <point key="canvasLocation" x="2611" y="1115"/>
         </scene>
+        <!--Static Streamables View Controller-->
+        <scene sceneID="5q1-zP-SYy">
+            <objects>
+                <viewController storyboardIdentifier="StaticStreamablesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ti4-9d-ryn" customClass="StaticStreamablesViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JcB-lV-TaM"/>
+                        <viewControllerLayoutGuide type="bottom" id="LcL-w0-VOr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M7k-ud-GhO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uvz-5v-8sb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6Se-NE-EHe">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ti4-9d-ryn" id="kvN-yF-tfc"/>
+                                    <outlet property="delegate" destination="Ti4-9d-ryn" id="sGI-0f-IHM"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uvz-5v-8sb" secondAttribute="trailing" id="0TX-Un-9e9"/>
+                            <constraint firstItem="LcL-w0-VOr" firstAttribute="top" secondItem="uvz-5v-8sb" secondAttribute="bottom" id="EqB-dg-Ybk"/>
+                            <constraint firstItem="uvz-5v-8sb" firstAttribute="top" secondItem="M7k-ud-GhO" secondAttribute="top" id="L4S-2e-fod"/>
+                            <constraint firstItem="uvz-5v-8sb" firstAttribute="leading" secondItem="M7k-ud-GhO" secondAttribute="leading" id="toh-Vv-30e"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="uvz-5v-8sb" id="qCp-I3-bA5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yyc-VA-Zxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4695" y="1115"/>
+        </scene>
+        <!--Static Users View Controller-->
+        <scene sceneID="09S-4b-Xmy">
+            <objects>
+                <viewController storyboardIdentifier="StaticUsersViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kOG-Df-4jG" customClass="StaticUsersViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HVN-Zp-qXo"/>
+                        <viewControllerLayoutGuide type="bottom" id="51Z-1N-WUZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="drT-3X-cRx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qE5-lD-gj1">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rhb-8N-Mqb">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="kOG-Df-4jG" id="LTW-C1-cwK"/>
+                                    <outlet property="delegate" destination="kOG-Df-4jG" id="hQ8-ms-vEn"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="51Z-1N-WUZ" firstAttribute="top" secondItem="qE5-lD-gj1" secondAttribute="bottom" id="L8y-iD-LU5"/>
+                            <constraint firstItem="qE5-lD-gj1" firstAttribute="top" secondItem="drT-3X-cRx" secondAttribute="top" id="OlW-AV-2UH"/>
+                            <constraint firstItem="qE5-lD-gj1" firstAttribute="leading" secondItem="drT-3X-cRx" secondAttribute="leading" id="q1y-2O-9Mf"/>
+                            <constraint firstAttribute="trailing" secondItem="qE5-lD-gj1" secondAttribute="trailing" id="xj8-rT-Azh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="qE5-lD-gj1" id="NqR-eb-S5H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iWh-y1-w7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5394" y="1115"/>
+        </scene>
     </scenes>
     <resources>
         <image name="default_avatar" width="185" height="185"/>
