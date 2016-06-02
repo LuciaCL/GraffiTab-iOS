@@ -143,7 +143,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func processPushNotificationInfo(userInfo: [NSObject : AnyObject]?) {
         Utils.runWithDelay(1) {
             if userInfo != nil {
-                print("DEBUG: Processing push notification with contents - \(userInfo)")
+                print("DEBUG: Processing push notification")
                 // TODO: Ignore tapping on notification for now.
             }
         }
