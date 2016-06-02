@@ -154,7 +154,27 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+        let item = items[indexPath.row]
         
+        if item.type == .FOLLOW {
+            let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! NotificationFollowCell
+            ViewControllerUtils.showUserProfile(cell.getActionUser(), viewController: self)
+        }
+        else if item.type == .COMMENT {
+            let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! NotificationCommentCell
+            ViewControllerUtils.showStreamableDetails(cell.getActionStreamable()!, thumbnailImage: nil, isFullyLoaded: false, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
+        }
+        else if item.type == .LIKE {
+            let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! NotificationLikeCell
+            ViewControllerUtils.showStreamableDetails(cell.getActionStreamable()!, thumbnailImage: nil, isFullyLoaded: false, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
+        }
+        else if item.type == .MENTION {
+            let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! NotificationMentionCell
+            ViewControllerUtils.showStreamableDetails(cell.getActionStreamable()!, thumbnailImage: nil, isFullyLoaded: false, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
+        }
+        else { // Welcome.
+            
+        }
     }
     
     // MARK: - DZNEmptyDataSetDelegate

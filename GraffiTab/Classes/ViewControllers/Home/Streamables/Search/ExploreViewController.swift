@@ -286,12 +286,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
             let url = NSURL(string: (streamable.asset?.thumbnail)!)!
             let cachedImage = self.imageCache.objectForKey(url) as? UIImage
             
-            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("StreamableDetailViewController") as! StreamableDetailViewController
-            vc.streamable = streamable
-            vc.thumbnailImage = cachedImage
-            vc.fullyLoadedThumbnail = false
-            
-            self.presentViewController(vc, animated: true, completion: nil)
+            ViewControllerUtils.showStreamableDetails(streamable, thumbnailImage: cachedImage!, isFullyLoaded: false, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
         }
         
         return thumbnail

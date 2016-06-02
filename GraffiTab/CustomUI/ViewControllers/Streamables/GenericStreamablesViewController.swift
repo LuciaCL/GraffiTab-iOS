@@ -511,16 +511,9 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func didTapThumbnail(cell: UICollectionViewCell, streamable: GTStreamable, thumbnailImage: UIImage, isFullyLoaded: Bool) {
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("StreamableDetailViewController") as! StreamableDetailViewController
-        vc.streamable = streamable
-        vc.thumbnailImage = thumbnailImage
-        vc.fullyLoadedThumbnail = isFullyLoaded
-        
         transition = JTCollectionMaterialTransition(animatedView: (cell as! StreamableCell).thumbnail)
-        vc.modalPresentationStyle = .Custom
-        vc.transitioningDelegate = self
         
-        self.presentViewController(vc, animated: true, completion: nil)
+        ViewControllerUtils.showStreamableDetails(streamable, thumbnailImage: thumbnailImage, isFullyLoaded: isFullyLoaded, modalPresentationStyle: .Custom, transitioningDelegate: self, viewController: self)
     }
     
     // MARK: - Orientation

@@ -23,6 +23,14 @@ class ActivityViewController: BackButtonViewController, CarbonTabSwipeNavigation
         setupCarbonKit()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if self.navigationController!.navigationBarHidden {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+        }
+    }
+    
     override func viewDidLayoutSubviews() {
         configureTabsSize()
     }

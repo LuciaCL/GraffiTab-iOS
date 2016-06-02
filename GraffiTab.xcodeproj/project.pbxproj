@@ -1032,6 +1032,7 @@
 			children = (
 				E52DC76A1CE5DFE700375828 /* PrivateStreamablesViewController.swift */,
 				E52DC7671CE5DFC700375828 /* FeedViewController.swift */,
+				E5FE1D971CFFBC7E009CFB72 /* Social */,
 				E55452CE1CF3150A0076CEC9 /* Locations */,
 				E5B6B5741CC56F5800DC8EFC /* Edit */,
 				E5B6B57B1CC56F5800DC8EFC /* Notifications */,
@@ -1437,6 +1438,13 @@
 				E5FE1D901CFF840B009CFB72 /* CoverImageView.swift */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		E5FE1D971CFFBC7E009CFB72 /* Social */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Social;
 			sourceTree = "<group>";
 		};
 		F89B9B6C7903A7912D4CD2E1 /* Frameworks */ = {

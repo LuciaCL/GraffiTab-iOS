@@ -64,6 +64,22 @@ class ViewControllerUtils: NSObject {
         }
     }
     
+    class func showStreamableDetails(streamable: GTStreamable, thumbnailImage: UIImage?, isFullyLoaded: Bool, modalPresentationStyle: UIModalPresentationStyle?, transitioningDelegate: UIViewControllerTransitioningDelegate?, viewController: UIViewController) {
+        let vc = UIStoryboard(name: "MainStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("StreamableDetailViewController") as! StreamableDetailViewController
+        vc.streamable = streamable
+        vc.thumbnailImage = thumbnailImage
+        vc.fullyLoadedThumbnail = isFullyLoaded
+        
+        if modalPresentationStyle != nil {
+            vc.modalPresentationStyle = modalPresentationStyle!
+        }
+        if transitioningDelegate != nil {
+            vc.transitioningDelegate = transitioningDelegate
+        }
+        
+        viewController.presentViewController(vc, animated: true, completion: nil)
+    }
+    
     class func checkCameraAndPhotosPermissions(successBlock: () -> Void) {
         // Check camera permission.
         let checkCameraPermission = {
