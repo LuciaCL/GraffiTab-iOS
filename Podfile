@@ -42,6 +42,7 @@ def common_pods
     pod 'Reachability'
     pod 'RNFrostedSidebar'
     pod 'CNPGridMenu'
+    pod 'DGActivityIndicatorView'
 end
 
 target 'GraffiTab' do

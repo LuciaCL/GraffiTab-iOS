@@ -3164,17 +3164,41 @@
                                     <outlet property="delegate" destination="fwA-wb-Gd2" id="sF8-gc-bom"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQK-AU-1b2">
+                                <rect key="frame" x="275" y="260" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="N4D-D2-Ghk"/>
+                                    <constraint firstAttribute="width" constant="50" id="nJk-35-TUT"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locating" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIt-yK-MDC">
+                                <rect key="frame" x="269" y="310" width="63" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="BPk-Fr-tuQ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="CYf-1E-BcT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dH9-nH-auW" firstAttribute="leading" secondItem="FwF-M6-jOp" secondAttribute="leading" id="5hF-u7-39V"/>
+                            <constraint firstItem="hIt-yK-MDC" firstAttribute="top" secondItem="HQK-AU-1b2" secondAttribute="bottom" id="IoX-rd-keD"/>
+                            <constraint firstItem="HQK-AU-1b2" firstAttribute="centerX" secondItem="FwF-M6-jOp" secondAttribute="centerX" id="Q8X-Ns-ZYc"/>
                             <constraint firstItem="oBo-kt-CyA" firstAttribute="top" secondItem="dH9-nH-auW" secondAttribute="bottom" id="VdX-Ir-Nwg"/>
                             <constraint firstAttribute="trailing" secondItem="dH9-nH-auW" secondAttribute="trailing" id="cK7-3k-xc8"/>
                             <constraint firstItem="dH9-nH-auW" firstAttribute="top" secondItem="FwF-M6-jOp" secondAttribute="top" id="gQh-wn-9ww"/>
+                            <constraint firstItem="hIt-yK-MDC" firstAttribute="centerX" secondItem="HQK-AU-1b2" secondAttribute="centerX" id="h1E-Ge-iyo"/>
+                            <constraint firstItem="HQK-AU-1b2" firstAttribute="centerY" secondItem="FwF-M6-jOp" secondAttribute="centerY" constant="-15" id="sbe-aE-sKb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="dH9-nH-auW" id="JKY-HH-LHq"/>
+                        <outlet property="locatingLbl" destination="hIt-yK-MDC" id="Jdn-5y-02U"/>
+                        <outlet property="locationLoadingContainer" destination="HQK-AU-1b2" id="TwM-rn-gAi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kRK-jg-Wv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
