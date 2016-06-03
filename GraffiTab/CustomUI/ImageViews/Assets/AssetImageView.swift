@@ -42,6 +42,21 @@ class AssetImageView: UIImageView {
     // MARK: - Loading
     
     func loadImages() {
+        let fetchRemotely = {
+            // Images have not been cached yet, so fetch them from the web or the internal Alamofire cache.
+            self.previousAssetRequest = Alamofire.request(.GET, self.asset!.thumbnail!)
+                .responseImage { response in
+                    let image = response.result.value != nil ? response.result.value : nil
+                    
+                    let targetUrl = self.asset != nil ? self.asset!.thumbnail! : ""
+                    self.finishLoadingImage(response.request!.URLString, targetUrl: targetUrl, image: image, completionHandler: { (imageSet: Bool) in
+                        if imageSet && self.shouldLoadFullAsset {
+                            self.loadFullAsset()
+                        }
+                    })
+            }
+        }
+        
         if asset == nil {
             self.image = nil
             previousAssetRequest?.cancel()
@@ -60,20 +75,14 @@ class AssetImageView: UIImageView {
             }
             else if cachedThumbnailImage != nil {
                 self.image = cachedThumbnailImage
+                
+                if shouldLoadFullAsset { // At this point we have no cached full image but we want to display a full image, so show thumbnail and fetch full image remotely and add it to cache.
+                    fetchRemotely()
+                }
             }
             else {
                 // 2. Images have not been cached yet, so fetch them from the web or the internal Alamofire cache.
-                previousAssetRequest = Alamofire.request(.GET, asset!.thumbnail!)
-                    .responseImage { response in
-                        let image = response.result.value != nil ? response.result.value : nil
-                        
-                        let targetUrl = self.asset != nil ? self.asset!.thumbnail! : ""
-                        self.finishLoadingImage(response.request!.URLString, targetUrl: targetUrl, image: image, completionHandler: { (imageSet: Bool) in
-                            if imageSet && self.shouldLoadFullAsset {
-                                self.loadFullAsset()
-                            }
-                        })
-                }
+                fetchRemotely()
             }
         }
     }

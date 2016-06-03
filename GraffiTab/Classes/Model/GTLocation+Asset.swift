@@ -19,6 +19,7 @@ extension GTLocation {
             let currentValue = objc_getAssociatedObject(self, &assetKey)
             if currentValue == nil {
                 let asset = GTAsset(Map(mappingType: .FromJSON, JSONDictionary: [:]))
+                asset?.link = GoogleStaticApiUtils.getStaticMapUrl(self.latitude!, longitude: self.longitude!)
                 asset?.thumbnail = GoogleStaticApiUtils.getStaticMapUrl(self.latitude!, longitude: self.longitude!)
                 return asset!
             }
