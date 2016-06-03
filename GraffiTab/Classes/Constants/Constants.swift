@@ -32,4 +32,5 @@ struct SettingsKeys {
     static let kRememberCredentials = "kRememberCredentials"
     static let kUsername = "kUsername"
     static let kPassword = "kPassword"
+    static let kAppDomain = "kAppDomain"
 }

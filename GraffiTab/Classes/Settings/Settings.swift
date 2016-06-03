@@ -38,6 +38,15 @@ class Settings: NSObject {
         }
     }
     
+    var appDomain: String? {
+        get {
+            return keychain[SettingsKeys.kAppDomain]
+        }
+        set(newValue) {
+            keychain[SettingsKeys.kAppDomain] = newValue
+        }
+    }
+    
     var keychain = Keychain()
     
     override init() {

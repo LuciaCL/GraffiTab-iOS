@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="94E-R7-K7T">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Developer Options View Controller-->
+        <scene sceneID="ZhT-Ya-KQ9">
+            <objects>
+                <tableViewController storyboardIdentifier="DeveloperOptionsViewController" id="bVB-Fv-Eor" customClass="DeveloperOptionsViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="HNS-Le-IyP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Developer options" footerTitle="Changing these values requires app restart." id="L9z-0d-xeK">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="c12-Z8-Ub4">
+                                        <rect key="frame" x="0.0" y="114" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c12-Z8-Ub4" id="YLB-og-SzY">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Domain" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImD-kp-3db">
+                                                    <rect key="frame" x="15" y="11" width="56" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="c3L-ku-Nwr"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Domain" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gc6-wR-pSU">
+                                                    <rect key="frame" x="79" y="7" width="513" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="GVx-wX-fuU"/>
+                                                    </constraints>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ImD-kp-3db" firstAttribute="leading" secondItem="YLB-og-SzY" secondAttribute="leading" constant="15" id="Bx8-db-TAk"/>
+                                                <constraint firstAttribute="trailing" secondItem="gc6-wR-pSU" secondAttribute="trailing" constant="8" id="O5f-ZH-eQO"/>
+                                                <constraint firstItem="gc6-wR-pSU" firstAttribute="leading" secondItem="ImD-kp-3db" secondAttribute="trailing" constant="8" id="PTa-jR-JiN"/>
+                                                <constraint firstItem="ImD-kp-3db" firstAttribute="centerY" secondItem="YLB-og-SzY" secondAttribute="centerY" id="oU2-gy-wK8"/>
+                                                <constraint firstItem="gc6-wR-pSU" firstAttribute="centerY" secondItem="YLB-og-SzY" secondAttribute="centerY" id="yPd-DZ-lDd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="bVB-Fv-Eor" id="mkI-Xb-hFK"/>
+                            <outlet property="delegate" destination="bVB-Fv-Eor" id="8dZ-z6-z4w"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="a7h-aL-zT2">
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="NxW-qL-en4">
+                            <connections>
+                                <action selector="onClickDone:" destination="bVB-Fv-Eor" id="frW-t1-0FN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="domainField" destination="gc6-wR-pSU" id="xZS-1u-tVA"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Mf-4k-mn1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1559" y="102"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tx5-Z7-rvB">
+            <objects>
+                <navigationController id="94E-R7-K7T" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iAJ-A9-gGV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="bVB-Fv-Eor" kind="relationship" relationship="rootViewController" id="a1F-Of-ObE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sDd-Vt-I2d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="860" y="102"/>
+        </scene>
+    </scenes>
+</document>

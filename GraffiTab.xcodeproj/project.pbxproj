@@ -263,6 +263,10 @@
 		E592625C1D018C7300368212 /* AppMemoryImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592625A1D018C7300368212 /* AppMemoryImageCache.swift */; };
 		E592625E1D0197E400368212 /* ProfileFollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592625D1D0197E400368212 /* ProfileFollowButton.swift */; };
 		E592625F1D0197E400368212 /* ProfileFollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592625D1D0197E400368212 /* ProfileFollowButton.swift */; };
+		E59262621D01D7C900368212 /* DeveloperOptionsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59262611D01D7C900368212 /* DeveloperOptionsStoryboard.storyboard */; };
+		E59262631D01D7C900368212 /* DeveloperOptionsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59262611D01D7C900368212 /* DeveloperOptionsStoryboard.storyboard */; };
+		E59262651D01D7FB00368212 /* DeveloperOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59262641D01D7FB00368212 /* DeveloperOptionsViewController.swift */; };
+		E59262661D01D7FB00368212 /* DeveloperOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59262641D01D7FB00368212 /* DeveloperOptionsViewController.swift */; };
 		E5A4F1041CE1EDF2005CF12C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */; };
 		E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */; };
 		E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
@@ -531,6 +535,8 @@
 		E58432D91CEA469B00FB1E50 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		E592625A1D018C7300368212 /* AppMemoryImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMemoryImageCache.swift; sourceTree = "<group>"; };
 		E592625D1D0197E400368212 /* ProfileFollowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFollowButton.swift; sourceTree = "<group>"; };
+		E59262611D01D7C900368212 /* DeveloperOptionsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeveloperOptionsStoryboard.storyboard; sourceTree = "<group>"; };
+		E59262641D01D7FB00368212 /* DeveloperOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperOptionsViewController.swift; sourceTree = "<group>"; };
 		E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonSlackViewController.swift; sourceTree = "<group>"; };
 		E5A4F12C1CE225AA005CF12C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -1006,6 +1012,15 @@
 			path = Cache;
 			sourceTree = "<group>";
 		};
+		E59262601D01D79F00368212 /* Dev */ = {
+			isa = PBXGroup;
+			children = (
+				E59262611D01D7C900368212 /* DeveloperOptionsStoryboard.storyboard */,
+				E59262641D01D7FB00368212 /* DeveloperOptionsViewController.swift */,
+			);
+			path = Dev;
+			sourceTree = "<group>";
+		};
 		E5A4F12B1CE22580005CF12C /* Comments */ = {
 			isa = PBXGroup;
 			children = (
@@ -1359,6 +1374,7 @@
 		E5DFDBEF1CB2C31B00BB3D27 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E59262601D01D79F00368212 /* Dev */,
 				E5B6B56D1CC56F5800DC8EFC /* Create */,
 				E5B6B5701CC56F5800DC8EFC /* Home */,
 				E5B6B59A1CC56F5800DC8EFC /* Login */,
@@ -1680,6 +1696,7 @@
 				E58432B81CE9242000FB1E50 /* eula.html in Resources */,
 				E55452EB1CF336CC0076CEC9 /* LocationListCell.xib in Resources */,
 				E58432B91CE9242000FB1E50 /* StreamableGridCell.xib in Resources */,
+				E59262631D01D7C900368212 /* DeveloperOptionsStoryboard.storyboard in Resources */,
 				E58432BA1CE9242000FB1E50 /* UserListCell.xib in Resources */,
 				E58432BB1CE9242000FB1E50 /* release_notes.html in Resources */,
 				E58432BC1CE9242000FB1E50 /* TOCropViewControllerLocalizable.strings in Resources */,
@@ -1712,6 +1729,7 @@
 				E5B6B5D91CC56F5800DC8EFC /* LoginStoryboard.storyboard in Resources */,
 				E554CFDA1CB5641B00668D85 /* eula.html in Resources */,
 				E51006601CB7BC5A00AC66A5 /* StreamableGridCell.xib in Resources */,
+				E59262621D01D7C900368212 /* DeveloperOptionsStoryboard.storyboard in Resources */,
 				E5FE1D7E1CFEF71B009CFB72 /* Localizable.strings in Resources */,
 				E55452EA1CF336CC0076CEC9 /* LocationListCell.xib in Resources */,
 				E51006FC1CBD1C3B00AC66A5 /* UserListCell.xib in Resources */,
@@ -1863,6 +1881,7 @@
 				E584323E1CE9242000FB1E50 /* TOCropViewControllerTransitioning.m in Sources */,
 				E584323F1CE9242000FB1E50 /* DateUtils.swift in Sources */,
 				E5FE1DA31D0060F9009CFB72 /* ClusterViewController.swift in Sources */,
+				E59262661D01D7FB00368212 /* DeveloperOptionsViewController.swift in Sources */,
 				E58432401CE9242000FB1E50 /* OrientationNavigationController.swift in Sources */,
 				E58432411CE9242000FB1E50 /* DrawToolCell.swift in Sources */,
 				E55452F71CF4950E0076CEC9 /* StreetViewController.swift in Sources */,
@@ -2004,6 +2023,7 @@
 				E5D085AA1CD8D30000226589 /* TOCropViewControllerTransitioning.m in Sources */,
 				E51006671CB7CE2300AC66A5 /* DateUtils.swift in Sources */,
 				E5FE1DA21D0060F9009CFB72 /* ClusterViewController.swift in Sources */,
+				E59262651D01D7FB00368212 /* DeveloperOptionsViewController.swift in Sources */,
 				E57FAB3A1CD8B2A800C0D125 /* OrientationNavigationController.swift in Sources */,
 				E57FAB261CD4106E00C0D125 /* DrawToolCell.swift in Sources */,
 				E55452F61CF4950E0076CEC9 /* StreetViewController.swift in Sources */,
