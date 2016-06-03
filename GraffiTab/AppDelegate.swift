@@ -24,6 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        TestFairy.begin("70be1b90ec3e2c91eefd4b0883691d0194ac5185")
         
+        // TODO: Set main app domain.
+        let AppUrl = "http://localhost:8091"
+//        let AppUrl = "http://192.168.0.3:8091"
+//        let AppUrl = "http://10.193.122.150:8091"
+        GTSettings.sharedInstance.setAppDomain(AppUrl)
+        
         // Facebook-specific call.
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         FBSDKLoginManager.renewSystemCredentials { (result:ACAccountCredentialRenewResult, error:NSError!) -> Void in

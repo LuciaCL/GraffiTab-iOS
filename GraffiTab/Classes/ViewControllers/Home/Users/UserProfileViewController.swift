@@ -12,7 +12,10 @@ import CSStickyHeaderFlowLayout
 
 class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDelegate {
 
-    @IBOutlet weak var followBtn: UIButton!
+    @IBOutlet weak var followBtn: UIView!
+    @IBOutlet weak var followBtnTitle: UILabel!
+    @IBOutlet weak var followBtnImage: TintImageView!
+    @IBOutlet weak var followBtnWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     let parallaxHeaderHeight = CGFloat(405)
@@ -33,9 +36,14 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         self.layout?.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, parallaxHeaderHeight)
         
         setupNavigationBar()
+        setupButtons()
         
         loadData()
         loadUserProfile()
+        
+        Utils.runWithDelay(0.5) {
+            self.checkAndAnimateFollowButton()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -148,6 +156,71 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         self.header?.item = self.user
         
         loadData()
+    }
+    
+    // MARK: - Follow button animations
+    
+    func checkAndAnimateFollowButton() {
+        if !isMe() {
+            if user!.followedByCurrentUser! {
+                animateFollowing()
+            }
+            else {
+                animateFollow()
+            }
+        }
+    }
+    
+    func animateFollow() {
+        followBtnWidthConstraint.constant = followBtnImage.frame.width + followBtnTitle.frame.width + 10
+        
+        UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseInOut, animations: { 
+            self.followBtn.setNeedsUpdateConstraints()
+            self.followBtn.layoutIfNeeded()
+        }) { finished in
+            if finished {
+                
+            }
+        }
+    }
+    
+    func animateFollowing() {
+        followBtnWidthConstraint.constant = followBtnTitle.frame.origin.x +
+            followBtnTitle.frame.width + 15
+        
+        UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseInOut, animations: {
+            self.followBtn.setNeedsUpdateConstraints()
+            self.followBtn.layoutIfNeeded()
+        }) { finished in
+            if finished {
+                UIView.animateWithDuration(0.3, animations: {
+                    self.followBtnTitle.alpha = 1
+                }) { finished in
+                    if finished {
+                        Utils.runWithDelay(0.5, block: {
+                            self.unAnimateFollowing()
+                        })
+                    }
+                }
+            }
+        }
+    }
+    
+    func unAnimateFollowing() {
+        UIView.animateWithDuration(0.3, animations: {
+            self.followBtnTitle.alpha = 0
+        }) { finished in
+            if finished {
+                self.followBtnWidthConstraint.constant = self.followBtn.frame.height
+                
+                UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseInOut, animations: {
+                    self.followBtn.setNeedsUpdateConstraints()
+                    self.followBtn.layoutIfNeeded()
+                }) { finished in
+                    
+                }
+            }
+        }
     }
     
     // MARK: - Images
@@ -265,7 +338,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         }
         
         // Set follow button.
-        followBtn.setImage(UIImage(named: user!.followedByCurrentUser! ? "ic_action_unfollow" : "ic_action_follow"), forState: .Normal)
+//        followBtn.setImage(UIImage(named: user!.followedByCurrentUser! ? "ic_action_unfollow" : "ic_action_follow"), forState: .Normal)
         followBtn.backgroundColor = user!.followedByCurrentUser! ? UIColor(hexString: Colors.Green) : UIColor.whiteColor()
         followBtn.tintColor = user!.followedByCurrentUser! ? UIColor.whiteColor() : UIColor(hexString: Colors.Main)
     }
@@ -440,5 +513,9 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         titleView!.frame = CGRectMake(0, 0, self.view.frame.width - 120, 21)
         navigationBar.topItem?.titleView = titleView
         titleView!.alpha = 0.0
+    }
+    
+    func setupButtons() {
+        followBtn.applyMaterializeStyle()
     }
 }

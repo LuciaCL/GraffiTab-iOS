@@ -52,16 +52,28 @@ class AssetImageView: UIImageView {
         }
         
         if asset != nil {
-            previousAssetRequest = Alamofire.request(.GET, asset!.thumbnail!)
-                .responseImage { response in
-                    let image = response.result.value != nil ? response.result.value : nil
-                    
-                    let targetUrl = self.asset != nil ? self.asset!.thumbnail! : ""
-                    self.finishLoadingImage(response.request!.URLString, targetUrl: targetUrl, image: image, completionHandler: { (imageSet: Bool) in
-                        if imageSet && self.shouldLoadFullAsset {
-                            self.loadFullAsset()
-                        }
-                    })
+            // 1. Check memory cache first.
+            let cachedThumbnailImage = AppMemoryImageCache.sharedInstance.cachedImage(asset!.thumbnail!)
+            let cachedFullImage = AppMemoryImageCache.sharedInstance.cachedImage(asset!.link!)
+            if cachedFullImage != nil {
+                self.image = cachedFullImage
+            }
+            else if cachedThumbnailImage != nil {
+                self.image = cachedThumbnailImage
+            }
+            else {
+                // 2. Images have not been cached yet, so fetch them from the web or the internal Alamofire cache.
+                previousAssetRequest = Alamofire.request(.GET, asset!.thumbnail!)
+                    .responseImage { response in
+                        let image = response.result.value != nil ? response.result.value : nil
+                        
+                        let targetUrl = self.asset != nil ? self.asset!.thumbnail! : ""
+                        self.finishLoadingImage(response.request!.URLString, targetUrl: targetUrl, image: image, completionHandler: { (imageSet: Bool) in
+                            if imageSet && self.shouldLoadFullAsset {
+                                self.loadFullAsset()
+                            }
+                        })
+                }
             }
         }
     }
@@ -86,6 +98,9 @@ class AssetImageView: UIImageView {
         }
         else if url == targetUrl { // Verify we're still loading the current image.
             self.image = image
+            
+            // Add image to cache.
+            AppMemoryImageCache.sharedInstance.cacheImage(url, image: image)
             
             if completionHandler != nil {
                 completionHandler!(imageSet: true)

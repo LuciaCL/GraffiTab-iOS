@@ -259,6 +259,8 @@
 		E58432D01CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E58432CE1CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E58432DA1CEA469B00FB1E50 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58432D91CEA469B00FB1E50 /* Settings.swift */; };
 		E58432DB1CEA469B00FB1E50 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58432D91CEA469B00FB1E50 /* Settings.swift */; };
+		E592625B1D018C7300368212 /* AppMemoryImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592625A1D018C7300368212 /* AppMemoryImageCache.swift */; };
+		E592625C1D018C7300368212 /* AppMemoryImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592625A1D018C7300368212 /* AppMemoryImageCache.swift */; };
 		E5A4F1041CE1EDF2005CF12C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */; };
 		E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */; };
 		E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
@@ -363,6 +365,8 @@
 		E5FE1DA61D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA41D006154009CFB72 /* StaticStreamablesViewController.swift */; };
 		E5FE1DA81D0067CA009CFB72 /* StaticUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA71D0067CA009CFB72 /* StaticUsersViewController.swift */; };
 		E5FE1DA91D0067CA009CFB72 /* StaticUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA71D0067CA009CFB72 /* StaticUsersViewController.swift */; };
+		E5FE1DAB1D00BDF1009CFB72 /* UIView+Materialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DAA1D00BDF1009CFB72 /* UIView+Materialize.swift */; };
+		E5FE1DAC1D00BDF1009CFB72 /* UIView+Materialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DAA1D00BDF1009CFB72 /* UIView+Materialize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -523,6 +527,7 @@
 		E58432CC1CE940F900FB1E50 /* Release-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Release-Info.plist"; sourceTree = "<group>"; };
 		E58432CE1CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS-SDK/_Archive/iOS/Release/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
 		E58432D91CEA469B00FB1E50 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		E592625A1D018C7300368212 /* AppMemoryImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMemoryImageCache.swift; sourceTree = "<group>"; };
 		E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonSlackViewController.swift; sourceTree = "<group>"; };
 		E5A4F12C1CE225AA005CF12C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -648,6 +653,7 @@
 		E5FE1DA11D0060F9009CFB72 /* ClusterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterViewController.swift; sourceTree = "<group>"; };
 		E5FE1DA41D006154009CFB72 /* StaticStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticStreamablesViewController.swift; sourceTree = "<group>"; };
 		E5FE1DA71D0067CA009CFB72 /* StaticUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticUsersViewController.swift; sourceTree = "<group>"; };
+		E5FE1DAA1D00BDF1009CFB72 /* UIView+Materialize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Materialize.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -989,6 +995,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		E59262541D018C4400368212 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				E592625A1D018C7300368212 /* AppMemoryImageCache.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		E5A4F12B1CE22580005CF12C /* Comments */ = {
 			isa = PBXGroup;
 			children = (
@@ -1006,6 +1020,7 @@
 				E5DAA8B51CE49418000CB2F4 /* GTUser+Extra.swift */,
 				E5FE1D931CFF8C85009CFB72 /* UIApplication+TopViewController.swift */,
 				E5FE1D9D1D004208009CFB72 /* GTLocation+Asset.swift */,
+				E5FE1DAA1D00BDF1009CFB72 /* UIView+Materialize.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1296,6 +1311,7 @@
 		E5DFDBE71CB2C31B00BB3D27 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E59262541D018C4400368212 /* Cache */,
 				E50564D61CECADE700A42E56 /* MotionManager */,
 				E58432D31CEA468700FB1E50 /* Settings */,
 				E5A4F1361CE34825005CF12C /* Model */,
@@ -1872,6 +1888,7 @@
 				E58432581CE9242000FB1E50 /* TOCropOverlayView.m in Sources */,
 				E58432591CE9242000FB1E50 /* CCViewController.m in Sources */,
 				E584325A1CE9242000FB1E50 /* TintImageView.swift in Sources */,
+				E5FE1DAC1D00BDF1009CFB72 /* UIView+Materialize.swift in Sources */,
 				E5FE1D8D1CFF7DFE009CFB72 /* AvatarImageView.swift in Sources */,
 				E584325B1CE9242000FB1E50 /* NotificationWelcomeCell.swift in Sources */,
 				E584325C1CE9242000FB1E50 /* AutocompleteHashCell.swift in Sources */,
@@ -1882,6 +1899,7 @@
 				E58432601CE9242000FB1E50 /* UserLikedStreamablesViewController.swift in Sources */,
 				E58432611CE9242000FB1E50 /* GTLocationManager.swift in Sources */,
 				E58432621CE9242000FB1E50 /* ActivityViewController.swift in Sources */,
+				E592625C1D018C7300368212 /* AppMemoryImageCache.swift in Sources */,
 				E58432641CE9242000FB1E50 /* CommentCell.swift in Sources */,
 				E58432651CE9242000FB1E50 /* BackButtonSlackViewController.swift in Sources */,
 				E55452D61CF3154C0076CEC9 /* LocationsViewController.swift in Sources */,
@@ -2010,6 +2028,7 @@
 				E5D085AD1CD8D30000226589 /* TOCropOverlayView.m in Sources */,
 				E5B6B6271CC630B000DC8EFC /* CCViewController.m in Sources */,
 				E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */,
+				E5FE1DAB1D00BDF1009CFB72 /* UIView+Materialize.swift in Sources */,
 				E5FE1D8C1CFF7DFE009CFB72 /* AvatarImageView.swift in Sources */,
 				E51006AC1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */,
 				E5DAA8971CE37A26000CB2F4 /* AutocompleteHashCell.swift in Sources */,
@@ -2020,6 +2039,7 @@
 				E52DC7621CE5DA2A00375828 /* UserLikedStreamablesViewController.swift in Sources */,
 				E51006831CB7FE0F00AC66A5 /* GTLocationManager.swift in Sources */,
 				E5B6B5B31CC56F5800DC8EFC /* ActivityViewController.swift in Sources */,
+				E592625B1D018C7300368212 /* AppMemoryImageCache.swift in Sources */,
 				E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */,
 				E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */,
 				E55452D51CF3154C0076CEC9 /* LocationsViewController.swift in Sources */,

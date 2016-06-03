@@ -3622,28 +3622,46 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0u-oK-Df2" customClass="MaterializeRoundButton" customModule="GraffiTab" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UB6-nC-tIn">
                                 <rect key="frame" x="525" y="525" width="55" height="55"/>
-                                <color key="backgroundColor" red="0.0" green="0.36078431370000003" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_action_unfollow" translatesAutoresizingMaskIntoConstraints="NO" id="jtg-ye-wHR" customClass="TintImageView" customModule="GraffiTab" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="3oi-9i-BVd"/>
+                                            <constraint firstAttribute="height" constant="55" id="zaT-O3-qfG"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmW-NS-dTj">
+                                        <rect key="frame" x="50" y="17" width="72" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="DyD-5E-dKi"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="b2I-3d-3aH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.36078431372549019" blue="0.52549019607843139" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="cV9-CK-ti3"/>
-                                    <constraint firstAttribute="height" constant="55" id="y8Y-NO-Sub"/>
+                                    <constraint firstItem="EmW-NS-dTj" firstAttribute="leading" secondItem="jtg-ye-wHR" secondAttribute="trailing" constant="-5" id="S0T-IM-oGl"/>
+                                    <constraint firstAttribute="width" constant="55" id="S4o-Oj-K8G"/>
+                                    <constraint firstItem="EmW-NS-dTj" firstAttribute="centerY" secondItem="UB6-nC-tIn" secondAttribute="centerY" id="S9F-Rw-LL2"/>
+                                    <constraint firstItem="jtg-ye-wHR" firstAttribute="leading" secondItem="UB6-nC-tIn" secondAttribute="leading" id="Y8x-sd-Gy7"/>
+                                    <constraint firstItem="jtg-ye-wHR" firstAttribute="top" secondItem="UB6-nC-tIn" secondAttribute="top" id="blI-Qp-dz7"/>
+                                    <constraint firstAttribute="bottom" secondItem="jtg-ye-wHR" secondAttribute="bottom" id="stS-rW-7AQ"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="ic_action_unfollow"/>
-                                <connections>
-                                    <action selector="onClickFollow:" destination="YO2-xp-61P" eventType="touchUpInside" id="k5S-tQ-UOB"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="le1-Kq-4i2" firstAttribute="top" secondItem="UB6-nC-tIn" secondAttribute="bottom" constant="20" id="4EB-Yl-Uj4"/>
                             <constraint firstItem="Rs7-ch-3qN" firstAttribute="leading" secondItem="g6L-pG-w2k" secondAttribute="leading" id="87K-Vl-AyU"/>
                             <constraint firstItem="91p-iZ-9tu" firstAttribute="top" secondItem="g6L-pG-w2k" secondAttribute="top" id="9ai-TC-A4f"/>
                             <constraint firstAttribute="trailing" secondItem="91p-iZ-9tu" secondAttribute="trailing" id="F5f-s8-i2W"/>
                             <constraint firstAttribute="trailing" secondItem="Rs7-ch-3qN" secondAttribute="trailing" id="Izk-n2-Cox"/>
-                            <constraint firstAttribute="trailing" secondItem="o0u-oK-Df2" secondAttribute="trailing" constant="20" id="NIt-xS-ypH"/>
-                            <constraint firstItem="le1-Kq-4i2" firstAttribute="top" secondItem="o0u-oK-Df2" secondAttribute="bottom" constant="20" id="eBd-jx-qZl"/>
+                            <constraint firstAttribute="trailing" secondItem="UB6-nC-tIn" secondAttribute="trailing" constant="20" id="iR8-y5-PM3"/>
                             <constraint firstItem="Rs7-ch-3qN" firstAttribute="top" secondItem="pxZ-9u-3DL" secondAttribute="bottom" constant="-20" id="j7f-rV-7cu"/>
                             <constraint firstItem="le1-Kq-4i2" firstAttribute="top" secondItem="91p-iZ-9tu" secondAttribute="bottom" id="sr5-HO-dQL"/>
                             <constraint firstItem="91p-iZ-9tu" firstAttribute="leading" secondItem="g6L-pG-w2k" secondAttribute="leading" id="yfo-9k-BFJ"/>
@@ -3651,7 +3669,10 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="91p-iZ-9tu" id="BJ0-G6-Hnw"/>
-                        <outlet property="followBtn" destination="o0u-oK-Df2" id="ocG-Qg-rjU"/>
+                        <outlet property="followBtn" destination="UB6-nC-tIn" id="o4N-ew-eVg"/>
+                        <outlet property="followBtnImage" destination="jtg-ye-wHR" id="Y2D-bN-8FB"/>
+                        <outlet property="followBtnTitle" destination="EmW-NS-dTj" id="9IT-hk-bnZ"/>
+                        <outlet property="followBtnWidthConstraint" destination="S4o-Oj-K8G" id="LiV-Xz-qhh"/>
                         <outlet property="navigationBar" destination="Rs7-ch-3qN" id="BPJ-Pp-git"/>
                         <segue destination="1GV-Jl-Tq2" kind="show" identifier="SEGUE_FOLLOWERS" id="8Ph-MR-dMr"/>
                         <segue destination="FhH-pa-Alw" kind="show" identifier="SEGUE_FOLLOWING" id="UAS-Us-2u2"/>
