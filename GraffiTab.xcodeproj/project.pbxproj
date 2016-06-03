@@ -261,6 +261,8 @@
 		E58432DB1CEA469B00FB1E50 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58432D91CEA469B00FB1E50 /* Settings.swift */; };
 		E592625B1D018C7300368212 /* AppMemoryImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592625A1D018C7300368212 /* AppMemoryImageCache.swift */; };
 		E592625C1D018C7300368212 /* AppMemoryImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592625A1D018C7300368212 /* AppMemoryImageCache.swift */; };
+		E592625E1D0197E400368212 /* ProfileFollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592625D1D0197E400368212 /* ProfileFollowButton.swift */; };
+		E592625F1D0197E400368212 /* ProfileFollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592625D1D0197E400368212 /* ProfileFollowButton.swift */; };
 		E5A4F1041CE1EDF2005CF12C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */; };
 		E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */; };
 		E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
@@ -528,6 +530,7 @@
 		E58432CE1CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS-SDK/_Archive/iOS/Release/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
 		E58432D91CEA469B00FB1E50 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		E592625A1D018C7300368212 /* AppMemoryImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMemoryImageCache.swift; sourceTree = "<group>"; };
+		E592625D1D0197E400368212 /* ProfileFollowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFollowButton.swift; sourceTree = "<group>"; };
 		E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonSlackViewController.swift; sourceTree = "<group>"; };
 		E5A4F12C1CE225AA005CF12C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -1386,6 +1389,7 @@
 				E5DFDBF61CB2C31B00BB3D27 /* TintButton.swift */,
 				E53F3FA71CEAA63900537D1B /* DrawingOptionButton.swift */,
 				E50564D31CEC882B00A42E56 /* MaterializeRoundButton.swift */,
+				E592625D1D0197E400368212 /* ProfileFollowButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1876,6 +1880,7 @@
 				E584324C1CE9242000FB1E50 /* TOCropToolbar.m in Sources */,
 				E584324D1CE9242000FB1E50 /* GenericUsersViewController.swift in Sources */,
 				E584324E1CE9242000FB1E50 /* ActivityGroupCommentCell.swift in Sources */,
+				E592625F1D0197E400368212 /* ProfileFollowButton.swift in Sources */,
 				E584324F1CE9242000FB1E50 /* LoginViewController.swift in Sources */,
 				E58432501CE9242000FB1E50 /* InputValidator.swift in Sources */,
 				E58432511CE9242000FB1E50 /* StreamableGridCell.swift in Sources */,
@@ -2016,6 +2021,7 @@
 				E5D085AF1CD8D30000226589 /* TOCropToolbar.m in Sources */,
 				E51006F11CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
 				E51006D71CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
+				E592625E1D0197E400368212 /* ProfileFollowButton.swift in Sources */,
 				E5B6B5DB1CC56F5800DC8EFC /* LoginViewController.swift in Sources */,
 				E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */,
 				E510065E1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,

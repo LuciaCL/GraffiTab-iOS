@@ -3622,7 +3622,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UB6-nC-tIn">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UB6-nC-tIn" customClass="ProfileFollowButton" customModule="GraffiTab" customModuleProvider="target">
                                 <rect key="frame" x="525" y="525" width="55" height="55"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_action_unfollow" translatesAutoresizingMaskIntoConstraints="NO" id="jtg-ye-wHR" customClass="TintImageView" customModule="GraffiTab" customModuleProvider="target">
@@ -3644,6 +3644,7 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.36078431372549019" blue="0.52549019607843139" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="EmW-NS-dTj" firstAttribute="leading" secondItem="jtg-ye-wHR" secondAttribute="trailing" constant="-5" id="S0T-IM-oGl"/>
                                     <constraint firstAttribute="width" constant="55" id="S4o-Oj-K8G"/>
@@ -3652,6 +3653,12 @@
                                     <constraint firstItem="jtg-ye-wHR" firstAttribute="top" secondItem="UB6-nC-tIn" secondAttribute="top" id="blI-Qp-dz7"/>
                                     <constraint firstAttribute="bottom" secondItem="jtg-ye-wHR" secondAttribute="bottom" id="stS-rW-7AQ"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="followBtnImage" destination="jtg-ye-wHR" id="gnW-2P-kB2"/>
+                                    <outlet property="followBtnTitle" destination="EmW-NS-dTj" id="nCO-49-OVv"/>
+                                    <outlet property="followBtnWidthConstraint" destination="S4o-Oj-K8G" id="93p-MA-1zt"/>
+                                    <outletCollection property="gestureRecognizers" destination="K87-Af-pni" appends="YES" id="lKE-Co-5Hx"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3670,9 +3677,6 @@
                     <connections>
                         <outlet property="collectionView" destination="91p-iZ-9tu" id="BJ0-G6-Hnw"/>
                         <outlet property="followBtn" destination="UB6-nC-tIn" id="o4N-ew-eVg"/>
-                        <outlet property="followBtnImage" destination="jtg-ye-wHR" id="Y2D-bN-8FB"/>
-                        <outlet property="followBtnTitle" destination="EmW-NS-dTj" id="9IT-hk-bnZ"/>
-                        <outlet property="followBtnWidthConstraint" destination="S4o-Oj-K8G" id="LiV-Xz-qhh"/>
                         <outlet property="navigationBar" destination="Rs7-ch-3qN" id="BPJ-Pp-git"/>
                         <segue destination="1GV-Jl-Tq2" kind="show" identifier="SEGUE_FOLLOWERS" id="8Ph-MR-dMr"/>
                         <segue destination="FhH-pa-Alw" kind="show" identifier="SEGUE_FOLLOWING" id="UAS-Us-2u2"/>
@@ -3681,6 +3685,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTB-br-Udb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="K87-Af-pni">
+                    <connections>
+                        <action selector="onClickFollow:" destination="YO2-xp-61P" id="ve2-3s-fIf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1914" y="395"/>
         </scene>
