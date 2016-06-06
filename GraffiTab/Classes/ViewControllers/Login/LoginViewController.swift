@@ -11,6 +11,7 @@ import RNActivityView
 import FBSDKCoreKit
 import FBSDKLoginKit
 import GraffiTab_iOS_SDK
+import CocoaLumberjack
 
 class LoginViewController: BackButtonViewController, UITextFieldDelegate {
 
@@ -46,6 +47,8 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
     @IBAction func onClickFacebookLogin(sender: AnyObject) {
         self.view.endEditing(true)
         
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Logging in with Facebook")
+        
         loginFacebook(true)
     }
     
@@ -77,7 +80,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         
         GTUserManager.register(.FACEBOOK, externalId: userId, accessToken: token, email: email, firstName: firstName, lastName: lastName, username: username, successBlock: { (response) -> Void in
             self.view.hideActivityView()
-            print("DEBUG: Signed up successfully. Attempting login..")
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Signed up successfully. Attempting login")
             
             self.loginFacebook(false)
         }) { (response) -> Void in
@@ -127,6 +130,8 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
     // MARK: - Login
     
     func login() {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting user login")
+        
         let un = usernameField.text
         let pa = passwordField.text
         
@@ -158,16 +163,18 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
     }
     
     func loginFacebook(forceLogin: Bool) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting user Facebook login")
+        
         self.view.showActivityViewWithLabel("Processing")
         self.view.rn_activityView.dimBackground = false
         
         loginToFacebookWithSuccess(forceLogin, successBlock: { (userId: String, token: String, email: String, firstName: String, lastName: String) -> () in
-            print("DEBUG: Facebook permissions granted. Read parameters:")
-            print("DEBUG: User ID: \(userId)")
-            print("DEBUG: User email: \(email)")
-            print("DEBUG: User first name: \(firstName)")
-            print("DEBUG: User last name: \(lastName)")
-            print("DEBUG: Access token: \(token)")
+            DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Facebook permissions granted.")
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User ID: \(userId)")
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User email: \(email)")
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User first name: \(firstName)")
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User last name: \(lastName)")
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Access token: \(token)")
             
             // Attempt login with external provider.
             GTUserManager.login(.FACEBOOK, externalId: userId, accessToken: token, successBlock: { (response) -> Void in
@@ -219,7 +226,8 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
                     successBlock(userId: userId, token: token, email: email, firstName: firstName, lastName: lastName)
                 }
                 else {
-                    print("DEBUG: Error Getting Info \(error)");
+                    DDLogError("[\(NSStringFromClass(self.dynamicType))] Error Getting Info \(error)")
+                    
                     failureBlock(error)
                 }
             }
@@ -241,7 +249,8 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
                     
                     // Process error
                     FBSDKLoginManager().logOut()
-                    print("DEBUG: Error logging in \(error)");
+                    DDLogError("[\(NSStringFromClass(self.dynamicType))] Error logging in \(error)")
+
                     failureBlock(error)
                 }
                 else if result.isCancelled {

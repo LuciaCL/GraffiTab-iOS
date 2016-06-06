@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CocoaLumberjack
 
 extension UIViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, TOCropViewControllerDelegate {
     
@@ -34,7 +35,7 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
             presentViewController(imagePicker, animated: true, completion: nil)
         }
         else {
-            print("DEBUG: Source type .PhotoLibrary not available")
+            DDLogError("[\(NSStringFromClass(self.dynamicType))] Source type .PhotoLibrary not available")
         }
     }
     
@@ -44,7 +45,7 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
             presentViewController(imagePicker, animated: true, completion: nil)
         }
         else {
-            print("DEBUG: Source type .Camera not available")
+            DDLogError("[\(NSStringFromClass(self.dynamicType))] Source type .Camera not available")
         }
     }
     

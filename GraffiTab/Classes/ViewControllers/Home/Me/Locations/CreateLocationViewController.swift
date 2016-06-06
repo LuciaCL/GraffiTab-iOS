@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import GraffiTab_iOS_SDK
 import AddressBookUI
+import CocoaLumberjack
 
 class CreateLocationViewController: BackButtonViewController, UITextFieldDelegate, MKMapViewDelegate {
     
@@ -55,6 +56,8 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
     }
     
     @IBAction func onClickCreate(sender: AnyObject) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to create location")
+        
         if lastPlacemark == nil {
             DialogBuilder.showErrorAlert("Select a location first.", title: App.Title)
         }
@@ -104,6 +107,8 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
     }
     
     @IBAction func onClickSearch(sender: AnyObject) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to search for location")
+        
         isSearching = !isSearching
         
         let searchWidth: CGFloat
@@ -218,7 +223,7 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
             self.hideLoadingIndicator()
             
             if error != nil {
-                print("DEBUG: Geocoder failed with error - \(error)")
+                DDLogError("[\(NSStringFromClass(self.dynamicType))] Geocoder failed with error - \(error)")
                 return
             }
             

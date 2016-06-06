@@ -8,6 +8,7 @@
 
 import UIKit
 import GraffiTab_iOS_SDK
+import CocoaLumberjack
 
 class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate {
 
@@ -38,6 +39,8 @@ class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate
     }
     
     @IBAction func onClickReset(sender: AnyObject) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting password reset")
+        
         self.view.endEditing(true)
         
         self.view.showActivityViewWithLabel("Processing")

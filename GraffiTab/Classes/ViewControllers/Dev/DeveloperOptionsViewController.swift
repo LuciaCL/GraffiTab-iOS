@@ -8,6 +8,7 @@
 
 import UIKit
 import GraffiTab_iOS_SDK
+import CocoaLumberjack
 
 class DeveloperOptionsViewController: BackButtonTableViewController {
 
@@ -31,6 +32,9 @@ class DeveloperOptionsViewController: BackButtonTableViewController {
         GTSettings.sharedInstance.setAppDomain(domain!)
         Settings.sharedInstance.appDomain = domain
         
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Saved developer settings")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] App domain: \(domain)")
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -45,6 +49,9 @@ class DeveloperOptionsViewController: BackButtonTableViewController {
         }
         
         domainField.text = localDomain
+        
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Loaded developer settings")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] App domain: \(localDomain)")
     }
     
     // MARK: - Setup

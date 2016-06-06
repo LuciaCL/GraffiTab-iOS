@@ -12,6 +12,7 @@ import GraffiTab_iOS_SDK
 import FBLikeLayout
 import CHTCollectionViewWaterfallLayout
 import CarbonKit
+import CocoaLumberjack
 
 enum StreamableViewType : Int {
     case Grid
@@ -225,7 +226,8 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func profileChangeEventHandler(notification: NSNotification) {
-        print("DEBUG: Received app event - \(notification)")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received app event - \(notification)")
+        
         let user = notification.userInfo!["user"] as! GTUser
         for (index, streamable) in items.enumerate() {
             if streamable.user!.isEqual(user) {
@@ -243,7 +245,8 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func deleteStreamableEventHandler(notification: NSNotification) {
-        print("DEBUG: Received app event - \(notification)")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received app event - \(notification)")
+        
         let streamableId = notification.userInfo!["streamableId"] as! Int
         if let index = items.indexOf({$0.id == streamableId}) {
             self.collectionView.performBatchUpdates({
@@ -258,7 +261,8 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func singleStreamableEventHandler(notification: NSNotification) {
-        print("DEBUG: Received app event - \(notification)")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received app event - \(notification)")
+        
         let streamable = notification.userInfo!["streamable"] as! GTStreamable
         if let index = items.indexOf(streamable) {
             items[index].softCopy(streamable)
@@ -270,7 +274,8 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func genericEventHandler(notification: NSNotification) {
-        print("DEBUG: Received app event - \(notification)")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received app event - \(notification)")
+        
         collectionView.reloadData()
     }
     

@@ -11,6 +11,7 @@ import Photos
 import imglyKit
 import RNFrostedSidebar
 import GraffiTab_iOS_SDK
+import CocoaLumberjack
 
 class CreateViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, ColorSprayCanCellDelegate, RNFrostedSidebarDelegate, PublishDelegate, CanvasDelegate {
 
@@ -98,6 +99,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickPublish(sender: AnyObject?) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing publish screen")
+        
         let sampleImage = self.canvas?.grabFrame()
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PublishViewController") as! PublishViewController
         vc.streamableImage = sampleImage
@@ -107,11 +110,15 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickShare(sender: AnyObject?) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing share dialog")
+        
         let sampleImage = self.canvas?.grabFrame()
         Utils.shareImage(sampleImage!, viewController: self)
     }
     
     @IBAction func onClickSave(sender: AnyObject?) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Saving canvas snapshot")
+        
         self.view.showActivityViewWithLabel("Processing")
         self.view.rn_activityView.dimBackground = false
         
@@ -121,6 +128,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             UIImageWriteToSavedPhotosAlbum(sampleImage!, nil, nil, nil);
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Shapshot saved")
+                
                 self.view.hideActivityView()
                 
                 Utils.runWithDelay(0.3, block: {
@@ -131,6 +140,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickDone(sender: AnyObject) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing publish options")
+        
         let sideBar = RNFrostedSidebar(images: [UIImage(named: "ic_done_white")!, UIImage(named: "ic_share_white")!, UIImage(named: "ic_file_download_white")!, UIImage(named: "ic_delete_white")!])
         sideBar.delegate = self
         sideBar.showFromRight = true
@@ -141,6 +152,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickEnhance(sender: AnyObject?) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing enhancer tool")
+        
         let sampleImage = self.canvas?.grabFrame()
         let editorViewController = IMGLYMainEditorViewController()
         editorViewController.highResolutionImage = sampleImage
@@ -165,6 +178,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickChangeBackground(sender: AnyObject) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to change background")
+        
         // Ask for photos library.
         PHPhotoLibrary.requestAuthorization { status in
             dispatch_async(dispatch_get_main_queue(),{
@@ -189,9 +204,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         if recognizer.state == .Began {
             let p = recognizer.locationInView(toolCollectionView)
             let indexPath = toolCollectionView.indexPathForItemAtPoint(p)
-            if (indexPath == nil){
-                print("Couldn't find index path")
-            } else {
+            if indexPath != nil {
                 if indexPath?.row == 0 {
                     UIActionSheet.showInView(view, withTitle: "What would you like to do?", cancelButtonTitle: "Cancel", destructiveButtonTitle: "Clear canvas", otherButtonTitles: ["Clear background", "Clear drawing layer"], tapBlock: { (actionSheet, index) in
                         if index == 0 {
@@ -210,6 +223,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickUndo(sender: AnyObject) {
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Undo action")
+        
         if canvas!.canUndo() {
             canvas!.undo()
         }
@@ -543,6 +558,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     // MARK: - Setup
     
     func setupCocos2D() {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Setting up IntroScene")
+        
         canvasScene = IntroScene(self.canvasView.bounds)
         
         if CCDirector.sharedDirector().runningScene != nil {
@@ -554,6 +571,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         
         canvas = canvasScene!.canvas
         canvas?.delegate = self
+        
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] IntroScene set up - \(canvasScene)")
         
         // Setup default colors.
         let color = UIColor.blackColor()

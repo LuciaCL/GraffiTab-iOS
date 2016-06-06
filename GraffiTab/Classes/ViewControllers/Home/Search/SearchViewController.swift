@@ -8,6 +8,7 @@
 
 import UIKit
 import CarbonKit
+import CocoaLumberjack
 
 class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDelegate, UISearchBarDelegate {
 
@@ -59,6 +60,8 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
     // MARK: - UISearchBarDelegate
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Searching for: \(searchBar.text)")
+        
         searchBar.resignFirstResponder()
         
         let vc = controllers![Int(carbonTabSwipeNavigation!.currentTabIndex)]

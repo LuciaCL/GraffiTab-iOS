@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import GraffiTab_iOS_SDK
+import CocoaLumberjack
 
 enum ImageType {
     case Avatar
@@ -52,6 +53,8 @@ class EditProfileViewController: BackButtonTableViewController {
     }
     
     func onClickSave() {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to save profile")
+        
         let fn = firstnameField.text
         let ln = lastnameField.text
         let e = emailField.text

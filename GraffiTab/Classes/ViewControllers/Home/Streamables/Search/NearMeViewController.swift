@@ -10,6 +10,7 @@ import UIKit
 import GraffiTab_iOS_SDK
 import MapKit
 import DGActivityIndicatorView
+import CocoaLumberjack
 
 class NearMeViewController: GridStreamablesViewController {
     
@@ -67,7 +68,8 @@ class NearMeViewController: GridStreamablesViewController {
     }
     
     func checkLocationFound() {
-        print("DEBUG: No previous location detected. Attempting to locate..")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] No previous location detected. Attempting to locate")
+        
         let location = GTLocationManager.manager.lastLocation
         
         if location != nil {

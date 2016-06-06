@@ -13,6 +13,7 @@ import FBAnnotationClusteringSwift
 import JPSThumbnailAnnotation
 import MZFormSheetPresentationController
 import JTMaterialTransition
+import CocoaLumberjack
 
 class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMapViewDelegate, FBClusteringManagerDelegate, UIViewControllerTransitioningDelegate {
 
@@ -169,7 +170,8 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         // Then transform those point into lat, lng values.
         let neCoord = mapView.convertPoint(nePoint, toCoordinateFromView: mapView)
         let swCoord = mapView.convertPoint(swPoint, toCoordinateFromView: mapView)
-        print("DEBUG: Map bounding rectangle is \(neCoord), + \(swCoord)")
+        
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Map bounding rectangle is \(neCoord), + \(swCoord)")
         
         GTStreamableManager.searchForLocation(neCoord.latitude, neLongitude: neCoord.longitude, swLatitude: swCoord.latitude, swLongitude: swCoord.longitude, successBlock: { (response) -> Void in
             let listItemsResult = response.object as! GTListItemsResult<GTStreamable>
@@ -249,7 +251,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
                 let cachedImage = self.imageCache.objectForKey(url) as? UIImage
                 
                 if cachedImage != nil { // Use cached image.
-                    print("DEBUG: Cache hit image for url \(url)")
+                    DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Cache hit image for url \(url)")
                     
                     successBlock(url, cachedImage!, annotation)
                 }
@@ -257,7 +259,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
                     let session = NSURLSession.sharedSession()
                     let task = session.dataTaskWithURL(url, completionHandler: { (data, response, error) in
                         if error == nil {
-                            print("DEBUG: Downloaded image for url \(url)")
+                            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Downloaded image for url \(url)")
                             
                             let image = UIImage(data: data!)
                             
@@ -267,7 +269,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
                             successBlock(url, image!, annotation)
                         }
                         else {
-                            print("DEBUG: Failed to load image for url \(url)")
+                            DDLogError("[\(NSStringFromClass(self.dynamicType))] Failed to load image for url \(url)")
                         }
                     })
                     self.imageDownloadTasks.append(task)

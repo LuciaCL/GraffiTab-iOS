@@ -10,6 +10,7 @@ import UIKit
 import DZNEmptyDataSet
 import GraffiTab_iOS_SDK
 import CarbonKit
+import CocoaLumberjack
 
 enum UserViewType : Int {
     case List
@@ -143,7 +144,8 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
     }
     
     func singleUserEventHandler(notification: NSNotification) {
-        print("DEBUG: Received app event - \(notification)")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received app event - \(notification)")
+        
         let user = notification.userInfo!["user"] as! GTUser
         if let index = items.indexOf(user) {
             items[index].softCopy(user)

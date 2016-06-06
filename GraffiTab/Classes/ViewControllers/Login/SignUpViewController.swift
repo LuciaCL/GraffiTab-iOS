@@ -9,6 +9,7 @@
 import UIKit
 import JVFloatLabeledTextField
 import GraffiTab_iOS_SDK
+import CocoaLumberjack
 
 class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
 
@@ -50,6 +51,8 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
     }
     
     @IBAction func onClickSignUp(sender: AnyObject) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting user signup")
+        
         self.view.endEditing(true)
         
         let fn = firstnameField.text

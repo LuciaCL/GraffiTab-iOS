@@ -8,6 +8,7 @@
 
 import UIKit
 import GraffiTab_iOS_SDK
+import CocoaLumberjack
 
 class EditPasswordViewController: BackButtonTableViewController, UITextFieldDelegate {
 
@@ -33,6 +34,8 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
     }
     
     func onClickSave() {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to change password")
+        
         self.view.endEditing(true)
         
         let p = passwordField.text

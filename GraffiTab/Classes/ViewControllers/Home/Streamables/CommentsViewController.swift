@@ -11,6 +11,7 @@ import GraffiTab_iOS_SDK
 import ObjectMapper
 import CarbonKit
 import Alamofire
+import CocoaLumberjack
 
 class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
 
@@ -81,7 +82,8 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     }
     
     func singleUserEventHandler(notification: NSNotification) {
-        print("DEBUG: Received app event - \(notification)")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received app event: \(notification)")
+        
         let u = notification.userInfo!["user"] as! GTUser
         for (index, comment) in items.enumerate() {
             if comment.user!.isEqual(u) {
@@ -335,7 +337,8 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
                 self.showAutoCompletionView(show)
                 
                 if !show {
-                    print("DEBUG: Local search didn't return any results. Fetching results")
+                    DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Local search didn't return any results. Fetching from server.")
+                    
                     // If there are no matches, fetch results.
                     if previousUserSearchRequest != nil {
                         previousUserSearchRequest?.cancel()
@@ -371,7 +374,8 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
                 self.showAutoCompletionView(show)
                 
                 if !show {
-                    print("DEBUG: Local search didn't return any results. Fetching results")
+                    DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Local search didn't return any results. Fetching from server.")
+                    
                     // If there are no matches, fetch results.
                     if previousHashSearchRequest != nil {
                         previousHashSearchRequest?.cancel()

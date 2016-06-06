@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CocoaLumberjack
 
 class WebViewController: BackButtonViewController {
 
@@ -38,6 +39,8 @@ class WebViewController: BackButtonViewController {
     // MARK: - Loading
     
     func loadText() {
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to load page - \(filePath)")
+        
         do {
             let text = try String(contentsOfFile: filePath!)
             webView.loadHTMLString(text, baseURL: nil)

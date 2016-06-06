@@ -11,6 +11,7 @@ import CarbonKit
 import BBBadgeBarButtonItem
 import GraffiTab_iOS_SDK
 import JTMaterialTransition
+import CocoaLumberjack
 
 class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDelegate, UIViewControllerTransitioningDelegate {
 
@@ -62,6 +63,8 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     }
     
     @IBAction func onClickCreate(sender: AnyObject?) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing Creator")
+        
         ViewControllerUtils.checkCameraAndPhotosPermissions { 
             let vc = UIStoryboard(name: "CreateStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CreateViewController")
             
@@ -73,22 +76,32 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     }
     
     @IBAction func onClickProfile(sender: AnyObject?) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing user profile")
+        
         performSegueWithIdentifier("SEGUE_PROFILE", sender: sender)
     }
     
     @IBAction func onClickNotifications(sender: AnyObject?) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing user notifications")
+        
         performSegueWithIdentifier("SEGUE_NOTIFICATIONS", sender: sender)
     }
     
     @IBAction func onClickLocations(sender: AnyObject?) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing user locations")
+        
         performSegueWithIdentifier("SEGUE_LOCATIONS", sender: sender)
     }
     
     @IBAction func onClickSearch(sender: AnyObject?) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing search")
+        
         performSegueWithIdentifier("SEGUE_SEARCH", sender: sender)
     }
     
     @IBAction func onClickSettings(sender: AnyObject?) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing settings")
+        
         performSegueWithIdentifier("SEGUE_SETTINGS", sender: sender)
     }
     
@@ -112,6 +125,8 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     // MARK: - Loading
     
     func loadUnseenNotificationsCount() {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Refreshing notifications")
+        
         GTMeManager.getUnseenNotificationsCount({ (response) in
             self.badge?.badgeValue = response.object.stringValue
         }) { (response) in}

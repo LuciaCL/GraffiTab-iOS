@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import RNActivityView
 import GraffiTab_iOS_SDK
+import CocoaLumberjack
 
 protocol PublishDelegate {
     
@@ -92,6 +93,8 @@ class PublishViewController: UIViewController {
     }
     
     @IBAction func onClickCreate(sender: AnyObject) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to publish")
+        
         self.view.showActivityViewWithLabel("Processing")
         self.view.rn_activityView.dimBackground = false
         

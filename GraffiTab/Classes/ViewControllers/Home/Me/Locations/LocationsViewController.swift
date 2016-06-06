@@ -10,6 +10,7 @@ import UIKit
 import DZNEmptyDataSet
 import GraffiTab_iOS_SDK
 import CarbonKit
+import CocoaLumberjack
 
 enum LocationViewType : Int {
     case List
@@ -164,7 +165,8 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     }
     
     func singleLocationEventHandler(notification: NSNotification) {
-        print("DEBUG: Received app event - \(notification)")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received app event - \(notification)")
+
         let location = notification.userInfo!["location"] as! GTLocation
         if let index = items.indexOf(location) {
             items[index].softCopy(location)
@@ -180,7 +182,8 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     }
     
     func deleteLocationEventHandler(notification: NSNotification) {
-        print("DEBUG: Received app event - \(notification)")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received app event - \(notification)")
+        
         let locationId = notification.userInfo!["locationId"] as! Int
         if let index = items.indexOf({$0.id == locationId}) {
             self.collectionView.performBatchUpdates({
@@ -195,7 +198,8 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     }
     
     func locationCreatedEventHandler(notification: NSNotification) {
-        print("DEBUG: Received app event - \(notification)")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received app event - \(notification)")
+        
         let location = notification.userInfo!["location"] as! GTLocation
         
         self.items.append(location)

@@ -12,6 +12,7 @@ import FBSDKLoginKit
 import SwiftHEXColors
 import GraffiTab_iOS_SDK
 import Reachability
+import CocoaLumberjack
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        // TOOD: TestFairy clashes with cocos2d at the moment, so screen recordings are disabled for now.
 //        TestFairy.begin("70be1b90ec3e2c91eefd4b0883691d0194ac5185")
         
         // Set the domain if we've previously selected one.
@@ -47,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupTopBar()
         setupCache()
         setupRechability()
+        setupLog()
         
         Utils.runWithDelay(1) { () in
             self.checkLoginStatus(launchOptions)
@@ -66,6 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Application did enter background")
     }
     
     func applicationWillEnterForeground(application: UIApplication) {
@@ -80,6 +85,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GTLifecycleManager.applicationDidBecomeActive()
         GTLocationManager.manager.startLocationUpdates()
+        
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Application did enter foreground")
     }
     
     func applicationWillTerminate(application: UIApplication) {
@@ -110,9 +117,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        print("DEBUG: Original token: \(deviceToken)")
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Original token: \(deviceToken)")
         let deviceTokenStr = convertDeviceTokenToString(deviceToken)
-        print("DEBUG: Registering token: \(deviceTokenStr)")
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Registering token: \(deviceTokenStr)")
         GTMeManager.linkDevice(deviceTokenStr, successBlock: { (response) in
             
         }) { (response) in
@@ -121,16 +128,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        print("DEBUG: Device token for push notifications: FAIL -- ")
-        print(error.description)
+        DDLogError("[\(NSStringFromClass(self.dynamicType))] Failed to register device token for push notifications: \(error.description)")
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Received push notification")
+        
         if application.applicationState == .Active {
-            print("DEBUG: Received push notification in Active state")
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received push notification in Active state")
         }
         else { // This method is called when the app is in suspended state and the push notification is pressed.
-            print("DEBUG: Received push notification in Background state")
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received push notification in Background state")
             // Check if app has been started by clicking on a push notification.
             processPushNotificationInfo(userInfo)
         }
@@ -148,7 +156,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func processPushNotificationInfo(userInfo: [NSObject : AnyObject]?) {
         Utils.runWithDelay(1) {
             if userInfo != nil {
-                print("DEBUG: Processing push notification")
+                DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Processing push notification")
                 // TODO: Ignore tapping on notification for now.
             }
         }
@@ -158,6 +166,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func checkLoginStatus(launchOptions: [NSObject: AnyObject]?) {
         if (GTSettings.sharedInstance.isLoggedIn()) {
+            DDLogInfo("[\(NSStringFromClass(self.dynamicType))] User logged in. Refreshing profile")
+            
             GTMeManager.getMe({ (response) -> Void in
                 UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
                 
@@ -176,6 +186,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func userDidLogin(launchOptions: [NSObject: AnyObject]?) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] User logged in. Showing main app")
+        
         showStoryboard("MainStoryboard", duration: 0.3);
         
         registerPushNotifications()
@@ -185,6 +197,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func userDidLogout() {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] User logged out. Showing login screen")
+        
         GTSettings.sharedInstance.logout()
         
         showStoryboard("LoginStoryboard", duration: 0.3);
@@ -233,6 +247,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Set the blocks.
         reach.reachableBlock = { (reachability) in
+            DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Application has connectivity")
+            
             // keep in mind this is called on a background thread
             // and if you are updating the UI it needs to happen
             // on the main thread, like this:
@@ -269,6 +285,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             });
         }
         reach.unreachableBlock = { (reachability) in
+            DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Application lost connectivity")
+            
             dispatch_async(dispatch_get_main_queue(), {
                 if self.networkBanner!.hidden {
                     self.window?.bringSubviewToFront(self.networkBanner!)
@@ -293,6 +311,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Start the notifier, which will cause the reachability object to retain itself!
         reach.startNotifier()
+    }
+    
+    func setupLog() {
+        // Configure app logs.
+        GTLogManager.setupApplicationLogger(true, logToDeviceLogs: true, logToFile: true, level: .Debug)
     }
 }
 

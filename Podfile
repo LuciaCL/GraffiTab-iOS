@@ -43,6 +43,7 @@ def common_pods
     pod 'RNFrostedSidebar'
     pod 'CNPGridMenu'
     pod 'DGActivityIndicatorView'
+    pod 'CocoaLumberjack/Swift'
 end
 
 target 'GraffiTab' do

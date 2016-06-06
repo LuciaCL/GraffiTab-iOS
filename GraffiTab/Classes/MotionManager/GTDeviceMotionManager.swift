@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreMotion
+import CocoaLumberjack
 
 protocol MotionDelegate {
     
@@ -35,7 +36,7 @@ class GTDeviceMotionManager: NSObject {
     func startMotionUpdates() {
         motionManager?.startDeviceMotionUpdatesUsingReferenceFrame(CMAttitudeReferenceFrame.XTrueNorthZVertical, toQueue: NSOperationQueue.currentQueue()!, withHandler: { (deviceMotion, error) in
             if error != nil {
-                print("DEBUG: Error obtaining device motion update - \(error)")
+                DDLogError("[\(NSStringFromClass(self.dynamicType))] Error obtaining device motion update - \(error)")
             }
             else {
                 let currentAttitude = deviceMotion?.attitude

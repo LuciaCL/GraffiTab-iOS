@@ -44,10 +44,4 @@ class MenuContainerViewController: RESideMenu, RESideMenuDelegate {
         }
         return .All
     }
-    
-    // MARK: - RESideMenuDelegate
-    
-    func sideMenu(sideMenu: RESideMenu!, willShowMenuViewController menuViewController: UIViewController!) {
-        print("SHOWING MENU")
-    }
 }

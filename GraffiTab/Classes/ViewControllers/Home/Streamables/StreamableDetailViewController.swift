@@ -10,6 +10,7 @@ import UIKit
 import GraffiTab_iOS_SDK
 import Alamofire
 import CNPGridMenu
+import CocoaLumberjack
 
 let menuFlagTitle = "Flag"
 let menuExploreTitle = "Explore Area"
@@ -178,7 +179,8 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     func ownerChangeEventHandler(notification: NSNotification) {
-        print("DEBUG: Received app event - \(notification)")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received app event - \(notification)")
+        
         let user = notification.userInfo!["user"] as! GTUser
         if streamable!.user!.isEqual(user) {
             streamable!.user!.softCopy(user)
@@ -189,7 +191,8 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     func singleStreamableEventHandler(notification: NSNotification) {
-        print("DEBUG: Received app event - \(notification)")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received app event - \(notification)")
+        
         let s = notification.userInfo!["streamable"] as! GTStreamable
         if streamable!.isEqual(s) {
             streamable!.softCopy(s)
@@ -200,7 +203,8 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     func genericEventHandler(notification: NSNotification) {
-        print("DEBUG: Received app event - \(notification)")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received app event - \(notification)")
+        
         loadData()
     }
     

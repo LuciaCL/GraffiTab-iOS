@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import GraffiTab_iOS_SDK
+import CocoaLumberjack
 
 class StreetViewController: UIViewController, MotionDelegate {
 
@@ -84,7 +85,7 @@ class StreetViewController: UIViewController, MotionDelegate {
     // MARK: - Loading
     
     func loadItems() {
-        print("DEBUG: Refreshing streamables in street view")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Refreshing streamables in street view")
         
         let location = GTLocationManager.manager.lastLocation
         
@@ -113,7 +114,7 @@ class StreetViewController: UIViewController, MotionDelegate {
             })
         }
         else {
-            print("DEBUG: No previous location detected. Attempting to locate..")
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] No previous location detected. Attempting to locate")
         }
     }
     
@@ -156,7 +157,7 @@ class StreetViewController: UIViewController, MotionDelegate {
                 let cachedImage = self.imageCache.objectForKey(url) as? UIImage
                 
                 if cachedImage != nil { // Use cached image.
-                    print("DEBUG: Cache hit image for url \(url)")
+                    DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Cache hit image for url \(url)")
                     
                     successBlock(url, cachedImage!, streamable)
                 }
@@ -164,7 +165,7 @@ class StreetViewController: UIViewController, MotionDelegate {
                     let session = NSURLSession.sharedSession()
                     let task = session.dataTaskWithURL(url, completionHandler: { (data, response, error) in
                         if error == nil {
-                            print("DEBUG: Downloaded image for url \(url)")
+                            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Downloaded image for url \(url)")
                             
                             let image = UIImage(data: data!)
                             
@@ -174,7 +175,7 @@ class StreetViewController: UIViewController, MotionDelegate {
                             successBlock(url, image!, streamable)
                         }
                         else {
-                            print("DEBUG: Failed to load image for url \(url)")
+                            DDLogError("[\(NSStringFromClass(self.dynamicType))] Failed to load image for url \(url)")
                         }
                     })
                     self.imageDownloadTasks.append(task)
@@ -195,8 +196,6 @@ class StreetViewController: UIViewController, MotionDelegate {
 //            let offsetXDegrees = CGFloat(streamable.yaw!) - yaw
             let offsetYDegrees = CGFloat(streamable.pitch!) - pitch
 //            let offsetZDegrees = CGFloat(streamable.roll!) - roll
-            
-//            print("target=\(streamable.pitch), current=\(pitch), offset=\(offsetYDegrees)")
             
             // Apply transformations to the view's frame.
             var frame = imageView.frame
