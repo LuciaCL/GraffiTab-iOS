@@ -131,6 +131,11 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         
         GTMeManager.getUnseenNotificationsCount({ (response) in
             self.badge?.badgeValue = response.object.stringValue
+            
+            // Update menu badge.
+            let mainVC = UIApplication.sharedApplication().delegate?.window??.rootViewController as! MenuContainerViewController
+            let menu = mainVC.leftMenuViewController as! MenuViewController
+            menu.badgeValue = response.object.integerValue
         }) { (response) in}
     }
     

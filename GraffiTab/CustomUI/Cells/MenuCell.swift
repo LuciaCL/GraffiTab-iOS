@@ -12,9 +12,30 @@ class MenuCell: UITableViewCell {
 
     @IBOutlet weak var iconView: TintImageView!
     @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var badgeView: UIView!
+    @IBOutlet weak var badgeLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        setupBadge()
+    }
+    
+    func setBadgeNumber(number: Int) {
+        if number > 0 {
+            badgeLbl.text = "\(number)"
+            badgeView.hidden = false
+        }
+        else {
+            badgeView.hidden = true
+        }
+    }
+    
+    // MARK: - Setup
+    
+    func setupBadge() {
+        badgeView.layer.cornerRadius = badgeView.frame.height / 2
+        badgeView.hidden = true
     }
 }

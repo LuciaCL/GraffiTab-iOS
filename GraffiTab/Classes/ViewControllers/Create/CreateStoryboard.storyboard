@@ -72,7 +72,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DrawToolCell" id="aVB-FG-Wt9" customClass="DrawToolCell" customModule="GraffiTab" customModuleProvider="target">
-                                                        <rect key="frame" x="3" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="2.5" y="0.0" width="50" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -421,7 +421,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0w-59-laJ">
                                 <rect key="frame" x="50" y="70" width="500" height="380"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NqS-2W-tac">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NqS-2W-tac">
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="380"/>
                                     </imageView>
                                 </subviews>

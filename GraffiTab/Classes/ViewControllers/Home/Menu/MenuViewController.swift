@@ -15,6 +15,11 @@ class MenuViewController: BackButtonViewController, UITableViewDelegate, UITable
     var rowHeight: CGFloat = 50
     var rowTitles: [String] = ["Profile", "Notifications", "Locations", "Search", "Settings"]
     var rowIcons: [String] = ["user_male4", "ic_notifications", "map_marker", "search", "settings"]
+    var badgeValue: Int = 0 {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +47,13 @@ class MenuViewController: BackButtonViewController, UITableViewDelegate, UITable
         
         cell.titleLbl.text = rowTitles[indexPath.row]
         cell.iconView?.image = UIImage(named: rowIcons[indexPath.row])?.imageWithRenderingMode(.AlwaysTemplate)
+        
+        if indexPath.row == 1 {
+            cell.setBadgeNumber(badgeValue)
+        }
+        else {
+            cell.setBadgeNumber(0)
+        }
         
         return cell
     }
