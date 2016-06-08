@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import UIColor_Hex_Swift
 
 class ColorSprayCan: UIImageView {
 
+    static var cache = NSCache()
+    
     var overlay = UIImageView()
     
     override init(frame: CGRect) {
@@ -27,17 +30,24 @@ class ColorSprayCan: UIImageView {
     func basicInit() {
         let image = UIImage(named: "can_bottom")
         
-        let qualityOfServiceClass = QOS_CLASS_BACKGROUND
-        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
-        dispatch_async(backgroundQueue, {
-            let img = self.processPixelsInImage(image!)
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.image = img
+        let hex = self.tintColor.hexString(false)
+        let cachedImage = ColorSprayCan.cache.objectForKey(hex) as? UIImage
+        if cachedImage != nil { // We've already processed the color.
+            self.image = cachedImage
+        }
+        else {
+            dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
+                let img = self.processPixelsInImage(image!)
+                ColorSprayCan.cache.setObject(img, forKey: hex)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.image = img
+                })
             })
-        })
+            
+            self.image = image
+        }
         
-        self.image = image
         self.contentMode = .ScaleAspectFit
         
         overlay.frame = self.bounds

@@ -45,6 +45,7 @@ def common_pods
     pod 'DGActivityIndicatorView'
     pod 'CocoaLumberjack/Swift'
     pod 'DeployGateSDK'
+    pod 'UIColor_Hex_Swift'
 end
 
 target 'GraffiTab' do
