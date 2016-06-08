@@ -329,7 +329,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             #if DEBUG // Show full debug traces.
                 GTLogManager.setupApplicationLogger(true, logToDeviceLogs: true, logToFile: true, level: .Debug)
             #else
-                GTLogManager.setupApplicationLogger(false, logToDeviceLogs: false, logToFile: true, level: .Error)
+                GTLogManager.setupApplicationLogger(false, logToDeviceLogs: false, logToFile: true, level: .Info)
                 DDLog.addLogger(DeployGateLogger.sharedInstance)
             #endif
         }
