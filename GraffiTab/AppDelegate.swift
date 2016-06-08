@@ -320,6 +320,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
             #else
                 DeployGateSDK.sharedInstance().launchApplicationWithAuthor("graffitab", key: "747b4f90cf1d7573866748c0f81f1b687fa77313")
+                
+//                TestFairy.begin("70be1b90ec3e2c91eefd4b0883691d0194ac5185")
+//                TestFairy.setServerEndpoint("http://example.com")
             #endif
         }
     }

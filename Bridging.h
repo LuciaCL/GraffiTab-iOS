@@ -9,6 +9,7 @@
 #ifndef Bridging_h
 #define Bridging_h
 
+#import "TestFairy.h"
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 #import "IntroScene.h"

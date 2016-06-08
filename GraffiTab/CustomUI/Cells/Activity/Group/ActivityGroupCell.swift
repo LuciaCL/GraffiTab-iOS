@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GraffiTab_iOS_SDK
 
 class ActivityGroupCell: ActivitySingleCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
@@ -22,6 +23,12 @@ class ActivityGroupCell: ActivitySingleCell, UICollectionViewDelegate, UICollect
         super.layoutSubviews()
         
         configureLayout()
+    }
+    
+    override func setItem(item: GTActivityContainer?) {
+        super.setItem(item)
+        
+        collectionView.reloadData()
     }
     
     // MARK: - Loading
