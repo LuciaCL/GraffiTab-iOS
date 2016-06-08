@@ -98,11 +98,22 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
     }
     
     @IBAction func onClickBack(sender: AnyObject?) {
+        let destroy = {
+            self.mapView.mapType = self.mapView.mapType == .Standard ? .Satellite : .Standard
+            self.mapView.delegate = nil
+            self.mapView.removeFromSuperview()
+            self.mapView = nil
+        }
+        
         if self.navigationController?.viewControllers.count <= 1 { // We're running in a container so show a close button.
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismissViewControllerAnimated(true, completion: {
+                destroy()
+            })
         }
         else {
             self.navigationController?.popViewControllerAnimated(true)
+            
+            Utils.runWithDelay(0.3, block: destroy)
         }
     }
     
