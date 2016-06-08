@@ -266,8 +266,6 @@
 		E59262631D01D7C900368212 /* DeveloperOptionsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59262611D01D7C900368212 /* DeveloperOptionsStoryboard.storyboard */; };
 		E59262651D01D7FB00368212 /* DeveloperOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59262641D01D7FB00368212 /* DeveloperOptionsViewController.swift */; };
 		E59262661D01D7FB00368212 /* DeveloperOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59262641D01D7FB00368212 /* DeveloperOptionsViewController.swift */; };
-		E59262751D057D1300368212 /* libTestFairy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E59262731D057D1300368212 /* libTestFairy.a */; };
-		E59262761D057D1700368212 /* libTestFairy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E59262731D057D1300368212 /* libTestFairy.a */; };
 		E5A4F1041CE1EDF2005CF12C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */; };
 		E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */; };
 		E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
@@ -327,6 +325,8 @@
 		E5D085AE1CD8D30000226589 /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A01CD8D30000226589 /* TOCropScrollView.m */; };
 		E5D085AF1CD8D30000226589 /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A21CD8D30000226589 /* TOCropToolbar.m */; };
 		E5D085B01CD8D30000226589 /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A41CD8D30000226589 /* TOCropView.m */; };
+		E5D3748D1D07417800A60343 /* DeployGateLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3748C1D07417800A60343 /* DeployGateLogger.swift */; };
+		E5D3748E1D07417800A60343 /* DeployGateLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3748C1D07417800A60343 /* DeployGateLogger.swift */; };
 		E5DAA8971CE37A26000CB2F4 /* AutocompleteHashCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAA8951CE37A26000CB2F4 /* AutocompleteHashCell.swift */; };
 		E5DAA8991CE37A26000CB2F4 /* AutocompleteHashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DAA8961CE37A26000CB2F4 /* AutocompleteHashCell.xib */; };
 		E5DAA89D1CE37A5F000CB2F4 /* AutocompleteUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAA89B1CE37A5F000CB2F4 /* AutocompleteUserCell.swift */; };
@@ -537,8 +537,6 @@
 		E592625D1D0197E400368212 /* ProfileFollowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFollowButton.swift; sourceTree = "<group>"; };
 		E59262611D01D7C900368212 /* DeveloperOptionsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeveloperOptionsStoryboard.storyboard; sourceTree = "<group>"; };
 		E59262641D01D7FB00368212 /* DeveloperOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperOptionsViewController.swift; sourceTree = "<group>"; };
-		E59262731D057D1300368212 /* libTestFairy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFairy.a; sourceTree = "<group>"; };
-		E59262741D057D1300368212 /* TestFairy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFairy.h; sourceTree = "<group>"; };
 		E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonSlackViewController.swift; sourceTree = "<group>"; };
 		E5A4F12C1CE225AA005CF12C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -626,6 +624,7 @@
 		E5D085A41CD8D30000226589 /* TOCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropView.m; sourceTree = "<group>"; };
 		E5D085A51CD8D30000226589 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
 		E5D085A61CD8D30000226589 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
+		E5D3748C1D07417800A60343 /* DeployGateLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeployGateLogger.swift; sourceTree = "<group>"; };
 		E5DAA8951CE37A26000CB2F4 /* AutocompleteHashCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteHashCell.swift; sourceTree = "<group>"; };
 		E5DAA8961CE37A26000CB2F4 /* AutocompleteHashCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocompleteHashCell.xib; sourceTree = "<group>"; };
 		E5DAA89B1CE37A5F000CB2F4 /* AutocompleteUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteUserCell.swift; sourceTree = "<group>"; };
@@ -683,7 +682,6 @@
 				E584329F1CE9242000FB1E50 /* CoreLocation.framework in Frameworks */,
 				E58432A11CE9242000FB1E50 /* OpenGLES.framework in Frameworks */,
 				E58432A21CE9242000FB1E50 /* SystemConfiguration.framework in Frameworks */,
-				E59262761D057D1700368212 /* libTestFairy.a in Frameworks */,
 				E58432A31CE9242000FB1E50 /* AVFoundation.framework in Frameworks */,
 				E58432A41CE9242000FB1E50 /* CoreMotion.framework in Frameworks */,
 				E58432A51CE9242000FB1E50 /* CoreMedia.framework in Frameworks */,
@@ -697,7 +695,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E55452F11CF350860076CEC9 /* AddressBookUI.framework in Frameworks */,
-				E59262751D057D1300368212 /* libTestFairy.a in Frameworks */,
 				E57FAB231CD224B700C0D125 /* Photos.framework in Frameworks */,
 				E5B6B6101CC5AE3000DC8EFC /* CoreGraphics.framework in Frameworks */,
 				E5B6B60F1CC5AE2700DC8EFC /* AudioToolbox.framework in Frameworks */,
@@ -1188,15 +1185,6 @@
 			path = Splash;
 			sourceTree = "<group>";
 		};
-		E5B6B5EA1CC5A69E00DC8EFC /* TestFairy */ = {
-			isa = PBXGroup;
-			children = (
-				E59262731D057D1300368212 /* libTestFairy.a */,
-				E59262741D057D1300368212 /* TestFairy.h */,
-			);
-			path = TestFairy;
-			sourceTree = "<group>";
-		};
 		E5B6B5EF1CC5A7C800DC8EFC /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1450,7 +1438,6 @@
 			children = (
 				E5B6B5EE1CC5A7C800DC8EFC /* cocos2d.xcodeproj */,
 				E5D0857E1CD8D30000226589 /* TOCropViewController */,
-				E5B6B5EA1CC5A69E00DC8EFC /* TestFairy */,
 			);
 			path = ExternalLibs;
 			sourceTree = "<group>";
@@ -1479,6 +1466,7 @@
 		E5E293761D05CA8500C272EE /* Log */ = {
 			isa = PBXGroup;
 			children = (
+				E5D3748C1D07417800A60343 /* DeployGateLogger.swift */,
 			);
 			path = Log;
 			sourceTree = "<group>";
@@ -1911,6 +1899,7 @@
 				E55452F71CF4950E0076CEC9 /* StreetViewController.swift in Sources */,
 				E58432421CE9242000FB1E50 /* StreamableCell.swift in Sources */,
 				E5FE1DA61D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */,
+				E5D3748E1D07417800A60343 /* DeployGateLogger.swift in Sources */,
 				E58432431CE9242000FB1E50 /* TOCroppedImageAttributes.m in Sources */,
 				E58432441CE9242000FB1E50 /* LikersViewController.swift in Sources */,
 				E58432451CE9242000FB1E50 /* DialogBuilder.swift in Sources */,
@@ -2053,6 +2042,7 @@
 				E55452F61CF4950E0076CEC9 /* StreetViewController.swift in Sources */,
 				E510063A1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */,
 				E5FE1DA51D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */,
+				E5D3748D1D07417800A60343 /* DeployGateLogger.swift in Sources */,
 				E5D085A91CD8D30000226589 /* TOCroppedImageAttributes.m in Sources */,
 				E52DC7761CE5E09900375828 /* LikersViewController.swift in Sources */,
 				E5DFDC021CB2C31B00BB3D27 /* DialogBuilder.swift in Sources */,
@@ -2209,6 +2199,7 @@
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/Chipmunk/include",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/cocos2d-ui/**",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/ObjectAL/**",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = "GraffiTab/Release-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -2289,6 +2280,7 @@
 					"-ObjC",
 					"-lz",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = GraffiTab;
 				PROVISIONING_PROFILE = "8bad8e01-c004-4eb6-92c9-1c815714326a";
@@ -2318,6 +2310,7 @@
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/Chipmunk/include",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/cocos2d-ui/**",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/ObjectAL/**",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = "GraffiTab/Release-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -2505,6 +2498,7 @@
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/Chipmunk/include",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/cocos2d-ui/**",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/ObjectAL/**",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = GraffiTab/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -2585,6 +2579,7 @@
 					"-ObjC",
 					"-lz",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "8bad8e01-c004-4eb6-92c9-1c815714326a";
@@ -2609,6 +2604,7 @@
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/Chipmunk/include",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/cocos2d-ui/**",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/ObjectAL/**",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = GraffiTab/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

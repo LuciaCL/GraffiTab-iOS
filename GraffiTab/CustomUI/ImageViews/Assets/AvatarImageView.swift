@@ -26,6 +26,9 @@ class AvatarImageView: AssetImageView {
         }
         
         self.layer.cornerRadius = 5
+        
+        self.clipsToBounds = true
+        self.contentMode = .ScaleAspectFill
     }
     
     // MARK: - Default image loading

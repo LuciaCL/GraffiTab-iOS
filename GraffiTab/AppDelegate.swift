@@ -20,11 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var networkBanner: UILabel?
     
+    var isAppStore: Bool = false
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        // TOOD: TestFairy clashes with cocos2d at the moment, so screen recordings are disabled for now.
-//        TestFairy.begin("70be1b90ec3e2c91eefd4b0883691d0194ac5185")
+        setupTestFramework()
         
         // Set the domain if we've previously selected one.
         if Settings.sharedInstance.appDomain != nil {
@@ -313,9 +314,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         reach.startNotifier()
     }
     
+    func setupTestFramework() {
+        if !isAppStore {
+            #if DEBUG
+                
+            #else
+                DeployGateSDK.sharedInstance().launchApplicationWithAuthor("graffitab", key: "747b4f90cf1d7573866748c0f81f1b687fa77313")
+            #endif
+        }
+    }
+    
     func setupLog() {
-        // Configure app logs.
-        GTLogManager.setupApplicationLogger(true, logToDeviceLogs: true, logToFile: true, level: .Debug)
+        if !isAppStore { // We are deploying to dev or testing locally.
+            #if DEBUG // Show full debug traces.
+                GTLogManager.setupApplicationLogger(true, logToDeviceLogs: true, logToFile: true, level: .Debug)
+            #else
+                GTLogManager.setupApplicationLogger(false, logToDeviceLogs: false, logToFile: true, level: .Error)
+                DDLog.addLogger(DeployGateLogger.sharedInstance)
+            #endif
+        }
+        else { // Packaging for the App Store.
+            // Show only errors.
+            GTLogManager.setupApplicationLogger(false, logToDeviceLogs: false, logToFile: true, level: .Error)
+        }
     }
 }
 

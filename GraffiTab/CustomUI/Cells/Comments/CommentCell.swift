@@ -63,7 +63,6 @@ class CommentCell: UITableViewCell {
             let attString = NSMutableAttributedString(string: text)
             let range = (text as NSString).rangeOfString("(edited)")
             attString.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(textLbl.font.pointSize - 4), range: range)
-            attString.addAttribute(NSForegroundColorAttributeName, value: UIColor.lightGrayColor(), range: range)
             self.textLbl.attributedText = attString
         }
         else {
@@ -80,7 +79,20 @@ class CommentCell: UITableViewCell {
             textLblTrailingConstraint.constant = 2 * 8 + errorView.frame.width
         }
         else {
-            textLbl.textColor = item?.status == .Sending ? UIColor(hexString: "#d0d0d0") : UIColor.darkGrayColor()
+            if item!.status == .Sending {
+                textLbl.textColor = UIColor(hexString: "#d0d0d0")
+            }
+            else {
+                textLbl.textColor = UIColor.darkGrayColor()
+                
+                if item!.updatedOn != nil {
+                    let attString = NSMutableAttributedString(attributedString: textLbl.attributedText!)
+                    let range = (textLbl.text! as NSString).rangeOfString("(edited)")
+                    attString.addAttribute(NSForegroundColorAttributeName, value: UIColor(hexString: "#d0d0d0")!, range: range)
+                    self.textLbl.attributedText = attString
+                }
+            }
+            
             dateLbl.textColor = item?.status == .Sending ? textLbl.textColor : UIColor.lightGrayColor()
             errorView.hidden = true
             textLblTrailingConstraint.constant = 8

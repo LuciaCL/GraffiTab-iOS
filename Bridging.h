@@ -9,7 +9,6 @@
 #ifndef Bridging_h
 #define Bridging_h
 
-#import "TestFairy.h"
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 #import "IntroScene.h"
@@ -37,6 +36,7 @@
 #import <Reachability/Reachability.h>
 #import <CNPGridMenu/CNPGridMenu.h>
 #import <DGActivityIndicatorView/DGActivityIndicatorView.h>
+#import <DeployGateSDK/DeployGateSDK.h>
 
 #import <MZFormSheetPresentationController/MZFormSheetPresentationController.h>
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewController.h>
