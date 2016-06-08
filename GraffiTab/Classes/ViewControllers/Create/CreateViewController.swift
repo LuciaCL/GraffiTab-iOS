@@ -162,6 +162,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         editorViewController.completionBlock = { (result, image) in
             editorViewController.dismissViewControllerAnimated(true, completion: {
                 if result == .Done {
+                    self.canvas!.clearDrawingLayer()
                     self.canvas!.setBackground(image)
                 }
             })
