@@ -68,6 +68,8 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
         cropController.delegate = self
         cropController.cropView.cropBoxResizeEnabled = false
         presentViewController(cropController, animated: true, completion: {
+            UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: .Fade)
+            
             cropController.cropView.setAspectLockEnabledWithAspectRatio(self.cropAspectRatio(), animated: true)
         })
     }
@@ -85,8 +87,16 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
     // MARK: - TOCropViewControllerDelegate
     
     public func cropViewController(cropViewController: TOCropViewController!, didCropToImage image: UIImage!, withRect cropRect: CGRect, angle: Int) {
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
+        
         cropViewController.dismissViewControllerAnimated(true, completion: nil)
         
         didChooseImage(image)
+    }
+    
+    public func cropViewController(cropViewController: TOCropViewController!, didFinishCancelled cancelled: Bool) {
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
+        
+        cropViewController.dismissViewControllerAnimated(true, completion: nil)
     }
 }

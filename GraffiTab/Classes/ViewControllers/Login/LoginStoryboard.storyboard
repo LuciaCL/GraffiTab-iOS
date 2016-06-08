@@ -6,10 +6,10 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Orientation Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="O3I-Xl-hnb">
             <objects>
-                <navigationController navigationBarHidden="YES" id="teY-0g-xhu" customClass="OrientationNavigationController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="teY-0g-xhu" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZJ7-rh-4Z7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -458,10 +458,10 @@
             </objects>
             <point key="canvasLocation" x="1227" y="277"/>
         </scene>
-        <!--Orientation Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="Z0y-1C-Ayb">
             <objects>
-                <navigationController navigationBarHidden="YES" id="OHw-WQ-lAy" customClass="OrientationNavigationController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="OHw-WQ-lAy" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6LF-Lm-6bi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

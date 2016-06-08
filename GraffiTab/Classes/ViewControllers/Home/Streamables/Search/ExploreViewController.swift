@@ -360,6 +360,10 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     func didEndMapRegionChange() {
+        if mapView == nil { // Since we're using a timer for this, the map could become invalid.
+            return
+        }
+        
         if isMovedByTap {
             searchBtn.tintColor = UIColor(hexString: Colors.Main)
             loadingIndicator.stopAnimating()
