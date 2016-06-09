@@ -20,6 +20,7 @@ let menuDeleteTitle = "Delete"
 let menuEditTitle = "Edit"
 let menuMakePrivateTitle = "Make Private"
 let menuMakePublicTitle = "Make Public"
+let menuSetAvatarTitle = "Set as Avatar"
 
 class StreamableDetailViewController: BackButtonViewController, ZoomableImageViewDelegate, CNPGridMenuDelegate {
 
@@ -99,6 +100,11 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         copyLink.title = menuCopyLinkTitle
         copyLink.icon = UIImage(named: "copy_link")
         items.append(copyLink)
+        
+        let setAvatar = CNPGridMenuItem()
+        setAvatar.title = menuSetAvatarTitle
+        setAvatar.icon = UIImage(named: "user_male3")
+        items.append(setAvatar)
         
         if isMe() {
             let delete = CNPGridMenuItem()
@@ -299,6 +305,51 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         streamable?.isPrivate = !streamable!.isPrivate!
     }
     
+    func setAsAvatar() {
+        let image = self.streamableImage.imageView.image
+        if image != nil {
+            startCropperForImage(image!)
+        }
+    }
+    
+    // MARK: - Images
+    
+    override func didChooseImage(image: UIImage?) {
+        let avatarSuccessBlock = {
+            self.view.hideActivityView()
+            
+            if self.streamable!.user!.isEqual(GTSettings.sharedInstance.user) { // Reload avatar in case the streamable creator is changing their avatar.
+                self.streamable!.user!.softCopy(GTSettings.sharedInstance.user!)
+                
+                self.loadAvatar()
+            }
+            
+            Utils.runWithDelay(0.3) { () in
+                DialogBuilder.showSuccessAlert("Your avatar has been changed!", title: App.Title)
+            }
+        }
+        
+        if image != nil { // Saving a new image.
+            self.view.showActivityViewWithLabel("Processing")
+            self.view.rn_activityView.dimBackground = false
+            
+            GTMeManager.editAvatar(image!, successBlock: { (response) in
+                avatarSuccessBlock()
+            }, failureBlock: { (response) in
+                self.view.hideActivityView()
+                
+                DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
+            })
+        }
+    }
+    
+    override func cropAspectRatio() -> CGSize {
+        let width = CGFloat(300);
+        let height = width;
+        
+        return CGSizeMake(width, width / (width / height))
+    }
+    
     // MARK: - Loading
     
     func loadData() {
@@ -382,6 +433,9 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             }
             else if item.title == menuMakePrivateTitle || item.title == menuMakePublicTitle {
                 self.togglePrivacy()
+            }
+            else if item.title == menuSetAvatarTitle {
+                self.setAsAvatar()
             }
         }
     }
