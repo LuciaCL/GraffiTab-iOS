@@ -2297,7 +2297,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = GraffiTab;
-				PROVISIONING_PROFILE = "15fe5323-0b81-4ae1-baec-0fa2e17ef3d5";
+				PROVISIONING_PROFILE = "f91cdc9c-632c-407b-b60c-496be0444edd";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2407,7 +2407,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = GraffiTab;
-				PROVISIONING_PROFILE = "15fe5323-0b81-4ae1-baec-0fa2e17ef3d5";
+				PROVISIONING_PROFILE = "f91cdc9c-632c-407b-b60c-496be0444edd";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

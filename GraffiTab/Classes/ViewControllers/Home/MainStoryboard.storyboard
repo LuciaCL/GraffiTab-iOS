@@ -3635,7 +3635,7 @@
                                 </constraints>
                                 <items>
                                     <navigationItem id="rAc-nI-Vti">
-                                        <barButtonItem key="rightBarButtonItem" image="ic_settings" id="bNE-jO-ol6">
+                                        <barButtonItem key="rightBarButtonItem" image="ic_settings_white" id="bNE-jO-ol6">
                                             <connections>
                                                 <action selector="onClickEdit:" destination="YO2-xp-61P" id="qMy-J0-K43"/>
                                             </connections>
@@ -4319,7 +4319,7 @@
         <image name="ic_near_me_white" width="24" height="24"/>
         <image name="ic_notifications" width="50" height="50"/>
         <image name="ic_search_white" width="24" height="24"/>
-        <image name="ic_settings" width="25" height="25"/>
+        <image name="ic_settings_white" width="24" height="24"/>
         <image name="ic_share_white" width="24" height="24"/>
         <image name="ic_spray_2" width="300" height="300"/>
         <image name="ic_streetview" width="24" height="24"/>
