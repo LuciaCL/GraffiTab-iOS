@@ -96,6 +96,10 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     @IBAction func onClickLocation(sender: AnyObject) {
+        if mapView == nil {
+            return
+        }
+        
         if mapView.userLocation.location != nil {
             centerToLocation(mapView.userLocation.location!)
         }
@@ -130,6 +134,10 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     @IBAction func onClickTerrain(sender: AnyObject) {
+        if mapView == nil {
+            return
+        }
+        
         if mapView.mapType == .Satellite {
             mapView.mapType = .Standard
             terrainBtn.tintColor = UIColor(hexString: "#e0e0e0")
@@ -174,6 +182,10 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     // MARK: - Loading
     
     func loadItems() {
+        if mapView == nil {
+            return
+        }
+        
         // First we need to calculate the corners of the map so we get the points.
         let nePoint = CGPointMake(mapView.bounds.origin.x + mapView.bounds.size.width, mapView.bounds.origin.y);
         let swPoint = CGPointMake(mapView.bounds.origin.x, mapView.bounds.origin.y + mapView.bounds.size.height);
@@ -225,6 +237,10 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     func doClusterAnnotations() {
+        if mapView == nil {
+            return
+        }
+        
         NSOperationQueue().addOperationWithBlock({
             let mapBoundsWidth = Double(self.mapView.bounds.size.width)
             let mapRectWidth: Double = self.mapView.visibleMapRect.size.width
@@ -352,6 +368,10 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     func zoomMapToLocation(location: CLLocation) {
+        if mapView == nil {
+            return
+        }
+        
         var region = MKCoordinateRegion()
         region.center = location.coordinate
         region.span.latitudeDelta = 0.2
@@ -360,7 +380,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     func didEndMapRegionChange() {
-        if mapView == nil { // Since we're using a timer for this, the map could become invalid.
+        if mapView == nil {
             return
         }
         
