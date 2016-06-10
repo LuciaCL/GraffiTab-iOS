@@ -40,7 +40,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
             if collectionView != nil {
                 configureLayout()
                 
-                collectionView.performBatchUpdates(nil, completion: nil)
+                collectionView.collectionViewLayout.invalidateLayout()
             }
         }
     }
@@ -526,7 +526,12 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         
-        configureLayout()
+        coordinator.animateAlongsideTransition({ (context) in
+            self.configureLayout()
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        }) { (context) in
+            
+        }
     }
     
     // MARK: - UIViewControllerTransitioningDelegate

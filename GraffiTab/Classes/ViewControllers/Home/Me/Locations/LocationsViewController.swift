@@ -32,7 +32,7 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
             if collectionView != nil {
                 configureLayout()
                 
-                collectionView.performBatchUpdates(nil, completion: nil)
+                collectionView.collectionViewLayout.invalidateLayout()
             }
         }
     }
@@ -456,6 +456,19 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     func getRegionForLocation(location: GTLocation) -> CLCircularRegion {
         let l = CLLocation(latitude: location.latitude!, longitude: location.longitude!)
         return CLCircularRegion(center: l.coordinate, radius: 250, identifier: String(format: "%li", location.id!))
+    }
+    
+    // MARK: - Orientation
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
+        coordinator.animateAlongsideTransition({ (context) in
+            self.configureLayout()
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        }) { (context) in
+            
+        }
     }
     
     // MARK: - Setup
