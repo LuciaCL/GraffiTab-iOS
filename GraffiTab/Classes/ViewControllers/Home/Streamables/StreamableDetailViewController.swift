@@ -260,6 +260,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             
             GTMeManager.deleteStreamable(self.streamable!.id!, successBlock: { (response) in
                 Utils.runWithDelay(0.3, block: {
+                    (self.transitioningDelegate as! TransitioningDelegate).resetState()
                     self.transitioningDelegate = nil
                     self.dismissViewControllerAnimated(true, completion: nil)
                 })
@@ -274,6 +275,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     func edit() {
         let parent = self.presentingViewController
         
+        (self.transitioningDelegate as! TransitioningDelegate).resetState()
         self.transitioningDelegate = nil
         self.dismissViewControllerAnimated(true, completion: {
             ViewControllerUtils.checkCameraAndPhotosPermissions {

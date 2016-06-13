@@ -25,6 +25,10 @@ class TransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
         }
     }
     
+    func resetState() {
+        self.animatedView!.alpha = 1.0
+    }
+    
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return presentationAnimator
     }
