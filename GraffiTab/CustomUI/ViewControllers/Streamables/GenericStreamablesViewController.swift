@@ -27,6 +27,13 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     
     var pullToRefresh = CarbonSwipeRefresh()
     
+    var selectedCell: StreamableCell? {
+        didSet {
+            let frameToOpenFrom = selectedCell!.thumbnail.superview?.convertRect(selectedCell!.thumbnail.frame, toView: nil)
+            transitionDelegate.openingFrame = frameToOpenFrom
+            transitionDelegate.animatedView = selectedCell!.thumbnail
+        }
+    }
     let transitionDelegate = TransitioningDelegate()
     var items = [GTStreamable]()
     let colorPallete = ["cad0cc", "cdc7b9", "a9b3b2", "b9bbb8", "c2d1cc", "c2c8c4", "b4bfb9"]
@@ -519,11 +526,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func didTapThumbnail(cell: UICollectionViewCell, streamable: GTStreamable) {
-        let streamableCell = (cell as! StreamableCell)
-        
-        let frameToOpenFrom = streamableCell.thumbnail.superview?.convertRect(streamableCell.thumbnail.frame, toView: nil)
-        transitionDelegate.openingFrame = frameToOpenFrom
-        transitionDelegate.animatedView = streamableCell.thumbnail
+        selectedCell = (cell as! StreamableCell)
         
         ViewControllerUtils.showStreamableDetails(streamable, modalPresentationStyle: .Custom, transitioningDelegate: transitionDelegate, viewController: self)
     }
@@ -534,6 +537,11 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         
         coordinator.animateAlongsideTransition({ (context) in
+            if self.selectedCell != nil {
+                let cell = self.selectedCell!
+                self.selectedCell = cell
+            }
+            
             self.configureLayout()
             self.collectionView.collectionViewLayout.invalidateLayout()
         }) { (context) in
