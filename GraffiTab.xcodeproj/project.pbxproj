@@ -15,6 +15,8 @@
 		E50564D51CEC882B00A42E56 /* MaterializeRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50564D31CEC882B00A42E56 /* MaterializeRoundButton.swift */; };
 		E50564D81CECAE0400A42E56 /* GTDeviceMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50564D71CECAE0400A42E56 /* GTDeviceMotionManager.swift */; };
 		E50564D91CECAE0400A42E56 /* GTDeviceMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50564D71CECAE0400A42E56 /* GTDeviceMotionManager.swift */; };
+		E505676B1D0F0B4F00D2F245 /* StaticUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E505676A1D0F0B4F00D2F245 /* StaticUsersViewController.swift */; };
+		E505676C1D0F0B5200D2F245 /* StaticUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E505676A1D0F0B4F00D2F245 /* StaticUsersViewController.swift */; };
 		E51005F41CB69BDE00AC66A5 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51005F31CB69BDE00AC66A5 /* MenuCell.swift */; };
 		E51006301CB71C5900AC66A5 /* GenericStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510062F1CB71C5900AC66A5 /* GenericStreamablesViewController.swift */; };
 		E51006331CB71EB200AC66A5 /* GridStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006321CB71EB200AC66A5 /* GridStreamablesViewController.swift */; };
@@ -379,8 +381,6 @@
 		E5FE1DA31D0060F9009CFB72 /* ClusterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA11D0060F9009CFB72 /* ClusterViewController.swift */; };
 		E5FE1DA51D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA41D006154009CFB72 /* StaticStreamablesViewController.swift */; };
 		E5FE1DA61D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA41D006154009CFB72 /* StaticStreamablesViewController.swift */; };
-		E5FE1DA81D0067CA009CFB72 /* StaticUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA71D0067CA009CFB72 /* StaticUsersViewController.swift */; };
-		E5FE1DA91D0067CA009CFB72 /* StaticUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA71D0067CA009CFB72 /* StaticUsersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -449,6 +449,7 @@
 		E50564CB1CEC774000A42E56 /* PublishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
 		E50564D31CEC882B00A42E56 /* MaterializeRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterializeRoundButton.swift; sourceTree = "<group>"; };
 		E50564D71CECAE0400A42E56 /* GTDeviceMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTDeviceMotionManager.swift; sourceTree = "<group>"; };
+		E505676A1D0F0B4F00D2F245 /* StaticUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticUsersViewController.swift; sourceTree = "<group>"; };
 		E51005F31CB69BDE00AC66A5 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		E510062F1CB71C5900AC66A5 /* GenericStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericStreamablesViewController.swift; sourceTree = "<group>"; };
 		E51006321CB71EB200AC66A5 /* GridStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridStreamablesViewController.swift; sourceTree = "<group>"; };
@@ -673,7 +674,6 @@
 		E5FE1D9D1D004208009CFB72 /* GTLocation+Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTLocation+Asset.swift"; sourceTree = "<group>"; };
 		E5FE1DA11D0060F9009CFB72 /* ClusterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterViewController.swift; sourceTree = "<group>"; };
 		E5FE1DA41D006154009CFB72 /* StaticStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticStreamablesViewController.swift; sourceTree = "<group>"; };
-		E5FE1DA71D0067CA009CFB72 /* StaticUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticUsersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -748,6 +748,14 @@
 				E50564D71CECAE0400A42E56 /* GTDeviceMotionManager.swift */,
 			);
 			path = MotionManager;
+			sourceTree = "<group>";
+		};
+		E50567691D0F0B4F00D2F245 /* Static */ = {
+			isa = PBXGroup;
+			children = (
+				E505676A1D0F0B4F00D2F245 /* StaticUsersViewController.swift */,
+			);
+			path = Static;
 			sourceTree = "<group>";
 		};
 		E51005F21CB69BC300AC66A5 /* Cells */ = {
@@ -1172,6 +1180,7 @@
 		E5B6B5951CC56F5800DC8EFC /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				E50567691D0F0B4F00D2F245 /* Static */,
 				E52DC7551CE55F1300375828 /* UserProfileViewController.swift */,
 				E52DC7581CE55F5A00375828 /* FollowersViewController.swift */,
 				E52DC75B1CE55FA900375828 /* FollowingViewController.swift */,
@@ -1528,7 +1537,6 @@
 			children = (
 				E5FE1DA11D0060F9009CFB72 /* ClusterViewController.swift */,
 				E5FE1DA41D006154009CFB72 /* StaticStreamablesViewController.swift */,
-				E5FE1DA71D0067CA009CFB72 /* StaticUsersViewController.swift */,
 			);
 			path = Static;
 			sourceTree = "<group>";
@@ -1878,7 +1886,6 @@
 				E5D3749D1D07B29200A60343 /* UINavigationController+Orientation.swift in Sources */,
 				E58432261CE9242000FB1E50 /* EditPasswordViewController.swift in Sources */,
 				E5FE1D921CFF840B009CFB72 /* CoverImageView.swift in Sources */,
-				E5FE1DA91D0067CA009CFB72 /* StaticUsersViewController.swift in Sources */,
 				E58432271CE9242000FB1E50 /* TintButton.swift in Sources */,
 				E5E293821D05DC0200C272EE /* UIApplication+TopViewController.swift in Sources */,
 				E58432281CE9242000FB1E50 /* StreamableThumbnail.swift in Sources */,
@@ -1932,6 +1939,7 @@
 				E584324D1CE9242000FB1E50 /* GenericUsersViewController.swift in Sources */,
 				E584324E1CE9242000FB1E50 /* ActivityGroupCommentCell.swift in Sources */,
 				E592625F1D0197E400368212 /* ProfileFollowButton.swift in Sources */,
+				E505676C1D0F0B5200D2F245 /* StaticUsersViewController.swift in Sources */,
 				E584324F1CE9242000FB1E50 /* LoginViewController.swift in Sources */,
 				E58432501CE9242000FB1E50 /* InputValidator.swift in Sources */,
 				E58432511CE9242000FB1E50 /* StreamableGridCell.swift in Sources */,
@@ -2024,7 +2032,6 @@
 				E5D3749C1D07B29200A60343 /* UINavigationController+Orientation.swift in Sources */,
 				E5B6B5A91CC56F5800DC8EFC /* EditPasswordViewController.swift in Sources */,
 				E5FE1D911CFF840B009CFB72 /* CoverImageView.swift in Sources */,
-				E5FE1DA81D0067CA009CFB72 /* StaticUsersViewController.swift in Sources */,
 				E5DFDC051CB2C31B00BB3D27 /* TintButton.swift in Sources */,
 				E51006E21CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */,
 				E50564D81CECAE0400A42E56 /* GTDeviceMotionManager.swift in Sources */,
@@ -2078,6 +2085,7 @@
 				E51006F11CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
 				E51006D71CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
 				E592625E1D0197E400368212 /* ProfileFollowButton.swift in Sources */,
+				E505676B1D0F0B4F00D2F245 /* StaticUsersViewController.swift in Sources */,
 				E5B6B5DB1CC56F5800DC8EFC /* LoginViewController.swift in Sources */,
 				E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */,
 				E510065E1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
@@ -2207,7 +2215,7 @@
 			baseConfigurationReference = 24C98BA1BC7B845CA3355791 /* Pods-GraffiTab Release.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Christov (PD6JJX75F4)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Georgi Christov (869AJN3V33)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
@@ -2307,7 +2315,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = GraffiTab;
-				PROVISIONING_PROFILE = "8bad8e01-c004-4eb6-92c9-1c815714326a";
+				PROVISIONING_PROFILE = "f91cdc9c-632c-407b-b60c-496be0444edd";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2318,7 +2326,7 @@
 			baseConfigurationReference = 60414BAA024EE71CB76A1383 /* Pods-GraffiTab Release.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Christov (PD6JJX75F4)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Georgi Christov (869AJN3V33)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
@@ -2417,7 +2425,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = GraffiTab;
-				PROVISIONING_PROFILE = "8bad8e01-c004-4eb6-92c9-1c815714326a";
+				PROVISIONING_PROFILE = "f91cdc9c-632c-407b-b60c-496be0444edd";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

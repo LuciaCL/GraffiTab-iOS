@@ -155,13 +155,11 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="jpe-51-W5c" firstAttribute="leading" secondItem="qPS-TW-QtY" secondAttribute="leading" id="5rz-gW-kmk"/>
                                     <constraint firstItem="PDF-96-09y" firstAttribute="centerX" secondItem="BBm-1r-4Ua" secondAttribute="centerX" id="UDv-eR-x5N"/>
                                     <constraint firstItem="BBm-1r-4Ua" firstAttribute="centerY" secondItem="qPS-TW-QtY" secondAttribute="centerY" multiplier="0.9" constant="104.25" id="XPe-B8-e2I"/>
                                     <constraint firstItem="BBm-1r-4Ua" firstAttribute="centerX" secondItem="qPS-TW-QtY" secondAttribute="centerX" id="YIX-4O-jHu"/>
                                     <constraint firstItem="PDF-96-09y" firstAttribute="top" secondItem="BBm-1r-4Ua" secondAttribute="bottom" constant="13" id="dlb-Pr-v4S"/>
                                     <constraint firstItem="tTv-kW-FLU" firstAttribute="centerY" secondItem="qPS-TW-QtY" secondAttribute="centerY" multiplier="0.4" constant="43" id="e5m-yB-nMY"/>
-                                    <constraint firstItem="jpe-51-W5c" firstAttribute="top" secondItem="qPS-TW-QtY" secondAttribute="top" constant="20" id="k0A-C0-Fh8"/>
                                     <constraint firstItem="tTv-kW-FLU" firstAttribute="centerX" secondItem="qPS-TW-QtY" secondAttribute="centerX" id="nDM-eb-nej"/>
                                 </constraints>
                             </scrollView>
@@ -278,6 +276,7 @@
                             <constraint firstItem="f9H-j3-R3e" firstAttribute="leading" secondItem="hEa-eY-Ru7" secondAttribute="leading" id="AEp-X2-jpS"/>
                             <constraint firstItem="5Aq-qb-0iw" firstAttribute="top" secondItem="XOy-tl-DJb" secondAttribute="bottom" constant="16" id="AXG-lN-Prv"/>
                             <constraint firstItem="y1C-Gw-L6Q" firstAttribute="top" secondItem="qPS-TW-QtY" secondAttribute="bottom" constant="215" id="B4R-l5-pie"/>
+                            <constraint firstItem="jpe-51-W5c" firstAttribute="leading" secondItem="hEa-eY-Ru7" secondAttribute="leading" id="FgG-h6-o7h"/>
                             <constraint firstItem="y1C-Gw-L6Q" firstAttribute="top" secondItem="f9H-j3-R3e" secondAttribute="bottom" id="MfE-Nj-ORf"/>
                             <constraint firstItem="qPS-TW-QtY" firstAttribute="top" secondItem="hEa-eY-Ru7" secondAttribute="top" id="QQv-wj-1Sh"/>
                             <constraint firstAttribute="trailing" secondItem="f9H-j3-R3e" secondAttribute="trailing" id="R5X-5i-ff1"/>
@@ -286,6 +285,7 @@
                             <constraint firstItem="y1C-Gw-L6Q" firstAttribute="top" secondItem="5Aq-qb-0iw" secondAttribute="bottom" constant="21" id="UIS-59-goo"/>
                             <constraint firstAttribute="trailing" secondItem="qPS-TW-QtY" secondAttribute="trailing" id="ZsA-my-Zqw"/>
                             <constraint firstItem="M6L-eM-zgn" firstAttribute="centerX" secondItem="XOy-tl-DJb" secondAttribute="centerX" id="fLN-No-HMB"/>
+                            <constraint firstItem="jpe-51-W5c" firstAttribute="top" secondItem="UYM-qJ-E8X" secondAttribute="bottom" id="hs3-hr-wmV"/>
                             <constraint firstItem="XOy-tl-DJb" firstAttribute="centerX" secondItem="5Aq-qb-0iw" secondAttribute="centerX" id="ohR-di-wCQ"/>
                         </constraints>
                     </view>
