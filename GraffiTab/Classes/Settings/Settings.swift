@@ -40,10 +40,10 @@ class Settings: NSObject {
     
     var appDomain: String? {
         get {
-            return keychain[SettingsKeys.kAppDomain]
+            return getStringPreference(SettingsKeys.kAppDomain)
         }
         set(newValue) {
-            keychain[SettingsKeys.kAppDomain] = newValue
+            setStringPreference(newValue!, key: SettingsKeys.kAppDomain)
         }
     }
     
@@ -70,9 +70,16 @@ class Settings: NSObject {
         }
     }
     
-    func setStringPreference(value: String, key: String) {
+    func setStringPreference(value: String?, key: String) {
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(value, forKey: key)
+        
+        if value == nil {
+            defaults.removeObjectForKey(key)
+        }
+        else {
+            defaults.setObject(value, forKey: key)
+        }
+        
         defaults.synchronize()
     }
     

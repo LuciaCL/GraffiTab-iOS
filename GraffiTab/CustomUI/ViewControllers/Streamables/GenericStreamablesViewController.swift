@@ -21,13 +21,13 @@ enum StreamableViewType : Int {
     case Mosaic
 }
 
-class GenericStreamablesViewController: BackButtonViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CHTCollectionViewDelegateWaterfallLayout, StreamableDelegate, UIViewControllerTransitioningDelegate {
+class GenericStreamablesViewController: BackButtonViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CHTCollectionViewDelegateWaterfallLayout, StreamableDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     var pullToRefresh = CarbonSwipeRefresh()
     
-    var transition: JTCollectionMaterialTransition?
+    let transitionDelegate = TransitioningDelegate()
     var items = [GTStreamable]()
     let colorPallete = ["cad0cc", "cdc7b9", "a9b3b2", "b9bbb8", "c2d1cc", "c2c8c4", "b4bfb9"]
     var isDownloading = false
@@ -381,6 +381,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
             cell.item = items[indexPath.row]
             cell.thumbnail.backgroundColor = UIColor(hexString: colorPallete[indexPath.row % colorPallete.count])
             cell.delegate = self
+            cell.indexPath = indexPath
             
             return cell
         }
@@ -390,6 +391,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
             cell.item = items[indexPath.row]
             cell.thumbnail.backgroundColor = UIColor(hexString: colorPallete[indexPath.row % colorPallete.count])
             cell.delegate = self
+            cell.indexPath = indexPath
             
             return cell
         }
@@ -399,6 +401,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
             cell.item = items[indexPath.row]
             cell.thumbnail.backgroundColor = UIColor(hexString: colorPallete[indexPath.row % colorPallete.count])
             cell.delegate = self
+            cell.indexPath = indexPath
             
             // Set offset accordingly.
 //            cell.setImageOffset(CGPoint(x: 0, y: computeOffsetForCell(cell)))
@@ -516,9 +519,12 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func didTapThumbnail(cell: UICollectionViewCell, streamable: GTStreamable) {
-        transition = JTCollectionMaterialTransition(animatedView: (cell as! StreamableCell).thumbnail)
+        let streamableCell = (cell as! StreamableCell)
         
-        ViewControllerUtils.showStreamableDetails(streamable, modalPresentationStyle: .Custom, transitioningDelegate: self, viewController: self)
+        let frameToOpenFrom = streamableCell.thumbnail.superview?.convertRect(streamableCell.thumbnail.frame, toView: nil)
+        transitionDelegate.openingFrame = frameToOpenFrom
+        
+        ViewControllerUtils.showStreamableDetails(streamable, modalPresentationStyle: .Custom, transitioningDelegate: transitionDelegate, viewController: self)
     }
     
     // MARK: - Orientation
@@ -532,20 +538,6 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         }) { (context) in
             
         }
-    }
-    
-    // MARK: - UIViewControllerTransitioningDelegate
-    
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition?.reverse = false
-        
-        return transition
-    }
-    
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition?.reverse = true
-        
-        return transition
     }
     
     // MARK: - Setup

@@ -27,6 +27,7 @@ class StreamableCell: UICollectionViewCell {
     @IBOutlet weak var avatar: AvatarImageView!
     @IBOutlet weak var thumbnail: StreamableImageView!
     
+    var indexPath: NSIndexPath?
     var delegate: StreamableDelegate?
     var previousItem: GTStreamable?
     var previousItemRequest: Request?
