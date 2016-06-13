@@ -523,6 +523,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         
         let frameToOpenFrom = streamableCell.thumbnail.superview?.convertRect(streamableCell.thumbnail.frame, toView: nil)
         transitionDelegate.openingFrame = frameToOpenFrom
+        transitionDelegate.animatedView = streamableCell.thumbnail
         
         ViewControllerUtils.showStreamableDetails(streamable, modalPresentationStyle: .Custom, transitioningDelegate: transitionDelegate, viewController: self)
     }

@@ -10,6 +10,8 @@ import UIKit
 
 class DismissalAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
+    weak var animatedView: UIView?
+    
     var openingFrame: CGRect?
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
@@ -21,7 +23,7 @@ class DismissalAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         let containerView = transitionContext.containerView()
         
-        let animationDuration = self .transitionDuration(transitionContext)
+        let animationDuration = self.transitionDuration(transitionContext)
         
         let snapshotView = fromViewController.view.resizableSnapshotViewFromRect(fromViewController.view.bounds, afterScreenUpdates: true, withCapInsets: UIEdgeInsetsZero)
         containerView!.addSubview(snapshotView)
@@ -31,6 +33,7 @@ class DismissalAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         UIView.animateWithDuration(animationDuration, animations: { () -> Void in
             snapshotView.frame = self.openingFrame!
             snapshotView.alpha = 0.0
+            self.animatedView!.alpha = 1.0
         }) { (finished) -> Void in
             snapshotView.removeFromSuperview()
             fromViewController.view.removeFromSuperview()

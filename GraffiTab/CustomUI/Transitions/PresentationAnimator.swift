@@ -10,6 +10,8 @@ import UIKit
 
 class PresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
+    weak var animatedView: UIView?
+    
     var openingFrame: CGRect?
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
@@ -21,7 +23,7 @@ class PresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         let containerView = transitionContext.containerView()
         
-        let animationDuration = self .transitionDuration(transitionContext)
+        let animationDuration = self.transitionDuration(transitionContext)
         
         // add blurred background to the view
         let fromViewFrame = fromViewController.view.frame
@@ -38,14 +40,15 @@ class PresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         toViewController.view.alpha = 0.0
         containerView!.addSubview(toViewController.view)
         
-        UIView.animateWithDuration(animationDuration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 20.0, options: [],
-                                   animations: { () -> Void in
-                                    snapshotView.frame = fromViewController.view.frame
-            }, completion: { (finished) -> Void in
-                snapshotView.removeFromSuperview()
-                toViewController.view.alpha = 1.0
-                
-                transitionContext.completeTransition(finished)
+        UIView.animateWithDuration(animationDuration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 20.0, options: [], animations: { () -> Void in
+            snapshotView.frame = fromViewController.view.frame
+            
+            self.animatedView!.alpha = 0.0
+        }, completion: { (finished) -> Void in
+            snapshotView.removeFromSuperview()
+            toViewController.view.alpha = 1.0
+            
+            transitionContext.completeTransition(finished)
         })
     }
 }
