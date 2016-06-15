@@ -779,13 +779,13 @@
 		E510062E1CB71C1300AC66A5 /* Streamables */ = {
 			isa = PBXGroup;
 			children = (
+				E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */,
 				E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */,
 				E510064E1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift */,
 				E51006351CB71EE400AC66A5 /* TrendingStreamablesViewController.swift */,
 				E51006321CB71EB200AC66A5 /* GridStreamablesViewController.swift */,
 				E52DC7641CE5DD2E00375828 /* ToggleStreamablesViewController.swift */,
 				E510062F1CB71C5900AC66A5 /* GenericStreamablesViewController.swift */,
-				E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */,
 			);
 			path = Streamables;
 			sourceTree = "<group>";

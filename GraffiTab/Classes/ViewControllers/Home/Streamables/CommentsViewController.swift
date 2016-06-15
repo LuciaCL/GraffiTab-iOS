@@ -152,7 +152,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     }
     
     func removeLoadingIndicator() {
-        let reload = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(refresh))
+        let reload = UIBarButtonItem(image: UIImage(named: "ic_refresh_white"), style: .Plain, target: self, action: #selector(refresh))
         self.navigationItem.setRightBarButtonItem(reload, animated: true)
     }
     

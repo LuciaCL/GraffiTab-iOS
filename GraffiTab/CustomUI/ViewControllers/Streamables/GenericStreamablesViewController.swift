@@ -354,7 +354,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func removeLoadingIndicator() {
-        let reload = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(GenericStreamablesViewController.refresh))
+        let reload = UIBarButtonItem(image: UIImage(named: "ic_refresh_white"), style: .Plain, target: self, action: #selector(GenericStreamablesViewController.refresh))
         self.navigationItem.setRightBarButtonItem(reload, animated: true)
     }
     
