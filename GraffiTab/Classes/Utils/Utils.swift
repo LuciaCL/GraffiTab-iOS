@@ -15,6 +15,17 @@ class Utils: NSObject {
         NSNotificationCenter.defaultCenter().postNotificationName(Notifications.UserLoggedOut, object: nil)
     }
     
+    class func applyShadowEffectToCellView(view: UIView) {
+        let shadowPath: CGPathRef = UIBezierPath(rect: view.bounds).CGPath
+        let layer = view.layer
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOpacity = 0.1
+        layer.shadowOffset = CGSizeMake(1, 1)
+        layer.shadowRadius = 2.0
+        layer.shadowPath = shadowPath
+        view.clipsToBounds = false
+    }
+    
     class func applyShadowEffectToView(view: UIView) {
         let layer = view.layer
         layer.shadowColor = UIColor.blackColor().CGColor

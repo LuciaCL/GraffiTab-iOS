@@ -9,7 +9,7 @@
 import UIKit
 import GraffiTab_iOS_SDK
 
-class RecentViewController: MosaicStreamablesViewController {
+class RecentViewController: SwimLaneStreamablesViewController {
     
     // MARK: - Loading
     

@@ -58,7 +58,10 @@ class NearMeViewController: GridStreamablesViewController {
             southWestCorner.latitude  = center.latitude  - (region.span.latitudeDelta  / 2.0)
             southWestCorner.longitude = center.longitude - (region.span.longitudeDelta / 2.0)
             
-            GTStreamableManager.searchForLocation(northEastCorner.latitude, neLongitude: northEastCorner.longitude, swLatitude: southWestCorner.latitude, swLongitude: southWestCorner.longitude, successBlock: successBlock, failureBlock: failureBlock)
+            GTStreamableManager.searchForLocation(northEastCorner.latitude, neLongitude: northEastCorner.longitude, swLatitude: southWestCorner.latitude, swLongitude: southWestCorner.longitude, successBlock: { (response) in
+                successBlock(response: response)
+                self.canLoadMore = false
+            }, failureBlock: failureBlock)
         }
         else {
             showLocationLoading()

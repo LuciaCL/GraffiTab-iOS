@@ -169,7 +169,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (GTSettings.sharedInstance.isLoggedIn()) {
             DDLogInfo("[\(NSStringFromClass(self.dynamicType))] User logged in. Refreshing profile")
             
-            GTMeManager.getMe({ (response) -> Void in
+            GTMeManager.getMyFullProfile({ (response) -> Void in
                 UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
                 
                 self.userDidLogin(launchOptions)

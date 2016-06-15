@@ -30,8 +30,13 @@ class StreamableListFullCell: StreamableCell {
         // Initialization code
         
         setupImageViews()
-        setupContainerViews()
         setupGestureRecognizers()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        Utils.applyShadowEffectToCellView(containerView)
     }
     
     override func setItem() {
@@ -88,10 +93,6 @@ class StreamableListFullCell: StreamableCell {
     
     func setupImageViews() {
         thumbnail.shouldLoadFullAsset = true
-    }
-    
-    func setupContainerViews() {
-        Utils.applyShadowEffectToView(containerView)
     }
     
     override func setupGestureRecognizers() {

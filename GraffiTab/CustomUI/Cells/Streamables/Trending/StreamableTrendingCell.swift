@@ -26,8 +26,13 @@ class StreamableTrendingCell: StreamableCell {
         super.awakeFromNib()
         
         setupImageViews()
-        setupContainerViews()
         setupGestureRecognizers()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        Utils.applyShadowEffectToCellView(self)
     }
     
     override func setItem() {
@@ -45,10 +50,6 @@ class StreamableTrendingCell: StreamableCell {
     
     func setupImageViews() {
         thumbnail.shouldLoadFullAsset = true
-    }
-    
-    func setupContainerViews() {
-        Utils.applyShadowEffectToView(self)
     }
     
     override func setupGestureRecognizers() {

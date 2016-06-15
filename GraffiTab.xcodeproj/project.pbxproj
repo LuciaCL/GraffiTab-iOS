@@ -266,6 +266,8 @@
 		E59262631D01D7C900368212 /* DeveloperOptionsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59262611D01D7C900368212 /* DeveloperOptionsStoryboard.storyboard */; };
 		E59262651D01D7FB00368212 /* DeveloperOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59262641D01D7FB00368212 /* DeveloperOptionsViewController.swift */; };
 		E59262661D01D7FB00368212 /* DeveloperOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59262641D01D7FB00368212 /* DeveloperOptionsViewController.swift */; };
+		E59BC2F31D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */; };
+		E59BC2F41D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */; };
 		E5A4F1041CE1EDF2005CF12C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */; };
 		E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */; };
 		E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
@@ -545,6 +547,7 @@
 		E592625D1D0197E400368212 /* ProfileFollowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFollowButton.swift; sourceTree = "<group>"; };
 		E59262611D01D7C900368212 /* DeveloperOptionsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeveloperOptionsStoryboard.storyboard; sourceTree = "<group>"; };
 		E59262641D01D7FB00368212 /* DeveloperOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperOptionsViewController.swift; sourceTree = "<group>"; };
+		E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwimLaneStreamablesViewController.swift; sourceTree = "<group>"; };
 		E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonSlackViewController.swift; sourceTree = "<group>"; };
 		E5A4F12C1CE225AA005CF12C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -782,6 +785,7 @@
 				E51006321CB71EB200AC66A5 /* GridStreamablesViewController.swift */,
 				E52DC7641CE5DD2E00375828 /* ToggleStreamablesViewController.swift */,
 				E510062F1CB71C5900AC66A5 /* GenericStreamablesViewController.swift */,
+				E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */,
 			);
 			path = Streamables;
 			sourceTree = "<group>";
@@ -1922,6 +1926,7 @@
 				E59262661D01D7FB00368212 /* DeveloperOptionsViewController.swift in Sources */,
 				E58432411CE9242000FB1E50 /* DrawToolCell.swift in Sources */,
 				E55452F71CF4950E0076CEC9 /* StreetViewController.swift in Sources */,
+				E59BC2F41D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */,
 				E58432421CE9242000FB1E50 /* StreamableCell.swift in Sources */,
 				E5FE1DA61D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */,
 				E5D3748E1D07417800A60343 /* DeployGateLogger.swift in Sources */,
@@ -2068,6 +2073,7 @@
 				E59262651D01D7FB00368212 /* DeveloperOptionsViewController.swift in Sources */,
 				E57FAB261CD4106E00C0D125 /* DrawToolCell.swift in Sources */,
 				E55452F61CF4950E0076CEC9 /* StreetViewController.swift in Sources */,
+				E59BC2F31D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */,
 				E510063A1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */,
 				E5FE1DA51D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */,
 				E5D3748D1D07417800A60343 /* DeployGateLogger.swift in Sources */,

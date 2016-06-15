@@ -17,6 +17,7 @@ import CocoaLumberjack
 enum StreamableViewType : Int {
     case Grid
     case Trending
+    case SwimLane
     case ListFull
     case Mosaic
 }
@@ -133,7 +134,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         let landscape = orientation == .LandscapeLeft || orientation == .LandscapeRight
         
         switch viewType {
-            case .Grid:
+            case .Grid, .SwimLane:
                 return landscape ? 4 : 3
             case .Trending:
                 return landscape ? 3 : 2
@@ -150,6 +151,8 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
                 return 2
             case .Trending, .ListFull:
                 return 7
+            case .SwimLane:
+                return 4
         }
     }
     
@@ -157,7 +160,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         switch viewType {
             case .Grid:
                 return width
-            case .Trending:
+            case .Trending, .SwimLane:
                 return 250
             case .ListFull, .Mosaic:
                 return 464
@@ -195,7 +198,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
             layout.fullImagePercentageOfOccurrency = 50
             collectionView.collectionViewLayout = layout
         }
-        else if viewType == .Trending {
+        else if viewType == .Trending || viewType == .SwimLane {
             let layout: CHTCollectionViewWaterfallLayout
             
             if !collectionView.collectionViewLayout.isKindOfClass(CHTCollectionViewWaterfallLayout.classForCoder()) {
@@ -382,7 +385,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        if viewType == .Grid || viewType == .Mosaic {
+        if viewType == .Grid || viewType == .Mosaic || viewType == .SwimLane {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(StreamableGridCell.reusableIdentifier(), forIndexPath: indexPath) as! StreamableGridCell
             
             cell.item = items[indexPath.row]
@@ -432,7 +435,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         if viewType == .Mosaic {
             return CGSizeMake(CGFloat(item.asset!.thumbnailWidth!), CGFloat(item.asset!.thumbnailHeight!))
         }
-        else if viewType == .Trending {
+        else if viewType == .Trending || viewType == .SwimLane {
             let h = max(getHeight(0), CGFloat(item.asset!.thumbnailHeight!))
             return CGSizeMake(CGFloat(item.asset!.thumbnailWidth!), h)
         }
