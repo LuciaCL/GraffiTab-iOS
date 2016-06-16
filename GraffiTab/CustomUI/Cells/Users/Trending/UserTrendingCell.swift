@@ -46,8 +46,6 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
         
         Utils.applyShadowEffectToCellView(self)
         
-        collectionView.reloadData()
-        
         configureLayout()
     }
     
