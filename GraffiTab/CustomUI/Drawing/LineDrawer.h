@@ -61,5 +61,7 @@ typedef enum {
 - (UIImage *)grabFrame;
 - (BOOL)canUndo;
 - (void)undo;
+- (BOOL)canRedo;
+- (void)redo;
 
 @end

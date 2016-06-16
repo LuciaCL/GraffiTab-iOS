@@ -26,6 +26,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var phraseTextLbl: UILabel!
     @IBOutlet weak var phraseAuthorLbl: UILabel!
     @IBOutlet weak var phraseContainer: UIView!
+    @IBOutlet weak var undoBtn: DrawingOptionButton!
+    @IBOutlet weak var redoBtn: DrawingOptionButton!
     
     var toEdit: GTStreamable?
     var toEditImage: UIImage?
@@ -59,6 +61,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         
         loadTools()
         loadPhrase()
+        
+        configureUndoButtons()
         
         if toEdit != nil {
             Utils.runWithDelay(0.3, block: {
@@ -226,9 +230,17 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     @IBAction func onClickUndo(sender: AnyObject) {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Undo action")
         
-        if canvas!.canUndo() {
-            canvas!.undo()
-        }
+        canvas!.undo()
+        
+        configureUndoButtons()
+    }
+    
+    @IBAction func onClickRedo(sender: AnyObject) {
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Redo action")
+        
+        canvas!.redo()
+        
+        configureUndoButtons()
     }
     
     @IBAction func onClickMenu(recognizer: AnyObject?) {
@@ -256,6 +268,25 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         }
         else if isColorsOpen! {
             hideColors(nil)
+        }
+    }
+    
+    func configureUndoButtons() {
+        if canvas!.canUndo() {
+            undoBtn.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+            undoBtn.tintColor = UIColor(hexString: "BBBBBB")
+        }
+        else {
+            undoBtn.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.2)
+            undoBtn.tintColor = UIColor(hexString: "BBBBBB")?.colorWithAlphaComponent(0.2)
+        }
+        if canvas!.canRedo() {
+            redoBtn.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+            redoBtn.tintColor = UIColor(hexString: "BBBBBB")
+        }
+        else {
+            redoBtn.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.2)
+            redoBtn.tintColor = UIColor(hexString: "BBBBBB")?.colorWithAlphaComponent(0.2)
         }
     }
     
@@ -562,6 +593,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         if phraseContainer.alpha > 0 {
             Utils.hideView(phraseContainer)
         }
+        
+        configureUndoButtons()
     }
     
     // MARK: - Setup

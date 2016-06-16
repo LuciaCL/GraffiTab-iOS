@@ -115,6 +115,7 @@ typedef struct {
 	NSMutableArray<NSNumber*>* velocities;
 	NSMutableArray<LinePoint*>* circlesPoints;
     NSMutableArray *undos;
+    NSMutableArray *redos;
     
 	BOOL connectingLine;
 	CGPoint prevC, prevD;
@@ -144,6 +145,7 @@ typedef struct {
 		velocities = [NSMutableArray array];
 		circlesPoints = [NSMutableArray array];
         undos = [NSMutableArray array];
+        redos = [NSMutableArray array];
         
         // Setup constants and tools.
 		overdraw = 2.0;
@@ -205,17 +207,24 @@ typedef struct {
     self.strokeColor = c;
 }
 
-- (void)clearDrawingLayer {
-    [self clearTexture];
-    [undos removeAllObjects];
-}
-
 - (void)clearTexture {
     [renderTexture clear:0.0 g:0.0 b:0.0 a:0.0];
 }
 
+- (void)clearDrawingLayer {
+    [self clearTexture];
+    [undos removeAllObjects];
+    [redos removeAllObjects];
+    
+    if (_delegate != nil && [_delegate respondsToSelector:@selector(didInteractWithCanvas)])
+        [_delegate didInteractWithCanvas];
+}
+
 - (void)clearBackground {
     [self setBackground:nil];
+    
+    if (_delegate != nil && [_delegate respondsToSelector:@selector(didInteractWithCanvas)])
+        [_delegate didInteractWithCanvas];
 }
 
 - (void)clearCanvas {
@@ -279,11 +288,17 @@ typedef struct {
 
 #pragma mark - Undo
 
-- (void)addUndoDrawAction {
-    // Capture snapshot and add it to the undo queue.
-    [undos addObject:[self grabTexture:renderTexture]];
+- (void)addUndoDrawAction:(CCRenderTexture *)texture {
+    [undos addObject:texture];
     if (undos.count > MAX_UNDO) { // We only allow a certain number of undos.
         [undos removeObjectAtIndex:0];
+    }
+}
+
+- (void)addRedoDrawAction:(CCRenderTexture *)texture {
+    [redos addObject:texture];
+    if (redos.count > MAX_UNDO) { // We only allow a certain number of redos.
+        [redos removeObjectAtIndex:0];
     }
 }
 
@@ -296,18 +311,39 @@ typedef struct {
         [self resumeDirector];
         
         CCRenderTexture *previous = undos.lastObject;
-        previous.position = ccp(-0.5, -0.5);
-        previous.anchorPoint = ccp(-0.5, -0.5);
-        
-        [self clearTexture];
-        [renderTexture begin];
-        [previous visit];
-        [renderTexture end];
-        
+        [self addRedoDrawAction:[self grabTexture:renderTexture]];
+        [self applyTexture:previous];
         [undos removeLastObject];
         
         [self pauseDirector];
     }
+}
+
+- (BOOL)canRedo {
+    return redos.count > 0;
+}
+
+- (void)redo {
+    if (redos.count > 0) {
+        [self resumeDirector];
+        
+        CCRenderTexture *previous = redos.lastObject;
+        [self addUndoDrawAction:[self grabTexture:renderTexture]];
+        [self applyTexture:previous];
+        [redos removeLastObject];
+        
+        [self pauseDirector];
+    }
+}
+
+- (void)applyTexture:(CCRenderTexture *)texture {
+    texture.position = ccp(-0.5, -0.5);
+    texture.anchorPoint = ccp(-0.5, -0.5);
+    
+    [self clearTexture];
+    [renderTexture begin];
+    [texture visit];
+    [renderTexture end];
 }
 
 #pragma mark - Handling points
@@ -647,14 +683,15 @@ typedef struct {
 - (void) gestureRecognizer:(UIGestureRecognizer *)gr beganWithTouches:(NSSet<UITouch*>*)touches andEvent:(UIEvent *)event {
     [self resumeDirector];
     
-    if (_delegate != nil && [_delegate respondsToSelector:@selector(didInteractWithCanvas)])
-        [_delegate didInteractWithCanvas];
-    
     if (touches.count > ((UIPanGestureRecognizer *)gr).maximumNumberOfTouches) {
         return;
     }
     
-    [self addUndoDrawAction];
+    [self addUndoDrawAction:[self grabTexture:renderTexture]];
+    [redos removeAllObjects]; // Clear redos after user interaction.
+    
+    if (_delegate != nil && [_delegate respondsToSelector:@selector(didInteractWithCanvas)])
+        [_delegate didInteractWithCanvas];
     
 	if ([UITouch instancesRespondToSelector:@selector(force)]) {
 		UITouch* t1 = touches.anyObject; // We only allow one touch so this will get it

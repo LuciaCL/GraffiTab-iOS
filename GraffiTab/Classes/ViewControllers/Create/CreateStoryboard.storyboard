@@ -157,7 +157,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ib6-PW-cQc" customClass="DrawingOptionButton" customModule="GraffiTab" customModuleProvider="target">
-                                                <rect key="frame" x="234" y="8" width="38" height="38"/>
+                                                <rect key="frame" x="222" y="8" width="38" height="38"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="38" id="Veg-Q4-inI"/>
@@ -170,6 +170,20 @@
                                                     <action selector="onClickUndo:" destination="F9h-bV-H5F" eventType="touchUpInside" id="3EY-NP-xRR"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9sB-k6-gYg" customClass="DrawingOptionButton" customModule="GraffiTab" customModuleProvider="target">
+                                                <rect key="frame" x="268" y="8" width="38" height="38"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="38" id="C1P-Xd-is0"/>
+                                                    <constraint firstAttribute="height" constant="38" id="m42-4V-i0K"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                <inset key="imageEdgeInsets" minX="9" minY="9" maxX="9" maxY="9"/>
+                                                <state key="normal" image="ic_redo_white"/>
+                                                <connections>
+                                                    <action selector="onClickRedo:" destination="F9h-bV-H5F" eventType="touchUpInside" id="vcw-2o-FRu"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -177,8 +191,10 @@
                                             <constraint firstAttribute="trailing" secondItem="T6f-xY-P0d" secondAttribute="trailing" id="EgU-WT-glx"/>
                                             <constraint firstAttribute="height" constant="55" id="IKZ-Hz-IUD"/>
                                             <constraint firstItem="T6f-xY-P0d" firstAttribute="centerY" secondItem="Rrk-r8-yd7" secondAttribute="centerY" id="MTr-GZ-EBz"/>
-                                            <constraint firstItem="ib6-PW-cQc" firstAttribute="centerX" secondItem="Rrk-r8-yd7" secondAttribute="centerX" constant="-20" id="gbY-7W-aYL"/>
+                                            <constraint firstItem="9sB-k6-gYg" firstAttribute="leading" secondItem="ib6-PW-cQc" secondAttribute="trailing" constant="8" id="VCM-p8-n9k"/>
+                                            <constraint firstItem="ib6-PW-cQc" firstAttribute="centerX" secondItem="Rrk-r8-yd7" secondAttribute="centerX" constant="-32" id="gbY-7W-aYL"/>
                                             <constraint firstItem="DX7-Jl-Ods" firstAttribute="leading" secondItem="Rrk-r8-yd7" secondAttribute="leading" id="i03-CM-W4u"/>
+                                            <constraint firstItem="9sB-k6-gYg" firstAttribute="centerY" secondItem="ib6-PW-cQc" secondAttribute="centerY" id="q9W-yM-wPV"/>
                                             <constraint firstItem="DX7-Jl-Ods" firstAttribute="centerY" secondItem="Rrk-r8-yd7" secondAttribute="centerY" id="rak-F9-HZs"/>
                                         </constraints>
                                     </view>
@@ -347,7 +363,9 @@
                         <outlet property="phraseAuthorLbl" destination="8G4-ZA-fvb" id="0lP-8Z-UgM"/>
                         <outlet property="phraseContainer" destination="rhu-Zf-Sf7" id="gKN-sr-7I5"/>
                         <outlet property="phraseTextLbl" destination="4wN-5R-pJ3" id="iRk-dp-YJt"/>
+                        <outlet property="redoBtn" destination="9sB-k6-gYg" id="Ahj-mm-ng1"/>
                         <outlet property="toolCollectionView" destination="X2G-Kj-kWA" id="usT-Lt-EFJ"/>
+                        <outlet property="undoBtn" destination="ib6-PW-cQc" id="Jji-Mo-Osc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4Y-h2-WLi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -474,6 +492,7 @@
         <image name="ic_menu_white" width="24" height="24"/>
         <image name="ic_photo_camera_white" width="24" height="24"/>
         <image name="ic_photo_filter_white" width="24" height="24"/>
+        <image name="ic_redo_white" width="24" height="24"/>
         <image name="ic_undo_white" width="24" height="24"/>
         <image name="shelves_segment" width="267" height="116"/>
         <image name="shelves_top" width="267" height="25"/>
