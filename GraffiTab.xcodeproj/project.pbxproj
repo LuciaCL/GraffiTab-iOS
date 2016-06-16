@@ -268,6 +268,14 @@
 		E59262661D01D7FB00368212 /* DeveloperOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59262641D01D7FB00368212 /* DeveloperOptionsViewController.swift */; };
 		E59BC2F31D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */; };
 		E59BC2F41D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */; };
+		E59BC2F61D12B225009781BA /* MostActiveUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F51D12B225009781BA /* MostActiveUsersViewController.swift */; };
+		E59BC2F71D12B225009781BA /* MostActiveUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F51D12B225009781BA /* MostActiveUsersViewController.swift */; };
+		E59BC2FB1D12B423009781BA /* UserTrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F91D12B423009781BA /* UserTrendingCell.swift */; };
+		E59BC2FC1D12B423009781BA /* UserTrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F91D12B423009781BA /* UserTrendingCell.swift */; };
+		E59BC2FD1D12B423009781BA /* UserTrendingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59BC2FA1D12B423009781BA /* UserTrendingCell.xib */; };
+		E59BC2FE1D12B423009781BA /* UserTrendingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59BC2FA1D12B423009781BA /* UserTrendingCell.xib */; };
+		E59BC3001D12B4EF009781BA /* TrendingUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2FF1D12B4EF009781BA /* TrendingUsersViewController.swift */; };
+		E59BC3011D12B4EF009781BA /* TrendingUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2FF1D12B4EF009781BA /* TrendingUsersViewController.swift */; };
 		E5A4F1041CE1EDF2005CF12C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */; };
 		E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */; };
 		E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
@@ -548,6 +556,10 @@
 		E59262611D01D7C900368212 /* DeveloperOptionsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeveloperOptionsStoryboard.storyboard; sourceTree = "<group>"; };
 		E59262641D01D7FB00368212 /* DeveloperOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperOptionsViewController.swift; sourceTree = "<group>"; };
 		E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwimLaneStreamablesViewController.swift; sourceTree = "<group>"; };
+		E59BC2F51D12B225009781BA /* MostActiveUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MostActiveUsersViewController.swift; sourceTree = "<group>"; };
+		E59BC2F91D12B423009781BA /* UserTrendingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrendingCell.swift; sourceTree = "<group>"; };
+		E59BC2FA1D12B423009781BA /* UserTrendingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTrendingCell.xib; sourceTree = "<group>"; };
+		E59BC2FF1D12B4EF009781BA /* TrendingUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingUsersViewController.swift; sourceTree = "<group>"; };
 		E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonSlackViewController.swift; sourceTree = "<group>"; };
 		E5A4F12C1CE225AA005CF12C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -903,6 +915,7 @@
 			isa = PBXGroup;
 			children = (
 				E51006FE1CBD1EBF00AC66A5 /* ListUsersViewController.swift */,
+				E59BC2FF1D12B4EF009781BA /* TrendingUsersViewController.swift */,
 				E51006F01CBD193E00AC66A5 /* GenericUsersViewController.swift */,
 			);
 			path = Users;
@@ -912,6 +925,7 @@
 			isa = PBXGroup;
 			children = (
 				E51006F41CBD1B0000AC66A5 /* UserCell.swift */,
+				E59BC2F81D12B3AE009781BA /* Trending */,
 				E51006F71CBD1C1500AC66A5 /* List */,
 			);
 			path = Users;
@@ -1044,6 +1058,15 @@
 				E59262641D01D7FB00368212 /* DeveloperOptionsViewController.swift */,
 			);
 			path = Dev;
+			sourceTree = "<group>";
+		};
+		E59BC2F81D12B3AE009781BA /* Trending */ = {
+			isa = PBXGroup;
+			children = (
+				E59BC2F91D12B423009781BA /* UserTrendingCell.swift */,
+				E59BC2FA1D12B423009781BA /* UserTrendingCell.xib */,
+			);
+			path = Trending;
 			sourceTree = "<group>";
 		};
 		E5A4F12B1CE22580005CF12C /* Comments */ = {
@@ -1190,6 +1213,7 @@
 				E52DC75B1CE55FA900375828 /* FollowingViewController.swift */,
 				E52DC75E1CE56B7D00375828 /* UserStreamablesViewController.swift */,
 				E52DC7611CE5DA2A00375828 /* UserLikedStreamablesViewController.swift */,
+				E59BC2F51D12B225009781BA /* MostActiveUsersViewController.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -1735,6 +1759,7 @@
 				E58432B51CE9242000FB1E50 /* SplashStoryboard.storyboard in Resources */,
 				E58432B61CE9242000FB1E50 /* Eraser.png in Resources */,
 				E58432B71CE9242000FB1E50 /* LoginStoryboard.storyboard in Resources */,
+				E59BC2FE1D12B423009781BA /* UserTrendingCell.xib in Resources */,
 				E58432B81CE9242000FB1E50 /* eula.html in Resources */,
 				E55452EB1CF336CC0076CEC9 /* LocationListCell.xib in Resources */,
 				E58432B91CE9242000FB1E50 /* StreamableGridCell.xib in Resources */,
@@ -1779,6 +1804,7 @@
 				E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */,
 				E5D085A71CD8D30000226589 /* TOCropViewControllerLocalizable.strings in Resources */,
 				E5B6B5A71CC56F5800DC8EFC /* MainStoryboard.storyboard in Resources */,
+				E59BC2FD1D12B423009781BA /* UserTrendingCell.xib in Resources */,
 				E510066D1CB7DEB100AC66A5 /* StreamableTrendingCell.xib in Resources */,
 				E5DAA8991CE37A26000CB2F4 /* AutocompleteHashCell.xib in Resources */,
 				E5DFDC0D1CB2C39200BB3D27 /* Default-568h@2x.png in Resources */,
@@ -1909,6 +1935,7 @@
 				E58432321CE9242000FB1E50 /* TOActivityCroppedImageProvider.m in Sources */,
 				E58432331CE9242000FB1E50 /* AutocompleteUserCell.swift in Sources */,
 				E58432341CE9242000FB1E50 /* ActivitySingleCreateCell.swift in Sources */,
+				E59BC3011D12B4EF009781BA /* TrendingUsersViewController.swift in Sources */,
 				E58432351CE9242000FB1E50 /* GTComment+Status.swift in Sources */,
 				E58432361CE9242000FB1E50 /* MenuViewController.swift in Sources */,
 				E58432DB1CEA469B00FB1E50 /* Settings.swift in Sources */,
@@ -1999,6 +2026,7 @@
 				E58432791CE9242000FB1E50 /* TOCropScrollView.m in Sources */,
 				E55452EE1CF340C20076CEC9 /* CreateLocationViewController.swift in Sources */,
 				E584327A1CE9242000FB1E50 /* MenuCell.swift in Sources */,
+				E59BC2FC1D12B423009781BA /* UserTrendingCell.swift in Sources */,
 				E584327B1CE9242000FB1E50 /* UserCell.swift in Sources */,
 				E584327C1CE9242000FB1E50 /* ViewController+ImagePicker.swift in Sources */,
 				E584327D1CE9242000FB1E50 /* IntroScene.m in Sources */,
@@ -2018,6 +2046,7 @@
 				E584328B1CE9242000FB1E50 /* UIImage+CropRotate.m in Sources */,
 				E584328C1CE9242000FB1E50 /* TrendingStreamablesViewController.swift in Sources */,
 				E584328D1CE9242000FB1E50 /* CommentsViewController.swift in Sources */,
+				E59BC2F71D12B225009781BA /* MostActiveUsersViewController.swift in Sources */,
 				E584328E1CE9242000FB1E50 /* ListUsersViewController.swift in Sources */,
 				E584328F1CE9242000FB1E50 /* MyNotificationsViewController.swift in Sources */,
 				E58432911CE9242000FB1E50 /* TOCropView.m in Sources */,
@@ -2056,6 +2085,7 @@
 				E5D085A81CD8D30000226589 /* TOActivityCroppedImageProvider.m in Sources */,
 				E5DAA89D1CE37A5F000CB2F4 /* AutocompleteUserCell.swift in Sources */,
 				E51006C21CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */,
+				E59BC3001D12B4EF009781BA /* TrendingUsersViewController.swift in Sources */,
 				E5A4F13D1CE34846005CF12C /* GTComment+Status.swift in Sources */,
 				E5B6B5BB1CC56F5800DC8EFC /* MenuViewController.swift in Sources */,
 				E58432DA1CEA469B00FB1E50 /* Settings.swift in Sources */,
@@ -2146,6 +2176,7 @@
 				E5D085AE1CD8D30000226589 /* TOCropScrollView.m in Sources */,
 				E55452ED1CF340C20076CEC9 /* CreateLocationViewController.swift in Sources */,
 				E51005F41CB69BDE00AC66A5 /* MenuCell.swift in Sources */,
+				E59BC2FB1D12B423009781BA /* UserTrendingCell.swift in Sources */,
 				E51006F51CBD1B0000AC66A5 /* UserCell.swift in Sources */,
 				E5B6B64D1CC9A48200DC8EFC /* ViewController+ImagePicker.swift in Sources */,
 				E5B6B63D1CC6C40C00DC8EFC /* IntroScene.m in Sources */,
@@ -2165,6 +2196,7 @@
 				E5D085AB1CD8D30000226589 /* UIImage+CropRotate.m in Sources */,
 				E51006361CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
 				E52DC7741CE5E09900375828 /* CommentsViewController.swift in Sources */,
+				E59BC2F61D12B225009781BA /* MostActiveUsersViewController.swift in Sources */,
 				E51006FF1CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */,
 				E5B6B5B71CC56F5800DC8EFC /* MyNotificationsViewController.swift in Sources */,
 				E5D085B01CD8D30000226589 /* TOCropView.m in Sources */,
@@ -2221,7 +2253,7 @@
 			baseConfigurationReference = 24C98BA1BC7B845CA3355791 /* Pods-GraffiTab Release.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Georgi Christov (869AJN3V33)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Christov (PD6JJX75F4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
@@ -2321,7 +2353,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = GraffiTab;
-				PROVISIONING_PROFILE = "f91cdc9c-632c-407b-b60c-496be0444edd";
+				PROVISIONING_PROFILE = "8bad8e01-c004-4eb6-92c9-1c815714326a";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2332,7 +2364,7 @@
 			baseConfigurationReference = 60414BAA024EE71CB76A1383 /* Pods-GraffiTab Release.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Georgi Christov (869AJN3V33)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Christov (PD6JJX75F4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
@@ -2431,7 +2463,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = GraffiTab;
-				PROVISIONING_PROFILE = "f91cdc9c-632c-407b-b60c-496be0444edd";
+				PROVISIONING_PROFILE = "8bad8e01-c004-4eb6-92c9-1c815714326a";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

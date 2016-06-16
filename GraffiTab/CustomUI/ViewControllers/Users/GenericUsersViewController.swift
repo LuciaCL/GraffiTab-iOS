@@ -14,6 +14,7 @@ import CocoaLumberjack
 
 enum UserViewType : Int {
     case List
+    case Trending
 }
 
 class GenericUsersViewController: BackButtonViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
@@ -103,22 +104,27 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
     
     func getNumCols() -> Int {
         switch viewType {
-        case .List:
+        case .List, .Trending:
             return 1
         }
     }
     
     func getSpacing() -> Int {
         switch viewType {
-        case .List:
-            return 0
+            case .List:
+                return 0
+            case .Trending:
+                return 10
         }
+        
     }
     
     func getHeight(width: CGFloat) -> CGFloat {
         switch viewType {
-        case .List:
-            return 54
+            case .List:
+                return 54
+            case .Trending:
+                return 260
         }
     }
     
@@ -251,6 +257,13 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
             
             return cell
         }
+        else if viewType == .Trending {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(UserTrendingCell.reusableIdentifier(), forIndexPath: indexPath) as! UserTrendingCell
+            
+            cell.item = items[indexPath.row]
+            
+            return cell
+        }
         
         assert(false, "Unsupported collection view cell.")
         return UICollectionViewCell()
@@ -350,6 +363,7 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
     func setupCollectionView() {
         collectionView.alwaysBounceVertical = true
         collectionView.registerNib(UINib(nibName: UserListCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: UserListCell.reusableIdentifier())
+        collectionView.registerNib(UINib(nibName: UserTrendingCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: UserTrendingCell.reusableIdentifier())
         
         // Setup pull to refresh.
         pullToRefresh = CarbonSwipeRefresh(scrollView: collectionView)
