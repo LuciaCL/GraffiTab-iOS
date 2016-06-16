@@ -44,10 +44,10 @@ extension GTUser {
         var text: String = ""
         
         if about != nil {
-            text += about! + "\n\n"
+            text += about!
         }
         if website != nil {
-            text += website!
+            text += (about != nil ? "\n\n" : "") + website!
         }
         
         let attString = NSMutableAttributedString(string: text)

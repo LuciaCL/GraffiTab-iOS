@@ -142,7 +142,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     @IBAction func onClickDone(sender: AnyObject) {
         DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing publish options")
         
-        let sideBar = RNFrostedSidebar(images: [UIImage(named: "ic_done_white")!, UIImage(named: "ic_share_white")!, UIImage(named: "ic_file_download_white")!, UIImage(named: "ic_delete_white")!])
+        let sideBar = RNFrostedSidebar(images: [UIImage(named: "ic_done_white")!, UIImage(named: "ic_share_white")!, UIImage(named: "ic_file_download_white")!, UIImage(named: "ic_clear_white")!])
         sideBar.delegate = self
         sideBar.showFromRight = true
         sideBar.width = 110
@@ -365,16 +365,24 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     func loadColors() {
         colors = [UIColor]()
-        colors?.append(UIColor(hexString: "000000")!)
-        colors?.append(UIColor(hexString: "56ca83")!)
-        colors?.append(UIColor(hexString: "83ca54")!)
-        colors?.append(UIColor(hexString: "5bc4ca")!)
-        colors?.append(UIColor(hexString: "844db3")!)
-        colors?.append(UIColor(hexString: "c25c9e")!)
-        colors?.append(UIColor(hexString: "c24b4f")!)
-        colors?.append(UIColor(hexString: "c9764e")!)
-        colors?.append(UIColor(hexString: "b1b35f")!)
-        colors?.append(UIColor(hexString: "ffffff")!)
+        var colorHexes = [String]()
+        colorHexes.append("000000")
+        colorHexes.append("ffffff")
+        colorHexes.append("FF0000")
+        colorHexes.append("FFFF66")
+        colorHexes.append("0000FF")
+        colorHexes.append("00BB00")
+        colorHexes.append("FF9900")
+        colorHexes.append("9933FF")
+        colorHexes.append("8B4513")
+        colorHexes.append("FF0099")
+        colorHexes.append("66CCFF")
+        colorHexes.append("006600")
+        
+        colorHexes.sortInPlace{ $0 < $1 }
+        for color in colorHexes {
+            colors!.append(UIColor(hexString: color)!)
+        }
     }
     
     func loadTools() {

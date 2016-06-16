@@ -33,15 +33,20 @@ class ColorSprayCan: UIImageView {
         let hex = self.tintColor.hexString(false)
         let cachedImage = ColorSprayCan.cache.objectForKey(hex) as? UIImage
         if cachedImage != nil { // We've already processed the color.
+            self.alpha = 1.0
             self.image = cachedImage
         }
         else {
+            self.alpha = 0.1
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
                 let img = self.processPixelsInImage(image!)
                 ColorSprayCan.cache.setObject(img, forKey: hex)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.image = img
+                    UIView.animateWithDuration(0.3, animations: { 
+                        self.alpha = 1.0
+                    })
                 })
             })
             
