@@ -95,14 +95,12 @@ class PublishViewController: UIViewController {
     @IBAction func onClickCreate(sender: AnyObject) {
         DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to publish")
         
-        self.view.showActivityViewWithLabel("Processing")
-        self.view.rn_activityView.dimBackground = false
-        
         var pitch = GTDeviceMotionManager.manager.pitch
         var roll = GTDeviceMotionManager.manager.roll
         var yaw = GTDeviceMotionManager.manager.yaw
-        let latitude = GTLocationManager.manager.lastLocation?.coordinate.latitude
-        let longitude = GTLocationManager.manager.lastLocation?.coordinate.longitude
+        var latitude: CLLocationDegrees = 0
+        var longitude: CLLocationDegrees = 0
+        let location = GTLocationManager.manager.lastLocation
         
         if pitch == nil {
             pitch = 0.0
@@ -131,19 +129,38 @@ class PublishViewController: UIViewController {
             DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
         }
         
-        if toEdit != nil {
-            GTMeManager.editGraffiti(toEdit!.id!, image: streamableImage!, latitude: latitude!, longitude: longitude!, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
-                successBlock()
-            }) { (response) -> Void in
-                failBlock(response)
+        let saveBlock = {
+            self.view.showActivityViewWithLabel("Processing")
+            self.view.rn_activityView.dimBackground = false
+            
+            if self.toEdit != nil {
+                GTMeManager.editGraffiti(self.toEdit!.id!, image: self.streamableImage!, latitude: latitude, longitude: longitude, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
+                    successBlock()
+                }) { (response) -> Void in
+                    failBlock(response)
+                }
+            }
+            else {
+                GTMeManager.createGraffiti(self.streamableImage!, latitude: latitude, longitude: longitude, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
+                    successBlock()
+                }) { (response) -> Void in
+                    failBlock(response)
+                }
             }
         }
+        
+        if location == nil {
+            DialogBuilder.showYesNoAlert("Your location could not be determined right now. Would you like to still publish this post?", title: App.Title, yesAction: {
+                saveBlock()
+            }, noAction: {
+                
+            })
+        }
         else {
-            GTMeManager.createGraffiti(streamableImage!, latitude: latitude!, longitude: longitude!, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
-                successBlock()
-            }) { (response) -> Void in
-                failBlock(response)
-            }
+            latitude = location!.coordinate.latitude
+            longitude = location!.coordinate.longitude
+            
+            saveBlock()
         }
     }
     

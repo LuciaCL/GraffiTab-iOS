@@ -11,6 +11,20 @@ import GraffiTab_iOS_SDK
 
 class FeedViewController: ListFullStreamablesViewController {
     
+    // MARK: - Events
+    
+    override func registerForEvents() {
+        super.registerForEvents()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.streamableCreatedEventHandler(_:)), name: GTEvents.StreamableCreated, object: nil)
+    }
+    
+    func streamableCreatedEventHandler(notification: NSNotification) {
+        let s = notification.userInfo!["streamable"] as! GTStreamable
+        items.insert(s, atIndex: 0)
+        collectionView.reloadData()
+    }
+    
     // MARK: - Loading
     
     override func loadItems(isStart: Bool, offset: Int, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
