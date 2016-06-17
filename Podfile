@@ -13,6 +13,8 @@ def common_pods
     pod 'UIActionSheet+Blocks'
     pod 'SCLAlertView'
     pod 'FBSDKLoginKit'
+    pod 'FBSDKCoreKit'
+    pod 'FBSDKShareKit'
     pod 'PTPPlaceholderTextView'
     pod 'JTMaterialTransition'
     pod 'RSKGrowingTextView'

@@ -73,8 +73,11 @@ class DialogBuilder: NSObject {
     }
     
     class func showYesNoSuccessAlert(status: String, title: String, yesTitle: String="Yes", noTitle: String="No", yesAction:() -> Void, noAction:() -> Void) {
-        let alertView = SCLAlertView()
-        alertView.showCloseButton = false
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false
+        )
+        
+        let alertView = SCLAlertView(appearance: appearance)
         
         alertView.addButton(yesTitle, action: yesAction)
         let closeBtn = alertView.addButton(noTitle, action: noAction)
@@ -89,8 +92,11 @@ class DialogBuilder: NSObject {
     }
     
     class func showInputUsername(okTitle: String="Done", cancelTitle: String="Cancel", okAction:(username: String) -> Void, cancelAction:() -> Void) {
-        let alertView = SCLAlertView()
-        alertView.showCloseButton = false
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false
+        )
+        
+        let alertView = SCLAlertView(appearance: appearance)
 
         let textField = alertView.addTextField()
         textField.placeholder = "Username"
@@ -121,8 +127,11 @@ class DialogBuilder: NSObject {
     }
     
     private class func buildOKAlert(status: String, title: String, okAction:() -> Void) -> SCLAlertView {
-        let alertView = SCLAlertView()
-        alertView.showCloseButton = false
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false
+        )
+        
+        let alertView = SCLAlertView(appearance: appearance)
         
         alertView.addButton("OK", action: okAction)
         
@@ -130,8 +139,11 @@ class DialogBuilder: NSObject {
     }
     
     private class func buildYesNoAlert(status: String, title: String, yesTitle: String="Yes", noTitle: String="No", yesAction:() -> Void, noAction:() -> Void) -> SCLAlertView {
-        let alertView = SCLAlertView()
-        alertView.showCloseButton = false
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false
+        )
+        
+        let alertView = SCLAlertView(appearance: appearance)
         
         alertView.addButton(yesTitle, action: yesAction)
         alertView.addButton(noTitle, action: noAction)

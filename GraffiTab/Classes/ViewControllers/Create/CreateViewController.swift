@@ -13,7 +13,7 @@ import RNFrostedSidebar
 import GraffiTab_iOS_SDK
 import CocoaLumberjack
 
-class CreateViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, ColorSprayCanCellDelegate, RNFrostedSidebarDelegate, PublishDelegate, CanvasDelegate {
+class CreateViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, ColorSprayCanCellDelegate, RNFrostedSidebarDelegate, PublishDelegate, CanvasDelegate, ToolStackControllerDelegate {
 
     @IBOutlet weak var toolCollectionView: UICollectionView!
     @IBOutlet weak var canvasContainerXconstraint: NSLayoutConstraint!
@@ -159,20 +159,18 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing enhancer tool")
         
         let sampleImage = self.canvas?.grabFrame()
-        let editorViewController = IMGLYMainEditorViewController()
-        editorViewController.highResolutionImage = sampleImage
-        editorViewController.initialFilterType = .None
-        editorViewController.initialFilterIntensity = 0.5
-        editorViewController.completionBlock = { (result, image) in
-            editorViewController.dismissViewControllerAnimated(true, completion: {
-                if result == .Done {
-                    self.canvas!.clearDrawingLayer()
-                    self.canvas!.setBackground(image)
-                }
+        
+        let configuration = Configuration() { builder in
+            builder.configurePhotoEditorViewController({ (options) in
+                options.allowedPhotoEditorActions = [.Filter, .Adjust, .Separator, .Text, .Sticker, .Separator, .Focus, .Magic]
             })
         }
         
-        let nav = UINavigationController(rootViewController: editorViewController)
+        let photoEditViewController = PhotoEditViewController(photo: sampleImage!, configuration: configuration)
+        let toolStackController = ToolStackController(photoEditViewController: photoEditViewController, configuration: configuration)
+        toolStackController.delegate = self
+        
+        let nav = UINavigationController(rootViewController: toolStackController)
         nav.navigationBar.barTintColor = UIColor(hexString: "#222222")
         nav.navigationBar.translucent = false
         presentViewController(nav, animated: true, completion: nil)
@@ -595,6 +593,23 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         }
         
         configureUndoButtons()
+    }
+    
+    // MARK: - ToolStackViewControllerDelegate
+    
+    func toolStackController(toolStackController: ToolStackController, didFinishWithImage image: UIImage) {
+        self.dismissViewControllerAnimated(true, completion: {
+            self.canvas!.clearDrawingLayer()
+            self.canvas!.setBackground(image)
+        })
+    }
+    
+    func toolStackControllerDidFail(toolStackController: ToolStackController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func toolStackControllerDidCancel(toolStackController: ToolStackController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - Setup

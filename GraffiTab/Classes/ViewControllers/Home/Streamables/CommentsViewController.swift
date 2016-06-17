@@ -89,7 +89,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             if comment.user!.isEqual(u) {
                 comment.user!.softCopy(u)
                 
-                self.tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)], withRowAnimation: .None)
+                self.tableView!.reloadRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)], withRowAnimation: .None)
             }
         }
     }
@@ -140,8 +140,8 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         
         isDownloading = false
         
-        self.tableView.finishInfiniteScroll()
-        self.tableView.reloadData()
+        self.tableView!.finishInfiniteScroll()
+        self.tableView!.reloadData()
     }
     
     func showLoadingIndicator() {
@@ -175,7 +175,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             
             // Cells must inherit the table view's transform
             // This is very important, since the main table view may be inverted
-            cell.transform = self.tableView.transform
+            cell.transform = self.tableView!.transform
             
             return cell
         }
@@ -238,8 +238,8 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
                         }
                         else if index == 1 { // Edit.
                             self.commentToEdit = comment
-                            self.editText(comment.text)
-                            self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
+                            self.editText(comment.text!)
+                            self.tableView!.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
                         }
                         else if index == 2 { // Copy.
                             UIPasteboard.generalPasteboard().string = comment.text
@@ -292,16 +292,16 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         let rowAnimation: UITableViewRowAnimation = self.inverted ? .Bottom : .Top
         let scrollPosition: UITableViewScrollPosition = self.inverted ? .Bottom : .Top
         
-        self.tableView.beginUpdates()
+        self.tableView!.beginUpdates()
         items.insert(comment!, atIndex: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: rowAnimation)
-        self.tableView.endUpdates()
+        self.tableView!.insertRowsAtIndexPaths([indexPath], withRowAnimation: rowAnimation)
+        self.tableView!.endUpdates()
         
-        self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: scrollPosition, animated: true)
+        self.tableView!.scrollToRowAtIndexPath(indexPath, atScrollPosition: scrollPosition, animated: true)
         
         // Fixes the cell from blinking (because of the transform, when using translucent cells)
         // See https://github.com/slackhq/SlackTextViewController/issues/94#issuecomment-69929927
-        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        self.tableView!.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         
         streamable?.commentsCount! += 1
         
@@ -313,7 +313,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         
         commentToEdit?.text = text as? String
         commentToEdit?.updatedOn = NSDate()
-        self.tableView.reloadData()
+        self.tableView!.reloadData()
         
         GTStreamableManager.editComment(streamable!.id!, commentId: commentToEdit!.id!, text: commentToEdit!.text!, successBlock: { (response) in
             
@@ -411,7 +411,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         comment.status = .Sending
         
         if shouldRefresh {
-            self.tableView.reloadData()
+            self.tableView!.reloadData()
         }
         
         GTStreamableManager.postComment(streamable!.id!, text: comment.text!, successBlock: { (response) in
@@ -419,11 +419,11 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             comment.id = newComment.id
             comment.status = .Sent
             
-            self.tableView.reloadData()
+            self.tableView!.reloadData()
         }) { (response) in
             comment.status = .Failed
             
-            self.tableView.reloadData()
+            self.tableView!.reloadData()
             
             DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
         }
@@ -431,10 +431,10 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     
     func doDeleteComment(comment: GTComment, shouldDeleteRemotely: Bool) {
         let indexPath = NSIndexPath(forRow: self.items.indexOf(comment)!, inSection: 0)
-        self.tableView.beginUpdates()
-        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+        self.tableView!.beginUpdates()
+        self.tableView!.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
         self.items.removeAtIndex(indexPath.row)
-        self.tableView.endUpdates()
+        self.tableView!.endUpdates()
         
         if shouldDeleteRemotely {
             GTStreamableManager.deleteComment(streamable!.id!, commentId: comment.id!, successBlock: { (response) in
@@ -510,9 +510,9 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     }
     
     func setupTableView() {
-        self.tableView.tableFooterView = UIView()
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 160.0
+        self.tableView!.tableFooterView = UIView()
+        self.tableView!.rowHeight = UITableViewAutomaticDimension
+        self.tableView!.estimatedRowHeight = 160.0
         
         self.autoCompletionView.tableFooterView = UIView()
         self.autoCompletionView.rowHeight = 44
@@ -526,8 +526,8 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         self.shouldScrollToBottomAfterKeyboardShows = false
         self.inverted = true
         
-        self.tableView.separatorStyle = .None
-        self.tableView.registerNib(UINib(nibName: CommentCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellReuseIdentifier: CommentCell.reusableIdentifier())
+        self.tableView!.separatorStyle = .None
+        self.tableView!.registerNib(UINib(nibName: CommentCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellReuseIdentifier: CommentCell.reusableIdentifier())
         
         self.rightButton.setTitle("Post", forState: .Normal)
         
@@ -538,7 +538,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         self.textInputbar.autoHideRightButton = true
         self.textView.placeholder = "Write your comment here"
         
-        self.typingIndicatorView.canResignByTouch = true
+        self.typingIndicatorView!.canResignByTouch = true
         
         self.autoCompletionView.registerNib(UINib(nibName: AutocompleteUserCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellReuseIdentifier: AutocompleteUserCell.reusableIdentifier())
         self.autoCompletionView.registerNib(UINib(nibName: AutocompleteHashCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellReuseIdentifier: AutocompleteHashCell.reusableIdentifier())
@@ -548,11 +548,11 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         pullToRefresh = CarbonSwipeRefresh(scrollView: self.tableView)
         pullToRefresh.setMarginTop(0)
         pullToRefresh.colors = [UIColor(hexString: Colors.Main)!, UIColor(hexString: Colors.Orange)!, UIColor(hexString: Colors.Green)!]
-        self.tableView.addSubview(pullToRefresh)
+        self.tableView!.addSubview(pullToRefresh)
         pullToRefresh.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
         
         // Setup infite scroll.
-        self.tableView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
+        self.tableView!.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
         self.tableView?.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
             if self!.canLoadMore && !self!.isDownloading {
                 self!.offset = self!.offset + GTConstants.MaxItems
@@ -560,7 +560,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             }
             else {
                 self?.isDownloading = false
-                self?.tableView.finishInfiniteScroll()
+                self?.tableView!.finishInfiniteScroll()
             }
         }
     }

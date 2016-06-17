@@ -276,6 +276,8 @@
 		E59BC2FE1D12B423009781BA /* UserTrendingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59BC2FA1D12B423009781BA /* UserTrendingCell.xib */; };
 		E59BC3001D12B4EF009781BA /* TrendingUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2FF1D12B4EF009781BA /* TrendingUsersViewController.swift */; };
 		E59BC3011D12B4EF009781BA /* TrendingUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2FF1D12B4EF009781BA /* TrendingUsersViewController.swift */; };
+		E59BC3031D140BD7009781BA /* ViewController+Facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC3021D140BD7009781BA /* ViewController+Facebook.swift */; };
+		E59BC3041D140BD7009781BA /* ViewController+Facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC3021D140BD7009781BA /* ViewController+Facebook.swift */; };
 		E5A4F1041CE1EDF2005CF12C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */; };
 		E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */; };
 		E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
@@ -343,8 +345,6 @@
 		E5D085B01CD8D30000226589 /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A41CD8D30000226589 /* TOCropView.m */; };
 		E5D3748D1D07417800A60343 /* DeployGateLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3748C1D07417800A60343 /* DeployGateLogger.swift */; };
 		E5D3748E1D07417800A60343 /* DeployGateLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3748C1D07417800A60343 /* DeployGateLogger.swift */; };
-		E5D374991D07A7D600A60343 /* IMGLYMainEditorViewController+Disabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D374981D07A7D600A60343 /* IMGLYMainEditorViewController+Disabled.swift */; };
-		E5D3749A1D07A7D600A60343 /* IMGLYMainEditorViewController+Disabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D374981D07A7D600A60343 /* IMGLYMainEditorViewController+Disabled.swift */; };
 		E5D3749C1D07B29200A60343 /* UINavigationController+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3749B1D07B29200A60343 /* UINavigationController+Orientation.swift */; };
 		E5D3749D1D07B29200A60343 /* UINavigationController+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3749B1D07B29200A60343 /* UINavigationController+Orientation.swift */; };
 		E5DAA8971CE37A26000CB2F4 /* AutocompleteHashCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAA8951CE37A26000CB2F4 /* AutocompleteHashCell.swift */; };
@@ -560,6 +560,7 @@
 		E59BC2F91D12B423009781BA /* UserTrendingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrendingCell.swift; sourceTree = "<group>"; };
 		E59BC2FA1D12B423009781BA /* UserTrendingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTrendingCell.xib; sourceTree = "<group>"; };
 		E59BC2FF1D12B4EF009781BA /* TrendingUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingUsersViewController.swift; sourceTree = "<group>"; };
+		E59BC3021D140BD7009781BA /* ViewController+Facebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Facebook.swift"; sourceTree = "<group>"; };
 		E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonSlackViewController.swift; sourceTree = "<group>"; };
 		E5A4F12C1CE225AA005CF12C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -651,7 +652,6 @@
 		E5D085A51CD8D30000226589 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
 		E5D085A61CD8D30000226589 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
 		E5D3748C1D07417800A60343 /* DeployGateLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeployGateLogger.swift; sourceTree = "<group>"; };
-		E5D374981D07A7D600A60343 /* IMGLYMainEditorViewController+Disabled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IMGLYMainEditorViewController+Disabled.swift"; sourceTree = "<group>"; };
 		E5D3749B1D07B29200A60343 /* UINavigationController+Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Orientation.swift"; sourceTree = "<group>"; };
 		E5DAA8951CE37A26000CB2F4 /* AutocompleteHashCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteHashCell.swift; sourceTree = "<group>"; };
 		E5DAA8961CE37A26000CB2F4 /* AutocompleteHashCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocompleteHashCell.xib; sourceTree = "<group>"; };
@@ -1471,8 +1471,8 @@
 				E510062E1CB71C1300AC66A5 /* Streamables */,
 				E51006EF1CBD191900AC66A5 /* Users */,
 				E5B6B64C1CC9A48200DC8EFC /* ViewController+ImagePicker.swift */,
-				E5D374981D07A7D600A60343 /* IMGLYMainEditorViewController+Disabled.swift */,
 				E5D3749B1D07B29200A60343 /* UINavigationController+Orientation.swift */,
+				E59BC3021D140BD7009781BA /* ViewController+Facebook.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1924,6 +1924,7 @@
 				E55452E51CF329580076CEC9 /* LocationCell.swift in Sources */,
 				E584322A1CE9242000FB1E50 /* FollowersActivityViewController.swift in Sources */,
 				E584322B1CE9242000FB1E50 /* FollowingViewController.swift in Sources */,
+				E59BC3041D140BD7009781BA /* ViewController+Facebook.swift in Sources */,
 				E53F3FA91CEAA63900537D1B /* DrawingOptionButton.swift in Sources */,
 				E55452E81CF336A50076CEC9 /* LocationListCell.swift in Sources */,
 				E584322C1CE9242000FB1E50 /* UserCollectionParallaxHeader.swift in Sources */,
@@ -1984,7 +1985,6 @@
 				E58432571CE9242000FB1E50 /* ActivityGroupLikeCell.swift in Sources */,
 				E58432581CE9242000FB1E50 /* TOCropOverlayView.m in Sources */,
 				E58432591CE9242000FB1E50 /* CCViewController.m in Sources */,
-				E5D3749A1D07A7D600A60343 /* IMGLYMainEditorViewController+Disabled.swift in Sources */,
 				E584325A1CE9242000FB1E50 /* TintImageView.swift in Sources */,
 				E5FE1D8D1CFF7DFE009CFB72 /* AvatarImageView.swift in Sources */,
 				E584325B1CE9242000FB1E50 /* NotificationWelcomeCell.swift in Sources */,
@@ -2074,6 +2074,7 @@
 				E5B6B5B51CC56F5800DC8EFC /* FollowersActivityViewController.swift in Sources */,
 				E52DC75C1CE55FA900375828 /* FollowingViewController.swift in Sources */,
 				E53F3FA81CEAA63900537D1B /* DrawingOptionButton.swift in Sources */,
+				E59BC3031D140BD7009781BA /* ViewController+Facebook.swift in Sources */,
 				E55452E71CF336A50076CEC9 /* LocationListCell.swift in Sources */,
 				E5B6B5501CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift in Sources */,
 				E51006BC1CBC0AB000AC66A5 /* ActivitySingleFollowCell.swift in Sources */,
@@ -2134,7 +2135,6 @@
 				E51006D11CBC1F9700AC66A5 /* ActivityGroupLikeCell.swift in Sources */,
 				E5D085AD1CD8D30000226589 /* TOCropOverlayView.m in Sources */,
 				E5B6B6271CC630B000DC8EFC /* CCViewController.m in Sources */,
-				E5D374991D07A7D600A60343 /* IMGLYMainEditorViewController+Disabled.swift in Sources */,
 				E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */,
 				E5FE1D8C1CFF7DFE009CFB72 /* AvatarImageView.swift in Sources */,
 				E51006AC1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */,
