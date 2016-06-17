@@ -68,6 +68,14 @@ class SettingsViewController: GeneralSettingsViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }
+        else if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                
+            }
+            else if indexPath.row == 1 { // Invite Facebook friends.
+                inviteFacebookFriends()
+            }
+        }
         else if indexPath.section == 3 {
             if indexPath.row == 1 { // Report a problem.
                 UIActionSheet.showInView(self.view, withTitle: "Report a Problem", cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: ["Something Is Wrong", "General Feedback"], tapBlock: { (actionSheet, index) in

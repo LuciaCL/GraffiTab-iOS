@@ -12,10 +12,13 @@ import FBSDKLoginKit
 import FBSDKShareKit
 import CocoaLumberjack
 
-extension UIViewController {
+extension UIViewController: FBSDKAppInviteDialogDelegate {
 
-    func inviteFriends() {
-        
+    func inviteFacebookFriends() {
+        let content = FBSDKAppInviteContent()
+        content.appLinkURL = NSURL(string: "https://www.graffitab.com")
+        content.appInvitePreviewImageURL = NSURL(string: "https://scontent-lhr3-1.xx.fbcdn.net/t39.2081-0/p128x128/11057102_983657025002432_2033148896_n.png")
+        FBSDKAppInviteDialog.showFromViewController(self, withContent: content, delegate: self)
     }
     
     func loginToFacebookWithSuccess(forceLogin: Bool, successBlock: (userId: String, token: String, email: String, firstName: String, lastName: String) -> (), andFailure failureBlock: (NSError?) -> ()) {
@@ -99,5 +102,15 @@ extension UIViewController {
                 }
             }
         }
+    }
+    
+    // MARK: - FBSDKAppInviteDialogDelegate
+    
+    public func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Finished inviting Facebook friends")
+    }
+    
+    public func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: NSError!) {
+        DDLogError("[\(NSStringFromClass(self.dynamicType))] Error inviting Facebook friends \(error)")
     }
 }
