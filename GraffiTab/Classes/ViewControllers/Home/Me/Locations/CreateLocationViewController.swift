@@ -25,6 +25,7 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
     var toEdit: GTLocation?
     
     var lastPlacemark: CLPlacemark?
+    var lastPlacemarkAddress: String?
     var isMovedByTap = false
     var isSearching = false
     var showedFirstUserLocation = false
@@ -81,14 +82,14 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
             }
             
             if toEdit != nil {
-                GTMeManager.editLocation(toEdit!.id!, address: searchField.text!, latitude: lastPlacemark!.location!.coordinate.latitude, longitude: lastPlacemark!.location!.coordinate.longitude, successBlock: { (response) in
+                GTMeManager.editLocation(toEdit!.id!, address: lastPlacemarkAddress!, latitude: lastPlacemark!.location!.coordinate.latitude, longitude: lastPlacemark!.location!.coordinate.longitude, successBlock: { (response) in
                     success()
                     }, failureBlock: { (response) in
                         failure(response)
                 })
             }
             else {
-                GTMeManager.createLocation(searchField.text!, latitude: lastPlacemark!.location!.coordinate.latitude, longitude: lastPlacemark!.location!.coordinate.longitude, successBlock: { (response) in
+                GTMeManager.createLocation(lastPlacemarkAddress!, latitude: lastPlacemark!.location!.coordinate.latitude, longitude: lastPlacemark!.location!.coordinate.longitude, successBlock: { (response) in
                     success()
                 }, failureBlock: { (response) in
                     failure(response)
@@ -209,6 +210,10 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
     }
     
     func zoomMapToLocation(location: CLLocation) {
+        if mapView == nil {
+            return
+        }
+        
         var region = MKCoordinateRegion()
         region.center = location.coordinate
         region.span.latitudeDelta = 0.2
@@ -227,6 +232,10 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
     }
     
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        if self.mapView == nil {
+            return
+        }
+        
         showLoadingIndicator()
         
         let geoCoder = CLGeocoder()
@@ -243,7 +252,7 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
                 
                 let addressText = ABCreateStringWithAddressDictionary(self.lastPlacemark!.addressDictionary!, false)
                 let newString = addressText.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet()).joinWithSeparator(", ")
-                self.searchField.text = newString
+                self.lastPlacemarkAddress = newString
             }
         }
     }
