@@ -68,6 +68,12 @@ class LinkedAccountsViewController: BackButtonTableViewController {
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
+                    if (response.reason == .AlreadyExists) { // User has already linked Facebook account.
+                        self.loadData()
+                        successBlock()
+                        return
+                    }
+                    
                     DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
                 })
             }, andFailure: { (error) in
