@@ -1356,6 +1356,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="d7N-Be-i5x" kind="show" id="OrW-Sa-Ytk"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1495,6 +1498,7 @@
                         <outlet property="rememberCredentialsSwitch" destination="RoE-i2-mTG" id="s8P-yK-Jpg"/>
                         <segue destination="zOg-A0-oHF" kind="show" identifier="SEGUE_FEEDBACK" id="ImI-PD-fLz"/>
                         <segue destination="QZC-s7-kAN" kind="show" identifier="SEGUE_PROBLEM" id="nU7-px-24M"/>
+                        <segue destination="6Ag-69-08s" kind="show" identifier="SHOW_SOCIAL_FRIENDS" id="SVD-oI-QFh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k89-Ej-hPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3983,6 +3987,64 @@
             </objects>
             <point key="canvasLocation" x="4695" y="395"/>
         </scene>
+        <!--Linked Accounts View Controller-->
+        <scene sceneID="xYx-Qm-0FE">
+            <objects>
+                <tableViewController id="d7N-Be-i5x" customClass="LinkedAccountsViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="ojg-oc-7sO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="RwE-Mp-kWy">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="5Ld-Vy-XWV">
+                                        <rect key="frame" x="0.0" y="99" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Ld-Vy-XWV" id="erb-Ex-j1U">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facebook" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjZ-MR-3KM">
+                                                    <rect key="frame" x="50" y="12" width="71" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook" translatesAutoresizingMaskIntoConstraints="NO" id="sTw-iF-oqJ" customClass="TintImageView" customModule="GraffiTab" customModuleProvider="target">
+                                                    <rect key="frame" x="15" y="9" width="25" height="25"/>
+                                                    <color key="tintColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="7K0-dJ-JCn"/>
+                                                        <constraint firstAttribute="width" constant="25" id="whN-ne-kQC"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DjZ-MR-3KM" firstAttribute="leading" secondItem="sTw-iF-oqJ" secondAttribute="trailing" constant="10" id="Gct-ct-vP7"/>
+                                                <constraint firstItem="sTw-iF-oqJ" firstAttribute="centerY" secondItem="erb-Ex-j1U" secondAttribute="centerY" id="N4h-Dr-CDs"/>
+                                                <constraint firstItem="sTw-iF-oqJ" firstAttribute="leading" secondItem="erb-Ex-j1U" secondAttribute="leading" constant="15" id="RjG-vr-Ogs"/>
+                                                <constraint firstItem="DjZ-MR-3KM" firstAttribute="centerY" secondItem="erb-Ex-j1U" secondAttribute="centerY" id="fny-Jp-WJD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="d7N-Be-i5x" id="Cqr-1n-aC0"/>
+                            <outlet property="delegate" destination="d7N-Be-i5x" id="oOl-AR-1bw"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="facebookImg" destination="sTw-iF-oqJ" id="SYH-5i-EBB"/>
+                        <segue destination="5MH-7S-uRG" kind="show" identifier="SHOW_LINKED_ACCOUNT" id="0jz-LU-2O5"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Zx-4d-718" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1914" y="2550"/>
+        </scene>
         <!--Private Streamables View Controller-->
         <scene sceneID="2R7-v7-LPc">
             <objects>
@@ -4347,9 +4409,122 @@
             </objects>
             <point key="canvasLocation" x="2611" y="-328"/>
         </scene>
+        <!--Linked Account View Controller-->
+        <scene sceneID="z8P-EK-oSt">
+            <objects>
+                <tableViewController id="5MH-7S-uRG" customClass="LinkedAccountViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="iGs-eY-s5B">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="uB7-Ur-mE0">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="4Hh-On-3ZE">
+                                        <rect key="frame" x="0.0" y="99" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Hh-On-3ZE" id="uzh-Jt-ah9">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find Friends" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XS-Zi-bwO">
+                                                    <rect key="frame" x="15" y="12" width="90" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0XS-Zi-bwO" firstAttribute="centerY" secondItem="uzh-Jt-ah9" secondAttribute="centerY" id="3SE-wB-yI6"/>
+                                                <constraint firstItem="0XS-Zi-bwO" firstAttribute="leading" secondItem="uzh-Jt-ah9" secondAttribute="leading" constant="15" id="x6v-9Z-aOD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="6Ag-69-08s" kind="show" identifier="SHOW_SOCIAL_FRIENDS" id="Qr8-iV-26A"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Account" footerTitle="Unlinking your account will disable login with that speciffic provider." id="wn7-g2-W1u">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="mJv-bE-fIa" style="IBUITableViewCellStyleDefault" id="ft5-PE-DTW">
+                                        <rect key="frame" x="0.0" y="194" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ft5-PE-DTW" id="Gpb-qS-l2I">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Unlink" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mJv-bE-fIa">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="5MH-7S-uRG" id="QvN-zD-LS5"/>
+                            <outlet property="delegate" destination="5MH-7S-uRG" id="knV-f7-23z"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adm-zs-Eel" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2611" y="2550"/>
+        </scene>
+        <!--Social Friends View Controller-->
+        <scene sceneID="WrV-tE-Kto">
+            <objects>
+                <viewController storyboardIdentifier="SocialFriendsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6Ag-69-08s" customClass="SocialFriendsViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WFU-bM-aTb"/>
+                        <viewControllerLayoutGuide type="bottom" id="MWP-P7-jha"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tIH-Oy-Orw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mma-nb-35S">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="o9k-ux-9VX">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6Ag-69-08s" id="G9E-Uh-DwX"/>
+                                    <outlet property="delegate" destination="6Ag-69-08s" id="oLu-zm-g6X"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Mma-nb-35S" firstAttribute="top" secondItem="tIH-Oy-Orw" secondAttribute="top" id="cfZ-cP-81s"/>
+                            <constraint firstItem="Mma-nb-35S" firstAttribute="leading" secondItem="tIH-Oy-Orw" secondAttribute="leading" id="e1e-3c-fg8"/>
+                            <constraint firstAttribute="trailing" secondItem="Mma-nb-35S" secondAttribute="trailing" id="fW1-kt-6Tc"/>
+                            <constraint firstItem="MWP-P7-jha" firstAttribute="top" secondItem="Mma-nb-35S" secondAttribute="bottom" id="iUc-4n-OLv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Mma-nb-35S" id="ITU-Gs-lob"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uLP-Af-gmi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3303" y="2550"/>
+        </scene>
     </scenes>
     <resources>
         <image name="default_avatar" width="185" height="185"/>
+        <image name="facebook" width="1024" height="1024"/>
         <image name="ic_action_unfollow" width="25" height="25"/>
         <image name="ic_add_location_white" width="24" height="24"/>
         <image name="ic_apps_white" width="24" height="24"/>
@@ -4373,6 +4548,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6jS-sv-VUd"/>
+        <segue reference="SVD-oI-QFh"/>
         <segue reference="Bcp-ev-VfR"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,6 +9,7 @@
 import UIKit
 import GraffiTab_iOS_SDK
 import UIActionSheet_Blocks
+import CocoaLumberjack
 
 class SettingsViewController: GeneralSettingsViewController {
 
@@ -47,6 +48,56 @@ class SettingsViewController: GeneralSettingsViewController {
         }
     }
     
+    // MARK: - Accounts
+    
+    func handleFacebookAccount() {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Handling Facebook account linking")
+        
+        let user = GTSettings.sharedInstance.user
+        let isLinkedFacebook = user!.isLinkedAccount(.FACEBOOK)
+        
+        let successBlock = {
+            self.performSegueWithIdentifier("SHOW_SOCIAL_FRIENDS", sender: nil)
+        }
+        
+        if !isLinkedFacebook {
+            self.view.showActivityViewWithLabel("Processing")
+            self.view.rn_activityView.dimBackground = false
+            
+            loginToFacebookWithSuccess(false, successBlock: { (userId, token, email, firstName, lastName) in
+                DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to link Facebook account")
+                
+                GTMeManager.linkExternalProvider(.FACEBOOK, externalId: userId, accessToken: token, successBlock: { (response) in
+                    self.view.hideActivityView()
+                    
+                    self.loadData()
+                    successBlock()
+                }, failureBlock: { (response) in
+                    self.view.hideActivityView()
+                    
+                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
+                })
+                }, andFailure: { (error) in
+                    self.view.hideActivityView()
+                    
+                    DDLogError("Failed to login with Facebook - \(error)")
+                    DialogBuilder.showErrorAlert("Could not login to Facebook", title: App.Title)
+            })
+        }
+        else {
+            successBlock()
+        }
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SHOW_SOCIAL_FRIENDS" {
+            let vc = segue.destinationViewController as! SocialFriendsViewController
+            vc.accountProvider = GTExternalProviderType.FACEBOOK
+        }
+    }
+    
     // MARK: - Loading
     
     func loadData() {
@@ -69,8 +120,8 @@ class SettingsViewController: GeneralSettingsViewController {
             }
         }
         else if indexPath.section == 1 {
-            if indexPath.row == 0 {
-                
+            if indexPath.row == 0 { // Find Facebook friends.
+                handleFacebookAccount()
             }
             else if indexPath.row == 1 { // Invite Facebook friends.
                 inviteFacebookFriends()

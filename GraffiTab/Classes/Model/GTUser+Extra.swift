@@ -63,4 +63,18 @@ extension GTUser {
         
         return attString
     }
+    
+    func isLinkedAccount(type: GTExternalProviderType) -> Bool {
+        if linkedAccounts == nil {
+            return false
+        }
+        
+        for externalProvider in linkedAccounts! {
+            if externalProvider.type == type {
+                return true
+            }
+        }
+        
+        return false
+    }
 }

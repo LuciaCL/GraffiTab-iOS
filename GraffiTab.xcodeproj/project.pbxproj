@@ -278,6 +278,12 @@
 		E59BC3011D12B4EF009781BA /* TrendingUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2FF1D12B4EF009781BA /* TrendingUsersViewController.swift */; };
 		E59BC3031D140BD7009781BA /* ViewController+Facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC3021D140BD7009781BA /* ViewController+Facebook.swift */; };
 		E59BC3041D140BD7009781BA /* ViewController+Facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC3021D140BD7009781BA /* ViewController+Facebook.swift */; };
+		E59BC30E1D175466009781BA /* LinkedAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC30D1D175466009781BA /* LinkedAccountsViewController.swift */; };
+		E59BC30F1D175466009781BA /* LinkedAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC30D1D175466009781BA /* LinkedAccountsViewController.swift */; };
+		E59BC3111D177749009781BA /* LinkedAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC3101D177749009781BA /* LinkedAccountViewController.swift */; };
+		E59BC3121D177749009781BA /* LinkedAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC3101D177749009781BA /* LinkedAccountViewController.swift */; };
+		E59BC3141D17DDF8009781BA /* SocialFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC3131D17DDF8009781BA /* SocialFriendsViewController.swift */; };
+		E59BC3151D17DDF8009781BA /* SocialFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC3131D17DDF8009781BA /* SocialFriendsViewController.swift */; };
 		E5A4F1041CE1EDF2005CF12C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */; };
 		E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */; };
 		E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
@@ -561,6 +567,9 @@
 		E59BC2FA1D12B423009781BA /* UserTrendingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTrendingCell.xib; sourceTree = "<group>"; };
 		E59BC2FF1D12B4EF009781BA /* TrendingUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingUsersViewController.swift; sourceTree = "<group>"; };
 		E59BC3021D140BD7009781BA /* ViewController+Facebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Facebook.swift"; sourceTree = "<group>"; };
+		E59BC30D1D175466009781BA /* LinkedAccountsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedAccountsViewController.swift; sourceTree = "<group>"; };
+		E59BC3101D177749009781BA /* LinkedAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedAccountViewController.swift; sourceTree = "<group>"; };
+		E59BC3131D17DDF8009781BA /* SocialFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialFriendsViewController.swift; sourceTree = "<group>"; };
 		E5A4F1031CE1EDF2005CF12C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonSlackViewController.swift; sourceTree = "<group>"; };
 		E5A4F12C1CE225AA005CF12C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -1069,6 +1078,16 @@
 			path = Trending;
 			sourceTree = "<group>";
 		};
+		E59BC30C1D17502C009781BA /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				E59BC30D1D175466009781BA /* LinkedAccountsViewController.swift */,
+				E59BC3101D177749009781BA /* LinkedAccountViewController.swift */,
+				E59BC3131D17DDF8009781BA /* SocialFriendsViewController.swift */,
+			);
+			path = Social;
+			sourceTree = "<group>";
+		};
 		E5A4F12B1CE22580005CF12C /* Comments */ = {
 			isa = PBXGroup;
 			children = (
@@ -1172,6 +1191,7 @@
 		E5B6B5861CC56F5800DC8EFC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				E59BC30C1D17502C009781BA /* Social */,
 				E52DC76D1CE5E05600375828 /* AboutViewController.swift */,
 				E5B6B5891CC56F5800DC8EFC /* FeedbackViewController.swift */,
 				E5B6B58A1CC56F5800DC8EFC /* GeneralSettingsViewController.swift */,
@@ -1931,6 +1951,7 @@
 				E584322D1CE9242000FB1E50 /* ActivitySingleFollowCell.swift in Sources */,
 				E584322E1CE9242000FB1E50 /* ActivitySingleCommentCell.swift in Sources */,
 				E584322F1CE9242000FB1E50 /* ResetPasswordViewController.swift in Sources */,
+				E59BC3121D177749009781BA /* LinkedAccountViewController.swift in Sources */,
 				E58432301CE9242000FB1E50 /* FeedViewController.swift in Sources */,
 				E58432311CE9242000FB1E50 /* ActivityGroupCreateCell.swift in Sources */,
 				E58432321CE9242000FB1E50 /* TOActivityCroppedImageProvider.m in Sources */,
@@ -1952,6 +1973,7 @@
 				E584323F1CE9242000FB1E50 /* DateUtils.swift in Sources */,
 				E5FE1DA31D0060F9009CFB72 /* ClusterViewController.swift in Sources */,
 				E59262661D01D7FB00368212 /* DeveloperOptionsViewController.swift in Sources */,
+				E59BC3151D17DDF8009781BA /* SocialFriendsViewController.swift in Sources */,
 				E58432411CE9242000FB1E50 /* DrawToolCell.swift in Sources */,
 				E55452F71CF4950E0076CEC9 /* StreetViewController.swift in Sources */,
 				E59BC2F41D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */,
@@ -1959,6 +1981,7 @@
 				E5FE1DA61D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */,
 				E5D3748E1D07417800A60343 /* DeployGateLogger.swift in Sources */,
 				E5CC53061D0EDB7700425744 /* DismissalAnimator.swift in Sources */,
+				E59BC30F1D175466009781BA /* LinkedAccountsViewController.swift in Sources */,
 				E58432431CE9242000FB1E50 /* TOCroppedImageAttributes.m in Sources */,
 				E58432441CE9242000FB1E50 /* LikersViewController.swift in Sources */,
 				E58432451CE9242000FB1E50 /* DialogBuilder.swift in Sources */,
@@ -2081,6 +2104,7 @@
 				E5E293811D05DBC800C272EE /* UIApplication+TopViewController.swift in Sources */,
 				E51006C51CBC122E00AC66A5 /* ActivitySingleCommentCell.swift in Sources */,
 				E5B6B5DD1CC56F5800DC8EFC /* ResetPasswordViewController.swift in Sources */,
+				E59BC3111D177749009781BA /* LinkedAccountViewController.swift in Sources */,
 				E52DC7681CE5DFC700375828 /* FeedViewController.swift in Sources */,
 				E51006D41CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
 				E5D085A81CD8D30000226589 /* TOActivityCroppedImageProvider.m in Sources */,
@@ -2102,6 +2126,7 @@
 				E51006671CB7CE2300AC66A5 /* DateUtils.swift in Sources */,
 				E5FE1DA21D0060F9009CFB72 /* ClusterViewController.swift in Sources */,
 				E59262651D01D7FB00368212 /* DeveloperOptionsViewController.swift in Sources */,
+				E59BC3141D17DDF8009781BA /* SocialFriendsViewController.swift in Sources */,
 				E57FAB261CD4106E00C0D125 /* DrawToolCell.swift in Sources */,
 				E55452F61CF4950E0076CEC9 /* StreetViewController.swift in Sources */,
 				E59BC2F31D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */,
@@ -2109,6 +2134,7 @@
 				E5FE1DA51D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */,
 				E5D3748D1D07417800A60343 /* DeployGateLogger.swift in Sources */,
 				E5CC53051D0EDB7700425744 /* DismissalAnimator.swift in Sources */,
+				E59BC30E1D175466009781BA /* LinkedAccountsViewController.swift in Sources */,
 				E5D085A91CD8D30000226589 /* TOCroppedImageAttributes.m in Sources */,
 				E52DC7761CE5E09900375828 /* LikersViewController.swift in Sources */,
 				E5DFDC021CB2C31B00BB3D27 /* DialogBuilder.swift in Sources */,
