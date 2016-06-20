@@ -244,7 +244,10 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     }
     
     func loadItems(isStart: Bool, offset: Int, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
-        GTMeManager.getLocations(successBlock, failureBlock: failureBlock)
+        GTMeManager.getLocations({ (response) in
+            successBlock(response: response)
+            self.canLoadMore = false
+        }, failureBlock: failureBlock)
     }
     
     func finalizeLoad() {
