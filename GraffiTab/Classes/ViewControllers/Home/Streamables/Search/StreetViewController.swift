@@ -189,7 +189,7 @@ class StreetViewController: UIViewController, MotionDelegate {
     
     func didReceiveMotionUpdate(pitch: CGFloat, roll: CGFloat, yaw: CGFloat) {
         for (index, streamable) in items.enumerate() {
-            var imageView = imageViews[index]
+            let imageView = imageViews[index]
             let viewCenter = self.view.center
             
             // Calculate offsets.

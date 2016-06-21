@@ -191,7 +191,6 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
                 return cell
             }
             
-            assert(false, "Unsupported prefix - \(self.foundPrefix)")
             return UITableViewCell()
         }
     }
@@ -308,7 +307,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         super.didPressRightButton(sender)
     }
     
-    override func didCommitTextEditing(sender: AnyObject!) {
+    override func didCommitTextEditing(sender: AnyObject) {
         let text = self.textView.text.copy()
         
         commentToEdit?.text = text as? String
@@ -324,7 +323,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         super.didCommitTextEditing(sender)
     }
     
-    override func didChangeAutoCompletionPrefix(prefix: String!, andWord word: String!) {
+    override func didChangeAutoCompletionPrefix(prefix: String, andWord word: String) {
         searchResults.removeAllObjects()
         
         if prefix == "@" {

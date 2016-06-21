@@ -12,7 +12,7 @@ extension CollectionType {
     
     func chunk(withDistance distance: Index.Distance) -> [[SubSequence.Generator.Element]] {
         var index = startIndex
-        let generator: AnyGenerator<Array<SubSequence.Generator.Element>> = anyGenerator {
+        let generator: AnyGenerator<Array<SubSequence.Generator.Element>> = AnyGenerator {
             defer { index = index.advancedBy(distance, limit: self.endIndex) }
             return index != self.endIndex ? Array(self[index ..< index.advancedBy(distance, limit: self.endIndex)]) : nil
         }

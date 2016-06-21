@@ -107,7 +107,7 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
             let vc = segue.destinationViewController as! CreateLocationViewController
             
             if sender!.isKindOfClass(GTLocation) {
-                vc.toEdit = sender as! GTLocation
+                vc.toEdit = sender as? GTLocation
             }
         }
     }

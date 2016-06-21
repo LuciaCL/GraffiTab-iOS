@@ -372,6 +372,18 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         return CGSizeMake(view.frame.size.width + CGFloat(offset), view.frame.size.width / (view.frame.size.width / view.frame.size.height))
     }
     
+    override func resizingEnabled() -> Bool {
+        return false
+    }
+    
+    override func rotationEnabled() -> Bool {
+        return false
+    }
+    
+    override func resetEnabled() -> Bool {
+        return false
+    }
+    
     // MARK: - Loading
     
     func loadPhrase() {

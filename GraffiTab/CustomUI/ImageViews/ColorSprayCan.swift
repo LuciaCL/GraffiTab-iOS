@@ -93,8 +93,8 @@ class ColorSprayCan: UIImageView {
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, alpha: CGFloat = 0
         self.tintColor.getRed(&r, green: &g, blue: &b, alpha: &alpha)
         
-        for var i = 0; i < Int(height); i+=1 {
-            for var j = 0; j < Int(width); j+=1 {
+        for _ in 0 ..< Int(height) {
+            for _ in 0 ..< Int(width) {
                 let pixel = currentPixel.memory
                 if red(pixel) == 255 && green(pixel) == 0 && blue(pixel) == 0 {
                     currentPixel.memory = rgba(red: UInt8(r * 255.0), green: UInt8(g * 255.0), blue: UInt8(b * 255.0), alpha: 255)

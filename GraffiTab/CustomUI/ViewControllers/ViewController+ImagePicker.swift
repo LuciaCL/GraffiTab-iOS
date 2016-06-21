@@ -63,10 +63,33 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
         return CGSizeMake(view.frame.size.width, view.frame.size.width / (view.frame.size.width / view.frame.size.height))
     }
     
+    func resizingEnabled() -> Bool {
+        return true
+    }
+    
+    func resetEnabled() -> Bool {
+        return true
+    }
+    
+    func rotationEnabled() -> Bool {
+        return true
+    }
+    
     func startCropperForImage(pickedImage: UIImage) {
         let cropController = TOCropViewController(image: pickedImage)
         cropController.delegate = self
-        cropController.cropView.cropBoxResizeEnabled = false
+        if !resizingEnabled() {
+            cropController.cropView.cropBoxResizeEnabled = false
+            cropController.aspectRatioLocked = true
+        }
+        if !resetEnabled() {
+            cropController.cropView.delegate = nil
+        }
+        if !rotationEnabled() {
+            cropController.rotateClockwiseButtonHidden = true
+            cropController.rotateButtonsHidden = true
+        }
+        
         presentViewController(cropController, animated: true, completion: {
             UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: .Fade)
             
