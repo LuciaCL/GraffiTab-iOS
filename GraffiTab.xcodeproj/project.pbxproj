@@ -78,6 +78,8 @@
 		E52DC7801CE5E37A00375828 /* StreamableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC77F1CE5E37A00375828 /* StreamableDetailViewController.swift */; };
 		E53F3FA81CEAA63900537D1B /* DrawingOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F3FA71CEAA63900537D1B /* DrawingOptionButton.swift */; };
 		E53F3FA91CEAA63900537D1B /* DrawingOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F3FA71CEAA63900537D1B /* DrawingOptionButton.swift */; };
+		E5494E5A1D19A1F5004F31A7 /* OnboardingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5494E591D19A1F5004F31A7 /* OnboardingStoryboard.storyboard */; };
+		E5494E5B1D19A1F5004F31A7 /* OnboardingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5494E591D19A1F5004F31A7 /* OnboardingStoryboard.storyboard */; };
 		E55452D51CF3154C0076CEC9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452D41CF3154C0076CEC9 /* LocationsViewController.swift */; };
 		E55452D61CF3154C0076CEC9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452D41CF3154C0076CEC9 /* LocationsViewController.swift */; };
 		E55452E41CF329580076CEC9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452E31CF329580076CEC9 /* LocationCell.swift */; };
@@ -532,6 +534,7 @@
 		E53F3FAE1CEAB6D000537D1B /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E53F3FB01CEAB6DE00537D1B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E53F3FB21CEAB6F400537D1B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		E5494E591D19A1F5004F31A7 /* OnboardingStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnboardingStoryboard.storyboard; sourceTree = "<group>"; };
 		E55452D41CF3154C0076CEC9 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		E55452E31CF329580076CEC9 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		E55452E61CF336A50076CEC9 /* LocationListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListCell.swift; sourceTree = "<group>"; };
@@ -967,6 +970,14 @@
 				E52DC7371CE5085900375828 /* CustomInfiniteIndicator.swift */,
 			);
 			path = LoadingIndicators;
+			sourceTree = "<group>";
+		};
+		E5494E531D199E47004F31A7 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E5494E591D19A1F5004F31A7 /* OnboardingStoryboard.storyboard */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		E55452CE1CF3150A0076CEC9 /* Locations */ = {
@@ -1434,6 +1445,7 @@
 		E5DFDBEF1CB2C31B00BB3D27 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E5494E531D199E47004F31A7 /* Onboarding */,
 				E59262601D01D79F00368212 /* Dev */,
 				E5B6B56D1CC56F5800DC8EFC /* Create */,
 				E5B6B5701CC56F5800DC8EFC /* Home */,
@@ -1787,6 +1799,7 @@
 				E58432BA1CE9242000FB1E50 /* UserListCell.xib in Resources */,
 				E58432BB1CE9242000FB1E50 /* release_notes.html in Resources */,
 				E58432BC1CE9242000FB1E50 /* TOCropViewControllerLocalizable.strings in Resources */,
+				E5494E5B1D19A1F5004F31A7 /* OnboardingStoryboard.storyboard in Resources */,
 				E58432BD1CE9242000FB1E50 /* MainStoryboard.storyboard in Resources */,
 				E58432BE1CE9242000FB1E50 /* StreamableTrendingCell.xib in Resources */,
 				E58432BF1CE9242000FB1E50 /* AutocompleteHashCell.xib in Resources */,
@@ -1805,6 +1818,7 @@
 				E5A4F1301CE225AA005CF12C /* CommentCell.xib in Resources */,
 				E51CD0CD1CD0C77800D56C58 /* Brush.png in Resources */,
 				E51CD0CE1CD0C77800D56C58 /* Chalk.png in Resources */,
+				E5494E5A1D19A1F5004F31A7 /* OnboardingStoryboard.storyboard in Resources */,
 				E51CD0CC1CD0C77800D56C58 /* blank.png in Resources */,
 				E554CFDE1CB5641B00668D85 /* terms.html in Resources */,
 				E5B6B5521CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib in Resources */,

@@ -13,6 +13,8 @@ class Settings: NSObject {
 
     static let sharedInstance = Settings()
     
+    // App properties.
+    
     var rememberCredentials: Bool? {
         get {
             return getBoolPreference(SettingsKeys.kRememberCredentials)
@@ -21,6 +23,18 @@ class Settings: NSObject {
             setBoolPreference(newValue!, key: SettingsKeys.kRememberCredentials)
         }
     }
+    
+    var appDomain: String? {
+        get {
+            return getStringPreference(SettingsKeys.kAppDomain)
+        }
+        set(newValue) {
+            setStringPreference(newValue!, key: SettingsKeys.kAppDomain)
+        }
+    }
+    
+    // Keychain.
+    
     var username: String? {
         get {
             return keychain[SettingsKeys.kUsername]
@@ -35,15 +49,6 @@ class Settings: NSObject {
         }
         set(newValue) {
             keychain[SettingsKeys.kPassword] = newValue
-        }
-    }
-    
-    var appDomain: String? {
-        get {
-            return getStringPreference(SettingsKeys.kAppDomain)
-        }
-        set(newValue) {
-            setStringPreference(newValue!, key: SettingsKeys.kAppDomain)
         }
     }
     

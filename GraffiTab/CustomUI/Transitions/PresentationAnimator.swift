@@ -26,10 +26,11 @@ class PresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let animationDuration = self.transitionDuration(transitionContext)
         
         // add blurred background to the view
-        let fromViewFrame = fromViewController.view.frame
+//        let fromViewFrame = fromViewController.view.frame
+        let fromViewFrame = UIApplication.sharedApplication().keyWindow?.bounds
         
-        UIGraphicsBeginImageContext(fromViewFrame.size)
-        fromViewController.view.drawViewHierarchyInRect(fromViewFrame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(fromViewFrame!.size)
+        fromViewController.view.drawViewHierarchyInRect(fromViewFrame!, afterScreenUpdates: true)
         let snapshotImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -41,7 +42,7 @@ class PresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         containerView!.addSubview(toViewController.view)
         
         UIView.animateWithDuration(animationDuration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 20.0, options: [], animations: { () -> Void in
-            snapshotView.frame = fromViewController.view.frame
+            snapshotView.frame = fromViewFrame!
             
             self.animatedView!.alpha = 0.0
         }, completion: { (finished) -> Void in
