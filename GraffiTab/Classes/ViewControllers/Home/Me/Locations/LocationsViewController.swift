@@ -397,7 +397,11 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
             }
         }
         actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
-            self.doDeleteLocation(location, indexPath: indexPath)
+            DialogBuilder.showYesNoAlert("Are you sure you want to delete this location?", title: App.Title, yesTitle: "Yes, delete it!", noTitle: "Cancel", yesAction: {
+                self.doDeleteLocation(location, indexPath: indexPath)
+            }, noAction: {
+                    
+            })
         }
         actionSheet.show()
     }

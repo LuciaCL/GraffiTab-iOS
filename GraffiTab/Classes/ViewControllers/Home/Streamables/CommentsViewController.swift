@@ -233,7 +233,11 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             }
             if canEdit {
                 actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
-                    self.doDeleteComment(comment, shouldDeleteRemotely: true)
+                    DialogBuilder.showYesNoAlert("Are you sure you want to delete this comment?", title: App.Title, yesTitle: "Yes, delete it!", noTitle: "Cancel", yesAction: {
+                        self.doDeleteComment(comment, shouldDeleteRemotely: true)
+                    }, noAction: {
+                            
+                    })
                 }
             }
             actionSheet.show()
@@ -472,7 +476,11 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         }
         actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
             Utils.runWithDelay(0.3, block: {
-                self.doDeleteComment(comment, shouldDeleteRemotely: false)
+                DialogBuilder.showYesNoAlert("Are you sure you want to delete this comment?", title: App.Title, yesTitle: "Yes, delete it!", noTitle: "Cancel", yesAction: {
+                    self.doDeleteComment(comment, shouldDeleteRemotely: false)
+                }, noAction: {
+                        
+                })
             })
         }
         actionSheet.show()

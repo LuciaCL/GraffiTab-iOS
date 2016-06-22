@@ -157,7 +157,11 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             self.onClickSave(nil)
         }
         actionSheet.addButtonWithTitle("Discard", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
-            self.onClickClose(nil)
+            DialogBuilder.showYesNoAlert("Are you sure you want to discard this drawing? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, discard it!", noTitle: "Cancel", yesAction: {
+                self.onClickClose(nil)
+            }, noAction: {
+                    
+            })
         }
         actionSheet.show()
     }
@@ -218,13 +222,25 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                 if indexPath?.row == 0 {
                     let actionSheet = buildActionSheet("What would you like to do?")
                     actionSheet.addButtonWithTitle("Clear drawing layer", type: .Default) { (sheet) in
-                        self.canvas!.clearDrawingLayer()
+                        DialogBuilder.showYesNoAlert("Are you sure you want to clear your drawing? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, clear it!", noTitle: "Cancel", yesAction: {
+                            self.canvas!.clearDrawingLayer()
+                        }, noAction: {
+                                
+                        })
                     }
                     actionSheet.addButtonWithTitle("Clear background layer", type: .Default) { (sheet) in
-                        self.canvas!.clearBackground()
+                        DialogBuilder.showYesNoAlert("Are you sure you want to clear the background image? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, clear it!", noTitle: "Cancel", yesAction: {
+                            self.canvas!.clearBackground()
+                        }, noAction: {
+                                
+                        })
                     }
                     actionSheet.addButtonWithTitle("Clear everything", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
-                        self.canvas!.clearCanvas()
+                        DialogBuilder.showYesNoAlert("Are you sure you want to clear your drawing? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, clear it!", noTitle: "Cancel", yesAction: {
+                            self.canvas!.clearCanvas()
+                        }, noAction: {
+                                
+                        })
                     }
                     actionSheet.show()
                 }

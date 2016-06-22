@@ -24,7 +24,11 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
             self.takeNew(imagePicker)
         }
         actionSheet.addButtonWithTitle("Remove image", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
-            self.didChooseImage(nil)
+            DialogBuilder.showYesNoAlert("Are you sure you want to clear this image?", title: App.Title, yesTitle: "Yes, clear it!", noTitle: "Cancel", yesAction: { 
+                self.didChooseImage(nil)
+            }, noAction: { 
+                
+            })
         }
         actionSheet.show()
     }
