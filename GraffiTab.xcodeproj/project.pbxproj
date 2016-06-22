@@ -80,6 +80,8 @@
 		E53F3FA91CEAA63900537D1B /* DrawingOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F3FA71CEAA63900537D1B /* DrawingOptionButton.swift */; };
 		E5494E5A1D19A1F5004F31A7 /* OnboardingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5494E591D19A1F5004F31A7 /* OnboardingStoryboard.storyboard */; };
 		E5494E5B1D19A1F5004F31A7 /* OnboardingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5494E591D19A1F5004F31A7 /* OnboardingStoryboard.storyboard */; };
+		E5494E5E1D1A1D30004F31A7 /* ViewController+ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5494E5D1D1A1D30004F31A7 /* ViewController+ActionSheet.swift */; };
+		E5494E5F1D1A1D30004F31A7 /* ViewController+ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5494E5D1D1A1D30004F31A7 /* ViewController+ActionSheet.swift */; };
 		E55452D51CF3154C0076CEC9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452D41CF3154C0076CEC9 /* LocationsViewController.swift */; };
 		E55452D61CF3154C0076CEC9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452D41CF3154C0076CEC9 /* LocationsViewController.swift */; };
 		E55452E41CF329580076CEC9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452E31CF329580076CEC9 /* LocationCell.swift */; };
@@ -535,6 +537,7 @@
 		E53F3FB01CEAB6DE00537D1B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E53F3FB21CEAB6F400537D1B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E5494E591D19A1F5004F31A7 /* OnboardingStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnboardingStoryboard.storyboard; sourceTree = "<group>"; };
+		E5494E5D1D1A1D30004F31A7 /* ViewController+ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+ActionSheet.swift"; sourceTree = "<group>"; };
 		E55452D41CF3154C0076CEC9 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		E55452E31CF329580076CEC9 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		E55452E61CF336A50076CEC9 /* LocationListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListCell.swift; sourceTree = "<group>"; };
@@ -1505,6 +1508,7 @@
 				E5B6B64C1CC9A48200DC8EFC /* ViewController+ImagePicker.swift */,
 				E5D3749B1D07B29200A60343 /* UINavigationController+Orientation.swift */,
 				E59BC3021D140BD7009781BA /* ViewController+Facebook.swift */,
+				E5494E5D1D1A1D30004F31A7 /* ViewController+ActionSheet.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2072,6 +2076,7 @@
 				E58432801CE9242000FB1E50 /* SearchStreamablesViewController.swift in Sources */,
 				E58432811CE9242000FB1E50 /* ToggleStreamablesViewController.swift in Sources */,
 				E58432821CE9242000FB1E50 /* FeedbackViewController.swift in Sources */,
+				E5494E5F1D1A1D30004F31A7 /* ViewController+ActionSheet.swift in Sources */,
 				E58432831CE9242000FB1E50 /* LineDrawer.m in Sources */,
 				E58432841CE9242000FB1E50 /* StreamableTrendingCell.swift in Sources */,
 				E58432851CE9242000FB1E50 /* Constants.swift in Sources */,
@@ -2225,6 +2230,7 @@
 				E5B6B5BD1CC56F5800DC8EFC /* SearchStreamablesViewController.swift in Sources */,
 				E52DC7651CE5DD2E00375828 /* ToggleStreamablesViewController.swift in Sources */,
 				E5B6B5C51CC56F5800DC8EFC /* FeedbackViewController.swift in Sources */,
+				E5494E5E1D1A1D30004F31A7 /* ViewController+ActionSheet.swift in Sources */,
 				E5B6B63F1CC6C40C00DC8EFC /* LineDrawer.m in Sources */,
 				E510066B1CB7DEB100AC66A5 /* StreamableTrendingCell.swift in Sources */,
 				E5DFDC011CB2C31B00BB3D27 /* Constants.swift in Sources */,

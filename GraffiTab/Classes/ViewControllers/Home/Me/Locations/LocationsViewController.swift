@@ -380,29 +380,26 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     
     func didTapOptions(location: GTLocation, indexPath: NSIndexPath) {
         let tracked = GTLocationManager.manager.getRegions().contains(getRegionForLocation(location))
-        let actions = ["Edit", "Copy Address", tracked ? "Untrack" : "Track"]
         
-        UIActionSheet.showInView(view, withTitle: "What would you like to do?", cancelButtonTitle: "Cancel", destructiveButtonTitle: "Delete", otherButtonTitles: actions, tapBlock: { (actionSheet, index) in
-            Utils.runWithDelay(0.3, block: {
-                if index == 0 { // Delete.
-                    self.doDeleteLocation(location, indexPath: indexPath)
-                }
-                else if index == 1 { // Edit.
-                    self.performSegueWithIdentifier("SEGUE_EDIT_LOCATION", sender: location)
-                }
-                else if index == 2 { // Copy.
-                    UIPasteboard.generalPasteboard().string = location.address
-                }
-                else if index == 3 { // Track/untrack.
-                    if tracked {
-                        self.removeGeofenceForLocation(location, indexPath: indexPath)
-                    }
-                    else {
-                        self.addGeofenceForLocation(location, indexPath: indexPath)
-                    }
-                }
-            })
-        })
+        let actionSheet = buildActionSheet("What would you like to do with this place?")
+        actionSheet.addButtonWithTitle("Edit", image: UIImage(named: "ic_mode_edit_white"), type: .Default) { (sheet) in
+            self.performSegueWithIdentifier("SEGUE_EDIT_LOCATION", sender: location)
+        }
+        actionSheet.addButtonWithTitle("Copy address", image: UIImage(named: "ic_content_copy_white"), type: .Default) { (sheet) in
+            UIPasteboard.generalPasteboard().string = location.address
+        }
+        actionSheet.addButtonWithTitle(tracked ? "Untrack" : "Track", image: UIImage(named: tracked ? "ic_radio_button_checked_white" : "ic_radio_button_unchecked_white"), type: .Default) { (sheet) in
+            if tracked {
+                self.removeGeofenceForLocation(location, indexPath: indexPath)
+            }
+            else {
+                self.addGeofenceForLocation(location, indexPath: indexPath)
+            }
+        }
+        actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+            self.doDeleteLocation(location, indexPath: indexPath)
+        }
+        actionSheet.show()
     }
     
     func doDeleteLocation(location: GTLocation, indexPath: NSIndexPath) {

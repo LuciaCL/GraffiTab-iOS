@@ -48,6 +48,7 @@ def common_pods
     pod 'CocoaLumberjack/Swift'
     pod 'DeployGateSDK'
     pod 'UIColor_Hex_Swift'
+    pod 'AHKActionSheet'
 end
 
 target 'GraffiTab' do

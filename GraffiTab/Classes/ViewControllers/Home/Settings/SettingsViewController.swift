@@ -135,14 +135,14 @@ class SettingsViewController: GeneralSettingsViewController {
         }
         else if indexPath.section == 3 {
             if indexPath.row == 1 { // Report a problem.
-                UIActionSheet.showInView(self.view, withTitle: "Report a Problem", cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: ["Something Is Wrong", "General Feedback"], tapBlock: { (actionSheet, index) in
-                    if index == 0 {
-                        self.performSegueWithIdentifier("SEGUE_PROBLEM", sender: nil)
-                    }
-                    else if index == 1 {
-                        self.performSegueWithIdentifier("SEGUE_FEEDBACK", sender: nil)
-                    }
-                })
+                let actionSheet = buildActionSheet("What would you like to report?")
+                actionSheet.addButtonWithTitle("Something Is Wrong", image: UIImage(named: "ic_warning_white"), type: .Default) { (sheet) in
+                    self.performSegueWithIdentifier("SEGUE_PROBLEM", sender: nil)
+                }
+                actionSheet.addButtonWithTitle("General Feedback", image: UIImage(named: "ic_comment_white"), type: .Default) { (sheet) in
+                    self.performSegueWithIdentifier("SEGUE_FEEDBACK", sender: nil)
+                }
+                actionSheet.show()
             }
         }
         else if indexPath.section == 4 {
@@ -155,12 +155,11 @@ class SettingsViewController: GeneralSettingsViewController {
         }
         else if indexPath.section == 5 {
             if indexPath.row == 0 { // Logout.
-                UIActionSheet.showInView(self.view, withTitle: "Are you sure you want to log out?", cancelButtonTitle: "Cancel", destructiveButtonTitle: "Logout", otherButtonTitles: nil, tapBlock: { (actionSheet, index) in
-                    if index == 0 {
-                        self.onClickLogout()
-                    }
-                })
-            }
+                let actionSheet = buildActionSheet("Are you sure you want to log out?")
+                actionSheet.addButtonWithTitle("Log out", image: UIImage(named: "ic_exit_to_app_white"), type: .Destructive) { (sheet) in
+                    self.onClickLogout()
+                }
+                actionSheet.show()            }
         }
     }
 }

@@ -218,39 +218,25 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         
         if tableView == self.tableView {
             let comment = items[indexPath.row]
-            var actions: [String]
-            var destructiveTitle: String?
             let canEdit = comment.user!.isEqual(GTSettings.sharedInstance.user)
-            if canEdit {
-                actions = ["Edit", "Copy"]
-                destructiveTitle = "Delete"
-            }
-            else {
-                actions = ["Copy"]
-            }
             
-            UIActionSheet.showInView(view, withTitle: "What would you like to do?", cancelButtonTitle: "Cancel", destructiveButtonTitle: destructiveTitle, otherButtonTitles: actions, tapBlock: { (actionSheet, index) in
-                Utils.runWithDelay(0.3, block: {
-                    if canEdit {
-                        if index == 0 { // Delete.
-                            self.doDeleteComment(comment, shouldDeleteRemotely: true)
-                        }
-                        else if index == 1 { // Edit.
-                            self.commentToEdit = comment
-                            self.editText(comment.text!)
-                            self.tableView!.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
-                        }
-                        else if index == 2 { // Copy.
-                            UIPasteboard.generalPasteboard().string = comment.text
-                        }
-                    }
-                    else {
-                        if index == 0 { // Copy.
-                            UIPasteboard.generalPasteboard().string = comment.text
-                        }
-                    }
-                })
-            })
+            let actionSheet = buildActionSheet("What would you like to do with this comment?")
+            if canEdit {
+                actionSheet.addButtonWithTitle("Edit", image: UIImage(named: "ic_mode_edit_white"), type: .Default) { (sheet) in
+                    self.commentToEdit = comment
+                    self.editText(comment.text!)
+                    self.tableView!.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
+                }
+            }
+            actionSheet.addButtonWithTitle("Copy", image: UIImage(named: "ic_content_copy_white"), type: .Default) { (sheet) in
+                UIPasteboard.generalPasteboard().string = comment.text
+            }
+            if canEdit {
+                actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+                    self.doDeleteComment(comment, shouldDeleteRemotely: true)
+                }
+            }
+            actionSheet.show()
         }
         else {
             var string: String?
@@ -480,16 +466,16 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     }
     
     func didTapErrorView(comment: GTComment) {
-        UIActionSheet.showInView(view, withTitle: "What would you like to do?", cancelButtonTitle: "Cancel", destructiveButtonTitle: "Delete", otherButtonTitles: ["Try again"], tapBlock: { (actionSheet, index) in
-            if index == 0 {
-                Utils.runWithDelay(0.3, block: {
-                    self.doDeleteComment(comment, shouldDeleteRemotely: false)
-                })
-            }
-            else if index == 1 {
-                self.doPostComment(comment, shouldRefresh: true)
-            }
-        })
+        let actionSheet = buildActionSheet("This comment was not sent")
+        actionSheet.addButtonWithTitle("Try again", image: UIImage(named: "ic_refresh_white"), type: .Default) { (sheet) in
+            self.doPostComment(comment, shouldRefresh: true)
+        }
+        actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+            Utils.runWithDelay(0.3, block: {
+                self.doDeleteComment(comment, shouldDeleteRemotely: false)
+            })
+        }
+        actionSheet.show()
     }
     
     func didTapAvatar(user: GTUser) {

@@ -209,17 +209,17 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             let indexPath = toolCollectionView.indexPathForItemAtPoint(p)
             if indexPath != nil {
                 if indexPath?.row == 0 {
-                    UIActionSheet.showInView(view, withTitle: "What would you like to do?", cancelButtonTitle: "Cancel", destructiveButtonTitle: "Clear canvas", otherButtonTitles: ["Clear background", "Clear drawing layer"], tapBlock: { (actionSheet, index) in
-                        if index == 0 {
-                            self.canvas!.clearCanvas()
-                        }
-                        else if index == 1 {
-                            self.canvas!.clearBackground()
-                        }
-                        else if index == 2 {
-                            self.canvas!.clearDrawingLayer()
-                        }
-                    })
+                    let actionSheet = buildActionSheet("What would you like to do?")
+                    actionSheet.addButtonWithTitle("Clear drawing layer", type: .Default) { (sheet) in
+                        self.canvas!.clearDrawingLayer()
+                    }
+                    actionSheet.addButtonWithTitle("Clear background layer", type: .Default) { (sheet) in
+                        self.canvas!.clearBackground()
+                    }
+                    actionSheet.addButtonWithTitle("Clear everything", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+                        self.canvas!.clearCanvas()
+                    }
+                    actionSheet.show()
                 }
             }
         }

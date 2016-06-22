@@ -16,17 +16,17 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
         
-        UIActionSheet.showInView(view, withTitle: "What would you like to do?", cancelButtonTitle: "Cancel", destructiveButtonTitle: "Remove image", otherButtonTitles: ["Choose from gallery", "Take new"], tapBlock: { (actionSheet, index) in
-            if index == 0 {
-                self.didChooseImage(nil)
-            }
-            else if index == 1 {
-                self.chooseFromGallery(imagePicker)
-            }
-            else if index == 2 {
-                self.takeNew(imagePicker)
-            }
-        })
+        let actionSheet = buildActionSheet("Choose image source")
+        actionSheet.addButtonWithTitle("Choose from photos", image: UIImage(named: "ic_collections_white"), type: .Default) { (sheet) in
+            self.chooseFromGallery(imagePicker)
+        }
+        actionSheet.addButtonWithTitle("Take a picture", image: UIImage(named: "ic_photo_camera_white"), type: .Default) { (sheet) in
+            self.takeNew(imagePicker)
+        }
+        actionSheet.addButtonWithTitle("Remove image", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+            self.didChooseImage(nil)
+        }
+        actionSheet.show()
     }
     
     func chooseFromGallery(imagePicker: UIImagePickerController) {
