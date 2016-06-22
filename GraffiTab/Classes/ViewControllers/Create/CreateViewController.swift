@@ -9,11 +9,10 @@
 import UIKit
 import Photos
 import imglyKit
-import RNFrostedSidebar
 import GraffiTab_iOS_SDK
 import CocoaLumberjack
 
-class CreateViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, ColorSprayCanCellDelegate, RNFrostedSidebarDelegate, PublishDelegate, CanvasDelegate, ToolStackControllerDelegate {
+class CreateViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, ColorSprayCanCellDelegate, PublishDelegate, CanvasDelegate, ToolStackControllerDelegate {
 
     @IBOutlet weak var toolCollectionView: UICollectionView!
     @IBOutlet weak var canvasContainerXconstraint: NSLayoutConstraint!
@@ -145,14 +144,22 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     @IBAction func onClickDone(sender: AnyObject) {
         DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing publish options")
-        
-        let sideBar = RNFrostedSidebar(images: [UIImage(named: "ic_done_white")!, UIImage(named: "ic_share_white")!, UIImage(named: "ic_file_download_white")!, UIImage(named: "ic_clear_white")!])
-        sideBar.delegate = self
-        sideBar.showFromRight = true
-        sideBar.width = 110
-        sideBar.itemSize = CGSizeMake(60, 60)
-        sideBar.itemBackgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
-        sideBar.show()
+        let actionSheet = buildActionSheet("Looks great! How about sharing it with the rest of the world?")
+        actionSheet.addButtonWithTitle("Publish", image: UIImage(named: "ic_done_white"), type: .Default) { (sheet) in
+            self.hideMenu({
+                self.onClickPublish(nil)
+            })
+        }
+        actionSheet.addButtonWithTitle("Share", image: UIImage(named: "ic_share_white"), type: .Default) { (sheet) in
+            self.onClickShare(nil)
+        }
+        actionSheet.addButtonWithTitle("Save to Photos Album", image: UIImage(named: "ic_file_download_white"), type: .Default) { (sheet) in
+            self.onClickSave(nil)
+        }
+        actionSheet.addButtonWithTitle("Discard", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+            self.onClickClose(nil)
+        }
+        actionSheet.show()
     }
     
     @IBAction func onClickEnhance(sender: AnyObject?) {
@@ -543,29 +550,6 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         colorBtn.backgroundColor = color
         self.canvas!.setDrawColor(color)
         hideColors(nil)
-    }
-    
-    // MARK: - RNFrostedSidebarDelegate
-    
-    func sidebar(sidebar: RNFrostedSidebar!, didTapItemAtIndex index: UInt) {
-        sidebar.dismissAnimated(true)
-        
-        Utils.runWithDelay(0.3) {
-            if index == 0 {
-                self.hideMenu({
-                    self.onClickPublish(nil)
-                })
-            }
-            else if index == 1 {
-                self.onClickShare(nil)
-            }
-            else if index == 2 {
-                self.onClickSave(nil)
-            }
-            else if index == 3 {
-                self.onClickClose(nil)
-            }
-        }
     }
     
     // MARK: - UIGestureRecognizerDelegate

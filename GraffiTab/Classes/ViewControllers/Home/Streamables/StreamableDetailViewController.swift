@@ -9,20 +9,9 @@
 import UIKit
 import GraffiTab_iOS_SDK
 import Alamofire
-import CNPGridMenu
 import CocoaLumberjack
 
-let menuFlagTitle = "Flag"
-let menuExploreTitle = "Explore Area"
-let menuSaveTitle = "Save"
-let menuCopyLinkTitle = "Copy Link"
-let menuDeleteTitle = "Delete"
-let menuEditTitle = "Edit"
-let menuMakePrivateTitle = "Make Private"
-let menuMakePublicTitle = "Make Public"
-let menuSetAvatarTitle = "Set as Avatar"
-
-class StreamableDetailViewController: BackButtonViewController, ZoomableImageViewDelegate, CNPGridMenuDelegate {
+class StreamableDetailViewController: BackButtonViewController, ZoomableImageViewDelegate {
 
     @IBOutlet weak var streamableImage: ZoomableImageView!
     @IBOutlet weak var topMenu: UIView!
@@ -79,61 +68,36 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     @IBAction func onClickMenu(sender: AnyObject) {
-        var items = [CNPGridMenuItem]()
-        
-        let flag = CNPGridMenuItem()
-        flag.title = menuFlagTitle
-        flag.icon = UIImage(named: "ic_notifications")
-        items.append(flag)
-        
-        let explore = CNPGridMenuItem()
-        explore.title = menuExploreTitle
-        explore.icon = UIImage(named: "ic_near_me_white")
-        items.append(explore)
-        
-        let download = CNPGridMenuItem()
-        download.title = menuSaveTitle
-        download.icon = UIImage(named: "download")
-        items.append(download)
-        
-        let copyLink = CNPGridMenuItem()
-        copyLink.title = menuCopyLinkTitle
-        copyLink.icon = UIImage(named: "copy_link")
-        items.append(copyLink)
-        
-        let setAvatar = CNPGridMenuItem()
-        setAvatar.title = menuSetAvatarTitle
-        setAvatar.icon = UIImage(named: "user_male3")
-        items.append(setAvatar)
-        
+        let actionSheet = buildActionSheet("What would you like to do with this graffiti?")
         if isMe() {
-            let delete = CNPGridMenuItem()
-            delete.title = menuDeleteTitle
-            delete.icon = UIImage(named: "trash")
-            items.append(delete)
-            
-            let edit = CNPGridMenuItem()
-            edit.title = menuEditTitle
-            edit.icon = UIImage(named: "edit")
-            items.append(edit)
-            
-            if streamable!.isPrivate! {
-                let privary = CNPGridMenuItem()
-                privary.title = menuMakePublicTitle
-                privary.icon = UIImage(named: "unlock")
-                items.append(privary)
+            actionSheet.addButtonWithTitle("Edit", image: UIImage(named: "ic_mode_edit_white"), type: .Default) { (sheet) in
+                self.edit()
             }
-            else {
-                let privary = CNPGridMenuItem()
-                privary.title = menuMakePrivateTitle
-                privary.icon = UIImage(named: "lock")
-                items.append(privary)
+            actionSheet.addButtonWithTitle(streamable?.isPrivate == true ? "Mark Public" : "Mark Private", image: UIImage(named: streamable?.isPrivate == true ? "ic_visibility_white" : "ic_visibility_off_white"), type: .Default) { (sheet) in
+                self.togglePrivacy()
             }
         }
-        
-        let menu = CNPGridMenu(menuItems: items)
-        menu.delegate = self
-        self.presentGridMenu(menu, animated: true, completion: nil)
+        actionSheet.addButtonWithTitle("Flag Inappropriate", image: UIImage(named: "ic_flag_white"), type: .Default) { (sheet) in
+            self.flag()
+        }
+        actionSheet.addButtonWithTitle("Explore Map Area", image: UIImage(named: "ic_near_me_white"), type: .Default) { (sheet) in
+            self.exploreArea()
+        }
+        actionSheet.addButtonWithTitle("Save to Photos Library", image: UIImage(named: "ic_file_download_white"), type: .Default) { (sheet) in
+            self.save()
+        }
+        actionSheet.addButtonWithTitle("Copy Link", image: UIImage(named: "ic_link_white"), type: .Default) { (sheet) in
+            self.copyLink()
+        }
+        actionSheet.addButtonWithTitle("Set as Profile Picture", image: UIImage(named: "ic_person_white"), type: .Default) { (sheet) in
+            self.setAsAvatar()
+        }
+        if isMe() {
+            actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+                self.delete()
+            }
+        }
+        actionSheet.show()
     }
     
     @IBAction func onClickShare(sender: AnyObject) {
@@ -405,41 +369,6 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         Utils.showView(topMenu)
         Utils.showView(bottomMenu)
         UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
-    }
-    
-    // MARK: - CNPGridMenuDelegate
-    
-    func gridMenuDidTapOnBackground(menu: CNPGridMenu!) {
-        self.dismissGridMenuAnimated(true, completion: nil)
-    }
-    
-    func gridMenu(menu: CNPGridMenu!, didTapOnItem item: CNPGridMenuItem!) {
-        self.dismissGridMenuAnimated(true) { 
-            if item.title == menuFlagTitle {
-                self.flag()
-            }
-            else if item.title == menuExploreTitle {
-                self.exploreArea()
-            }
-            else if item.title == menuSaveTitle {
-                self.save()
-            }
-            else if item.title == menuCopyLinkTitle {
-                self.copyLink()
-            }
-            else if item.title == menuDeleteTitle {
-                self.delete()
-            }
-            else if item.title == menuEditTitle {
-                self.edit()
-            }
-            else if item.title == menuMakePrivateTitle || item.title == menuMakePublicTitle {
-                self.togglePrivacy()
-            }
-            else if item.title == menuSetAvatarTitle {
-                self.setAsAvatar()
-            }
-        }
     }
     
     // MARK: - Orientation
