@@ -166,6 +166,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
             MZFormSheetPresentationController.appearance().shouldApplyBackgroundBlurEffect = true
             MZFormSheetPresentationController.appearance().shouldCenterHorizontally = true
             MZFormSheetPresentationController.appearance().shouldCenterVertically = true
+            MZFormSheetPresentationController.appearance().shouldDismissOnBackgroundViewTap = true
             
             let nav = self.storyboard!.instantiateViewControllerWithIdentifier("ClusterViewController") as! UINavigationController
             let formSheetController = MZFormSheetPresentationViewController(contentViewController: nav)

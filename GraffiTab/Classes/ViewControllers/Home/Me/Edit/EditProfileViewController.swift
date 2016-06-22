@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import GraffiTab_iOS_SDK
 import CocoaLumberjack
+import AHKActionSheet
 
 enum ImageType {
     case Avatar
@@ -93,6 +94,31 @@ class EditProfileViewController: BackButtonTableViewController {
     }
     
     // MARK: - Images
+    
+    override func buildActionSheet(title: String?) -> AHKActionSheet {
+        let actionSheet = super.buildActionSheet(title)
+        if imageType == .Avatar {
+            actionSheet.addButtonWithTitle("Import from Facebook", image: UIImage(named: "facebook"), type: self.user.isLinkedAccount(.FACEBOOK) ? .Default : .Disabled) { (sheet) in
+                self.view.showActivityViewWithLabel("Processing")
+                self.view.rn_activityView.dimBackground = false
+                
+                GTMeManager.importAvatar(.FACEBOOK, successBlock: { (response) -> Void in
+                    self.view.hideActivityView()
+                    
+                    self.loadAvatar()
+                    
+                    Utils.runWithDelay(0.3) { () in
+                        DialogBuilder.showSuccessAlert("Your avatar has been changed!", title: App.Title)
+                    }
+                }, failureBlock: { (response) -> Void in
+                    self.view.hideActivityView()
+                    
+                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
+                })
+            }
+        }
+        return actionSheet
+    }
     
     override func didChooseImage(image: UIImage?) {
         let avatarSuccessBlock = {
