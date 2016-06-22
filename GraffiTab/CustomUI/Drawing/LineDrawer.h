@@ -26,6 +26,12 @@
 
 #import "cocos2d.h"
 
+#define MIN_OPACITY_OFFSET 0.1
+#define MAX_OPACITY_OFFSET 1.0
+
+#define MIN_SIZE_OFFSET 0.0
+#define MAX_SIZE_OFFSET 10.0
+
 typedef enum {
     PEN,
     PENCIL,
@@ -40,6 +46,9 @@ typedef enum {
 
 @optional
 - (void)didInteractWithCanvas;
+- (void)didBeginDrawingAtPoint:(CGPoint)point;
+- (void)didDrawAtPoint:(CGPoint)point;
+- (void)didFinishDrawingAtPoint:(CGPoint)point;
 
 @end
 
@@ -48,6 +57,8 @@ typedef enum {
 @property (nonatomic, weak)id<CanvasDelegate> delegate;
 @property (nonatomic, assign) ccColor4F strokeColor;
 @property (nonatomic, assign) ToolType tool;
+@property (nonatomic, assign) CGFloat opacityOffset;
+@property (nonatomic, assign) CGFloat sizeOffset;
 
 - (UIPanGestureRecognizer *)panRecognizer;
 

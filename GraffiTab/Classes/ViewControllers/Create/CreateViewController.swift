@@ -11,6 +11,7 @@ import Photos
 import imglyKit
 import GraffiTab_iOS_SDK
 import CocoaLumberjack
+import MZFormSheetPresentationController
 
 class CreateViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, ColorSprayCanCellDelegate, PublishDelegate, CanvasDelegate, ToolStackControllerDelegate {
 
@@ -27,6 +28,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var phraseContainer: UIView!
     @IBOutlet weak var undoBtn: DrawingOptionButton!
     @IBOutlet weak var redoBtn: DrawingOptionButton!
+    @IBOutlet weak var onCanvasTuneBtn: MaterializeRoundButton!
+    @IBOutlet weak var onCanvasColorBtn: MaterializeRoundButton!
+    @IBOutlet weak var onCanvasMenuBtn: MaterializeRoundButton!
     
     var toEdit: GTStreamable?
     var toEditImage: UIImage?
@@ -290,6 +294,36 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         else if isColorsOpen! {
             hideColors(nil)
         }
+    }
+    
+    @IBAction func onClickTune(sender: AnyObject) {
+        MZFormSheetPresentationController.appearance().shouldApplyBackgroundBlurEffect = true
+        MZFormSheetPresentationController.appearance().shouldCenterHorizontally = true
+        MZFormSheetPresentationController.appearance().shouldCenterVertically = true
+        MZFormSheetPresentationController.appearance().shouldDismissOnBackgroundViewTap = true
+        
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("TuneViewController") as! TuneViewController
+        let formSheetController = MZFormSheetPresentationViewController(contentViewController: vc)
+        formSheetController.presentationController?.contentViewSize = CGSizeMake(300, 220)
+        formSheetController.contentViewControllerTransitionStyle = .SlideFromBottom
+        formSheetController.allowDismissByPanningPresentedView = true
+        
+        vc.sizeSlider.minimumValue = Float(MIN_SIZE_OFFSET)
+        vc.sizeSlider.maximumValue = Float(MAX_SIZE_OFFSET)
+        vc.sizeSlider.value = Float(canvas!.sizeOffset)
+        
+        vc.opacitySlider.minimumValue = Float(MIN_OPACITY_OFFSET)
+        vc.opacitySlider.maximumValue = Float(MAX_OPACITY_OFFSET)
+        vc.opacitySlider.value = Float(canvas!.opacityOffset)
+        
+        vc.sizeChangedBlock = { (value) in
+            self.canvas!.sizeOffset = CGFloat(value)
+        }
+        vc.opacityChangedBlock = { (value) in
+            self.canvas!.opacityOffset = CGFloat(value)
+        }
+        
+        self.presentViewController(formSheetController, animated: true, completion: nil)
     }
     
     func configureUndoButtons() {
@@ -605,6 +639,40 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         }
         
         configureUndoButtons()
+    }
+    
+    func didBeginDrawingAtPoint(point: CGPoint) {
+        let p = CGPointMake(point.x, self.canvasView.frame.height - point.y)
+        if CGRectContainsPoint(onCanvasTuneBtn.frame, p) || CGRectContainsPoint(onCanvasColorBtn.frame, p) ||  CGRectContainsPoint(onCanvasMenuBtn.frame, p) {
+            hideOnCanvasTools()
+        }
+    }
+    
+    func didDrawAtPoint(point: CGPoint) {
+        let p = CGPointMake(point.x, self.canvasView.frame.height - point.y)
+        if CGRectContainsPoint(onCanvasTuneBtn.frame, p) || CGRectContainsPoint(onCanvasColorBtn.frame, p) ||  CGRectContainsPoint(onCanvasMenuBtn.frame, p) {
+            hideOnCanvasTools()
+        }
+    }
+    
+    func didFinishDrawingAtPoint(point: CGPoint) {
+        showOnCanvasTools()
+    }
+    
+    func showOnCanvasTools() {
+        UIView.animateWithDuration(0.3) { 
+            self.onCanvasTuneBtn.alpha = 1.0
+            self.onCanvasColorBtn.alpha = 1.0
+            self.onCanvasMenuBtn.alpha = 1.0
+        }
+    }
+    
+    func hideOnCanvasTools() {
+        UIView.animateWithDuration(0.3) {
+            self.onCanvasTuneBtn.alpha = 0.2
+            self.onCanvasColorBtn.alpha = 0.2
+            self.onCanvasMenuBtn.alpha = 0.2
+        }
     }
     
     // MARK: - ToolStackViewControllerDelegate

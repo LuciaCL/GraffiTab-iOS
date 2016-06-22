@@ -38,6 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Some code.
         }
         
+        // Clear app badge.
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        
         // Initialize the location manager.
         let _ = GTLocationManager.manager
         

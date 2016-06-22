@@ -148,8 +148,8 @@ typedef struct {
         redos = [NSMutableArray array];
         
         // Setup constants and tools.
-		overdraw = 2.0;
-        opacity = 1.0;
+        self.sizeOffset = 3.0;
+        self.opacityOffset = 0.8;
         
         ccColor4F c = {0, 0, 0, opacity};
 		_strokeColor = c;
@@ -236,16 +236,16 @@ typedef struct {
     _tool = tool;
     
     if (tool == PEN || tool == MARKER) {
-        overdraw = 2.0;
-        opacity = 1.0;
+        overdraw = [self calculateSizeFraction:0.3 max:5.0];
+        opacity = [self calculateOpacityFraction:0.1 max:1.0];
     }
     else if (_tool == PENCIL) {
-        overdraw = 0.5;
-        opacity = 0.3;
+        overdraw = [self calculateSizeFraction:0.3 max:2.0];
+        opacity = [self calculateOpacityFraction:0.1 max:0.3];
     }
     else {
-        overdraw = 0.5;
-        opacity = 0.7;
+        overdraw = [self calculateSizeFraction:0.3 max:2.0];
+        opacity = [self calculateOpacityFraction:0.1 max:0.7];
     }
     
     _strokeColor.a = opacity;
@@ -284,6 +284,23 @@ typedef struct {
     [renTxture end];
     
     return renTxture;
+}
+
+- (void)setSizeOffset:(CGFloat)sizeOffset {
+    if (sizeOffset > MAX_SIZE_OFFSET)
+        sizeOffset = MAX_SIZE_OFFSET;
+    else if (sizeOffset < MIN_SIZE_OFFSET)
+        sizeOffset = MIN_SIZE_OFFSET;
+    _sizeOffset = sizeOffset;
+}
+
+- (void)setOpacityOffset:(CGFloat)opacityOffset {
+    if (opacityOffset > MAX_OPACITY_OFFSET)
+        opacityOffset = MAX_OPACITY_OFFSET;
+    else if (opacityOffset < MIN_OPACITY_OFFSET)
+        opacityOffset = MIN_OPACITY_OFFSET;
+    _opacityOffset = opacityOffset;
+    [self setTool:_tool];
 }
 
 #pragma mark - Undo
@@ -693,7 +710,7 @@ typedef struct {
     if (_delegate != nil && [_delegate respondsToSelector:@selector(didInteractWithCanvas)])
         [_delegate didInteractWithCanvas];
     
-	if ([UITouch instancesRespondToSelector:@selector(force)]) {
+    if ([UITouch instancesRespondToSelector:@selector(force)]) {
 		UITouch* t1 = touches.anyObject; // We only allow one touch so this will get it
 		forceFraction = t1.force/t1.maximumPossibleForce;
 	}
@@ -710,6 +727,9 @@ typedef struct {
     }
     
     previousPoint = point;
+    
+    if (_delegate != nil && [_delegate respondsToSelector:@selector(didBeginDrawingAtPoint:)])
+        [_delegate didBeginDrawingAtPoint:point];
 }
 
 - (void) gestureRecognizer:(UIGestureRecognizer *)gr movedWithTouches:(NSSet<UITouch*>*)touches andEvent:(UIEvent *)event {
@@ -739,7 +759,7 @@ typedef struct {
     else if (_tool == SPRAY) {
         [renderTexture begin];
         
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < length; i+=5) {
             CGFloat difx = previousPoint.x - point.x;
             CGFloat dify = previousPoint.y - point.y;
             CGFloat delta = (CGFloat)i / length;
@@ -747,7 +767,7 @@ typedef struct {
             [spraySprite setPosition:ccp(point.x + (difx * delta), point.y + (dify * delta))];
             [spraySprite setColor:[CCColor colorWithCcColor4f:self.strokeColor]];
             [spraySprite setOpacity:opacity];
-            [spraySprite setScale:(float)(rand() % 50 / 70.0)];
+            [spraySprite setScale:[self calculateSizeFraction:0.1 max:1.0] + [self randomBetweenNumbersWithFirstNum:0.2 secondNum:0.5]];
             [spraySprite visit];
         }
         
@@ -764,6 +784,7 @@ typedef struct {
             [chalkSprite setPosition:ccp(point.x + (difx * delta), point.y + (dify * delta))];
             [chalkSprite setColor:[CCColor colorWithCcColor4f:self.strokeColor]];
             [chalkSprite setOpacity:opacity];
+            [chalkSprite setScale:[self calculateSizeFraction:0.5 max:2.0]];
             [chalkSprite visit];
         }
         
@@ -781,6 +802,7 @@ typedef struct {
             [brushSprite setColor:[CCColor colorWithCcColor4f:self.strokeColor]];
             [brushSprite setOpacity:opacity];
             [brushSprite.texture setAntialiased:YES];
+            [brushSprite setScale:[self calculateSizeFraction:0.3 max:3.0]];
             [brushSprite visit];
         }
         
@@ -801,7 +823,7 @@ typedef struct {
                                                                           CCBlendFuncDstColor: @GL_ONE_MINUS_SRC_ALPHA
                                                                           }]];
             [eraseSprite setOpacity:1];
-            [eraseSprite setScale:0.4];
+            [eraseSprite setScale:[self calculateSizeFraction:0.1 max:1.0]];
             [eraseSprite visit];
         }
         
@@ -809,6 +831,9 @@ typedef struct {
     }
     
     previousPoint = point;
+    
+    if (_delegate != nil && [_delegate respondsToSelector:@selector(didDrawAtPoint:)])
+        [_delegate didDrawAtPoint:point];
 }
 
 - (void) gestureRecognizer:(UIGestureRecognizer *)gr endedWithTouches:(NSSet<UITouch*>*)touches andEvent:(UIEvent *)event {
@@ -832,6 +857,21 @@ typedef struct {
     }
     
     previousPoint = point;
+    
+    if (_delegate != nil && [_delegate respondsToSelector:@selector(didFinishDrawingAtPoint:)])
+        [_delegate didFinishDrawingAtPoint:point];
+}
+
+- (CGFloat)calculateSizeFraction:(CGFloat)min max:(CGFloat)max {
+    return ((max * self.sizeOffset) / MAX_SIZE_OFFSET) + min;
+}
+
+- (CGFloat)calculateOpacityFraction:(CGFloat)min max:(CGFloat)max {
+    return ((max * self.opacityOffset) / MAX_OPACITY_OFFSET) + min;
+}
+
+- (CGFloat)randomBetweenNumbersWithFirstNum:(CGFloat)firstNum secondNum:(CGFloat)secondNum {
+    return (CGFloat)arc4random() / (CGFloat)UINT32_MAX * fabs(firstNum - secondNum) + fmin(firstNum, secondNum);
 }
 
 @end
