@@ -23,10 +23,16 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
     var offset = 0
     var initialLoad = false
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        registerForEvents()
         
         setupTableView()
         
@@ -46,6 +52,17 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Events
+    
+    func registerForEvents() {
+        // App events.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.statusBarClickEventHandler(_:)), name: Notifications.AppStatusBarTouched, object: nil)
+    }
+    
+    func statusBarClickEventHandler(notification: NSNotification) {
+        self.tableView!.setContentOffset(CGPointZero, animated: true)
     }
     
     // MARK: - Loading

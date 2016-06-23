@@ -219,6 +219,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }, completion: nil)
     }
     
+    // MARK: - Touch
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesBegan(touches, withEvent: event)
+        
+        // Delect status bar touches and dispatch it to the appropriate view controllers.
+        // This is needed because the automatic scroll doesn't work if the table or collection views are not in the root of the view hierarchy.
+        let events = event!.allTouches()
+        let touch = events!.first
+        let location = touch!.locationInView(self.window)
+        let statusBarFrame = UIApplication.sharedApplication().statusBarFrame
+        if CGRectContainsPoint(statusBarFrame, location) {
+            NSNotificationCenter.defaultCenter().postNotificationName(Notifications.AppStatusBarTouched, object: nil)
+        }
+    }
+    
     // MARK: - Setup
     
     func setupTopBar() {

@@ -152,9 +152,17 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
     // MARK: - Events
     
     func registerForEvents() {
+        // SDK events.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleUserEventHandler(_:)), name: GTEvents.UserAvatarChanged, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleUserEventHandler(_:)), name: GTEvents.UserProfileChanged, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleUserEventHandler(_:)), name: GTEvents.UserFollowersChanged, object: nil)
+        
+        // App events.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.statusBarClickEventHandler(_:)), name: Notifications.AppStatusBarTouched, object: nil)
+    }
+    
+    func statusBarClickEventHandler(notification: NSNotification) {
+        self.collectionView!.setContentOffset(CGPointZero, animated: true)
     }
     
     func singleUserEventHandler(notification: NSNotification) {

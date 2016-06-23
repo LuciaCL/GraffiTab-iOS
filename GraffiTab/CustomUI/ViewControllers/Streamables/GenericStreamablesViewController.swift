@@ -225,6 +225,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     // MARK: - Events
     
     func registerForEvents() {
+        // SDK events.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.genericEventHandler(_:)), name: GTEvents.CommentPosted, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.genericEventHandler(_:)), name: GTEvents.CommentDeleted, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.avatarChangeEventHandler(_:)), name: GTEvents.UserAvatarChanged, object: nil)
@@ -232,6 +233,13 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.deleteStreamableEventHandler(_:)), name: GTEvents.StreamableDeleted, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleStreamableEventHandler(_:)), name: GTEvents.StreamableChanged, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.singleStreamableEventHandler(_:)), name: GTEvents.StreamableLikesChanged, object: nil)
+        
+        // App events.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.statusBarClickEventHandler(_:)), name: Notifications.AppStatusBarTouched, object: nil)
+    }
+    
+    func statusBarClickEventHandler(notification: NSNotification) {
+        self.collectionView!.setContentOffset(CGPointZero, animated: true)
     }
     
     func profileChangeEventHandler(notification: NSNotification) {
