@@ -292,6 +292,7 @@ typedef struct {
     else if (sizeOffset < MIN_SIZE_OFFSET)
         sizeOffset = MIN_SIZE_OFFSET;
     _sizeOffset = sizeOffset;
+    [self setTool:_tool];
 }
 
 - (void)setOpacityOffset:(CGFloat)opacityOffset {
