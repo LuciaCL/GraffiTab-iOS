@@ -236,15 +236,15 @@ typedef struct {
     _tool = tool;
     
     if (tool == PEN || tool == MARKER) {
-        overdraw = [self calculateSizeFraction:0.3 max:5.0];
+        overdraw = 2.0;
         opacity = [self calculateOpacityFraction:0.1 max:1.0];
     }
     else if (_tool == PENCIL) {
-        overdraw = [self calculateSizeFraction:0.3 max:2.0];
+        overdraw = 1.0;
         opacity = [self calculateOpacityFraction:0.1 max:0.3];
     }
     else {
-        overdraw = [self calculateSizeFraction:0.3 max:2.0];
+        overdraw = 1.0;
         opacity = [self calculateOpacityFraction:0.1 max:0.7];
     }
     
@@ -653,9 +653,9 @@ typedef struct {
 
 - (CGFloat)extractSize:(UIPanGestureRecognizer *)panGestureRecognizer {
     if (_tool == PENCIL)
-        return 1;
+        return [self calculateSizeFraction:0.5 max:5];
     else if (_tool == MARKER)
-        return 2;
+        return [self calculateSizeFraction:2 max:7];
     
 	CGFloat size;
 	
@@ -675,7 +675,8 @@ typedef struct {
 	}
 	
 	[velocities addObject:@(size)];
-	return size;
+    
+	return size + [self calculateSizeFraction:1 max:8];
 }
 
 #pragma mark - GestureRecognizer handling
