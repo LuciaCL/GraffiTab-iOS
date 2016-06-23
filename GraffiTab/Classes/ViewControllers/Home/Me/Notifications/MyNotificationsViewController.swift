@@ -32,6 +32,9 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
 
         // Do any additional setup after loading the view.
         
+        // Clear app badge.
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        
         registerForEvents()
         
         setupTableView()
