@@ -2690,7 +2690,7 @@
                                     <constraint firstAttribute="width" constant="40" id="u1r-u8-eZU"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waS-wE-Odb" customClass="TintButton" customModule="GraffiTab" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waS-wE-Odb" customClass="TintButton" customModule="GraffiTab" customModuleProvider="target">
                                 <rect key="frame" x="10" y="535" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -3906,37 +3906,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rce-4Y-rUx">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iTP-QE-L24">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyv-he-u6I" customClass="MaterializeRoundButton" customModule="GraffiTab" customModuleProvider="target">
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwi-ID-9RA" customClass="MaterializeRoundButton" customModule="GraffiTab" customModuleProvider="target">
                                 <rect key="frame" x="535" y="535" width="45" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="8xH-Bl-6gR"/>
-                                    <constraint firstAttribute="height" constant="45" id="rcE-mw-Iwb"/>
+                                    <constraint firstAttribute="height" constant="45" id="0iw-bs-cvW"/>
+                                    <constraint firstAttribute="width" constant="45" id="Uwi-82-459"/>
                                 </constraints>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="ic_clear_white"/>
                                 <connections>
-                                    <action selector="onClickCancel:" destination="24t-qW-rJ9" eventType="touchUpInside" id="Lpj-n7-7b0"/>
+                                    <action selector="onClickCancel:" destination="24t-qW-rJ9" eventType="touchUpInside" id="QfB-rT-S6h"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="EcX-gH-rZa" firstAttribute="top" secondItem="uyv-he-u6I" secondAttribute="bottom" constant="20" id="6Ft-4J-P9e"/>
-                            <constraint firstAttribute="trailing" secondItem="rce-4Y-rUx" secondAttribute="trailing" id="Mc3-Ig-kE3"/>
-                            <constraint firstItem="rce-4Y-rUx" firstAttribute="top" secondItem="Dgh-Rs-EJp" secondAttribute="top" id="V2M-13-dZx"/>
-                            <constraint firstItem="EcX-gH-rZa" firstAttribute="top" secondItem="rce-4Y-rUx" secondAttribute="bottom" id="Vtq-ll-NGz"/>
-                            <constraint firstAttribute="trailing" secondItem="uyv-he-u6I" secondAttribute="trailing" constant="20" id="lo0-gS-Z1F"/>
-                            <constraint firstItem="rce-4Y-rUx" firstAttribute="leading" secondItem="Dgh-Rs-EJp" secondAttribute="leading" id="zt3-Xr-h8t"/>
+                            <constraint firstAttribute="trailing" secondItem="iTP-QE-L24" secondAttribute="trailing" id="B0C-dV-cZl"/>
+                            <constraint firstItem="iTP-QE-L24" firstAttribute="leading" secondItem="Dgh-Rs-EJp" secondAttribute="leading" id="Hwl-mA-eWd"/>
+                            <constraint firstItem="EcX-gH-rZa" firstAttribute="top" secondItem="iTP-QE-L24" secondAttribute="bottom" id="JhV-dT-Jqj"/>
+                            <constraint firstItem="EcX-gH-rZa" firstAttribute="top" secondItem="Hwi-ID-9RA" secondAttribute="bottom" constant="20" id="aIg-zo-ewj"/>
+                            <constraint firstItem="iTP-QE-L24" firstAttribute="top" secondItem="Dgh-Rs-EJp" secondAttribute="top" id="hzx-85-8lG"/>
+                            <constraint firstAttribute="trailing" secondItem="Hwi-ID-9RA" secondAttribute="trailing" constant="20" id="iJI-68-G6S"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cameraView" destination="rce-4Y-rUx" id="1xH-p1-8nk"/>
-                        <outlet property="cancelBtn" destination="uyv-he-u6I" id="s2y-1t-uRf"/>
+                        <outlet property="cameraView" destination="iTP-QE-L24" id="nF6-kd-jTn"/>
+                        <outlet property="cancelBtn" destination="Hwi-ID-9RA" id="gxF-kT-XOc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FiB-oq-1XD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3994,7 +3994,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="ojg-oc-7sO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="RwE-Mp-kWy">
                                 <cells>
@@ -4008,7 +4008,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facebook" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjZ-MR-3KM">
                                                     <rect key="frame" x="50" y="12" width="71" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook" translatesAutoresizingMaskIntoConstraints="NO" id="sTw-iF-oqJ" customClass="TintImageView" customModule="GraffiTab" customModuleProvider="target">
@@ -4416,7 +4416,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="iGs-eY-s5B">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="uB7-Ur-mE0">
                                 <cells>
@@ -4430,7 +4430,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find Friends" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XS-Zi-bwO">
                                                     <rect key="frame" x="15" y="12" width="90" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -4524,7 +4524,7 @@
     </scenes>
     <resources>
         <image name="default_avatar" width="185" height="185"/>
-        <image name="facebook" width="1024" height="1024"/>
+        <image name="facebook" width="24" height="24"/>
         <image name="ic_action_unfollow" width="25" height="25"/>
         <image name="ic_add_location_white" width="24" height="24"/>
         <image name="ic_apps_white" width="24" height="24"/>

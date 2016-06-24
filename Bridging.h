@@ -9,7 +9,6 @@
 #ifndef Bridging_h
 #define Bridging_h
 
-#import "TestFairy.h"
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 #import "IntroScene.h"
@@ -17,6 +16,7 @@
 #import "CCViewController.h"
 #import "TOCropViewController.h"
 #import "ZoomableImageView.h"
+#import "OpenCVWrapper.h"
 
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>

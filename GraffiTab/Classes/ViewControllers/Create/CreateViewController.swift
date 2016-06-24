@@ -106,14 +106,84 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickPublish(sender: AnyObject?) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing publish screen")
+//        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing publish screen")
+//        
+//        let sampleImage = self.canvas?.grabFrame()
+//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PublishViewController") as! PublishViewController
+//        vc.streamableImage = sampleImage
+//        vc.toEdit = toEdit
+//        vc.delegate = self
+//        self.presentViewController(vc, animated: true, completion: nil)
+        
+        // TODO: Uncomment this to show the AR publisher. For now we won't track the position of the image in the real world.
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to publish")
         
         let sampleImage = self.canvas?.grabFrame()
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PublishViewController") as! PublishViewController
-        vc.streamableImage = sampleImage
-        vc.toEdit = toEdit
-        vc.delegate = self
-        self.presentViewController(vc, animated: true, completion: nil)
+        var pitch = GTDeviceMotionManager.manager.pitch
+        var roll = GTDeviceMotionManager.manager.roll
+        var yaw = GTDeviceMotionManager.manager.yaw
+        var latitude: CLLocationDegrees = 0
+        var longitude: CLLocationDegrees = 0
+        let location = GTLocationManager.manager.lastLocation
+        
+        if pitch == nil {
+            pitch = 0.0
+        }
+        if roll == nil {
+            roll = 0.0
+        }
+        if yaw == nil {
+            yaw = 0.0
+        }
+        
+        let successBlock = {
+            self.view.hideActivityView()
+            
+            DialogBuilder.showYesNoSuccessAlert("Your post has been published! Would you like to continue drawing?", title: App.Title, yesTitle: "Continue", noTitle: "Close Canvas", yesAction: { 
+                
+            }, noAction: { 
+                self.didPublish()
+            })
+        }
+        let failBlock = { (response: GTResponseObject) in
+            self.view.hideActivityView()
+            
+            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
+        }
+        
+        let saveBlock = {
+            self.view.showActivityViewWithLabel("Processing")
+            self.view.rn_activityView.dimBackground = false
+            
+            if self.toEdit != nil {
+                GTMeManager.editGraffiti(self.toEdit!.id!, image: sampleImage!, latitude: latitude, longitude: longitude, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
+                    successBlock()
+                }) { (response) -> Void in
+                    failBlock(response)
+                }
+            }
+            else {
+                GTMeManager.createGraffiti(sampleImage!, latitude: latitude, longitude: longitude, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
+                    successBlock()
+                }) { (response) -> Void in
+                    failBlock(response)
+                }
+            }
+        }
+        
+        if location == nil {
+            DialogBuilder.showYesNoAlert("Your location could not be determined right now. Would you like to still publish this post?", title: App.Title, yesAction: {
+                saveBlock()
+            }, noAction: {
+                    
+            })
+        }
+        else {
+            latitude = location!.coordinate.latitude
+            longitude = location!.coordinate.longitude
+            
+            saveBlock()
+        }
     }
     
     @IBAction func onClickShare(sender: AnyObject?) {

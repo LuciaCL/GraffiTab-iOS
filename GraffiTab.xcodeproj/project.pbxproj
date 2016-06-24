@@ -110,8 +110,6 @@
 		E57716881CE6008600006572 /* ZoomableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E57716871CE6008600006572 /* ZoomableImageView.m */; };
 		E57FAB231CD224B700C0D125 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57FAB221CD224B700C0D125 /* Photos.framework */; };
 		E57FAB261CD4106E00C0D125 /* DrawToolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FAB251CD4106E00C0D125 /* DrawToolCell.swift */; };
-		E580C71E1D081C8A007E031D /* libTestFairy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E580C71C1D081C8A007E031D /* libTestFairy.a */; };
-		E580C71F1D081C8A007E031D /* libTestFairy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E580C71C1D081C8A007E031D /* libTestFairy.a */; };
 		E58432251CE9242000FB1E50 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5851CC56F5800DC8EFC /* SearchViewController.swift */; };
 		E58432261CE9242000FB1E50 /* EditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5751CC56F5800DC8EFC /* EditPasswordViewController.swift */; };
 		E58432271CE9242000FB1E50 /* TintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBF61CB2C31B00BB3D27 /* TintButton.swift */; };
@@ -297,6 +295,16 @@
 		E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
 		E5A4F1301CE225AA005CF12C /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A4F12D1CE225AA005CF12C /* CommentCell.xib */; };
 		E5A4F13D1CE34846005CF12C /* GTComment+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F13C1CE34846005CF12C /* GTComment+Status.swift */; };
+		E5AEDA371D1C921A006D4296 /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5AEDA361D1C921A006D4296 /* OpenCVWrapper.mm */; };
+		E5AEDA381D1C921A006D4296 /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5AEDA361D1C921A006D4296 /* OpenCVWrapper.mm */; };
+		E5AEDA651D1CB589006D4296 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57FAB1A1CD2245500C0D125 /* AssetsLibrary.framework */; };
+		E5AEDA661D1CB58F006D4296 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57FAB1A1CD2245500C0D125 /* AssetsLibrary.framework */; };
+		E5AEDA791D1CCC50006D4296 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AEDA781D1CCC50006D4296 /* opencv2.framework */; };
+		E5AEDA7A1D1CCC50006D4296 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AEDA781D1CCC50006D4296 /* opencv2.framework */; };
+		E5AEDA871D1D3C4A006D4296 /* PatternDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5AEDA831D1D3C4A006D4296 /* PatternDetector.cpp */; };
+		E5AEDA881D1D3C4A006D4296 /* PatternDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5AEDA831D1D3C4A006D4296 /* PatternDetector.cpp */; };
+		E5AEDA8E1D1D3DFB006D4296 /* ARView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AEDA8D1D1D3DFB006D4296 /* ARView.m */; };
+		E5AEDA8F1D1D3DFB006D4296 /* ARView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AEDA8D1D1D3DFB006D4296 /* ARView.m */; };
 		E5B6B5501CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B54E1CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift */; };
 		E5B6B5521CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B54F1CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib */; };
 		E5B6B55B1CC4E8AD00DC8EFC /* UserAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B55A1CC4E8AD00DC8EFC /* UserAboutView.swift */; };
@@ -341,6 +349,12 @@
 		E5B6B63D1CC6C40C00DC8EFC /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B6391CC6C40C00DC8EFC /* IntroScene.m */; };
 		E5B6B63F1CC6C40C00DC8EFC /* LineDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B63B1CC6C40C00DC8EFC /* LineDrawer.m */; };
 		E5B6B64D1CC9A48200DC8EFC /* ViewController+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B64C1CC9A48200DC8EFC /* ViewController+ImagePicker.swift */; };
+		E5C369291D213D6F005FA4A0 /* target.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E5C369281D213D6F005FA4A0 /* target.jpg */; };
+		E5C3692A1D213D6F005FA4A0 /* target.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E5C369281D213D6F005FA4A0 /* target.jpg */; };
+		E5C3692D1D21428F005FA4A0 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C3692C1D21428F005FA4A0 /* UIImage+OpenCV.mm */; };
+		E5C3692E1D21428F005FA4A0 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C3692C1D21428F005FA4A0 /* UIImage+OpenCV.mm */; };
+		E5C369331D214482005FA4A0 /* VideoSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C369321D214482005FA4A0 /* VideoSource.mm */; };
+		E5C369341D214482005FA4A0 /* VideoSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C369321D214482005FA4A0 /* VideoSource.mm */; };
 		E5CC52FA1D0EDAFF00425744 /* TransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC52F91D0EDAFF00425744 /* TransitioningDelegate.swift */; };
 		E5CC52FB1D0EDAFF00425744 /* TransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC52F91D0EDAFF00425744 /* TransitioningDelegate.swift */; };
 		E5CC53021D0EDB2600425744 /* PresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC53011D0EDB2600425744 /* PresentationAnimator.swift */; };
@@ -563,8 +577,6 @@
 		E57FAB1A1CD2245500C0D125 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		E57FAB221CD224B700C0D125 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		E57FAB251CD4106E00C0D125 /* DrawToolCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawToolCell.swift; sourceTree = "<group>"; };
-		E580C71C1D081C8A007E031D /* libTestFairy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFairy.a; sourceTree = "<group>"; };
-		E580C71D1D081C8A007E031D /* TestFairy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFairy.h; sourceTree = "<group>"; };
 		E58432CA1CE9242000FB1E50 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58432CC1CE940F900FB1E50 /* Release-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Release-Info.plist"; sourceTree = "<group>"; };
 		E58432CE1CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS-SDK/_Archive/iOS/Release/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
@@ -587,6 +599,15 @@
 		E5A4F12C1CE225AA005CF12C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		E5A4F12D1CE225AA005CF12C /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		E5A4F13C1CE34846005CF12C /* GTComment+Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTComment+Status.swift"; sourceTree = "<group>"; };
+		E5AEDA361D1C921A006D4296 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
+		E5AEDA3E1D1C9247006D4296 /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
+		E5AEDA5C1D1CB1EB006D4296 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../../../Downloads/opencv2.framework; sourceTree = "<group>"; };
+		E5AEDA631D1CB467006D4296 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../OpenCV/opencv2.framework; sourceTree = "<group>"; };
+		E5AEDA781D1CCC50006D4296 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		E5AEDA831D1D3C4A006D4296 /* PatternDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PatternDetector.cpp; sourceTree = "<group>"; };
+		E5AEDA841D1D3C4A006D4296 /* PatternDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatternDetector.h; sourceTree = "<group>"; };
+		E5AEDA8C1D1D3DFB006D4296 /* ARView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARView.h; sourceTree = "<group>"; };
+		E5AEDA8D1D1D3DFB006D4296 /* ARView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARView.m; sourceTree = "<group>"; };
 		E5B6B54E1CC260BF00DC8EFC /* UserCollectionParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCollectionParallaxHeader.swift; sourceTree = "<group>"; };
 		E5B6B54F1CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCollectionParallaxHeader.xib; sourceTree = "<group>"; };
 		E5B6B55A1CC4E8AD00DC8EFC /* UserAboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAboutView.swift; sourceTree = "<group>"; };
@@ -632,6 +653,12 @@
 		E5B6B63A1CC6C40C00DC8EFC /* LineDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineDrawer.h; sourceTree = "<group>"; };
 		E5B6B63B1CC6C40C00DC8EFC /* LineDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineDrawer.m; sourceTree = "<group>"; };
 		E5B6B64C1CC9A48200DC8EFC /* ViewController+ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+ImagePicker.swift"; sourceTree = "<group>"; };
+		E5C369281D213D6F005FA4A0 /* target.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = target.jpg; sourceTree = "<group>"; };
+		E5C3692B1D21428F005FA4A0 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		E5C3692C1D21428F005FA4A0 /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
+		E5C369301D214482005FA4A0 /* VideoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoFrame.h; sourceTree = "<group>"; };
+		E5C369311D214482005FA4A0 /* VideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSource.h; sourceTree = "<group>"; };
+		E5C369321D214482005FA4A0 /* VideoSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoSource.mm; sourceTree = "<group>"; };
 		E5CC52F91D0EDAFF00425744 /* TransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitioningDelegate.swift; sourceTree = "<group>"; };
 		E5CC53011D0EDB2600425744 /* PresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationAnimator.swift; sourceTree = "<group>"; };
 		E5CC53041D0EDB7700425744 /* DismissalAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissalAnimator.swift; sourceTree = "<group>"; };
@@ -717,6 +744,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5AEDA661D1CB58F006D4296 /* AssetsLibrary.framework in Frameworks */,
 				E55452F01CF3507D0076CEC9 /* AddressBookUI.framework in Frameworks */,
 				E58432971CE9242000FB1E50 /* Photos.framework in Frameworks */,
 				E58432981CE9242000FB1E50 /* CoreGraphics.framework in Frameworks */,
@@ -730,7 +758,7 @@
 				E584329F1CE9242000FB1E50 /* CoreLocation.framework in Frameworks */,
 				E58432A11CE9242000FB1E50 /* OpenGLES.framework in Frameworks */,
 				E58432A21CE9242000FB1E50 /* SystemConfiguration.framework in Frameworks */,
-				E580C71F1D081C8A007E031D /* libTestFairy.a in Frameworks */,
+				E5AEDA7A1D1CCC50006D4296 /* opencv2.framework in Frameworks */,
 				E58432A31CE9242000FB1E50 /* AVFoundation.framework in Frameworks */,
 				E58432A41CE9242000FB1E50 /* CoreMotion.framework in Frameworks */,
 				E58432A51CE9242000FB1E50 /* CoreMedia.framework in Frameworks */,
@@ -743,8 +771,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5AEDA651D1CB589006D4296 /* AssetsLibrary.framework in Frameworks */,
 				E55452F11CF350860076CEC9 /* AddressBookUI.framework in Frameworks */,
-				E580C71E1D081C8A007E031D /* libTestFairy.a in Frameworks */,
 				E57FAB231CD224B700C0D125 /* Photos.framework in Frameworks */,
 				E5B6B6101CC5AE3000DC8EFC /* CoreGraphics.framework in Frameworks */,
 				E5B6B60F1CC5AE2700DC8EFC /* AudioToolbox.framework in Frameworks */,
@@ -760,6 +788,7 @@
 				E5DFDC161CB2C5C900BB3D27 /* AVFoundation.framework in Frameworks */,
 				E5DFDC141CB2C5C100BB3D27 /* CoreMotion.framework in Frameworks */,
 				E5DFDC121CB2C5B900BB3D27 /* CoreMedia.framework in Frameworks */,
+				E5AEDA791D1CCC50006D4296 /* opencv2.framework in Frameworks */,
 				6E3E6AF34F1E3AC30E600CBF /* Pods_GraffiTab.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -997,6 +1026,18 @@
 			path = Sliders;
 			sourceTree = "<group>";
 		};
+		E5494E6E1D1C9182004F31A7 /* OpenCV */ = {
+			isa = PBXGroup;
+			children = (
+				E5C3692F1D214482005FA4A0 /* VideoSource */,
+				E5AEDA8B1D1D3DEF006D4296 /* Visualization */,
+				E5AEDA821D1D3B8A006D4296 /* Detector */,
+				E5AEDA3E1D1C9247006D4296 /* OpenCVWrapper.h */,
+				E5AEDA361D1C921A006D4296 /* OpenCVWrapper.mm */,
+			);
+			path = OpenCV;
+			sourceTree = "<group>";
+		};
 		E55452CE1CF3150A0076CEC9 /* Locations */ = {
 			isa = PBXGroup;
 			children = (
@@ -1063,15 +1104,6 @@
 			path = Transitions;
 			sourceTree = "<group>";
 		};
-		E580C7161D081C7F007E031D /* TestFairy */ = {
-			isa = PBXGroup;
-			children = (
-				E580C71C1D081C8A007E031D /* libTestFairy.a */,
-				E580C71D1D081C8A007E031D /* TestFairy.h */,
-			);
-			path = TestFairy;
-			sourceTree = "<group>";
-		};
 		E58432D31CEA468700FB1E50 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1134,6 +1166,27 @@
 				E5FE1D9D1D004208009CFB72 /* GTLocation+Asset.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E5AEDA821D1D3B8A006D4296 /* Detector */ = {
+			isa = PBXGroup;
+			children = (
+				E5C369281D213D6F005FA4A0 /* target.jpg */,
+				E5AEDA841D1D3C4A006D4296 /* PatternDetector.h */,
+				E5AEDA831D1D3C4A006D4296 /* PatternDetector.cpp */,
+				E5C3692B1D21428F005FA4A0 /* UIImage+OpenCV.h */,
+				E5C3692C1D21428F005FA4A0 /* UIImage+OpenCV.mm */,
+			);
+			path = Detector;
+			sourceTree = "<group>";
+		};
+		E5AEDA8B1D1D3DEF006D4296 /* Visualization */ = {
+			isa = PBXGroup;
+			children = (
+				E5AEDA8C1D1D3DFB006D4296 /* ARView.h */,
+				E5AEDA8D1D1D3DFB006D4296 /* ARView.m */,
+			);
+			path = Visualization;
 			sourceTree = "<group>";
 		};
 		E5B6B56D1CC56F5800DC8EFC /* Create */ = {
@@ -1325,6 +1378,16 @@
 				E5B6B63B1CC6C40C00DC8EFC /* LineDrawer.m */,
 			);
 			path = Drawing;
+			sourceTree = "<group>";
+		};
+		E5C3692F1D214482005FA4A0 /* VideoSource */ = {
+			isa = PBXGroup;
+			children = (
+				E5C369301D214482005FA4A0 /* VideoFrame.h */,
+				E5C369311D214482005FA4A0 /* VideoSource.h */,
+				E5C369321D214482005FA4A0 /* VideoSource.mm */,
+			);
+			path = VideoSource;
 			sourceTree = "<group>";
 		};
 		E5D0857E1CD8D30000226589 /* TOCropViewController */ = {
@@ -1542,7 +1605,7 @@
 		E5DFDBFD1CB2C31B00BB3D27 /* ExternalLibs */ = {
 			isa = PBXGroup;
 			children = (
-				E580C7161D081C7F007E031D /* TestFairy */,
+				E5494E6E1D1C9182004F31A7 /* OpenCV */,
 				E5B6B5EE1CC5A7C800DC8EFC /* cocos2d.xcodeproj */,
 				E5D0857E1CD8D30000226589 /* TOCropViewController */,
 			);
@@ -1624,6 +1687,9 @@
 		F89B9B6C7903A7912D4CD2E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E5AEDA781D1CCC50006D4296 /* opencv2.framework */,
+				E5AEDA631D1CB467006D4296 /* opencv2.framework */,
+				E5AEDA5C1D1CB1EB006D4296 /* opencv2.framework */,
 				E55452EF1CF3507D0076CEC9 /* AddressBookUI.framework */,
 				E57295D01CEB2FE400875AF3 /* libsqlite3.tbd */,
 				E53F3FB21CEAB6F400537D1B /* MobileCoreServices.framework */,
@@ -1824,6 +1890,7 @@
 				E58432BE1CE9242000FB1E50 /* StreamableTrendingCell.xib in Resources */,
 				E58432BF1CE9242000FB1E50 /* AutocompleteHashCell.xib in Resources */,
 				E58432C01CE9242000FB1E50 /* Default-568h@2x.png in Resources */,
+				E5C3692A1D213D6F005FA4A0 /* target.jpg in Resources */,
 				E58432C21CE9242000FB1E50 /* UserAboutView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1832,6 +1899,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C369291D213D6F005FA4A0 /* target.jpg in Resources */,
 				E5DFDC0F1CB2C3AB00BB3D27 /* LaunchScreen.storyboard in Resources */,
 				E51CD0D01CD0C77800D56C58 /* Spray.png in Resources */,
 				E5DFDBDD1CB2BF9E00BB3D27 /* Assets.xcassets in Resources */,
@@ -1990,6 +2058,7 @@
 				E58432311CE9242000FB1E50 /* ActivityGroupCreateCell.swift in Sources */,
 				E58432321CE9242000FB1E50 /* TOActivityCroppedImageProvider.m in Sources */,
 				E58432331CE9242000FB1E50 /* AutocompleteUserCell.swift in Sources */,
+				E5C369341D214482005FA4A0 /* VideoSource.mm in Sources */,
 				E58432341CE9242000FB1E50 /* ActivitySingleCreateCell.swift in Sources */,
 				E59BC3011D12B4EF009781BA /* TrendingUsersViewController.swift in Sources */,
 				E58432351CE9242000FB1E50 /* GTComment+Status.swift in Sources */,
@@ -2019,6 +2088,7 @@
 				E58432431CE9242000FB1E50 /* TOCroppedImageAttributes.m in Sources */,
 				E58432441CE9242000FB1E50 /* LikersViewController.swift in Sources */,
 				E58432451CE9242000FB1E50 /* DialogBuilder.swift in Sources */,
+				E5AEDA8F1D1D3DFB006D4296 /* ARView.m in Sources */,
 				E58432461CE9242000FB1E50 /* NotificationMentionCell.swift in Sources */,
 				E58432471CE9242000FB1E50 /* EditTextViewController.swift in Sources */,
 				E58432481CE9242000FB1E50 /* MosaicStreamablesViewController.swift in Sources */,
@@ -2029,6 +2099,7 @@
 				E584324D1CE9242000FB1E50 /* GenericUsersViewController.swift in Sources */,
 				E584324E1CE9242000FB1E50 /* ActivityGroupCommentCell.swift in Sources */,
 				E592625F1D0197E400368212 /* ProfileFollowButton.swift in Sources */,
+				E5C3692E1D21428F005FA4A0 /* UIImage+OpenCV.mm in Sources */,
 				E505676C1D0F0B5200D2F245 /* StaticUsersViewController.swift in Sources */,
 				E584324F1CE9242000FB1E50 /* LoginViewController.swift in Sources */,
 				E58432501CE9242000FB1E50 /* InputValidator.swift in Sources */,
@@ -2052,6 +2123,7 @@
 				E50564CD1CEC774000A42E56 /* PublishViewController.swift in Sources */,
 				E584325F1CE9242000FB1E50 /* TrendingViewController.swift in Sources */,
 				E58432601CE9242000FB1E50 /* UserLikedStreamablesViewController.swift in Sources */,
+				E5AEDA381D1C921A006D4296 /* OpenCVWrapper.mm in Sources */,
 				E58432611CE9242000FB1E50 /* GTLocationManager.swift in Sources */,
 				E58432621CE9242000FB1E50 /* ActivityViewController.swift in Sources */,
 				E5E293831D05DC0E00C272EE /* UIView+Materialize.swift in Sources */,
@@ -2112,6 +2184,7 @@
 				E58432911CE9242000FB1E50 /* TOCropView.m in Sources */,
 				E58432921CE9242000FB1E50 /* RecentViewController.swift in Sources */,
 				E58432931CE9242000FB1E50 /* EditProfileViewController.swift in Sources */,
+				E5AEDA881D1D3C4A006D4296 /* PatternDetector.cpp in Sources */,
 				E58432941CE9242000FB1E50 /* GTUser+Extra.swift in Sources */,
 				E5FE1D8F1CFF7DFE009CFB72 /* StreamableImageView.swift in Sources */,
 				E58432951CE9242000FB1E50 /* ListFullStreamablesViewController.swift in Sources */,
@@ -2146,6 +2219,7 @@
 				E51006D41CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
 				E5D085A81CD8D30000226589 /* TOActivityCroppedImageProvider.m in Sources */,
 				E5DAA89D1CE37A5F000CB2F4 /* AutocompleteUserCell.swift in Sources */,
+				E5C369331D214482005FA4A0 /* VideoSource.mm in Sources */,
 				E51006C21CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */,
 				E59BC3001D12B4EF009781BA /* TrendingUsersViewController.swift in Sources */,
 				E5A4F13D1CE34846005CF12C /* GTComment+Status.swift in Sources */,
@@ -2175,6 +2249,7 @@
 				E5D085A91CD8D30000226589 /* TOCroppedImageAttributes.m in Sources */,
 				E52DC7761CE5E09900375828 /* LikersViewController.swift in Sources */,
 				E5DFDC021CB2C31B00BB3D27 /* DialogBuilder.swift in Sources */,
+				E5AEDA8E1D1D3DFB006D4296 /* ARView.m in Sources */,
 				E51006A91CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
 				E5B6B5AF1CC56F5800DC8EFC /* EditTextViewController.swift in Sources */,
 				E558A8A61CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */,
@@ -2185,6 +2260,7 @@
 				E51006F11CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
 				E51006D71CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
 				E592625E1D0197E400368212 /* ProfileFollowButton.swift in Sources */,
+				E5C3692D1D21428F005FA4A0 /* UIImage+OpenCV.mm in Sources */,
 				E505676B1D0F0B4F00D2F245 /* StaticUsersViewController.swift in Sources */,
 				E5B6B5DB1CC56F5800DC8EFC /* LoginViewController.swift in Sources */,
 				E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */,
@@ -2208,6 +2284,7 @@
 				E50564CC1CEC774000A42E56 /* PublishViewController.swift in Sources */,
 				E52DC77A1CE5E09900375828 /* TrendingViewController.swift in Sources */,
 				E52DC7621CE5DA2A00375828 /* UserLikedStreamablesViewController.swift in Sources */,
+				E5AEDA371D1C921A006D4296 /* OpenCVWrapper.mm in Sources */,
 				E51006831CB7FE0F00AC66A5 /* GTLocationManager.swift in Sources */,
 				E5B6B5B31CC56F5800DC8EFC /* ActivityViewController.swift in Sources */,
 				E5E2937E1D05DB6E00C272EE /* UIView+Materialize.swift in Sources */,
@@ -2268,6 +2345,7 @@
 				E5D085B01CD8D30000226589 /* TOCropView.m in Sources */,
 				E52DC7781CE5E09900375828 /* RecentViewController.swift in Sources */,
 				E5B6B5AB1CC56F5800DC8EFC /* EditProfileViewController.swift in Sources */,
+				E5AEDA871D1D3C4A006D4296 /* PatternDetector.cpp in Sources */,
 				E5DAA8B61CE49418000CB2F4 /* GTUser+Extra.swift in Sources */,
 				E5FE1D8E1CFF7DFE009CFB72 /* StreamableImageView.swift in Sources */,
 				E510064F1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */,
@@ -2318,13 +2396,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24C98BA1BC7B845CA3355791 /* Pods-GraffiTab Release.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Christov (PD6JJX75F4)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Release",
+					"$(PROJECT_DIR)",
 				);
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -2345,6 +2426,7 @@
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/TestFairy",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -2429,13 +2511,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 60414BAA024EE71CB76A1383 /* Pods-GraffiTab Release.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Christov (PD6JJX75F4)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Release",
+					"$(PROJECT_DIR)",
 				);
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -2456,6 +2541,7 @@
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/TestFairy",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -2627,6 +2713,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
+					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/Chipmunk/objectivec/include",
@@ -2733,6 +2820,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Debug",
+					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/cocos2d/external/Chipmunk/objectivec/include",

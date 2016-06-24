@@ -153,12 +153,12 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     @IBAction func onClickStreetView(sender: AnyObject) {
-//        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("StreetViewController")
-//        
-//        vc.modalPresentationStyle = .Custom
-//        vc.transitioningDelegate = self
-//        
-//        self.presentViewController(vc, animated: true, completion: nil)
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("StreetViewController")
+        
+        vc.modalPresentationStyle = .Custom
+        vc.transitioningDelegate = self
+        
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     func openClusterView(streamables: [GTStreamable]) {
