@@ -3,3 +3,4 @@ GraffiTab.xcodeproj/xcuserdata
 GraffiTab.xcworkspace
 Pods
 GraffiTab/ExternalLibs
+opencv2.framework
