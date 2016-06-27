@@ -10,6 +10,7 @@ import UIKit
 import GraffiTab_iOS_SDK
 import CSStickyHeaderFlowLayout
 import AHKActionSheet
+import CocoaLumberjack
 
 class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDelegate {
 
@@ -47,6 +48,9 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+        
         if !self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(true, animated: true)
         }
@@ -64,6 +68,11 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     }
     
     @IBAction func onClickEdit(sender: AnyObject) {
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Edit user profile")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("edit_profile", label: nil)
+        
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfileViewController")
         self.navigationController?.pushViewController(vc!, animated: true)
     }
@@ -72,6 +81,11 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         var followers = user?.followersCount != nil ? user?.followersCount : 0
         
         if user!.followedByCurrentUser! { // Unfollow.
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Unfollow")
+            
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("unfollow", label: nil)
+            
             followers = followers! - 1
             if followers < 0 {
                 followers = 0
@@ -85,6 +99,11 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             })
         }
         else { // Follow.
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Follow")
+            
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("follow", label: nil)
+            
             followers = followers! + 1
             
             GTUserManager.follow(user!.id!, successBlock: { (response) in

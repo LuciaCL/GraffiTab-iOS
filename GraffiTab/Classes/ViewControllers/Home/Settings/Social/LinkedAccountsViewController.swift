@@ -24,6 +24,9 @@ class LinkedAccountsViewController: BackButtonTableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+        
         loadData()
     }
 
@@ -44,7 +47,7 @@ class LinkedAccountsViewController: BackButtonTableViewController {
     // MARK: - Accounts
     
     func handleFacebookAccount() {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Handling Facebook account linking")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Handling Facebook account linking")
         
         let user = GTSettings.sharedInstance.user
         let isLinkedFacebook = user!.isLinkedAccount(.FACEBOOK)
@@ -58,7 +61,7 @@ class LinkedAccountsViewController: BackButtonTableViewController {
             self.view.rn_activityView.dimBackground = false
             
             loginToFacebookWithSuccess(false, successBlock: { (userId, token, email, firstName, lastName) in
-                DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to link Facebook account")
+                DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to link Facebook account")
                 
                 GTMeManager.linkExternalProvider(.FACEBOOK, externalId: userId, accessToken: token, successBlock: { (response) in
                     self.view.hideActivityView()
@@ -128,6 +131,9 @@ class LinkedAccountsViewController: BackButtonTableViewController {
         }
         
         if indexPath.row == 0 { // Facebook
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("linked_accounts_facebook", label: nil)
+            
             handleFacebookAccount()
         }
     }

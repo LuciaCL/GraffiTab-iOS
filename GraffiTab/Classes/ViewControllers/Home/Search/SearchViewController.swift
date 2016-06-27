@@ -29,6 +29,9 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+        
         if self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(false, animated: true)
         }
@@ -60,9 +63,12 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
     // MARK: - UISearchBarDelegate
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Searching for: \(searchBar.text)")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Searching for: \(searchBar.text)")
         
         searchBar.resignFirstResponder()
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("search", label: searchBar.text)
         
         let vc = controllers![Int(carbonTabSwipeNavigation!.currentTabIndex)]
         if vc.isKindOfClass(SearchUsersViewController) {

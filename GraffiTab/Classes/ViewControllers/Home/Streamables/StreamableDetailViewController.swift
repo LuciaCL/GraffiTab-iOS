@@ -51,6 +51,9 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+        
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
     }
     
@@ -71,28 +74,68 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         let actionSheet = buildActionSheet("What would you like to do with this graffiti?")
         if isMe() {
             actionSheet.addButtonWithTitle("Edit", image: UIImage(named: "ic_mode_edit_white"), type: .Default) { (sheet) in
+                DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Edit graffiti")
+                
+                // Register analytics events.
+                AnalyticsUtils.sendAppEvent("edit_graffiti", label: nil)
+                
                 self.edit()
             }
             actionSheet.addButtonWithTitle(streamable?.isPrivate == true ? "Mark Public" : "Mark Private", image: UIImage(named: streamable?.isPrivate == true ? "ic_visibility_white" : "ic_visibility_off_white"), type: .Default) { (sheet) in
+                DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Toggle privacy")
+                
+                // Register analytics events.
+                AnalyticsUtils.sendAppEvent("toggle_graffiti_privacy", label: nil)
+                
                 self.togglePrivacy()
             }
         }
         actionSheet.addButtonWithTitle("Flag Inappropriate", image: UIImage(named: "ic_flag_white"), type: .Default) { (sheet) in
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Flag graffiti")
+            
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("flag_inappropriate", label: nil)
+            
             self.flag()
         }
         actionSheet.addButtonWithTitle("Explore Map Area", image: UIImage(named: "ic_near_me_white"), type: .Default) { (sheet) in
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Explore area")
+            
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("explore_map_area", label: nil)
+            
             self.exploreArea()
         }
         actionSheet.addButtonWithTitle("Save to Photos Library", image: UIImage(named: "ic_file_download_white"), type: .Default) { (sheet) in
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Save graffiti")
+            
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("save", label: nil)
+            
             self.save()
         }
         actionSheet.addButtonWithTitle("Copy Link", image: UIImage(named: "ic_link_white"), type: .Default) { (sheet) in
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Copy link")
+            
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("copy_link", label: nil)
+            
             self.copyLink()
         }
         actionSheet.addButtonWithTitle("Set as Profile Picture", image: UIImage(named: "ic_person_white"), type: .Default) { (sheet) in
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Set as profile picture")
+            
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("set_as_profile_picture", label: nil)
+            
             self.setAsAvatar()
         }
         if isMe() {
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Delete graffiti")
+            
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("delete_graffiti", label: nil)
+            
             actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
                 self.delete()
             }
@@ -101,11 +144,21 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     @IBAction func onClickShare(sender: AnyObject) {
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Share graffiti")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("share", label: nil)
+        
         Utils.shareImage(streamableImage.imageView!.image!, viewController: self)
     }
     
     @IBAction func onClickLike(sender: AnyObject) {
         if streamable!.likedByCurrentUser! { // Unlike.
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Unlike graffiti")
+            
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("unlike", label: nil)
+            
             streamable!.likersCount! -= 1
             
             GTStreamableManager.unlike(streamable!.id!, successBlock: { (response) in
@@ -115,6 +168,11 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             })
         }
         else { // Like.
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Like graffiti")
+            
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("like", label: nil)
+            
             streamable!.likersCount! += 1
             
             GTStreamableManager.like(streamable!.id!, successBlock: { (response) in

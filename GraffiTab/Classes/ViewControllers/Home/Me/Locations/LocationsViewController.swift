@@ -68,6 +68,9 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+        
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
         
         if self.navigationController!.navigationBarHidden {
@@ -383,21 +386,36 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
         
         let actionSheet = buildActionSheet("What would you like to do with this place?")
         actionSheet.addButtonWithTitle("Edit", image: UIImage(named: "ic_mode_edit_white"), type: .Default) { (sheet) in
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("location_edit", label: nil)
+            
             self.performSegueWithIdentifier("SEGUE_EDIT_LOCATION", sender: location)
         }
         actionSheet.addButtonWithTitle("Copy address", image: UIImage(named: "ic_content_copy_white"), type: .Default) { (sheet) in
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("location_copy_address", label: nil)
+            
             UIPasteboard.generalPasteboard().string = location.address
         }
         actionSheet.addButtonWithTitle(tracked ? "Untrack" : "Track", image: UIImage(named: tracked ? "ic_radio_button_checked_white" : "ic_radio_button_unchecked_white"), type: .Default) { (sheet) in
             if tracked {
+                // Register analytics events.
+                AnalyticsUtils.sendAppEvent("location_untrack", label: nil)
+                
                 self.removeGeofenceForLocation(location, indexPath: indexPath)
             }
             else {
+                // Register analytics events.
+                AnalyticsUtils.sendAppEvent("location_track", label: nil)
+                
                 self.addGeofenceForLocation(location, indexPath: indexPath)
             }
         }
         actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
             DialogBuilder.showYesNoAlert("Are you sure you want to delete this location?", title: App.Title, yesTitle: "Yes, delete it!", noTitle: "Cancel", yesAction: {
+                // Register analytics events.
+                AnalyticsUtils.sendAppEvent("location_delete", label: nil)
+                
                 self.doDeleteLocation(location, indexPath: indexPath)
             }, noAction: {
                     

@@ -21,6 +21,13 @@ class LinkedAccountViewController: BackButtonTableViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,7 +48,10 @@ class LinkedAccountViewController: BackButtonTableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         if indexPath.section == 1 && indexPath.row == 0 {
-            DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to unlink account")
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to unlink account")
+            
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("linked_accounts_unlink", label: self.accountProvider?.rawValue)
             
             DialogBuilder.showYesNoAlert("Are you sure you want to unlink this account?", title: App.Title, yesTitle: "Unlink", yesAction: {
                 self.view.showActivityViewWithLabel("Processing")

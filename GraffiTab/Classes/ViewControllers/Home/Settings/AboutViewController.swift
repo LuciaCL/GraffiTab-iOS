@@ -21,6 +21,13 @@ class AboutViewController: GeneralSettingsViewController {
         loadInfo()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -24,6 +24,13 @@ class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate
         
         configureCharacterBasedViews()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -39,7 +46,10 @@ class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate
     }
     
     @IBAction func onClickReset(sender: AnyObject) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting password reset")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting password reset")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("reset_password", label: nil)
         
         self.view.endEditing(true)
         

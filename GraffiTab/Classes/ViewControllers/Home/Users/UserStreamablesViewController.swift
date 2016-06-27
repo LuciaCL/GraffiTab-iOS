@@ -16,6 +16,9 @@ class UserStreamablesViewController: ToggleStreamablesViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+        
         if self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(false, animated: true)
         }

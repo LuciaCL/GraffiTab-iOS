@@ -77,6 +77,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+        
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: .Fade)
     }
     
@@ -116,7 +119,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
 //        self.presentViewController(vc, animated: true, completion: nil)
         
         // TODO: Uncomment this to show the AR publisher. For now we won't track the position of the image in the real world.
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to publish")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to publish")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("attempting_to_publish", label: nil)
         
         let sampleImage = self.canvas?.grabFrame()
         var pitch = GTDeviceMotionManager.manager.pitch
@@ -139,7 +145,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         let successBlock = {
             self.view.hideActivityView()
             
-            DialogBuilder.showYesNoSuccessAlert("Your post has been published! Would you like to continue drawing?", title: App.Title, yesTitle: "Continue", noTitle: "Close Canvas", yesAction: { 
+            DialogBuilder.showYesNoSuccessAlert("Your post has been published! Would you like to continue drawing?", title: App.Title, yesTitle: "Continue", noTitle: "Close Canvas", yesAction: {
                 
             }, noAction: { 
                 self.didPublish()
@@ -173,9 +179,13 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         
         if location == nil {
             DialogBuilder.showYesNoAlert("Your location could not be determined right now. Would you like to still publish this post?", title: App.Title, yesAction: {
+                // Register analytics events.
+                AnalyticsUtils.sendAppEvent("attempting_to_publish_without_location", label: nil)
+                
                 saveBlock()
             }, noAction: {
-                    
+                // Register analytics events.
+                AnalyticsUtils.sendAppEvent("publish_refused_no_location", label: nil)
             })
         }
         else {
@@ -187,14 +197,20 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickShare(sender: AnyObject?) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing share dialog")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing share dialog")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("share", label: "Sharing from Creator")
         
         let sampleImage = self.canvas?.grabFrame()
         Utils.shareImage(sampleImage!, viewController: self)
     }
     
     @IBAction func onClickSave(sender: AnyObject?) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Saving canvas snapshot")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Saving canvas snapshot")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("saving", label: "Saving canvas snapshot")
         
         self.view.showActivityViewWithLabel("Processing")
         self.view.rn_activityView.dimBackground = false
@@ -205,7 +221,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             UIImageWriteToSavedPhotosAlbum(sampleImage!, nil, nil, nil);
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Shapshot saved")
+                DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Shapshot saved")
                 
                 self.view.hideActivityView()
                 
@@ -217,7 +233,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickDone(sender: AnyObject) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing publish options")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing publish options")
         let actionSheet = buildActionSheet("Looks great! How about sharing it with the rest of the world?")
         actionSheet.addButtonWithTitle("Publish", image: UIImage(named: "ic_done_white"), type: .Default) { (sheet) in
             self.hideMenu({
@@ -232,6 +248,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         }
         actionSheet.addButtonWithTitle("Discard", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
             DialogBuilder.showYesNoAlert("Are you sure you want to discard this drawing? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, discard it!", noTitle: "Cancel", yesAction: {
+                // Register analytics events.
+                AnalyticsUtils.sendAppEvent("discard", label: nil)
+                
                 self.onClickClose(nil)
             }, noAction: {
                     
@@ -241,7 +260,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickEnhance(sender: AnyObject?) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing enhancer tool")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing enhancer tool")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("enhance_drawing", label: nil)
         
         let sampleImage = self.canvas?.grabFrame()
         
@@ -266,7 +288,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickChangeBackground(sender: AnyObject) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to change background")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to change background")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("change_background", label: nil)
         
         // Ask for photos library.
         PHPhotoLibrary.requestAuthorization { status in
@@ -325,6 +350,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     @IBAction func onClickUndo(sender: AnyObject) {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Undo action")
         
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("undo", label: nil)
+        
         canvas!.undo()
         
         configureUndoButtons()
@@ -332,6 +360,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     @IBAction func onClickRedo(sender: AnyObject) {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Redo action")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("redo", label: nil)
         
         canvas!.redo()
         
@@ -367,6 +398,11 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickTune(sender: AnyObject) {
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing tool options")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("tool_options", label: nil)
+        
         MZFormSheetPresentationController.appearance().shouldApplyBackgroundBlurEffect = true
         MZFormSheetPresentationController.appearance().shouldCenterHorizontally = true
         MZFormSheetPresentationController.appearance().shouldCenterVertically = true
@@ -779,7 +815,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         canvas = canvasScene!.canvas
         canvas?.delegate = self
         
-        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] IntroScene set up - \(canvasScene)")
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] IntroScene set up - \(canvasScene)")
         
         // Setup default colors.
         let color = UIColor.blackColor()

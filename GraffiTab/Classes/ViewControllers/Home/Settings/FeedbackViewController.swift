@@ -8,6 +8,7 @@
 
 import UIKit
 import GraffiTab_iOS_SDK
+import CocoaLumberjack
 
 class FeedbackViewController: BackButtonTableViewController {
 
@@ -17,6 +18,13 @@ class FeedbackViewController: BackButtonTableViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -32,6 +40,11 @@ class FeedbackViewController: BackButtonTableViewController {
     
     func onClickSend() {
         if textField.text.characters.count > 0 {
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to send feedback")
+            
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("feedback", label: nil)
+            
             self.view.showActivityViewWithLabel("Processing")
             self.view.rn_activityView.dimBackground = false
             

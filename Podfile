@@ -49,6 +49,7 @@ def common_pods
     pod 'DeployGateSDK'
     pod 'UIColor_Hex_Swift'
     pod 'AHKActionSheet'
+    pod 'Google/Analytics'
 end
 
 target 'GraffiTab' do

@@ -16,14 +16,15 @@ class SplashViewController: BackButtonViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - Orientation
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [.Portrait, .PortraitUpsideDown]
     }
 }

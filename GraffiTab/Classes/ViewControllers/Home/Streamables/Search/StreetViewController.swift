@@ -43,6 +43,9 @@ class StreetViewController: UIViewController, VideoSourceDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+        
         updateTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(loadItems), userInfo: nil, repeats: true)
         
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: .Fade)

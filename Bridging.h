@@ -21,6 +21,8 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
+#import <Google/Analytics.h>
+
 #import <JTMaterialTransition/JTMaterialTransition.h>
 #import <RSKGrowingTextView/RSKGrowingTextView.h>
 #import <iCarousel/iCarousel.h>

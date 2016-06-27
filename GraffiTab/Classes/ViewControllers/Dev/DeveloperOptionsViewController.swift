@@ -20,6 +20,13 @@ class DeveloperOptionsViewController: BackButtonTableViewController {
         loadData()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+    }
+    
     @IBAction func onClickDone(sender: AnyObject) {
         // Save properties.
         let domain = domainField.text
@@ -31,6 +38,9 @@ class DeveloperOptionsViewController: BackButtonTableViewController {
         
         GTSettings.sharedInstance.setAppDomain(domain!)
         Settings.sharedInstance.appDomain = domain
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("changed_app_domain", label: domain!)
         
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Saved developer settings")
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] App domain: \(domain)")

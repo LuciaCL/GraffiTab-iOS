@@ -22,6 +22,13 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -34,7 +41,7 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
     }
     
     func onClickSave() {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to change password")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to change password")
         
         self.view.endEditing(true)
         
@@ -43,6 +50,9 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
         let cp = confirmPasswordField.text
         
         if InputValidator.validateEditPassword(p!, newPassword: np!, confirmPassword: cp!) {
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("profile_change_password", label: nil)
+            
             self.view.showActivityViewWithLabel("Processing")
             self.view.rn_activityView.dimBackground = false
             

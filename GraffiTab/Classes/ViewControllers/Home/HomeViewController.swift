@@ -41,6 +41,9 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+        
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
         
         if self.navigationController!.navigationBarHidden {
@@ -60,12 +63,18 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     }
     
     @IBAction func onClickMenu(sender: AnyObject) {
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("show_menu", label: nil)
+        
         let mainVC = UIApplication.sharedApplication().delegate?.window??.rootViewController as! MenuContainerViewController
         mainVC.presentLeftMenuViewController()
     }
     
     @IBAction func onClickCreate(sender: AnyObject?) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing Creator")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing Creator")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("show_creator", label: nil)
         
         ViewControllerUtils.checkCameraAndPhotosPermissions { 
             let vc = UIStoryboard(name: "CreateStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CreateViewController")
@@ -78,31 +87,46 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     }
     
     @IBAction func onClickProfile(sender: AnyObject?) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing user profile")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing user profile")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("show_profile", label: nil)
         
         performSegueWithIdentifier("SEGUE_PROFILE", sender: sender)
     }
     
     @IBAction func onClickNotifications(sender: AnyObject?) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing user notifications")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing user notifications")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("show_notifications", label: nil)
         
         performSegueWithIdentifier("SEGUE_NOTIFICATIONS", sender: sender)
     }
     
     @IBAction func onClickLocations(sender: AnyObject?) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing user locations")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing user locations")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("show_locations", label: nil)
         
         performSegueWithIdentifier("SEGUE_LOCATIONS", sender: sender)
     }
     
     @IBAction func onClickSearch(sender: AnyObject?) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing search")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing search")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("show_search", label: nil)
         
         performSegueWithIdentifier("SEGUE_SEARCH", sender: sender)
     }
     
     @IBAction func onClickSettings(sender: AnyObject?) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing settings")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing settings")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("show_settings", label: nil)
         
         performSegueWithIdentifier("SEGUE_SETTINGS", sender: sender)
     }
@@ -127,7 +151,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     // MARK: - Loading
     
     func loadUnseenNotificationsCount() {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Refreshing notifications")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Refreshing notifications")
         
         GTMeManager.getUnseenNotificationsCount({ (response) in
             self.badge?.badgeValue = response.object.stringValue

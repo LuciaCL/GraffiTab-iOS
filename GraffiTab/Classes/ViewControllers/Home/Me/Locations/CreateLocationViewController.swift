@@ -46,6 +46,9 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+        
         if self.navigationController != nil && !self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(true, animated: true)
         }
@@ -57,12 +60,15 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
     }
     
     @IBAction func onClickCreate(sender: AnyObject) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to create location")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to create location")
         
         if lastPlacemark == nil {
             DialogBuilder.showErrorAlert("Select a location first.", title: App.Title)
         }
         else {
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("location_create", label: nil)
+            
             self.view.showActivityViewWithLabel("Processing")
             self.view.rn_activityView.dimBackground = false
             
@@ -119,7 +125,7 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
     }
     
     @IBAction func onClickSearch(sender: AnyObject) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to search for location")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to search for location")
         
         isSearching = !isSearching
         

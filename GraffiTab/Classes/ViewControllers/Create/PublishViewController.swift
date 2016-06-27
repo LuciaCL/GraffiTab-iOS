@@ -51,6 +51,9 @@ class PublishViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+        
         GTDeviceMotionManager.manager.startMotionUpdates()
         
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: .Fade)
@@ -80,6 +83,11 @@ class PublishViewController: UIViewController {
     }
     
     @IBAction func onClickCancel(sender: AnyObject) {
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Cancelled publish")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("cancel_publish", label: nil)
+        
         if self.delegate != nil {
             self.delegate?.didCancel()
         }
@@ -89,11 +97,17 @@ class PublishViewController: UIViewController {
     }
     
     @IBAction func onClickInfo(sender: AnyObject) {
-        // TODO:
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing publish info")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("show_publish_info", label: nil)
     }
     
     @IBAction func onClickCreate(sender: AnyObject) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to publish")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to publish")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("attempting_to_publish", label: nil)
         
         var pitch = GTDeviceMotionManager.manager.pitch
         var roll = GTDeviceMotionManager.manager.roll
@@ -151,9 +165,13 @@ class PublishViewController: UIViewController {
         
         if location == nil {
             DialogBuilder.showYesNoAlert("Your location could not be determined right now. Would you like to still publish this post?", title: App.Title, yesAction: {
+                // Register analytics events.
+                AnalyticsUtils.sendAppEvent("attempting_to_publish_without_location", label: nil)
+                
                 saveBlock()
             }, noAction: {
-                
+                // Register analytics events.
+                AnalyticsUtils.sendAppEvent("publish_refused_no_location", label: nil)
             })
         }
         else {

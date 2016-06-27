@@ -50,6 +50,9 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+        
         if self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(false, animated: true)
         }
@@ -259,6 +262,11 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     // MARK: - SLKTextViewController
     
     override func didPressRightButton(sender: AnyObject!) {
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to post comment")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("post_comment", label: nil)
+        
         // This little trick validates any pending auto-correction or auto-spelling just after hitting the 'Send' button
         self.textView.refreshFirstResponder()
         

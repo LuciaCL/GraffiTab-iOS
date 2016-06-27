@@ -30,6 +30,13 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         
         loadData()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -45,12 +52,13 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
     @IBAction func onClickFacebookLogin(sender: AnyObject) {
         self.view.endEditing(true)
         
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Logging in with Facebook")
-        
         loginFacebook(true)
     }
     
     @IBAction func onClickDevOptions(sender: AnyObject) {
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("developer_options", label: nil)
+        
         let vc = UIStoryboard(name: "DeveloperOptionsStoryboard", bundle: NSBundle.mainBundle()).instantiateInitialViewController()
         self.presentViewController(vc!, animated: true, completion: nil)
     }
@@ -128,7 +136,10 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
     // MARK: - Login
     
     func login() {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting user login")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting user login")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("login", label: nil)
         
         let un = usernameField.text
         let pa = passwordField.text
@@ -162,6 +173,9 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
     
     func loginFacebook(forceLogin: Bool) {
         DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting user Facebook login")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("login_facebook", label: nil)
         
         self.view.showActivityViewWithLabel("Processing")
         self.view.rn_activityView.dimBackground = false

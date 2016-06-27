@@ -43,6 +43,9 @@ class EditProfileViewController: BackButtonTableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+        
         if self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(false, animated: true)
         }
@@ -54,7 +57,10 @@ class EditProfileViewController: BackButtonTableViewController {
     }
     
     func onClickSave() {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting to save profile")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to save profile")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("profile_edit", label: nil)
         
         let fn = firstnameField.text
         let ln = lastnameField.text
@@ -101,6 +107,9 @@ class EditProfileViewController: BackButtonTableViewController {
             actionSheet.addButtonWithTitle("Import from Facebook", image: UIImage(named: "facebook"), type: self.user.isLinkedAccount(.FACEBOOK) ? .Default : .Disabled) { (sheet) in
                 self.view.showActivityViewWithLabel("Processing")
                 self.view.rn_activityView.dimBackground = false
+                
+                // Register analytics events.
+                AnalyticsUtils.sendAppEvent("profile_import_facebook_avatar", label: nil)
                 
                 GTMeManager.importAvatar(.FACEBOOK, successBlock: { (response) -> Void in
                     self.view.hideActivityView()

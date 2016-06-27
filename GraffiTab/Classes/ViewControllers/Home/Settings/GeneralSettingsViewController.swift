@@ -15,6 +15,13 @@ class GeneralSettingsViewController: BackButtonTableViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

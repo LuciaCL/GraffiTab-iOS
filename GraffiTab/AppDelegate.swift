@@ -51,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupCache()
         setupRechability()
         setupLog()
+        setupAnalytics()
         
         Utils.runWithDelay(1) { () in
             self.checkLoginStatus(launchOptions)
@@ -71,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Application did enter background")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Application did enter background")
     }
     
     func applicationWillEnterForeground(application: UIApplication) {
@@ -87,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GTLifecycleManager.applicationDidBecomeActive()
         GTLocationManager.manager.startLocationUpdates()
         
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Application did enter foreground")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Application did enter foreground")
     }
     
     func applicationWillTerminate(application: UIApplication) {
@@ -133,7 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Received push notification")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received push notification")
         
         if application.applicationState == .Active {
             DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received push notification in Active state")
@@ -167,7 +168,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func checkLoginStatus(launchOptions: [NSObject: AnyObject]?) {
         if (GTSettings.sharedInstance.isLoggedIn()) {
-            DDLogInfo("[\(NSStringFromClass(self.dynamicType))] User logged in. Refreshing profile")
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User logged in. Refreshing profile")
             
             GTMeManager.getMyFullProfile({ (response) -> Void in
                 UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
@@ -187,7 +188,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func userDidLogin(launchOptions: [NSObject: AnyObject]?) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] User logged in. Showing main app")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User logged in. Showing main app")
         
         showStoryboard("MainStoryboard", duration: 0.3);
         
@@ -198,7 +199,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func userDidLogout() {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] User logged out. Showing login screen")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User logged out. Showing login screen")
         
         GTSettings.sharedInstance.logout()
         
@@ -356,6 +357,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Show only errors.
             GTLogManager.setupApplicationLogger(false, logToDeviceLogs: false, logToFile: true, level: .Error)
         }
+    }
+    
+    func setupAnalytics() {
+        // Configure tracker from GoogleService-Info.plist.
+        var configureError:NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        
+        // Optional: configure GAI options.
+        let gai = GAI.sharedInstance()
+        gai.trackUncaughtExceptions = true  // report uncaught exceptions
+        gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
     }
 }
 

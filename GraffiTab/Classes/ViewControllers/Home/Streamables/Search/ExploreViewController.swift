@@ -59,6 +59,9 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+        
         if self.navigationController != nil && !self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(true, animated: true)
         }
@@ -91,6 +94,9 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     
     @IBAction func onClickGrid(sender: AnyObject) {
         if items.count > 0 {
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("map_cluster", label: nil)
+            
             openClusterView(items)
         }
     }
@@ -101,6 +107,9 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         }
         
         if mapView.userLocation.location != nil {
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("center_to_location", label: nil)
+            
             centerToLocation(mapView.userLocation.location!)
         }
     }
@@ -138,6 +147,9 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
             return
         }
         
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("change_map_terrain", label: nil)
+        
         if mapView.mapType == .Satellite {
             mapView.mapType = .Standard
             terrainBtn.tintColor = UIColor(hexString: "#e0e0e0")
@@ -153,6 +165,9 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     @IBAction func onClickStreetView(sender: AnyObject) {
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("street_view", label: nil)
+        
         let vc = self.storyboard!.instantiateViewControllerWithIdentifier("StreetViewController")
         
         vc.modalPresentationStyle = .Custom

@@ -23,6 +23,13 @@ class SettingsViewController: GeneralSettingsViewController {
         
         loadData()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -34,6 +41,11 @@ class SettingsViewController: GeneralSettingsViewController {
     }
     
     func onClickLogout() {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Logout")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("logout", label: nil)
+        
         self.view.showActivityViewWithLabel("Processing")
         self.view.rn_activityView.dimBackground = false
         

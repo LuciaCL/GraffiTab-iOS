@@ -36,6 +36,9 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+        
         if self.navigationController?.navigationBarHidden == false {
             self.navigationController?.setNavigationBarHidden(true, animated: true)
         }
@@ -51,7 +54,10 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
     }
     
     @IBAction func onClickSignUp(sender: AnyObject) {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Attempting user signup")
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting user signup")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("sign_up", label: nil)
         
         self.view.endEditing(true)
         

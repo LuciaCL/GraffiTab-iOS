@@ -355,6 +355,10 @@
 		E5C3692E1D21428F005FA4A0 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C3692C1D21428F005FA4A0 /* UIImage+OpenCV.mm */; };
 		E5C369331D214482005FA4A0 /* VideoSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C369321D214482005FA4A0 /* VideoSource.mm */; };
 		E5C369341D214482005FA4A0 /* VideoSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C369321D214482005FA4A0 /* VideoSource.mm */; };
+		E5C3693E1D2163D8005FA4A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5C3693D1D2163D8005FA4A0 /* GoogleService-Info.plist */; };
+		E5C3693F1D2163D8005FA4A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5C3693D1D2163D8005FA4A0 /* GoogleService-Info.plist */; };
+		E5C369491D216727005FA4A0 /* AnalyticsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C369481D216727005FA4A0 /* AnalyticsUtils.swift */; };
+		E5C3694A1D216727005FA4A0 /* AnalyticsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C369481D216727005FA4A0 /* AnalyticsUtils.swift */; };
 		E5CC52FA1D0EDAFF00425744 /* TransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC52F91D0EDAFF00425744 /* TransitioningDelegate.swift */; };
 		E5CC52FB1D0EDAFF00425744 /* TransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC52F91D0EDAFF00425744 /* TransitioningDelegate.swift */; };
 		E5CC53021D0EDB2600425744 /* PresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC53011D0EDB2600425744 /* PresentationAnimator.swift */; };
@@ -659,6 +663,8 @@
 		E5C369301D214482005FA4A0 /* VideoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoFrame.h; sourceTree = "<group>"; };
 		E5C369311D214482005FA4A0 /* VideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSource.h; sourceTree = "<group>"; };
 		E5C369321D214482005FA4A0 /* VideoSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoSource.mm; sourceTree = "<group>"; };
+		E5C3693D1D2163D8005FA4A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E5C369481D216727005FA4A0 /* AnalyticsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsUtils.swift; sourceTree = "<group>"; };
 		E5CC52F91D0EDAFF00425744 /* TransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitioningDelegate.swift; sourceTree = "<group>"; };
 		E5CC53011D0EDB2600425744 /* PresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationAnimator.swift; sourceTree = "<group>"; };
 		E5CC53041D0EDB7700425744 /* DismissalAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissalAnimator.swift; sourceTree = "<group>"; };
@@ -1222,7 +1228,6 @@
 			children = (
 				E52DC76A1CE5DFE700375828 /* PrivateStreamablesViewController.swift */,
 				E52DC7671CE5DFC700375828 /* FeedViewController.swift */,
-				E5FE1D971CFFBC7E009CFB72 /* Social */,
 				E55452CE1CF3150A0076CEC9 /* Locations */,
 				E5B6B5741CC56F5800DC8EFC /* Edit */,
 				E5B6B57B1CC56F5800DC8EFC /* Notifications */,
@@ -1519,6 +1524,7 @@
 				E56D1F221CDD1917007B3698 /* ArrayUtils.swift */,
 				E52DC73E1CE551D300375828 /* ViewControllerUtils.swift */,
 				E55452F21CF3586F0076CEC9 /* GoogleStaticApiUtils.swift */,
+				E5C369481D216727005FA4A0 /* AnalyticsUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1605,8 +1611,8 @@
 		E5DFDBFD1CB2C31B00BB3D27 /* ExternalLibs */ = {
 			isa = PBXGroup;
 			children = (
-				E5494E6E1D1C9182004F31A7 /* OpenCV */,
 				E5B6B5EE1CC5A7C800DC8EFC /* cocos2d.xcodeproj */,
+				E5494E6E1D1C9182004F31A7 /* OpenCV */,
 				E5D0857E1CD8D30000226589 /* TOCropViewController */,
 			);
 			path = ExternalLibs;
@@ -1624,6 +1630,7 @@
 		E5DFDC0B1CB2C33800BB3D27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E5C3693D1D2163D8005FA4A0 /* GoogleService-Info.plist */,
 				E5DFDC0C1CB2C39200BB3D27 /* Default-568h@2x.png */,
 				E5DFDBE11CB2BF9E00BB3D27 /* Info.plist */,
 				E58432CC1CE940F900FB1E50 /* Release-Info.plist */,
@@ -1666,13 +1673,6 @@
 				E5FE1D901CFF840B009CFB72 /* CoverImageView.swift */,
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		E5FE1D971CFFBC7E009CFB72 /* Social */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Social;
 			sourceTree = "<group>";
 		};
 		E5FE1DA01D0060F9009CFB72 /* Static */ = {
@@ -1886,6 +1886,7 @@
 				E58432BB1CE9242000FB1E50 /* release_notes.html in Resources */,
 				E58432BC1CE9242000FB1E50 /* TOCropViewControllerLocalizable.strings in Resources */,
 				E5494E5B1D19A1F5004F31A7 /* OnboardingStoryboard.storyboard in Resources */,
+				E5C3693F1D2163D8005FA4A0 /* GoogleService-Info.plist in Resources */,
 				E58432BD1CE9242000FB1E50 /* MainStoryboard.storyboard in Resources */,
 				E58432BE1CE9242000FB1E50 /* StreamableTrendingCell.xib in Resources */,
 				E58432BF1CE9242000FB1E50 /* AutocompleteHashCell.xib in Resources */,
@@ -1907,6 +1908,7 @@
 				E51CD0CD1CD0C77800D56C58 /* Brush.png in Resources */,
 				E51CD0CE1CD0C77800D56C58 /* Chalk.png in Resources */,
 				E5494E5A1D19A1F5004F31A7 /* OnboardingStoryboard.storyboard in Resources */,
+				E5C3693E1D2163D8005FA4A0 /* GoogleService-Info.plist in Resources */,
 				E51CD0CC1CD0C77800D56C58 /* blank.png in Resources */,
 				E554CFDE1CB5641B00668D85 /* terms.html in Resources */,
 				E5B6B5521CC260BF00DC8EFC /* UserCollectionParallaxHeader.xib in Resources */,
@@ -2132,6 +2134,7 @@
 				E58432651CE9242000FB1E50 /* BackButtonSlackViewController.swift in Sources */,
 				E55452D61CF3154C0076CEC9 /* LocationsViewController.swift in Sources */,
 				E58432661CE9242000FB1E50 /* NotificationFollowCell.swift in Sources */,
+				E5C3694A1D216727005FA4A0 /* AnalyticsUtils.swift in Sources */,
 				E58432671CE9242000FB1E50 /* CreateViewController.swift in Sources */,
 				E58432681CE9242000FB1E50 /* StreamableListFullCell.swift in Sources */,
 				E5FE1D8B1CFF7DFE009CFB72 /* AssetImageView.swift in Sources */,
@@ -2293,6 +2296,7 @@
 				E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */,
 				E55452D51CF3154C0076CEC9 /* LocationsViewController.swift in Sources */,
 				E51006A01CBBC0FD00AC66A5 /* NotificationFollowCell.swift in Sources */,
+				E5C369491D216727005FA4A0 /* AnalyticsUtils.swift in Sources */,
 				E5B6B5A31CC56F5800DC8EFC /* CreateViewController.swift in Sources */,
 				E51006621CB7BC5A00AC66A5 /* StreamableListFullCell.swift in Sources */,
 				E5FE1D8A1CFF7DFE009CFB72 /* AssetImageView.swift in Sources */,
