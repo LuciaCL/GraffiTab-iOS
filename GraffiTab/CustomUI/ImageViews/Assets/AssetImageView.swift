@@ -15,9 +15,10 @@ class AssetImageView: UIImageView {
     var shouldLoadFullAsset: Bool = false
     var previousAsset: GTAsset?
     var previousAssetRequest: Request?
+    var previousAssetDiskRequest: NSOperation?
     var asset: GTAsset? {
         didSet {
-            loadImages()
+            loadThumbnailsAndCachedAssetsAsset()
             
             previousAsset = asset
         }
@@ -41,35 +42,63 @@ class AssetImageView: UIImageView {
     
     // MARK: - Loading
     
-    func loadImages() {
-        let fetchRemotely = {
-            // Images have not been cached yet, so fetch them from the web or the internal Alamofire cache.
-            self.previousAssetRequest = Alamofire.request(.GET, self.asset!.thumbnail!)
-                .responseImage { response in
-                    let image = response.result.value != nil ? response.result.value : nil
+    func loadThumbnailsAndCachedAssetsAsset() {
+        let fetchFromDisk = {
+            // 3. No memory cache at this point, so try fetching full image from disk cache.
+            self.previousAssetDiskRequest = AppImageCache.sharedInstance.queryDiskCachedImage(self.asset!.link!, done: { (cachedFullImage, type) in
+                if cachedFullImage != nil {
+                    // Previous full sized image was found in disk cache.
+                    self.image = cachedFullImage
+                }
+                else {
+                    let fetchRemotely = {
+                        self.previousAssetRequest = Alamofire.request(.GET, self.asset!.thumbnail!)
+                            .responseImage { response in
+                                let image = response.result.value != nil ? response.result.value : nil
+                                
+                                let targetUrl = self.asset != nil ? self.asset!.thumbnail! : ""
+                                self.finishLoadingImage(response.request!.URLString, targetUrl: targetUrl, image: image, completionHandler: { (imageSet: Bool) in
+                                    if imageSet && self.shouldLoadFullAsset {
+                                        self.loadFullAsset()
+                                    }
+                                })
+                        }
+                    }
                     
-                    let targetUrl = self.asset != nil ? self.asset!.thumbnail! : ""
-                    self.finishLoadingImage(response.request!.URLString, targetUrl: targetUrl, image: image, completionHandler: { (imageSet: Bool) in
-                        if imageSet && self.shouldLoadFullAsset {
-                            self.loadFullAsset()
+                    // 4. No memory cache at this point, so try fetching thumbnail image from disk cache.
+                    self.previousAssetDiskRequest = AppImageCache.sharedInstance.queryDiskCachedImage(self.asset!.thumbnail!, done: { (cachedThumbnailImage, type) in
+                        if cachedThumbnailImage != nil {
+                            // Previous thumbnail sized image was found in disk cache.
+                            self.image = cachedThumbnailImage
+                            
+                            if self.shouldLoadFullAsset { // At this point we have no cached full image but we want to display a full image, so show thumbnail and fetch full image remotely and add it to cache.
+                                fetchRemotely()
+                            }
+                        }
+                        else {
+                            // 5. Images have not been cached yet, so fetch them from the web.
+                            fetchRemotely()
                         }
                     })
-            }
+                }
+            })
         }
         
         if asset == nil {
             self.image = nil
             previousAssetRequest?.cancel()
+            previousAssetDiskRequest?.cancel()
         }
         else if previousAsset != nil && previousAsset!.guid != asset?.guid {
             self.image = nil
             previousAssetRequest?.cancel()
+            previousAssetDiskRequest?.cancel()
         }
         
         if asset != nil {
             // 1. Check memory cache first.
-            let cachedThumbnailImage = AppMemoryImageCache.sharedInstance.cachedImage(asset!.thumbnail!)
-            let cachedFullImage = AppMemoryImageCache.sharedInstance.cachedImage(asset!.link!)
+            let cachedThumbnailImage = AppImageCache.sharedInstance.queryMemoryCachedImage(asset!.thumbnail!)
+            let cachedFullImage = AppImageCache.sharedInstance.queryMemoryCachedImage(asset!.link!)
             if cachedFullImage != nil {
                 self.image = cachedFullImage
             }
@@ -77,12 +106,12 @@ class AssetImageView: UIImageView {
                 self.image = cachedThumbnailImage
                 
                 if shouldLoadFullAsset { // At this point we have no cached full image but we want to display a full image, so show thumbnail and fetch full image remotely and add it to cache.
-                    fetchRemotely()
+                    fetchFromDisk()
                 }
             }
             else {
-                // 2. Images have not been cached yet, so fetch them from the web or the internal Alamofire cache.
-                fetchRemotely()
+                // 2. Images have not been cached yet, so fetch them from the web or the disk cache.
+                fetchFromDisk()
             }
         }
     }
@@ -109,7 +138,7 @@ class AssetImageView: UIImageView {
             self.image = image
             
             // Add image to cache.
-            AppMemoryImageCache.sharedInstance.cacheImage(url, image: image)
+            AppImageCache.sharedInstance.cacheImage(url, image: image)
             
             if completionHandler != nil {
                 completionHandler!(imageSet: true)

@@ -1179,7 +1179,7 @@
         <!--Navigation Controller-->
         <scene sceneID="IhD-Bt-CiH">
             <objects>
-                <navigationController id="jsF-8F-xDQ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jsF-8F-xDQ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RiH-Hz-lRO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

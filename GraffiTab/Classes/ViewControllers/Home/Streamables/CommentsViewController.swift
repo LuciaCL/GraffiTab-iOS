@@ -454,7 +454,10 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     }
     
     func didTapHashtag(hashtag: String) {
-        // TODO:
+        let nav = self.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as? UINavigationController
+        let vc = nav?.viewControllers.first as? SearchViewController
+        vc?.searchedHashtag = hashtag
+        self.presentViewController(nav!, animated: true, completion: nil)
     }
     
     func didTapUsername(username: String) {

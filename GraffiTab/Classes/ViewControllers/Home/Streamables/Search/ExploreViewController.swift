@@ -40,7 +40,6 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     var imageDownloadTasks = [NSURLSessionTask]()
     var refreshTimer: NSTimer?
     let clusteringManager = FBClusteringManager()
-    let imageCache = NSCache()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -291,7 +290,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
                 
                 // Fetch image either from cache or web.
                 let url = NSURL(string: (annotation.streamable?.asset?.thumbnail)!)!
-                let cachedImage = self.imageCache.objectForKey(url) as? UIImage
+                let cachedImage = AppImageCache.sharedInstance.queryMemoryCachedImage(url.absoluteString)
                 
                 if cachedImage != nil { // Use cached image.
                     DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Cache hit image for url \(url)")
@@ -307,7 +306,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
                             let image = UIImage(data: data!)
                             
                             // Add image to cache.
-                            self.imageCache.setObject(image!, forKey: url)
+                            AppImageCache.sharedInstance.cacheImage(url.absoluteString, image: image)
                             
                             successBlock(url, image!, annotation)
                         }

@@ -18,7 +18,6 @@ class StreetViewController: UIViewController, VideoSourceDelegate {
     @IBOutlet weak var cancelBtn: UIButton!
     
     var updateTimer: NSTimer?
-    var imageCache = NSCache()
     var initialLoad = false
     var items = [GTStreamable]()
     var imageDownloadTasks = [NSURLSessionTask]()

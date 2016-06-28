@@ -50,6 +50,7 @@ def common_pods
     pod 'UIColor_Hex_Swift'
     pod 'AHKActionSheet'
     pod 'Google/Analytics'
+    pod 'SDWebImage'
 end
 
 target 'GraffiTab' do

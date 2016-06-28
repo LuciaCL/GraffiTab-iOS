@@ -17,6 +17,7 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
     var carbonTabSwipeNavigation: CarbonTabSwipeNavigation?
     var tabs: [AnyObject]?
     var controllers: [UIViewController]?
+    var searchedHashtag: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
