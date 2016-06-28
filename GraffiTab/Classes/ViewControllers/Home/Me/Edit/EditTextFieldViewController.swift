@@ -41,11 +41,6 @@ class EditTextFieldViewController: BackButtonTableViewController, UITextFieldDel
         textField.becomeFirstResponder()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func onClickDone() {
         if !allowEmpty! && textField.text?.characters.count <= 0 {
             DialogBuilder.showErrorAlert("This field cannot be empty.", title: App.Title)

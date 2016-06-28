@@ -23,11 +23,6 @@ class GeneralSettingsViewController: BackButtonTableViewController {
         AnalyticsUtils.sendScreenEvent(self)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func showInfoViewController(title: String, file: String) {
         let storyboard = UIStoryboard(name: "LoginStoryboard", bundle: NSBundle.mainBundle())
         let infoVC = storyboard.instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController

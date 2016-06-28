@@ -44,11 +44,6 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func onClickClose(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

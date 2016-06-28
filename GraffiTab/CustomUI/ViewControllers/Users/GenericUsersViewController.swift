@@ -91,11 +91,6 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
         collectionView.performBatchUpdates(nil, completion: nil)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func basicInit() {
         viewType = .List
     }

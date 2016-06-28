@@ -77,11 +77,6 @@ class PublishViewController: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func onClickCancel(sender: AnyObject) {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Cancelled publish")
         

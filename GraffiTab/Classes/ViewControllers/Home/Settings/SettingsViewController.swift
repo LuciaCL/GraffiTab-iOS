@@ -31,11 +31,6 @@ class SettingsViewController: GeneralSettingsViewController {
         AnalyticsUtils.sendScreenEvent(self)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func onSwitchRememberCredentials(sender: AnyObject) {
         Settings.sharedInstance.rememberCredentials = rememberCredentialsSwitch.on
     }
@@ -145,6 +140,15 @@ class SettingsViewController: GeneralSettingsViewController {
                 inviteFacebookFriends()
             }
         }
+        else if indexPath.section == 2 {
+            if indexPath.row == 1 { // Clear app cache.
+                let actionSheet = buildActionSheet("Are you sure you want to clear the app's cache? Clearing the cache will force the app to re-download all images and may incur additional charges if you are not using WiFi.")
+                actionSheet.addButtonWithTitle("Clear Cache", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+                    AppImageCache.sharedInstance.clearDiskCache()
+                }
+                actionSheet.show()
+            }
+        }
         else if indexPath.section == 3 {
             if indexPath.row == 1 { // Report a problem.
                 let actionSheet = buildActionSheet("What would you like to report?")
@@ -171,7 +175,8 @@ class SettingsViewController: GeneralSettingsViewController {
                 actionSheet.addButtonWithTitle("Log out", image: UIImage(named: "ic_exit_to_app_white"), type: .Destructive) { (sheet) in
                     self.onClickLogout()
                 }
-                actionSheet.show()            }
+                actionSheet.show()
+            }
         }
     }
 }

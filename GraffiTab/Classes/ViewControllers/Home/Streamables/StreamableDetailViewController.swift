@@ -57,11 +57,6 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func onClickUser(sender: AnyObject) {
         ViewControllerUtils.showUserProfile(streamable!.user!, viewController: self)
     }

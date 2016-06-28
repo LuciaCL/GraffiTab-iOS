@@ -38,11 +38,6 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         AnalyticsUtils.sendScreenEvent(self)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func onClickLogin(sender: AnyObject) {
         self.view.endEditing(true)
         

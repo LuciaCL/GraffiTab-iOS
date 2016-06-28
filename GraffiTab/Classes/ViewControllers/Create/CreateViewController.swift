@@ -103,11 +103,6 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func onClickPublish(sender: AnyObject?) {
 //        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing publish screen")
 //        

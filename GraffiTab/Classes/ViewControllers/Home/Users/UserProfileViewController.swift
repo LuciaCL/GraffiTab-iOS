@@ -62,11 +62,6 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         self.layout?.parallaxHeaderReferenceSize = CGSizeMake(self.view.frame.size.width, parallaxHeaderHeight)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func onClickEdit(sender: AnyObject) {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Edit user profile")
         

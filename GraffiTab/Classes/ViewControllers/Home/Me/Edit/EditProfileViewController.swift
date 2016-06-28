@@ -51,11 +51,6 @@ class EditProfileViewController: BackButtonTableViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func onClickSave() {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to save profile")
         

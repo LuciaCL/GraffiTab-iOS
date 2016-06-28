@@ -33,4 +33,9 @@ class AppImageCache: NSObject {
             cache.storeImage(image, forKey: url)
         }
     }
+    
+    func clearDiskCache() {
+        let cache = SDImageCache.sharedImageCache()
+        cache.clearDisk()
+    }
 }

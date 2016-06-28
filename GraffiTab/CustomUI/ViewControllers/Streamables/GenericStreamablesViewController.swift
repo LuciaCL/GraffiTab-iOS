@@ -96,11 +96,6 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         collectionView.performBatchUpdates(nil, completion: nil)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // Can be called from the Empty data set buttons.
 //    func onClickCreateChannel() {
 //        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CreateChannelViewController")

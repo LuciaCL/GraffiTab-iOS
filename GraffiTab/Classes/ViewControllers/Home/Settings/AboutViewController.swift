@@ -28,11 +28,6 @@ class AboutViewController: GeneralSettingsViewController {
         AnalyticsUtils.sendScreenEvent(self)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: - Loading
     
     func loadInfo() {

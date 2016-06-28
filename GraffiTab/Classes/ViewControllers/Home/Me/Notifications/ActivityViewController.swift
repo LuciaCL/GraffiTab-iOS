@@ -38,11 +38,6 @@ class ActivityViewController: BackButtonViewController, CarbonTabSwipeNavigation
         configureTabsSize()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func configureTabsSize() {
         for (index, _) in (tabs?.enumerate())! {
             carbonTabSwipeNavigation!.carbonSegmentedControl!.setWidth(self.view.frame.width / CGFloat((tabs?.count)!), forSegmentAtIndex: index)

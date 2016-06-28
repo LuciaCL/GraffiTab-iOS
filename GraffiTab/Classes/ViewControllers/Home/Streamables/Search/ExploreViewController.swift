@@ -66,11 +66,6 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func onClickBack(sender: AnyObject) {
         let destroy = {
             self.mapView.mapType = self.mapView.mapType == .Standard ? .Satellite : .Standard

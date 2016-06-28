@@ -7,20 +7,20 @@
 //
 
 import UIKit
+import CocoaLumberjack
 
 class BackButtonTableViewController: UITableViewController {
 
+    deinit {
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] dealloc")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
         setupTopBar()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Orientation

@@ -31,11 +31,6 @@ class MenuViewController: BackButtonViewController, UITableViewDelegate, UITable
         self.tableView.frame = CGRectMake(0, self.view.frame.height / 2 - rowHeight * CGFloat(rowTitles.count) / 2, self.view.frame.width, rowHeight * CGFloat(rowTitles.count))
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: - UITableViewDelegate
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

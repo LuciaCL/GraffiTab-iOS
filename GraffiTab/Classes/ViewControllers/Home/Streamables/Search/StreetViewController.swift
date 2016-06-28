@@ -71,11 +71,6 @@ class StreetViewController: UIViewController, VideoSourceDelegate {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func onClickCancel(sender: AnyObject) {
         videoSource!.captureSession.stopRunning()
         self.dismissViewControllerAnimated(true, completion: nil)

@@ -54,11 +54,6 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func onClickCreate(sender: AnyObject) {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to create location")
         

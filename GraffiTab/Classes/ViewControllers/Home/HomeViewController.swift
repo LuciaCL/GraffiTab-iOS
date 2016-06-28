@@ -24,6 +24,10 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     var controllers: [UIViewController]?
     var badge: BBBadgeBarButtonItem?
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,11 +59,6 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     
     override func viewDidLayoutSubviews() {
         configureTabsSize()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func onClickMenu(sender: AnyObject) {

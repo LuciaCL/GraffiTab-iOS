@@ -41,11 +41,6 @@ class EditTextViewController: BackButtonTableViewController {
         textView.becomeFirstResponder()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func onClickDone() {
         if !allowEmpty! && textView.text?.characters.count <= 0 {
             DialogBuilder.showErrorAlert("This field cannot be empty.", title: App.Title)

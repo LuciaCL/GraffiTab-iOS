@@ -56,11 +56,6 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: - Events
     
     func registerForEvents() {

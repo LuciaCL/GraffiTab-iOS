@@ -35,11 +35,6 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
         passwordField.becomeFirstResponder()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func onClickSave() {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to change password")
         

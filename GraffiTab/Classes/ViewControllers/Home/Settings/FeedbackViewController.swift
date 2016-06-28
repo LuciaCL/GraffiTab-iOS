@@ -33,11 +33,6 @@ class FeedbackViewController: BackButtonTableViewController {
         textField.becomeFirstResponder()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func onClickSend() {
         if textField.text.characters.count > 0 {
             DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to send feedback")

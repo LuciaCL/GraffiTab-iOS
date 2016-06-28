@@ -14,7 +14,7 @@ class WebViewController: BackButtonViewController {
     @IBOutlet weak var webView: UIWebView!
     
     var filePath: String?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,11 +29,6 @@ class WebViewController: BackButtonViewController {
         if self.navigationController?.navigationBarHidden == true {
             self.navigationController?.setNavigationBarHidden(false, animated: true)
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Loading

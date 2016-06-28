@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CocoaLumberjack
 
 class SplashViewController: BackButtonViewController {
 
@@ -21,10 +22,5 @@ class SplashViewController: BackButtonViewController {
         
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
