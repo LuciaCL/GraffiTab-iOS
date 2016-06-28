@@ -25,6 +25,13 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
         // Do any additional setup after loading the view.
         
         setupCarbonKit()
+        
+        if searchedHashtag != nil {
+            searchBar.text = searchedHashtag
+            (controllers?.last as! SearchStreamablesViewController).searchQuery = searchedHashtag
+            
+            carbonTabSwipeNavigation?.setCurrentTabIndex(1, withAnimation: false)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
