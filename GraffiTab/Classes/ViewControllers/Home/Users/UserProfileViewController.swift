@@ -334,7 +334,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             self.user?.softCopy(response.object as! GTUser)
             self.header?.item = self.user
         }) { (response) in
-            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
+            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
         }
     }
     
