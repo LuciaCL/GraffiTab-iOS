@@ -35,12 +35,12 @@ class SearchUsersViewController: ListUsersViewController {
     
     // MARK: - Loading
     
-    override func loadItems(isStart: Bool, offset: Int, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
+    override func loadItems(isStart: Bool, offset: Int, cacheBlock: (response: GTResponseObject) -> Void, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
         if searchQuery == nil || searchQuery?.characters.count <= 0 {
-            GTUserManager.getMostActive(offset, successBlock: successBlock, failureBlock: failureBlock)
+            GTUserManager.getMostActive(offset, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: successBlock, failureBlock: failureBlock)
         }
         else {
-            GTUserManager.search(searchQuery!, offset: offset, successBlock: successBlock, failureBlock: failureBlock)
+            GTUserManager.search(searchQuery!, offset: offset, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: successBlock, failureBlock: failureBlock)
         }
     }
 }

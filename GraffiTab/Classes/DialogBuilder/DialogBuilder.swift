@@ -56,7 +56,7 @@ class DialogBuilder: NSObject {
         
         if lastErrorDate != nil {
             let secondsPassed = errorDate.timeIntervalSinceDate(lastErrorDate!)
-            if secondsPassed > 10 {
+            if secondsPassed > 30 {
                 self.showErrorAlert(status, title: title, okAction: okAction)
                 lastErrorDate = errorDate
             }

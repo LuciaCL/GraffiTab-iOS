@@ -22,8 +22,8 @@ class LikersViewController: ListUsersViewController {
     
     // MARK: - Loading
     
-    override func loadItems(isStart: Bool, offset: Int, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
-        GTStreamableManager.getLikers(streamable!.id!, offset: offset, successBlock: successBlock, failureBlock: failureBlock)
+    override func loadItems(isStart: Bool, offset: Int, cacheBlock: (response: GTResponseObject) -> Void, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
+        GTStreamableManager.getLikers(streamable!.id!, offset: offset, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: successBlock, failureBlock: failureBlock)
     }
     
     // MARK: - Setup

@@ -34,7 +34,7 @@ class FeedViewController: ListFullStreamablesViewController {
     
     // MARK: - Loading
     
-    override func loadItems(isStart: Bool, offset: Int, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
-        GTMeManager.getFeed(offset, successBlock: successBlock, failureBlock: failureBlock)
+    override func loadItems(isStart: Bool, offset: Int, cacheBlock: (response: GTResponseObject) -> Void, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
+        GTMeManager.getFeed(offset, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: successBlock, failureBlock: failureBlock)
     }
 }

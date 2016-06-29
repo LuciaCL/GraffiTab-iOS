@@ -29,12 +29,12 @@ class SearchStreamablesViewController: GridStreamablesViewController {
     
     // MARK: - Loading
     
-    override func loadItems(isStart: Bool, offset: Int, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
+    override func loadItems(isStart: Bool, offset: Int, cacheBlock: (response: GTResponseObject) -> Void, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
         if searchQuery == nil || searchQuery?.characters.count <= 0 {
-            GTStreamableManager.getPopular(offset, successBlock: successBlock, failureBlock: failureBlock)
+            GTStreamableManager.getPopular(offset, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: successBlock, failureBlock: failureBlock)
         }
         else {
-            GTStreamableManager.searchForHashtag(searchQuery!, offset: offset, successBlock: successBlock, failureBlock: failureBlock)
+            GTStreamableManager.searchForHashtag(searchQuery!, offset: offset, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: successBlock, failureBlock: failureBlock)
         }
     }
 }

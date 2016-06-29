@@ -219,7 +219,14 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
         
         isDownloading = true
         
-        loadItems(isStart, offset: offset, successBlock: { (response) -> Void in
+        loadItems(isStart, offset: offset, cacheBlock: { (response) -> Void in
+            self.items.removeAll()
+            
+            let listItemsResult = response.object as! GTListItemsResult<GTLocation>
+            self.items.appendContentsOf(listItemsResult.items!)
+            
+            self.finalizeCacheLoad()
+        }, successBlock: { (response) -> Void in
             if offset == 0 {
                 self.items.removeAll()
             }
@@ -241,11 +248,15 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
         }
     }
     
-    func loadItems(isStart: Bool, offset: Int, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
-        GTMeManager.getLocations({ (response) in
+    func loadItems(isStart: Bool, offset: Int, cacheBlock: (response: GTResponseObject) -> Void, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
+        GTMeManager.getLocations(isStart, cacheBlock: cacheBlock, successBlock: { (response) in
             successBlock(response: response)
             self.canLoadMore = false
         }, failureBlock: failureBlock)
+    }
+    
+    func finalizeCacheLoad() {
+        self.collectionView!.reloadData()
     }
     
     func finalizeLoad() {

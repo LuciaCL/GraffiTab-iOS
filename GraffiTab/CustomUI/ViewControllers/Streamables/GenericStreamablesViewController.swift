@@ -42,6 +42,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     var offset = 0
     var showStaticCollection = false
     var initialLoad = false
+    var cacheResponse: Bool = false
     var viewType: StreamableViewType = .Grid {
         didSet {
             if collectionView != nil {
@@ -306,7 +307,14 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         isDownloading = true
         
         if !showStaticCollection {
-            loadItems(isStart, offset: offset, successBlock: { (response) -> Void in
+            loadItems(isStart, offset: offset, cacheBlock: { (response) -> Void in
+                self.items.removeAll()
+                
+                let listItemsResult = response.object as! GTListItemsResult<GTStreamable>
+                self.items.appendContentsOf(listItemsResult.items!)
+                
+                self.finalizeCacheLoad()
+            }, successBlock: { (response) -> Void in
                 if offset == 0 {
                     self.items.removeAll()
                 }
@@ -332,8 +340,12 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         }
     }
     
-    func loadItems(isStart: Bool, offset: Int, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
+    func loadItems(isStart: Bool, offset: Int, cacheBlock: (response: GTResponseObject) -> Void, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
         assert(false, "Method should be overridden by subclass.")
+    }
+    
+    func finalizeCacheLoad() {
+        collectionView.reloadData()
     }
     
     func finalizeLoad() {

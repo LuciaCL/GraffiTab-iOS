@@ -11,14 +11,12 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import SwiftHEXColors
 import GraffiTab_iOS_SDK
-import Reachability
 import CocoaLumberjack
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var networkBanner: UILabel?
     
     var isAppStore: Bool = false
     
@@ -44,12 +42,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize the device motion manager.
         let _ = GTDeviceMotionManager.manager
         
+        // Initialize the network connectivity manager.
+        let _ = GTNetworkManager.manager
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogin(_:)), name:Notifications.UserLoggedIn, object:nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogout), name:Notifications.UserLoggedOut, object:nil)
         
         setupTopBar()
         setupCache()
-        setupRechability()
         setupLog()
         setupAnalytics()
         
@@ -170,14 +170,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (GTSettings.sharedInstance.isLoggedIn()) {
             DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User logged in. Refreshing profile")
             
-            GTMeManager.getMyFullProfile({ (response) -> Void in
+            GTMeManager.getMyFullProfile(successBlock: { (response) -> Void in
                 UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
                 
                 self.userDidLogin(launchOptions)
             }, failureBlock: { (response) -> Void in
                 UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
                 
-                self.userDidLogout()
+                if response.reason == .Other {
+                    self.userDidLogin(launchOptions)
+                }
+                else {
+                    self.userDidLogout()
+                }
             })
         }
         else {
@@ -214,7 +219,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIView.transitionWithView(self.window!, duration: duration, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
             self.window?.rootViewController = vc
-            }, completion: nil)
+        }, completion: {(finished) in
+            
+        })
     }
     
     // MARK: - Touch
@@ -248,89 +255,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let cacheSizeDisk = 300 * 1024 * 1024
         let sharedCache = NSURLCache(memoryCapacity: cacheSizeMemory, diskCapacity: cacheSizeDisk, diskPath: nil)
         NSURLCache.setSharedURLCache(sharedCache)
-    }
-    
-    func setupRechability() {
-        // Setup info label.
-        self.networkBanner = UILabel(frame: CGRectMake(0, self.window!.bounds.height, self.window!.bounds.width, 27))
-        self.networkBanner?.textColor = .whiteColor()
-        self.networkBanner?.textAlignment = .Center
-        self.networkBanner?.font = UIFont.systemFontOfSize(13)
-        self.networkBanner?.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin, .FlexibleWidth, .FlexibleTopMargin]
-        self.networkBanner?.hidden = true
-        self.window?.addSubview(self.networkBanner!)
-        
-        // Allocate a reachability object.
-        let reach = Reachability(hostName: "www.google.com")
-        
-        // Set the blocks.
-        reach.reachableBlock = { (reachability) in
-            DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Application has connectivity")
-            
-            // keep in mind this is called on a background thread
-            // and if you are updating the UI it needs to happen
-            // on the main thread, like this:
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                if !self.networkBanner!.hidden {
-                    self.window?.bringSubviewToFront(self.networkBanner!)
-                    self.networkBanner?.text = "Connected"
-                    
-                    UIView.animateWithDuration(0.3, animations: { 
-                        self.networkBanner?.layer.backgroundColor = UIColor(hexString: Colors.Green)!.CGColor
-                    }, completion: { (finished) in
-                        if finished {
-                            Utils.runWithDelay(2, block: {
-                                UIView.animateWithDuration(0.3, animations: {
-                                    var f = self.networkBanner?.frame
-                                    f!.origin.y = self.window!.bounds.height
-                                    self.networkBanner?.frame = f!
-                                    
-                                    f = self.window?.rootViewController?.view.frame
-                                    f!.size.height = self.window!.bounds.height
-                                    self.window?.rootViewController?.view.frame = f!
-                                    self.window?.rootViewController?.view.setNeedsUpdateConstraints()
-                                    self.window?.rootViewController?.view.layoutIfNeeded()
-                                }, completion: { (finished) in
-                                    if finished {
-                                        self.networkBanner?.hidden = true
-                                    }
-                                })
-                            })
-                        }
-                    })
-                }
-            });
-        }
-        reach.unreachableBlock = { (reachability) in
-            DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Application lost connectivity")
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                if self.networkBanner!.hidden {
-                    self.window?.bringSubviewToFront(self.networkBanner!)
-                    self.networkBanner?.hidden = false
-                    self.networkBanner?.layer.backgroundColor = UIColor.blackColor().CGColor
-                    self.networkBanner?.text = "No Internet connection"
-                    
-                    UIView.animateWithDuration(0.3, animations: { 
-                        var f = self.networkBanner?.frame
-                        f!.origin.y = self.window!.bounds.height - self.networkBanner!.frame.height
-                        self.networkBanner?.frame = f!
-                        
-                        f = self.window?.rootViewController?.view.frame
-                        f!.size.height = self.window!.bounds.height - self.networkBanner!.frame.height
-                        self.window?.rootViewController?.view.frame = f!
-                        self.window?.rootViewController?.view.setNeedsUpdateConstraints()
-                        self.window?.rootViewController?.view.layoutIfNeeded()
-                    })
-                }
-            });
-        }
-        
-        // Start the notifier, which will cause the reachability object to retain itself!
-        reach.startNotifier()
-    }
-    
+    }    
     func setupTestFramework() {
         if !isAppStore {
             #if DEBUG

@@ -84,7 +84,14 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
         
         isDownloading = true
         
-        GTMeManager.getNotifications(offset, successBlock: { (response) in
+        loadItems(isStart, offset: offset, cacheBlock: { (response) -> Void in
+            self.items.removeAll()
+            
+            let listItemsResult = response.object as! GTListItemsResult<GTNotification>
+            self.items.appendContentsOf(listItemsResult.items!)
+            
+            self.finalizeCacheLoad()
+        }, successBlock: { (response) in
             if offset == 0 {
                 self.items.removeAll()
             }
@@ -104,6 +111,14 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
             
             DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
         }
+    }
+    
+    func loadItems(isStart: Bool, offset: Int, cacheBlock: (response: GTResponseObject) -> Void, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
+        GTMeManager.getNotifications(offset, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: successBlock, failureBlock: failureBlock)
+    }
+    
+    func finalizeCacheLoad() {
+        self.tableView!.reloadData()
     }
     
     func finalizeLoad() {

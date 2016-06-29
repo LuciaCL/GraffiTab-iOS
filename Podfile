@@ -51,6 +51,7 @@ def common_pods
     pod 'AHKActionSheet'
     pod 'Google/Analytics'
     pod 'SDWebImage'
+    pod 'HanekeSwift'
 end
 
 target 'GraffiTab' do

@@ -159,7 +159,16 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
             loadingIndicator?.hidden = false
             
             // 2. Streamables have not been cached yet, so fetch them from the web or the internal Alamofire cache.
-            previousUserStreamablesRequest = GTUserManager.getUserStreamables(item!.id!, offset: 0, limit: 6, successBlock: { (response) in
+            previousUserStreamablesRequest = GTUserManager.getUserStreamables(item!.id!, offset: 0, limit: 6, cacheResponse: true, cacheBlock: { (response) in
+                self.items.removeAll()
+                
+                if response.url.containsString("users/\(self.item!.id!)/") {
+                    let itemsResult = response.object as! GTListItemsResult<GTStreamable>
+                    self.items.appendContentsOf(itemsResult.items!)
+                }
+                
+                self.finishLoadingStreamables()
+            }, successBlock: { (response) in
                 self.items.removeAll()
                 
                 if response.url.containsString("users/\(self.item!.id!)/") {

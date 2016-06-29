@@ -81,9 +81,21 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
         
         isDownloading = true
         
-        GTMeManager.getFollowersActivity(offset: offset, limit: 20, successBlock: { (response) in
+        loadItems(isStart, offset: offset, cacheBlock: { (response) in
+            self.items.removeAll()
+            
+            let listItemsResult = response.object as! GTListItemsResult<GTActivityContainer>
+            self.items.appendContentsOf(listItemsResult.items!)
+            
+            self.finalizeCacheLoad()
+        }, successBlock: { (response) in
             if offset == 0 {
                 self.items.removeAll()
+                
+                let listItemsResult = response.object as! GTListItemsResult<GTActivityContainer>
+                self.items.appendContentsOf(listItemsResult.items!)
+                
+                self.finalizeCacheLoad()
             }
             
             let listItemsResult = response.object as! GTListItemsResult<GTActivityContainer>
@@ -101,6 +113,14 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
             
             DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
         }
+    }
+    
+    func finalizeCacheLoad() {
+        self.tableView!.reloadData()
+    }
+    
+    func loadItems(isStart: Bool, offset: Int, cacheBlock: (response: GTResponseObject) -> Void, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
+        GTMeManager.getFollowersActivity(offset: offset, limit: 20, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: successBlock, failureBlock: failureBlock)
     }
     
     func finalizeLoad() {

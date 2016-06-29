@@ -188,19 +188,26 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
         isDownloading = true
         
         if !showStaticCollection {
-            loadItems(isStart, offset: offset, successBlock: { (response) -> Void in
-                if offset == 0 {
-                    self.items.removeAll()
-                }
+            loadItems(isStart, offset: offset, cacheBlock: { (response) -> Void in
+                self.items.removeAll()
                 
                 let listItemsResult = response.object as! GTListItemsResult<GTUser>
                 self.items.appendContentsOf(listItemsResult.items!)
                 
-                if listItemsResult.items!.count <= 0 && listItemsResult.items!.count < GTConstants.MaxItems {
-                    self.canLoadMore = false
-                }
-                
-                self.finalizeLoad()
+                self.finalizeCacheLoad()
+                }, successBlock: { (response) -> Void in
+                    if offset == 0 {
+                        self.items.removeAll()
+                    }
+                    
+                    let listItemsResult = response.object as! GTListItemsResult<GTUser>
+                    self.items.appendContentsOf(listItemsResult.items!)
+                    
+                    if listItemsResult.items!.count <= 0 && listItemsResult.items!.count < GTConstants.MaxItems {
+                        self.canLoadMore = false
+                    }
+                    
+                    self.finalizeLoad()
             }) { (response) -> Void in
                 self.canLoadMore = false
                 
@@ -214,8 +221,12 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
         }
     }
     
-    func loadItems(isStart: Bool, offset: Int, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
+    func loadItems(isStart: Bool, offset: Int, cacheBlock: (response: GTResponseObject) -> Void, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
         assert(false, "Method should be overridden by subclass.")
+    }
+    
+    func finalizeCacheLoad() {
+        collectionView.reloadData()
     }
     
     func finalizeLoad() {

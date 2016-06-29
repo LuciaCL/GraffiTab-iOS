@@ -20,8 +20,8 @@ class PrivateStreamablesViewController: ToggleStreamablesViewController {
     
     // MARK: - Loading
     
-    override func loadItems(isStart: Bool, offset: Int, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
-        GTMeManager.getPrivateStreamables(offset, successBlock: successBlock, failureBlock: failureBlock)
+    override func loadItems(isStart: Bool, offset: Int, cacheBlock: (response: GTResponseObject) -> Void, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
+        GTMeManager.getPrivateStreamables(offset, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: successBlock, failureBlock: failureBlock)
     }
     
     // MARK: - Setup

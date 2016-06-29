@@ -45,7 +45,7 @@ class NearMeViewController: GridStreamablesViewController {
     
     // MARK: - Loading
     
-    override func loadItems(isStart: Bool, offset: Int, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
+    override func loadItems(isStart: Bool, offset: Int, cacheBlock: (response: GTResponseObject) -> Void, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
         let location = GTLocationManager.manager.lastLocation
 
         if location != nil {
@@ -65,7 +65,7 @@ class NearMeViewController: GridStreamablesViewController {
             southWestCorner.latitude  = center.latitude  - (region.span.latitudeDelta  / 2.0)
             southWestCorner.longitude = center.longitude - (region.span.longitudeDelta / 2.0)
             
-            GTStreamableManager.searchForLocation(northEastCorner.latitude, neLongitude: northEastCorner.longitude, swLatitude: southWestCorner.latitude, swLongitude: southWestCorner.longitude, successBlock: { (response) in
+            GTStreamableManager.searchForLocation(northEastCorner.latitude, neLongitude: northEastCorner.longitude, swLatitude: southWestCorner.latitude, swLongitude: southWestCorner.longitude, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: { (response) in
                 successBlock(response: response)
                 self.canLoadMore = false
             }, failureBlock: failureBlock)

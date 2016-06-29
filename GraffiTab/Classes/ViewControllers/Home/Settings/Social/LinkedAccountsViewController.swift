@@ -93,7 +93,7 @@ class LinkedAccountsViewController: BackButtonTableViewController {
         if user?.linkedAccounts == nil {
             showLoadingIndicator()
             
-            GTMeManager.getMyFullProfile({ (response) in
+            GTMeManager.getMyFullProfile(successBlock: { (response) in
                 self.removeLoadingIndicator()
                 self.loadData()
             }, failureBlock: { (response) in
