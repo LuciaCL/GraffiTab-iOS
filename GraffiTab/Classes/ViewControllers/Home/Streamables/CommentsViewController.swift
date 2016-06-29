@@ -136,7 +136,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     }
     
     func loadItems(isStart: Bool, offset: Int, cacheBlock: (response: GTResponseObject) -> Void, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
-        GTStreamableManager.getComments(streamable!.id!, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: successBlock, failureBlock: failureBlock)
+        GTStreamableManager.getComments(streamable!.id!, offset: offset, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: successBlock, failureBlock: failureBlock)
     }
     
     func finalizeCacheLoad() {
