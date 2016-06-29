@@ -327,7 +327,10 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     }
     
     func loadUserProfile() {
-        GTUserManager.getUserFullProfile(user!.id!, successBlock: { (response) in
+        GTUserManager.getUserFullProfile(user!.id!, cacheResponse: true, cacheBlock: { (response) in
+            self.user?.softCopy(response.object as! GTUser)
+            self.header?.item = self.user
+        }, successBlock: { (response) in
             self.user?.softCopy(response.object as! GTUser)
             self.header?.item = self.user
         }) { (response) in
