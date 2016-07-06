@@ -27,7 +27,7 @@ class EditProfileViewController: BackButtonTableViewController {
     @IBOutlet weak var aboutField: UILabel!
     @IBOutlet weak var websiteField: UILabel!
     
-    var user: GTUser = GTSettings.sharedInstance.user!
+    var user: GTUser = GTMeManager.sharedInstance.loggedInUser!
     var imageType: ImageType?
     
     override func viewDidLoad() {
@@ -76,7 +76,7 @@ class EditProfileViewController: BackButtonTableViewController {
         GTMeManager.editProfile(fn!, lastName: ln!, email: e!, about: a, website: w, successBlock: { (response) in
             self.view.hideActivityView()
             
-            self.user = GTSettings.sharedInstance.user!
+            self.user = GTMeManager.sharedInstance.loggedInUser!
             self.loadData()
             
             Utils.runWithDelay(0.3) { () in

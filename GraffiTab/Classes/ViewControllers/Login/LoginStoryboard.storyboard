@@ -141,18 +141,6 @@
                                             <outletCollection property="gestureRecognizers" destination="bye-wx-0d1" appends="YES" id="54b-m7-AUY"/>
                                         </connections>
                                     </label>
-                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpe-51-W5c" customClass="TintButton" customModule="GraffiTab" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="20" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="b5v-wo-gno"/>
-                                            <constraint firstAttribute="height" constant="50" id="pnE-DQ-08c"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="dev"/>
-                                        <connections>
-                                            <action selector="onClickDevOptions:" destination="VXb-aq-r7q" eventType="touchUpInside" id="XEh-KB-KKL"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="PDF-96-09y" firstAttribute="centerX" secondItem="BBm-1r-4Ua" secondAttribute="centerX" id="UDv-eR-x5N"/>
@@ -276,7 +264,6 @@
                             <constraint firstItem="f9H-j3-R3e" firstAttribute="leading" secondItem="hEa-eY-Ru7" secondAttribute="leading" id="AEp-X2-jpS"/>
                             <constraint firstItem="5Aq-qb-0iw" firstAttribute="top" secondItem="XOy-tl-DJb" secondAttribute="bottom" constant="16" id="AXG-lN-Prv"/>
                             <constraint firstItem="y1C-Gw-L6Q" firstAttribute="top" secondItem="qPS-TW-QtY" secondAttribute="bottom" constant="215" id="B4R-l5-pie"/>
-                            <constraint firstItem="jpe-51-W5c" firstAttribute="leading" secondItem="hEa-eY-Ru7" secondAttribute="leading" id="FgG-h6-o7h"/>
                             <constraint firstItem="y1C-Gw-L6Q" firstAttribute="top" secondItem="f9H-j3-R3e" secondAttribute="bottom" id="MfE-Nj-ORf"/>
                             <constraint firstItem="qPS-TW-QtY" firstAttribute="top" secondItem="hEa-eY-Ru7" secondAttribute="top" id="QQv-wj-1Sh"/>
                             <constraint firstAttribute="trailing" secondItem="f9H-j3-R3e" secondAttribute="trailing" id="R5X-5i-ff1"/>
@@ -285,7 +272,6 @@
                             <constraint firstItem="y1C-Gw-L6Q" firstAttribute="top" secondItem="5Aq-qb-0iw" secondAttribute="bottom" constant="21" id="UIS-59-goo"/>
                             <constraint firstAttribute="trailing" secondItem="qPS-TW-QtY" secondAttribute="trailing" id="ZsA-my-Zqw"/>
                             <constraint firstItem="M6L-eM-zgn" firstAttribute="centerX" secondItem="XOy-tl-DJb" secondAttribute="centerX" id="fLN-No-HMB"/>
-                            <constraint firstItem="jpe-51-W5c" firstAttribute="top" secondItem="UYM-qJ-E8X" secondAttribute="bottom" id="hs3-hr-wmV"/>
                             <constraint firstItem="XOy-tl-DJb" firstAttribute="centerX" secondItem="5Aq-qb-0iw" secondAttribute="centerX" id="ohR-di-wCQ"/>
                         </constraints>
                     </view>
@@ -929,7 +915,6 @@
     </scenes>
     <resources>
         <image name="delete_sign" width="25" height="25"/>
-        <image name="dev" width="25" height="25"/>
         <image name="grafitab_login" width="320" height="568"/>
         <image name="icn_btn_facebook" width="13" height="26"/>
         <image name="logo" width="263" height="143"/>

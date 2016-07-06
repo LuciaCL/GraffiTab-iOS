@@ -43,7 +43,7 @@ class FeedbackViewController: BackButtonTableViewController {
             self.view.showActivityViewWithLabel("Processing")
             self.view.rn_activityView.dimBackground = false
             
-            let user = GTSettings.sharedInstance.user
+            let user = GTMeManager.sharedInstance.loggedInUser
             GTFeedbackManager.sendFeedback(user!.getFullName(), email: user!.email!, text: textField.text, successBlock: { (response) in
                 self.view.hideActivityView()
                 

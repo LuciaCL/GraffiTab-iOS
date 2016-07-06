@@ -50,14 +50,6 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         loginFacebook(true)
     }
     
-    @IBAction func onClickDevOptions(sender: AnyObject) {
-        // Register analytics events.
-        AnalyticsUtils.sendAppEvent("developer_options", label: nil)
-        
-        let vc = UIStoryboard(name: "DeveloperOptionsStoryboard", bundle: NSBundle.mainBundle()).instantiateInitialViewController()
-        self.presentViewController(vc!, animated: true, completion: nil)
-    }
-    
     // MARK: - Loading
     
     func loadData() {

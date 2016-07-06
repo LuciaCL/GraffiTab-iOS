@@ -15,8 +15,6 @@ import CocoaLumberjack
 
 class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
 
-    var pullToRefresh = CarbonSwipeRefresh()
-    
     var items = [GTComment]()
     var searchResults = NSMutableArray()
     var cachedUsers = [GTUser]()
@@ -43,8 +41,6 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         
         setupTableView()
         setupSlackController()
-        
-        pullToRefresh.startRefreshing()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -144,7 +140,6 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     }
     
     func finalizeLoad() {
-        pullToRefresh.endRefreshing()
         removeLoadingIndicator()
         
         isDownloading = false
@@ -227,7 +222,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         
         if tableView == self.tableView {
             let comment = items[indexPath.row]
-            let canEdit = comment.user!.isEqual(GTSettings.sharedInstance.user)
+            let canEdit = comment.user!.isEqual(GTMeManager.sharedInstance.loggedInUser)
             
             let actionSheet = buildActionSheet("What would you like to do with this comment?")
             if canEdit {
@@ -285,7 +280,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         comment?.createdOn = NSDate()
         comment?.text = text as? String
         comment?.streamable = streamable
-        comment?.user = GTSettings.sharedInstance.user
+        comment?.user = GTMeManager.sharedInstance.loggedInUser
         
         // Create comment in the backend.
         doPostComment(comment!, shouldRefresh: false)
@@ -553,13 +548,6 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         self.autoCompletionView.registerNib(UINib(nibName: AutocompleteUserCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellReuseIdentifier: AutocompleteUserCell.reusableIdentifier())
         self.autoCompletionView.registerNib(UINib(nibName: AutocompleteHashCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellReuseIdentifier: AutocompleteHashCell.reusableIdentifier())
         self.registerPrefixesForAutoCompletion(["@", "#"])
-        
-        // Setup pull to refresh.
-        pullToRefresh = CarbonSwipeRefresh(scrollView: self.tableView)
-        pullToRefresh.setMarginTop(0)
-        pullToRefresh.colors = [UIColor(hexString: Colors.Main)!, UIColor(hexString: Colors.Orange)!, UIColor(hexString: Colors.Green)!]
-        self.tableView!.addSubview(pullToRefresh)
-        pullToRefresh.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
         
         // Setup infite scroll.
         self.tableView!.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))

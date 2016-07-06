@@ -187,7 +187,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     func isMe() -> Bool {
-        return self.streamable!.user!.id == GTSettings.sharedInstance.user!.id
+        return self.streamable!.user!.id == GTMeManager.sharedInstance.loggedInUser!.id
     }
     
     // MARK: - Events
@@ -337,8 +337,8 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         let avatarSuccessBlock = {
             self.view.hideActivityView()
             
-            if self.streamable!.user!.isEqual(GTSettings.sharedInstance.user) { // Reload avatar in case the streamable creator is changing their avatar.
-                self.streamable!.user!.softCopy(GTSettings.sharedInstance.user!)
+            if self.streamable!.user!.isEqual(GTMeManager.sharedInstance.loggedInUser) { // Reload avatar in case the streamable creator is changing their avatar.
+                self.streamable!.user!.softCopy(GTMeManager.sharedInstance.loggedInUser!)
                 
                 self.loadAvatar()
             }

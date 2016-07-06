@@ -130,7 +130,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     }
     
     func isMe() -> Bool {
-        return user?.id == GTSettings.sharedInstance.user!.id
+        return user?.id == GTMeManager.sharedInstance.loggedInUser!.id
     }
     
     // MARK: - Events
@@ -195,7 +195,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
                     
                     self.view.hideActivityView()
                     
-                    self.header?.item = GTSettings.sharedInstance.user
+                    self.header?.item = GTMeManager.sharedInstance.loggedInUser
                     
                     Utils.runWithDelay(0.3) { () in
                         DialogBuilder.showSuccessAlert("Your avatar has been changed!", title: App.Title)
@@ -214,7 +214,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         let avatarSuccessBlock = {
             self.view.hideActivityView()
             
-            self.header?.item = GTSettings.sharedInstance.user
+            self.header?.item = GTMeManager.sharedInstance.loggedInUser
             
             Utils.runWithDelay(0.3) { () in
                 DialogBuilder.showSuccessAlert("Your avatar has been changed!", title: App.Title)
@@ -223,7 +223,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         let coverSuccessBlock = {
             self.view.hideActivityView()
             
-            self.header?.item = GTSettings.sharedInstance.user
+            self.header?.item = GTMeManager.sharedInstance.loggedInUser
             
             Utils.runWithDelay(0.3) { () in
                 DialogBuilder.showSuccessAlert("Your cover has been changed!", title: App.Title)

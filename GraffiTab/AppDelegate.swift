@@ -25,11 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setupTestFramework()
         
-        // Set the domain if we've previously selected one.
-        if Settings.sharedInstance.appDomain != nil {
-            GTSettings.sharedInstance.setAppDomain(Settings.sharedInstance.appDomain!)
-        }
-        
         // Facebook-specific call.
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         FBSDKLoginManager.renewSystemCredentials { (result:ACAccountCredentialRenewResult, error:NSError!) -> Void in
@@ -50,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setupTopBar()
         setupCache()
-        setupLog()
+        setupGraffiTabSDK()
         setupAnalytics()
         
         Utils.runWithDelay(1) { () in
@@ -167,7 +162,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Login management
     
     func checkLoginStatus(launchOptions: [NSObject: AnyObject]?) {
-        if (GTSettings.sharedInstance.isLoggedIn()) {
+        if (GTMeManager.sharedInstance.isLoggedIn()) {
             DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User logged in. Refreshing profile")
             
             GTMeManager.getMyFullProfile(successBlock: { (response) -> Void in
@@ -206,7 +201,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func userDidLogout() {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User logged out. Showing login screen")
         
-        GTSettings.sharedInstance.logout()
+        GTMeManager.sharedInstance.logout()
         
         showStoryboard("LoginStoryboard", duration: 0.3);
     }
@@ -255,33 +250,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let cacheSizeDisk = 300 * 1024 * 1024
         let sharedCache = NSURLCache(memoryCapacity: cacheSizeMemory, diskCapacity: cacheSizeDisk, diskPath: nil)
         NSURLCache.setSharedURLCache(sharedCache)
-    }    
+    }
+    
     func setupTestFramework() {
         if !isAppStore {
             #if DEBUG
                 
             #else
                 DeployGateSDK.sharedInstance().launchApplicationWithAuthor("graffitab", key: "747b4f90cf1d7573866748c0f81f1b687fa77313")
-                
-//                TestFairy.begin("70be1b90ec3e2c91eefd4b0883691d0194ac5185")
-//                TestFairy.setServerEndpoint("http://example.com")
             #endif
         }
     }
     
-    func setupLog() {
+    func setupGraffiTabSDK() {
+        let config = GTConfig.defaultConfig
+        
+        // Configure log.
+        config.logEnabled = true
+        
         if !isAppStore { // We are deploying to dev or testing locally.
             #if DEBUG // Show full debug traces.
-                GTLogManager.setupApplicationLogger(true, logToDeviceLogs: true, logToFile: true, level: .Debug)
+                config.logLevel = .Debug
             #else
-                GTLogManager.setupApplicationLogger(false, logToDeviceLogs: false, logToFile: true, level: .Info)
+                config.logLevel = .Info
                 DDLog.addLogger(DeployGateLogger.sharedInstance)
             #endif
         }
         else { // Packaging for the App Store.
             // Show only errors.
-            GTLogManager.setupApplicationLogger(false, logToDeviceLogs: false, logToFile: true, level: .Error)
+            config.logLevel = .Error
         }
+        
+        GTSDKConfig.sharedInstance.setConfiguration(config)
     }
     
     func setupAnalytics() {

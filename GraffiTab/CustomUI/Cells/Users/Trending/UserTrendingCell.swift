@@ -76,7 +76,7 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
             self.followBtn.tintColor = UIColor(hexString: Colors.Main)
         }
         
-        self.followBtn.hidden = item?.id == GTSettings.sharedInstance.user?.id
+        self.followBtn.hidden = item?.id == GTMeManager.sharedInstance.loggedInUser?.id
     }
     
     override func onClickFollow(sender: AnyObject) {

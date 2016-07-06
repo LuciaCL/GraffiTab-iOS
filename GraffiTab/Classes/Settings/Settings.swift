@@ -24,15 +24,6 @@ class Settings: NSObject {
         }
     }
     
-    var appDomain: String? {
-        get {
-            return getStringPreference(SettingsKeys.kAppDomain)
-        }
-        set(newValue) {
-            setStringPreference(newValue!, key: SettingsKeys.kAppDomain)
-        }
-    }
-    
     // Keychain.
     
     var username: String? {

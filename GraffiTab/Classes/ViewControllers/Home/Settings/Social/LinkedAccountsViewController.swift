@@ -44,7 +44,7 @@ class LinkedAccountsViewController: BackButtonTableViewController {
     func handleFacebookAccount() {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Handling Facebook account linking")
         
-        let user = GTSettings.sharedInstance.user
+        let user = GTMeManager.sharedInstance.loggedInUser
         let isLinkedFacebook = user!.isLinkedAccount(.FACEBOOK)
         
         let successBlock = {
@@ -89,7 +89,7 @@ class LinkedAccountsViewController: BackButtonTableViewController {
     // MARK: - Loading
     
     func loadData() {
-        let user = GTSettings.sharedInstance.user
+        let user = GTMeManager.sharedInstance.loggedInUser
         if user?.linkedAccounts == nil {
             showLoadingIndicator()
             
@@ -120,7 +120,7 @@ class LinkedAccountsViewController: BackButtonTableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let user = GTSettings.sharedInstance.user
+        let user = GTMeManager.sharedInstance.loggedInUser
         if user?.linkedAccounts == nil {
             return
         }

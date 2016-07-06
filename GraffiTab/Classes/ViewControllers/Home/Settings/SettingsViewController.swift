@@ -60,7 +60,7 @@ class SettingsViewController: GeneralSettingsViewController {
     func handleFacebookAccount() {
         DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Handling Facebook account linking")
         
-        let user = GTSettings.sharedInstance.user
+        let user = GTMeManager.sharedInstance.loggedInUser
         let isLinkedFacebook = user!.isLinkedAccount(.FACEBOOK)
         
         let successBlock = {
@@ -114,7 +114,7 @@ class SettingsViewController: GeneralSettingsViewController {
     // MARK: - Loading
     
     func loadData() {
-        logoutCell.detailTextLabel?.text = GTSettings.sharedInstance.user?.getFullName()
+        logoutCell.detailTextLabel?.text = GTMeManager.sharedInstance.loggedInUser?.getFullName()
         
         rememberCredentialsSwitch.on = Settings.sharedInstance.rememberCredentials!
     }
@@ -127,7 +127,7 @@ class SettingsViewController: GeneralSettingsViewController {
         if indexPath.section == 0 {
             if indexPath.row == 2 {
                 let vc = self.storyboard?.instantiateViewControllerWithIdentifier("UserLikedStreamablesViewController") as! UserLikedStreamablesViewController
-                vc.user = GTSettings.sharedInstance.user
+                vc.user = GTMeManager.sharedInstance.loggedInUser
                 
                 self.navigationController?.pushViewController(vc, animated: true)
             }

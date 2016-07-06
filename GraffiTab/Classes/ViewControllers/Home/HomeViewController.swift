@@ -143,7 +143,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SEGUE_PROFILE" {
             let vc = segue.destinationViewController as! UserProfileViewController
-            vc.user = GTSettings.sharedInstance.user
+            vc.user = GTMeManager.sharedInstance.loggedInUser
         }
     }
     
