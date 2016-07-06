@@ -35,6 +35,7 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
                 configureLayout()
                 
                 collectionView.collectionViewLayout.invalidateLayout()
+                collectionView.reloadData()
             }
         }
     }

@@ -11,6 +11,11 @@ import GraffiTab_iOS_SDK
 
 class Utils: NSObject {
 
+    class func randomFloat(min: Double, max: Double) -> Double {
+        let randomDouble = Double(arc4random()) / Double(UINT32_MAX)
+        return (randomDouble * (max-min)) + min
+    }
+    
     class func logoutUserAndShowLoginController() {
         NSNotificationCenter.defaultCenter().postNotificationName(Notifications.UserLoggedOut, object: nil)
     }

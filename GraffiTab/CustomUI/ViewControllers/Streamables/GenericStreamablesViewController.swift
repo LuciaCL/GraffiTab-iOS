@@ -49,6 +49,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
                 configureLayout()
                 
                 collectionView.collectionViewLayout.invalidateLayout()
+                collectionView.reloadData()
             }
         }
     }
