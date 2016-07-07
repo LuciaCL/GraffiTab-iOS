@@ -107,7 +107,7 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
     }
     
     func getNumCols() -> Int {
-        return 4
+        return 3
     }
     
     func getPadding(spacing: CGFloat) -> CGFloat {
