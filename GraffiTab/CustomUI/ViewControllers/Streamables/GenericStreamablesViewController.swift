@@ -448,9 +448,17 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         let item = items[indexPath.row]
         
         if viewType == .Mosaic {
+            if item.asset!.state! != .COMPLETED { // Guard in case asset is not processed yet.
+                return CGSizeMake(CGFloat(50), CGFloat(50))
+            }
+            
             return CGSizeMake(CGFloat(item.asset!.thumbnailWidth!), CGFloat(item.asset!.thumbnailHeight!))
         }
         else if viewType == .Trending || viewType == .SwimLane {
+            if item.asset!.state! != .COMPLETED { // Guard in case asset is not processed yet.
+                return CGSizeMake(CGFloat(50), CGFloat(50))
+            }
+            
             let h = max(getHeight(0), CGFloat(item.asset!.thumbnailHeight!))
             return CGSizeMake(CGFloat(item.asset!.thumbnailWidth!), h)
         }
