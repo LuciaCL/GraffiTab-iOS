@@ -2380,7 +2380,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Christov (PD6JJX75F4)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Georgi Christov (869AJN3V33)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2483,7 +2483,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = GraffiTab;
-				PROVISIONING_PROFILE = "836a722c-f2e5-4c3f-b4ab-04a96cfdd0ab";
+				PROVISIONING_PROFILE = "31810f08-dd3c-4e11-af9b-b4017b92953a";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2495,7 +2495,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Christov (PD6JJX75F4)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Georgi Christov (869AJN3V33)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2597,7 +2597,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = GraffiTab;
-				PROVISIONING_PROFILE = "836a722c-f2e5-4c3f-b4ab-04a96cfdd0ab";
+				PROVISIONING_PROFILE = "31810f08-dd3c-4e11-af9b-b4017b92953a";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
