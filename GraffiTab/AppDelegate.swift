@@ -163,22 +163,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func checkLoginStatus(launchOptions: [NSObject: AnyObject]?) {
         if (GTMeManager.sharedInstance.isLoggedIn()) {
-            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User logged in. Refreshing profile")
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User logged in")
             
-            GTMeManager.getMyFullProfile(successBlock: { (response) -> Void in
-                UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
-                
-                self.userDidLogin(launchOptions)
-            }, failureBlock: { (response) -> Void in
-                UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
-                
-                if response.reason == .Other {
+            if GTNetworkManager.manager.reach.isReachable() {
+                DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Refreshing profile")
+                GTMeManager.getMyFullProfile(successBlock: { (response) -> Void in
+                    DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Profile refreshed")
+                    UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
+                    
                     self.userDidLogin(launchOptions)
-                }
-                else {
-                    self.userDidLogout()
-                }
-            })
+                }, failureBlock: { (response) -> Void in
+                    DDLogError("[\(NSStringFromClass(self.dynamicType))] Failed to refresh profile")
+                    UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
+                    
+                    self.userDidLogin(launchOptions)
+                })
+            }
+            else {
+                DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Connection not available. Opening main app.")
+                self.userDidLogin(launchOptions)
+            }
         }
         else {
             UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
