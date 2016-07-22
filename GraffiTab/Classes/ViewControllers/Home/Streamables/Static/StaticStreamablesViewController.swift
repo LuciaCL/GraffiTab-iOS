@@ -16,6 +16,10 @@ class StaticStreamablesViewController: ToggleStreamablesViewController {
         
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
+        
+        if self.navigationController!.navigationBarHidden {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+        }
     }
     
     // MARK: - Init
