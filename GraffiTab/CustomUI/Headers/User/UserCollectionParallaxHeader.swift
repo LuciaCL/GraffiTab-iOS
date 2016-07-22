@@ -57,11 +57,16 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
         super.awakeFromNib()
         // Initialization code
         
-        setupContainerViews()
         setupImageViews()
         setupCarousel()
         setupPageControl()
         setupGestureRecognizers()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        Utils.applyShadowEffectToCellView(self)
     }
     
     func setItem() {
@@ -216,10 +221,6 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
     }
     
     // MARK: - Setup
-    
-    func setupContainerViews() {
-        Utils.applyShadowEffectToView(self)
-    }
     
     func setupImageViews() {
         avatar.layer.borderColor = UIColor.whiteColor().CGColor
