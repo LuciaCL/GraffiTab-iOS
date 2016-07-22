@@ -678,6 +678,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             cell.colors = Array(self.chunkedColors![indexPath.row])
             cell.delegate = self
         }
+        else {
+            cell.colors = nil
+        }
         
         return cell
     }

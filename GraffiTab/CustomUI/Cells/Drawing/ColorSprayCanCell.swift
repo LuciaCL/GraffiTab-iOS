@@ -43,6 +43,13 @@ class ColorSprayCanCell: UITableViewCell {
     
     func createColors() {
         if colors == nil {
+            if colorBtns != nil { // Clear color cans.
+                for btn in colorBtns! {
+                    btn.removeFromSuperview()
+                }
+                colorBtns?.removeAll()
+                colorBtns = nil
+            }
             return
         }
         
