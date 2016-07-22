@@ -46,7 +46,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     var menuPinchStartPointX: CGFloat?
     var isMenuOpen: Bool?
     var isColorsOpen: Bool?
-    var minRows: Int?
+    var minRows: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,10 +60,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         setupCocos2D()
         
         loadColors()
-        setupColorConstants()
-        
         loadTools()
         loadPhrase()
+        
+        setupColorConstants()
         
         configureUndoButtons()
         
@@ -94,6 +94,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         
         if laidOut == false {
             laidOut = true
+            
+            setupColorConstants()
+            colorsTableView.reloadData()
             
             configureToolsLayout()
             
@@ -660,10 +663,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         }
     }
     
-    // MArk: - UITableViewDelegate
+    // MARK: - UITableViewDelegate
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return max(chunkedColors!.count, minRows!)
+        return max(chunkedColors!.count, minRows)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -822,7 +825,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     func setupColorConstants() {
-        minRows = isPortrait! ? 6 : 4
+        minRows = Int(self.colorsTableView.frame.height / self.colorsTableView.rowHeight) + 2
         chunkedColors = colors!.chunk(withDistance: App.ColorsPerRow)
     }
 }
