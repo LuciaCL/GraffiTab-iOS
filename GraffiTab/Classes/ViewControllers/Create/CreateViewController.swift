@@ -263,7 +263,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         // Register analytics events.
         AnalyticsUtils.sendAppEvent("enhance_drawing", label: nil)
         
+        // Downsample image to allow quick processing.
         let sampleImage = self.canvas?.grabFrame()
+        let optimizedImage = UIImage(data: UIImageJPEGRepresentation(sampleImage!, 0.6)!)
         
         let configuration = Configuration() { builder in
             builder.configurePhotoEditorViewController({ (options) in
@@ -271,7 +273,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             })
         }
         
-        let photoEditViewController = PhotoEditViewController(photo: sampleImage!, configuration: configuration)
+        let photoEditViewController = PhotoEditViewController(photo: optimizedImage!, configuration: configuration)
         let toolStackController = ToolStackController(photoEditViewController: photoEditViewController, configuration: configuration)
         toolStackController.delegate = self
         
