@@ -455,7 +455,13 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
             return clusterView
         }
         else if annotation.isKindOfClass(StreamableAnnotation) {
-            let thumbnailAnnotation = (annotation as! StreamableAnnotation).annotationViewInMap(mapView)
+            let thumbnailAnnotation = (annotation as! StreamableAnnotation).annotationViewInMap(mapView) as! JPSThumbnailAnnotationView
+            
+            // Remove layer to optimize map panning.
+            let layer = thumbnailAnnotation.layer.sublayers?.first
+            layer?.shadowOpacity = 0.0
+            layer?.shadowRadius = 0.0
+            layer?.shadowColor = nil
             
             for view in thumbnailAnnotation.subviews {
                 if view.isKindOfClass(UIImageView) {
