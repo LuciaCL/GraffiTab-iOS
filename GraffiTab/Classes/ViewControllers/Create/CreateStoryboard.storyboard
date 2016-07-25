@@ -202,11 +202,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QbB-j2-onO" customClass="MaterializeRoundButton" customModule="GraffiTab" customModuleProvider="target">
-                                                <rect key="frame" x="552" y="552" width="38" height="38"/>
+                                                <rect key="frame" x="545" y="543" width="45" height="45"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.70061800373134331" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="38" id="DSa-63-UUf"/>
-                                                    <constraint firstAttribute="width" constant="38" id="yHp-JX-Qp5"/>
+                                                    <constraint firstAttribute="height" constant="45" id="DSa-63-UUf"/>
+                                                    <constraint firstAttribute="width" constant="45" id="yHp-JX-Qp5"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
                                                 <inset key="contentEdgeInsets" minX="9" minY="9" maxX="9" maxY="9"/>
@@ -216,11 +216,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJs-Hi-oHp" customClass="MaterializeRoundButton" customModule="GraffiTab" customModuleProvider="target">
-                                                <rect key="frame" x="552" y="504" width="38" height="38"/>
+                                                <rect key="frame" x="545" y="488" width="45" height="45"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.70268773320895528" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="38" id="Rad-sL-ZcM"/>
-                                                    <constraint firstAttribute="width" constant="38" id="ZAH-AC-ayj"/>
+                                                    <constraint firstAttribute="height" constant="45" id="Rad-sL-ZcM"/>
+                                                    <constraint firstAttribute="width" constant="45" id="ZAH-AC-ayj"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
                                                 <inset key="contentEdgeInsets" minX="9" minY="9" maxX="9" maxY="9"/>
@@ -265,11 +265,11 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXN-ro-q5M" customClass="MaterializeRoundButton" customModule="GraffiTab" customModuleProvider="target">
-                                                <rect key="frame" x="552" y="456" width="38" height="38"/>
+                                                <rect key="frame" x="545" y="433" width="45" height="45"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.7026877332" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="38" id="0qP-dI-Z6i"/>
-                                                    <constraint firstAttribute="width" constant="38" id="4Sr-MI-Shw"/>
+                                                    <constraint firstAttribute="height" constant="45" id="0qP-dI-Z6i"/>
+                                                    <constraint firstAttribute="width" constant="45" id="4Sr-MI-Shw"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <inset key="contentEdgeInsets" minX="9" minY="9" maxX="9" maxY="9"/>
@@ -295,7 +295,7 @@
                                     <constraint firstItem="Rrk-r8-yd7" firstAttribute="leading" secondItem="2Hl-Br-rIP" secondAttribute="trailing" id="AHd-EG-7Os"/>
                                     <constraint firstItem="Rrk-r8-yd7" firstAttribute="top" secondItem="fMz-pD-gGX" secondAttribute="top" id="KUd-d8-bKl"/>
                                     <constraint firstItem="2Hl-Br-rIP" firstAttribute="leading" secondItem="fMz-pD-gGX" secondAttribute="leading" id="Mqd-gI-f6m"/>
-                                    <constraint firstItem="QbB-j2-onO" firstAttribute="centerY" secondItem="MBZ-v0-gRR" secondAttribute="centerY" constant="-2" id="SEw-WR-gQB"/>
+                                    <constraint firstItem="QbB-j2-onO" firstAttribute="centerY" secondItem="MBZ-v0-gRR" secondAttribute="centerY" constant="-8" id="SEw-WR-gQB"/>
                                     <constraint firstAttribute="trailing" secondItem="QbB-j2-onO" secondAttribute="trailing" constant="10" id="WMF-Uh-3CC"/>
                                     <constraint firstAttribute="bottom" secondItem="TvL-dT-yP8" secondAttribute="bottom" id="XNJ-B3-pnv"/>
                                     <constraint firstItem="TvL-dT-yP8" firstAttribute="leading" secondItem="fMz-pD-gGX" secondAttribute="leading" id="Yea-3Q-DTf"/>
