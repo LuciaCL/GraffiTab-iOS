@@ -571,6 +571,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                     
                     // Finish tutorial.
                     self.isDrawAssistantMode = false
+                    
+                    Settings.sharedInstance.showedDrawingAssistant = true
                 })
                 break
         }

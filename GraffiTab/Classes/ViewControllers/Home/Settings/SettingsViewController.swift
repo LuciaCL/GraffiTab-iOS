@@ -15,6 +15,7 @@ class SettingsViewController: GeneralSettingsViewController {
 
     @IBOutlet weak var logoutCell: UITableViewCell!
     @IBOutlet weak var rememberCredentialsSwitch: UISwitch!
+    @IBOutlet weak var showDrawingAssistantSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,10 @@ class SettingsViewController: GeneralSettingsViewController {
 
     @IBAction func onSwitchRememberCredentials(sender: AnyObject) {
         Settings.sharedInstance.rememberCredentials = rememberCredentialsSwitch.on
+    }
+    
+    @IBAction func onSwitchShowDrawingAssistant(sender: AnyObject) {
+        Settings.sharedInstance.showedDrawingAssistant = !showDrawingAssistantSwitch.on
     }
     
     func onClickLogout() {
@@ -117,6 +122,7 @@ class SettingsViewController: GeneralSettingsViewController {
         logoutCell.detailTextLabel?.text = GTMeManager.sharedInstance.loggedInUser?.getFullName()
         
         rememberCredentialsSwitch.on = Settings.sharedInstance.rememberCredentials!
+        showDrawingAssistantSwitch.on = !Settings.sharedInstance.showedDrawingAssistant!
     }
 
     // MARK: - UITableViewController
