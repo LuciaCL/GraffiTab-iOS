@@ -12,6 +12,23 @@ import imglyKit
 import GraffiTab_iOS_SDK
 import CocoaLumberjack
 import MZFormSheetPresentationController
+import PAGestureAssistant
+
+enum DrawingAssistantState {
+    case Intro
+    case DrawLine
+    case DrawColorLine
+    case DrawStrokeLine
+    case DrawToolLine
+    case Color
+    case Stroke
+    case Menu
+    case Tool
+    case Eraser
+    case Background
+    case Enhancer
+    case Publish
+}
 
 class CreateViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, ColorSprayCanCellDelegate, PublishDelegate, CanvasDelegate, ToolStackControllerDelegate {
 
@@ -28,13 +45,18 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var phraseContainer: UIView!
     @IBOutlet weak var undoBtn: DrawingOptionButton!
     @IBOutlet weak var redoBtn: DrawingOptionButton!
+    @IBOutlet weak var backgroundBtn: DrawingOptionButton!
+    @IBOutlet weak var enhanceBtn: DrawingOptionButton!
+    @IBOutlet weak var publishBtn: TintButton!
     @IBOutlet weak var onCanvasTuneBtn: MaterializeRoundButton!
     @IBOutlet weak var onCanvasColorBtn: MaterializeRoundButton!
     @IBOutlet weak var onCanvasMenuBtn: MaterializeRoundButton!
     
+    // Edit.
     var toEdit: GTStreamable?
     var toEditImage: UIImage?
-    
+  
+    // Generic.
     var canvasScene: IntroScene?
     var canvas: LineDrawer?
     var colors: [UIColor]?
@@ -47,6 +69,11 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     var isMenuOpen: Bool?
     var isColorsOpen: Bool?
     var minRows: Int = 0
+    
+    // Drawing assistant.
+    var drawingAssistantIndex = 0
+    var drawingAssistantSequence: [DrawingAssistantState] = [.Intro, .DrawLine, .Color, .DrawColorLine, .Stroke, .DrawStrokeLine, .Menu, .Tool, .DrawToolLine, .Eraser, .Background, .Enhancer, .Publish]
+    var isDrawAssistantMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,8 +127,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             
             configureToolsLayout()
             
-            Utils.runWithDelay(0.5, block: { () in
-                self.hintMenu()
+            Utils.runWithDelay(1.3, block: { () in
+                self.checkScreenAssistant()
             })
         }
     }
@@ -413,6 +440,11 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         formSheetController.presentationController?.contentViewSize = CGSizeMake(300, 220)
         formSheetController.contentViewControllerTransitionStyle = .SlideFromBottom
         formSheetController.allowDismissByPanningPresentedView = true
+        formSheetController.didDismissContentViewControllerHandler = {vc in
+            if self.isDrawAssistantMode { // If we're showing the drawing assistant, move to next stage.
+                self.showNextDrawingAssistantScreen()
+            }
+        }
         
         vc.sizeSlider.minimumValue = Float(MIN_SIZE_OFFSET)
         vc.sizeSlider.maximumValue = Float(MAX_SIZE_OFFSET)
@@ -451,25 +483,102 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         }
     }
     
-    // MARK: - Menus
+    // MARK: - Drawing assistant
     
-    func hintMenu() {
-        UIView.animateWithDuration(0.4, delay: 0, options: .CurveEaseInOut, animations: {
-            self.canvasXconstraint.constant = 20
-            self.canvasYconstraint.constant = 20
-            self.canvasView.superview!.setNeedsUpdateConstraints()
-            self.canvasView.superview!.layoutIfNeeded()
-        }, completion: { (finished) in
-            if finished {
-                UIView.animateWithDuration(0.5, delay: 0.05, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.5, options: .CurveEaseInOut, animations: {
-                    self.canvasXconstraint.constant = 0
-                    self.canvasYconstraint.constant = 0
-                    self.canvasView.superview!.setNeedsUpdateConstraints()
-                    self.canvasView.superview!.layoutIfNeeded()
-                }, completion: nil)
-            }
-        })
+    func checkScreenAssistant() {
+        if !Settings.sharedInstance.showedDrawingAssistant! {
+            DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing drawing assistant")
+            AnalyticsUtils.sendAppEvent("showing_drawing_assistant", label: nil)
+            
+            isDrawAssistantMode = true
+            drawingAssistantIndex = 0;
+            showNextDrawingAssistantScreen()
+        }
     }
+    
+    func showNextDrawingAssistantScreen() {
+        if drawingAssistantIndex >= drawingAssistantSequence.count {
+            return
+        }
+        
+        let state = drawingAssistantSequence[drawingAssistantIndex]
+        
+        switch state {
+            case .Intro:
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.view, text: "Drawing with the canvas is quick and easy and we'll show you how to do it. Tap on the screen to get started!", afterIdleInterval: 0, completion: {finished in
+                    self.showNextDrawingAssistantScreen()
+                })
+                break
+            case .DrawLine, .DrawToolLine, .DrawStrokeLine, .DrawColorLine:
+                var text: String = ""
+                if state == .DrawLine {
+                    text = "You can draw by sliding your finger on the screen. Give it a try!"
+                }
+                else if state == .DrawToolLine {
+                    text = "Great tool choice. Lets see it in action!"
+                }
+                else if state == .DrawStrokeLine {
+                    text = "Give that new brush a try!"
+                }
+                else if state == .DrawColorLine {
+                    text = "That color looks nice. Why don't you give it a try?"
+                }
+                self.showGestureAssistantForSwipeDirection(PAGestureAssistantSwipeDirectonDown, text: text, afterIdleInterval: 0.5, completion: {finished in
+                    self.stopGestureAssistant()
+                })
+                break
+            case .Color:
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasColorBtn, text: "Drawing lines is fun but it's even nicer with colors. Tap on the palette to choose a different color.", afterIdleInterval: 0.3, completion: {finished in
+                    self.stopGestureAssistant()
+                })
+                break
+            case .Stroke:
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasTuneBtn, text: "In addition to colors you can also control the width and opacity of the current brush. Tap the brush settings to check it out.", afterIdleInterval: 0.3, completion: {finished in
+                    self.stopGestureAssistant()
+                })
+                break
+            case .Menu:
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasMenuBtn, text: "So far so good but what's a great artist without his brushes? Let's see what you've got in your toolbox.", afterIdleInterval: 0.3, completion: {finished in
+                    self.stopGestureAssistant()
+                })
+                break
+            case .Tool:
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.toolCollectionView, text: "These are your available tools. Tap on a different tool to continue.", afterIdleInterval: 0.3, completion: {finished in
+                    self.stopGestureAssistant()
+                })
+                break
+            case .Eraser:
+                let cell = self.toolCollectionView.cellForItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
+                if cell != nil {
+                    self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: cell!, text: "Even great artists make mistakes sometimes. Fear not, we have the perfect tool for this. Tap the eraser to erase mistakes.", afterIdleInterval: 0.3, completion: {finished in
+                        self.stopGestureAssistant()
+                    })
+                }
+                break
+            case .Background:
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.backgroundBtn, text: "The white canvas is nice but can quickly become boring. Why not put a background picture and draw on top of it?", afterIdleInterval: 0, completion: {finished in
+                    self.stopGestureAssistant()
+                })
+                break
+            case .Enhancer:
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.enhanceBtn, text: "Now that your masterpiece is almost done, it's time to add some cool effects to it and make it looks really pro. Tap the enhancer to add filters or stickers to your drawing.", afterIdleInterval: 0.3, completion: {finished in
+                    self.stopGestureAssistant()
+                })
+                break
+            case .Publish:
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.publishBtn, text: "Not bad for a first try! Why don't you share it with your friends or the rest of the GraffiTab community?", afterIdleInterval: 0, completion: {finished in
+                    self.stopGestureAssistant()
+                    
+                    // Finish tutorial.
+                    self.isDrawAssistantMode = false
+                })
+                break
+        }
+        
+        drawingAssistantIndex += 1
+    }
+    
+    // MARK: - Menus
     
     func showMenu() {
         isMenuOpen = true
@@ -480,6 +589,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             self.canvasView.superview!.setNeedsUpdateConstraints()
             self.canvasView.superview!.layoutIfNeeded()
             }, completion: nil)
+        
+        if self.isDrawAssistantMode { // If we're showing the drawing assistant, move to next stage.
+            self.showNextDrawingAssistantScreen()
+        }
     }
     
     func hideMenu(completionBlock: (() -> ())?) {
@@ -527,6 +640,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     override func didChooseImage(image: UIImage?) {
         canvas!.setBackground(image)
+        
+        if self.isDrawAssistantMode { // If we're showing the drawing assistant, move to next stage.
+            self.showNextDrawingAssistantScreen()
+        }
     }
     
     override func cropAspectRatio() -> CGSize {
@@ -662,6 +779,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             
             selectedToolIndex = indexPath.row
             collectionView.reloadData()
+            
+            if self.isDrawAssistantMode { // If we're showing the drawing assistant, move to next stage.
+                self.showNextDrawingAssistantScreen()
+            }
         }
     }
     
@@ -709,6 +830,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         colorBtn.backgroundColor = color
         self.canvas!.setDrawColor(color)
         hideColors(nil)
+        
+        if isDrawAssistantMode { // If we're showing the drawing assistant, move to next stage.
+            self.showNextDrawingAssistantScreen()
+        }
     }
     
     // MARK: - UIGestureRecognizerDelegate
@@ -766,6 +891,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     func didFinishDrawingAtPoint(point: CGPoint) {
         showOnCanvasTools()
+        
+        if isDrawAssistantMode { // If we're showing the drawing assistant, move to next stage.
+            self.showNextDrawingAssistantScreen()
+        }
     }
     
     func showOnCanvasTools() {
@@ -790,6 +919,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         self.dismissViewControllerAnimated(true, completion: {
             self.canvas!.clearDrawingLayer()
             self.canvas!.setBackground(image)
+            
+            if self.isDrawAssistantMode { // If we're showing the drawing assistant, move to next stage.
+                self.showNextDrawingAssistantScreen()
+            }
         })
     }
     

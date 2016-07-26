@@ -24,6 +24,15 @@ class Settings: NSObject {
         }
     }
     
+    var showedDrawingAssistant: Bool? {
+        get {
+            return getBoolPreference(SettingsKeys.kDrawingAssistant)
+        }
+        set(newValue) {
+            setBoolPreference(newValue!, key: SettingsKeys.kDrawingAssistant)
+        }
+    }
+    
     // Keychain.
     
     var username: String? {

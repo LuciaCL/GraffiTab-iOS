@@ -12,6 +12,7 @@ import FBSDKLoginKit
 import SwiftHEXColors
 import GraffiTab_iOS_SDK
 import CocoaLumberjack
+import PAGestureAssistant
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -47,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupCache()
         setupGraffiTabSDK()
         setupAnalytics()
+        setupGestureAssistant()
         
         Utils.runWithDelay(1) { () in
             self.checkLoginStatus(launchOptions)
@@ -298,6 +300,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let gai = GAI.sharedInstance()
         gai.trackUncaughtExceptions = true  // report uncaught exceptions
         gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
+    }
+    
+    func setupGestureAssistant() {
+        PAGestureAssistant.appearance().tapImage = UIImage(named: "hand")
+        PAGestureAssistant.appearance().backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.75)
+        PAGestureAssistant.appearance().tapColor = UIColor(hexString: Colors.Main)
+        PAGestureAssistant.appearance().textColor = UIColor(hexString: Colors.Main)
     }
 }
 

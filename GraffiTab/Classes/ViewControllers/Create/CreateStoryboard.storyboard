@@ -368,6 +368,7 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="backgroundBtn" destination="SOA-yg-LVz" id="Zfm-YI-BaI"/>
                         <outlet property="canvasContainerXconstraint" destination="Icb-xj-5Ey" id="l5o-yt-Xtb"/>
                         <outlet property="canvasView" destination="TvL-dT-yP8" id="KGA-sw-Na7"/>
                         <outlet property="canvasXconstraint" destination="Yea-3Q-DTf" id="vll-5G-6PB"/>
@@ -376,12 +377,14 @@
                         <outlet property="colorsTableView" destination="oKo-4x-Uqe" id="obz-aK-R5e"/>
                         <outlet property="colorsTrailingconstraint" destination="V5R-wM-yd8" id="hE3-bv-sfc"/>
                         <outlet property="drawingContainer" destination="fMz-pD-gGX" id="HaF-yj-d4g"/>
+                        <outlet property="enhanceBtn" destination="DX7-Jl-Ods" id="WRt-Ub-m8H"/>
                         <outlet property="onCanvasColorBtn" destination="cJs-Hi-oHp" id="JUd-hQ-bil"/>
                         <outlet property="onCanvasMenuBtn" destination="QbB-j2-onO" id="x5T-S2-ODM"/>
                         <outlet property="onCanvasTuneBtn" destination="XXN-ro-q5M" id="SPe-hn-v3T"/>
                         <outlet property="phraseAuthorLbl" destination="8G4-ZA-fvb" id="0lP-8Z-UgM"/>
                         <outlet property="phraseContainer" destination="rhu-Zf-Sf7" id="gKN-sr-7I5"/>
                         <outlet property="phraseTextLbl" destination="4wN-5R-pJ3" id="iRk-dp-YJt"/>
+                        <outlet property="publishBtn" destination="T6f-xY-P0d" id="BrY-cp-vRT"/>
                         <outlet property="redoBtn" destination="9sB-k6-gYg" id="Ahj-mm-ng1"/>
                         <outlet property="toolCollectionView" destination="X2G-Kj-kWA" id="usT-Lt-EFJ"/>
                         <outlet property="undoBtn" destination="ib6-PW-cQc" id="Jji-Mo-Osc"/>

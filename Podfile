@@ -52,6 +52,7 @@ def common_pods
     pod 'Google/Analytics'
     pod 'SDWebImage'
     pod 'HanekeSwift'
+    pod 'PAGestureAssistant'
 end
 
 target 'GraffiTab' do
