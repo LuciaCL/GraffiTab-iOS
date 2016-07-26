@@ -614,6 +614,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     func showColors() {
         self.isColorsOpen = true
+        colorsTableView.reloadData()
         
         UIView.animateWithDuration(0.4, delay: 0, options: .CurveEaseInOut, animations: {
             self.canvasContainerXconstraint.constant = -self.colorsTableView.frame.width
