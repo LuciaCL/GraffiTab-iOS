@@ -578,7 +578,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                 
                 let cell = self.toolCollectionView.cellForItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
                 if cell != nil {
-                    self.showGestureAssistantForTap(PAGestureAssistantTapLongPress, view: cell!, text: "Even great artists make mistakes sometimes. Do not fear, we have the perfect tool for this. Tap and hold on the eraser to see available options.", afterIdleInterval: 0.3, completion: {finished in
+                    self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: cell!, text: "Even great artists make mistakes sometimes. Do not fear, we have the perfect tool for this. Tap the eraser to erase mistakes.", afterIdleInterval: 0.3, completion: {finished in
                         self.stopGestureAssistant()
                     })
                 }
