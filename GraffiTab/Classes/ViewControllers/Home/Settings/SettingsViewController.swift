@@ -185,4 +185,23 @@ class SettingsViewController: GeneralSettingsViewController {
             }
         }
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 1 {
+            if indexPath.row == 1 { // Disable Facebook invites for now.
+                return 0
+            }
+        }
+        
+        return tableView.rowHeight
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 1 && indexPath.row == 1 { // Disable Facebook invites for now.
+            cell.hidden = true
+        }
+        else {
+            cell.hidden = false
+        }
+    }
 }
