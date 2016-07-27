@@ -74,6 +74,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     var drawingAssistantIndex = 0
     var drawingAssistantSequence: [DrawingAssistantState] = [.Intro, .DrawLine, .Color, .DrawColorLine, .Stroke, .DrawStrokeLine, .Menu, .Tool, .DrawToolLine, .Eraser, .Background, .Enhancer, .Publish]
     var isDrawAssistantMode = false
+    var interactiveComponents: [UIView]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +84,17 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         isPortrait = self.view.frame.width < self.view.frame.height
         isMenuOpen = false
         isColorsOpen = false
+        interactiveComponents = [CCDirector.sharedDirector().view,
+                                               onCanvasTuneBtn,
+                                               onCanvasColorBtn,
+                                               onCanvasMenuBtn,
+                                               colorBtn,
+                                               toolCollectionView,
+                                               backgroundBtn,
+                                               enhanceBtn,
+                                               publishBtn,
+                                               undoBtn,
+                                               redoBtn]
         
         setupCocos2D()
         
@@ -258,6 +270,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickDone(sender: AnyObject) {
+        configureUIComponentsForTutorial(nil, showAll: true)
+        
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing publish options")
         let actionSheet = buildActionSheet("Looks great! How about sharing it with the rest of the world?")
         actionSheet.addButtonWithTitle("Publish", image: UIImage(named: "ic_done_white"), type: .Default) { (sheet) in
@@ -505,11 +519,15 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         
         switch state {
             case .Intro:
+                configureUIComponentsForTutorial(CCDirector.sharedDirector().view, showAll: false)
+                
                 self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.view, text: "Drawing with the canvas is quick and easy and we'll show you how to do it. Tap on the screen to get started!", afterIdleInterval: 0, completion: {finished in
                     self.showNextDrawingAssistantScreen()
                 })
                 break
             case .DrawLine, .DrawToolLine, .DrawStrokeLine, .DrawColorLine:
+                configureUIComponentsForTutorial(CCDirector.sharedDirector().view, showAll: false)
+                
                 var text: String = ""
                 if state == .DrawLine {
                     text = "You can draw by sliding your finger on the screen. Give it a try!"
@@ -528,44 +546,60 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                 })
                 break
             case .Color:
+                configureUIComponentsForTutorial(onCanvasColorBtn, showAll: false)
+                
                 self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasColorBtn, text: "Drawing lines is fun but it's even nicer with colors. Tap on the palette to choose a different color.", afterIdleInterval: 0.3, completion: {finished in
                     self.stopGestureAssistant()
                 })
                 break
             case .Stroke:
+                configureUIComponentsForTutorial(onCanvasTuneBtn, showAll: false)
+                
                 self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasTuneBtn, text: "In addition to colors you can also control the width and opacity of the current brush. Tap the brush settings to check it out.", afterIdleInterval: 0.3, completion: {finished in
                     self.stopGestureAssistant()
                 })
                 break
             case .Menu:
+                configureUIComponentsForTutorial(onCanvasMenuBtn, showAll: false)
+                
                 self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasMenuBtn, text: "So far so good but what's a great artist without his brushes? Let's see what you've got in your toolbox.", afterIdleInterval: 0.3, completion: {finished in
                     self.stopGestureAssistant()
                 })
                 break
             case .Tool:
+                configureUIComponentsForTutorial(toolCollectionView, showAll: false)
+                
                 self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.toolCollectionView, text: "These are your available tools. Tap on a different tool to continue.", afterIdleInterval: 0.3, completion: {finished in
                     self.stopGestureAssistant()
                 })
                 break
             case .Eraser:
+                configureUIComponentsForTutorial(toolCollectionView, showAll: false)
+                
                 let cell = self.toolCollectionView.cellForItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
                 if cell != nil {
-                    self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: cell!, text: "Even great artists make mistakes sometimes. Fear not, we have the perfect tool for this. Tap the eraser to erase mistakes.", afterIdleInterval: 0.3, completion: {finished in
+                    self.showGestureAssistantForTap(PAGestureAssistantTapLongPress, view: cell!, text: "Even great artists make mistakes sometimes. Do not fear, we have the perfect tool for this. Tap and hold on the eraser to see available options.", afterIdleInterval: 0.3, completion: {finished in
                         self.stopGestureAssistant()
                     })
                 }
                 break
             case .Background:
+                configureUIComponentsForTutorial(backgroundBtn, showAll: false)
+                
                 self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.backgroundBtn, text: "The white canvas is nice but can quickly become boring. Why not put a background picture and draw on top of it?", afterIdleInterval: 0, completion: {finished in
                     self.stopGestureAssistant()
                 })
                 break
             case .Enhancer:
+                configureUIComponentsForTutorial(enhanceBtn, showAll: false)
+                
                 self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.enhanceBtn, text: "Now that your masterpiece is almost done, it's time to add some cool effects to it and make it looks really pro. Tap the enhancer to add filters or stickers to your drawing.", afterIdleInterval: 0.3, completion: {finished in
                     self.stopGestureAssistant()
                 })
                 break
             case .Publish:
+                configureUIComponentsForTutorial(publishBtn, showAll: false)
+                
                 self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.publishBtn, text: "Not bad for a first try! Why don't you share it with your friends or the rest of the GraffiTab community?", afterIdleInterval: 0, completion: {finished in
                     self.stopGestureAssistant()
                     
@@ -578,6 +612,27 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         }
         
         drawingAssistantIndex += 1
+    }
+    
+    func configureUIComponentsForTutorial(excludedView: UIView?, showAll: Bool) {
+        UIView.animateWithDuration(0.3, animations: {
+            for view in self.interactiveComponents! {
+                if showAll {
+                    view.userInteractionEnabled = true
+                    view.alpha = 1.0
+                }
+                else {
+                    if view != excludedView {
+                        view.userInteractionEnabled = false
+                        view.alpha = 0.3
+                    }
+                    else {
+                        view.userInteractionEnabled = true
+                        view.alpha = 1.0
+                    }
+                }
+            }
+        }, completion: nil)
     }
     
     // MARK: - Menus
