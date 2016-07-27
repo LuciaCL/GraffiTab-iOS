@@ -18,7 +18,7 @@ class AssetImageView: UIImageView {
     var previousAssetDiskRequest: NSOperation?
     var asset: GTAsset? {
         didSet {
-            loadThumbnailsAndCachedAssetsAsset()
+            loadThumbnailAndCachedAsset()
             
             previousAsset = asset
         }
@@ -42,7 +42,7 @@ class AssetImageView: UIImageView {
     
     // MARK: - Loading
     
-    func loadThumbnailsAndCachedAssetsAsset() {
+    func loadThumbnailAndCachedAsset() {
         let fetchFromDisk = {
             // 3. No memory cache at this point, so try fetching full image from disk cache.
             self.previousAssetDiskRequest = AppImageCache.sharedInstance.queryDiskCachedImage(self.asset!.link!, done: { (cachedFullImage, type) in
