@@ -29,8 +29,8 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48f-4K-7Mr">
-                                <rect key="frame" x="285" y="555" width="30" height="30"/>
-                                <state key="normal" title="Skip">
+                                <rect key="frame" x="258" y="555" width="84" height="30"/>
+                                <state key="normal" title="I'll do it later">
                                     <color key="titleColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
