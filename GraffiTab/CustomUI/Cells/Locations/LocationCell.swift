@@ -23,7 +23,6 @@ class LocationCell: UICollectionViewCell {
     
     var delegate: LocationCellDelegate?
     var previousItem: GTLocation?
-    var previousItemRequest: Request?
     var item: GTLocation? {
         didSet {
             setItem()

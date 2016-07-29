@@ -144,7 +144,7 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
         if previousItem != nil && previousItem!.id != item?.id {
             loadingIndicator?.stopAnimating()
             loadingIndicator?.hidden = true
-            previousItemRequest?.cancel()
+            previousUserStreamablesRequest?.cancel()
         }
         
         // 1. Check memory cache first.

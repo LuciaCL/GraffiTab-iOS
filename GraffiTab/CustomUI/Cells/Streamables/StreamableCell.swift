@@ -30,8 +30,6 @@ class StreamableCell: UICollectionViewCell {
     var indexPath: NSIndexPath?
     var delegate: StreamableDelegate?
     var previousItem: GTStreamable?
-    var previousItemRequest: Request?
-    var previousAvatarRequest: Request?
     var item: GTStreamable? {
         didSet {
             setItem()

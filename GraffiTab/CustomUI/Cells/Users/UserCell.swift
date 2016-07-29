@@ -16,7 +16,6 @@ class UserCell: UICollectionViewCell {
     @IBOutlet weak var avatar: AvatarImageView!
     
     var previousItem: GTUser?
-    var previousItemRequest: Request?
     var item: GTUser? {
         didSet {
             setItem()
