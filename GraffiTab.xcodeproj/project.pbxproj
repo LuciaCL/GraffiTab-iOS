@@ -405,6 +405,8 @@
 		E5E293811D05DBC800C272EE /* UIApplication+TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E293801D05DBC800C272EE /* UIApplication+TopViewController.swift */; };
 		E5E293821D05DC0200C272EE /* UIApplication+TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E293801D05DBC800C272EE /* UIApplication+TopViewController.swift */; };
 		E5E293831D05DC0E00C272EE /* UIView+Materialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E2937D1D05DB6E00C272EE /* UIView+Materialize.swift */; };
+		E5F40CF21D4AE41E00832D92 /* AvatarPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40CF11D4AE41E00832D92 /* AvatarPromptViewController.swift */; };
+		E5F40CF31D4AE41E00832D92 /* AvatarPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40CF11D4AE41E00832D92 /* AvatarPromptViewController.swift */; };
 		E5FE1D7E1CFEF71B009CFB72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5FE1D811CFEF71B009CFB72 /* Localizable.strings */; };
 		E5FE1D7F1CFEF71B009CFB72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5FE1D811CFEF71B009CFB72 /* Localizable.strings */; };
 		E5FE1D8A1CFF7DFE009CFB72 /* AssetImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D871CFF7DFE009CFB72 /* AssetImageView.swift */; };
@@ -732,6 +734,7 @@
 		E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS-SDK/_Archive/iOS/Debug/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
 		E5E2937D1D05DB6E00C272EE /* UIView+Materialize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Materialize.swift"; sourceTree = "<group>"; };
 		E5E293801D05DBC800C272EE /* UIApplication+TopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+TopViewController.swift"; sourceTree = "<group>"; };
+		E5F40CF11D4AE41E00832D92 /* AvatarPromptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarPromptViewController.swift; sourceTree = "<group>"; };
 		E5FE1D801CFEF71B009CFB72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E5FE1D871CFF7DFE009CFB72 /* AssetImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetImageView.swift; sourceTree = "<group>"; };
 		E5FE1D881CFF7DFE009CFB72 /* AvatarImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
@@ -1000,6 +1003,7 @@
 		E5494E531D199E47004F31A7 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				E5F40CF11D4AE41E00832D92 /* AvatarPromptViewController.swift */,
 				E5494E591D19A1F5004F31A7 /* OnboardingStoryboard.storyboard */,
 			);
 			path = Onboarding;
@@ -2072,6 +2076,7 @@
 				E58432471CE9242000FB1E50 /* EditTextViewController.swift in Sources */,
 				E58432481CE9242000FB1E50 /* MosaicStreamablesViewController.swift in Sources */,
 				E58432491CE9242000FB1E50 /* SettingsViewController.swift in Sources */,
+				E5F40CF31D4AE41E00832D92 /* AvatarPromptViewController.swift in Sources */,
 				E584324A1CE9242000FB1E50 /* ExploreViewController.swift in Sources */,
 				E584324B1CE9242000FB1E50 /* CustomInfiniteIndicator.swift in Sources */,
 				E584324C1CE9242000FB1E50 /* TOCropToolbar.m in Sources */,
@@ -2234,6 +2239,7 @@
 				E5B6B5AF1CC56F5800DC8EFC /* EditTextViewController.swift in Sources */,
 				E558A8A61CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */,
 				E5B6B5C91CC56F5800DC8EFC /* SettingsViewController.swift in Sources */,
+				E5F40CF21D4AE41E00832D92 /* AvatarPromptViewController.swift in Sources */,
 				E5B6B5CF1CC56F5800DC8EFC /* ExploreViewController.swift in Sources */,
 				E52DC7381CE5085900375828 /* CustomInfiniteIndicator.swift in Sources */,
 				E5D085AF1CD8D30000226589 /* TOCropToolbar.m in Sources */,

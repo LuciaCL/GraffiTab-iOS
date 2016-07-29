@@ -33,6 +33,15 @@ class Settings: NSObject {
         }
     }
     
+    var promptedForAvatar: Bool? {
+        get {
+            return getBoolPreference(SettingsKeys.kPromptedForAvatar)
+        }
+        set(newValue) {
+            setBoolPreference(newValue!, key: SettingsKeys.kPromptedForAvatar)
+        }
+    }
+    
     // Keychain.
     
     var username: String? {

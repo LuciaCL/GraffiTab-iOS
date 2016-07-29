@@ -193,8 +193,6 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
                 GTMeManager.importAvatar(.FACEBOOK, successBlock: { (response) -> Void in
                     self.view.hideActivityView()
                     
-                    self.view.hideActivityView()
-                    
                     self.header?.item = GTMeManager.sharedInstance.loggedInUser
                     
                     Utils.runWithDelay(0.3) { () in

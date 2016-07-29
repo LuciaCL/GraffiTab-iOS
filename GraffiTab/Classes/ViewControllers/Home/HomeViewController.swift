@@ -40,6 +40,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         setupTransition()
         
         configureTabBasedViews(0)
+        checkOnboardingSequence()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -136,6 +137,26 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         }
         
         carbonTabSwipeNavigation!.carbonSegmentedControl?.setNeedsDisplay()
+    }
+    
+    // MARK: - Onboarding
+    
+    func checkOnboardingSequence() {
+        Utils.runWithDelay(1) {
+            let user = GTMeManager.sharedInstance.loggedInUser
+            
+            if user?.avatar == nil {
+                if !Settings.sharedInstance.promptedForAvatar! {
+                    let avatarPrompt = UIStoryboard(name: "OnboardingStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("AvatarPromptViewController") as! AvatarPromptViewController
+                    avatarPrompt.dismissHandler = {
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    }
+                    self.presentViewController(avatarPrompt, animated: true, completion: nil)
+                    
+                    Settings.sharedInstance.promptedForAvatar = true
+                }
+            }
+        }
     }
     
     // MARK: - Navigation

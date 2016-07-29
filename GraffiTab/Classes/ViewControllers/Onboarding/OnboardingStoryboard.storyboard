@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Avatar Prompt View Controller-->
         <scene sceneID="n6R-ci-aGM">
             <objects>
-                <viewController id="hYs-ba-9jh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AvatarPromptViewController" id="hYs-ba-9jh" customClass="AvatarPromptViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C5R-CO-EhF"/>
                         <viewControllerLayoutGuide type="bottom" id="5JB-aC-87y"/>
@@ -15,12 +16,72 @@
                     <view key="view" contentMode="scaleToFill" id="ZDX-do-QJc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="asw-0i-Ok6" customClass="AvatarImageView" customModule="GraffiTab" customModuleProvider="target">
+                                <rect key="frame" x="250" y="150" width="100" height="100"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="PT3-Tc-327"/>
+                                    <constraint firstAttribute="width" constant="100" id="t0E-ph-4dJ"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="NdO-ti-K6y" appends="YES" id="1ti-20-rEh"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48f-4K-7Mr">
+                                <rect key="frame" x="285" y="555" width="30" height="30"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickSkip:" destination="hYs-ba-9jh" eventType="touchUpInside" id="Ao0-Nc-A1t"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Georgi Christov" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHj-ph-PuM">
+                                <rect key="frame" x="220" y="270" width="161" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iX-CO-19n">
+                                <rect key="frame" x="208" y="396" width="185" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <state key="normal" title="Say &quot;Cheese!&quot;">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickPicture:" destination="hYs-ba-9jh" eventType="touchUpInside" id="Vog-WZ-of0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.36078431372549019" blue="0.52549019607843139" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="9iX-CO-19n" firstAttribute="centerY" secondItem="ZDX-do-QJc" secondAttribute="centerY" multiplier="1.4" id="EWh-39-YJJ"/>
+                            <constraint firstItem="48f-4K-7Mr" firstAttribute="centerX" secondItem="ZDX-do-QJc" secondAttribute="centerX" id="G91-ir-Eam"/>
+                            <constraint firstItem="5JB-aC-87y" firstAttribute="top" secondItem="48f-4K-7Mr" secondAttribute="bottom" constant="15" id="HGT-Zr-LB8"/>
+                            <constraint firstItem="asw-0i-Ok6" firstAttribute="centerY" secondItem="ZDX-do-QJc" secondAttribute="centerY" constant="-100" id="L8v-F7-6Dk"/>
+                            <constraint firstItem="fHj-ph-PuM" firstAttribute="top" secondItem="asw-0i-Ok6" secondAttribute="bottom" constant="20" id="LUl-gA-th0"/>
+                            <constraint firstItem="asw-0i-Ok6" firstAttribute="centerX" secondItem="ZDX-do-QJc" secondAttribute="centerX" id="UIn-zM-vts"/>
+                            <constraint firstItem="9iX-CO-19n" firstAttribute="centerX" secondItem="ZDX-do-QJc" secondAttribute="centerX" id="mQt-CV-nDj"/>
+                            <constraint firstItem="fHj-ph-PuM" firstAttribute="centerX" secondItem="asw-0i-Ok6" secondAttribute="centerX" id="yZk-zj-zSc"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="avatar" destination="asw-0i-Ok6" id="wF9-Vn-H3H"/>
+                        <outlet property="name" destination="fHj-ph-PuM" id="cOb-Sr-12B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fK-ad-mVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="NdO-ti-K6y">
+                    <connections>
+                        <action selector="onClickPicture:" destination="hYs-ba-9jh" id="hG2-zT-ihB"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="927" y="589"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="default_avatar" width="185" height="185"/>
+    </resources>
 </document>

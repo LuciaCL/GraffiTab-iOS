@@ -196,12 +196,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func userDidLogin(launchOptions: [NSObject: AnyObject]?) {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User logged in. Showing main app")
         
-        showStoryboard("MainStoryboard", duration: 0.3);
+        self.showStoryboard("MainStoryboard", duration: 0.3);
         
-        registerPushNotifications()
+        self.registerPushNotifications()
         
         // Check if app has been started by clicking on a push notification.
-        processPushNotificationInfo(launchOptions)
+        self.processPushNotificationInfo(launchOptions)
     }
     
     func userDidLogout() {
@@ -218,10 +218,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: name, bundle: nil)
         let vc = storyboard.instantiateInitialViewController()
         
+        showViewController(vc!, duration: duration)
+    }
+    
+    func showViewController(controller: UIViewController, duration: Double) {
         UIView.transitionWithView(self.window!, duration: duration, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
-            self.window?.rootViewController = vc
+            self.window?.rootViewController = controller
         }, completion: {(finished) in
-            
+                
         })
     }
     
