@@ -338,7 +338,8 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     }
     
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(named: getEmptyDataSetImageName())
+//        return UIImage(named: getEmptyDataSetImageName())
+        return nil
     }
     
     func imageTintColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {

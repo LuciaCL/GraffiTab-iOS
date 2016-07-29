@@ -219,15 +219,16 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
     }
     
     func getEmptyDataSetTitle() -> String {
-        return "No graffiti"
+        return "No notifications"
     }
     
     func getEmptyDataSetDescription() -> String {
-        return "No graffiti were found over here. Please come back again."
+        return "You have no notifications at this point. Please come back again."
     }
     
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(named: getEmptyDataSetImageName())
+//        return UIImage(named: getEmptyDataSetImageName())
+        return nil
     }
     
     func imageTintColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
