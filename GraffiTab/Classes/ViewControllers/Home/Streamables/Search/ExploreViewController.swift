@@ -30,6 +30,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     
     var toShowLatitude: CLLocationDegrees?
     var toShowLongitude: CLLocationDegrees?
+    var toShowUser: GTUser?
     
     var transition: JTMaterialTransition?
     var isMovedByTap = false
@@ -60,6 +61,8 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
+        
+        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
         
         if self.navigationController != nil && !self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -206,7 +209,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Map bounding rectangle is \(neCoord), + \(swCoord)")
         
-        GTStreamableManager.searchForLocation(neCoord.latitude, neLongitude: neCoord.longitude, swLatitude: swCoord.latitude, swLongitude: swCoord.longitude, successBlock: { (response) -> Void in
+        let successBlock = {(response: GTResponseObject) -> Void in
             let listItemsResult = response.object as! GTListItemsResult<GTStreamable>
             
             self.items.removeAll()
@@ -214,10 +217,26 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
             
             self.processAnnotations(listItemsResult.items!)
             self.finalizeLoad()
-        }) { (response) -> Void in
+        }
+        let failureBlock = {(response: GTResponseObject) -> Void in
             self.finalizeLoad()
             
             DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
+        }
+        
+        if toShowUser != nil {
+            GTUserManager.getUserStreamablesForLocation(toShowUser!.id!, neLatitude: neCoord.latitude, neLongitude: neCoord.longitude, swLatitude: swCoord.latitude, swLongitude: swCoord.longitude, successBlock: { (response) -> Void in
+                successBlock(response)
+            }) { (response) -> Void in
+                failureBlock(response)
+            }
+        }
+        else {
+            GTStreamableManager.searchForLocation(neCoord.latitude, neLongitude: neCoord.longitude, swLatitude: swCoord.latitude, swLongitude: swCoord.longitude, successBlock: { (response) -> Void in
+                successBlock(response)
+            }) { (response) -> Void in
+                failureBlock(response)
+            }
         }
     }
     
@@ -382,10 +401,12 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
             return
         }
         
+        let delta = toShowUser != nil ? 10 : 0.2
+        
         var region = MKCoordinateRegion()
         region.center = location.coordinate
-        region.span.latitudeDelta = 0.2
-        region.span.longitudeDelta = 0.2
+        region.span.latitudeDelta = delta
+        region.span.longitudeDelta = delta
         mapView.setRegion(region, animated: true)
     }
     
@@ -529,12 +550,6 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     // MARK: - Setup
-    
-    override func setupTopBar() {
-        super.setupTopBar()
-        
-        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
-    }
     
     func setupButtons() {
         terrainBtn.tintColor = UIColor(hexString: "#e0e0e0")

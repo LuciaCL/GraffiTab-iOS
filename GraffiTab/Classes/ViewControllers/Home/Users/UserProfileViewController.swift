@@ -51,6 +51,8 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
         
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+        
         if !self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(true, animated: true)
         }
@@ -426,7 +428,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     }
     
     func didTapMap(user: GTUser) {
-        // TODO:
+        ViewControllerUtils.showExplorer(user: self.user, viewController: self)
     }
     
     // MARK: - Orientation
