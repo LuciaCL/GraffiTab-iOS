@@ -333,7 +333,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
                 
                 self.finalizeLoad()
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title)
+                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
             }
         }
         else {

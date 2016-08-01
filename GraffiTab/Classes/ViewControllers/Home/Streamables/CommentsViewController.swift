@@ -127,7 +127,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             
             self.finalizeLoad()
             
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
         }
     }
     
@@ -316,7 +316,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         GTStreamableManager.editComment(streamable!.id!, commentId: commentToEdit!.id!, text: commentToEdit!.text!, successBlock: { (response) in
             
         }) { (response) in
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
         }
         
         super.didCommitTextEditing(sender)
@@ -423,7 +423,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             
             self.tableView!.reloadData()
             
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
         }
     }
     
@@ -438,7 +438,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             GTStreamableManager.deleteComment(streamable!.id!, commentId: comment.id!, successBlock: { (response) in
                 
             }, failureBlock: { (response) in
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title)
+                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
             })
         }
         
@@ -472,7 +472,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         }) { (response) in
             self.view.hideActivityView()
             
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
+            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
         }
     }
     

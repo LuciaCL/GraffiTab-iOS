@@ -8,6 +8,7 @@
 
 import UIKit
 import SCLAlertView
+import GraffiTab_iOS_SDK
 
 class DialogBuilder: NSObject {
 
@@ -41,15 +42,25 @@ class DialogBuilder: NSObject {
         alertView.showError(title, subTitle: status)
     }
     
-    class func showAPIErrorAlert(status: String, title:String, forceShow: (Bool?) = false) {
-        self.showAPIErrorAlert(status, title: title, forceShow: forceShow, okAction: {})
+    class func showAPIErrorAlert(status: String, title:String, forceShow: (Bool?) = false, reason: GTReason) {
+        self.showAPIErrorAlert(status, title: title, forceShow: forceShow, okAction: {}, reason: reason)
     }
     
-    class func showAPIErrorAlert(status: String, title:String, forceShow: (Bool?) = false, okAction:() -> Void) {
+    class func showAPIErrorAlert(status: String, title:String, forceShow: (Bool?) = false, okAction:() -> Void, reason: GTReason) {
         let errorDate = NSDate()
         
+        // Define custom action to listen for logout events.
+        let action = {
+            if reason == .USER_NOT_LOGGED_IN || reason == .USER_NOT_IN_EXPECTED_STATE {
+                Utils.logoutUserAndShowLoginController()
+            }
+            else {
+                okAction()
+            }
+        }
+        
         if forceShow != nil && forceShow! {
-            self.showErrorAlert(status, title: title, okAction: okAction)
+            self.showErrorAlert(status, title: title, okAction: action)
             lastErrorDate = errorDate
             return
         }
@@ -57,12 +68,12 @@ class DialogBuilder: NSObject {
         if lastErrorDate != nil {
             let secondsPassed = errorDate.timeIntervalSinceDate(lastErrorDate!)
             if secondsPassed > 30 {
-                self.showErrorAlert(status, title: title, okAction: okAction)
+                self.showErrorAlert(status, title: title, okAction: action)
                 lastErrorDate = errorDate
             }
         }
         else {
-            self.showErrorAlert(status, title: title, okAction: okAction)
+            self.showErrorAlert(status, title: title, okAction: action)
             lastErrorDate = errorDate
         }
     }

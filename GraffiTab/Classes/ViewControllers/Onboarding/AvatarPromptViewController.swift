@@ -62,7 +62,7 @@ class AvatarPromptViewController: UIViewController {
             }, failureBlock: { (response) -> Void in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
+                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }
         
@@ -87,7 +87,7 @@ class AvatarPromptViewController: UIViewController {
             }, failureBlock: { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
+                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }
         else { // Removing an image.
@@ -99,7 +99,7 @@ class AvatarPromptViewController: UIViewController {
             }, failureBlock: { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
+                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }
     }

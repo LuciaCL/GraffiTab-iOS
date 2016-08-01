@@ -282,7 +282,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
                     self.dismissViewControllerAnimated(true, completion: nil)
                 })
             }, failureBlock: { (response) in
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
+                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }) {
             
@@ -357,7 +357,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             }, failureBlock: { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
+                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }
     }

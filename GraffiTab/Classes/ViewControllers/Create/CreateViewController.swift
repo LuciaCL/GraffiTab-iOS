@@ -191,7 +191,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         let failBlock = { (response: GTResponseObject) in
             self.view.hideActivityView()
             
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
+            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
         }
         
         let saveBlock = {

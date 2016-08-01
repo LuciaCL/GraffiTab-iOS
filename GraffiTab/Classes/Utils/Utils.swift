@@ -17,8 +17,6 @@ class Utils: NSObject {
     }
     
     class func logoutUserAndShowLoginController() {
-        Settings.sharedInstance.resetPreferences()
-        
         NSNotificationCenter.defaultCenter().postNotificationName(Notifications.UserLoggedOut, object: nil)
     }
     

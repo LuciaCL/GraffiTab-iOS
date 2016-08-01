@@ -93,7 +93,7 @@ class SettingsViewController: GeneralSettingsViewController {
                         return
                     }
                     
-                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
+                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
                 })
             }, andFailure: { (error) in
                 self.view.hideActivityView()

@@ -79,7 +79,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         }) { (response) -> Void in
             self.view.hideActivityView()
             
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
+            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
         }
     }
     
@@ -125,11 +125,11 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
                 self.view.hideActivityView()
                 
                 if response.error.reason == .USER_NOT_LOGGED_IN {
-                    DialogBuilder.showAPIErrorAlert("These credentials are incorrect. Please try again.", title: App.Title, forceShow: true)
+                    DialogBuilder.showAPIErrorAlert("These credentials are incorrect. Please try again.", title: App.Title, forceShow: true, reason: response.error.reason)
                     return
                 }
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
+                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }
     }
@@ -167,7 +167,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
                     return
                 }
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
+                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }) { (error: NSError?) -> () in
             self.view.hideActivityView()

@@ -208,6 +208,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User logged out. Showing login screen")
         
         GTMeManager.sharedInstance.logout()
+        Settings.sharedInstance.resetPreferences()
         
         showStoryboard("LoginStoryboard", duration: 0.3);
     }
