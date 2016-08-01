@@ -109,7 +109,7 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
             
             self.finalizeLoad()
             
-            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title)
         }
     }
     

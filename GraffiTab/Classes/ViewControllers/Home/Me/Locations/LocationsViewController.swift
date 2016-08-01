@@ -244,7 +244,7 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
             
             self.finalizeLoad()
             
-            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title)
         }
     }
     
@@ -449,7 +449,7 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
         GTMeManager.deleteLocation(location.id!, successBlock: { (response) in
             
         }, failureBlock: { (response) in
-            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title)
         })
     }
     

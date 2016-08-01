@@ -60,13 +60,7 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
             }, failureBlock: { (response) in
                 self.view.hideActivityView()
                 
-                if (response.reason == .Forbidden) {
-                    DialogBuilder.showAPIErrorAlert("Your password is incorrect. Please try again.", title: App.Title, forceShow: true)
-                    
-                    return
-                }
-                
-                DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
+                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
             })
         }
     }

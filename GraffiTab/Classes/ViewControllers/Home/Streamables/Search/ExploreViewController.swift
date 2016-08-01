@@ -217,7 +217,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         }) { (response) -> Void in
             self.finalizeLoad()
             
-            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title)
+            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title)
         }
     }
     

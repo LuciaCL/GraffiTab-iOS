@@ -113,4 +113,8 @@ class Settings: NSObject {
         defaults.removeObjectForKey(key)
         defaults.synchronize()
     }
+    
+    func resetPreferences() {
+        self.promptedForAvatar = false
+    }
 }

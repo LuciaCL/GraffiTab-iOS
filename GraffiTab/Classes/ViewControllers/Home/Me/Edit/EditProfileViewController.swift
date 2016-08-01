@@ -85,12 +85,7 @@ class EditProfileViewController: BackButtonTableViewController {
         }, failureBlock: { (response) in
             self.view.hideActivityView()
             
-            if response.reason == .BadRequest {
-                DialogBuilder.showAPIErrorAlert("This email is already used by another user.", title: App.Title, forceShow: true)
-                return
-            }
-            
-            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
+            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
         })
     }
     
@@ -117,7 +112,7 @@ class EditProfileViewController: BackButtonTableViewController {
                 }, failureBlock: { (response) -> Void in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
+                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
                 })
             }
         }
@@ -154,7 +149,7 @@ class EditProfileViewController: BackButtonTableViewController {
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
+                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
                 })
             }
             else {
@@ -166,7 +161,7 @@ class EditProfileViewController: BackButtonTableViewController {
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
+                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
                 })
             }
         }
@@ -180,7 +175,7 @@ class EditProfileViewController: BackButtonTableViewController {
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
+                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
                 })
             }
             else {
@@ -192,7 +187,7 @@ class EditProfileViewController: BackButtonTableViewController {
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
+                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
                 })
             }
         }

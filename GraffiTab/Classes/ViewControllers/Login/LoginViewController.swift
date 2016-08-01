@@ -79,45 +79,26 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         }) { (response) -> Void in
             self.view.hideActivityView()
             
-            if (response.reason == .BadRequest || response.reason == .AlreadyExists) {
-                DialogBuilder.showAPIErrorAlert("A user with these details already exists.", title: App.Title, forceShow: true)
-                return
-            }
-            
-            DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
+            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
         }
     }
     
-    func finishExternalProviderSignup(askToImportAvatar: Bool) {
-        let avatarImportHandler = {
-            Utils.runWithDelay(1.3) { () in
+    func refreshCurrentUserAndFinishLogin() {
+        let completionHandler = {
+            self.view.hideActivityView()
+            
+            Utils.runWithDelay(1) { () in
                 NSNotificationCenter.defaultCenter().postNotificationName(Notifications.UserLoggedIn, object: nil)
             }
         }
         
-        if askToImportAvatar {
-            DialogBuilder.showYesNoSuccessAlert("You have successfully registered with Facebook. Would you like to import your profile picture?", title: App.Title, yesTitle: "Import it!", noTitle: "Later", yesAction: { () -> Void in
-                self.view.showActivityViewWithLabel("Processing")
-                self.view.rn_activityView.dimBackground = false
-                
-                GTMeManager.importAvatar(.FACEBOOK, successBlock: { (response) -> Void in
-                    self.view.hideActivityView()
-                    
-                    avatarImportHandler()
-                }, failureBlock: { (response) -> Void in
-                    self.view.hideActivityView()
-                    
-                    DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true, okAction: {
-                        avatarImportHandler()
-                    })
-                })
-            }) { () -> Void in
-                avatarImportHandler()
-            }
-        }
-        else {
-            avatarImportHandler()
-        }
+        GTMeManager.getMyFullProfile(successBlock: { (response) -> Void in
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Profile refreshed")
+            
+            completionHandler()
+        }, failureBlock: { (response) -> Void in
+            completionHandler()
+        })
     }
     
     // MARK: - Login
@@ -136,24 +117,19 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
             self.view.rn_activityView.dimBackground = false
             
             GTUserManager.login(un!, password: pa!, successBlock: { (response) -> Void in
-                self.view.hideActivityView()
-                
-                // TODO: Add these to security chain.
                 Settings.sharedInstance.username = un
                 Settings.sharedInstance.password = pa
                 
-                Utils.runWithDelay(1.3) { () in
-                    NSNotificationCenter.defaultCenter().postNotificationName(Notifications.UserLoggedIn, object: nil)
-                }
+                self.refreshCurrentUserAndFinishLogin()
             }, failureBlock: { (response) -> Void in
                 self.view.hideActivityView()
                 
-                if (response.reason == .AuthorizationNeeded) {
-                    DialogBuilder.showAPIErrorAlert("Invalid login credentials. Please try again.", title: App.Title, forceShow: true)
+                if response.error.reason == .USER_NOT_LOGGED_IN {
+                    DialogBuilder.showAPIErrorAlert("These credentials are incorrect. Please try again.", title: App.Title, forceShow: true)
                     return
                 }
                 
-                DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
+                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
             })
         }
     }
@@ -177,15 +153,13 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
             
             // Attempt login with external provider.
             GTUserManager.login(.FACEBOOK, externalId: userId, accessToken: token, successBlock: { (response) -> Void in
-                self.view.hideActivityView()
-                
                 // Login with external provider is successful at this point.
                 // If forceLogin is false, this means that the user is registering with external provider, so ask if they want to import their avatar.
-                self.finishExternalProviderSignup(!forceLogin)
+                self.refreshCurrentUserAndFinishLogin()
             }, failureBlock: { (response) -> Void in
                 self.view.hideActivityView()
                 
-                if (response.reason == .AuthorizationNeeded) { // This error means that thre isn't a user with those external credentials.
+                if (response.error.reason == .USER_NOT_LOGGED_IN) { // This error means that thre isn't a user with those external credentials.
                     DialogBuilder.showInputUsername(okAction: { (username) -> Void in
                         self.signUpWithFacebook(userId, token: token, email: email, firstName: firstName, lastName: lastName, username: username)
                     }, cancelAction: {})
@@ -193,7 +167,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
                     return
                 }
                 
-                DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
+                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
             })
         }) { (error: NSError?) -> () in
             self.view.hideActivityView()

@@ -64,8 +64,8 @@ class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate
         }) { (response) in
             self.view.hideActivityView()
             
-            if (response.reason != .NotFound) {
-                DialogBuilder.showAPIErrorAlert(response.message, title: App.Title, forceShow: true)
+            if (response.error.reason != .USER_NOT_FOUND) {
+                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true)
                 return
             }
             
