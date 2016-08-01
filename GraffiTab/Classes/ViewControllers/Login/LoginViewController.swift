@@ -210,7 +210,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         let title = signUpLbl.text! as String
         let attString = NSMutableAttributedString(string: title)
         let range = (title as NSString).rangeOfString("Sign up")
-        attString.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 99, green: 131, blue: 151, alpha: 1.0), range: range)
+        attString.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor().colorWithAlphaComponent(0.9), range: range)
         signUpLbl.attributedText = attString;
     }
     

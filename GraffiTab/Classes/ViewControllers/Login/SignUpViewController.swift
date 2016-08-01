@@ -159,7 +159,7 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
         let title = termsLbl.text! as String
         let attString = NSMutableAttributedString(string: title)
         let range = (title as NSString).rangeOfString("Terms of Use")
-        attString.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 99, green: 131, blue: 151, alpha: 1.0), range: range)
+        attString.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor().colorWithAlphaComponent(0.9), range: range)
         termsLbl.attributedText = attString;
     }
     
