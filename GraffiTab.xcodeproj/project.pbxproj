@@ -78,6 +78,11 @@
 		E52DC77A1CE5E09900375828 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7731CE5E09900375828 /* TrendingViewController.swift */; };
 		E52DC77D1CE5E0BD00375828 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC77C1CE5E0BD00375828 /* WebViewController.swift */; };
 		E52DC7801CE5E37A00375828 /* StreamableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC77F1CE5E37A00375828 /* StreamableDetailViewController.swift */; };
+		E53960DD1D50FE3B00032B83 /* onboard_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E52BD58A1D50B83C001DC931 /* onboard_1.png */; };
+		E53960DE1D50FE3B00032B83 /* onboard_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E52BD58B1D50B83C001DC931 /* onboard_2.png */; };
+		E53960DF1D50FE3B00032B83 /* onboard_3.png in Resources */ = {isa = PBXBuildFile; fileRef = E52BD58C1D50B83C001DC931 /* onboard_3.png */; };
+		E53960E01D50FE3B00032B83 /* onboard_4.png in Resources */ = {isa = PBXBuildFile; fileRef = E52BD58D1D50B83C001DC931 /* onboard_4.png */; };
+		E53960E11D50FE3B00032B83 /* onboard_5.png in Resources */ = {isa = PBXBuildFile; fileRef = E52BD58E1D50B83C001DC931 /* onboard_5.png */; };
 		E53F3FA81CEAA63900537D1B /* DrawingOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F3FA71CEAA63900537D1B /* DrawingOptionButton.swift */; };
 		E53F3FA91CEAA63900537D1B /* DrawingOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F3FA71CEAA63900537D1B /* DrawingOptionButton.swift */; };
 		E5494E5A1D19A1F5004F31A7 /* OnboardingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5494E591D19A1F5004F31A7 /* OnboardingStoryboard.storyboard */; };
@@ -1900,6 +1905,7 @@
 				E58432AA1CE9242000FB1E50 /* Spray.png in Resources */,
 				E58432AB1CE9242000FB1E50 /* Assets.xcassets in Resources */,
 				E58432AC1CE9242000FB1E50 /* CommentCell.xib in Resources */,
+				E53960E11D50FE3B00032B83 /* onboard_5.png in Resources */,
 				E5FE1D7F1CFEF71B009CFB72 /* Localizable.strings in Resources */,
 				E58432AD1CE9242000FB1E50 /* Brush.png in Resources */,
 				E58432AE1CE9242000FB1E50 /* Chalk.png in Resources */,
@@ -1910,6 +1916,7 @@
 				E58432B21CE9242000FB1E50 /* StreamableListFullCell.xib in Resources */,
 				E58432B31CE9242000FB1E50 /* AutocompleteUserCell.xib in Resources */,
 				E58432B41CE9242000FB1E50 /* CreateStoryboard.storyboard in Resources */,
+				E53960DD1D50FE3B00032B83 /* onboard_1.png in Resources */,
 				E58432B51CE9242000FB1E50 /* SplashStoryboard.storyboard in Resources */,
 				E58432B61CE9242000FB1E50 /* Eraser.png in Resources */,
 				E58432B71CE9242000FB1E50 /* LoginStoryboard.storyboard in Resources */,
@@ -1917,14 +1924,17 @@
 				E58432B81CE9242000FB1E50 /* eula.html in Resources */,
 				E55452EB1CF336CC0076CEC9 /* LocationListCell.xib in Resources */,
 				E58432B91CE9242000FB1E50 /* StreamableGridCell.xib in Resources */,
+				E53960DE1D50FE3B00032B83 /* onboard_2.png in Resources */,
 				E58432BA1CE9242000FB1E50 /* UserListCell.xib in Resources */,
 				E58432BB1CE9242000FB1E50 /* release_notes.html in Resources */,
 				E58432BC1CE9242000FB1E50 /* TOCropViewControllerLocalizable.strings in Resources */,
 				E5494E5B1D19A1F5004F31A7 /* OnboardingStoryboard.storyboard in Resources */,
 				E5C3693F1D2163D8005FA4A0 /* GoogleService-Info.plist in Resources */,
 				E58432BD1CE9242000FB1E50 /* MainStoryboard.storyboard in Resources */,
+				E53960DF1D50FE3B00032B83 /* onboard_3.png in Resources */,
 				E58432BE1CE9242000FB1E50 /* StreamableTrendingCell.xib in Resources */,
 				E58432BF1CE9242000FB1E50 /* AutocompleteHashCell.xib in Resources */,
+				E53960E01D50FE3B00032B83 /* onboard_4.png in Resources */,
 				E58432C01CE9242000FB1E50 /* Default-568h@2x.png in Resources */,
 				E5C3692A1D213D6F005FA4A0 /* target.jpg in Resources */,
 				E58432C21CE9242000FB1E50 /* UserAboutView.xib in Resources */,
