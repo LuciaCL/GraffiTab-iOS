@@ -40,27 +40,33 @@ class OnboardingViewController: UIViewController, iCarouselDelegate, iCarouselDa
         screens.removeAll()
         
         var screen = OnboardingScreen()
-        screen.title = "Draw"
-        screen.subtitle = "Some description of drawing"
-        screen.screenshot = "1"
+        screen.title = "Paint"
+        screen.subtitle = "Creating beautiful art is as easy as moving your finger across the canvas"
+        screen.screenshot = "onboard_1"
+        screens.append(screen)
+        
+        screen = OnboardingScreen()
+        screen.title = "Enhance"
+        screen.subtitle = "Make your drawing stand out with a variety of filters and effects"
+        screen.screenshot = "onboard_2"
         screens.append(screen)
         
         screen = OnboardingScreen()
         screen.title = "Explore"
-        screen.subtitle = "Some description of explore"
-        screen.screenshot = "2"
+        screen.subtitle = "Discover what others are creating around you"
+        screen.screenshot = "onboard_3"
         screens.append(screen)
         
         screen = OnboardingScreen()
         screen.title = "Follow"
-        screen.subtitle = "Some description of follow"
-        screen.screenshot = "3"
+        screen.subtitle = "Follow your favourite artists and get instant updates about new content"
+        screen.screenshot = "onboard_4"
         screens.append(screen)
         
         screen = OnboardingScreen()
         screen.title = "Profile"
-        screen.subtitle = "Some description of profile"
-        screen.screenshot = "4"
+        screen.subtitle = "Everything you make is nicely stored in your creative profile. Ready to get started?"
+        screen.screenshot = "onboard_5"
         screens.append(screen)
         
         carousel.reloadData()
@@ -87,6 +93,16 @@ class OnboardingViewController: UIViewController, iCarouselDelegate, iCarouselDa
         screen.item = screens[index]
         
         return screen
+    }
+    
+    func carousel(carousel: iCarousel, valueForOption option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
+        if option == .FadeMin {
+            return 0.0
+        }
+        else if option == .FadeMinAlpha {
+            return 0.3
+        }
+        return value
     }
     
     func carouselCurrentItemIndexDidChange(carousel: iCarousel) {

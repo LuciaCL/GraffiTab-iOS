@@ -96,8 +96,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNr-5A-uRA">
-                                <rect key="frame" x="550" y="15" width="30" height="30"/>
-                                <state key="normal" title="Skip">
+                                <rect key="frame" x="521" y="15" width="59" height="30"/>
+                                <state key="normal" title="Let's go!">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -105,7 +105,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ep-Ga-Fxh" customClass="iCarousel">
-                                <rect key="frame" x="0.0" y="58" width="600" height="485"/>
+                                <rect key="frame" x="0.0" y="58" width="600" height="522"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="eU0-Wi-LDa" id="YIN-WL-dgD"/>
@@ -113,7 +113,7 @@
                                 </connections>
                             </view>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nMC-ME-nQy">
-                                <rect key="frame" x="281" y="553" width="39" height="37"/>
+                                <rect key="frame" x="281" y="548" width="39" height="37"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,13 +121,13 @@
                             <constraint firstAttribute="trailing" secondItem="sNr-5A-uRA" secondAttribute="trailing" constant="20" id="6KP-5R-NAg"/>
                             <constraint firstItem="nMC-ME-nQy" firstAttribute="centerX" secondItem="NnC-pW-pKW" secondAttribute="centerX" id="CEZ-CB-LWi"/>
                             <constraint firstAttribute="trailing" secondItem="2Ep-Ga-Fxh" secondAttribute="trailing" id="Oxy-PH-GFC"/>
-                            <constraint firstItem="nMC-ME-nQy" firstAttribute="top" secondItem="2Ep-Ga-Fxh" secondAttribute="bottom" constant="10" id="P5M-jj-1rJ"/>
                             <constraint firstItem="sNr-5A-uRA" firstAttribute="top" secondItem="1hk-H1-28Y" secondAttribute="bottom" constant="15" id="Qpb-SF-977"/>
                             <constraint firstAttribute="trailing" secondItem="utU-Bz-iL5" secondAttribute="trailing" id="aUV-SU-UMV"/>
                             <constraint firstItem="utU-Bz-iL5" firstAttribute="leading" secondItem="NnC-pW-pKW" secondAttribute="leading" id="elH-yH-CMe"/>
+                            <constraint firstItem="xvZ-IV-fRk" firstAttribute="top" secondItem="2Ep-Ga-Fxh" secondAttribute="bottom" constant="20" id="hcp-bA-CRn"/>
                             <constraint firstItem="utU-Bz-iL5" firstAttribute="top" secondItem="NnC-pW-pKW" secondAttribute="top" id="kIK-Lc-FcL"/>
                             <constraint firstItem="2Ep-Ga-Fxh" firstAttribute="leading" secondItem="NnC-pW-pKW" secondAttribute="leading" id="kmK-68-P5J"/>
-                            <constraint firstItem="xvZ-IV-fRk" firstAttribute="top" secondItem="nMC-ME-nQy" secondAttribute="bottom" constant="10" id="qiQ-c2-J8t"/>
+                            <constraint firstItem="xvZ-IV-fRk" firstAttribute="top" secondItem="nMC-ME-nQy" secondAttribute="bottom" constant="15" id="qiQ-c2-J8t"/>
                             <constraint firstItem="2Ep-Ga-Fxh" firstAttribute="top" secondItem="sNr-5A-uRA" secondAttribute="bottom" constant="13" id="riJ-gc-oe4"/>
                             <constraint firstItem="xvZ-IV-fRk" firstAttribute="top" secondItem="utU-Bz-iL5" secondAttribute="bottom" id="wER-Aa-wHt"/>
                         </constraints>
