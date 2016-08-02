@@ -33,6 +33,15 @@ class Settings: NSObject {
         }
     }
     
+    var showedOnboarding: Bool? {
+        get {
+            return getBoolPreference(SettingsKeys.kOnboarding)
+        }
+        set(newValue) {
+            setBoolPreference(newValue!, key: SettingsKeys.kOnboarding)
+        }
+    }
+    
     var promptedForAvatar: Bool? {
         get {
             return getBoolPreference(SettingsKeys.kPromptedForAvatar)

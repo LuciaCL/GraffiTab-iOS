@@ -409,6 +409,22 @@
 		E5F40CF31D4AE41E00832D92 /* AvatarPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40CF11D4AE41E00832D92 /* AvatarPromptViewController.swift */; };
 		E5F40CFA1D4E8BF200832D92 /* GTError+Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40CF91D4E8BF200832D92 /* GTError+Localize.swift */; };
 		E5F40CFB1D4E8BF200832D92 /* GTError+Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40CF91D4E8BF200832D92 /* GTError+Localize.swift */; };
+		E5F40CFF1D4FFAF800832D92 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40CFE1D4FFAF800832D92 /* OnboardingViewController.swift */; };
+		E5F40D001D4FFAF800832D92 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40CFE1D4FFAF800832D92 /* OnboardingViewController.swift */; };
+		E5F40D031D500FF300832D92 /* OnboardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40D021D500FF300832D92 /* OnboardingScreenView.swift */; };
+		E5F40D041D500FF300832D92 /* OnboardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40D021D500FF300832D92 /* OnboardingScreenView.swift */; };
+		E5F40D061D50100400832D92 /* OnboardingScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F40D051D50100400832D92 /* OnboardingScreenView.xib */; };
+		E5F40D071D50100400832D92 /* OnboardingScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F40D051D50100400832D92 /* OnboardingScreenView.xib */; };
+		E5F40D0D1D502C7F00832D92 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F40D091D502C7F00832D92 /* 1.png */; };
+		E5F40D0E1D502C7F00832D92 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F40D091D502C7F00832D92 /* 1.png */; };
+		E5F40D0F1D502C7F00832D92 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F40D0A1D502C7F00832D92 /* 2.png */; };
+		E5F40D101D502C7F00832D92 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F40D0A1D502C7F00832D92 /* 2.png */; };
+		E5F40D111D502C7F00832D92 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F40D0B1D502C7F00832D92 /* 3.png */; };
+		E5F40D121D502C7F00832D92 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F40D0B1D502C7F00832D92 /* 3.png */; };
+		E5F40D131D502C7F00832D92 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F40D0C1D502C7F00832D92 /* 4.png */; };
+		E5F40D141D502C7F00832D92 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F40D0C1D502C7F00832D92 /* 4.png */; };
+		E5F40D161D502DD100832D92 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40D151D502DD100832D92 /* OnboardingScreen.swift */; };
+		E5F40D171D502DD100832D92 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40D151D502DD100832D92 /* OnboardingScreen.swift */; };
 		E5FE1D7E1CFEF71B009CFB72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5FE1D811CFEF71B009CFB72 /* Localizable.strings */; };
 		E5FE1D7F1CFEF71B009CFB72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5FE1D811CFEF71B009CFB72 /* Localizable.strings */; };
 		E5FE1D8A1CFF7DFE009CFB72 /* AssetImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D871CFF7DFE009CFB72 /* AssetImageView.swift */; };
@@ -738,6 +754,14 @@
 		E5E293801D05DBC800C272EE /* UIApplication+TopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+TopViewController.swift"; sourceTree = "<group>"; };
 		E5F40CF11D4AE41E00832D92 /* AvatarPromptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarPromptViewController.swift; sourceTree = "<group>"; };
 		E5F40CF91D4E8BF200832D92 /* GTError+Localize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTError+Localize.swift"; sourceTree = "<group>"; };
+		E5F40CFE1D4FFAF800832D92 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		E5F40D021D500FF300832D92 /* OnboardingScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingScreenView.swift; sourceTree = "<group>"; };
+		E5F40D051D50100400832D92 /* OnboardingScreenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingScreenView.xib; sourceTree = "<group>"; };
+		E5F40D091D502C7F00832D92 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		E5F40D0A1D502C7F00832D92 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		E5F40D0B1D502C7F00832D92 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		E5F40D0C1D502C7F00832D92 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		E5F40D151D502DD100832D92 /* OnboardingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		E5FE1D801CFEF71B009CFB72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E5FE1D871CFF7DFE009CFB72 /* AssetImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetImageView.swift; sourceTree = "<group>"; };
 		E5FE1D881CFF7DFE009CFB72 /* AvatarImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
@@ -1008,6 +1032,7 @@
 			children = (
 				E5F40CF11D4AE41E00832D92 /* AvatarPromptViewController.swift */,
 				E5494E591D19A1F5004F31A7 /* OnboardingStoryboard.storyboard */,
+				E5F40CFE1D4FFAF800832D92 /* OnboardingViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -1160,6 +1185,7 @@
 				E5DAA8B51CE49418000CB2F4 /* GTUser+Extra.swift */,
 				E5FE1D9D1D004208009CFB72 /* GTLocation+Asset.swift */,
 				E5F40CF91D4E8BF200832D92 /* GTError+Localize.swift */,
+				E5F40D151D502DD100832D92 /* OnboardingScreen.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1533,6 +1559,7 @@
 		E5DFDBF41CB2C31B00BB3D27 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				E5F40D011D500B0400832D92 /* Onboarding */,
 				E5494E681D1ABC31004F31A7 /* Sliders */,
 				E5E2937F1D05DBC800C272EE /* Application */,
 				E5E2937C1D05DB6E00C272EE /* Views */,
@@ -1609,6 +1636,7 @@
 		E5DFDC001CB2C31B00BB3D27 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E5F40D081D502C7F00832D92 /* Onboard */,
 				E51CD0C61CD0C77800D56C58 /* Tools */,
 				E554CFD61CB5641B00668D85 /* Html */,
 			);
@@ -1650,6 +1678,26 @@
 				E5E293801D05DBC800C272EE /* UIApplication+TopViewController.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		E5F40D011D500B0400832D92 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E5F40D021D500FF300832D92 /* OnboardingScreenView.swift */,
+				E5F40D051D50100400832D92 /* OnboardingScreenView.xib */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		E5F40D081D502C7F00832D92 /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				E5F40D091D502C7F00832D92 /* 1.png */,
+				E5F40D0A1D502C7F00832D92 /* 2.png */,
+				E5F40D0B1D502C7F00832D92 /* 3.png */,
+				E5F40D0C1D502C7F00832D92 /* 4.png */,
+			);
+			path = Onboard;
 			sourceTree = "<group>";
 		};
 		E5FE1D861CFF7DFE009CFB72 /* Assets */ = {
@@ -1849,14 +1897,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5F40D141D502C7F00832D92 /* 4.png in Resources */,
+				E5F40D0E1D502C7F00832D92 /* 1.png in Resources */,
 				E58432A91CE9242000FB1E50 /* LaunchScreen.storyboard in Resources */,
+				E5F40D101D502C7F00832D92 /* 2.png in Resources */,
 				E58432AA1CE9242000FB1E50 /* Spray.png in Resources */,
 				E58432AB1CE9242000FB1E50 /* Assets.xcassets in Resources */,
+				E5F40D121D502C7F00832D92 /* 3.png in Resources */,
 				E58432AC1CE9242000FB1E50 /* CommentCell.xib in Resources */,
 				E5FE1D7F1CFEF71B009CFB72 /* Localizable.strings in Resources */,
 				E58432AD1CE9242000FB1E50 /* Brush.png in Resources */,
 				E58432AE1CE9242000FB1E50 /* Chalk.png in Resources */,
 				E58432AF1CE9242000FB1E50 /* blank.png in Resources */,
+				E5F40D071D50100400832D92 /* OnboardingScreenView.xib in Resources */,
 				E58432B01CE9242000FB1E50 /* terms.html in Resources */,
 				E58432B11CE9242000FB1E50 /* UserCollectionParallaxHeader.xib in Resources */,
 				E58432B21CE9242000FB1E50 /* StreamableListFullCell.xib in Resources */,
@@ -1888,6 +1941,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5C369291D213D6F005FA4A0 /* target.jpg in Resources */,
+				E5F40D0D1D502C7F00832D92 /* 1.png in Resources */,
+				E5F40D0F1D502C7F00832D92 /* 2.png in Resources */,
+				E5F40D111D502C7F00832D92 /* 3.png in Resources */,
 				E5DFDC0F1CB2C3AB00BB3D27 /* LaunchScreen.storyboard in Resources */,
 				E51CD0D01CD0C77800D56C58 /* Spray.png in Resources */,
 				E5DFDBDD1CB2BF9E00BB3D27 /* Assets.xcassets in Resources */,
@@ -1909,9 +1965,11 @@
 				E51006601CB7BC5A00AC66A5 /* StreamableGridCell.xib in Resources */,
 				E5FE1D7E1CFEF71B009CFB72 /* Localizable.strings in Resources */,
 				E55452EA1CF336CC0076CEC9 /* LocationListCell.xib in Resources */,
+				E5F40D061D50100400832D92 /* OnboardingScreenView.xib in Resources */,
 				E51006FC1CBD1C3B00AC66A5 /* UserListCell.xib in Resources */,
 				E58432CD1CE940F900FB1E50 /* Release-Info.plist in Resources */,
 				E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */,
+				E5F40D131D502C7F00832D92 /* 4.png in Resources */,
 				E5D085A71CD8D30000226589 /* TOCropViewControllerLocalizable.strings in Resources */,
 				E5B6B5A71CC56F5800DC8EFC /* MainStoryboard.storyboard in Resources */,
 				E59BC2FD1D12B423009781BA /* UserTrendingCell.xib in Resources */,
@@ -2042,6 +2100,7 @@
 				E584322E1CE9242000FB1E50 /* ActivitySingleCommentCell.swift in Sources */,
 				E584322F1CE9242000FB1E50 /* ResetPasswordViewController.swift in Sources */,
 				E59BC3121D177749009781BA /* LinkedAccountViewController.swift in Sources */,
+				E5F40D171D502DD100832D92 /* OnboardingScreen.swift in Sources */,
 				E58432301CE9242000FB1E50 /* FeedViewController.swift in Sources */,
 				E58432311CE9242000FB1E50 /* ActivityGroupCreateCell.swift in Sources */,
 				E58432321CE9242000FB1E50 /* TOActivityCroppedImageProvider.m in Sources */,
@@ -2115,6 +2174,7 @@
 				E5AEDA381D1C921A006D4296 /* OpenCVWrapper.mm in Sources */,
 				E58432621CE9242000FB1E50 /* ActivityViewController.swift in Sources */,
 				E5E293831D05DC0E00C272EE /* UIView+Materialize.swift in Sources */,
+				E5F40D001D4FFAF800832D92 /* OnboardingViewController.swift in Sources */,
 				E592625C1D018C7300368212 /* AppImageCache.swift in Sources */,
 				E58432641CE9242000FB1E50 /* CommentCell.swift in Sources */,
 				E58432651CE9242000FB1E50 /* BackButtonSlackViewController.swift in Sources */,
@@ -2167,6 +2227,7 @@
 				E5A1D66C1D2310300027E438 /* GTNetworkManager.swift in Sources */,
 				E584328A1CE9242000FB1E50 /* ZoomableImageView.m in Sources */,
 				E584328B1CE9242000FB1E50 /* UIImage+CropRotate.m in Sources */,
+				E5F40D041D500FF300832D92 /* OnboardingScreenView.swift in Sources */,
 				E584328C1CE9242000FB1E50 /* TrendingStreamablesViewController.swift in Sources */,
 				E584328D1CE9242000FB1E50 /* CommentsViewController.swift in Sources */,
 				E59BC2F71D12B225009781BA /* MostActiveUsersViewController.swift in Sources */,
@@ -2206,6 +2267,7 @@
 				E5B6B5DD1CC56F5800DC8EFC /* ResetPasswordViewController.swift in Sources */,
 				E59BC3111D177749009781BA /* LinkedAccountViewController.swift in Sources */,
 				E52DC7681CE5DFC700375828 /* FeedViewController.swift in Sources */,
+				E5F40D161D502DD100832D92 /* OnboardingScreen.swift in Sources */,
 				E51006D41CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
 				E5D085A81CD8D30000226589 /* TOActivityCroppedImageProvider.m in Sources */,
 				E5DAA89D1CE37A5F000CB2F4 /* AutocompleteUserCell.swift in Sources */,
@@ -2279,6 +2341,7 @@
 				E5AEDA371D1C921A006D4296 /* OpenCVWrapper.mm in Sources */,
 				E5B6B5B31CC56F5800DC8EFC /* ActivityViewController.swift in Sources */,
 				E5E2937E1D05DB6E00C272EE /* UIView+Materialize.swift in Sources */,
+				E5F40CFF1D4FFAF800832D92 /* OnboardingViewController.swift in Sources */,
 				E592625B1D018C7300368212 /* AppImageCache.swift in Sources */,
 				E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */,
 				E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */,
@@ -2331,6 +2394,7 @@
 				E57716881CE6008600006572 /* ZoomableImageView.m in Sources */,
 				E5D085AB1CD8D30000226589 /* UIImage+CropRotate.m in Sources */,
 				E51006361CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
+				E5F40D031D500FF300832D92 /* OnboardingScreenView.swift in Sources */,
 				E52DC7741CE5E09900375828 /* CommentsViewController.swift in Sources */,
 				E59BC2F61D12B225009781BA /* MostActiveUsersViewController.swift in Sources */,
 				E51006FF1CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */,

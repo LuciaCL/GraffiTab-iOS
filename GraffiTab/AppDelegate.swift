@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupGestureAssistant()
         
         Utils.runWithDelay(1) { () in
-            self.checkLoginStatus(launchOptions)
+            self.checkOnboarding(launchOptions)
         }
         
         return true
@@ -162,6 +162,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: - Login management
+    
+    func checkOnboarding(launchOptions: [NSObject: AnyObject]?) {
+        if !Settings.sharedInstance.showedOnboarding! {
+            let storyboard = UIStoryboard(name: "OnboardingStoryboard", bundle: nil)
+            let vc = storyboard.instantiateInitialViewController() as! OnboardingViewController
+            vc.dismissHandler = {
+                self.checkLoginStatus(launchOptions)
+            }
+            showViewController(vc, duration: 0.3)
+        }
+        else {
+            checkLoginStatus(launchOptions)
+        }
+    }
     
     func checkLoginStatus(launchOptions: [NSObject: AnyObject]?) {
         if (GTMeManager.sharedInstance.isLoggedIn()) {

@@ -36,6 +36,7 @@ struct SettingsKeys {
     static let kRememberCredentials = "kRememberCredentials"
     static let kDrawingAssistant = "kDrawingAssistant"
     static let kPromptedForAvatar = "kPromptedForAvatar"
+    static let kOnboarding = "kOnboarding"
 }
 
 let colorPallete = ["cad0cc", "cdc7b9", "a9b3b2", "b9bbb8", "c2d1cc", "c2c8c4", "b4bfb9"]
