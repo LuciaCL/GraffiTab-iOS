@@ -168,6 +168,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let storyboard = UIStoryboard(name: "OnboardingStoryboard", bundle: nil)
             let vc = storyboard.instantiateInitialViewController() as! OnboardingViewController
             vc.dismissHandler = {
+                Settings.sharedInstance.showedOnboarding = true
+                
                 self.checkLoginStatus(launchOptions)
             }
             showViewController(vc, duration: 0.3)

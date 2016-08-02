@@ -98,7 +98,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNr-5A-uRA">
                                 <rect key="frame" x="521" y="15" width="59" height="30"/>
                                 <state key="normal" title="Let's go!">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.75" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="onClickSkip:" destination="eU0-Wi-LDa" eventType="touchUpInside" id="AqR-Br-v9f"/>

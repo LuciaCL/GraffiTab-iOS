@@ -65,11 +65,6 @@ class ViewControllerUtils: NSObject {
         }
     }
     
-    class func showOnboarding(viewController: UIViewController) {
-        let vc = UIStoryboard(name: "OnboardingStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("OnboardingViewController") as! OnboardingViewController
-        viewController.presentViewController(vc, animated: true, completion: nil)
-    }
-    
     class func showStaticStreamables(streamables: [GTStreamable], viewController: UIViewController) {
         let vc = UIStoryboard(name: "MainStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("StaticStreamablesViewController") as! StaticStreamablesViewController
         vc.items = streamables
