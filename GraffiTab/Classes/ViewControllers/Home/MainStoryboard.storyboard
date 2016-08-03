@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ec5-xR-0eD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ec5-xR-0eD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -2585,7 +2585,7 @@
                         <barButtonItem key="rightBarButtonItem" image="ic_map_white" id="cJk-BM-0Ax">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="ngM-gj-hDw" kind="show" id="7P1-b8-ywY"/>
+                                <action selector="onClickExplore:" destination="qng-4L-K63" id="jJF-ES-WTZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2596,6 +2596,7 @@
                         <segue destination="YO2-xp-61P" kind="show" identifier="SEGUE_PROFILE" id="2G9-SC-7Rg"/>
                         <segue destination="jsF-8F-xDQ" kind="presentation" identifier="SEGUE_SEARCH" id="20V-eu-eF7"/>
                         <segue destination="yNc-5V-Uyk" kind="show" identifier="SEGUE_LOCATIONS" id="vl2-Hr-vw2"/>
+                        <segue destination="ngM-gj-hDw" kind="show" identifier="SEGUE_EXPLORE" id="sEU-mF-DVF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfn-kr-cWo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4306,7 +4307,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="ic_add_location_white"/>
                                 <connections>
-                                    <segue destination="mug-OZ-SJN" kind="show" identifier="SEGUE_EDIT_LOCATION" id="S9M-FT-5NW"/>
+                                    <action selector="onClickCreate:" destination="yNc-5V-Uyk" eventType="touchUpInside" id="h07-XR-IVe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -4322,6 +4323,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="wkB-Wv-XW0" id="VJV-fD-rQo"/>
+                        <segue destination="mug-OZ-SJN" kind="show" identifier="SEGUE_EDIT_LOCATION" id="2Hl-Ey-s2o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="urU-Cf-cbo" userLabel="First Responder" sceneMemberID="firstResponder"/>

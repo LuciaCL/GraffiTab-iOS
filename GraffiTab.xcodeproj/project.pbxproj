@@ -88,6 +88,10 @@
 		E536A2F01D51827B00D82E34 /* GTPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E536A2EE1D51827B00D82E34 /* GTPermissionsManager.swift */; };
 		E536A2F21D518D9300D82E34 /* permission_photos.png in Resources */ = {isa = PBXBuildFile; fileRef = E536A2F11D518D9300D82E34 /* permission_photos.png */; };
 		E536A2F31D518D9300D82E34 /* permission_photos.png in Resources */ = {isa = PBXBuildFile; fileRef = E536A2F11D518D9300D82E34 /* permission_photos.png */; };
+		E536A2F51D52139800D82E34 /* permission_location_when_in_use.png in Resources */ = {isa = PBXBuildFile; fileRef = E536A2F41D52139800D82E34 /* permission_location_when_in_use.png */; };
+		E536A2F61D52139800D82E34 /* permission_location_when_in_use.png in Resources */ = {isa = PBXBuildFile; fileRef = E536A2F41D52139800D82E34 /* permission_location_when_in_use.png */; };
+		E536A2F81D52375800D82E34 /* permission_location_always.png in Resources */ = {isa = PBXBuildFile; fileRef = E536A2F71D52375800D82E34 /* permission_location_always.png */; };
+		E536A2F91D52375800D82E34 /* permission_location_always.png in Resources */ = {isa = PBXBuildFile; fileRef = E536A2F71D52375800D82E34 /* permission_location_always.png */; };
 		E53960DD1D50FE3B00032B83 /* onboard_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E52BD58A1D50B83C001DC931 /* onboard_1.png */; };
 		E53960DE1D50FE3B00032B83 /* onboard_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E52BD58B1D50B83C001DC931 /* onboard_2.png */; };
 		E53960DF1D50FE3B00032B83 /* onboard_3.png in Resources */ = {isa = PBXBuildFile; fileRef = E52BD58C1D50B83C001DC931 /* onboard_3.png */; };
@@ -206,7 +210,6 @@
 		E58432751CE9242000FB1E50 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B59E1CC56F5800DC8EFC /* SignUpViewController.swift */; };
 		E58432761CE9242000FB1E50 /* StreamableAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006DE1CBCF6B000AC66A5 /* StreamableAnnotation.swift */; };
 		E58432771CE9242000FB1E50 /* ActivityGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006CD1CBC1B9C00AC66A5 /* ActivityGroupCell.swift */; };
-		E58432781CE9242000FB1E50 /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5921CC56F5800DC8EFC /* NearMeViewController.swift */; };
 		E58432791CE9242000FB1E50 /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A01CD8D30000226589 /* TOCropScrollView.m */; };
 		E584327A1CE9242000FB1E50 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51005F31CB69BDE00AC66A5 /* MenuCell.swift */; };
 		E584327B1CE9242000FB1E50 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006F41CBD1B0000AC66A5 /* UserCell.swift */; };
@@ -347,7 +350,6 @@
 		E5B6B5C71CC56F5800DC8EFC /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B58A1CC56F5800DC8EFC /* GeneralSettingsViewController.swift */; };
 		E5B6B5C91CC56F5800DC8EFC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B58B1CC56F5800DC8EFC /* SettingsViewController.swift */; };
 		E5B6B5CF1CC56F5800DC8EFC /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5911CC56F5800DC8EFC /* ExploreViewController.swift */; };
-		E5B6B5D11CC56F5800DC8EFC /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5921CC56F5800DC8EFC /* NearMeViewController.swift */; };
 		E5B6B5D91CC56F5800DC8EFC /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B59B1CC56F5800DC8EFC /* LoginStoryboard.storyboard */; };
 		E5B6B5DB1CC56F5800DC8EFC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B59C1CC56F5800DC8EFC /* LoginViewController.swift */; };
 		E5B6B5DD1CC56F5800DC8EFC /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B59D1CC56F5800DC8EFC /* ResetPasswordViewController.swift */; };
@@ -591,6 +593,8 @@
 		E536A2EB1D517C9000D82E34 /* permission_notifications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = permission_notifications.png; sourceTree = "<group>"; };
 		E536A2EE1D51827B00D82E34 /* GTPermissionsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTPermissionsManager.swift; sourceTree = "<group>"; };
 		E536A2F11D518D9300D82E34 /* permission_photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = permission_photos.png; sourceTree = "<group>"; };
+		E536A2F41D52139800D82E34 /* permission_location_when_in_use.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = permission_location_when_in_use.png; sourceTree = "<group>"; };
+		E536A2F71D52375800D82E34 /* permission_location_always.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = permission_location_always.png; sourceTree = "<group>"; };
 		E53F3FA71CEAA63900537D1B /* DrawingOptionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingOptionButton.swift; sourceTree = "<group>"; };
 		E53F3FAC1CEAB69600537D1B /* AdobeCreativeSDKImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdobeCreativeSDKImage.framework; path = ../../../Adobe_SDK/AdobeCreativeSDKImage.framework; sourceTree = "<group>"; };
 		E53F3FAE1CEAB6D000537D1B /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -675,7 +679,6 @@
 		E5B6B58A1CC56F5800DC8EFC /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
 		E5B6B58B1CC56F5800DC8EFC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E5B6B5911CC56F5800DC8EFC /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
-		E5B6B5921CC56F5800DC8EFC /* NearMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeViewController.swift; sourceTree = "<group>"; };
 		E5B6B59B1CC56F5800DC8EFC /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		E5B6B59C1CC56F5800DC8EFC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E5B6B59D1CC56F5800DC8EFC /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -1057,6 +1060,8 @@
 		E536A2EA1D517C9000D82E34 /* Permissions */ = {
 			isa = PBXGroup;
 			children = (
+				E536A2F71D52375800D82E34 /* permission_location_always.png */,
+				E536A2F41D52139800D82E34 /* permission_location_when_in_use.png */,
 				E536A2F11D518D9300D82E34 /* permission_photos.png */,
 				E536A2EB1D517C9000D82E34 /* permission_notifications.png */,
 			);
@@ -1358,7 +1363,6 @@
 			isa = PBXGroup;
 			children = (
 				E5B6B5911CC56F5800DC8EFC /* ExploreViewController.swift */,
-				E5B6B5921CC56F5800DC8EFC /* NearMeViewController.swift */,
 				E55452F51CF4950E0076CEC9 /* StreetViewController.swift */,
 			);
 			path = Search;
@@ -1958,6 +1962,7 @@
 				E536A2ED1D517C9000D82E34 /* permission_notifications.png in Resources */,
 				E58432B61CE9242000FB1E50 /* Eraser.png in Resources */,
 				E58432B71CE9242000FB1E50 /* LoginStoryboard.storyboard in Resources */,
+				E536A2F61D52139800D82E34 /* permission_location_when_in_use.png in Resources */,
 				E59BC2FE1D12B423009781BA /* UserTrendingCell.xib in Resources */,
 				E58432B81CE9242000FB1E50 /* eula.html in Resources */,
 				E55452EB1CF336CC0076CEC9 /* LocationListCell.xib in Resources */,
@@ -1972,6 +1977,7 @@
 				E53960DF1D50FE3B00032B83 /* onboard_3.png in Resources */,
 				E58432BE1CE9242000FB1E50 /* StreamableTrendingCell.xib in Resources */,
 				E58432BF1CE9242000FB1E50 /* AutocompleteHashCell.xib in Resources */,
+				E536A2F91D52375800D82E34 /* permission_location_always.png in Resources */,
 				E53960E01D50FE3B00032B83 /* onboard_4.png in Resources */,
 				E58432C01CE9242000FB1E50 /* Default-568h@2x.png in Resources */,
 				E536A2F31D518D9300D82E34 /* permission_photos.png in Resources */,
@@ -2010,6 +2016,7 @@
 				E5B6B5D91CC56F5800DC8EFC /* LoginStoryboard.storyboard in Resources */,
 				E554CFDA1CB5641B00668D85 /* eula.html in Resources */,
 				E51006601CB7BC5A00AC66A5 /* StreamableGridCell.xib in Resources */,
+				E536A2F51D52139800D82E34 /* permission_location_when_in_use.png in Resources */,
 				E5FE1D7E1CFEF71B009CFB72 /* Localizable.strings in Resources */,
 				E52BD58F1D50B83C001DC931 /* onboard_1.png in Resources */,
 				E55452EA1CF336CC0076CEC9 /* LocationListCell.xib in Resources */,
@@ -2020,6 +2027,7 @@
 				E5D085A71CD8D30000226589 /* TOCropViewControllerLocalizable.strings in Resources */,
 				E52BD5931D50B83C001DC931 /* onboard_5.png in Resources */,
 				E5B6B5A71CC56F5800DC8EFC /* MainStoryboard.storyboard in Resources */,
+				E536A2F81D52375800D82E34 /* permission_location_always.png in Resources */,
 				E59BC2FD1D12B423009781BA /* UserTrendingCell.xib in Resources */,
 				E510066D1CB7DEB100AC66A5 /* StreamableTrendingCell.xib in Resources */,
 				E5DAA8991CE37A26000CB2F4 /* AutocompleteHashCell.xib in Resources */,
@@ -2252,7 +2260,6 @@
 				E58432761CE9242000FB1E50 /* StreamableAnnotation.swift in Sources */,
 				E58432771CE9242000FB1E50 /* ActivityGroupCell.swift in Sources */,
 				E5CC52FB1D0EDAFF00425744 /* TransitioningDelegate.swift in Sources */,
-				E58432781CE9242000FB1E50 /* NearMeViewController.swift in Sources */,
 				E58432791CE9242000FB1E50 /* TOCropScrollView.m in Sources */,
 				E55452EE1CF340C20076CEC9 /* CreateLocationViewController.swift in Sources */,
 				E584327A1CE9242000FB1E50 /* MenuCell.swift in Sources */,
@@ -2421,7 +2428,6 @@
 				E51006DF1CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */,
 				E51006CE1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,
 				E5CC52FA1D0EDAFF00425744 /* TransitioningDelegate.swift in Sources */,
-				E5B6B5D11CC56F5800DC8EFC /* NearMeViewController.swift in Sources */,
 				E5D085AE1CD8D30000226589 /* TOCropScrollView.m in Sources */,
 				E55452ED1CF340C20076CEC9 /* CreateLocationViewController.swift in Sources */,
 				E51005F41CB69BDE00AC66A5 /* MenuCell.swift in Sources */,

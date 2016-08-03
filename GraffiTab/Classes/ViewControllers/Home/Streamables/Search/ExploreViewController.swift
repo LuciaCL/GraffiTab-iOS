@@ -564,6 +564,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     
     func setupMapView() {
         mapView.rotateEnabled = false
+        mapView.showsUserLocation = (CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse)
     }
     
     func setupTransition() {

@@ -98,13 +98,25 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
         viewType = .List
     }
     
+    @IBAction func onClickCreate(sender: AnyObject) {
+        let handler = {
+            self.performSegueWithIdentifier("SEGUE_EDIT_LOCATION", sender: nil)
+        }
+        
+        GTPermissionsManager.manager.checkPermission(.LocationWhenInUse, controller: self, accessGrantedHandler: {
+            handler()
+        }) {
+            handler()
+        }
+    }
+    
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SEGUE_EDIT_LOCATION" {
             let vc = segue.destinationViewController as! CreateLocationViewController
             
-            if sender!.isKindOfClass(GTLocation) {
+            if sender != nil && sender!.isKindOfClass(GTLocation) {
                 vc.toEdit = sender as? GTLocation
             }
         }
@@ -393,10 +405,18 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
         
         let actionSheet = buildActionSheet("What would you like to do with this place?")
         actionSheet.addButtonWithTitle("Edit", image: UIImage(named: "ic_mode_edit_white"), type: .Default) { (sheet) in
-            // Register analytics events.
-            AnalyticsUtils.sendAppEvent("location_edit", label: nil)
+            let handler = {
+                // Register analytics events.
+                AnalyticsUtils.sendAppEvent("location_edit", label: nil)
+                
+                self.performSegueWithIdentifier("SEGUE_EDIT_LOCATION", sender: location)
+            }
             
-            self.performSegueWithIdentifier("SEGUE_EDIT_LOCATION", sender: location)
+            GTPermissionsManager.manager.checkPermission(.LocationWhenInUse, controller: self, accessGrantedHandler: {
+                handler()
+            }) {
+                handler()
+            }
         }
         actionSheet.addButtonWithTitle("Copy address", image: UIImage(named: "ic_content_copy_white"), type: .Default) { (sheet) in
             // Register analytics events.
@@ -405,18 +425,24 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
             UIPasteboard.generalPasteboard().string = location.address
         }
         actionSheet.addButtonWithTitle(tracked ? "Untrack" : "Track", image: UIImage(named: tracked ? "ic_radio_button_checked_white" : "ic_radio_button_unchecked_white"), type: .Default) { (sheet) in
-            if tracked {
-                // Register analytics events.
-                AnalyticsUtils.sendAppEvent("location_untrack", label: nil)
-                
-                self.removeGeofenceForLocation(location, indexPath: indexPath)
+            let handler = {
+                if tracked {
+                    // Register analytics events.
+                    AnalyticsUtils.sendAppEvent("location_untrack", label: nil)
+                    
+                    self.removeGeofenceForLocation(location, indexPath: indexPath)
+                }
+                else {
+                    // Register analytics events.
+                    AnalyticsUtils.sendAppEvent("location_track", label: nil)
+                    
+                    self.addGeofenceForLocation(location, indexPath: indexPath)
+                }
             }
-            else {
-                // Register analytics events.
-                AnalyticsUtils.sendAppEvent("location_track", label: nil)
-                
-                self.addGeofenceForLocation(location, indexPath: indexPath)
-            }
+            
+            GTPermissionsManager.manager.checkPermission(.LocationAlways, controller: self, accessGrantedHandler: {
+                handler()
+            })
         }
         actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
             DialogBuilder.showYesNoAlert("Are you sure you want to delete this location?", title: App.Title, yesTitle: "Yes, delete it!", noTitle: "Cancel", yesAction: {

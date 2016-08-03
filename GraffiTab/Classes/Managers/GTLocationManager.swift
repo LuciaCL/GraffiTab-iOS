@@ -16,6 +16,8 @@ class GTLocationManager: NSObject, CLLocationManagerDelegate {
     var lastLocation: CLLocation?
     var locationManager: CLLocationManager?
     
+    var accessGrantedHandler: (() -> Void)?
+    
     override init() {
         super.init()
         
@@ -24,9 +26,48 @@ class GTLocationManager: NSObject, CLLocationManagerDelegate {
         locationManager!.distanceFilter = kCLDistanceFilterNone
         locationManager!.desiredAccuracy = kCLLocationAccuracyBest
         
-        locationManager?.requestAlwaysAuthorization()
-        
         lastLocation = locationManager?.location
+    }
+    
+    // MARK: - Permissions
+    
+    func askPermissionWhenInUse(accessGrantedHandler: (() -> Void)?) {
+        self.accessGrantedHandler = accessGrantedHandler
+        
+        // If we haven't granted permission yet.
+        if CLLocationManager.authorizationStatus() != .AuthorizedAlways && CLLocationManager.authorizationStatus() != .AuthorizedWhenInUse {
+            if CLLocationManager.authorizationStatus() == .NotDetermined {
+                locationManager?.requestWhenInUseAuthorization()
+            }
+            else {
+                DialogBuilder.showOKAlert("You will have to enable Location Services for GraffiTab in Settings before continuing with this action.", title: App.Title)
+            }
+        }
+        else {
+            self.accessGrantedHandler!()
+        }
+    }
+    
+    func askPermissionAlways(accessGrantedHandler: (() -> Void)?) {
+        self.accessGrantedHandler = accessGrantedHandler
+        
+        // If we haven't granted permission yet.
+        if CLLocationManager.authorizationStatus() != .AuthorizedAlways {
+            if CLLocationManager.authorizationStatus() == .NotDetermined || CLLocationManager.authorizationStatus() != .AuthorizedWhenInUse {
+                locationManager?.requestAlwaysAuthorization()
+            }
+            else {
+                DialogBuilder.showYesNoAlert("You will have to enable Location Services for GraffiTab in Settings before continuing with this action.", title: App.Title, yesTitle: "Open Location Settings", noTitle: "No, thanks", yesAction: { 
+                    // Send the user to the Settings for this app.
+                    Utils.openUrl(UIApplicationOpenSettingsURLString)
+                }, noAction: { 
+                    
+                })
+            }
+        }
+        else {
+            self.accessGrantedHandler!()
+        }
     }
     
     // MARK: - Regions
@@ -76,6 +117,16 @@ class GTLocationManager: NSObject, CLLocationManagerDelegate {
             notification.fireDate = NSDate(timeIntervalSinceNow: 1)
             notification.timeZone = NSTimeZone.defaultTimeZone()
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
+            Settings.sharedInstance.promptedForLocationInUse = true // We have access so no need to further ask the user.
+            
+            if accessGrantedHandler != nil {
+                accessGrantedHandler!()
+            }
         }
     }
 }

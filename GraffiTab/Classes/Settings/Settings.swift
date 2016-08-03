@@ -69,6 +69,24 @@ class Settings: NSObject {
         }
     }
     
+    var promptedForLocationInUse: Bool? {
+        get {
+            return getBoolPreference(SettingsKeys.kPromptedForLocationInUse)
+        }
+        set(newValue) {
+            setBoolPreference(newValue!, key: SettingsKeys.kPromptedForLocationInUse)
+        }
+    }
+    
+    var promptedForLocationAlways: Bool? {
+        get {
+            return getBoolPreference(SettingsKeys.kPromptedForLocationAlways)
+        }
+        set(newValue) {
+            setBoolPreference(newValue!, key: SettingsKeys.kPromptedForLocationAlways)
+        }
+    }
+    
     // Keychain.
     
     var username: String? {

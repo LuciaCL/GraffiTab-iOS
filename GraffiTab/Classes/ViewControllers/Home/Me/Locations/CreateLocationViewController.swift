@@ -277,5 +277,6 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
     
     func setupMapView() {
         mapView.rotateEnabled = false
+        mapView.showsUserLocation = (CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse)
     }
 }

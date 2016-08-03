@@ -50,6 +50,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var onCanvasTuneBtn: MaterializeRoundButton!
     @IBOutlet weak var onCanvasColorBtn: MaterializeRoundButton!
     @IBOutlet weak var onCanvasMenuBtn: MaterializeRoundButton!
+    @IBOutlet weak var skipBtn: UIButton!
     
     // Edit.
     var toEdit: GTStreamable?
@@ -144,6 +145,13 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         }
     }
     
+    @IBAction func onClickSkip(sender: AnyObject) {
+        Settings.sharedInstance.showedDrawingAssistant = true
+        isDrawAssistantMode = false
+        configureUIComponentsForTutorial(nil, showAll: true)
+        showSkipBtn()
+    }
+    
     @IBAction func onClickPublish(sender: AnyObject?) {
 //        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing publish screen")
 //        
@@ -154,81 +162,89 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
 //        vc.delegate = self
 //        self.presentViewController(vc, animated: true, completion: nil)
         
-        // TODO: Uncomment this to show the AR publisher. For now we won't track the position of the image in the real world.
-        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to publish")
-        
-        // Register analytics events.
-        AnalyticsUtils.sendAppEvent("attempting_to_publish", label: nil)
-        
-        let sampleImage = self.canvas?.grabFrame()
-        var pitch = GTDeviceMotionManager.manager.pitch
-        var roll = GTDeviceMotionManager.manager.roll
-        var yaw = GTDeviceMotionManager.manager.yaw
-        var latitude: CLLocationDegrees = 0
-        var longitude: CLLocationDegrees = 0
-        let location = GTLocationManager.manager.lastLocation
-        
-        if pitch == nil {
-            pitch = 0.0
-        }
-        if roll == nil {
-            roll = 0.0
-        }
-        if yaw == nil {
-            yaw = 0.0
-        }
-        
-        let successBlock = {
-            self.view.hideActivityView()
+        let handler = {
+            // TODO: Uncomment this to show the AR publisher. For now we won't track the position of the image in the real world.
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to publish")
             
-            DialogBuilder.showYesNoSuccessAlert("Your post has been published! Would you like to continue drawing?", title: App.Title, yesTitle: "Continue", noTitle: "Close Canvas", yesAction: {
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("attempting_to_publish", label: nil)
+            
+            let sampleImage = self.canvas?.grabFrame()
+            var pitch = GTDeviceMotionManager.manager.pitch
+            var roll = GTDeviceMotionManager.manager.roll
+            var yaw = GTDeviceMotionManager.manager.yaw
+            var latitude: CLLocationDegrees = 0
+            var longitude: CLLocationDegrees = 0
+            let location = GTLocationManager.manager.lastLocation
+            
+            if pitch == nil {
+                pitch = 0.0
+            }
+            if roll == nil {
+                roll = 0.0
+            }
+            if yaw == nil {
+                yaw = 0.0
+            }
+            
+            let successBlock = {
+                self.view.hideActivityView()
                 
-            }, noAction: { 
-                self.didPublish()
-            })
-        }
-        let failBlock = { (response: GTResponseObject) in
-            self.view.hideActivityView()
+                DialogBuilder.showYesNoSuccessAlert("Your post has been published! Would you like to continue drawing?", title: App.Title, yesTitle: "Continue", noTitle: "Close Canvas", yesAction: {
+                    
+                    }, noAction: {
+                        self.didPublish()
+                })
+            }
+            let failBlock = { (response: GTResponseObject) in
+                self.view.hideActivityView()
+                
+                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+            }
             
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
-        }
-        
-        let saveBlock = {
-            self.view.showActivityViewWithLabel("Processing")
-            self.view.rn_activityView.dimBackground = false
-            
-            if self.toEdit != nil {
-                GTMeManager.editGraffiti(self.toEdit!.id!, image: sampleImage!, latitude: latitude, longitude: longitude, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
-                    successBlock()
-                }) { (response) -> Void in
-                    failBlock(response)
+            let saveBlock = {
+                self.view.showActivityViewWithLabel("Processing")
+                self.view.rn_activityView.dimBackground = false
+                
+                if self.toEdit != nil {
+                    GTMeManager.editGraffiti(self.toEdit!.id!, image: sampleImage!, latitude: latitude, longitude: longitude, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
+                        successBlock()
+                    }) { (response) -> Void in
+                        failBlock(response)
+                    }
                 }
+                else {
+                    GTMeManager.createGraffiti(sampleImage!, latitude: latitude, longitude: longitude, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
+                        successBlock()
+                    }) { (response) -> Void in
+                        failBlock(response)
+                    }
+                }
+            }
+            
+            if location == nil {
+                DialogBuilder.showYesNoAlert("Your location could not be determined right now. Would you like to still publish this post?", title: App.Title, yesAction: {
+                    // Register analytics events.
+                    AnalyticsUtils.sendAppEvent("attempting_to_publish_without_location", label: nil)
+                    
+                    saveBlock()
+                    }, noAction: {
+                        // Register analytics events.
+                        AnalyticsUtils.sendAppEvent("publish_refused_no_location", label: nil)
+                })
             }
             else {
-                GTMeManager.createGraffiti(sampleImage!, latitude: latitude, longitude: longitude, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
-                    successBlock()
-                }) { (response) -> Void in
-                    failBlock(response)
-                }
+                latitude = location!.coordinate.latitude
+                longitude = location!.coordinate.longitude
+                
+                saveBlock()
             }
         }
         
-        if location == nil {
-            DialogBuilder.showYesNoAlert("Your location could not be determined right now. Would you like to still publish this post?", title: App.Title, yesAction: {
-                // Register analytics events.
-                AnalyticsUtils.sendAppEvent("attempting_to_publish_without_location", label: nil)
-                
-                saveBlock()
-            }, noAction: {
-                // Register analytics events.
-                AnalyticsUtils.sendAppEvent("publish_refused_no_location", label: nil)
-            })
-        }
-        else {
-            latitude = location!.coordinate.latitude
-            longitude = location!.coordinate.longitude
-            
-            saveBlock()
+        GTPermissionsManager.manager.checkPermission(.LocationWhenInUse, controller: self, accessGrantedHandler: {
+            handler()
+        }) {
+            handler()
         }
     }
     
@@ -333,9 +349,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         // Register analytics events.
         AnalyticsUtils.sendAppEvent("change_background", label: nil)
         
-        GTPermissionsManager.manager.checkPermission(.Photos, controller: self) { 
+        GTPermissionsManager.manager.checkPermission(.Photos, controller: self, accessGrantedHandler: { 
             self.askForImage()
-        }
+        })
     }
     
     @IBAction func onLongClickCollectionView(sender: AnyObject) {
@@ -527,35 +543,45 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                 else if state == .DrawColorLine {
                     text = "That color looks nice. Why don't you give it a try?"
                 }
+                self.showSkipBtn()
                 self.showGestureAssistantForSwipeDirection(PAGestureAssistantSwipeDirectonDown, text: text, afterIdleInterval: 0.5, completion: {finished in
+                    self.hideSkipBtn()
                     self.stopGestureAssistant()
                 })
                 break
             case .Color:
                 configureUIComponentsForTutorial(onCanvasColorBtn, showAll: false)
                 
+                self.showSkipBtn()
                 self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasColorBtn, text: "Drawing lines is fun but it's even nicer with colors. Tap on the palette to choose a different color.", afterIdleInterval: 0.3, completion: {finished in
+                    self.hideSkipBtn()
                     self.stopGestureAssistant()
                 })
                 break
             case .Stroke:
                 configureUIComponentsForTutorial(onCanvasTuneBtn, showAll: false)
                 
+                self.showSkipBtn()
                 self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasTuneBtn, text: "In addition to colors you can also control the width and opacity of the current brush. Tap the brush settings to check it out.", afterIdleInterval: 0.3, completion: {finished in
+                    self.hideSkipBtn()
                     self.stopGestureAssistant()
                 })
                 break
             case .Menu:
                 configureUIComponentsForTutorial(onCanvasMenuBtn, showAll: false)
                 
+                self.showSkipBtn()
                 self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasMenuBtn, text: "So far so good but what's a great artist without his brushes? Let's see what you've got in your toolbox.", afterIdleInterval: 0.3, completion: {finished in
+                    self.hideSkipBtn()
                     self.stopGestureAssistant()
                 })
                 break
             case .Tool:
                 configureUIComponentsForTutorial(toolCollectionView, showAll: false)
                 
+                self.showSkipBtn()
                 self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.toolCollectionView, text: "These are your available tools. Tap on a different tool to continue.", afterIdleInterval: 0.3, completion: {finished in
+                    self.hideSkipBtn()
                     self.stopGestureAssistant()
                 })
                 break
@@ -564,7 +590,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                 
                 let cell = self.toolCollectionView.cellForItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
                 if cell != nil {
+                    self.showSkipBtn()
                     self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: cell!, text: "Even great artists make mistakes sometimes. Do not fear, we have the perfect tool for this. Tap the eraser to erase mistakes.", afterIdleInterval: 0.3, completion: {finished in
+                        self.hideSkipBtn()
                         self.stopGestureAssistant()
                     })
                 }
@@ -572,21 +600,27 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             case .Background:
                 configureUIComponentsForTutorial(backgroundBtn, showAll: false)
                 
+                self.showSkipBtn()
                 self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.backgroundBtn, text: "The white canvas is nice but can quickly become boring. Why not put a background picture and draw on top of it?", afterIdleInterval: 0, completion: {finished in
+                    self.hideSkipBtn()
                     self.stopGestureAssistant()
                 })
                 break
             case .Enhancer:
                 configureUIComponentsForTutorial(enhanceBtn, showAll: false)
                 
+                self.showSkipBtn()
                 self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.enhanceBtn, text: "Now that your masterpiece is almost done, it's time to add some cool effects to it and make it looks really pro. Tap the enhancer to add filters or stickers to your drawing.", afterIdleInterval: 0.3, completion: {finished in
+                    self.hideSkipBtn()
                     self.stopGestureAssistant()
                 })
                 break
             case .Publish:
                 configureUIComponentsForTutorial(publishBtn, showAll: false)
                 
+                self.showSkipBtn()
                 self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.publishBtn, text: "Not bad for a first try! Why don't you share it with your friends or the rest of the GraffiTab community?", afterIdleInterval: 0, completion: {finished in
+                    self.hideSkipBtn()
                     self.stopGestureAssistant()
                     
                     // Finish tutorial.
@@ -618,6 +652,18 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                     }
                 }
             }
+        }, completion: nil)
+    }
+    
+    func hideSkipBtn() {
+        UIView.animateWithDuration(0.3, animations: {
+            self.skipBtn.alpha = 1.0
+        }, completion: nil)
+    }
+    
+    func showSkipBtn() {
+        UIView.animateWithDuration(0.3, animations: {
+            self.skipBtn.alpha = 0.0
         }, completion: nil)
     }
     

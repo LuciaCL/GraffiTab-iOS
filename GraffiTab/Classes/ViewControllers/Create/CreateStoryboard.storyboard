@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -72,7 +72,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DrawToolCell" id="aVB-FG-Wt9" customClass="DrawToolCell" customModule="GraffiTab" customModuleProvider="target">
-                                                        <rect key="frame" x="2.5" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="3" y="0.0" width="50" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -354,15 +354,26 @@
                                     <outlet property="delegate" destination="F9h-bV-H5F" id="eZV-Jp-93h"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkS-xE-TAs">
+                                <rect key="frame" x="285" y="555" width="30" height="30"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" red="0.0" green="0.36078431372549019" blue="0.52549019607843139" alpha="0.69764458955223885" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickSkip:" destination="F9h-bV-H5F" eventType="touchUpInside" id="qPf-gb-Gmk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7ZK-8e-rZY" firstAttribute="top" secondItem="fMz-pD-gGX" secondAttribute="bottom" id="DUZ-4X-npE"/>
                             <constraint firstItem="fMz-pD-gGX" firstAttribute="leading" secondItem="ARV-xs-JKt" secondAttribute="leading" id="Icb-xj-5Ey"/>
                             <constraint firstItem="oKo-4x-Uqe" firstAttribute="top" secondItem="gIM-Nl-dt9" secondAttribute="bottom" id="IxQ-YX-c1I"/>
+                            <constraint firstItem="TkS-xE-TAs" firstAttribute="centerX" secondItem="ARV-xs-JKt" secondAttribute="centerX" id="Jdq-eJ-EJd"/>
                             <constraint firstItem="fMz-pD-gGX" firstAttribute="top" secondItem="gIM-Nl-dt9" secondAttribute="bottom" id="OZr-hU-9Ld"/>
                             <constraint firstItem="oKo-4x-Uqe" firstAttribute="leading" secondItem="fMz-pD-gGX" secondAttribute="trailing" id="V22-ga-KQ3"/>
                             <constraint firstAttribute="trailing" secondItem="oKo-4x-Uqe" secondAttribute="trailing" constant="-240" id="V5R-wM-yd8"/>
+                            <constraint firstItem="7ZK-8e-rZY" firstAttribute="top" secondItem="TkS-xE-TAs" secondAttribute="bottom" constant="15" id="Xqu-2f-g6M"/>
                             <constraint firstItem="7ZK-8e-rZY" firstAttribute="top" secondItem="oKo-4x-Uqe" secondAttribute="bottom" id="xVW-XA-GxW"/>
                         </constraints>
                     </view>
@@ -386,6 +397,7 @@
                         <outlet property="phraseTextLbl" destination="4wN-5R-pJ3" id="iRk-dp-YJt"/>
                         <outlet property="publishBtn" destination="T6f-xY-P0d" id="BrY-cp-vRT"/>
                         <outlet property="redoBtn" destination="9sB-k6-gYg" id="Ahj-mm-ng1"/>
+                        <outlet property="skipBtn" destination="TkS-xE-TAs" id="0lv-Or-FTu"/>
                         <outlet property="toolCollectionView" destination="X2G-Kj-kWA" id="usT-Lt-EFJ"/>
                         <outlet property="undoBtn" destination="ib6-PW-cQc" id="Jji-Mo-Osc"/>
                     </connections>

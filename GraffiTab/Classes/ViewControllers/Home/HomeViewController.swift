@@ -129,6 +129,23 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         performSegueWithIdentifier("SEGUE_SETTINGS", sender: sender)
     }
     
+    @IBAction func onClickExplore(sender: AnyObject) {
+        let handler = {
+            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing explorer")
+            
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("show_explore", label: nil)
+            
+            self.performSegueWithIdentifier("SEGUE_EXPLORE", sender: sender)
+        }
+        
+        GTPermissionsManager.manager.checkPermission(.LocationWhenInUse, controller: self, accessGrantedHandler: { 
+            handler()
+        }) { 
+            handler()
+        }
+    }
+    
     func configureTabsSize() {
         for (index, _) in (tabs?.enumerate())! {
             carbonTabSwipeNavigation!.carbonSegmentedControl!.setWidth(self.view.frame.width / CGFloat((tabs?.count)!), forSegmentAtIndex: index)
