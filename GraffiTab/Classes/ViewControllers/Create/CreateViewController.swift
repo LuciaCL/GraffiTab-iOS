@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Photos
 import imglyKit
 import GraffiTab_iOS_SDK
 import CocoaLumberjack
@@ -334,21 +333,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         // Register analytics events.
         AnalyticsUtils.sendAppEvent("change_background", label: nil)
         
-        // Ask for photos library.
-        PHPhotoLibrary.requestAuthorization { status in
-            dispatch_async(dispatch_get_main_queue(),{
-                switch status {
-                    case .Authorized:
-                        self.askForImage()
-                        break
-                    case .Restricted, .Denied:
-                        DialogBuilder.showOKAlert("We need your permission to access the photos library. Please enable this in Settings", title: App.Title)
-                        break
-                    default:
-                        // place for .NotDetermined - in this callback status is already determined so should never get here
-                        break
-                }
-            })
+        GTPermissionsManager.manager.checkPermission(.Photos, controller: self) { 
+            self.askForImage()
         }
     }
     

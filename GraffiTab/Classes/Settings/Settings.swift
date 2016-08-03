@@ -51,6 +51,24 @@ class Settings: NSObject {
         }
     }
     
+    var promptedForNotifications: Bool? {
+        get {
+            return getBoolPreference(SettingsKeys.kPromptedForNotifications)
+        }
+        set(newValue) {
+            setBoolPreference(newValue!, key: SettingsKeys.kPromptedForNotifications)
+        }
+    }
+    
+    var promptedForPhotos: Bool? {
+        get {
+            return getBoolPreference(SettingsKeys.kPromptedForPhotos)
+        }
+        set(newValue) {
+            setBoolPreference(newValue!, key: SettingsKeys.kPromptedForPhotos)
+        }
+    }
+    
     // Keychain.
     
     var username: String? {

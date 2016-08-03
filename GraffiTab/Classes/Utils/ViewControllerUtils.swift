@@ -8,7 +8,6 @@
 
 import UIKit
 import GraffiTab_iOS_SDK
-import Photos
 
 class ViewControllerUtils: NSObject {
 
@@ -101,40 +100,5 @@ class ViewControllerUtils: NSObject {
         }
         
         viewController.presentViewController(vc, animated: true, completion: nil)
-    }
-    
-    class func checkCameraAndPhotosPermissions(successBlock: () -> Void) {
-        // Check camera permission.
-        let checkCameraPermission = {
-            let status = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
-            switch status {
-            case .Authorized:
-                successBlock()
-                break
-            case .NotDetermined:
-                successBlock()
-                break
-            case .Denied, .Restricted:
-                successBlock()
-                break
-            }
-        }
-        
-        // Check photos permission.
-        PHPhotoLibrary.requestAuthorization { status in
-            dispatch_async(dispatch_get_main_queue(),{
-                switch status {
-                case .Authorized:
-                    checkCameraPermission()
-                    break
-                case .Restricted, .Denied:
-                    checkCameraPermission()
-                    break
-                default:
-                    checkCameraPermission()
-                    break
-                }
-            })
-        }
     }
 }

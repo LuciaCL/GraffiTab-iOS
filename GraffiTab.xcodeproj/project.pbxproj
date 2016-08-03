@@ -78,6 +78,16 @@
 		E52DC77A1CE5E09900375828 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7731CE5E09900375828 /* TrendingViewController.swift */; };
 		E52DC77D1CE5E0BD00375828 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC77C1CE5E0BD00375828 /* WebViewController.swift */; };
 		E52DC7801CE5E37A00375828 /* StreamableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC77F1CE5E37A00375828 /* StreamableDetailViewController.swift */; };
+		E536A2E61D5170C700D82E34 /* AskPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E536A2E41D5170C700D82E34 /* AskPermissionViewController.swift */; };
+		E536A2E71D5170C700D82E34 /* AskPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E536A2E41D5170C700D82E34 /* AskPermissionViewController.swift */; };
+		E536A2E81D5170C700D82E34 /* AskPermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E536A2E51D5170C700D82E34 /* AskPermissionViewController.xib */; };
+		E536A2E91D5170C700D82E34 /* AskPermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E536A2E51D5170C700D82E34 /* AskPermissionViewController.xib */; };
+		E536A2EC1D517C9000D82E34 /* permission_notifications.png in Resources */ = {isa = PBXBuildFile; fileRef = E536A2EB1D517C9000D82E34 /* permission_notifications.png */; };
+		E536A2ED1D517C9000D82E34 /* permission_notifications.png in Resources */ = {isa = PBXBuildFile; fileRef = E536A2EB1D517C9000D82E34 /* permission_notifications.png */; };
+		E536A2EF1D51827B00D82E34 /* GTPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E536A2EE1D51827B00D82E34 /* GTPermissionsManager.swift */; };
+		E536A2F01D51827B00D82E34 /* GTPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E536A2EE1D51827B00D82E34 /* GTPermissionsManager.swift */; };
+		E536A2F21D518D9300D82E34 /* permission_photos.png in Resources */ = {isa = PBXBuildFile; fileRef = E536A2F11D518D9300D82E34 /* permission_photos.png */; };
+		E536A2F31D518D9300D82E34 /* permission_photos.png in Resources */ = {isa = PBXBuildFile; fileRef = E536A2F11D518D9300D82E34 /* permission_photos.png */; };
 		E53960DD1D50FE3B00032B83 /* onboard_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E52BD58A1D50B83C001DC931 /* onboard_1.png */; };
 		E53960DE1D50FE3B00032B83 /* onboard_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E52BD58B1D50B83C001DC931 /* onboard_2.png */; };
 		E53960DF1D50FE3B00032B83 /* onboard_3.png in Resources */ = {isa = PBXBuildFile; fileRef = E52BD58C1D50B83C001DC931 /* onboard_3.png */; };
@@ -576,6 +586,11 @@
 		E52DC7731CE5E09900375828 /* TrendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
 		E52DC77C1CE5E0BD00375828 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E52DC77F1CE5E37A00375828 /* StreamableDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableDetailViewController.swift; sourceTree = "<group>"; };
+		E536A2E41D5170C700D82E34 /* AskPermissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskPermissionViewController.swift; sourceTree = "<group>"; };
+		E536A2E51D5170C700D82E34 /* AskPermissionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AskPermissionViewController.xib; sourceTree = "<group>"; };
+		E536A2EB1D517C9000D82E34 /* permission_notifications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = permission_notifications.png; sourceTree = "<group>"; };
+		E536A2EE1D51827B00D82E34 /* GTPermissionsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTPermissionsManager.swift; sourceTree = "<group>"; };
+		E536A2F11D518D9300D82E34 /* permission_photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = permission_photos.png; sourceTree = "<group>"; };
 		E53F3FA71CEAA63900537D1B /* DrawingOptionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingOptionButton.swift; sourceTree = "<group>"; };
 		E53F3FAC1CEAB69600537D1B /* AdobeCreativeSDKImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdobeCreativeSDKImage.framework; path = ../../../Adobe_SDK/AdobeCreativeSDKImage.framework; sourceTree = "<group>"; };
 		E53F3FAE1CEAB6D000537D1B /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -1030,6 +1045,24 @@
 			path = LoadingIndicators;
 			sourceTree = "<group>";
 		};
+		E536A2DE1D51708A00D82E34 /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				E536A2E41D5170C700D82E34 /* AskPermissionViewController.swift */,
+				E536A2E51D5170C700D82E34 /* AskPermissionViewController.xib */,
+			);
+			path = Permissions;
+			sourceTree = "<group>";
+		};
+		E536A2EA1D517C9000D82E34 /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				E536A2F11D518D9300D82E34 /* permission_photos.png */,
+				E536A2EB1D517C9000D82E34 /* permission_notifications.png */,
+			);
+			path = Permissions;
+			sourceTree = "<group>";
+		};
 		E5494E531D199E47004F31A7 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -1167,6 +1200,7 @@
 				E5A1D6661D23101E0027E438 /* GTDeviceMotionManager.swift */,
 				E5A1D6671D23101E0027E438 /* GTLocationManager.swift */,
 				E5A1D66A1D2310300027E438 /* GTNetworkManager.swift */,
+				E536A2EE1D51827B00D82E34 /* GTPermissionsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1605,6 +1639,7 @@
 		E5DFDBF91CB2C31B00BB3D27 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E536A2DE1D51708A00D82E34 /* Permissions */,
 				E5DFDBFA1CB2C31B00BB3D27 /* BackButtons */,
 				E510062E1CB71C1300AC66A5 /* Streamables */,
 				E51006EF1CBD191900AC66A5 /* Users */,
@@ -1639,6 +1674,7 @@
 		E5DFDC001CB2C31B00BB3D27 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E536A2EA1D517C9000D82E34 /* Permissions */,
 				E5F40D081D502C7F00832D92 /* Onboard */,
 				E51CD0C61CD0C77800D56C58 /* Tools */,
 				E554CFD61CB5641B00668D85 /* Html */,
@@ -1904,6 +1940,7 @@
 				E58432A91CE9242000FB1E50 /* LaunchScreen.storyboard in Resources */,
 				E58432AA1CE9242000FB1E50 /* Spray.png in Resources */,
 				E58432AB1CE9242000FB1E50 /* Assets.xcassets in Resources */,
+				E536A2E91D5170C700D82E34 /* AskPermissionViewController.xib in Resources */,
 				E58432AC1CE9242000FB1E50 /* CommentCell.xib in Resources */,
 				E53960E11D50FE3B00032B83 /* onboard_5.png in Resources */,
 				E5FE1D7F1CFEF71B009CFB72 /* Localizable.strings in Resources */,
@@ -1918,6 +1955,7 @@
 				E58432B41CE9242000FB1E50 /* CreateStoryboard.storyboard in Resources */,
 				E53960DD1D50FE3B00032B83 /* onboard_1.png in Resources */,
 				E58432B51CE9242000FB1E50 /* SplashStoryboard.storyboard in Resources */,
+				E536A2ED1D517C9000D82E34 /* permission_notifications.png in Resources */,
 				E58432B61CE9242000FB1E50 /* Eraser.png in Resources */,
 				E58432B71CE9242000FB1E50 /* LoginStoryboard.storyboard in Resources */,
 				E59BC2FE1D12B423009781BA /* UserTrendingCell.xib in Resources */,
@@ -1936,6 +1974,7 @@
 				E58432BF1CE9242000FB1E50 /* AutocompleteHashCell.xib in Resources */,
 				E53960E01D50FE3B00032B83 /* onboard_4.png in Resources */,
 				E58432C01CE9242000FB1E50 /* Default-568h@2x.png in Resources */,
+				E536A2F31D518D9300D82E34 /* permission_photos.png in Resources */,
 				E5C3692A1D213D6F005FA4A0 /* target.jpg in Resources */,
 				E58432C21CE9242000FB1E50 /* UserAboutView.xib in Resources */,
 			);
@@ -1951,9 +1990,12 @@
 				E5DFDBDD1CB2BF9E00BB3D27 /* Assets.xcassets in Resources */,
 				E5A4F1301CE225AA005CF12C /* CommentCell.xib in Resources */,
 				E51CD0CD1CD0C77800D56C58 /* Brush.png in Resources */,
+				E536A2F21D518D9300D82E34 /* permission_photos.png in Resources */,
 				E51CD0CE1CD0C77800D56C58 /* Chalk.png in Resources */,
 				E52BD5921D50B83C001DC931 /* onboard_4.png in Resources */,
 				E5494E5A1D19A1F5004F31A7 /* OnboardingStoryboard.storyboard in Resources */,
+				E536A2EC1D517C9000D82E34 /* permission_notifications.png in Resources */,
+				E536A2E81D5170C700D82E34 /* AskPermissionViewController.xib in Resources */,
 				E5C3693E1D2163D8005FA4A0 /* GoogleService-Info.plist in Resources */,
 				E51CD0CC1CD0C77800D56C58 /* blank.png in Resources */,
 				E554CFDE1CB5641B00668D85 /* terms.html in Resources */,
@@ -2149,6 +2191,7 @@
 				E584324A1CE9242000FB1E50 /* ExploreViewController.swift in Sources */,
 				E584324B1CE9242000FB1E50 /* CustomInfiniteIndicator.swift in Sources */,
 				E584324C1CE9242000FB1E50 /* TOCropToolbar.m in Sources */,
+				E536A2F01D51827B00D82E34 /* GTPermissionsManager.swift in Sources */,
 				E584324D1CE9242000FB1E50 /* GenericUsersViewController.swift in Sources */,
 				E584324E1CE9242000FB1E50 /* ActivityGroupCommentCell.swift in Sources */,
 				E592625F1D0197E400368212 /* ProfileFollowButton.swift in Sources */,
@@ -2172,6 +2215,7 @@
 				E584325B1CE9242000FB1E50 /* NotificationWelcomeCell.swift in Sources */,
 				E584325C1CE9242000FB1E50 /* AutocompleteHashCell.swift in Sources */,
 				E584325D1CE9242000FB1E50 /* ActivitySingleLikeCell.swift in Sources */,
+				E536A2E71D5170C700D82E34 /* AskPermissionViewController.swift in Sources */,
 				E584325E1CE9242000FB1E50 /* TOCropViewController.m in Sources */,
 				E50564CD1CEC774000A42E56 /* PublishViewController.swift in Sources */,
 				E584325F1CE9242000FB1E50 /* TrendingViewController.swift in Sources */,
@@ -2316,6 +2360,7 @@
 				E5B6B5CF1CC56F5800DC8EFC /* ExploreViewController.swift in Sources */,
 				E52DC7381CE5085900375828 /* CustomInfiniteIndicator.swift in Sources */,
 				E5D085AF1CD8D30000226589 /* TOCropToolbar.m in Sources */,
+				E536A2EF1D51827B00D82E34 /* GTPermissionsManager.swift in Sources */,
 				E51006F11CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
 				E51006D71CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
 				E592625E1D0197E400368212 /* ProfileFollowButton.swift in Sources */,
@@ -2339,6 +2384,7 @@
 				E5FE1D8C1CFF7DFE009CFB72 /* AvatarImageView.swift in Sources */,
 				E51006AC1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */,
 				E5DAA8971CE37A26000CB2F4 /* AutocompleteHashCell.swift in Sources */,
+				E536A2E61D5170C700D82E34 /* AskPermissionViewController.swift in Sources */,
 				E51006BF1CBC0FA100AC66A5 /* ActivitySingleLikeCell.swift in Sources */,
 				E5D085AC1CD8D30000226589 /* TOCropViewController.m in Sources */,
 				E50564CC1CEC774000A42E56 /* PublishViewController.swift in Sources */,

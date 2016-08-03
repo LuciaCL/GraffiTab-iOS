@@ -295,13 +295,11 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         (self.transitioningDelegate as! TransitioningDelegate).resetState()
         self.transitioningDelegate = nil
         self.dismissViewControllerAnimated(true, completion: {
-            ViewControllerUtils.checkCameraAndPhotosPermissions {
-                let vc = UIStoryboard(name: "CreateStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CreateViewController") as! CreateViewController
-                vc.toEdit = self.streamable
-                vc.toEditImage = self.streamableImage.imageView.image
-                
-                parent!.presentViewController(vc, animated: true, completion: nil)
-            }
+            let vc = UIStoryboard(name: "CreateStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CreateViewController") as! CreateViewController
+            vc.toEdit = self.streamable
+            vc.toEditImage = self.streamableImage.imageView.image
+            
+            parent!.presentViewController(vc, animated: true, completion: nil)
         })
     }
     

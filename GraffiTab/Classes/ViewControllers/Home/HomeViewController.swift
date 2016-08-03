@@ -76,14 +76,12 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         // Register analytics events.
         AnalyticsUtils.sendAppEvent("show_creator", label: nil)
         
-        ViewControllerUtils.checkCameraAndPhotosPermissions { 
-            let vc = UIStoryboard(name: "CreateStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CreateViewController")
-            
-            vc.modalPresentationStyle = .Custom
-            vc.transitioningDelegate = self
-            
-            self.presentViewController(vc, animated: true, completion: nil)
-        }
+        let vc = UIStoryboard(name: "CreateStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CreateViewController")
+        
+        vc.modalPresentationStyle = .Custom
+        vc.transitioningDelegate = self
+        
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     @IBAction func onClickProfile(sender: AnyObject?) {

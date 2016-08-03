@@ -13,6 +13,7 @@ import SwiftHEXColors
 import GraffiTab_iOS_SDK
 import CocoaLumberjack
 import PAGestureAssistant
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,9 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKLoginManager.renewSystemCredentials { (result:ACAccountCredentialRenewResult, error:NSError!) -> Void in
             // Some code.
         }
-        
-        // Initialize the location manager.
-        let _ = GTLocationManager.manager
         
         // Initialize the device motion manager.
         let _ = GTDeviceMotionManager.manager
@@ -62,7 +60,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
         
         GTLifecycleManager.applicationWillResignActive()
-        GTLocationManager.manager.stopLocationUpdates()
+        
+        // Configure location updates if location services is enabled.
+        if CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+            GTLocationManager.manager.stopLocationUpdates()
+        }
     }
     
     func applicationDidEnterBackground(application: UIApplication) {
@@ -83,7 +85,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKAppEvents.activateApp()
         
         GTLifecycleManager.applicationDidBecomeActive()
-        GTLocationManager.manager.startLocationUpdates()
+        
+        // Configure location updates if location services is enabled.
+        if CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+            GTLocationManager.manager.startLocationUpdates()
+        }
         
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Application did enter foreground")
     }
@@ -107,13 +113,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: - Push notifications
-    
-    func registerPushNotifications() {
-        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-        
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
-        UIApplication.sharedApplication().registerForRemoteNotifications()
-    }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Original token: \(deviceToken)")
@@ -213,8 +212,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User logged in. Showing main app")
         
         self.showStoryboard("MainStoryboard", duration: 0.3);
-        
-        self.registerPushNotifications()
         
         // Check if app has been started by clicking on a push notification.
         self.processPushNotificationInfo(launchOptions)
