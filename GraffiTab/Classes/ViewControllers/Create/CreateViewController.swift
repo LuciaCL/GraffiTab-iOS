@@ -149,7 +149,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         Settings.sharedInstance.showedDrawingAssistant = true
         isDrawAssistantMode = false
         configureUIComponentsForTutorial(nil, showAll: true)
-        showSkipBtn()
+        hideSkipBtn()
+        self.stopGestureAssistant()
+        
+        DialogBuilder.showOKAlert("Ready to draw? No problem, you can enable the tutorial again from Settings.", title: App.Title)
     }
     
     @IBAction func onClickPublish(sender: AnyObject?) {
@@ -285,6 +288,14 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickDone(sender: AnyObject) {
+        if isDrawAssistantMode {
+            // Finish tutorial.
+            self.isDrawAssistantMode = false
+            self.stopGestureAssistant()
+            
+            Settings.sharedInstance.showedDrawingAssistant = true
+        }
+        
         configureUIComponentsForTutorial(nil, showAll: true)
         
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing publish options")
@@ -314,6 +325,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickEnhance(sender: AnyObject?) {
+        if isDrawAssistantMode { // If we're showing the drawing assistant, move to next stage.
+            self.stopGestureAssistant()
+        }
+        
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing enhancer tool")
         
         // Register analytics events.
@@ -344,6 +359,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickChangeBackground(sender: AnyObject) {
+        if isDrawAssistantMode { // If we're showing the drawing assistant, move to next stage.
+            self.stopGestureAssistant()
+        }
+        
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to change background")
         
         // Register analytics events.
@@ -413,6 +432,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickMenu(recognizer: AnyObject?) {
+        if isDrawAssistantMode { // If we're showing the drawing assistant, move to next stage.
+            self.stopGestureAssistant()
+        }
+        
         if isColorsOpen! {
             hideColors({ 
                 self.showMenu()
@@ -427,6 +450,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickColors(sender: AnyObject?) {
+        if isDrawAssistantMode { // If we're showing the drawing assistant, move to next stage.
+            self.stopGestureAssistant()
+        }
+        
         if isMenuOpen! {
             hideMenu({
                 self.showColors()
@@ -441,6 +468,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickTune(sender: AnyObject) {
+        if isDrawAssistantMode { // If we're showing the drawing assistant, move to next stage.
+            self.stopGestureAssistant()
+        }
+        
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing tool options")
         
         // Register analytics events.
@@ -509,6 +540,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             isDrawAssistantMode = true
             drawingAssistantIndex = 0;
             showNextDrawingAssistantScreen()
+            showSkipBtn()
         }
     }
     
@@ -543,91 +575,50 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                 else if state == .DrawColorLine {
                     text = "That color looks nice. Why don't you give it a try?"
                 }
-                self.showSkipBtn()
-                self.showGestureAssistantForSwipeDirection(PAGestureAssistantSwipeDirectonDown, text: text, afterIdleInterval: 0.5, completion: {finished in
-                    self.hideSkipBtn()
-                    self.stopGestureAssistant()
-                })
+                self.showGestureAssistantForSwipeDirection(PAGestureAssistantSwipeDirectonDown, text: text, afterIdleInterval: 0.5)
                 break
             case .Color:
                 configureUIComponentsForTutorial(onCanvasColorBtn, showAll: false)
                 
-                self.showSkipBtn()
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasColorBtn, text: "Drawing lines is fun but it's even nicer with colors. Tap on the palette to choose a different color.", afterIdleInterval: 0.3, completion: {finished in
-                    self.hideSkipBtn()
-                    self.stopGestureAssistant()
-                })
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasColorBtn, text: "Drawing lines is fun but it's even nicer with colors. Tap on the palette to choose a different color.", afterIdleInterval: 0.3)
                 break
             case .Stroke:
                 configureUIComponentsForTutorial(onCanvasTuneBtn, showAll: false)
                 
-                self.showSkipBtn()
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasTuneBtn, text: "In addition to colors you can also control the width and opacity of the current brush. Tap the brush settings to check it out.", afterIdleInterval: 0.3, completion: {finished in
-                    self.hideSkipBtn()
-                    self.stopGestureAssistant()
-                })
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasTuneBtn, text: "In addition to colors you can also control the width and opacity of the current brush. Tap the brush settings to check it out.", afterIdleInterval: 0.3)
                 break
             case .Menu:
                 configureUIComponentsForTutorial(onCanvasMenuBtn, showAll: false)
                 
-                self.showSkipBtn()
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasMenuBtn, text: "So far so good but what's a great artist without his brushes? Let's see what you've got in your toolbox.", afterIdleInterval: 0.3, completion: {finished in
-                    self.hideSkipBtn()
-                    self.stopGestureAssistant()
-                })
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasMenuBtn, text: "So far so good but what's a great artist without his brushes? Let's see what you've got in your toolbox.", afterIdleInterval: 0.3)
                 break
             case .Tool:
                 configureUIComponentsForTutorial(toolCollectionView, showAll: false)
                 
-                self.showSkipBtn()
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.toolCollectionView, text: "These are your available tools. Tap on a different tool to continue.", afterIdleInterval: 0.3, completion: {finished in
-                    self.hideSkipBtn()
-                    self.stopGestureAssistant()
-                })
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.toolCollectionView, text: "These are your available tools. Tap on a different tool to continue.", afterIdleInterval: 0.3)
                 break
             case .Eraser:
                 configureUIComponentsForTutorial(toolCollectionView, showAll: false)
                 
                 let cell = self.toolCollectionView.cellForItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
                 if cell != nil {
-                    self.showSkipBtn()
-                    self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: cell!, text: "Even great artists make mistakes sometimes. Do not fear, we have the perfect tool for this. Tap the eraser to erase mistakes.", afterIdleInterval: 0.3, completion: {finished in
-                        self.hideSkipBtn()
-                        self.stopGestureAssistant()
-                    })
+                    self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: cell!, text: "Even great artists make mistakes sometimes. Do not fear, we have the perfect tool for this. Tap the eraser to erase mistakes.", afterIdleInterval: 0.3)
                 }
                 break
             case .Background:
                 configureUIComponentsForTutorial(backgroundBtn, showAll: false)
                 
-                self.showSkipBtn()
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.backgroundBtn, text: "The white canvas is nice but can quickly become boring. Why not put a background picture and draw on top of it?", afterIdleInterval: 0, completion: {finished in
-                    self.hideSkipBtn()
-                    self.stopGestureAssistant()
-                })
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.backgroundBtn, text: "The white canvas is nice but can quickly become boring. Why not put a background picture and draw on top of it?", afterIdleInterval: 0)
                 break
             case .Enhancer:
                 configureUIComponentsForTutorial(enhanceBtn, showAll: false)
                 
-                self.showSkipBtn()
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.enhanceBtn, text: "Now that your masterpiece is almost done, it's time to add some cool effects to it and make it looks really pro. Tap the enhancer to add filters or stickers to your drawing.", afterIdleInterval: 0.3, completion: {finished in
-                    self.hideSkipBtn()
-                    self.stopGestureAssistant()
-                })
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.enhanceBtn, text: "Now that your masterpiece is almost done, it's time to add some cool effects to it and make it looks really pro. Tap the enhancer to add filters or stickers to your drawing.", afterIdleInterval: 0.3)
                 break
             case .Publish:
                 configureUIComponentsForTutorial(publishBtn, showAll: false)
                 
-                self.showSkipBtn()
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.publishBtn, text: "Not bad for a first try! Why don't you share it with your friends or the rest of the GraffiTab community?", afterIdleInterval: 0, completion: {finished in
-                    self.hideSkipBtn()
-                    self.stopGestureAssistant()
-                    
-                    // Finish tutorial.
-                    self.isDrawAssistantMode = false
-                    
-                    Settings.sharedInstance.showedDrawingAssistant = true
-                })
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.publishBtn, text: "Not bad for a first try! Why don't you share it with your friends or the rest of the GraffiTab community?", afterIdleInterval: 0)
                 break
         }
         
@@ -657,13 +648,13 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     func hideSkipBtn() {
         UIView.animateWithDuration(0.3, animations: {
-            self.skipBtn.alpha = 1.0
+            self.skipBtn.alpha = 0.0
         }, completion: nil)
     }
     
     func showSkipBtn() {
         UIView.animateWithDuration(0.3, animations: {
-            self.skipBtn.alpha = 0.0
+            self.skipBtn.alpha = 1.0
         }, completion: nil)
     }
     
@@ -871,6 +862,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             collectionView.reloadData()
             
             if self.isDrawAssistantMode { // If we're showing the drawing assistant, move to next stage.
+                self.stopGestureAssistant()
                 self.showNextDrawingAssistantScreen()
             }
         }
@@ -966,6 +958,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     func didBeginDrawingAtPoint(point: CGPoint) {
+        self.stopGestureAssistant()
+        
         let p = CGPointMake(point.x, self.canvasView.frame.height - point.y)
         if CGRectContainsPoint(onCanvasTuneBtn.frame, p) || CGRectContainsPoint(onCanvasColorBtn.frame, p) ||  CGRectContainsPoint(onCanvasMenuBtn.frame, p) {
             hideOnCanvasTools()

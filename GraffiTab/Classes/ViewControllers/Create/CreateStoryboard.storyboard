@@ -355,9 +355,9 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkS-xE-TAs">
-                                <rect key="frame" x="285" y="555" width="30" height="30"/>
+                                <rect key="frame" x="285" y="560" width="30" height="30"/>
                                 <state key="normal" title="Skip">
-                                    <color key="titleColor" red="0.0" green="0.36078431372549019" blue="0.52549019607843139" alpha="0.69764458955223885" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.36078431372549019" blue="0.52549019607843139" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="onClickSkip:" destination="F9h-bV-H5F" eventType="touchUpInside" id="qPf-gb-Gmk"/>
@@ -369,11 +369,11 @@
                             <constraint firstItem="7ZK-8e-rZY" firstAttribute="top" secondItem="fMz-pD-gGX" secondAttribute="bottom" id="DUZ-4X-npE"/>
                             <constraint firstItem="fMz-pD-gGX" firstAttribute="leading" secondItem="ARV-xs-JKt" secondAttribute="leading" id="Icb-xj-5Ey"/>
                             <constraint firstItem="oKo-4x-Uqe" firstAttribute="top" secondItem="gIM-Nl-dt9" secondAttribute="bottom" id="IxQ-YX-c1I"/>
-                            <constraint firstItem="TkS-xE-TAs" firstAttribute="centerX" secondItem="ARV-xs-JKt" secondAttribute="centerX" id="Jdq-eJ-EJd"/>
                             <constraint firstItem="fMz-pD-gGX" firstAttribute="top" secondItem="gIM-Nl-dt9" secondAttribute="bottom" id="OZr-hU-9Ld"/>
                             <constraint firstItem="oKo-4x-Uqe" firstAttribute="leading" secondItem="fMz-pD-gGX" secondAttribute="trailing" id="V22-ga-KQ3"/>
                             <constraint firstAttribute="trailing" secondItem="oKo-4x-Uqe" secondAttribute="trailing" constant="-240" id="V5R-wM-yd8"/>
-                            <constraint firstItem="7ZK-8e-rZY" firstAttribute="top" secondItem="TkS-xE-TAs" secondAttribute="bottom" constant="15" id="Xqu-2f-g6M"/>
+                            <constraint firstItem="7ZK-8e-rZY" firstAttribute="top" secondItem="TkS-xE-TAs" secondAttribute="bottom" constant="10" id="Xqu-2f-g6M"/>
+                            <constraint firstItem="TkS-xE-TAs" firstAttribute="centerX" secondItem="fMz-pD-gGX" secondAttribute="centerX" id="dnh-gi-iby"/>
                             <constraint firstItem="7ZK-8e-rZY" firstAttribute="top" secondItem="oKo-4x-Uqe" secondAttribute="bottom" id="xVW-XA-GxW"/>
                         </constraints>
                     </view>
