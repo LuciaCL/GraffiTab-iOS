@@ -50,17 +50,25 @@ class ViewControllerUtils: NSObject {
     }
     
     class func showExplorer(latitude: CLLocationDegrees? = nil, longitude: CLLocationDegrees? = nil, user: GTUser? = nil, viewController: UIViewController) {
-        let vc = UIStoryboard(name: "MainStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("ExploreViewController") as! ExploreViewController
-        vc.toShowLatitude = latitude
-        vc.toShowLongitude = longitude
-        vc.toShowUser = user
-        
-        if viewController.navigationController != nil {
-            viewController.navigationController?.pushViewController(vc, animated: true)
+        let handler = {
+            let vc = UIStoryboard(name: "MainStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("ExploreViewController") as! ExploreViewController
+            vc.toShowLatitude = latitude
+            vc.toShowLongitude = longitude
+            vc.toShowUser = user
+            
+            if viewController.navigationController != nil {
+                viewController.navigationController?.pushViewController(vc, animated: true)
+            }
+            else {
+                let nav = UINavigationController(rootViewController: vc)
+                viewController.presentViewController(nav, animated: true, completion: nil)
+            }
         }
-        else {
-            let nav = UINavigationController(rootViewController: vc)
-            viewController.presentViewController(nav, animated: true, completion: nil)
+        
+        GTPermissionsManager.manager.checkPermission(.LocationWhenInUse, controller: viewController, accessGrantedHandler: {
+            handler()
+        }) {
+            handler()
         }
     }
     
