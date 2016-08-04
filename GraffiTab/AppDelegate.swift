@@ -93,6 +93,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             GTLocationManager.manager.startLocationUpdates()
         }
         
+        // Request push notification token if PNs are enabled.
+        if UIApplication.sharedApplication().isRegisteredForRemoteNotifications() {
+            registerForNotifications()
+        }
+        
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Application did enter foreground")
     }
     
@@ -160,6 +165,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // TODO: Ignore tapping on notification for now.
             }
         }
+    }
+    
+    func registerForNotifications() {
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        UIApplication.sharedApplication().registerForRemoteNotifications()
     }
     
     // MARK: - Login management
