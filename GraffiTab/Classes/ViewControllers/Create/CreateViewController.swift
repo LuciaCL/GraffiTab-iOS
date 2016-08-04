@@ -292,6 +292,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             // Finish tutorial.
             self.isDrawAssistantMode = false
             self.stopGestureAssistant()
+            hideSkipBtn()
             
             Settings.sharedInstance.showedDrawingAssistant = true
         }
