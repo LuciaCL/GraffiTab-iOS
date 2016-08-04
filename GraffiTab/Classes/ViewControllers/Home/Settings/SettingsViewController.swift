@@ -10,6 +10,7 @@ import UIKit
 import GraffiTab_iOS_SDK
 import UIActionSheet_Blocks
 import CocoaLumberjack
+import Instabug
 
 class SettingsViewController: GeneralSettingsViewController {
 
@@ -157,14 +158,15 @@ class SettingsViewController: GeneralSettingsViewController {
         }
         else if indexPath.section == 3 {
             if indexPath.row == 1 { // Report a problem.
-                let actionSheet = buildActionSheet("What would you like to report?")
-                actionSheet.addButtonWithTitle("Something Is Wrong", image: UIImage(named: "ic_warning_white"), type: .Default) { (sheet) in
-                    self.performSegueWithIdentifier("SEGUE_PROBLEM", sender: nil)
-                }
-                actionSheet.addButtonWithTitle("General Feedback", image: UIImage(named: "ic_comment_white"), type: .Default) { (sheet) in
-                    self.performSegueWithIdentifier("SEGUE_FEEDBACK", sender: nil)
-                }
-                actionSheet.show()
+                Instabug.invoke()
+//                let actionSheet = buildActionSheet("What would you like to report?")
+//                actionSheet.addButtonWithTitle("Something Is Wrong", image: UIImage(named: "ic_warning_white"), type: .Default) { (sheet) in
+//                    self.performSegueWithIdentifier("SEGUE_PROBLEM", sender: nil)
+//                }
+//                actionSheet.addButtonWithTitle("General Feedback", image: UIImage(named: "ic_comment_white"), type: .Default) { (sheet) in
+//                    self.performSegueWithIdentifier("SEGUE_FEEDBACK", sender: nil)
+//                }
+//                actionSheet.show()
             }
         }
         else if indexPath.section == 4 {

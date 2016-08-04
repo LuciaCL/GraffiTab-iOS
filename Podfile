@@ -53,6 +53,7 @@ def common_pods
     pod 'SDWebImage'
     pod 'HanekeSwift'
     pod 'PAGestureAssistant'
+    pod 'Instabug'
 end
 
 target 'GraffiTab' do

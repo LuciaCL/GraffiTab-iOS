@@ -14,6 +14,7 @@ import GraffiTab_iOS_SDK
 import CocoaLumberjack
 import PAGestureAssistant
 import CoreLocation
+import Instabug
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -47,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupGraffiTabSDK()
         setupAnalytics()
         setupGestureAssistant()
+        setupInstabug()
         
         Utils.runWithDelay(1) { () in
             self.checkOnboarding(launchOptions)
@@ -325,6 +327,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PAGestureAssistant.appearance().backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.75)
         PAGestureAssistant.appearance().tapColor = UIColor(hexString: Colors.Main)
         PAGestureAssistant.appearance().textColor = UIColor(hexString: Colors.Main)
+    }
+    
+    func setupInstabug() {
+        Instabug.startWithToken("95a2ae49aceb3d7c2b0d32c573a6231f", invocationEvent: IBGInvocationEvent.Shake)
     }
 }
 
