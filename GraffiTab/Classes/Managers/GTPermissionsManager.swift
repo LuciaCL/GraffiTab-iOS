@@ -43,6 +43,7 @@ class GTPermissionsManager: NSObject {
         if !Settings.sharedInstance.promptedForNotifications! {
             let permissionDialog = AskPermissionViewController.showPermissionViewController(controller, askPermissionHandler: {
                 Settings.sharedInstance.promptedForNotifications = true
+                Settings.sharedInstance.acceptedNotifications = true
                 askForAccess()
             }, decideLaterHandler: {
                     

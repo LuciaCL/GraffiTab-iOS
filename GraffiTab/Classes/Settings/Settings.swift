@@ -60,6 +60,15 @@ class Settings: NSObject {
         }
     }
     
+    var acceptedNotifications: Bool? {
+        get {
+            return getBoolPreference(SettingsKeys.kAcceptedNotifications)
+        }
+        set(newValue) {
+            setBoolPreference(newValue!, key: SettingsKeys.kAcceptedNotifications)
+        }
+    }
+    
     var promptedForPhotos: Bool? {
         get {
             return getBoolPreference(SettingsKeys.kPromptedForPhotos)

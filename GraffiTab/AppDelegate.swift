@@ -93,9 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Request push notification token if PNs are enabled.
-        if UIApplication.sharedApplication().isRegisteredForRemoteNotifications() {
-            registerForNotifications()
-        }
+        reRegisterForNotifications()
         
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Application did enter foreground")
     }
@@ -173,6 +171,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().registerForRemoteNotifications()
     }
     
+    func reRegisterForNotifications() {
+        if GTMeManager.sharedInstance.isLoggedIn() && Settings.sharedInstance.acceptedNotifications! {
+            registerForNotifications()
+        }
+    }
+    
     // MARK: - Login management
     
     func checkOnboarding(launchOptions: [NSObject: AnyObject]?) {
@@ -225,6 +229,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User logged in. Showing main app")
         
         self.showStoryboard("MainStoryboard", duration: 0.3);
+        
+        // Request push notification token if PNs are enabled.
+        reRegisterForNotifications()
         
         // Check if app has been started by clicking on a push notification.
         self.processPushNotificationInfo(launchOptions)
