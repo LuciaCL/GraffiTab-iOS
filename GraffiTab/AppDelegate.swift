@@ -92,9 +92,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             GTLocationManager.manager.startLocationUpdates()
         }
         
-        // Request push notification token if PNs are enabled.
-        reRegisterForNotifications()
-        
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Application did enter foreground")
     }
     
