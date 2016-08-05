@@ -46,6 +46,14 @@ class AssetImageView: UIImageView {
         let fetchFromDisk = {
             // 3. No memory cache at this point, so try fetching full image from disk cache.
             self.previousAssetDiskRequest = AppImageCache.sharedInstance.queryDiskCachedImage(self.asset!.link!, done: { (cachedFullImage, type) in
+                
+                if self.asset == nil {
+                    self.image = nil
+                    self.previousAssetRequest?.cancel()
+                    self.previousAssetDiskRequest?.cancel()
+                    return
+                }
+                
                 if cachedFullImage != nil {
                     // Previous full sized image was found in disk cache.
                     self.image = cachedFullImage
@@ -67,6 +75,14 @@ class AssetImageView: UIImageView {
                     
                     // 4. No memory cache at this point, so try fetching thumbnail image from disk cache.
                     self.previousAssetDiskRequest = AppImageCache.sharedInstance.queryDiskCachedImage(self.asset!.thumbnail!, done: { (cachedThumbnailImage, type) in
+                        
+                        if self.asset == nil {
+                            self.image = nil
+                            self.previousAssetRequest?.cancel()
+                            self.previousAssetDiskRequest?.cancel()
+                            return
+                        }
+                        
                         if cachedThumbnailImage != nil {
                             // Previous thumbnail sized image was found in disk cache.
                             self.image = cachedThumbnailImage
