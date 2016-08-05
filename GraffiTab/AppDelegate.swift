@@ -48,7 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupGraffiTabSDK()
         setupAnalytics()
         setupGestureAssistant()
-        setupInstabug()
         
         Utils.runWithDelay(1) { () in
             self.checkOnboarding(launchOptions)
@@ -229,6 +228,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Check if app has been started by clicking on a push notification.
         self.processPushNotificationInfo(launchOptions)
+        
+        setupInstabug()
     }
     
     func userDidLogout() {

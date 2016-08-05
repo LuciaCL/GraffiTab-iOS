@@ -38,13 +38,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPS-TW-QtY" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="375"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="355"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9CW-ws-KPw">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="375"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="355"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKv-lS-Af3">
-                                                <rect key="frame" x="30" y="227" width="540" height="107"/>
+                                                <rect key="frame" x="30" y="207" width="540" height="107"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="username" translatesAutoresizingMaskIntoConstraints="NO" id="Cun-eG-YEK" customClass="TintImageView" customModule="GraffiTab" customModuleProvider="target">
                                                         <rect key="frame" x="7" y="0.0" width="27" height="40"/>
@@ -123,7 +123,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgotten password?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hl0-xa-ieZ">
-                                                <rect key="frame" x="30" y="349" width="540" height="21"/>
+                                                <rect key="frame" x="30" y="329" width="540" height="21"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Uwf-ef-kLh"/>
@@ -136,7 +136,7 @@
                                                 </connections>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="axV-lQ-QXe">
-                                                <rect key="frame" x="180" y="107" width="240" height="90"/>
+                                                <rect key="frame" x="180" y="87" width="240" height="90"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="240" id="wb4-Od-5rX"/>
                                                     <constraint firstAttribute="height" constant="90" id="y6r-HK-bYX"/>
@@ -276,7 +276,7 @@
                             <constraint firstItem="f9H-j3-R3e" firstAttribute="bottom" secondItem="qPS-TW-QtY" secondAttribute="bottom" multiplier="1.6" id="JnY-Tc-6aU"/>
                             <constraint firstItem="XOy-tl-DJb" firstAttribute="leading" secondItem="hEa-eY-Ru7" secondAttribute="leading" constant="30" id="LeT-9t-K1f"/>
                             <constraint firstItem="y1C-Gw-L6Q" firstAttribute="top" secondItem="f9H-j3-R3e" secondAttribute="bottom" id="MfE-Nj-ORf"/>
-                            <constraint firstItem="qPS-TW-QtY" firstAttribute="top" secondItem="hEa-eY-Ru7" secondAttribute="top" id="QQv-wj-1Sh"/>
+                            <constraint firstItem="qPS-TW-QtY" firstAttribute="top" secondItem="hEa-eY-Ru7" secondAttribute="top" constant="20" id="QQv-wj-1Sh"/>
                             <constraint firstAttribute="trailing" secondItem="f9H-j3-R3e" secondAttribute="trailing" id="R5X-5i-ff1"/>
                             <constraint firstItem="M6L-eM-zgn" firstAttribute="leading" secondItem="hEa-eY-Ru7" secondAttribute="leading" constant="30" id="SZs-wd-8cL"/>
                             <constraint firstItem="qPS-TW-QtY" firstAttribute="leading" secondItem="hEa-eY-Ru7" secondAttribute="leading" id="TQl-HL-ivY"/>
