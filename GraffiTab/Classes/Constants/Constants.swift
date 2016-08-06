@@ -29,6 +29,10 @@ struct App {
     static let Radius = 1000.0
 }
 
+struct Image {
+    static let MaxImageWidth = 1024.0
+}
+
 struct SettingsKeys {
     static let kUsername = "kUsername"
     static let kPassword = "kPassword"

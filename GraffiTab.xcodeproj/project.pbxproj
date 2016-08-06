@@ -107,6 +107,8 @@
 		E5494E671D1AB329004F31A7 /* TuneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5494E651D1AB329004F31A7 /* TuneViewController.swift */; };
 		E5494E6A1D1ABC49004F31A7 /* UISlider+CustomFlat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5494E691D1ABC49004F31A7 /* UISlider+CustomFlat.swift */; };
 		E5494E6B1D1ABC49004F31A7 /* UISlider+CustomFlat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5494E691D1ABC49004F31A7 /* UISlider+CustomFlat.swift */; };
+		E5544BF21D5565CA002AA88A /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5544BF11D5565CA002AA88A /* UIImage+Utils.swift */; };
+		E5544BF31D5565CA002AA88A /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5544BF11D5565CA002AA88A /* UIImage+Utils.swift */; };
 		E55452D51CF3154C0076CEC9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452D41CF3154C0076CEC9 /* LocationsViewController.swift */; };
 		E55452D61CF3154C0076CEC9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452D41CF3154C0076CEC9 /* LocationsViewController.swift */; };
 		E55452E41CF329580076CEC9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452E31CF329580076CEC9 /* LocationCell.swift */; };
@@ -604,6 +606,7 @@
 		E5494E5D1D1A1D30004F31A7 /* ViewController+ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+ActionSheet.swift"; sourceTree = "<group>"; };
 		E5494E651D1AB329004F31A7 /* TuneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TuneViewController.swift; sourceTree = "<group>"; };
 		E5494E691D1ABC49004F31A7 /* UISlider+CustomFlat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISlider+CustomFlat.swift"; sourceTree = "<group>"; };
+		E5544BF11D5565CA002AA88A /* UIImage+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
 		E55452D41CF3154C0076CEC9 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		E55452E31CF329580076CEC9 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		E55452E61CF336A50076CEC9 /* LocationListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListCell.swift; sourceTree = "<group>"; };
@@ -1096,6 +1099,14 @@
 				E5AEDA361D1C921A006D4296 /* OpenCVWrapper.mm */,
 			);
 			path = OpenCV;
+			sourceTree = "<group>";
+		};
+		E5544BF01D5565B9002AA88A /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				E5544BF11D5565CA002AA88A /* UIImage+Utils.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 		E55452CE1CF3150A0076CEC9 /* Locations */ = {
@@ -1631,6 +1642,7 @@
 		E5DFDBF71CB2C31B00BB3D27 /* ImageViews */ = {
 			isa = PBXGroup;
 			children = (
+				E5544BF01D5565B9002AA88A /* Image */,
 				E5FE1D861CFF7DFE009CFB72 /* Assets */,
 				E57716861CE6008600006572 /* ZoomableImageView.h */,
 				E57716871CE6008600006572 /* ZoomableImageView.m */,
@@ -2291,6 +2303,7 @@
 				E584328E1CE9242000FB1E50 /* ListUsersViewController.swift in Sources */,
 				E584328F1CE9242000FB1E50 /* MyNotificationsViewController.swift in Sources */,
 				E58432911CE9242000FB1E50 /* TOCropView.m in Sources */,
+				E5544BF31D5565CA002AA88A /* UIImage+Utils.swift in Sources */,
 				E58432921CE9242000FB1E50 /* RecentViewController.swift in Sources */,
 				E58432931CE9242000FB1E50 /* EditProfileViewController.swift in Sources */,
 				E5AEDA881D1D3C4A006D4296 /* PatternDetector.cpp in Sources */,
@@ -2459,6 +2472,7 @@
 				E5B6B5B71CC56F5800DC8EFC /* MyNotificationsViewController.swift in Sources */,
 				E5D085B01CD8D30000226589 /* TOCropView.m in Sources */,
 				E52DC7781CE5E09900375828 /* RecentViewController.swift in Sources */,
+				E5544BF21D5565CA002AA88A /* UIImage+Utils.swift in Sources */,
 				E5B6B5AB1CC56F5800DC8EFC /* EditProfileViewController.swift in Sources */,
 				E5AEDA871D1D3C4A006D4296 /* PatternDetector.cpp in Sources */,
 				E5DAA8B61CE49418000CB2F4 /* GTUser+Extra.swift in Sources */,

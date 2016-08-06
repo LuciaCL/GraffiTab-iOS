@@ -106,7 +106,10 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
     public func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         dismissViewControllerAnimated(true, completion: nil)
         
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if var pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            if pickedImage.size.width > CGFloat(Image.MaxImageWidth) {
+                pickedImage = pickedImage.resizeWithWidth(CGFloat(Image.MaxImageWidth))!
+            }
             self.startCropperForImage(pickedImage)
         }
     }
