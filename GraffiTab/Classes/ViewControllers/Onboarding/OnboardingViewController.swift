@@ -41,25 +41,25 @@ class OnboardingViewController: UIViewController, iCarouselDelegate, iCarouselDa
         
         var screen = OnboardingScreen()
         screen.title = "Paint"
-        screen.subtitle = "Creating beautiful art is as easy as moving your finger across the canvas"
+        screen.subtitle = "Creating beautiful art is as easy as moving your finger across the canvas."
         screen.screenshot = "onboard_1"
         screens.append(screen)
         
         screen = OnboardingScreen()
         screen.title = "Enhance"
-        screen.subtitle = "Make your drawing stand out with a variety of filters and effects"
+        screen.subtitle = "Make your drawing stand out with a variety of filters and effects."
         screen.screenshot = "onboard_2"
         screens.append(screen)
         
         screen = OnboardingScreen()
         screen.title = "Explore"
-        screen.subtitle = "Discover what others are creating around you"
+        screen.subtitle = "Discover what your friends are creating around your area."
         screen.screenshot = "onboard_3"
         screens.append(screen)
         
         screen = OnboardingScreen()
         screen.title = "Follow"
-        screen.subtitle = "Follow your favourite artists and get instant updates about new content"
+        screen.subtitle = "Follow your favourite artists and get instant updates about new content."
         screen.screenshot = "onboard_4"
         screens.append(screen)
         

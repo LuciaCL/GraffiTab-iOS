@@ -107,7 +107,7 @@ class EditProfileViewController: BackButtonTableViewController {
                     self.loadAvatar()
                     
                     Utils.runWithDelay(0.3) { () in
-                        DialogBuilder.showSuccessAlert("Your avatar has been changed!", title: App.Title)
+                        DialogBuilder.showSuccessAlert("Avatar updated!", title: App.Title)
                     }
                 }, failureBlock: { (response) -> Void in
                     self.view.hideActivityView()
@@ -126,7 +126,7 @@ class EditProfileViewController: BackButtonTableViewController {
             self.loadAvatar()
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert("Your avatar has been changed!", title: App.Title)
+                DialogBuilder.showSuccessAlert("Avatar updated!", title: App.Title)
             }
         }
         let coverSuccessBlock = {
@@ -135,7 +135,7 @@ class EditProfileViewController: BackButtonTableViewController {
             self.loadCover()
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert("Your cover has been changed!", title: App.Title)
+                DialogBuilder.showSuccessAlert("Banner updated!", title: App.Title)
             }
         }
         

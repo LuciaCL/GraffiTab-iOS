@@ -44,8 +44,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iX-CO-19n">
-                                <rect key="frame" x="208" y="396" width="185" height="48"/>
+                                <rect key="frame" x="193" y="394" width="215" height="52"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                 <state key="normal" title="Say &quot;Cheese!&quot;">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -69,6 +70,7 @@
                     <connections>
                         <outlet property="avatar" destination="asw-0i-Ok6" id="wF9-Vn-H3H"/>
                         <outlet property="name" destination="fHj-ph-PuM" id="cOb-Sr-12B"/>
+                        <outlet property="sayCheeseBtn" destination="9iX-CO-19n" id="EK3-QI-t4E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fK-ad-mVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -105,8 +107,8 @@
                                     <action selector="onClickSkip:" destination="eU0-Wi-LDa" eventType="touchUpInside" id="AqR-Br-v9f"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ep-Ga-Fxh" customClass="iCarousel">
-                                <rect key="frame" x="0.0" y="58" width="600" height="522"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ep-Ga-Fxh" customClass="iCarousel">
+                                <rect key="frame" x="0.0" y="60" width="600" height="520"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="eU0-Wi-LDa" id="YIN-WL-dgD"/>

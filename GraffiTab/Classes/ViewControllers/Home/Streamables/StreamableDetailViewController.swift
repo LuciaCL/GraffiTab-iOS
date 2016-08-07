@@ -84,6 +84,22 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
                 
                 self.togglePrivacy()
             }
+            actionSheet.addButtonWithTitle("Save to Photos Library", image: UIImage(named: "ic_file_download_white"), type: .Default) { (sheet) in
+                DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Save graffiti")
+                
+                // Register analytics events.
+                AnalyticsUtils.sendAppEvent("save", label: nil)
+                
+                self.save()
+            }
+            actionSheet.addButtonWithTitle("Set as Profile Picture", image: UIImage(named: "ic_person_white"), type: .Default) { (sheet) in
+                DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Set as profile picture")
+                
+                // Register analytics events.
+                AnalyticsUtils.sendAppEvent("set_as_profile_picture", label: nil)
+                
+                self.setAsAvatar()
+            }
         }
         actionSheet.addButtonWithTitle("Flag Inappropriate", image: UIImage(named: "ic_flag_white"), type: .Default) { (sheet) in
             DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Flag graffiti")
@@ -101,14 +117,6 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             
             self.exploreArea()
         }
-        actionSheet.addButtonWithTitle("Save to Photos Library", image: UIImage(named: "ic_file_download_white"), type: .Default) { (sheet) in
-            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Save graffiti")
-            
-            // Register analytics events.
-            AnalyticsUtils.sendAppEvent("save", label: nil)
-            
-            self.save()
-        }
         actionSheet.addButtonWithTitle("Copy Link", image: UIImage(named: "ic_link_white"), type: .Default) { (sheet) in
             DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Copy link")
             
@@ -116,14 +124,6 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             AnalyticsUtils.sendAppEvent("copy_link", label: nil)
             
             self.copyLink()
-        }
-        actionSheet.addButtonWithTitle("Set as Profile Picture", image: UIImage(named: "ic_person_white"), type: .Default) { (sheet) in
-            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Set as profile picture")
-            
-            // Register analytics events.
-            AnalyticsUtils.sendAppEvent("set_as_profile_picture", label: nil)
-            
-            self.setAsAvatar()
         }
         if isMe() {
             DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Delete graffiti")
@@ -342,7 +342,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             }
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert("Your avatar has been changed!", title: App.Title)
+                DialogBuilder.showSuccessAlert("Avatar updated!", title: App.Title)
             }
         }
         

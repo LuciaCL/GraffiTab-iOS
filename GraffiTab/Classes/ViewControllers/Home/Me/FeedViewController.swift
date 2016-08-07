@@ -37,4 +37,27 @@ class FeedViewController: ListFullStreamablesViewController {
     override func loadItems(isStart: Bool, offset: Int, cacheBlock: (response: GTResponseObject) -> Void, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
         GTMeManager.getFeed(offset, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: successBlock, failureBlock: failureBlock)
     }
+    
+    // MARK: - DZNEmptyDataSetDelegate
+    
+    override func getEmptyDataSetTitle() -> String! {
+        return "Your feed is empty"
+    }
+    
+    override func getEmptyDataSetDescription() -> String! {
+        return "How about drawing your first sketch?"
+    }
+    
+    func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
+        let attributes = [NSFontAttributeName:UIFont.boldSystemFontOfSize(17), NSForegroundColorAttributeName:UIColor(hexString: Colors.Main)! as UIColor]
+        
+        return NSAttributedString(string: "Draw", attributes: attributes)
+    }
+    
+    func emptyDataSetDidTapButton(scrollView: UIScrollView!) {
+        let mainVC = UIApplication.sharedApplication().delegate?.window??.rootViewController as! MenuContainerViewController
+        let nav = mainVC.contentViewController as! UINavigationController
+        let homeVC = nav.viewControllers.first as! HomeViewController
+        homeVC.onClickCreate(nil)
+    }
 }

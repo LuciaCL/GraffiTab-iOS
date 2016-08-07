@@ -52,7 +52,7 @@ class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate
         self.view.rn_activityView.dimBackground = false
         
         let successHandler = {
-            DialogBuilder.showSuccessAlert("We have sent an email to the specified email address if it exists. Please check it for instructions on how to reset your password.", title: App.Title, okAction: {
+            DialogBuilder.showSuccessAlert("Check your email for instructions to reset your password.", title: App.Title, okAction: {
                 self.dismissViewControllerAnimated(true, completion: nil)
             })
         }

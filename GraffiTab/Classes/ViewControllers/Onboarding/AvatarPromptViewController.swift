@@ -14,6 +14,7 @@ class AvatarPromptViewController: UIViewController {
 
     @IBOutlet weak var avatar: AvatarImageView!
     @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var sayCheeseBtn: UIButton!
     
     var dismissHandler: (() -> Void)?
     
@@ -23,6 +24,7 @@ class AvatarPromptViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         setupAvatar()
+        setupButtons()
         
         loadData()
     }
@@ -122,5 +124,11 @@ class AvatarPromptViewController: UIViewController {
     func setupAvatar() {
         avatar.layer.borderColor = UIColor.whiteColor().CGColor
         avatar.layer.borderWidth = 3
+    }
+    
+    func setupButtons() {
+        sayCheeseBtn.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.6).CGColor
+        sayCheeseBtn.layer.borderWidth = 1
+        sayCheeseBtn.layer.cornerRadius = 3
     }
 }

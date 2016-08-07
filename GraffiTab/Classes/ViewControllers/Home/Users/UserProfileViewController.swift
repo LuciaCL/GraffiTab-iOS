@@ -198,7 +198,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
                     self.header?.item = GTMeManager.sharedInstance.loggedInUser
                     
                     Utils.runWithDelay(0.3) { () in
-                        DialogBuilder.showSuccessAlert("Your avatar has been changed!", title: App.Title)
+                        DialogBuilder.showSuccessAlert("Avatar updated!", title: App.Title)
                     }
                 }, failureBlock: { (response) -> Void in
                     self.view.hideActivityView()
@@ -217,7 +217,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             self.header?.item = GTMeManager.sharedInstance.loggedInUser
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert("Your avatar has been changed!", title: App.Title)
+                DialogBuilder.showSuccessAlert("Avatar updated!", title: App.Title)
             }
         }
         let coverSuccessBlock = {
@@ -226,7 +226,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             self.header?.item = GTMeManager.sharedInstance.loggedInUser
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert("Your cover has been changed!", title: App.Title)
+                DialogBuilder.showSuccessAlert("Banner updated!", title: App.Title)
             }
         }
         

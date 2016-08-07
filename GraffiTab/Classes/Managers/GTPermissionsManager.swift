@@ -91,7 +91,7 @@ class GTPermissionsManager: NSObject {
             })
             
             permissionDialog.permissionTitle.text = "Background Pictures"
-            permissionDialog.permissionDescription.text = "Want to set a background picture and draw on top of it? Awesome! We will just ask for your permission to pick photos from your library.\n\nPhotos will never be posted without your consent."
+            permissionDialog.permissionDescription.text = "Want to set a background picture and draw on top of it? Awesome! We just need your permission first.\n\nPhotos will never be posted without your consent."
             permissionDialog.permissionPreview.image = UIImage(named: "permission_photos")
             permissionDialog.askBtn.setTitle("Use Background Pictures", forState: .Normal)
         }
@@ -116,7 +116,7 @@ class GTPermissionsManager: NSObject {
             })
     
             permissionDialog.permissionTitle.text = "Location Services"
-            permissionDialog.permissionDescription.text = "In order to use the Explorer or create graffiti, we need to know where you are in the world.\n\nDon't worry, you can still do all those things but your artwork will be hidden on the map."
+            permissionDialog.permissionDescription.text = "In order to use the Explorer or create graffiti, we need to know your location.\n\nOtherwise, you can still draw and publish graffiti but they won't appear on the map."
             permissionDialog.permissionPreview.image = UIImage(named: "permission_location_when_in_use")
             permissionDialog.askBtn.setTitle("Use Location Services", forState: .Normal)
         }

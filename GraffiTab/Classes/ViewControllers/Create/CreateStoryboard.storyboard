@@ -72,7 +72,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DrawToolCell" id="aVB-FG-Wt9" customClass="DrawToolCell" customModule="GraffiTab" customModuleProvider="target">
-                                                        <rect key="frame" x="3" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="2.5" y="0.0" width="50" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -137,7 +137,7 @@
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                                <state key="normal" image="ic_done_white"/>
+                                                <state key="normal" image="ic_more_vert_white"/>
                                                 <connections>
                                                     <action selector="onClickDone:" destination="F9h-bV-H5F" eventType="touchUpInside" id="abG-gp-L25"/>
                                                 </connections>
@@ -620,8 +620,8 @@
         <image name="check" width="512" height="512"/>
         <image name="ic_clear_white" width="24" height="24"/>
         <image name="ic_color_lens" width="24" height="24"/>
-        <image name="ic_done_white" width="24" height="24"/>
         <image name="ic_menu_white" width="24" height="24"/>
+        <image name="ic_more_vert_white" width="24" height="24"/>
         <image name="ic_photo_camera_white" width="24" height="24"/>
         <image name="ic_photo_filter_white" width="24" height="24"/>
         <image name="ic_redo_white" width="24" height="24"/>

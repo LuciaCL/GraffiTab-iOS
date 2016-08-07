@@ -556,7 +556,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             case .Intro:
                 configureUIComponentsForTutorial(CCDirector.sharedDirector().view, showAll: false)
                 
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.view, text: "Drawing with the canvas is quick and easy and we'll show you how to do it. Tap on the screen to get started!", afterIdleInterval: 0, completion: {finished in
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.view, text: "Drawing with the canvas is quick and easy. Tap on the screen to get started!", afterIdleInterval: 0, completion: {finished in
                     self.showNextDrawingAssistantScreen()
                 })
                 break
