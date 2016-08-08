@@ -89,11 +89,16 @@ class Utils: NSObject {
         }
     }
     
-    class func shareImage(image: UIImage, viewController: UIViewController) {
-        let messageStr = "Check out my awesome graffiti at GraffiTab!"
-        let shareItems = [image, messageStr]
-        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
-        activityViewController.excludedActivityTypes = [UIActivityTypePrint, UIActivityTypePostToWeibo, UIActivityTypeCopyToPasteboard, UIActivityTypeAddToReadingList, UIActivityTypePostToVimeo]
-        viewController.presentViewController(activityViewController, animated: true, completion: nil)
+    class func shareImage(image: UIImage?, viewController: UIViewController) {
+        if image != nil {
+            let messageStr = "Check out my awesome graffiti at GraffiTab!"
+            let shareItems = [image!, messageStr]
+            let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+            activityViewController.excludedActivityTypes = [UIActivityTypePrint, UIActivityTypePostToWeibo, UIActivityTypeCopyToPasteboard, UIActivityTypeAddToReadingList, UIActivityTypePostToVimeo]
+            viewController.presentViewController(activityViewController, animated: true, completion: nil)
+        }
+        else {
+            DialogBuilder.showErrorAlert("This post cannot be shared yet.", title: App.Title)
+        }
     }
 }

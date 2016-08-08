@@ -144,7 +144,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         // Register analytics events.
         AnalyticsUtils.sendAppEvent("share", label: nil)
         
-        Utils.shareImage(streamableImage.imageView!.image!, viewController: self)
+        Utils.shareImage(streamableImage.imageView!.image, viewController: self)
     }
     
     @IBAction func onClickLike(sender: AnyObject) {

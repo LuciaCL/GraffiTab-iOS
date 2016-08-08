@@ -548,7 +548,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         ViewControllerUtils.showUserProfile(user, viewController: self)
     }
     
-    func didTapShare(image: UIImage, streamable: GTStreamable) {
+    func didTapShare(image: UIImage?, streamable: GTStreamable) {
         Utils.shareImage(image, viewController: self)
     }
     
