@@ -222,14 +222,14 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             }
             
             if location == nil {
-                DialogBuilder.showYesNoAlert(self, status: "Your location could not be determined right now. Would you like to still publish this post?", title: App.Title, yesAction: {
+                DialogBuilder.showYesNoAlert(self, status: "Your location could not be determined right now. Would you like to still publish this post?", title: App.Title, yesTitle: "Yes, publish it", yesAction: {
                     // Register analytics events.
                     AnalyticsUtils.sendAppEvent("attempting_to_publish_without_location", label: nil)
                     
                     saveBlock()
-                    }, noAction: {
-                        // Register analytics events.
-                        AnalyticsUtils.sendAppEvent("publish_refused_no_location", label: nil)
+                }, noAction: {
+                    // Register analytics events.
+                    AnalyticsUtils.sendAppEvent("publish_refused_no_location", label: nil)
                 })
             }
             else {
