@@ -28,7 +28,6 @@ def common_pods
     pod 'CarbonKit'
     pod 'FBAnnotationClusteringSwift'
     pod 'JPSThumbnailAnnotation'
-    pod 'BBBadgeBarButtonItem'
     pod 'TLYShyNavBar'
     pod 'FBLikeLayout'
     pod 'CHTCollectionViewWaterfallLayout'

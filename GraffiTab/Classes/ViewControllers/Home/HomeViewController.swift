@@ -8,7 +8,6 @@
 
 import UIKit
 import CarbonKit
-import BBBadgeBarButtonItem
 import GraffiTab_iOS_SDK
 import JTMaterialTransition
 import CocoaLumberjack
@@ -17,12 +16,13 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
 
     @IBOutlet weak var createBtn: UIButton!
     
+    var notificationsBadge = UIView()
+    
     var transition: JTMaterialTransition?
     var carbonTabSwipeNavigation: CarbonTabSwipeNavigation?
     var tabs: [AnyObject]?
     var titles: [AnyObject]?
     var controllers: [UIViewController]?
-    var badge: BBBadgeBarButtonItem?
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -38,6 +38,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         setupCarbonKit()
         setupButtons()
         setupTransition()
+        setupBadgeViews()
         
         configureTabBasedViews(0)
         checkOnboardingSequence()
@@ -152,6 +153,11 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         }
         
         carbonTabSwipeNavigation!.carbonSegmentedControl?.setNeedsDisplay()
+        
+        // Configure badges.
+        let parent = self.carbonTabSwipeNavigation?.carbonSegmentedControl?.segments![2]
+        let center = CGPointMake(parent!.frame.width / 2, parent!.frame.height - 5)
+        notificationsBadge.center = center
     }
     
     // MARK: - Onboarding
@@ -189,13 +195,35 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Refreshing notifications")
         
         GTMeManager.getUnseenNotificationsCount({ (response) in
-            self.badge?.badgeValue = response.object.stringValue
+            let unseenCount = response.object.integerValue
             
-            // Update menu badge.
-            let mainVC = UIApplication.sharedApplication().delegate?.window??.rootViewController as! MenuContainerViewController
-            let menu = mainVC.leftMenuViewController as! MenuViewController
-            menu.badgeValue = response.object.integerValue
+            if unseenCount <= 0 {
+                self.hideNotificationsIndicator()
+            }
+            else {
+                // Refresh notifications.
+                let notificationsVC = self.controllers![2] as! MyNotificationsViewController
+                if notificationsVC.canRefresh() {
+                    notificationsVC.refresh()
+                }
+                
+                if self.carbonTabSwipeNavigation?.carbonSegmentedControl?.selectedSegmentIndex != 2 { // Notifications tab is not selected, so show notification indicator.
+                    self.showNotificationsIndicator()
+                }
+            }
         }) { (response) in}
+    }
+    
+    func showNotificationsIndicator() {
+        UIView.animateWithDuration(0.5, animations: {
+            self.notificationsBadge.alpha = 1.0
+        }, completion: nil)
+    }
+    
+    func hideNotificationsIndicator() {
+        UIView.animateWithDuration(0.1, animations: {
+            self.notificationsBadge.alpha = 0.0
+        }, completion: nil)
     }
     
     // MARK: - CarbonKitTabSwipeDelegate
@@ -210,6 +238,10 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     
     func configureTabBasedViews(index: Int) {   
         self.title = titles![index] as? String
+        
+        if index == 2 {
+            hideNotificationsIndicator()
+        }
     }
     
     // MARK: - UIViewControllerTransitioningDelegate
@@ -235,25 +267,18 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         menuBtn.setImage(UIImage(named: "ic_menu_white"), forState: .Normal)
         menuBtn.tintColor = UIColor.whiteColor()
         menuBtn.addTarget(self, action: #selector(HomeViewController.onClickMenu(_:)), forControlEvents: .TouchUpInside)
-        
-        badge = BBBadgeBarButtonItem.init(customUIButton: menuBtn)
-        badge!.shouldHideBadgeAtZero = true
-        badge!.badgeOriginX = 15
-        badge!.badgeOriginY = -6
-        badge!.badgeBGColor = UIColor(hexString: Colors.Orange)
-        badge!.badgeTextColor = UIColor.whiteColor()
-        self.navigationItem.leftBarButtonItem = badge!
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuBtn)
     }
     
     func setupCarbonKit() {
         controllers = [UIViewController]()
         controllers?.append(self.storyboard!.instantiateViewControllerWithIdentifier("FeedViewController"))
         controllers?.append(self.storyboard!.instantiateViewControllerWithIdentifier("TrendingViewController"))
-        controllers?.append(self.storyboard!.instantiateViewControllerWithIdentifier("MostActiveUsersViewController"))
+        controllers?.append(self.storyboard!.instantiateViewControllerWithIdentifier("MyNotificationsViewController"))
         controllers?.append(self.storyboard!.instantiateViewControllerWithIdentifier("RecentViewController"))
         
-        tabs = [UIImage(named: "home")!, UIImage(named: "ic_whatshot_white")!, UIImage(named: "ic_person_white")!, UIImage(named: "ic_access_time_white")!]
-        titles = ["Home", "Trending", "People", "Recent"]
+        tabs = [UIImage(named: "home")!, UIImage(named: "ic_whatshot_white")!, UIImage(named: "ic_notifications_none")!, UIImage(named: "ic_access_time_white")!]
+        titles = ["Home", "Trending", "Notifications", "Recent"]
         carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: tabs, delegate: self)
         carbonTabSwipeNavigation!.insertIntoRootViewController(self)
         
@@ -275,5 +300,15 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     
     func setupTransition() {
         transition = JTMaterialTransition(animatedView: createBtn)
+    }
+    
+    func setupBadgeViews() {
+        let parent = self.carbonTabSwipeNavigation?.carbonSegmentedControl?.segments![2]
+        parent?.addSubview(notificationsBadge)
+        
+        notificationsBadge.alpha = 0.0
+        notificationsBadge.frame = CGRectMake(0, 0, 4, 4)
+        notificationsBadge.backgroundColor = UIColor(hexString: Colors.Main)
+        notificationsBadge.layer.cornerRadius = notificationsBadge.frame.size.width / 2
     }
 }

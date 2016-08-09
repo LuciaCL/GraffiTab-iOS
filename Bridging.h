@@ -30,7 +30,6 @@
 #import <EAIntroView/EAIntroView.h>
 #import <RESideMenu/RESideMenu.h>
 #import <JPSThumbnailAnnotation/JPSThumbnailAnnotation.h>
-#import <BBBadgeBarButtonItem/BBBadgeBarButtonItem.h>
 #import <TLYShyNavBar/TLYShyNavBarManager.h>
 #import <FBLikeLayout/FBLikeLayout.h>
 #import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>

@@ -63,6 +63,10 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
         }
     }
     
+    func canRefresh() -> Bool {
+        return tableView != nil
+    }
+    
     // MARK: - Permissions
     
     func checkPermissions() {
