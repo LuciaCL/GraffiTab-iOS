@@ -101,12 +101,14 @@ class StreamableCell: UICollectionViewCell {
     func checkProcessingState() {
         if item?.asset?.state != .COMPLETED {
             if loadingIndicator != nil {
+                loadingIndicator.hidden = false
                 loadingIndicator.beginRefreshing()
             }
             startPollTimer()
         }
         else {
             if loadingIndicator != nil {
+                loadingIndicator.hidden = true
                 loadingIndicator.endRefreshing()
             }
             stopPollTimer()
@@ -118,6 +120,7 @@ class StreamableCell: UICollectionViewCell {
             let responseAsset = response.object as! GTAsset
             if responseAsset.state == .COMPLETED {
                 if self.loadingIndicator != nil {
+                    self.loadingIndicator.hidden = true
                     self.loadingIndicator.endRefreshing()
                 }
                 self.stopPollTimer()
@@ -162,6 +165,9 @@ class StreamableCell: UICollectionViewCell {
     
     func setupLoadingIndicator() {
         if loadingIndicator != nil {
+            loadingIndicator.hidden = true
+            loadingIndicator.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.3)
+            loadingIndicator.layer.cornerRadius = loadingIndicator.frame.width/2
             loadingIndicator.circleLayer.lineWidth = 2.5
             loadingIndicator.circleLayer.strokeColor = UIColor.whiteColor().CGColor
         }

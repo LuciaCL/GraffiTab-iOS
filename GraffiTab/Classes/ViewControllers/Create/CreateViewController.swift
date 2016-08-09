@@ -190,7 +190,11 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                 yaw = 0.0
             }
             
-            let successBlock = {
+            let successBlock = {(streamable: GTStreamable) -> Void in
+                // Update app caches.
+                AppImageCache.sharedInstance.cacheImage(streamable.asset!.link, image: sampleImage)
+                AppImageCache.sharedInstance.cacheImage(streamable.asset!.thumbnail, image: sampleImage)
+                
                 self.view.hideActivityView()
                 
                 self.didPublish()
@@ -207,14 +211,14 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                 
                 if self.toEdit != nil {
                     GTMeManager.editGraffiti(self.toEdit!.id!, image: sampleImage!, latitude: latitude, longitude: longitude, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
-                        successBlock()
+                        successBlock(response.object as! GTStreamable)
                     }) { (response) -> Void in
                         failBlock(response)
                     }
                 }
                 else {
                     GTMeManager.createGraffiti(sampleImage!, latitude: latitude, longitude: longitude, pitch: pitch!, roll: roll!, yaw: yaw!, successBlock: { (response) -> Void in
-                        successBlock()
+                        successBlock(response.object as! GTStreamable)
                     }) { (response) -> Void in
                         failBlock(response)
                     }
