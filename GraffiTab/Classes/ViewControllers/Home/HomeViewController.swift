@@ -201,14 +201,11 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
                 self.hideNotificationsIndicator()
             }
             else {
-                // Refresh notifications.
-                let notificationsVC = self.controllers![2] as! MyNotificationsViewController
-                if notificationsVC.canRefresh() {
-                    notificationsVC.refresh()
-                }
-                
                 if self.carbonTabSwipeNavigation?.carbonSegmentedControl?.selectedSegmentIndex != 2 { // Notifications tab is not selected, so show notification indicator.
                     self.showNotificationsIndicator()
+                }
+                else { // Notifications tab is selected, so refresh notifications.
+                    self.refreshNotificationsScreen()
                 }
             }
         }) { (response) in}
@@ -226,6 +223,13 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         }, completion: nil)
     }
     
+    func refreshNotificationsScreen() {
+        let notificationsVC = self.controllers![2] as! MyNotificationsViewController
+        if notificationsVC.canRefresh() {
+            notificationsVC.refresh()
+        }
+    }
+    
     // MARK: - CarbonKitTabSwipeDelegate
     
     func carbonTabSwipeNavigation(carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAtIndex index: UInt) -> UIViewController {
@@ -240,6 +244,10 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         self.title = titles![index] as? String
         
         if index == 2 {
+            if notificationsBadge.alpha > 0 { // There are notifications to be viewed.
+                refreshNotificationsScreen()
+            }
+            
             hideNotificationsIndicator()
         }
     }
