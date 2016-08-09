@@ -94,15 +94,6 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         performSegueWithIdentifier("SEGUE_PROFILE", sender: sender)
     }
     
-    @IBAction func onClickNotifications(sender: AnyObject?) {
-        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing user notifications")
-        
-        // Register analytics events.
-        AnalyticsUtils.sendAppEvent("show_notifications", label: nil)
-        
-        performSegueWithIdentifier("SEGUE_NOTIFICATIONS", sender: sender)
-    }
-    
     @IBAction func onClickLocations(sender: AnyObject?) {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing user locations")
         

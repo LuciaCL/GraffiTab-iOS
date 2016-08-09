@@ -13,8 +13,8 @@ class MenuViewController: BackButtonViewController, UITableViewDelegate, UITable
     @IBOutlet weak var tableView: UITableView!
     
     var rowHeight: CGFloat = 50
-    var rowTitles: [String] = ["Profile", "Notifications", "Locations", "Search", "Settings"]
-    var rowIcons: [String] = ["user_male4", "ic_notifications", "map_marker", "search", "settings"]
+    var rowTitles: [String] = ["Profile", "Locations", "Search", "Settings"]
+    var rowIcons: [String] = ["user_male4", "map_marker", "search", "settings"]
     var badgeValue: Int = 0 {
         didSet {
             tableView.reloadData()
@@ -71,15 +71,12 @@ class MenuViewController: BackButtonViewController, UITableViewDelegate, UITable
                 homeVC.onClickProfile(nil)
             }
             else if indexPath.row == 1 {
-                homeVC.onClickNotifications(nil)
-            }
-            else if indexPath.row == 2 {
                 homeVC.onClickLocations(nil)
             }
-            else if indexPath.row == 3 {
+            else if indexPath.row == 2 {
                 homeVC.onClickSearch(nil)
             }
-            else if indexPath.row == 4 {
+            else if indexPath.row == 3 {
                 homeVC.onClickSettings(nil)
             }
         }

@@ -192,7 +192,6 @@
 		E584325E1CE9242000FB1E50 /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085991CD8D30000226589 /* TOCropViewController.m */; };
 		E584325F1CE9242000FB1E50 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7731CE5E09900375828 /* TrendingViewController.swift */; };
 		E58432601CE9242000FB1E50 /* UserLikedStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7611CE5DA2A00375828 /* UserLikedStreamablesViewController.swift */; };
-		E58432621CE9242000FB1E50 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B57C1CC56F5800DC8EFC /* ActivityViewController.swift */; };
 		E58432641CE9242000FB1E50 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
 		E58432651CE9242000FB1E50 /* BackButtonSlackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */; };
 		E58432661CE9242000FB1E50 /* NotificationFollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510069F1CBBC0FD00AC66A5 /* NotificationFollowCell.swift */; };
@@ -340,7 +339,6 @@
 		E5B6B5AB1CC56F5800DC8EFC /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5761CC56F5800DC8EFC /* EditProfileViewController.swift */; };
 		E5B6B5AD1CC56F5800DC8EFC /* EditTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5771CC56F5800DC8EFC /* EditTextFieldViewController.swift */; };
 		E5B6B5AF1CC56F5800DC8EFC /* EditTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5781CC56F5800DC8EFC /* EditTextViewController.swift */; };
-		E5B6B5B31CC56F5800DC8EFC /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B57C1CC56F5800DC8EFC /* ActivityViewController.swift */; };
 		E5B6B5B51CC56F5800DC8EFC /* FollowersActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B57D1CC56F5800DC8EFC /* FollowersActivityViewController.swift */; };
 		E5B6B5B71CC56F5800DC8EFC /* MyNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B57E1CC56F5800DC8EFC /* MyNotificationsViewController.swift */; };
 		E5B6B5B91CC56F5800DC8EFC /* MenuContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5801CC56F5800DC8EFC /* MenuContainerViewController.swift */; };
@@ -674,7 +672,6 @@
 		E5B6B5761CC56F5800DC8EFC /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		E5B6B5771CC56F5800DC8EFC /* EditTextFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTextFieldViewController.swift; sourceTree = "<group>"; };
 		E5B6B5781CC56F5800DC8EFC /* EditTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTextViewController.swift; sourceTree = "<group>"; };
-		E5B6B57C1CC56F5800DC8EFC /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		E5B6B57D1CC56F5800DC8EFC /* FollowersActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersActivityViewController.swift; sourceTree = "<group>"; };
 		E5B6B57E1CC56F5800DC8EFC /* MyNotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNotificationsViewController.swift; sourceTree = "<group>"; };
 		E5B6B5801CC56F5800DC8EFC /* MenuContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuContainerViewController.swift; sourceTree = "<group>"; };
@@ -1324,7 +1321,6 @@
 		E5B6B57B1CC56F5800DC8EFC /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				E5B6B57C1CC56F5800DC8EFC /* ActivityViewController.swift */,
 				E5B6B57D1CC56F5800DC8EFC /* FollowersActivityViewController.swift */,
 				E5B6B57E1CC56F5800DC8EFC /* MyNotificationsViewController.swift */,
 			);
@@ -2261,7 +2257,6 @@
 				E5A1D66D1D2316880027E438 /* GTDeviceMotionManager.swift in Sources */,
 				E58432601CE9242000FB1E50 /* UserLikedStreamablesViewController.swift in Sources */,
 				E5AEDA381D1C921A006D4296 /* OpenCVWrapper.mm in Sources */,
-				E58432621CE9242000FB1E50 /* ActivityViewController.swift in Sources */,
 				E5E293831D05DC0E00C272EE /* UIView+Materialize.swift in Sources */,
 				E5F40D001D4FFAF800832D92 /* OnboardingViewController.swift in Sources */,
 				E592625C1D018C7300368212 /* AppImageCache.swift in Sources */,
@@ -2431,7 +2426,6 @@
 				E52DC77A1CE5E09900375828 /* TrendingViewController.swift in Sources */,
 				E52DC7621CE5DA2A00375828 /* UserLikedStreamablesViewController.swift in Sources */,
 				E5AEDA371D1C921A006D4296 /* OpenCVWrapper.mm in Sources */,
-				E5B6B5B31CC56F5800DC8EFC /* ActivityViewController.swift in Sources */,
 				E5E2937E1D05DB6E00C272EE /* UIView+Materialize.swift in Sources */,
 				E5F40CFF1D4FFAF800832D92 /* OnboardingViewController.swift in Sources */,
 				E592625B1D018C7300368212 /* AppImageCache.swift in Sources */,
