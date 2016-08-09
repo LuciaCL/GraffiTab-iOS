@@ -120,7 +120,7 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
             case .List:
                 return 54
             case .Trending:
-                return 240
+                return 187
         }
     }
     

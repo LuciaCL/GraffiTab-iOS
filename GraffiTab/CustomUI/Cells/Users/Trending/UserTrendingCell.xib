@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -7,49 +7,37 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserTrendingCell" id="d9L-5M-JLK" customClass="UserTrendingCell" customModule="GraffiTab" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="253"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="187"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="253"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="187"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grafitab_login" translatesAutoresizingMaskIntoConstraints="NO" id="sQj-ss-IeE" customClass="CoverImageView" customModule="GraffiTab" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="100" id="Lsi-VE-MnP"/>
-                        </constraints>
-                    </imageView>
                     <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="WhL-qe-Yr1" customClass="AvatarImageView" customModule="GraffiTab" customModuleProvider="target">
-                        <rect key="frame" x="13" y="78" width="70" height="70"/>
+                        <rect key="frame" x="13" y="13" width="70" height="70"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="70" id="V7X-K0-19v"/>
-                            <constraint firstAttribute="width" constant="70" id="WXo-1e-wva"/>
+                            <constraint firstAttribute="height" constant="70" id="o6c-Ke-UzE"/>
+                            <constraint firstAttribute="width" constant="70" id="qTt-RZ-cG2"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Georgi Christov" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsH-Rr-795">
-                        <rect key="frame" x="91" y="106" width="173" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="6Cy-05-GYl"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Georgi Christov" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsH-Rr-795">
+                        <rect key="frame" x="91" y="32" width="173" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@georgi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7W-0c-d7c">
-                        <rect key="frame" x="91" y="125" width="173" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="Bff-5r-m1e"/>
-                        </constraints>
+                        <rect key="frame" x="91" y="53" width="51" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="WbQ-1w-dbv" customClass="TintButton" customModule="GraffiTab" customModuleProvider="target">
-                        <rect key="frame" x="272" y="111" width="40" height="30"/>
+                        <rect key="frame" x="272" y="33" width="40" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="OEh-vA-qb7"/>
-                            <constraint firstAttribute="height" constant="30" id="kiA-ad-UcO"/>
+                            <constraint firstAttribute="width" constant="40" id="Eek-LE-jHD"/>
+                            <constraint firstAttribute="height" constant="30" id="SKk-m0-0jq"/>
                         </constraints>
                         <inset key="imageEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                         <state key="normal" image="ic_action_follow"/>
@@ -58,21 +46,21 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No graffiti" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylh-AK-WE0">
-                        <rect key="frame" x="125" y="196" width="71" height="20"/>
+                        <rect key="frame" x="125" y="130" width="71" height="20"/>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kT0-xT-2lq">
-                        <rect key="frame" x="135" y="181" width="50" height="50"/>
+                        <rect key="frame" x="135" y="115" width="50" height="50"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="Amp-Pw-cTE"/>
-                            <constraint firstAttribute="height" constant="50" id="hGF-d7-rRJ"/>
+                            <constraint firstAttribute="width" constant="50" id="58O-Wx-JF8"/>
+                            <constraint firstAttribute="height" constant="50" id="8Ms-18-21o"/>
                         </constraints>
                     </view>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Rc8-f3-1J7">
-                        <rect key="frame" x="0.0" y="159" width="320" height="94"/>
+                        <rect key="frame" x="0.0" y="93" width="320" height="94"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="h5T-qD-eup">
                             <size key="itemSize" width="50" height="50"/>
@@ -90,46 +78,39 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="sQj-ss-IeE" secondAttribute="trailing" id="7Sb-u3-as0"/>
-                <constraint firstItem="WbQ-1w-dbv" firstAttribute="leading" secondItem="zsH-Rr-795" secondAttribute="trailing" constant="8" id="7VD-Sj-O5H"/>
-                <constraint firstItem="sQj-ss-IeE" firstAttribute="leading" secondItem="d9L-5M-JLK" secondAttribute="leading" id="8vH-J2-z1J"/>
-                <constraint firstItem="WbQ-1w-dbv" firstAttribute="leading" secondItem="x7W-0c-d7c" secondAttribute="trailing" constant="8" id="9tr-vu-PKQ"/>
-                <constraint firstItem="Rc8-f3-1J7" firstAttribute="leading" secondItem="d9L-5M-JLK" secondAttribute="leading" id="AUZ-U7-zXV"/>
-                <constraint firstItem="WhL-qe-Yr1" firstAttribute="leading" secondItem="d9L-5M-JLK" secondAttribute="leading" constant="13" id="BW2-8g-YG8"/>
-                <constraint firstItem="sQj-ss-IeE" firstAttribute="top" secondItem="d9L-5M-JLK" secondAttribute="top" id="QC4-Ll-jDy"/>
-                <constraint firstItem="kT0-xT-2lq" firstAttribute="centerY" secondItem="Rc8-f3-1J7" secondAttribute="centerY" id="S7m-kg-Jzh"/>
-                <constraint firstItem="zsH-Rr-795" firstAttribute="leading" secondItem="WhL-qe-Yr1" secondAttribute="trailing" constant="8" id="TwN-Nl-Kwo"/>
-                <constraint firstItem="kT0-xT-2lq" firstAttribute="centerX" secondItem="Rc8-f3-1J7" secondAttribute="centerX" id="WRT-s8-JYB"/>
-                <constraint firstAttribute="trailing" secondItem="WbQ-1w-dbv" secondAttribute="trailing" constant="8" id="aEI-LV-8Ib"/>
-                <constraint firstItem="WhL-qe-Yr1" firstAttribute="top" secondItem="sQj-ss-IeE" secondAttribute="bottom" constant="-22" id="eGw-FV-Y1H"/>
-                <constraint firstItem="Ylh-AK-WE0" firstAttribute="centerY" secondItem="Rc8-f3-1J7" secondAttribute="centerY" id="fZz-DH-4PH"/>
-                <constraint firstItem="zsH-Rr-795" firstAttribute="top" secondItem="sQj-ss-IeE" secondAttribute="bottom" constant="6" id="fi7-Am-78j"/>
-                <constraint firstItem="x7W-0c-d7c" firstAttribute="leading" secondItem="WhL-qe-Yr1" secondAttribute="trailing" constant="8" id="gBj-rx-Hyb"/>
-                <constraint firstItem="Ylh-AK-WE0" firstAttribute="centerX" secondItem="Rc8-f3-1J7" secondAttribute="centerX" id="gwZ-st-9ND"/>
-                <constraint firstItem="zsH-Rr-795" firstAttribute="top" secondItem="sQj-ss-IeE" secondAttribute="bottom" constant="6" id="kph-a0-hiH"/>
-                <constraint firstItem="Rc8-f3-1J7" firstAttribute="top" secondItem="WhL-qe-Yr1" secondAttribute="bottom" constant="11" id="kxp-Zr-1JR"/>
-                <constraint firstAttribute="trailing" secondItem="Rc8-f3-1J7" secondAttribute="trailing" id="o1n-kL-W0K"/>
-                <constraint firstItem="WbQ-1w-dbv" firstAttribute="top" secondItem="sQj-ss-IeE" secondAttribute="bottom" constant="11" id="quG-Fg-eqA"/>
-                <constraint firstItem="x7W-0c-d7c" firstAttribute="top" secondItem="zsH-Rr-795" secondAttribute="bottom" constant="-2" id="xlg-1P-gpB"/>
-                <constraint firstAttribute="bottom" secondItem="Rc8-f3-1J7" secondAttribute="bottom" id="zsG-SH-qZ8"/>
+                <constraint firstItem="WhL-qe-Yr1" firstAttribute="leading" secondItem="d9L-5M-JLK" secondAttribute="leading" constant="13" id="032-8W-Hf6"/>
+                <constraint firstItem="zsH-Rr-795" firstAttribute="centerY" secondItem="WhL-qe-Yr1" secondAttribute="centerY" constant="-6" id="7Jt-Z9-nDM"/>
+                <constraint firstItem="zsH-Rr-795" firstAttribute="leading" secondItem="WhL-qe-Yr1" secondAttribute="trailing" constant="8" id="8md-Oi-lfd"/>
+                <constraint firstItem="Rc8-f3-1J7" firstAttribute="leading" secondItem="d9L-5M-JLK" secondAttribute="leading" id="DCf-Zl-1Mn"/>
+                <constraint firstItem="WbQ-1w-dbv" firstAttribute="leading" secondItem="zsH-Rr-795" secondAttribute="trailing" constant="8" id="MiF-E9-TE7"/>
+                <constraint firstItem="Ylh-AK-WE0" firstAttribute="centerX" secondItem="Rc8-f3-1J7" secondAttribute="centerX" id="URi-xu-OMW"/>
+                <constraint firstItem="x7W-0c-d7c" firstAttribute="leading" secondItem="WhL-qe-Yr1" secondAttribute="trailing" constant="8" id="VCv-oB-x8C"/>
+                <constraint firstItem="Rc8-f3-1J7" firstAttribute="top" secondItem="WhL-qe-Yr1" secondAttribute="bottom" constant="10" id="dy1-Ti-eig"/>
+                <constraint firstItem="kT0-xT-2lq" firstAttribute="centerX" secondItem="Rc8-f3-1J7" secondAttribute="centerX" id="fNa-ir-6wn"/>
+                <constraint firstItem="kT0-xT-2lq" firstAttribute="centerY" secondItem="Rc8-f3-1J7" secondAttribute="centerY" id="gYf-ND-Qg3"/>
+                <constraint firstItem="x7W-0c-d7c" firstAttribute="top" secondItem="zsH-Rr-795" secondAttribute="bottom" id="jAi-ad-1CQ"/>
+                <constraint firstAttribute="trailing" secondItem="WbQ-1w-dbv" secondAttribute="trailing" constant="8" id="jSb-ET-LDh"/>
+                <constraint firstItem="WhL-qe-Yr1" firstAttribute="top" secondItem="d9L-5M-JLK" secondAttribute="top" constant="13" id="jmp-Mj-tDW"/>
+                <constraint firstItem="WbQ-1w-dbv" firstAttribute="centerY" secondItem="WhL-qe-Yr1" secondAttribute="centerY" id="uxL-ak-23g"/>
+                <constraint firstItem="Ylh-AK-WE0" firstAttribute="centerY" secondItem="Rc8-f3-1J7" secondAttribute="centerY" id="xW3-qA-H79"/>
+                <constraint firstAttribute="bottom" secondItem="Rc8-f3-1J7" secondAttribute="bottom" id="yBF-Ty-WdM"/>
+                <constraint firstAttribute="trailing" secondItem="Rc8-f3-1J7" secondAttribute="trailing" id="yGg-3l-tWj"/>
             </constraints>
-            <size key="customSize" width="320" height="255"/>
+            <size key="customSize" width="320" height="189"/>
             <connections>
                 <outlet property="avatar" destination="WhL-qe-Yr1" id="tEh-xg-9Md"/>
                 <outlet property="collectionView" destination="Rc8-f3-1J7" id="tof-CS-m2A"/>
-                <outlet property="cover" destination="sQj-ss-IeE" id="2tQ-q8-LGP"/>
                 <outlet property="followBtn" destination="WbQ-1w-dbv" id="2Fx-Cc-Lu7"/>
                 <outlet property="loadingContainer" destination="kT0-xT-2lq" id="rSQ-EY-rTX"/>
                 <outlet property="nameField" destination="zsH-Rr-795" id="Pzi-fG-cUV"/>
                 <outlet property="noItemsLbl" destination="Ylh-AK-WE0" id="x0i-FJ-idA"/>
                 <outlet property="usernameField" destination="x7W-0c-d7c" id="yQz-Pt-LaT"/>
             </connections>
-            <point key="canvasLocation" x="148" y="543.5"/>
+            <point key="canvasLocation" x="148" y="564.5"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="default_avatar" width="185" height="185"/>
-        <image name="grafitab_login" width="320" height="568"/>
         <image name="ic_action_follow" width="25" height="25"/>
     </resources>
 </document>

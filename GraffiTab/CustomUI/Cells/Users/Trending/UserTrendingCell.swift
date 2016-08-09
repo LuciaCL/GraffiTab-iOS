@@ -19,7 +19,6 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
     @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var usernameField: UILabel!
     @IBOutlet weak var followBtn: UIButton!
-    @IBOutlet weak var cover: CoverImageView!
     @IBOutlet weak var noItemsLbl: UILabel!
     
     static var cache = NSCache()
@@ -58,7 +57,6 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
         
         setStats()
         
-        loadCover()
         loadStreamables()
     }
     
@@ -132,10 +130,6 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
     }
     
     // MARK: - Loading
-    
-    func loadCover() {
-        self.cover.asset = item!.cover
-    }
     
     func loadStreamables() {
         noItemsLbl.hidden = true
@@ -217,10 +211,7 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
     }
     
     func setupImageViews() {
-        avatar.layer.borderColor = UIColor.whiteColor().CGColor
-        avatar.layer.borderWidth = 3
         avatar.shouldLoadFullAsset = true
-        cover.shouldLoadFullAsset = true
     }
     
     func setupCollectionView() {
