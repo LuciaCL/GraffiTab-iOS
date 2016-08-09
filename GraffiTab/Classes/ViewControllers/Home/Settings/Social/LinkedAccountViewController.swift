@@ -48,20 +48,20 @@ class LinkedAccountViewController: BackButtonTableViewController {
             // Register analytics events.
             AnalyticsUtils.sendAppEvent("linked_accounts_unlink", label: self.accountProvider?.rawValue)
             
-            DialogBuilder.showYesNoAlert("Are you sure you want to unlink this account?", title: App.Title, yesTitle: "Unlink", yesAction: {
+            DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to unlink this account?", title: App.Title, yesTitle: "Unlink", yesAction: {
                 self.view.showActivityViewWithLabel("Processing")
                 self.view.rn_activityView.dimBackground = false
                 
                 GTMeManager.unlinkExternalProvider(self.accountProvider!, successBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showSuccessAlert("This account has successfully been unlinked.", title: App.Title, okAction: {
+                    DialogBuilder.showSuccessAlert(self, status: "This account has successfully been unlinked.", title: App.Title, okAction: {
                         self.navigationController?.popViewControllerAnimated(true)
                     })
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                    DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
                 })
             }, noAction: { 
                 

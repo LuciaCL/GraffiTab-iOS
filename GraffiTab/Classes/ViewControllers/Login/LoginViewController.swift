@@ -79,7 +79,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         }) { (response) -> Void in
             self.view.hideActivityView()
             
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+            DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
         }
     }
     
@@ -112,7 +112,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         let un = usernameField.text
         let pa = passwordField.text
         
-        if (InputValidator.validateLogin(un!, password: pa!)) {
+        if (InputValidator.validateLogin(self, username: un!, password: pa!)) {
             self.view.showActivityViewWithLabel("Processing")
             self.view.rn_activityView.dimBackground = false
             
@@ -125,11 +125,11 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
                 self.view.hideActivityView()
                 
                 if response.error.reason == .USER_NOT_LOGGED_IN {
-                    DialogBuilder.showAPIErrorAlert("These credentials are incorrect. Please try again.", title: App.Title, forceShow: true, reason: response.error.reason)
+                    DialogBuilder.showAPIErrorAlert(self, status: "These credentials are incorrect. Please try again.", title: App.Title, forceShow: true, reason: response.error.reason)
                     return
                 }
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }
     }
@@ -160,20 +160,20 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
                 self.view.hideActivityView()
                 
                 if (response.error.reason == .USER_NOT_LOGGED_IN) { // This error means that thre isn't a user with those external credentials.
-                    DialogBuilder.showInputUsername(okAction: { (username) -> Void in
+                    DialogBuilder.showInputUsername(self, okAction: { (username) -> Void in
                         self.signUpWithFacebook(userId, token: token, email: email, firstName: firstName, lastName: lastName, username: username)
                     }, cancelAction: {})
                     
                     return
                 }
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }) { (error: NSError?) -> () in
             self.view.hideActivityView()
             
             if error != nil {
-                DialogBuilder.showErrorAlert("Facebook login is not available at the moment. Please try again later.", title: App.Title)
+                DialogBuilder.showErrorAlert(self, status: "Facebook login is not available at the moment. Please try again later.", title: App.Title)
             }
         }
     }

@@ -72,13 +72,13 @@ class LinkedAccountsViewController: BackButtonTableViewController {
                         return
                     }
                     
-                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                    DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
                 })
             }, andFailure: { (error) in
                 self.view.hideActivityView()
                 
                 DDLogError("Failed to login with Facebook - \(error)")
-                DialogBuilder.showErrorAlert("Could not login to Facebook", title: App.Title)
+                DialogBuilder.showErrorAlert(self, status: "Could not login to Facebook", title: App.Title)
             })
         }
         else {

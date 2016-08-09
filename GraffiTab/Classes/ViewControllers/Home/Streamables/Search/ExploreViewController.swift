@@ -221,7 +221,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         let failureBlock = {(response: GTResponseObject) -> Void in
             self.finalizeLoad()
             
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
+            DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
         }
         
         if toShowUser != nil {
@@ -362,11 +362,11 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
             
             let placemarks = response?.mapItems
             if placemarks?.count <= 0 {
-                DialogBuilder.showOKAlert("No locations found for this address.", title: App.Title)
+                DialogBuilder.showOKAlert(self, status: "No locations found for this address.", title: App.Title)
             }
             
             if placemarks?.count > 1 { // More than 1 address matches found. Ask user which one to use.
-                DialogBuilder.showOKAlert("Multiple matches found. The first one will be used.", title: App.Title, okAction: { 
+                DialogBuilder.showOKAlert(self, status: "Multiple matches found. The first one will be used.", title: App.Title, okAction: { 
                     let mapItem = placemarks?.first
                     self.zoomMapToLocation(mapItem!.placemark.location!)
                 })

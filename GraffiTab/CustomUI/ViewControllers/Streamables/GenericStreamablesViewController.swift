@@ -98,27 +98,6 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         collectionView.performBatchUpdates(nil, completion: nil)
     }
     
-    // Can be called from the Empty data set buttons.
-//    func onClickCreateChannel() {
-//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CreateChannelViewController")
-//        
-//        self.presentViewController(vc!, animated: true, completion: nil)
-//    }
-    
-    // Can be called from the Empty data set buttons.
-//    func onClickViewTrending() {
-//        var nav = self.navigationController
-//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("TrendingViewController") as! TrendingViewController
-//        
-//        if nav == nil {
-//            nav = UINavigationController(rootViewController: vc)
-//            self.presentViewController(nav!, animated: true, completion: nil)
-//        }
-//        else {
-//            nav?.pushViewController(vc, animated: true)
-//        }
-//    }
-    
     func basicInit() {
         viewType = .Grid
     }
@@ -333,7 +312,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
                 
                 self.finalizeLoad()
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
+                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
             }
         }
         else {

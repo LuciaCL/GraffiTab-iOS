@@ -63,20 +63,20 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
         let p = passwordField.text
         let cp = confirmPasswordField.text
         
-        if InputValidator.validateSignUp(fn!, lastName: ln!, email: e!, username: u!, password: p!, confirmPassword: cp!) {
+        if InputValidator.validateSignUp(self, firstName: fn!, lastName: ln!, email: e!, username: u!, password: p!, confirmPassword: cp!) {
             self.view.showActivityViewWithLabel("Processing")
             self.view.rn_activityView.dimBackground = false
             
             GTUserManager.register(fn!, lastName: ln!, email: e!, username: u!, password: p!, successBlock: { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showSuccessAlert("You have successfully registered! Please check your email to activate your account.", title: "Almost done!", okAction: {
+                DialogBuilder.showSuccessAlert(self, status: "You have successfully registered! Please check your email to activate your account.", title: "Almost done!", okAction: {
                     self.dismissViewControllerAnimated(true, completion: nil)
                 })
             }, failureBlock: { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }
     }

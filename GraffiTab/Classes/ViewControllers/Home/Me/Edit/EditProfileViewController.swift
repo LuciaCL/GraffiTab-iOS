@@ -80,12 +80,12 @@ class EditProfileViewController: BackButtonTableViewController {
             self.loadData()
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert("Your profile has been changed!", title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: "Profile updated!", title: App.Title)
             }
         }, failureBlock: { (response) in
             self.view.hideActivityView()
             
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+            DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
         })
     }
     
@@ -107,12 +107,12 @@ class EditProfileViewController: BackButtonTableViewController {
                     self.loadAvatar()
                     
                     Utils.runWithDelay(0.3) { () in
-                        DialogBuilder.showSuccessAlert("Avatar updated!", title: App.Title)
+                        DialogBuilder.showSuccessAlert(self, status: "Avatar updated!", title: App.Title)
                     }
                 }, failureBlock: { (response) -> Void in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                    DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
                 })
             }
         }
@@ -126,7 +126,7 @@ class EditProfileViewController: BackButtonTableViewController {
             self.loadAvatar()
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert("Avatar updated!", title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: "Avatar updated!", title: App.Title)
             }
         }
         let coverSuccessBlock = {
@@ -135,7 +135,7 @@ class EditProfileViewController: BackButtonTableViewController {
             self.loadCover()
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert("Banner updated!", title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: "Banner updated!", title: App.Title)
             }
         }
         
@@ -149,7 +149,7 @@ class EditProfileViewController: BackButtonTableViewController {
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                    DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
                 })
             }
             else {
@@ -161,7 +161,7 @@ class EditProfileViewController: BackButtonTableViewController {
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                    DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
                 })
             }
         }
@@ -175,7 +175,7 @@ class EditProfileViewController: BackButtonTableViewController {
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                    DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
                 })
             }
             else {
@@ -187,7 +187,7 @@ class EditProfileViewController: BackButtonTableViewController {
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                    DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
                 })
             }
         }

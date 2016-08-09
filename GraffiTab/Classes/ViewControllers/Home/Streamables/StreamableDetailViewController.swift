@@ -234,7 +234,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     // MARK: - Actions
     
     func flag() {
-        DialogBuilder.showYesNoAlert("Mark this graffiti as inappropriate?", title: App.Title, yesAction: { 
+        DialogBuilder.showYesNoAlert(self, status: "Mark this graffiti as inappropriate?", title: App.Title, yesAction: {
             GTStreamableManager.flag(self.streamable!.id!, successBlock: { (response) in
                 
             }, failureBlock: { (response) in
@@ -260,7 +260,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
                 self.view.hideActivityView()
                 
                 Utils.runWithDelay(0.3, block: {
-                    DialogBuilder.showSuccessAlert("This graffiti was saved in your photos album", title: App.Title)
+                    DialogBuilder.showSuccessAlert(self, status: "This graffiti was saved in your photos album", title: App.Title)
                 })
             })
         })
@@ -271,7 +271,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     func delete() {
-        DialogBuilder.showYesNoAlert("Are you sure you want to delete this graffiti?", title: App.Title, yesAction: {
+        DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to delete this graffiti?", title: App.Title, yesAction: {
             self.view.showActivityViewWithLabel("Processing")
             self.view.rn_activityView.dimBackground = false
             
@@ -282,7 +282,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
                     self.dismissViewControllerAnimated(true, completion: nil)
                 })
             }, failureBlock: { (response) in
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }) {
             
@@ -342,7 +342,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             }
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert("Avatar updated!", title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: "Avatar updated!", title: App.Title)
             }
         }
         
@@ -355,7 +355,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             }, failureBlock: { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }
     }

@@ -47,13 +47,13 @@ class FeedbackViewController: BackButtonTableViewController {
             GTFeedbackManager.sendFeedback(user!.getFullName(), email: user!.email!, text: textField.text, successBlock: { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showSuccessAlert("Thanks for your feedback!", title: App.Title, okAction: { 
+                DialogBuilder.showSuccessAlert(self, status: "Thanks for your feedback!", title: App.Title, okAction: {
                     self.navigationController?.popViewControllerAnimated(true)
                 })
             }) { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             }
         }
     }

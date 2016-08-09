@@ -127,7 +127,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             
             self.finalizeLoad()
             
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
+            DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
         }
     }
     
@@ -237,7 +237,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             }
             if canEdit {
                 actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
-                    DialogBuilder.showYesNoAlert("Are you sure you want to delete this comment?", title: App.Title, yesTitle: "Yes, delete it!", noTitle: "Cancel", yesAction: {
+                    DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to delete this comment?", title: App.Title, yesTitle: "Yes, delete it!", noTitle: "Cancel", yesAction: {
                         self.doDeleteComment(comment, shouldDeleteRemotely: true)
                     }, noAction: {
                             
@@ -316,7 +316,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         GTStreamableManager.editComment(streamable!.id!, commentId: commentToEdit!.id!, text: commentToEdit!.text!, successBlock: { (response) in
             
         }) { (response) in
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
+            DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
         }
         
         super.didCommitTextEditing(sender)
@@ -423,7 +423,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             
             self.tableView!.reloadData()
             
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
+            DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
         }
     }
     
@@ -438,7 +438,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             GTStreamableManager.deleteComment(streamable!.id!, commentId: comment.id!, successBlock: { (response) in
                 
             }, failureBlock: { (response) in
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
+                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
             })
         }
         
@@ -472,7 +472,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         }) { (response) in
             self.view.hideActivityView()
             
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+            DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
         }
     }
     
@@ -483,7 +483,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         }
         actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
             Utils.runWithDelay(0.3, block: {
-                DialogBuilder.showYesNoAlert("Are you sure you want to delete this comment?", title: App.Title, yesTitle: "Yes, delete it!", noTitle: "Cancel", yesAction: {
+                DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to delete this comment?", title: App.Title, yesTitle: "Yes, delete it!", noTitle: "Cancel", yesAction: {
                     self.doDeleteComment(comment, shouldDeleteRemotely: false)
                 }, noAction: {
                         

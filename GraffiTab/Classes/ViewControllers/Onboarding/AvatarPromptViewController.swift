@@ -64,7 +64,7 @@ class AvatarPromptViewController: UIViewController {
             }, failureBlock: { (response) -> Void in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }
         
@@ -89,7 +89,7 @@ class AvatarPromptViewController: UIViewController {
             }, failureBlock: { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }
         else { // Removing an image.
@@ -101,7 +101,7 @@ class AvatarPromptViewController: UIViewController {
             }, failureBlock: { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }
     }
@@ -127,8 +127,8 @@ class AvatarPromptViewController: UIViewController {
     }
     
     func setupButtons() {
-        sayCheeseBtn.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.6).CGColor
-        sayCheeseBtn.layer.borderWidth = 1
+//        sayCheeseBtn.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.6).CGColor
+//        sayCheeseBtn.layer.borderWidth = 1
         sayCheeseBtn.layer.cornerRadius = 3
     }
 }

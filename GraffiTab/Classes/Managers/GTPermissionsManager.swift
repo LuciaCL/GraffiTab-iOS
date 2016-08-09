@@ -70,7 +70,7 @@ class GTPermissionsManager: NSObject {
                             }
                             break
                         case .Restricted, .Denied:
-                            DialogBuilder.showOKAlert("We need your permission to access the photos library. Please enable this in Settings", title: App.Title)
+                            DialogBuilder.showOKAlert(controller, status: "We need your permission to access the photos library. Please enable this in Settings", title: App.Title)
                             break
                         default:
                             // place for .NotDetermined - in this callback status is already determined so should never get here
@@ -102,7 +102,7 @@ class GTPermissionsManager: NSObject {
     
     private func checkLocationWhenInUse(controller: UIViewController, accessGrantedHandler: (() -> Void)?, decideLaterHandler: (() -> Void)?) {
         let askForAccess = {
-            GTLocationManager.manager.askPermissionWhenInUse(accessGrantedHandler)
+            GTLocationManager.manager.askPermissionWhenInUse(controller, accessGrantedHandler: accessGrantedHandler)
         }
         
         if !Settings.sharedInstance.promptedForLocationInUse! {
@@ -127,7 +127,7 @@ class GTPermissionsManager: NSObject {
     
     private func checkLocationAlways(controller: UIViewController, accessGrantedHandler: (() -> Void)?, decideLaterHandler: (() -> Void)?) {
         let askForAccess = {
-            GTLocationManager.manager.askPermissionAlways(accessGrantedHandler)
+            GTLocationManager.manager.askPermissionAlways(controller, accessGrantedHandler: accessGrantedHandler)
         }
         
         if !Settings.sharedInstance.promptedForLocationAlways! {

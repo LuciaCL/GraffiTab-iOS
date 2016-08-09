@@ -43,7 +43,7 @@ class EditTextViewController: BackButtonTableViewController {
     
     func onClickDone() {
         if !allowEmpty! && textView.text?.characters.count <= 0 {
-            DialogBuilder.showErrorAlert("This field cannot be empty.", title: App.Title)
+            DialogBuilder.showErrorAlert(self, status: "This field cannot be empty.", title: App.Title)
             return
         }
         

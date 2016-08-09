@@ -31,7 +31,7 @@ class GTLocationManager: NSObject, CLLocationManagerDelegate {
     
     // MARK: - Permissions
     
-    func askPermissionWhenInUse(accessGrantedHandler: (() -> Void)?) {
+    func askPermissionWhenInUse(controller: UIViewController, accessGrantedHandler: (() -> Void)?) {
         self.accessGrantedHandler = accessGrantedHandler
         
         // If we haven't granted permission yet.
@@ -40,7 +40,7 @@ class GTLocationManager: NSObject, CLLocationManagerDelegate {
                 locationManager?.requestWhenInUseAuthorization()
             }
             else {
-                DialogBuilder.showOKAlert("You will have to enable Location Services for GraffiTab in Settings before continuing with this action.", title: App.Title)
+                DialogBuilder.showOKAlert(controller, status: "You will have to enable Location Services for GraffiTab in Settings before continuing with this action.", title: App.Title)
             }
         }
         else {
@@ -48,7 +48,7 @@ class GTLocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func askPermissionAlways(accessGrantedHandler: (() -> Void)?) {
+    func askPermissionAlways(controller: UIViewController, accessGrantedHandler: (() -> Void)?) {
         self.accessGrantedHandler = accessGrantedHandler
         
         // If we haven't granted permission yet.
@@ -57,7 +57,7 @@ class GTLocationManager: NSObject, CLLocationManagerDelegate {
                 locationManager?.requestAlwaysAuthorization()
             }
             else {
-                DialogBuilder.showYesNoAlert("You will have to enable Location Services for GraffiTab in Settings before continuing with this action.", title: App.Title, yesTitle: "Open Location Settings", noTitle: "No, thanks", yesAction: { 
+                DialogBuilder.showYesNoAlert(controller, status: "You will have to enable Location Services for GraffiTab in Settings before continuing with this action.", title: App.Title, yesTitle: "Open Location Settings", noTitle: "No, thanks", yesAction: {
                     // Send the user to the Settings for this app.
                     Utils.openUrl(UIApplicationOpenSettingsURLString)
                 }, noAction: { 
@@ -109,7 +109,7 @@ class GTLocationManager: NSObject, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
         if UIApplication.sharedApplication().applicationState == .Active {
-            DialogBuilder.showOKAlert("You have entered one of your geographical regions. To explore it, navigate to the Explorer.", title: App.Title)
+            
         }
         else {
             let notification = UILocalNotification()

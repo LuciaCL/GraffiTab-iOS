@@ -98,7 +98,7 @@ class Utils: NSObject {
             viewController.presentViewController(activityViewController, animated: true, completion: nil)
         }
         else {
-            DialogBuilder.showErrorAlert("This post cannot be shared yet.", title: App.Title)
+            DialogBuilder.showErrorAlert(viewController, status: "This post cannot be shared yet.", title: App.Title)
         }
     }
 }

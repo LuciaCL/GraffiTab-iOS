@@ -135,7 +135,7 @@ class PublishViewController: UIViewController {
         let failBlock = { (response: GTResponseObject) in
             self.view.hideActivityView()
             
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+            DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
         }
         
         let saveBlock = {
@@ -159,7 +159,7 @@ class PublishViewController: UIViewController {
         }
         
         if location == nil {
-            DialogBuilder.showYesNoAlert("Your location could not be determined right now. Would you like to still publish this post?", title: App.Title, yesAction: {
+            DialogBuilder.showYesNoAlert(self, status: "Your location could not be determined right now. Would you like to still publish this post?", title: App.Title, yesAction: {
                 // Register analytics events.
                 AnalyticsUtils.sendAppEvent("attempting_to_publish_without_location", label: nil)
                 

@@ -7,46 +7,48 @@
 //
 
 import UIKit
-import SCLAlertView
+import PopupDialog
 import GraffiTab_iOS_SDK
 
 class DialogBuilder: NSObject {
 
     static var lastErrorDate: NSDate?
     
-    class func showOKAlert(status: String, title: String) {
-        self.showOKAlert(status, title: title, okAction: {})
+    // MARK: - OK alerts
+    
+    class func showOKAlert(controller: UIViewController, status: String, title: String) {
+        showOKAlert(controller, status: status, title: title, okAction: {})
     }
     
-    class func showOKAlert(status: String, title: String, okAction:() -> Void) {
-        let alertView = buildOKAlert(status, title: title, okAction: okAction)
-        alertView.showInfo(title, subTitle: status)
+    class func showOKAlert(controller: UIViewController, status: String, title: String, okAction:() -> Void) {
+        buildOKAlert(controller, status: status, title: title, okAction: okAction)
     }
     
-    class func showSuccessAlert(status: String, title: String) {
-        let alertView = buildOKAlert(status, title: title, okAction: {})
-        alertView.showSuccess(title, subTitle: status)
+    // MARK: - Success alerts
+    
+    class func showSuccessAlert(controller: UIViewController, status: String, title: String) {
+        buildOKAlert(controller, status: status, title: title, okAction: {})
     }
     
-    class func showSuccessAlert(status: String, title: String, okAction:() -> Void) {
-        let alertView = buildOKAlert(status, title: title, okAction: okAction)
-        alertView.showSuccess(title, subTitle: status)
+    class func showSuccessAlert(controller: UIViewController, status: String, title: String, okAction:() -> Void) {
+        buildOKAlert(controller, status: status, title: title, okAction: okAction)
     }
     
-    class func showErrorAlert(status: String, title:String) {
-        self.showErrorAlert(status, title: title, okAction: {})
+    // MARK: - Error alerts
+    
+    class func showErrorAlert(controller: UIViewController, status: String, title:String) {
+        showErrorAlert(controller, status: status, title: title, okAction: {})
     }
     
-    class func showErrorAlert(status: String, title: String, okAction:() -> Void) {
-        let alertView = buildOKAlert(status, title: title, okAction: okAction)
-        alertView.showError(title, subTitle: status)
+    class func showErrorAlert(controller: UIViewController, status: String, title: String, okAction:() -> Void) {
+        buildOKAlert(controller, status: status, title: title, okAction: okAction)
     }
     
-    class func showAPIErrorAlert(status: String, title:String, forceShow: (Bool?) = false, reason: GTReason) {
-        self.showAPIErrorAlert(status, title: title, forceShow: forceShow, okAction: {}, reason: reason)
+    class func showAPIErrorAlert(controller: UIViewController, status: String, title:String, forceShow: (Bool?) = false, reason: GTReason) {
+        self.showAPIErrorAlert(controller, status: status, title: title, forceShow: forceShow, okAction: {}, reason: reason)
     }
     
-    class func showAPIErrorAlert(status: String, title:String, forceShow: (Bool?) = false, okAction:() -> Void, reason: GTReason) {
+    class func showAPIErrorAlert(controller: UIViewController, status: String, title:String, forceShow: (Bool?) = false, okAction:() -> Void, reason: GTReason) {
         let errorDate = NSDate()
         
         // Define custom action to listen for logout events.
@@ -60,7 +62,7 @@ class DialogBuilder: NSObject {
         }
         
         if forceShow != nil && forceShow! {
-            self.showErrorAlert(status, title: title, okAction: action)
+            self.showErrorAlert(controller, status: status, title: title, okAction: action)
             lastErrorDate = errorDate
             return
         }
@@ -68,97 +70,79 @@ class DialogBuilder: NSObject {
         if lastErrorDate != nil {
             let secondsPassed = errorDate.timeIntervalSinceDate(lastErrorDate!)
             if secondsPassed > 30 {
-                self.showErrorAlert(status, title: title, okAction: action)
+                self.showErrorAlert(controller, status: status, title: title, okAction: action)
                 lastErrorDate = errorDate
             }
         }
         else {
-            self.showErrorAlert(status, title: title, okAction: action)
+            self.showErrorAlert(controller, status: status, title: title, okAction: action)
             lastErrorDate = errorDate
         }
     }
     
-    class func showYesNoAlert(status: String, title: String, yesTitle: String="Yes", noTitle: String="No", yesAction:() -> Void, noAction:() -> Void) {
-        let alertView = buildYesNoAlert(status, title: title, yesTitle: yesTitle, noTitle: noTitle, yesAction: yesAction, noAction: noAction)
-        alertView.showInfo(title, subTitle: status)
+    class func showYesNoAlert(controller: UIViewController, status: String, title: String, yesTitle: String="Yes", noTitle: String="No", yesAction:() -> Void, noAction:() -> Void) {
+        buildYesNoAlert(controller, status: status, title: title, yesTitle: yesTitle, noTitle: noTitle, yesAction: yesAction, noAction: noAction)
     }
     
-    class func showYesNoSuccessAlert(status: String, title: String, yesTitle: String="Yes", noTitle: String="No", yesAction:() -> Void, noAction:() -> Void) {
-        let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: false
-        )
+    class func showInputUsername(controller: UIViewController, okTitle: String="Done", cancelTitle: String="Cancel", okAction:(username: String) -> Void, cancelAction:() -> Void) {
+        let inputVC = InputUsernameViewController(nibName: "InputUsernameViewController", bundle: nil)
+        let popup = PopupDialog(viewController: inputVC, transitionStyle: .ZoomIn, buttonAlignment: .Horizontal, gestureDismissal: true)
         
-        let alertView = SCLAlertView(appearance: appearance)
-        
-        alertView.addButton(yesTitle, action: yesAction)
-        let closeBtn = alertView.addButton(noTitle, action: noAction)
-        
-        alertView.showSuccess(title, subTitle: status)
-        
-        let back = closeBtn.backgroundColor
-        closeBtn.backgroundColor = UIColor.clearColor()
-        closeBtn.layer.borderWidth = 1
-        closeBtn.layer.borderColor = back?.CGColor
-        closeBtn.setTitleColor(back, forState: .Normal)
-    }
-    
-    class func showInputUsername(okTitle: String="Done", cancelTitle: String="Cancel", okAction:(username: String) -> Void, cancelAction:() -> Void) {
-        let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: false
-        )
-        
-        let alertView = SCLAlertView(appearance: appearance)
-
-        let textField = alertView.addTextField()
-        textField.placeholder = "Username"
-        textField.autocorrectionType = .No
-        textField.autocapitalizationType = .None
-        
-        alertView.addButton(okTitle, action: {
-            let text = textField.text
+        let buttonOne = DefaultButton(title: "Done") {
+            let text = inputVC.usernameField.text
             
             if text?.characters.count > 0 {
                 okAction(username: text!)
             }
             else {
-                self.showErrorAlert("Please enter a valid username.", title: App.Title, okAction: {
-                    self.showInputUsername(okAction: okAction, cancelAction: cancelAction)
+                self.showErrorAlert(controller, status: "Please enter a valid username.", title: App.Title, okAction: {
+                    self.showInputUsername(controller, okAction: okAction, cancelAction: cancelAction)
                 })
             }
-        })
-        let closeBtn = alertView.addButton(cancelTitle, action: cancelAction)
+        }
+        let buttonTwo = CancelButton(title: "Cancel") {
+            cancelAction()
+        }
+        popup.addButtons([buttonTwo, buttonOne])
         
-        alertView.showInfo(App.Title, subTitle: "Choose a username for your account.")
-        
-        let back = closeBtn.backgroundColor
-        closeBtn.backgroundColor = UIColor.clearColor()
-        closeBtn.layer.borderWidth = 1
-        closeBtn.layer.borderColor = back?.CGColor
-        closeBtn.setTitleColor(back, forState: .Normal)
+        controller.presentViewController(popup, animated: true, completion: nil)
     }
     
-    private class func buildOKAlert(status: String, title: String, okAction:() -> Void) -> SCLAlertView {
-        let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: false
-        )
+    // MARK: - Builders
+    
+    private class func buildOKAlert(controller: UIViewController, status: String, title: String, okAction:() -> Void) {
+        let popup = buildDialog(status, title: title)
         
-        let alertView = SCLAlertView(appearance: appearance)
+        let buttonOne = DefaultButton(title: "OK") {
+            okAction()
+        }
+        popup.addButtons([buttonOne])
         
-        alertView.addButton("OK", action: okAction)
-        
-        return alertView
+        controller.presentViewController(popup, animated: true, completion: nil)
     }
     
-    private class func buildYesNoAlert(status: String, title: String, yesTitle: String="Yes", noTitle: String="No", yesAction:() -> Void, noAction:() -> Void) -> SCLAlertView {
-        let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: false
-        )
+    private class func buildYesNoAlert(controller: UIViewController, status: String, title: String, yesTitle: String="Yes", noTitle: String="No", yesAction:() -> Void, noAction:() -> Void) {
+        let popup = buildDialog(status, title: title)
         
-        let alertView = SCLAlertView(appearance: appearance)
+        let buttonOne = DefaultButton(title: yesTitle) {
+            yesAction()
+        }
+        let buttonTwo = CancelButton(title: noTitle) {
+            noAction()
+        }
+        popup.addButtons([buttonTwo, buttonOne])
         
-        alertView.addButton(yesTitle, action: yesAction)
-        alertView.addButton(noTitle, action: noAction)
+        controller.presentViewController(popup, animated: true, completion: nil)
+    }
+    
+    private class func buildDialog(status: String, title: String) -> PopupDialog {
+        let dialogAppearance = PopupDialogDefaultView.appearance()
+        dialogAppearance.titleFont = UIFont.boldSystemFontOfSize(17)
         
-        return alertView
+        let db = DefaultButton.appearance()
+        db.titleColor = UIColor(hexString: Colors.Main)
+        
+        let popup = PopupDialog(title: title, message: status, image: nil, buttonAlignment: .Horizontal, transitionStyle: .ZoomIn, gestureDismissal: true)
+        return popup
     }
 }

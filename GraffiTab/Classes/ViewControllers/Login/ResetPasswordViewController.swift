@@ -52,7 +52,7 @@ class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate
         self.view.rn_activityView.dimBackground = false
         
         let successHandler = {
-            DialogBuilder.showSuccessAlert("Check your email for instructions to reset your password.", title: App.Title, okAction: {
+            DialogBuilder.showSuccessAlert(self, status: "Check your email for instructions to reset your password.", title: App.Title, okAction: {
                 self.dismissViewControllerAnimated(true, completion: nil)
             })
         }
@@ -65,7 +65,7 @@ class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate
             self.view.hideActivityView()
             
             if (response.error.reason != .USER_NOT_FOUND) {
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
                 return
             }
             

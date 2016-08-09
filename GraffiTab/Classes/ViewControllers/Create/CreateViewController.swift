@@ -152,7 +152,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         hideSkipBtn()
         self.stopGestureAssistant()
         
-        DialogBuilder.showOKAlert("Ready to draw? No problem, you can enable the tutorial again from Settings.", title: App.Title)
+        DialogBuilder.showOKAlert(self, status: "Ready to draw? No problem, you can enable the tutorial again from Settings.", title: App.Title)
     }
     
     @IBAction func onClickPublish(sender: AnyObject?) {
@@ -193,16 +193,12 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             let successBlock = {
                 self.view.hideActivityView()
                 
-                DialogBuilder.showYesNoSuccessAlert("Your post has been published! Would you like to continue drawing?", title: App.Title, yesTitle: "Continue", noTitle: "Close Canvas", yesAction: {
-                    
-                    }, noAction: {
-                        self.didPublish()
-                })
+                self.didPublish()
             }
             let failBlock = { (response: GTResponseObject) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             }
             
             let saveBlock = {
@@ -226,7 +222,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             }
             
             if location == nil {
-                DialogBuilder.showYesNoAlert("Your location could not be determined right now. Would you like to still publish this post?", title: App.Title, yesAction: {
+                DialogBuilder.showYesNoAlert(self, status: "Your location could not be determined right now. Would you like to still publish this post?", title: App.Title, yesAction: {
                     // Register analytics events.
                     AnalyticsUtils.sendAppEvent("attempting_to_publish_without_location", label: nil)
                     
@@ -281,7 +277,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                 self.view.hideActivityView()
                 
                 Utils.runWithDelay(0.3, block: {
-                    DialogBuilder.showSuccessAlert("Your graffiti was saved in your photos album", title: App.Title)
+                    DialogBuilder.showSuccessAlert(self, status: "Your graffiti was saved in your photos album", title: App.Title)
                 })
             })
         })
@@ -313,7 +309,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             self.onClickSave(nil)
         }
         actionSheet.addButtonWithTitle("Discard", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
-            DialogBuilder.showYesNoAlert("Are you sure you want to discard this drawing? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, discard it!", noTitle: "Cancel", yesAction: {
+            DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to discard this drawing? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, discard it!", noTitle: "Cancel", yesAction: {
                 // Register analytics events.
                 AnalyticsUtils.sendAppEvent("discard", label: nil)
                 
@@ -384,21 +380,21 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                 if indexPath?.row == 0 {
                     let actionSheet = buildActionSheet("What would you like to do?")
                     actionSheet.addButtonWithTitle("Clear drawing layer", type: .Default) { (sheet) in
-                        DialogBuilder.showYesNoAlert("Are you sure you want to clear your drawing? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, clear it!", noTitle: "Cancel", yesAction: {
+                        DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to clear your drawing? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, clear it!", noTitle: "Cancel", yesAction: {
                             self.canvas!.clearDrawingLayer()
                         }, noAction: {
                                 
                         })
                     }
                     actionSheet.addButtonWithTitle("Clear background layer", type: .Default) { (sheet) in
-                        DialogBuilder.showYesNoAlert("Are you sure you want to clear the background image? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, clear it!", noTitle: "Cancel", yesAction: {
+                        DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to clear the background image? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, clear it!", noTitle: "Cancel", yesAction: {
                             self.canvas!.clearBackground()
                         }, noAction: {
                                 
                         })
                     }
                     actionSheet.addButtonWithTitle("Clear everything", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
-                        DialogBuilder.showYesNoAlert("Are you sure you want to clear your drawing? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, clear it!", noTitle: "Cancel", yesAction: {
+                        DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to clear your drawing? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, clear it!", noTitle: "Cancel", yesAction: {
                             self.canvas!.clearCanvas()
                         }, noAction: {
                                 

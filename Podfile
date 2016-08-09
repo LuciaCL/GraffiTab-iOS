@@ -11,7 +11,7 @@ def common_pods
     pod 'RESideMenu'
     pod 'SwiftHEXColors'
     pod 'UIActionSheet+Blocks'
-    pod 'SCLAlertView'
+    pod 'PopupDialog'
     pod 'FBSDKLoginKit'
     pod 'FBSDKCoreKit'
     pod 'FBSDKShareKit'

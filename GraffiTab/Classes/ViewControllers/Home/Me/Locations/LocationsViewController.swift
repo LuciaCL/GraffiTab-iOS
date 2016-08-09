@@ -256,7 +256,7 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
             
             self.finalizeLoad()
             
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
+            DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
         }
     }
     
@@ -445,7 +445,7 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
             })
         }
         actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
-            DialogBuilder.showYesNoAlert("Are you sure you want to delete this location?", title: App.Title, yesTitle: "Yes, delete it!", noTitle: "Cancel", yesAction: {
+            DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to delete this location?", title: App.Title, yesTitle: "Yes, delete it!", noTitle: "Cancel", yesAction: {
                 // Register analytics events.
                 AnalyticsUtils.sendAppEvent("location_delete", label: nil)
                 
@@ -475,7 +475,7 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
         GTMeManager.deleteLocation(location.id!, successBlock: { (response) in
             
         }, failureBlock: { (response) in
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
+            DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
         })
     }
     
@@ -483,7 +483,7 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     
     func addGeofenceForLocation(location: GTLocation, indexPath: NSIndexPath) {
         if !GTLocationManager.manager.canMonitorRegions() {
-            DialogBuilder.showErrorAlert("Your device does not support geofences.", title: App.Title)
+            DialogBuilder.showErrorAlert(self, status: "Your device does not support geofences.", title: App.Title)
             return
         }
         

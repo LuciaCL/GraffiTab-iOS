@@ -401,6 +401,10 @@
 		E5D3748E1D07417800A60343 /* DeployGateLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3748C1D07417800A60343 /* DeployGateLogger.swift */; };
 		E5D3749C1D07B29200A60343 /* UINavigationController+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3749B1D07B29200A60343 /* UINavigationController+Orientation.swift */; };
 		E5D3749D1D07B29200A60343 /* UINavigationController+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3749B1D07B29200A60343 /* UINavigationController+Orientation.swift */; };
+		E5D694C61D595766002F2AEC /* InputUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D694C41D595766002F2AEC /* InputUsernameViewController.swift */; };
+		E5D694C71D595766002F2AEC /* InputUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D694C41D595766002F2AEC /* InputUsernameViewController.swift */; };
+		E5D694C81D595766002F2AEC /* InputUsernameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D694C51D595766002F2AEC /* InputUsernameViewController.xib */; };
+		E5D694C91D595766002F2AEC /* InputUsernameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D694C51D595766002F2AEC /* InputUsernameViewController.xib */; };
 		E5DAA8971CE37A26000CB2F4 /* AutocompleteHashCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAA8951CE37A26000CB2F4 /* AutocompleteHashCell.swift */; };
 		E5DAA8991CE37A26000CB2F4 /* AutocompleteHashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DAA8961CE37A26000CB2F4 /* AutocompleteHashCell.xib */; };
 		E5DAA89D1CE37A5F000CB2F4 /* AutocompleteUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAA89B1CE37A5F000CB2F4 /* AutocompleteUserCell.swift */; };
@@ -752,6 +756,8 @@
 		E5D085A61CD8D30000226589 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
 		E5D3748C1D07417800A60343 /* DeployGateLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeployGateLogger.swift; sourceTree = "<group>"; };
 		E5D3749B1D07B29200A60343 /* UINavigationController+Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Orientation.swift"; sourceTree = "<group>"; };
+		E5D694C41D595766002F2AEC /* InputUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputUsernameViewController.swift; sourceTree = "<group>"; };
+		E5D694C51D595766002F2AEC /* InputUsernameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputUsernameViewController.xib; sourceTree = "<group>"; };
 		E5DAA8951CE37A26000CB2F4 /* AutocompleteHashCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteHashCell.swift; sourceTree = "<group>"; };
 		E5DAA8961CE37A26000CB2F4 /* AutocompleteHashCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocompleteHashCell.xib; sourceTree = "<group>"; };
 		E5DAA89B1CE37A5F000CB2F4 /* AutocompleteUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteUserCell.swift; sourceTree = "<group>"; };
@@ -1505,6 +1511,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		E5D694C31D59574D002F2AEC /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				E5D694C41D595766002F2AEC /* InputUsernameViewController.swift */,
+				E5D694C51D595766002F2AEC /* InputUsernameViewController.xib */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
 		E5DAA88F1CE37A01000CB2F4 /* Autocomplete */ = {
 			isa = PBXGroup;
 			children = (
@@ -1655,6 +1670,7 @@
 		E5DFDBF91CB2C31B00BB3D27 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E5D694C31D59574D002F2AEC /* Input */,
 				E536A2DE1D51708A00D82E34 /* Permissions */,
 				E5DFDBFA1CB2C31B00BB3D27 /* BackButtons */,
 				E510062E1CB71C1300AC66A5 /* Streamables */,
@@ -1985,6 +2001,7 @@
 				E58432BC1CE9242000FB1E50 /* TOCropViewControllerLocalizable.strings in Resources */,
 				E5494E5B1D19A1F5004F31A7 /* OnboardingStoryboard.storyboard in Resources */,
 				E5C3693F1D2163D8005FA4A0 /* GoogleService-Info.plist in Resources */,
+				E5D694C91D595766002F2AEC /* InputUsernameViewController.xib in Resources */,
 				E58432BD1CE9242000FB1E50 /* MainStoryboard.storyboard in Resources */,
 				E53960DF1D50FE3B00032B83 /* onboard_3.png in Resources */,
 				E58432BE1CE9242000FB1E50 /* StreamableTrendingCell.xib in Resources */,
@@ -2041,6 +2058,7 @@
 				E5B6B5A71CC56F5800DC8EFC /* MainStoryboard.storyboard in Resources */,
 				E536A2F81D52375800D82E34 /* permission_location_always.png in Resources */,
 				E59BC2FD1D12B423009781BA /* UserTrendingCell.xib in Resources */,
+				E5D694C81D595766002F2AEC /* InputUsernameViewController.xib in Resources */,
 				E510066D1CB7DEB100AC66A5 /* StreamableTrendingCell.xib in Resources */,
 				E5DAA8991CE37A26000CB2F4 /* AutocompleteHashCell.xib in Resources */,
 				E5DFDC0D1CB2C39200BB3D27 /* Default-568h@2x.png in Resources */,
@@ -2228,6 +2246,7 @@
 				E58432561CE9242000FB1E50 /* UserListCell.swift in Sources */,
 				E58432571CE9242000FB1E50 /* ActivityGroupLikeCell.swift in Sources */,
 				E58432581CE9242000FB1E50 /* TOCropOverlayView.m in Sources */,
+				E5D694C71D595766002F2AEC /* InputUsernameViewController.swift in Sources */,
 				E58432591CE9242000FB1E50 /* CCViewController.m in Sources */,
 				E584325A1CE9242000FB1E50 /* TintImageView.swift in Sources */,
 				E5494E6B1D1ABC49004F31A7 /* UISlider+CustomFlat.swift in Sources */,
@@ -2397,6 +2416,7 @@
 				E5A1D6681D23101E0027E438 /* GTDeviceMotionManager.swift in Sources */,
 				E51006FA1CBD1C3B00AC66A5 /* UserListCell.swift in Sources */,
 				E51006D11CBC1F9700AC66A5 /* ActivityGroupLikeCell.swift in Sources */,
+				E5D694C61D595766002F2AEC /* InputUsernameViewController.swift in Sources */,
 				E5D085AD1CD8D30000226589 /* TOCropOverlayView.m in Sources */,
 				E5B6B6271CC630B000DC8EFC /* CCViewController.m in Sources */,
 				E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */,
@@ -2554,7 +2574,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs",
-					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/TestFairy",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -2614,8 +2633,6 @@
 					"-framework",
 					"\"SABlurImageView\"",
 					"-framework",
-					"\"SCLAlertView\"",
-					"-framework",
 					"\"SwiftHEXColors\"",
 					"-framework",
 					"\"TLYShyNavBar\"",
@@ -2669,7 +2686,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs",
-					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/TestFairy",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -2728,8 +2744,6 @@
 					"\"RSKPlaceholderTextView\"",
 					"-framework",
 					"\"SABlurImageView\"",
-					"-framework",
-					"\"SCLAlertView\"",
 					"-framework",
 					"\"SwiftHEXColors\"",
 					"-framework",
@@ -2859,7 +2873,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs",
-					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/TestFairy",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2917,8 +2930,6 @@
 					"\"RSKPlaceholderTextView\"",
 					"-framework",
 					"\"SABlurImageView\"",
-					"-framework",
-					"\"SCLAlertView\"",
 					"-framework",
 					"\"SwiftHEXColors\"",
 					"-framework",
@@ -2966,7 +2977,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GraffiTab/ExternalLibs",
-					"$(PROJECT_DIR)/GraffiTab/ExternalLibs/TestFairy",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -3024,8 +3034,6 @@
 					"\"RSKPlaceholderTextView\"",
 					"-framework",
 					"\"SABlurImageView\"",
-					"-framework",
-					"\"SCLAlertView\"",
 					"-framework",
 					"\"SwiftHEXColors\"",
 					"-framework",

@@ -58,7 +58,7 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to create location")
         
         if lastPlacemark == nil {
-            DialogBuilder.showErrorAlert("Select a location first.", title: App.Title)
+            DialogBuilder.showErrorAlert(self, status: "Select a location first.", title: App.Title)
         }
         else {
             // Register analytics events.
@@ -70,7 +70,7 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
             let success = {
                 self.view.hideActivityView()
                 
-                DialogBuilder.showSuccessAlert("Location saved successfully!", title: App.Title, okAction: {
+                DialogBuilder.showSuccessAlert(self, status: "Location saved successfully!", title: App.Title, okAction: {
                     Utils.runWithDelay(0.3, block: {
                         self.onClickBack(nil)
                     })
@@ -79,7 +79,7 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
             let failure = {(response: GTResponseObject) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             }
             
             if toEdit != nil {
@@ -163,11 +163,11 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
             
             let placemarks = response?.mapItems
             if placemarks?.count <= 0 {
-                DialogBuilder.showOKAlert("No locations found for this address.", title: App.Title)
+                DialogBuilder.showOKAlert(self, status: "No locations found for this address.", title: App.Title)
             }
             
             if placemarks?.count > 1 { // More than 1 address matches found. Ask user which one to use.
-                DialogBuilder.showOKAlert("Multiple matches found. The first one will be used.", title: App.Title, okAction: {
+                DialogBuilder.showOKAlert(self, status: "Multiple matches found. The first one will be used.", title: App.Title, okAction: {
                     let mapItem = placemarks?.first
                     self.zoomMapToLocation(mapItem!.placemark.location!)
                 })

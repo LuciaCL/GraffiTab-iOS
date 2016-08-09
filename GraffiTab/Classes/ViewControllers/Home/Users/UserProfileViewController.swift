@@ -198,12 +198,12 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
                     self.header?.item = GTMeManager.sharedInstance.loggedInUser
                     
                     Utils.runWithDelay(0.3) { () in
-                        DialogBuilder.showSuccessAlert("Avatar updated!", title: App.Title)
+                        DialogBuilder.showSuccessAlert(self, status: "Avatar updated!", title: App.Title)
                     }
                 }, failureBlock: { (response) -> Void in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                    DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
                 })
             }
         }
@@ -217,7 +217,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             self.header?.item = GTMeManager.sharedInstance.loggedInUser
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert("Avatar updated!", title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: "Avatar updated!", title: App.Title)
             }
         }
         let coverSuccessBlock = {
@@ -226,7 +226,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             self.header?.item = GTMeManager.sharedInstance.loggedInUser
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert("Banner updated!", title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: "Banner updated!", title: App.Title)
             }
         }
         
@@ -240,7 +240,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                    DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
                 })
             }
             else {
@@ -252,7 +252,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                    DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
                 })
             }
         }
@@ -266,7 +266,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                    DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
                 })
             }
             else {
@@ -278,7 +278,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
                 }, failureBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                    DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
                 })
             }
         }
@@ -334,7 +334,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             self.user?.softCopy(response.object as! GTUser)
             self.header?.item = self.user
         }) { (response) in
-            DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
+            DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
         }
     }
     

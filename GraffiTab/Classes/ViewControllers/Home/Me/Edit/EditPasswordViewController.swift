@@ -44,7 +44,7 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
         let np = newPasswordField.text
         let cp = confirmPasswordField.text
         
-        if InputValidator.validateEditPassword(p!, newPassword: np!, confirmPassword: cp!) {
+        if InputValidator.validateEditPassword(self, password: p!, newPassword: np!, confirmPassword: cp!) {
             // Register analytics events.
             AnalyticsUtils.sendAppEvent("profile_change_password", label: nil)
             
@@ -54,13 +54,13 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
             GTMeManager.editPassword(p!, newPassword: np!, successBlock: { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showSuccessAlert("Your password has been changed!", title: App.Title, okAction: {
+                DialogBuilder.showSuccessAlert(self, status: "Your password has been changed!", title: App.Title, okAction: {
                     self.navigationController?.popViewControllerAnimated(true)
                 })
             }, failureBlock: { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showAPIErrorAlert(response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }
     }
