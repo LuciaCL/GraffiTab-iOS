@@ -36,7 +36,7 @@
 #import <UIScrollView_InfiniteScroll/UIScrollView+InfiniteScroll.h>
 #import <Reachability/Reachability.h>
 #import <CNPGridMenu/CNPGridMenu.h>
-#import <DGActivityIndicatorView/DGActivityIndicatorView.h>
+#import <JTMaterialSpinner/JTMaterialSpinner.h>
 #import <DeployGateSDK/DeployGateSDK.h>
 #import <AHKActionSheet/AHKActionSheet.h>
 #import <PAGestureAssistant/PAGestureAssistant.h>

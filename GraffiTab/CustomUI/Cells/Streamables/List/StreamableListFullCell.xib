@@ -158,6 +158,14 @@
                         <rect key="frame" x="0.0" y="54" width="320" height="320"/>
                         <color key="backgroundColor" red="0.81568627450980391" green="0.81568627450980391" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnN-cg-Tpg" customClass="JTMaterialSpinner">
+                        <rect key="frame" x="140" y="194" width="40" height="40"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="6SF-qV-kTY"/>
+                            <constraint firstAttribute="width" constant="40" id="TNF-tB-AYw"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
@@ -172,6 +180,8 @@
                 <constraint firstItem="EkX-tZ-xUK" firstAttribute="top" secondItem="4LD-IP-0Pr" secondAttribute="top" constant="54" id="nko-mr-dXE"/>
                 <constraint firstItem="EkX-tZ-xUK" firstAttribute="leading" secondItem="4LD-IP-0Pr" secondAttribute="leading" id="olS-gJ-rfu"/>
                 <constraint firstItem="3N2-f9-YN8" firstAttribute="top" secondItem="4LD-IP-0Pr" secondAttribute="top" id="rFa-0I-bEk"/>
+                <constraint firstItem="mnN-cg-Tpg" firstAttribute="centerX" secondItem="EkX-tZ-xUK" secondAttribute="centerX" id="sfV-ja-Xyc"/>
+                <constraint firstItem="mnN-cg-Tpg" firstAttribute="centerY" secondItem="EkX-tZ-xUK" secondAttribute="centerY" id="zqR-hy-Mfg"/>
             </constraints>
             <connections>
                 <outlet property="avatar" destination="NGI-sM-9yN" id="gg3-7n-bTg"/>
@@ -181,6 +191,7 @@
                 <outlet property="dateField" destination="UpS-UY-yUf" id="ekp-86-G17"/>
                 <outlet property="likeBtn" destination="amI-i6-Ikd" id="f5V-qD-LUU"/>
                 <outlet property="likesLbl" destination="hDM-YV-Uwg" id="tVr-5J-BHP"/>
+                <outlet property="loadingIndicator" destination="mnN-cg-Tpg" id="xaA-gh-jRQ"/>
                 <outlet property="nameField" destination="mEf-IG-5ke" id="kLc-Eo-wT7"/>
                 <outlet property="shareBtn" destination="iUM-ac-1EA" id="iya-pa-9de"/>
                 <outlet property="thumbnail" destination="EkX-tZ-xUK" id="tx3-oj-Y41"/>

@@ -10,11 +10,11 @@ import UIKit
 import GraffiTab_iOS_SDK
 import Alamofire
 import AlamofireImage
-import DGActivityIndicatorView
+import JTMaterialSpinner
 
 class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    @IBOutlet weak var loadingContainer: UIView!
+    @IBOutlet weak var loadingIndicator: JTMaterialSpinner!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var usernameField: UILabel!
@@ -25,7 +25,6 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
     
     var items = [GTStreamable]()
     var previousUserStreamablesRequest: Request?
-    var loadingIndicator: DGActivityIndicatorView?
     
     override class func reusableIdentifier() -> String {
         return "UserTrendingCell"
@@ -37,7 +36,7 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
         setupButtons()
         setupCollectionView()
         setupImageViews()
-        setupLoadingView()
+        setupLoadingIndicator()
     }
     
     override func layoutSubviews() {
@@ -136,8 +135,7 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
         self.items.removeAll()
         
         if previousItem != nil && previousItem!.id != item?.id {
-            loadingIndicator?.stopAnimating()
-            loadingIndicator?.hidden = true
+            loadingIndicator?.beginRefreshing()
             previousUserStreamablesRequest?.cancel()
         }
         
@@ -149,8 +147,7 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
             finishLoadingStreamables()
         }
         else {
-            loadingIndicator?.startAnimating()
-            loadingIndicator?.hidden = false
+            loadingIndicator?.beginRefreshing()
             
             // 2. Streamables have not been cached yet, so fetch them from the web or the internal Alamofire cache.
             previousUserStreamablesRequest = GTUserManager.getUserStreamables(item!.id!, offset: 0, limit: 6, cacheResponse: true, cacheBlock: { (response) in
@@ -181,8 +178,7 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
     }
     
     func finishLoadingStreamables() {
-        loadingIndicator?.stopAnimating()
-        loadingIndicator?.hidden = true
+        loadingIndicator?.endRefreshing()
         collectionView.reloadData()
         noItemsLbl.hidden = items.count > 0
     }
@@ -218,14 +214,8 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
         collectionView.registerNib(UINib(nibName: StreamableGridCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: StreamableGridCell.reusableIdentifier())
     }
     
-    func setupLoadingView() {
-        if loadingIndicator != nil {
-            loadingIndicator?.removeFromSuperview()
-            loadingIndicator = nil
-        }
-        
-        loadingIndicator = DGActivityIndicatorView(type: .BallBeat, tintColor: UIColor.lightGrayColor())
-        loadingIndicator?.frame = loadingContainer.bounds
-        loadingContainer.addSubview(loadingIndicator!)
+    func setupLoadingIndicator() {
+        loadingIndicator.circleLayer.lineWidth = 2.5
+        loadingIndicator.circleLayer.strokeColor = UIColor(hexString: Colors.Main)?.CGColor
     }
 }

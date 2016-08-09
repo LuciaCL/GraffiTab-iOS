@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -17,6 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="200" height="215"/>
                         <color key="backgroundColor" red="0.81568627450980391" green="0.81568627450980391" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIG-fF-r0I" customClass="JTMaterialSpinner">
+                        <rect key="frame" x="83" y="90" width="35" height="35"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="3tJ-qo-wVj"/>
+                            <constraint firstAttribute="height" constant="35" id="d1e-Ma-KMX"/>
+                        </constraints>
+                    </view>
                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_thumb_up_white" translatesAutoresizingMaskIntoConstraints="NO" id="7CE-co-dvH" customClass="TintImageView" customModule="GraffiTab" customModuleProvider="target">
                         <rect key="frame" x="8" y="226" width="15" height="15"/>
                         <color key="tintColor" red="0.0" green="0.36078431370000003" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -92,8 +100,10 @@
                 <constraint firstItem="n5U-GN-VUq" firstAttribute="leading" secondItem="sCc-HI-EhU" secondAttribute="trailing" constant="6" id="DUO-zq-UOq"/>
                 <constraint firstItem="E7H-8d-hDl" firstAttribute="top" secondItem="n5U-GN-VUq" secondAttribute="bottom" constant="-6" id="EIo-4e-fzM"/>
                 <constraint firstItem="QdC-qe-LEn" firstAttribute="centerY" secondItem="ntu-5h-O6s" secondAttribute="centerY" id="Frt-dN-WB3"/>
+                <constraint firstItem="eIG-fF-r0I" firstAttribute="centerY" secondItem="I3t-MF-E6h" secondAttribute="centerY" id="NtU-1X-M5l"/>
                 <constraint firstItem="mBW-ug-zEg" firstAttribute="centerY" secondItem="7CE-co-dvH" secondAttribute="centerY" id="V7o-vS-HWd"/>
                 <constraint firstItem="I3t-MF-E6h" firstAttribute="top" secondItem="bqr-Hj-xeo" secondAttribute="top" id="XJ2-O8-1N0"/>
+                <constraint firstItem="eIG-fF-r0I" firstAttribute="centerX" secondItem="I3t-MF-E6h" secondAttribute="centerX" id="XlK-te-CW6"/>
                 <constraint firstAttribute="bottom" secondItem="sCc-HI-EhU" secondAttribute="bottom" constant="5" id="a6Z-eB-PzY"/>
                 <constraint firstItem="E7H-8d-hDl" firstAttribute="leading" secondItem="sCc-HI-EhU" secondAttribute="trailing" constant="6" id="aAA-xc-IkU"/>
                 <constraint firstItem="sCc-HI-EhU" firstAttribute="leading" secondItem="bqr-Hj-xeo" secondAttribute="leading" constant="5" id="beP-SY-fPa"/>
@@ -111,6 +121,7 @@
                 <outlet property="commentsLbl" destination="QdC-qe-LEn" id="6n8-vX-ey3"/>
                 <outlet property="likesImg" destination="7CE-co-dvH" id="toL-mZ-cTy"/>
                 <outlet property="likesLbl" destination="mBW-ug-zEg" id="Vp9-KJ-MeS"/>
+                <outlet property="loadingIndicator" destination="eIG-fF-r0I" id="h9Q-m0-kjf"/>
                 <outlet property="nameField" destination="n5U-GN-VUq" id="3vL-vI-tXB"/>
                 <outlet property="thumbnail" destination="I3t-MF-E6h" id="zTL-KT-4kO"/>
                 <outlet property="usernameField" destination="E7H-8d-hDl" id="6ZY-vh-gM8"/>

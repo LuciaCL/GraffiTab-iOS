@@ -51,12 +51,12 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kT0-xT-2lq">
-                        <rect key="frame" x="135" y="115" width="50" height="50"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kT0-xT-2lq" customClass="JTMaterialSpinner">
+                        <rect key="frame" x="145" y="125" width="30" height="30"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="58O-Wx-JF8"/>
-                            <constraint firstAttribute="height" constant="50" id="8Ms-18-21o"/>
+                            <constraint firstAttribute="width" constant="30" id="58O-Wx-JF8"/>
+                            <constraint firstAttribute="height" constant="30" id="8Ms-18-21o"/>
                         </constraints>
                     </view>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Rc8-f3-1J7">
@@ -101,7 +101,7 @@
                 <outlet property="avatar" destination="WhL-qe-Yr1" id="tEh-xg-9Md"/>
                 <outlet property="collectionView" destination="Rc8-f3-1J7" id="tof-CS-m2A"/>
                 <outlet property="followBtn" destination="WbQ-1w-dbv" id="2Fx-Cc-Lu7"/>
-                <outlet property="loadingContainer" destination="kT0-xT-2lq" id="rSQ-EY-rTX"/>
+                <outlet property="loadingIndicator" destination="kT0-xT-2lq" id="cyc-Go-Bh5"/>
                 <outlet property="nameField" destination="zsH-Rr-795" id="Pzi-fG-cUV"/>
                 <outlet property="noItemsLbl" destination="Ylh-AK-WE0" id="x0i-FJ-idA"/>
                 <outlet property="usernameField" destination="x7W-0c-d7c" id="yQz-Pt-LaT"/>

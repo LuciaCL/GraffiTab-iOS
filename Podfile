@@ -43,7 +43,6 @@ def common_pods
     pod 'Reachability'
     pod 'RNFrostedSidebar'
     pod 'CNPGridMenu'
-    pod 'DGActivityIndicatorView'
     pod 'CocoaLumberjack/Swift'
     pod 'DeployGateSDK'
     pod 'UIColor_Hex_Swift'
@@ -53,6 +52,7 @@ def common_pods
     pod 'HanekeSwift'
     pod 'PAGestureAssistant'
     pod 'Instabug'
+    pod 'JTMaterialSpinner'
 end
 
 target 'GraffiTab' do

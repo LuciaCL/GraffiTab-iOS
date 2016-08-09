@@ -10,6 +10,7 @@ import UIKit
 import GraffiTab_iOS_SDK
 import Alamofire
 import AlamofireImage
+import JTMaterialSpinner
 
 protocol StreamableDelegate {
     
@@ -24,9 +25,11 @@ protocol StreamableDelegate {
 
 class StreamableCell: UICollectionViewCell {
     
+    @IBOutlet weak var loadingIndicator: JTMaterialSpinner!
     @IBOutlet weak var avatar: AvatarImageView!
     @IBOutlet weak var thumbnail: StreamableImageView!
     
+    var pollTimer: NSTimer?
     var indexPath: NSIndexPath?
     var delegate: StreamableDelegate?
     var previousItem: GTStreamable?
@@ -46,11 +49,13 @@ class StreamableCell: UICollectionViewCell {
         super.awakeFromNib()
         
         setupGestureRecognizers()
+        setupLoadingIndicator()
     }
     
     func setItem() {
         loadImage()
         loadAvatar()
+        checkProcessingState()
     }
     
     func getStreamableImageUrl() -> String {
@@ -91,6 +96,52 @@ class StreamableCell: UICollectionViewCell {
         
     }
     
+    // MARK: - Polling
+    
+    func checkProcessingState() {
+        if item?.asset?.state != .COMPLETED {
+            if loadingIndicator != nil {
+                loadingIndicator.beginRefreshing()
+            }
+            startPollTimer()
+        }
+        else {
+            if loadingIndicator != nil {
+                loadingIndicator.endRefreshing()
+            }
+            stopPollTimer()
+        }
+    }
+    
+    func pollForAssetState() {
+        GTAssetManager.getAssetState(item!.asset!.guid!, successBlock: { (response) in
+            let responseAsset = response.object as! GTAsset
+            if responseAsset.state == .COMPLETED {
+                if self.loadingIndicator != nil {
+                    self.loadingIndicator.endRefreshing()
+                }
+                self.stopPollTimer()
+                self.item!.asset = responseAsset
+                self.setItem()
+            }
+        }) { (response) in
+            
+        }
+    }
+    
+    func startPollTimer() {
+        stopPollTimer()
+        
+        pollTimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(self.pollForAssetState), userInfo: nil, repeats: true)
+    }
+    
+    func stopPollTimer() {
+        if pollTimer != nil {
+            pollTimer?.invalidate()
+            pollTimer = nil
+        }
+    }
+    
     // MARK: - Loading
     
     func loadImage() {
@@ -107,5 +158,12 @@ class StreamableCell: UICollectionViewCell {
     
     func setupGestureRecognizers() {
         thumbnail.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickThumbnail)))
+    }
+    
+    func setupLoadingIndicator() {
+        if loadingIndicator != nil {
+            loadingIndicator.circleLayer.lineWidth = 2.5
+            loadingIndicator.circleLayer.strokeColor = UIColor.whiteColor().CGColor
+        }
     }
 }

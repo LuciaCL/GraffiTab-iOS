@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -15,16 +15,27 @@
                     <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rox-QQ-2AH" customClass="StreamableImageView" customModule="GraffiTab" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DH7-06-5aP" customClass="JTMaterialSpinner">
+                        <rect key="frame" x="60" y="60" width="30" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="E8R-va-BVm"/>
+                            <constraint firstAttribute="height" constant="30" id="Nak-rG-MRc"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="rox-QQ-2AH" secondAttribute="bottom" id="2d2-uu-eA5"/>
                 <constraint firstItem="rox-QQ-2AH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6ne-uF-0bo"/>
+                <constraint firstItem="DH7-06-5aP" firstAttribute="centerX" secondItem="rox-QQ-2AH" secondAttribute="centerX" id="M3t-zT-6vE"/>
                 <constraint firstItem="rox-QQ-2AH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Mmn-ch-oCE"/>
                 <constraint firstAttribute="trailing" secondItem="rox-QQ-2AH" secondAttribute="trailing" id="PNK-dM-Nx4"/>
+                <constraint firstItem="DH7-06-5aP" firstAttribute="centerY" secondItem="rox-QQ-2AH" secondAttribute="centerY" id="Zyq-59-duD"/>
             </constraints>
             <connections>
+                <outlet property="loadingIndicator" destination="DH7-06-5aP" id="Zwv-20-fKW"/>
                 <outlet property="thumbnail" destination="rox-QQ-2AH" id="4PO-5v-uvC"/>
             </connections>
         </collectionViewCell>
