@@ -40,10 +40,6 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
         setupTableView()
         
         pullToRefresh.startRefreshing()
-        
-        Utils.runWithDelay(1) {
-            self.checkPermissions()
-        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -60,6 +56,10 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
             initialLoad = true
             
             loadItems(true, offset: offset)
+            
+            Utils.runWithDelay(1) {
+                self.checkPermissions()
+            }
         }
     }
     
