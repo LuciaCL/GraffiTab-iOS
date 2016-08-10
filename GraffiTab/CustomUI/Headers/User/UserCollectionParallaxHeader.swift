@@ -61,6 +61,7 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
         setupCarousel()
         setupPageControl()
         setupGestureRecognizers()
+        setupLabels()
     }
     
     override func layoutSubviews() {
@@ -249,5 +250,11 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
         followersLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickFollowers)))
         followingCountLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickFollowing)))
         followingLbl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickFollowing)))
+    }
+    
+    func setupLabels() {
+        streamablesLbl.text = NSLocalizedString("view_profile_header_graffiti", comment: "")
+        followersLbl.text = NSLocalizedString("view_profile_header_followers", comment: "")
+        followingLbl.text = NSLocalizedString("view_profile_header_following", comment: "")
     }
 }

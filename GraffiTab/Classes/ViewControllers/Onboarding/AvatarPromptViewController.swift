@@ -15,6 +15,7 @@ class AvatarPromptViewController: UIViewController {
     @IBOutlet weak var avatar: AvatarImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var sayCheeseBtn: UIButton!
+    @IBOutlet weak var laterBtn: UIButton!
     
     var dismissHandler: (() -> Void)?
     
@@ -128,5 +129,7 @@ class AvatarPromptViewController: UIViewController {
     
     func setupButtons() {
         sayCheeseBtn.layer.cornerRadius = 3
+        sayCheeseBtn.setTitle(NSLocalizedString("controller_avatar_prompt_say_cheese", comment: ""), forState: .Normal)
+        laterBtn.setTitle(NSLocalizedString("controller_avatar_prompt_later", comment: ""), forState: .Normal)
     }
 }

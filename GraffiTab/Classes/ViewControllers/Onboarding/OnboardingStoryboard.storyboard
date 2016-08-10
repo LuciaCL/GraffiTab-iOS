@@ -70,6 +70,7 @@
                     </view>
                     <connections>
                         <outlet property="avatar" destination="asw-0i-Ok6" id="wF9-Vn-H3H"/>
+                        <outlet property="laterBtn" destination="48f-4K-7Mr" id="TCo-n1-Ogd"/>
                         <outlet property="name" destination="fHj-ph-PuM" id="cOb-Sr-12B"/>
                         <outlet property="sayCheeseBtn" destination="9iX-CO-19n" id="EK3-QI-t4E"/>
                     </connections>
@@ -139,6 +140,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="carousel" destination="2Ep-Ga-Fxh" id="nEe-YJ-wZe"/>
+                        <outlet property="goBtn" destination="sNr-5A-uRA" id="Ugf-31-jmi"/>
                         <outlet property="pageControl" destination="nMC-ME-nQy" id="uNx-OK-6Jj"/>
                     </connections>
                 </viewController>

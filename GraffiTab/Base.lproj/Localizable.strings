@@ -33,10 +33,17 @@
 "cell_streamable_comment" = "Comment";
 "cell_streamable_comments" = "Comments";
 
+"cell_notification_welcome_title" = "Welcome to GraffiTab!";
+"cell_notification_welcome_description" = "Welcome to GraffiTab!";
+
 // Views
 
 "view_follow_button_follow" = "Follow";
 "view_follow_button_following" = "Following";
+
+"view_profile_header_graffiti" = "graffiti";
+"view_profile_header_followers" = "followers";
+"view_profile_header_following" = "following";
 
 // Managers
 
@@ -180,7 +187,10 @@
 
 "controller_avatar_prompt_picture_source" = "Choose a source for your profile picture";
 "controller_avatar_prompt_import_from_facebook" = "Import from Facebook";
+"controller_avatar_prompt_say_cheese" = "Say \"Cheese!\"";
+"controller_avatar_prompt_later" = "I'll do it later";
 
+"controller_onboarding_go" = "Let's go!";
 "controller_onboarding_screen_1_title" = "Paint";
 "controller_onboarding_screen_1_description" = "Creating beautiful art is as easy as moving your finger across the canvas.";
 "controller_onboarding_screen_2_title" = "Enhance";
@@ -227,11 +237,26 @@
 "controller_login_invalid_credentials" = "These credentials are incorrect. Please try again.";
 "controller_login_facebook_unavailable" = "Facebook login is not available at the moment. Please try again later.";
 "controller_login_sign_up" = "Sign up";
+"controller_login_username" = "Username";
+"controller_login_password" = "Password";
+"controller_login_forgot_password" = "Forgotten password?";
+"controller_login" = "Login";
+"controller_login_facebook" = "Login with Facebook";
+"controller_login_sign_up" = "Don't have an account yet? Sign up";
 
 "controller_pasword_reset_confirmation" = "Check your email for instructions to reset your password.";
+"controller_pasword_reset_reset" = "Reset";
+"controller_pasword_reset" = "Reset password";
+"controller_pasword_reset_description" = "You will receive an email containing your password and instructions on how to reset it.";
+"controller_pasword_reset_email" = "Email";
 
 "controller_sign_up_confirmation" = "You have successfully registered! Please check your email to activate your account.";
 "controller_sign_up_confirmation_title" = "Almost done!";
+"controller_sign_up_first_name" = "First name";
+"controller_sign_up_last_name" = "Last name";
+"controller_sign_up_confirm_password" = "Confirm password";
+"controller_sign_up_terms" = "By registering you agree to our Terms of Use";
+"controller_sign_up" = "Sign me up";
 
 "controller_terms_title" = "Terms of Use";
 
@@ -265,13 +290,22 @@
 "controller_create_location_none" = "No locations found for this address.";
 "controller_create_location_multiple" = "Multiple matches found. The first one will be used.";
 
-"controller_edit_passwort_success" = "Password updated!";
-"controller_edit_passwort" = "Edit password";
+"controller_edit_password_success" = "Password updated!";
+"controller_edit_password" = "Edit password";
+"controller_edit_password_your" = "Your password";
+"controller_edit_password_new" = "New password";
+"controller_edit_password_confirm" = "Confirm password";
 
 "controller_edit_profile_success" = "Profile updated!";
-"controller_edit_profile" = "Edit profile";
+"controller_edit_profile" = "Edit Profile";
 "controller_edit_profile_avatar_success" = "Avatar updated!";
 "controller_edit_profile_cover_success" = "Banner updated!";
+"controller_edit_profile_avatar" = "Profile Picture";
+"controller_edit_profile_cover" = "Cover Picture";
+"controller_edit_profile_website" = "Website";
+"controller_edit_profile_private_graffiti" = "Manage Private Graffiti";
+"controller_edit_profile_private_graffiti_title" = "Private Graffiti";
+"controller_edit_profile_private_graffiti_description" = "Private graffiti can only be viewed by you and nobody else.";
 
 "controller_edit_text_mandatory" = "This field cannot be empty.";
 
@@ -294,6 +328,8 @@
 
 "controller_linked_account_unlink_prompt" = "Are you sure you want to unlink this account?";
 "controller_linked_account_unlink_prompt_yes" = "Unlink";
+"controller_linked_account_unlink_description" = "Unlinking your account will disable login with that speciffic provider.";
+"controller_linked_account_find_friends" = "Find Friends";
 "controller_linked_account_unlink_success" = "This account has successfully been unlinked.";
 "controller_linked_account_facebook" = "Facebook";
 "controller_linked_account_twitter" = "Twitter";
@@ -304,15 +340,33 @@
 "controller_social_friends_google" = "Google Friends";
 
 "controller_about_release_notes" = "Release notes";
-
-"controller_feedback_success" = "Thanks for your feedback!";
-"controller_feedback" = "Feedback";
+"controller_about_release_info" = "Release Information";
+"controller_about_version" = "Version";
+"controller_about_version_info" = "Version information";
+"controller_about_copyright" = "© 2016 GraffiTab All Rights Reserved";
+"controller_about_build" = "Build";
 
 "controller_settings_clear_cache_prompt" = "Are you sure you want to clear the app's cache? Clearing the cache will force the app to re-download all images and may incur additional charges if you are not using WiFi.";
 "controller_settings_clear_cache" = "Clear Cache";
 "controller_settings_eula" = "End User License Agreement";
 "controller_settings_logout_prompt" = "Are you sure you want to log out?";
 "controller_settings_logout" = "Log out";
+"controller_settings_change_password" = "Change Password";
+"controller_settings_liked_posts" = "Posts You've Liked";
+"controller_settings_remember_me" = "Remember me";
+"controller_settings_remember_me_description" = "Remembers your login credentials and autofills them in case you log out.";
+"controller_settings_find_facebook_friends" = "Find Facebook Friends";
+"controller_settings_invite_facebook_friends" = "Invite Facebook Friends";
+"controller_settings_followers_activity" = "Followers Activity";
+"controller_settings_linked_accounts" = "Linked Accounts";
+"controller_settings_clear_cache" = "Clear App Cache";
+"controller_settings_assistant" = "Show Drawing Assistant";
+"controller_settings_help_center" = "Help Center";
+"controller_settings_feedback" = "Report a Problem";
+"controller_settings_about" = "About";
+"controller_settings_account" = "Account";
+"controller_settings_discover" = "Discover";
+"controller_settings_support" = "Support";
 
 "controller_streamable_options_title" = "What would you like to do with this graffiti?";
 "controller_streamable_options_public" = "Mark Public";
@@ -348,6 +402,7 @@
 
 // Other
 
+"other_skip" = "Skip";
 "other_post" = "Post";
 "other_close" = "Close";
 "other_copy" = "Copy";

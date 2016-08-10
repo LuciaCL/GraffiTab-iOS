@@ -36,5 +36,6 @@ class ClusterViewController: GridStreamablesViewController {
         super.setupTopBar()
         
         self.title = String(format: NSLocalizedString("controller_streamable_cluster", comment: ""), items.count)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("other_close", comment: ""), style: .Plain, target: self, action: #selector(self.onClickClose(_:)))
     }
 }

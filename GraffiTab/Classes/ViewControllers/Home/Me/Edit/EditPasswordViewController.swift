@@ -12,6 +12,9 @@ import CocoaLumberjack
 
 class EditPasswordViewController: BackButtonTableViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var yourPasswordLbl: UILabel!
+    @IBOutlet weak var newPasswordLbl: UILabel!
+    @IBOutlet weak var confirmPasswordLbl: UILabel!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var newPasswordField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
@@ -20,6 +23,8 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        setupLabels()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -54,7 +59,7 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
             GTMeManager.editPassword(p!, newPassword: np!, successBlock: { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_passwort_success", comment: ""), title: App.Title, okAction: {
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_password_success", comment: ""), title: App.Title, okAction: {
                     self.navigationController?.popViewControllerAnimated(true)
                 })
             }, failureBlock: { (response) in
@@ -86,7 +91,7 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = NSLocalizedString("controller_edit_passwort", comment: "")
+        self.title = NSLocalizedString("controller_edit_password", comment: "")
         
         let button = UIButton(type: .Custom)
         button.frame = CGRectMake(0, 0, 50, 30)
@@ -101,5 +106,11 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
         negativeSpacer.width = -10
         
         self.navigationItem.rightBarButtonItems = [negativeSpacer, UIBarButtonItem(customView: button)]
+    }
+    
+    func setupLabels() {
+        yourPasswordLbl.text = NSLocalizedString("controller_edit_password_your", comment: "")
+        newPasswordLbl.text = NSLocalizedString("controller_edit_password_new", comment: "")
+        confirmPasswordLbl.text = NSLocalizedString("controller_edit_password_confirm", comment: "")
     }
 }

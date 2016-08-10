@@ -31,6 +31,7 @@ class StreamableListFullCell: StreamableCell {
         
         setupImageViews()
         setupGestureRecognizers()
+        setupLabels()
     }
     
     override func layoutSubviews() {
@@ -104,5 +105,10 @@ class StreamableListFullCell: StreamableCell {
         avatar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickUser)))
         usernameField.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickUser)))
         nameField.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickUser)))
+    }
+    
+    func setupLabels() {
+        commentBtn.setTitle(NSLocalizedString("cell_streamable_comment", comment: ""), forState: .Normal)
+        shareBtn.setTitle(NSLocalizedString("controller_create_share", comment: ""), forState: .Normal)
     }
 }

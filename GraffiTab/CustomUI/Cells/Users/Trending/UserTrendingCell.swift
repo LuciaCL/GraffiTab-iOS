@@ -37,6 +37,7 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
         setupCollectionView()
         setupImageViews()
         setupLoadingIndicator()
+        setupLabels()
     }
     
     override func layoutSubviews() {
@@ -217,5 +218,9 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
     func setupLoadingIndicator() {
         loadingIndicator.circleLayer.lineWidth = 2.5
         loadingIndicator.circleLayer.strokeColor = UIColor(hexString: Colors.Main)?.CGColor
+    }
+    
+    func setupLabels() {
+        noItemsLbl.text = NSLocalizedString("controller_streamables_no_graffiti", comment: "")
     }
 }

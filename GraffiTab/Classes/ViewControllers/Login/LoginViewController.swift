@@ -18,6 +18,9 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signUpLbl: UILabel!
+    @IBOutlet weak var forgotPasswordLbl: UILabel!
+    @IBOutlet weak var loginLbl: UILabel!
+    @IBOutlet weak var facebookLoginLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -207,6 +210,11 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
     }
     
     func setupLabels() {
+        forgotPasswordLbl.text = NSLocalizedString("controller_login_forgot_password", comment: "")
+        loginLbl.text = NSLocalizedString("controller_login", comment: "")
+        facebookLoginLbl.text = NSLocalizedString("controller_login_facebook", comment: "")
+        signUpLbl.text = NSLocalizedString("controller_login_sign_up", comment: "")
+        
         let title = signUpLbl.text! as String
         let attString = NSMutableAttributedString(string: title)
         let range = (title as NSString).rangeOfString(NSLocalizedString("controller_login_sign_up", comment: ""))
@@ -215,7 +223,9 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
     }
     
     func setupTextFields() {
+        usernameField.placeholder = NSLocalizedString("controller_login_username", comment: "")
         usernameField.attributedPlaceholder = NSAttributedString(string:usernameField.placeholder!, attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.7)])
+        passwordField.placeholder = NSLocalizedString("controller_login_password", comment: "")
         passwordField.attributedPlaceholder = NSAttributedString(string:passwordField.placeholder!, attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.7)])
     }
 }

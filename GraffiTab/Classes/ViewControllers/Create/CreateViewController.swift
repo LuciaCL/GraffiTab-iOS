@@ -97,6 +97,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                                                redoBtn]
         
         setupCocos2D()
+        setupLabels()
         
         loadColors()
         loadTools()
@@ -1050,5 +1051,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     func setupColorConstants() {
         minRows = Int(self.colorsTableView.frame.height / self.colorsTableView.rowHeight) + 2
         chunkedColors = colors!.chunk(withDistance: App.ColorsPerRow)
+    }
+    
+    func setupLabels() {
+        skipBtn.setTitle(NSLocalizedString("other_skip", comment: ""), forState: .Normal)
     }
 }

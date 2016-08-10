@@ -14,6 +14,22 @@ import Instabug
 
 class SettingsViewController: GeneralSettingsViewController {
 
+    @IBOutlet weak var editProfileLbl: UILabel!
+    @IBOutlet weak var changePasswordLbl: UILabel!
+    @IBOutlet weak var likedPostsLbl: UILabel!
+    @IBOutlet weak var rememberMeLbl: UILabel!
+    @IBOutlet weak var findFacebookFriendsLbl: UILabel!
+    @IBOutlet weak var inviteFacebookFriendsLbl: UILabel!
+    @IBOutlet weak var followersActivityLbl: UILabel!
+    @IBOutlet weak var linkedAccountsLbl: UILabel!
+    @IBOutlet weak var appCacheLbl: UILabel!
+    @IBOutlet weak var drawingAssistantLbl: UILabel!
+    @IBOutlet weak var helpCenter: UILabel!
+    @IBOutlet weak var reportProblemLbl: UILabel!
+    @IBOutlet weak var termsLbl: UILabel!
+    @IBOutlet weak var eulaLbl: UILabel!
+    @IBOutlet weak var aboutLbl: UILabel!
+    @IBOutlet weak var logoutLbl: UILabel!
     @IBOutlet weak var logoutCell: UITableViewCell!
     @IBOutlet weak var rememberCredentialsSwitch: UISwitch!
     @IBOutlet weak var showDrawingAssistantSwitch: UISwitch!
@@ -22,6 +38,8 @@ class SettingsViewController: GeneralSettingsViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        setupLabels()
         
         loadData()
     }
@@ -159,14 +177,6 @@ class SettingsViewController: GeneralSettingsViewController {
         else if indexPath.section == 3 {
             if indexPath.row == 1 { // Report a problem.
                 Instabug.invoke()
-//                let actionSheet = buildActionSheet("What would you like to report?")
-//                actionSheet.addButtonWithTitle("Something Is Wrong", image: UIImage(named: "ic_warning_white"), type: .Default) { (sheet) in
-//                    self.performSegueWithIdentifier("SEGUE_PROBLEM", sender: nil)
-//                }
-//                actionSheet.addButtonWithTitle("General Feedback", image: UIImage(named: "ic_comment_white"), type: .Default) { (sheet) in
-//                    self.performSegueWithIdentifier("SEGUE_FEEDBACK", sender: nil)
-//                }
-//                actionSheet.show()
             }
         }
         else if indexPath.section == 4 {
@@ -205,5 +215,54 @@ class SettingsViewController: GeneralSettingsViewController {
         else {
             cell.hidden = false
         }
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return NSLocalizedString("controller_settings_account", comment: "")
+        }
+        else if section == 1 {
+            return NSLocalizedString("controller_settings_discover", comment: "")
+        }
+        else if section == 2 {
+            return NSLocalizedString("controller_menu_settings", comment: "")
+        }
+        else if section == 3 {
+            return NSLocalizedString("controller_settings_support", comment: "")
+        }
+        else if section == 4 {
+            return NSLocalizedString("controller_settings_about", comment: "")
+        }
+        
+        return nil
+    }
+    
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 0 {
+            return NSLocalizedString("controller_settings_remember_me_description", comment: "")
+        }
+        
+        return nil
+    }
+    
+    // MARK: - Setup
+    
+    func setupLabels() {
+        editProfileLbl.text = NSLocalizedString("controller_edit_profile", comment: "")
+        changePasswordLbl.text = NSLocalizedString("controller_settings_change_password", comment: "")
+        likedPostsLbl.text = NSLocalizedString("controller_settings_liked_posts", comment: "")
+        rememberMeLbl.text = NSLocalizedString("controller_settings_remember_me", comment: "")
+        findFacebookFriendsLbl.text = NSLocalizedString("controller_settings_find_facebook_friends", comment: "")
+        inviteFacebookFriendsLbl.text = NSLocalizedString("controller_settings_invite_facebook_friends", comment: "")
+        followersActivityLbl.text = NSLocalizedString("controller_settings_followers_activity", comment: "")
+        linkedAccountsLbl.text = NSLocalizedString("controller_settings_linked_accounts", comment: "")
+        appCacheLbl.text = NSLocalizedString("controller_settings_clear_cache", comment: "")
+        drawingAssistantLbl.text = NSLocalizedString("controller_settings_assistant", comment: "")
+        helpCenter.text = NSLocalizedString("controller_settings_help_center", comment: "")
+        reportProblemLbl.text = NSLocalizedString("controller_settings_feedback", comment: "")
+        termsLbl.text = NSLocalizedString("controller_terms_title", comment: "")
+        eulaLbl.text = NSLocalizedString("controller_settings_eula", comment: "")
+        aboutLbl.text = NSLocalizedString("controller_settings_about", comment: "")
+        logoutLbl.text = NSLocalizedString("controller_settings_logout", comment: "")
     }
 }

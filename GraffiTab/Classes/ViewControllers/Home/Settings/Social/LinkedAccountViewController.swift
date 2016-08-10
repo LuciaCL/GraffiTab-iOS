@@ -13,12 +13,17 @@ import CocoaLumberjack
 
 class LinkedAccountViewController: BackButtonTableViewController {
 
+    @IBOutlet weak var findFriendsLbl: UILabel!
+    @IBOutlet weak var unlinkLbl: UILabel!
+    
     var accountProvider: GTExternalProviderType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        setupLabels()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -69,6 +74,22 @@ class LinkedAccountViewController: BackButtonTableViewController {
         }
     }
     
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            return NSLocalizedString("controller_settings_account", comment: "")
+        }
+        
+        return nil
+    }
+    
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 1 {
+            return NSLocalizedString("controller_linked_account_unlink_description", comment: "")
+        }
+        
+        return nil
+    }
+    
     // MARK: - Setup
     
     override func setupTopBar() {
@@ -83,5 +104,10 @@ class LinkedAccountViewController: BackButtonTableViewController {
         else if accountProvider == .GOOGLE {
             self.title = NSLocalizedString("controller_linked_account_google", comment: "")
         }
+    }
+    
+    func setupLabels() {
+        findFriendsLbl.text = NSLocalizedString("controller_linked_account_find_friends", comment: "")
+        unlinkLbl.text = NSLocalizedString("controller_linked_account_unlink_prompt_yes", comment: "")
     }
 }

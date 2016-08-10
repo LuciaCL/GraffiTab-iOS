@@ -58,6 +58,24 @@ class FeedbackViewController: BackButtonTableViewController {
         }
     }
     
+    // MARK: - UITableViewDelegate
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return NSLocalizedString("controller_feedback_suggestion_prompt", comment: "")
+        }
+        
+        return nil
+    }
+    
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 0 {
+            return NSLocalizedString("controller_feedback_suggestion_footer", comment: "")
+        }
+        
+        return nil
+    }
+    
     // MARK: - Setup
     
     override func setupTopBar() {

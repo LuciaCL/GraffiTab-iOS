@@ -13,6 +13,7 @@ class OnboardingViewController: UIViewController, iCarouselDelegate, iCarouselDa
 
     @IBOutlet weak var carousel: iCarousel!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var goBtn: UIButton!
     
     var dismissHandler: (() -> Void)?
     var screens = [OnboardingScreen]()
@@ -24,6 +25,7 @@ class OnboardingViewController: UIViewController, iCarouselDelegate, iCarouselDa
         
         setupCarousel()
         setupPageControl()
+        setupLabels()
         
         loadOnboarding()
     }
@@ -129,5 +131,9 @@ class OnboardingViewController: UIViewController, iCarouselDelegate, iCarouselDa
         carousel.type = .Linear;
         carousel.bounceDistance = 0.2;
         carousel.decelerationRate = 0.8;
+    }
+    
+    func setupLabels() {
+        goBtn.setTitle(NSLocalizedString("controller_onboarding_go", comment: ""), forState: .Normal)
     }
 }

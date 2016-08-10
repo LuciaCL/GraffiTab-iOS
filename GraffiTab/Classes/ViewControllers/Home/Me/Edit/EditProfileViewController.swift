@@ -19,6 +19,15 @@ enum ImageType {
 
 class EditProfileViewController: BackButtonTableViewController {
 
+    @IBOutlet weak var avatarLbl: UILabel!
+    @IBOutlet weak var coverLbl: UILabel!
+    @IBOutlet weak var changePasswordLbl: UILabel!
+    @IBOutlet weak var firstNameLbl: UILabel!
+    @IBOutlet weak var lastNameLbl: UILabel!
+    @IBOutlet weak var emailLbl: UILabel!
+    @IBOutlet weak var aboutLbl: UILabel!
+    @IBOutlet weak var websiteLbl: UILabel!
+    @IBOutlet weak var privateGraffitiLbl: UILabel!
     @IBOutlet weak var avatar: AvatarImageView!
     @IBOutlet weak var cover: CoverImageView!
     @IBOutlet weak var firstnameField: UILabel!
@@ -35,6 +44,7 @@ class EditProfileViewController: BackButtonTableViewController {
 
         // Do any additional setup after loading the view.
         
+        setupLabels()
         setupImageViews()
         
         loadData()
@@ -288,6 +298,22 @@ class EditProfileViewController: BackButtonTableViewController {
         }
     }
     
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 3 {
+            return NSLocalizedString("controller_edit_profile_private_graffiti_title", comment: "")
+        }
+        
+        return nil
+    }
+    
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 3 {
+            return NSLocalizedString("controller_edit_profile_private_graffiti_description", comment: "")
+        }
+        
+        return nil
+    }
+    
     // MARK: - Setup
     
     override func setupTopBar() {
@@ -312,5 +338,17 @@ class EditProfileViewController: BackButtonTableViewController {
     
     func setupImageViews() {
         cover.layer.cornerRadius = 5
+    }
+    
+    func setupLabels() {
+        avatarLbl.text = NSLocalizedString("controller_edit_profile_avatar", comment: "")
+        coverLbl.text = NSLocalizedString("controller_edit_profile_cover", comment: "")
+        changePasswordLbl.text = NSLocalizedString("controller_settings_change_password", comment: "")
+        firstNameLbl.text = NSLocalizedString("controller_sign_up_first_name", comment: "")
+        lastnameField.text = NSLocalizedString("controller_sign_up_last_name", comment: "")
+        emailLbl.text = NSLocalizedString("controller_pasword_reset_email", comment: "")
+        aboutLbl.text = NSLocalizedString("controller_settings_about", comment: "")
+        websiteLbl.text = NSLocalizedString("controller_edit_profile_website", comment: "")
+        privateGraffitiLbl.text = NSLocalizedString("controller_edit_profile_private_graffiti", comment: "")
     }
 }

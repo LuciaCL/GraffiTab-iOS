@@ -14,12 +14,15 @@ class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate
 
     @IBOutlet weak var resetBtn: UIButton!
     @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var resetPasswordLbl: UILabel!
+    @IBOutlet weak var resetPasswordDescriptionLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        setupLabels()
         setupButtons()
         
         configureCharacterBasedViews()
@@ -112,6 +115,13 @@ class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate
     // MARK: - Setup
     
     func setupButtons() {
+        resetBtn.setTitle(NSLocalizedString("controller_pasword_reset_reset", comment: ""), forState: .Normal)
         resetBtn.layer.cornerRadius = 3
+    }
+    
+    func setupLabels() {
+        resetPasswordLbl.text = NSLocalizedString("controller_pasword_reset", comment: "")
+        resetPasswordDescriptionLbl.text = NSLocalizedString("controller_pasword_reset_description", comment: "")
+        emailField.placeholder = NSLocalizedString("controller_pasword_reset_email", comment: "")
     }
 }

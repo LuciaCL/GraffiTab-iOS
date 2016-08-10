@@ -10,6 +10,9 @@ import UIKit
 
 class AboutViewController: GeneralSettingsViewController {
 
+    @IBOutlet weak var releaseInfoLbl: UILabel!
+    @IBOutlet weak var versionLbl: UILabel!
+    @IBOutlet weak var buildLbl: UILabel!
     @IBOutlet weak var versionCell: UITableViewCell!
     @IBOutlet weak var buildCell: UITableViewCell!
     
@@ -17,6 +20,8 @@ class AboutViewController: GeneralSettingsViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        setupLabels()
         
         loadInfo()
     }
@@ -43,5 +48,29 @@ class AboutViewController: GeneralSettingsViewController {
         if indexPath.section == 0 {
             showInfoViewController(NSLocalizedString("controller_about_release_notes", comment: ""), file: NSBundle.mainBundle().pathForResource("release_notes", ofType: "html")!)
         }
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            return NSLocalizedString("controller_about_version_info", comment: "")
+        }
+        
+        return nil
+    }
+    
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 1 {
+            return NSLocalizedString("controller_about_copyright", comment: "")
+        }
+        
+        return nil
+    }
+    
+    // MARK: - Setup
+    
+    func setupLabels() {
+        releaseInfoLbl.text = NSLocalizedString("controller_about_release_info", comment: "")
+        versionLbl.text = NSLocalizedString("controller_about_version", comment: "")
+        buildLbl.text = NSLocalizedString("controller_about_build", comment: "")
     }
 }

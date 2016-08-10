@@ -294,7 +294,10 @@
                     <navigationItem key="navigationItem" id="Lnd-HM-8dD"/>
                     <connections>
                         <outlet property="facebookBtn" destination="XOy-tl-DJb" id="pO9-jJ-Zv1"/>
+                        <outlet property="facebookLoginLbl" destination="sra-bX-ffG" id="9Mv-3v-Faw"/>
+                        <outlet property="forgotPasswordLbl" destination="Hl0-xa-ieZ" id="z7W-Ak-wZ1"/>
                         <outlet property="loginBtn" destination="M6L-eM-zgn" id="gUg-55-8iH"/>
+                        <outlet property="loginLbl" destination="Rnz-tN-ljE" id="2MY-6Q-UZ8"/>
                         <outlet property="passwordField" destination="tDK-DG-v7D" id="cjb-2h-E4o"/>
                         <outlet property="signUpLbl" destination="5Aq-qb-0iw" id="oTc-Go-VXR"/>
                         <outlet property="usernameField" destination="2Xg-7Z-0FJ" id="UXQ-nO-jcL"/>
@@ -454,6 +457,8 @@
                     <connections>
                         <outlet property="emailField" destination="DYb-Xu-SfE" id="FXk-TU-ezu"/>
                         <outlet property="resetBtn" destination="Kgv-Pe-emv" id="07g-wf-H72"/>
+                        <outlet property="resetPasswordDescriptionLbl" destination="Hyk-lk-4QG" id="tjF-ja-g9d"/>
+                        <outlet property="resetPasswordLbl" destination="NRH-DN-mfZ" id="VNO-tq-bn3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bxJ-di-enW" userLabel="First Responder" sceneMemberID="firstResponder"/>

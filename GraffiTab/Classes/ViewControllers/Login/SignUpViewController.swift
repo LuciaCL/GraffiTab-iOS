@@ -147,6 +147,13 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
     }
     
     func setupTextFields() {
+        firstnameField.placeholder = NSLocalizedString("controller_sign_up_first_name", comment: "")
+        lastnameField.placeholder = NSLocalizedString("controller_sign_up_last_name", comment: "")
+        emailField.placeholder = NSLocalizedString("controller_pasword_reset_email", comment: "")
+        usernameField.placeholder = NSLocalizedString("controller_login_username", comment: "")
+        passwordField.placeholder = NSLocalizedString("controller_login_password", comment: "")
+        confirmPasswordField.placeholder = NSLocalizedString("controller_sign_up_confirm_password", comment: "")
+        
         firstnameField.attributedPlaceholder = NSAttributedString(string:firstnameField.placeholder!, attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.7)])
         lastnameField.attributedPlaceholder = NSAttributedString(string:lastnameField.placeholder!, attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.7)])
         emailField.attributedPlaceholder = NSAttributedString(string:emailField.placeholder!, attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.7)])
@@ -156,6 +163,8 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
     }
     
     func setupLabels() {
+        termsLbl.text = NSLocalizedString("controller_sign_up_terms", comment: "")
+        
         let title = termsLbl.text! as String
         let attString = NSMutableAttributedString(string: title)
         let range = (title as NSString).rangeOfString(NSLocalizedString("controller_terms_title", comment: ""))
@@ -164,6 +173,7 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
     }
     
     func setupButtons() {
+        signupBtn.setTitle(NSLocalizedString("controller_sign_up", comment: ""), forState: .Normal)
         signupBtn.layer.cornerRadius = 3
     }
 }
