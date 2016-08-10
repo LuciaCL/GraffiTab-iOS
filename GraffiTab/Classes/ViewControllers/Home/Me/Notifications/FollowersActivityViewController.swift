@@ -270,11 +270,11 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
     }
     
     func getEmptyDataSetTitle() -> String {
-        return "No activity"
+        return NSLocalizedString("controller_activity_empty_title", comment: "")
     }
     
     func getEmptyDataSetDescription() -> String {
-        return "Looks like we don't have any activity to display yet. Please come back again."
+        return NSLocalizedString("controller_activity_empty_description", comment: "")
     }
     
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {

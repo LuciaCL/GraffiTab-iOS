@@ -188,8 +188,8 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     override func buildActionSheet(title: String?) -> AHKActionSheet {
         let actionSheet = super.buildActionSheet(title)
         if imageType == .Avatar {
-            actionSheet.addButtonWithTitle("Import from Facebook", image: UIImage(named: "facebook"), type: self.user!.isLinkedAccount(.FACEBOOK) ? .Default : .Disabled) { (sheet) in
-                self.view.showActivityViewWithLabel("Processing")
+            actionSheet.addButtonWithTitle(NSLocalizedString("controller_avatar_prompt_import_from_facebook", comment: ""), image: UIImage(named: "facebook"), type: self.user!.isLinkedAccount(.FACEBOOK) ? .Default : .Disabled) { (sheet) in
+                self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
                 self.view.rn_activityView.dimBackground = false
                 
                 GTMeManager.importAvatar(.FACEBOOK, successBlock: { (response) -> Void in
@@ -198,7 +198,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
                     self.header?.item = GTMeManager.sharedInstance.loggedInUser
                     
                     Utils.runWithDelay(0.3) { () in
-                        DialogBuilder.showSuccessAlert(self, status: "Avatar updated!", title: App.Title)
+                        DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_avatar_success", comment: ""), title: App.Title)
                     }
                 }, failureBlock: { (response) -> Void in
                     self.view.hideActivityView()
@@ -217,7 +217,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             self.header?.item = GTMeManager.sharedInstance.loggedInUser
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert(self, status: "Avatar updated!", title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_avatar_success", comment: ""), title: App.Title)
             }
         }
         let coverSuccessBlock = {
@@ -226,13 +226,13 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             self.header?.item = GTMeManager.sharedInstance.loggedInUser
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert(self, status: "Banner updated!", title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_cover_success", comment: ""), title: App.Title)
             }
         }
         
         if image != nil { // Saving a new image.
             if imageType == .Avatar {
-                self.view.showActivityViewWithLabel("Processing")
+                self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
                 self.view.rn_activityView.dimBackground = false
                 
                 GTMeManager.editAvatar(image!, successBlock: { (response) in
@@ -244,7 +244,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
                 })
             }
             else {
-                self.view.showActivityViewWithLabel("Processing")
+                self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
                 self.view.rn_activityView.dimBackground = false
                 
                 GTMeManager.editCover(image!, successBlock: { (response) in
@@ -258,7 +258,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         }
         else { // Removing an image.
             if imageType == .Avatar {
-                self.view.showActivityViewWithLabel("Processing")
+                self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
                 self.view.rn_activityView.dimBackground = false
                 
                 GTMeManager.deleteAvatar({ (response) in
@@ -270,7 +270,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
                 })
             }
             else {
-                self.view.showActivityViewWithLabel("Processing")
+                self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
                 self.view.rn_activityView.dimBackground = false
                 
                 GTMeManager.deleteCover({ (response) in
@@ -449,7 +449,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     }
     
     override func getEmptyDataSetDescription() -> String! {
-        return "No graffiti"
+        return NSLocalizedString("controller_streamables_no_graffiti", comment: "")
     }
     
     override func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {

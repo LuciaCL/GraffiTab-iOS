@@ -52,10 +52,10 @@ class StreamableListFullCell: StreamableCell {
     }
     
     func setStats() {
-        self.likesLbl.text = String(format: "%i %@", item!.likersCount!, item!.likersCount! == 1 ? "Like" : "Likes");
-        self.commentsLbl.text = String(format: "%i %@", item!.commentsCount!, item!.commentsCount! == 1 ? "Comment" : "Comments");
+        self.likesLbl.text = String(format: "%i %@", item!.likersCount!, item!.likersCount! == 1 ? NSLocalizedString("cell_streamable_like", comment: "") : NSLocalizedString("cell_streamable_likes", comment: ""));
+        self.commentsLbl.text = String(format: "%i %@", item!.commentsCount!, item!.commentsCount! == 1 ? NSLocalizedString("cell_streamable_comment", comment: "") : NSLocalizedString("cell_streamable_comments", comment: ""));
         
-        self.likeBtn.setTitle(item!.likedByCurrentUser! ? "Liked" : "Like", forState: .Normal)
+        self.likeBtn.setTitle(item!.likedByCurrentUser! ? NSLocalizedString("cell_streamable_liked", comment: "") : NSLocalizedString("cell_streamable_like", comment: ""), forState: .Normal)
         self.likeBtn.tintColor = item!.likedByCurrentUser! ? UIColor(hexString: Colors.Green) : UIColor(hexString: Colors.Main)
         self.likeBtn.setTitleColor(self.likeBtn.tintColor, forState: .Normal)
     }

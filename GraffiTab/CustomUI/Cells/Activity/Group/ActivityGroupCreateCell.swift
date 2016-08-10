@@ -17,8 +17,8 @@ class ActivityGroupCreateCell: ActivityGroupCell {
     }
     
     override func getActionText() -> NSAttributedString? {
-        let targetText = String(format: "%li graffiti", item!.activities!.count)
-        let text = String(format: "%@ created %@.", item!.user!.getFullName(), targetText)
+        let targetText = String(format: NSLocalizedString("cell_activity_graffiti", comment: ""), item!.activities!.count)
+        let text = String(format: NSLocalizedString("cell_activity_created", comment: ""), item!.user!.getFullName(), targetText)
         
         let attString = NSMutableAttributedString(string: text)
         var range = (text as NSString).rangeOfString(item!.user!.getFullName())

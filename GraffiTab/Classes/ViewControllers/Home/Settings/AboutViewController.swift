@@ -41,7 +41,7 @@ class AboutViewController: GeneralSettingsViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         if indexPath.section == 0 {
-            showInfoViewController("Release notes", file: NSBundle.mainBundle().pathForResource("release_notes", ofType: "html")!)
+            showInfoViewController(NSLocalizedString("controller_about_release_notes", comment: ""), file: NSBundle.mainBundle().pathForResource("release_notes", ofType: "html")!)
         }
     }
 }

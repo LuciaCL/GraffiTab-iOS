@@ -48,13 +48,13 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
             // Register analytics events.
             AnalyticsUtils.sendAppEvent("profile_change_password", label: nil)
             
-            self.view.showActivityViewWithLabel("Processing")
+            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
             self.view.rn_activityView.dimBackground = false
             
             GTMeManager.editPassword(p!, newPassword: np!, successBlock: { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showSuccessAlert(self, status: "Your password has been changed!", title: App.Title, okAction: {
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_passwort_success", comment: ""), title: App.Title, okAction: {
                     self.navigationController?.popViewControllerAnimated(true)
                 })
             }, failureBlock: { (response) in
@@ -86,12 +86,12 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = "Edit password"
+        self.title = NSLocalizedString("controller_edit_passwort", comment: "")
         
         let button = UIButton(type: .Custom)
         button.frame = CGRectMake(0, 0, 50, 30)
         button.layer.cornerRadius = 3
-        button.setTitle("Save", forState: .Normal)
+        button.setTitle(NSLocalizedString("other_save", comment: ""), forState: .Normal)
         button.backgroundColor = UIColor(hexString: Colors.Orange)
         button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         button.titleLabel?.font = UIFont.boldSystemFontOfSize(15)

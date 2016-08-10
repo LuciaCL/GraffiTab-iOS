@@ -13,7 +13,7 @@ class MenuViewController: BackButtonViewController, UITableViewDelegate, UITable
     @IBOutlet weak var tableView: UITableView!
     
     var rowHeight: CGFloat = 50
-    var rowTitles: [String] = ["Profile", "Locations", "Search", "Settings"]
+    var rowTitles: [String] = [NSLocalizedString("controller_menu_profile", comment: ""), NSLocalizedString("controller_menu_locations", comment: ""), NSLocalizedString("controller_menu_search", comment: ""), NSLocalizedString("controller_menu_settings", comment: "")]
     var rowIcons: [String] = ["user_male4", "map_marker", "search", "settings"]
     var badgeValue: Int = 0 {
         didSet {

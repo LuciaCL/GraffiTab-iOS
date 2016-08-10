@@ -41,17 +41,17 @@ class FeedViewController: ListFullStreamablesViewController {
     // MARK: - DZNEmptyDataSetDelegate
     
     override func getEmptyDataSetTitle() -> String! {
-        return "Your feed is empty"
+        return NSLocalizedString("controller_feed_empty_title", comment: "")
     }
     
     override func getEmptyDataSetDescription() -> String! {
-        return "How about drawing your first sketch?"
+        return NSLocalizedString("controller_feed_empty_description", comment: "")
     }
     
     func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
         let attributes = [NSFontAttributeName:UIFont.boldSystemFontOfSize(17), NSForegroundColorAttributeName:UIColor(hexString: Colors.Main)! as UIColor]
         
-        return NSAttributedString(string: "Draw", attributes: attributes)
+        return NSAttributedString(string: NSLocalizedString("controller_feed_draw", comment: ""), attributes: attributes)
     }
     
     func emptyDataSetDidTapButton(scrollView: UIScrollView!) {

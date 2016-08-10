@@ -47,7 +47,7 @@ class SettingsViewController: GeneralSettingsViewController {
         // Register analytics events.
         AnalyticsUtils.sendAppEvent("logout", label: nil)
         
-        self.view.showActivityViewWithLabel("Processing")
+        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
         self.view.rn_activityView.dimBackground = false
         
         GTUserManager.logout({ (response) in
@@ -74,7 +74,7 @@ class SettingsViewController: GeneralSettingsViewController {
         }
         
         if !isLinkedFacebook {
-            self.view.showActivityViewWithLabel("Processing")
+            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
             self.view.rn_activityView.dimBackground = false
             
             loginToFacebookWithSuccess(false, successBlock: { (userId, token, email, firstName, lastName) in
@@ -100,7 +100,7 @@ class SettingsViewController: GeneralSettingsViewController {
                 self.view.hideActivityView()
                 
                 DDLogError("Failed to login with Facebook - \(error)")
-                DialogBuilder.showErrorAlert(self, status: "Could not login to Facebook", title: App.Title)
+                DialogBuilder.showErrorAlert(self, status: NSLocalizedString("controller_linked_accounts_facebook_login_error", comment: ""), title: App.Title)
             })
         }
         else {
@@ -149,8 +149,8 @@ class SettingsViewController: GeneralSettingsViewController {
         }
         else if indexPath.section == 2 {
             if indexPath.row == 1 { // Clear app cache.
-                let actionSheet = buildActionSheet("Are you sure you want to clear the app's cache? Clearing the cache will force the app to re-download all images and may incur additional charges if you are not using WiFi.")
-                actionSheet.addButtonWithTitle("Clear Cache", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+                let actionSheet = buildActionSheet(NSLocalizedString("controller_settings_clear_cache_prompt", comment: ""))
+                actionSheet.addButtonWithTitle(NSLocalizedString("controller_settings_clear_cache", comment: ""), image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
                     AppImageCache.sharedInstance.clearDiskCache()
                 }
                 actionSheet.show()
@@ -171,16 +171,16 @@ class SettingsViewController: GeneralSettingsViewController {
         }
         else if indexPath.section == 4 {
             if indexPath.row == 0 { // Terms.
-                showInfoViewController("Terms of Use", file: NSBundle.mainBundle().pathForResource("terms", ofType: "html")!)
+                showInfoViewController(NSLocalizedString("controller_terms_title", comment: ""), file: NSBundle.mainBundle().pathForResource("terms", ofType: "html")!)
             }
             else if indexPath.row == 1 { // EULA.
-                showInfoViewController("End User License Agreement", file: NSBundle.mainBundle().pathForResource("eula", ofType: "html")!)
+                showInfoViewController(NSLocalizedString("controller_settings_eula", comment: ""), file: NSBundle.mainBundle().pathForResource("eula", ofType: "html")!)
             }
         }
         else if indexPath.section == 5 {
             if indexPath.row == 0 { // Logout.
-                let actionSheet = buildActionSheet("Are you sure you want to log out?")
-                actionSheet.addButtonWithTitle("Log out", image: UIImage(named: "ic_exit_to_app_white"), type: .Destructive) { (sheet) in
+                let actionSheet = buildActionSheet(NSLocalizedString("controller_settings_logout_prompt", comment: ""))
+                actionSheet.addButtonWithTitle(NSLocalizedString("controller_settings_logout", comment: ""), image: UIImage(named: "ic_exit_to_app_white"), type: .Destructive) { (sheet) in
                     self.onClickLogout()
                 }
                 actionSheet.show()

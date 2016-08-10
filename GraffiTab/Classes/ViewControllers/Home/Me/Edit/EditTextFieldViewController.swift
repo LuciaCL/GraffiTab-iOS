@@ -43,7 +43,7 @@ class EditTextFieldViewController: BackButtonTableViewController, UITextFieldDel
 
     func onClickDone() {
         if !allowEmpty! && textField.text?.characters.count <= 0 {
-            DialogBuilder.showErrorAlert(self, status: "This field cannot be empty.", title: App.Title)
+            DialogBuilder.showErrorAlert(self, status: NSLocalizedString("controller_edit_text_mandatory", comment: ""), title: App.Title)
             return
         }
         
@@ -73,12 +73,12 @@ class EditTextFieldViewController: BackButtonTableViewController, UITextFieldDel
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = "Edit"
+        self.title = NSLocalizedString("other_edit", comment: "")
         
         let button = UIButton(type: .Custom)
         button.frame = CGRectMake(0, 0, 50, 30)
         button.layer.cornerRadius = 3
-        button.setTitle("Done", forState: .Normal)
+        button.setTitle(NSLocalizedString("other_done", comment: ""), forState: .Normal)
         button.backgroundColor = UIColor(hexString: Colors.Orange)
         button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         button.titleLabel?.font = UIFont.boldSystemFontOfSize(15)

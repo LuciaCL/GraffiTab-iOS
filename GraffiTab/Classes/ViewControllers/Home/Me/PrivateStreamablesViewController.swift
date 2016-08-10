@@ -29,6 +29,6 @@ class PrivateStreamablesViewController: ToggleStreamablesViewController {
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = "Private Graffiti"
+        self.title = NSLocalizedString("controller_private", comment: "")
     }
 }

@@ -35,6 +35,6 @@ class UserLikedStreamablesViewController: ToggleStreamablesViewController {
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = "Likes"
+        self.title = NSLocalizedString("controller_likes", comment: "")
     }
 }

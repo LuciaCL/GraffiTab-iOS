@@ -16,25 +16,25 @@ class DateUtils: NSObject {
         
         var date = "";
         if components.year > 0 {
-            date = String(format: "%liy", components.year)
+            date = String(format: NSLocalizedString("date_y", comment: ""), components.year)
         }
         else if components.month > 0 {
-            date = String(format: "%limo", components.month)
+            date = String(format: NSLocalizedString("date_month", comment: ""), components.month)
         }
         else if components.day > 0 {
-            date = String(format: "%lid", components.day)
+            date = String(format: NSLocalizedString("date_d", comment: ""), components.day)
         }
         else if components.hour > 0 {
-            date = String(format: "%lih", components.hour)
+            date = String(format: NSLocalizedString("date_h", comment: ""), components.hour)
         }
         else if components.minute > 0 {
-            date = String(format: "%lim", components.minute)
+            date = String(format: NSLocalizedString("date_m", comment: ""), components.minute)
         }
         else if components.second > 0 {
-            date = String(format: "%lis", components.second)
+            date = String(format: NSLocalizedString("date_s", comment: ""), components.second)
         }
         else {
-            date = "now"
+            date = NSLocalizedString("date_now", comment: "")
         }
         
         return date
@@ -46,22 +46,22 @@ class DateUtils: NSObject {
         
         var date = "";
         if components.year > 0 {
-            date = String(format: "%li year%@ ago", components.year, components.year != 1 ? "s" : "")
+            date = String(format: NSLocalizedString("date_time_ago", comment: ""), components.year, components.year != 1 ? NSLocalizedString("date_years", comment: "") : NSLocalizedString("date_year", comment: ""))
         }
         else if components.month > 0 {
-            date = String(format: "%li month%@ ago", components.month, components.month != 1 ? "s" : "")
+            date = String(format: NSLocalizedString("date_time_ago", comment: ""), components.month, components.month != 1 ? NSLocalizedString("date_months", comment: "") : NSLocalizedString("date_month", comment: ""))
         }
         else if components.day > 0 {
-            date = String(format: "%li day%@ ago", components.day, components.day != 1 ? "s" : "")
+            date = String(format: NSLocalizedString("date_time_ago", comment: ""), components.day, components.day != 1 ? NSLocalizedString("date_days", comment: "") : NSLocalizedString("date_day", comment: ""))
         }
         else if components.hour > 0 {
-            date = String(format: "%li hour%@ ago", components.hour, components.hour != 1 ? "s" : "")
+            date = String(format: NSLocalizedString("date_time_ago", comment: ""), components.hour, components.hour != 1 ? NSLocalizedString("date_hours", comment: "") : NSLocalizedString("date_hour", comment: ""))
         }
         else if components.minute > 0 {
-            date = String(format: "%li minute%@ ago", components.minute, components.minute != 1 ? "s" : "")
+            date = String(format: NSLocalizedString("date_time_ago", comment: ""), components.minute, components.minute != 1 ? NSLocalizedString("date_minutes", comment: "") : NSLocalizedString("date_minute", comment: ""))
         }
         else {
-            date = "Just now"
+            date = NSLocalizedString("date_just_now", comment: "")
         }
         
         return date

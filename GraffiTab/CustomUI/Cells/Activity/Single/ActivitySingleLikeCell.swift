@@ -17,7 +17,7 @@ class ActivitySingleLikeCell: ActivitySingleCell {
     
     override func getActionText() -> NSAttributedString? {
         let activity = item?.activities?.first
-        let text = String(format: "%@ likes %@'s graffiti.", item!.user!.getFullName(), activity!.likedStreamable!.user!.getFullName())
+        let text = String(format: NSLocalizedString("cell_activity_likes_single", comment: ""), item!.user!.getFullName(), activity!.likedStreamable!.user!.getFullName())
         
         let attString = NSMutableAttributedString(string: text)
         var range = (text as NSString).rangeOfString(item!.user!.getFullName())

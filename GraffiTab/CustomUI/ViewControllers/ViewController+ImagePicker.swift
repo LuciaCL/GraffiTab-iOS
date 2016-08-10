@@ -16,15 +16,15 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
         
-        let actionSheet = buildActionSheet("Choose image source")
-        actionSheet.addButtonWithTitle("Choose from photos", image: UIImage(named: "ic_collections_white"), type: .Default) { (sheet) in
+        let actionSheet = buildActionSheet(NSLocalizedString("controller_image_picker_prompt", comment: ""))
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_image_picker_photos", comment: ""), image: UIImage(named: "ic_collections_white"), type: .Default) { (sheet) in
             self.chooseFromGallery(imagePicker)
         }
-        actionSheet.addButtonWithTitle("Take a picture", image: UIImage(named: "ic_photo_camera_white"), type: .Default) { (sheet) in
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_image_picker_take_picture", comment: ""), image: UIImage(named: "ic_photo_camera_white"), type: .Default) { (sheet) in
             self.takeNew(imagePicker)
         }
-        actionSheet.addButtonWithTitle("Remove image", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
-            DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to clear this image?", title: App.Title, yesTitle: "Yes, clear it!", noTitle: "Cancel", yesAction: { 
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_image_picker_remove", comment: ""), image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+            DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_image_picker_remove_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_image_picker_remove_prompt_yes", comment: ""), noTitle: NSLocalizedString("controller_image_picker_remove_prompt_cancel", comment: ""), yesAction: {
                 self.didChooseImage(nil)
             }, noAction: { 
                 

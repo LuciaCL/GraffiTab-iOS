@@ -52,7 +52,7 @@ class LinkedAccountsViewController: BackButtonTableViewController {
         }
         
         if !isLinkedFacebook {
-            self.view.showActivityViewWithLabel("Processing")
+            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
             self.view.rn_activityView.dimBackground = false
             
             loginToFacebookWithSuccess(false, successBlock: { (userId, token, email, firstName, lastName) in
@@ -78,7 +78,7 @@ class LinkedAccountsViewController: BackButtonTableViewController {
                 self.view.hideActivityView()
                 
                 DDLogError("Failed to login with Facebook - \(error)")
-                DialogBuilder.showErrorAlert(self, status: "Could not login to Facebook", title: App.Title)
+                DialogBuilder.showErrorAlert(self, status: NSLocalizedString("controller_linked_accounts_facebook_login_error", comment: ""), title: App.Title)
             })
         }
         else {
@@ -138,6 +138,6 @@ class LinkedAccountsViewController: BackButtonTableViewController {
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = "Linked Accounts"
+        self.title = NSLocalizedString("controller_linked_accounts", comment: "")
     }
 }

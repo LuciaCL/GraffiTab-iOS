@@ -58,19 +58,19 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to create location")
         
         if lastPlacemark == nil {
-            DialogBuilder.showErrorAlert(self, status: "Select a location first.", title: App.Title)
+            DialogBuilder.showErrorAlert(self, status: NSLocalizedString("controller_create_location_not_selected", comment: ""), title: App.Title)
         }
         else {
             // Register analytics events.
             AnalyticsUtils.sendAppEvent("location_create", label: nil)
             
-            self.view.showActivityViewWithLabel("Processing")
+            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
             self.view.rn_activityView.dimBackground = false
             
             let success = {
                 self.view.hideActivityView()
                 
-                DialogBuilder.showSuccessAlert(self, status: "Location saved successfully!", title: App.Title, okAction: {
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_create_location_saved", comment: ""), title: App.Title, okAction: {
                     Utils.runWithDelay(0.3, block: {
                         self.onClickBack(nil)
                     })
@@ -151,7 +151,7 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
     // MARK: - Search
     
     func searchLocationForAddress(address: String) {
-        self.view.showActivityViewWithLabel("Processing")
+        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
         self.view.rn_activityView.dimBackground = false
         
         let request = MKLocalSearchRequest()
@@ -163,11 +163,11 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
             
             let placemarks = response?.mapItems
             if placemarks?.count <= 0 {
-                DialogBuilder.showOKAlert(self, status: "No locations found for this address.", title: App.Title)
+                DialogBuilder.showOKAlert(self, status: NSLocalizedString("controller_create_location_none", comment: ""), title: App.Title)
             }
             
             if placemarks?.count > 1 { // More than 1 address matches found. Ask user which one to use.
-                DialogBuilder.showOKAlert(self, status: "Multiple matches found. The first one will be used.", title: App.Title, okAction: {
+                DialogBuilder.showOKAlert(self, status: NSLocalizedString("controller_create_location_multiple", comment: ""), title: App.Title, okAction: {
                     let mapItem = placemarks?.first
                     self.zoomMapToLocation(mapItem!.placemark.location!)
                 })

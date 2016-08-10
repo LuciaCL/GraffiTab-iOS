@@ -40,7 +40,7 @@ class WebViewController: BackButtonViewController {
             let text = try String(contentsOfFile: filePath!)
             webView.loadHTMLString(text, baseURL: nil)
         } catch {
-            DialogBuilder.showErrorAlert(self, status: "Could not open file.", title: App.Title)
+            DialogBuilder.showErrorAlert(self, status: NSLocalizedString("controller_web_file_error", comment: ""), title: App.Title)
         }
     }
 }

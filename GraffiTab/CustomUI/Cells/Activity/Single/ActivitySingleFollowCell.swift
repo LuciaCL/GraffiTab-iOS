@@ -22,7 +22,7 @@ class ActivitySingleFollowCell: ActivitySingleCell {
     
     override func getActionText() -> NSAttributedString? {
         let activity = item?.activities?.first
-        let text = String(format: "%@ started following %@.", item!.user!.getFullName(), activity!.followed!.getFullName())
+        let text = String(format: NSLocalizedString("cell_activity_following", comment: ""), item!.user!.getFullName(), activity!.followed!.getFullName())
         
         let attString = NSMutableAttributedString(string: text)
         var range = (text as NSString).rangeOfString(item!.user!.getFullName())

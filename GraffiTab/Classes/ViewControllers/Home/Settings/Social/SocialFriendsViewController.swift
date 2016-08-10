@@ -32,13 +32,13 @@ class SocialFriendsViewController: TrendingUsersViewController {
         super.setupTopBar()
         
         if accountProvider == .FACEBOOK {
-            self.title = "Facebook Friends"
+            self.title = NSLocalizedString("controller_social_friends_facebook", comment: "")
         }
         else if accountProvider == .TWITTER {
-            self.title = "Twitter Friends"
+            self.title = NSLocalizedString("controller_social_friends_twitter", comment: "")
         }
         else if accountProvider == .GOOGLE {
-            self.title = "Google Friends"
+            self.title = NSLocalizedString("controller_social_friends_google", comment: "")
         }
     }
 }

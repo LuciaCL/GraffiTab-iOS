@@ -152,7 +152,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         hideSkipBtn()
         self.stopGestureAssistant()
         
-        DialogBuilder.showOKAlert(self, status: "Ready to draw? No problem, you can enable the tutorial again from Settings.", title: App.Title)
+        DialogBuilder.showOKAlert(self, status: NSLocalizedString("controller_create_skip_description", comment: ""), title: App.Title)
     }
     
     @IBAction func onClickPublish(sender: AnyObject?) {
@@ -206,7 +206,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             }
             
             let saveBlock = {
-                self.view.showActivityViewWithLabel("Processing")
+                self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
                 self.view.rn_activityView.dimBackground = false
                 
                 if self.toEdit != nil {
@@ -226,7 +226,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             }
             
             if location == nil {
-                DialogBuilder.showYesNoAlert(self, status: "Your location could not be determined right now. Would you like to still publish this post?", title: App.Title, yesTitle: "Yes, publish it", yesAction: {
+                DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_create_location_unavailable", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_create_location_unavailable_yes", comment: ""), yesAction: {
                     // Register analytics events.
                     AnalyticsUtils.sendAppEvent("attempting_to_publish_without_location", label: nil)
                     
@@ -267,7 +267,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         // Register analytics events.
         AnalyticsUtils.sendAppEvent("saving", label: "Saving canvas snapshot")
         
-        self.view.showActivityViewWithLabel("Processing")
+        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
         self.view.rn_activityView.dimBackground = false
         
         let sampleImage = self.canvas?.grabFrame()
@@ -281,7 +281,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                 self.view.hideActivityView()
                 
                 Utils.runWithDelay(0.3, block: {
-                    DialogBuilder.showSuccessAlert(self, status: "Your graffiti was saved in your photos album", title: App.Title)
+                    DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_create_saved", comment: ""), title: App.Title)
                 })
             })
         })
@@ -300,20 +300,20 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         configureUIComponentsForTutorial(nil, showAll: true)
         
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Showing publish options")
-        let actionSheet = buildActionSheet("Looks great! How about sharing it with the rest of the world?")
-        actionSheet.addButtonWithTitle("Publish", image: UIImage(named: "ic_done_white"), type: .Default) { (sheet) in
+        let actionSheet = buildActionSheet(NSLocalizedString("controller_create_share_prompt", comment: ""))
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_share_publish", comment: ""), image: UIImage(named: "ic_done_white"), type: .Default) { (sheet) in
             self.hideMenu({
                 self.onClickPublish(nil)
             })
         }
-        actionSheet.addButtonWithTitle("Share", image: UIImage(named: "ic_share_white"), type: .Default) { (sheet) in
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_share", comment: ""), image: UIImage(named: "ic_share_white"), type: .Default) { (sheet) in
             self.onClickShare(nil)
         }
-        actionSheet.addButtonWithTitle("Save to Photos Album", image: UIImage(named: "ic_file_download_white"), type: .Default) { (sheet) in
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_share_save", comment: ""), image: UIImage(named: "ic_file_download_white"), type: .Default) { (sheet) in
             self.onClickSave(nil)
         }
-        actionSheet.addButtonWithTitle("Discard", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
-            DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to discard this drawing? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, discard it!", noTitle: "Cancel", yesAction: {
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_share_discard", comment: ""), image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+            DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_create_share_discard_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_create_share_discard_prompt_yes", comment: ""), noTitle: NSLocalizedString("other_cancel", comment: ""), yesAction: {
                 // Register analytics events.
                 AnalyticsUtils.sendAppEvent("discard", label: nil)
                 
@@ -382,23 +382,23 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             let indexPath = toolCollectionView.indexPathForItemAtPoint(p)
             if indexPath != nil {
                 if indexPath?.row == 0 {
-                    let actionSheet = buildActionSheet("What would you like to do?")
-                    actionSheet.addButtonWithTitle("Clear drawing layer", type: .Default) { (sheet) in
-                        DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to clear your drawing? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, clear it!", noTitle: "Cancel", yesAction: {
+                    let actionSheet = buildActionSheet(NSLocalizedString("controller_create_clear_description", comment: ""))
+                    actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_clear_drawing_layer", comment: ""), type: .Default) { (sheet) in
+                        DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_create_clear_drawing_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_create_clear_prompt_yes", comment: ""), noTitle: NSLocalizedString("other_cancel", comment: ""), yesAction: {
                             self.canvas!.clearDrawingLayer()
                         }, noAction: {
                                 
                         })
                     }
-                    actionSheet.addButtonWithTitle("Clear background layer", type: .Default) { (sheet) in
-                        DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to clear the background image? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, clear it!", noTitle: "Cancel", yesAction: {
+                    actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_clear_background_layer", comment: ""), type: .Default) { (sheet) in
+                        DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_create_clear_background_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_create_clear_prompt_yes", comment: ""), noTitle: NSLocalizedString("other_cancel", comment: ""), yesAction: {
                             self.canvas!.clearBackground()
                         }, noAction: {
                                 
                         })
                     }
-                    actionSheet.addButtonWithTitle("Clear everything", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
-                        DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to clear your drawing? Any unsaved progress will be lost.", title: App.Title, yesTitle: "Yes, clear it!", noTitle: "Cancel", yesAction: {
+                    actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_clear_everything", comment: ""), image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+                        DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_create_clear_drawing_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_create_clear_prompt_yes", comment: ""), noTitle: NSLocalizedString("other_cancel", comment: ""), yesAction: {
                             self.canvas!.clearCanvas()
                         }, noAction: {
                                 
@@ -556,7 +556,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             case .Intro:
                 configureUIComponentsForTutorial(CCDirector.sharedDirector().view, showAll: false)
                 
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.view, text: "Drawing with the canvas is quick and easy. Tap on the screen to get started!", afterIdleInterval: 0, completion: {finished in
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.view, text: NSLocalizedString("controller_create_assistant_intro", comment: ""), afterIdleInterval: 0, completion: {finished in
                     self.showNextDrawingAssistantScreen()
                 })
                 break
@@ -565,61 +565,61 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                 
                 var text: String = ""
                 if state == .DrawLine {
-                    text = "You can draw by sliding your finger on the screen. Give it a try!"
+                    text = NSLocalizedString("controller_create_assistant_line", comment: "")
                 }
                 else if state == .DrawToolLine {
-                    text = "Great tool choice. Lets see it in action!"
+                    text = NSLocalizedString("controller_create_assistant_line_tool", comment: "")
                 }
                 else if state == .DrawStrokeLine {
-                    text = "Give that new brush a try!"
+                    text = NSLocalizedString("controller_create_assistant_line_stroke", comment: "")
                 }
                 else if state == .DrawColorLine {
-                    text = "That color looks nice. Why don't you give it a try?"
+                    text = NSLocalizedString("controller_create_assistant_line_color", comment: "")
                 }
                 self.showGestureAssistantForSwipeDirection(PAGestureAssistantSwipeDirectonDown, text: text, afterIdleInterval: 0.5)
                 break
             case .Color:
                 configureUIComponentsForTutorial(onCanvasColorBtn, showAll: false)
                 
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasColorBtn, text: "Drawing lines is fun but it's even nicer with colors. Tap on the palette to choose a different color.", afterIdleInterval: 0.3)
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasColorBtn, text: NSLocalizedString("controller_create_assistant_color", comment: ""), afterIdleInterval: 0.3)
                 break
             case .Stroke:
                 configureUIComponentsForTutorial(onCanvasTuneBtn, showAll: false)
                 
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasTuneBtn, text: "In addition to colors you can also control the width and opacity of the current brush. Tap the brush settings to check it out.", afterIdleInterval: 0.3)
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasTuneBtn, text: NSLocalizedString("controller_create_assistant_stroke", comment: ""), afterIdleInterval: 0.3)
                 break
             case .Menu:
                 configureUIComponentsForTutorial(onCanvasMenuBtn, showAll: false)
                 
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasMenuBtn, text: "So far so good but what's a great artist without his brushes? Let's see what you've got in your toolbox.", afterIdleInterval: 0.3)
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.onCanvasMenuBtn, text: NSLocalizedString("controller_create_assistant_menu", comment: ""), afterIdleInterval: 0.3)
                 break
             case .Tool:
                 configureUIComponentsForTutorial(toolCollectionView, showAll: false)
                 
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.toolCollectionView, text: "These are your available tools. Tap on a different tool to continue.", afterIdleInterval: 0.3)
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.toolCollectionView, text: NSLocalizedString("controller_create_assistant_tool", comment: ""), afterIdleInterval: 0.3)
                 break
             case .Eraser:
                 configureUIComponentsForTutorial(toolCollectionView, showAll: false)
                 
                 let cell = self.toolCollectionView.cellForItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
                 if cell != nil {
-                    self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: cell!, text: "Even great artists make mistakes sometimes. Do not fear, we have the perfect tool for this. Tap the eraser to erase mistakes.", afterIdleInterval: 0.3)
+                    self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: cell!, text: NSLocalizedString("controller_create_assistant_eraser", comment: ""), afterIdleInterval: 0.3)
                 }
                 break
             case .Background:
                 configureUIComponentsForTutorial(backgroundBtn, showAll: false)
                 
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.backgroundBtn, text: "The white canvas is nice but can quickly become boring. Why not put a background picture and draw on top of it?", afterIdleInterval: 0)
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.backgroundBtn, text: NSLocalizedString("controller_create_assistant_background", comment: ""), afterIdleInterval: 0)
                 break
             case .Enhancer:
                 configureUIComponentsForTutorial(enhanceBtn, showAll: false)
                 
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.enhanceBtn, text: "Now that your masterpiece is almost done, it's time to add some cool effects to it and make it looks really pro. Tap the enhancer to add filters or stickers to your drawing.", afterIdleInterval: 0.3)
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.enhanceBtn, text: NSLocalizedString("controller_create_assistant_enhance", comment: ""), afterIdleInterval: 0.3)
                 break
             case .Publish:
                 configureUIComponentsForTutorial(publishBtn, showAll: false)
                 
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.publishBtn, text: "Not bad for a first try! Why don't you share it with your friends or the rest of the GraffiTab community?", afterIdleInterval: 0)
+                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.publishBtn, text: NSLocalizedString("controller_create_assistant_publish", comment: ""), afterIdleInterval: 0)
                 break
         }
         

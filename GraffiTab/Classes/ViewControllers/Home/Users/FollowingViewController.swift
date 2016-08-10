@@ -31,6 +31,6 @@ class FollowingViewController: ListUsersViewController {
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = "Following"
+        self.title = NSLocalizedString("controller_following", comment: "")
     }
 }

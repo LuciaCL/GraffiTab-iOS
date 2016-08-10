@@ -70,7 +70,7 @@ class EditProfileViewController: BackButtonTableViewController {
             w = nil
         }
         
-        self.view.showActivityViewWithLabel("Processing")
+        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
         self.view.rn_activityView.dimBackground = false
         
         GTMeManager.editProfile(fn!, lastName: ln!, email: e!, about: a, website: w, successBlock: { (response) in
@@ -80,7 +80,7 @@ class EditProfileViewController: BackButtonTableViewController {
             self.loadData()
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert(self, status: "Profile updated!", title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_success", comment: ""), title: App.Title)
             }
         }, failureBlock: { (response) in
             self.view.hideActivityView()
@@ -94,8 +94,8 @@ class EditProfileViewController: BackButtonTableViewController {
     override func buildActionSheet(title: String?) -> AHKActionSheet {
         let actionSheet = super.buildActionSheet(title)
         if imageType == .Avatar {
-            actionSheet.addButtonWithTitle("Import from Facebook", image: UIImage(named: "facebook"), type: self.user.isLinkedAccount(.FACEBOOK) ? .Default : .Disabled) { (sheet) in
-                self.view.showActivityViewWithLabel("Processing")
+            actionSheet.addButtonWithTitle(NSLocalizedString("controller_avatar_prompt_import_from_facebook", comment: ""), image: UIImage(named: "facebook"), type: self.user.isLinkedAccount(.FACEBOOK) ? .Default : .Disabled) { (sheet) in
+                self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
                 self.view.rn_activityView.dimBackground = false
                 
                 // Register analytics events.
@@ -107,7 +107,7 @@ class EditProfileViewController: BackButtonTableViewController {
                     self.loadAvatar()
                     
                     Utils.runWithDelay(0.3) { () in
-                        DialogBuilder.showSuccessAlert(self, status: "Avatar updated!", title: App.Title)
+                        DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_avatar_success", comment: ""), title: App.Title)
                     }
                 }, failureBlock: { (response) -> Void in
                     self.view.hideActivityView()
@@ -126,7 +126,7 @@ class EditProfileViewController: BackButtonTableViewController {
             self.loadAvatar()
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert(self, status: "Avatar updated!", title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_avatar_success", comment: ""), title: App.Title)
             }
         }
         let coverSuccessBlock = {
@@ -135,13 +135,13 @@ class EditProfileViewController: BackButtonTableViewController {
             self.loadCover()
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert(self, status: "Banner updated!", title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_cover_success", comment: ""), title: App.Title)
             }
         }
         
         if image != nil { // Saving a new image.
             if imageType == .Avatar {
-                self.view.showActivityViewWithLabel("Processing")
+                self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
                 self.view.rn_activityView.dimBackground = false
                 
                 GTMeManager.editAvatar(image!, successBlock: { (response) in
@@ -153,7 +153,7 @@ class EditProfileViewController: BackButtonTableViewController {
                 })
             }
             else {
-                self.view.showActivityViewWithLabel("Processing")
+                self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
                 self.view.rn_activityView.dimBackground = false
                 
                 GTMeManager.editCover(image!, successBlock: { (response) in
@@ -167,7 +167,7 @@ class EditProfileViewController: BackButtonTableViewController {
         }
         else { // Removing an image.
             if imageType == .Avatar {
-                self.view.showActivityViewWithLabel("Processing")
+                self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
                 self.view.rn_activityView.dimBackground = false
                 
                 GTMeManager.deleteAvatar({ (response) in
@@ -179,7 +179,7 @@ class EditProfileViewController: BackButtonTableViewController {
                 })
             }
             else {
-                self.view.showActivityViewWithLabel("Processing")
+                self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
                 self.view.rn_activityView.dimBackground = false
                 
                 GTMeManager.deleteCover({ (response) in
@@ -293,12 +293,12 @@ class EditProfileViewController: BackButtonTableViewController {
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = "Edit profile"
+        self.title = NSLocalizedString("controller_edit_profile", comment: "")
         
         let button = UIButton(type: .Custom)
         button.frame = CGRectMake(0, 0, 50, 30)
         button.layer.cornerRadius = 3
-        button.setTitle("Save", forState: .Normal)
+        button.setTitle(NSLocalizedString("other_save", comment: ""), forState: .Normal)
         button.backgroundColor = UIColor(hexString: Colors.Orange)
         button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         button.titleLabel?.font = UIFont.boldSystemFontOfSize(15)

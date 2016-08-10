@@ -64,13 +64,13 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
         let cp = confirmPasswordField.text
         
         if InputValidator.validateSignUp(self, firstName: fn!, lastName: ln!, email: e!, username: u!, password: p!, confirmPassword: cp!) {
-            self.view.showActivityViewWithLabel("Processing")
+            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
             self.view.rn_activityView.dimBackground = false
             
             GTUserManager.register(fn!, lastName: ln!, email: e!, username: u!, password: p!, successBlock: { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showSuccessAlert(self, status: "You have successfully registered! Please check your email to activate your account.", title: "Almost done!", okAction: {
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_sign_up_confirmation", comment: ""), title: NSLocalizedString("controller_sign_up_confirmation_title", comment: ""), okAction: {
                     self.dismissViewControllerAnimated(true, completion: nil)
                 })
             }, failureBlock: { (response) in
@@ -86,7 +86,7 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SEGUE_TERMS" {
             let vc = segue.destinationViewController as! WebViewController
-            vc.title = "Terms of Use"
+            vc.title = NSLocalizedString("controller_terms_title", comment: "")
             vc.filePath = NSBundle.mainBundle().pathForResource("terms", ofType: "html")
         }
     }
@@ -158,7 +158,7 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
     func setupLabels() {
         let title = termsLbl.text! as String
         let attString = NSMutableAttributedString(string: title)
-        let range = (title as NSString).rangeOfString("Terms of Use")
+        let range = (title as NSString).rangeOfString(NSLocalizedString("controller_terms_title", comment: ""))
         attString.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor().colorWithAlphaComponent(0.9), range: range)
         termsLbl.attributedText = attString;
     }

@@ -305,11 +305,11 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
     }
     
     func getEmptyDataSetTitle() -> String! {
-        return "No users"
+        return NSLocalizedString("controller_users_no_users", comment: "")
     }
     
     func getEmptyDataSetDescription() -> String! {
-        return "No users were found. Please come back again."
+        return NSLocalizedString("controller_users_no_users_detail", comment: "")
     }
     
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {

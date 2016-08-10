@@ -139,7 +139,7 @@ class PublishViewController: UIViewController {
         }
         
         let saveBlock = {
-            self.view.showActivityViewWithLabel("Processing")
+            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
             self.view.rn_activityView.dimBackground = false
             
             if self.toEdit != nil {
@@ -159,7 +159,7 @@ class PublishViewController: UIViewController {
         }
         
         if location == nil {
-            DialogBuilder.showYesNoAlert(self, status: "Your location could not be determined right now. Would you like to still publish this post?", title: App.Title, yesAction: {
+            DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_create_location_unavailable", comment: ""), title: App.Title, yesAction: {
                 // Register analytics events.
                 AnalyticsUtils.sendAppEvent("attempting_to_publish_without_location", label: nil)
                 

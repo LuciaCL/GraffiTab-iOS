@@ -40,14 +40,14 @@ class FeedbackViewController: BackButtonTableViewController {
             // Register analytics events.
             AnalyticsUtils.sendAppEvent("feedback", label: nil)
             
-            self.view.showActivityViewWithLabel("Processing")
+            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
             self.view.rn_activityView.dimBackground = false
             
             let user = GTMeManager.sharedInstance.loggedInUser
             GTFeedbackManager.sendFeedback(user!.getFullName(), email: user!.email!, text: textField.text, successBlock: { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showSuccessAlert(self, status: "Thanks for your feedback!", title: App.Title, okAction: {
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_feedback_success", comment: ""), title: App.Title, okAction: {
                     self.navigationController?.popViewControllerAnimated(true)
                 })
             }) { (response) in
@@ -63,12 +63,12 @@ class FeedbackViewController: BackButtonTableViewController {
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = "Feedback"
+        self.title = NSLocalizedString("controller_feedback", comment: "")
         
         let button = UIButton(type: .Custom)
         button.frame = CGRectMake(0, 0, 50, 30)
         button.layer.cornerRadius = 3
-        button.setTitle("Send", forState: .Normal)
+        button.setTitle(NSLocalizedString("other_send", comment: ""), forState: .Normal)
         button.backgroundColor = UIColor(hexString: Colors.Orange)
         button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         button.titleLabel?.font = UIFont.boldSystemFontOfSize(15)

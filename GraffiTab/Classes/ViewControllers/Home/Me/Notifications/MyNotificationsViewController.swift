@@ -233,11 +233,11 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
     }
     
     func getEmptyDataSetTitle() -> String {
-        return "No notifications"
+        return NSLocalizedString("controller_notifications_empty_title", comment: "")
     }
     
     func getEmptyDataSetDescription() -> String {
-        return "You have no notifications at this point. Please come back again."
+        return NSLocalizedString("controller_notifications_empty_description", comment: "")
     }
     
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {

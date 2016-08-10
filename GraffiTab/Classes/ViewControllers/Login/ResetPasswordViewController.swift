@@ -48,11 +48,11 @@ class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate
         
         self.view.endEditing(true)
         
-        self.view.showActivityViewWithLabel("Processing")
+        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
         self.view.rn_activityView.dimBackground = false
         
         let successHandler = {
-            DialogBuilder.showSuccessAlert(self, status: "Check your email for instructions to reset your password.", title: App.Title, okAction: {
+            DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_pasword_reset_confirmation", comment: ""), title: App.Title, okAction: {
                 self.dismissViewControllerAnimated(true, completion: nil)
             })
         }

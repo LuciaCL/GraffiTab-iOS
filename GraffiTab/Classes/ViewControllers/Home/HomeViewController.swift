@@ -277,7 +277,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         controllers?.append(self.storyboard!.instantiateViewControllerWithIdentifier("RecentViewController"))
         
         tabs = [UIImage(named: "home")!, UIImage(named: "ic_whatshot_white")!, UIImage(named: "ic_notifications_none")!, UIImage(named: "ic_access_time_white")!]
-        titles = ["Home", "Trending", "Notifications", "Recent"]
+        titles = [NSLocalizedString("controller_home", comment: ""), NSLocalizedString("controller_trending", comment: ""), NSLocalizedString("controller_notifications", comment: ""), NSLocalizedString("controller_recent", comment: "")]
         carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: tabs, delegate: self)
         carbonTabSwipeNavigation!.insertIntoRootViewController(self)
         

@@ -35,6 +35,6 @@ class StaticStreamablesViewController: ToggleStreamablesViewController {
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = "\(items.count) graffiti"
+        self.title = String(format: NSLocalizedString("controller_static_streamables", comment: ""), items.count)
     }
 }

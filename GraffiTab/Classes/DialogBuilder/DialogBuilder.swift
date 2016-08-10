@@ -53,7 +53,7 @@ class DialogBuilder: NSObject {
         
         // Define custom action to listen for logout events.
         let action = {
-            if reason == .USER_NOT_LOGGED_IN || reason == .USER_NOT_IN_EXPECTED_STATE {
+            if (reason == .USER_NOT_LOGGED_IN || reason == .USER_NOT_IN_EXPECTED_STATE) && GTMeManager.sharedInstance.isLoggedIn() {
                 Utils.logoutUserAndShowLoginController()
             }
             else {
@@ -84,23 +84,23 @@ class DialogBuilder: NSObject {
         buildYesNoAlert(controller, status: status, title: title, yesTitle: yesTitle, noTitle: noTitle, yesAction: yesAction, noAction: noAction)
     }
     
-    class func showInputUsername(controller: UIViewController, okTitle: String="Done", cancelTitle: String="Cancel", okAction:(username: String) -> Void, cancelAction:() -> Void) {
+    class func showInputUsername(controller: UIViewController, okTitle: String=NSLocalizedString("other_done", comment: ""), cancelTitle: String=NSLocalizedString("other_cancel", comment: ""), okAction:(username: String) -> Void, cancelAction:() -> Void) {
         let inputVC = InputUsernameViewController(nibName: "InputUsernameViewController", bundle: nil)
         let popup = PopupDialog(viewController: inputVC, transitionStyle: .ZoomIn, buttonAlignment: .Horizontal, gestureDismissal: true)
         
-        let buttonOne = DefaultButton(title: "Done") {
+        let buttonOne = DefaultButton(title: NSLocalizedString("other_done", comment: "")) {
             let text = inputVC.usernameField.text
             
             if text?.characters.count > 0 {
                 okAction(username: text!)
             }
             else {
-                self.showErrorAlert(controller, status: "Please enter a valid username.", title: App.Title, okAction: {
+                self.showErrorAlert(controller, status: NSLocalizedString("dialog_input_prompt", comment: ""), title: App.Title, okAction: {
                     self.showInputUsername(controller, okAction: okAction, cancelAction: cancelAction)
                 })
             }
         }
-        let buttonTwo = CancelButton(title: "Cancel") {
+        let buttonTwo = CancelButton(title: NSLocalizedString("other_cancel", comment: "")) {
             cancelAction()
         }
         popup.addButtons([buttonTwo, buttonOne])

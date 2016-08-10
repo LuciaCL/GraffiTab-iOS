@@ -49,10 +49,10 @@ class GTPermissionsManager: NSObject {
                     
             })
             
-            permissionDialog.permissionTitle.text = "Receive Notifications"
-            permissionDialog.permissionDescription.text = "Staying connected with the people you follow is easier with push notifications.\n\nOtherwise you'll have to manually check the app for updates."
+            permissionDialog.permissionTitle.text = NSLocalizedString("manager_permission_notifications_title", comment: "")
+            permissionDialog.permissionDescription.text = NSLocalizedString("manager_permission_notifications_description", comment: "")
             permissionDialog.permissionPreview.image = UIImage(named: "permission_notifications")
-            permissionDialog.askBtn.setTitle("Use Push Notifications", forState: .Normal)
+            permissionDialog.askBtn.setTitle(NSLocalizedString("manager_permission_notifications_button", comment: ""), forState: .Normal)
         }
         else {
             askForAccess()
@@ -70,7 +70,7 @@ class GTPermissionsManager: NSObject {
                             }
                             break
                         case .Restricted, .Denied:
-                            DialogBuilder.showOKAlert(controller, status: "We need your permission to access the photos library. Please enable this in Settings", title: App.Title)
+                            DialogBuilder.showOKAlert(controller, status: NSLocalizedString("manager_permission_photos_denied", comment: ""), title: App.Title)
                             break
                         default:
                             // place for .NotDetermined - in this callback status is already determined so should never get here
@@ -90,10 +90,10 @@ class GTPermissionsManager: NSObject {
                 }
             })
             
-            permissionDialog.permissionTitle.text = "Background Pictures"
-            permissionDialog.permissionDescription.text = "Want to set a background picture and draw on top of it? Awesome! We just need your permission first.\n\nPhotos will never be posted without your consent."
+            permissionDialog.permissionTitle.text = NSLocalizedString("manager_permission_photos_title", comment: "")
+            permissionDialog.permissionDescription.text = NSLocalizedString("manager_permission_photos_description", comment: "")
             permissionDialog.permissionPreview.image = UIImage(named: "permission_photos")
-            permissionDialog.askBtn.setTitle("Use Background Pictures", forState: .Normal)
+            permissionDialog.askBtn.setTitle(NSLocalizedString("manager_permission_photos_button", comment: ""), forState: .Normal)
         }
         else {
             askForAccess()
@@ -115,10 +115,10 @@ class GTPermissionsManager: NSObject {
                 }
             })
     
-            permissionDialog.permissionTitle.text = "Location Services"
-            permissionDialog.permissionDescription.text = "In order to use the Explorer or create graffiti, we need to know your location.\n\nOtherwise, you can still draw and publish graffiti but they won't appear on the map."
+            permissionDialog.permissionTitle.text = NSLocalizedString("manager_permission_location_title", comment: "")
+            permissionDialog.permissionDescription.text = NSLocalizedString("manager_permission_location_description", comment: "")
             permissionDialog.permissionPreview.image = UIImage(named: "permission_location_when_in_use")
-            permissionDialog.askBtn.setTitle("Use Location Services", forState: .Normal)
+            permissionDialog.askBtn.setTitle(NSLocalizedString("manager_permission_location_button", comment: ""), forState: .Normal)
         }
         else {
             askForAccess()
@@ -140,10 +140,10 @@ class GTPermissionsManager: NSObject {
                 }
             })
             
-            permissionDialog.permissionTitle.text = "Location Tracking Services"
-            permissionDialog.permissionDescription.text = "By tracking a location you will receive notifications when someone creates graffiti in that area or when you visit it.\n\nOtherwise you will have to check manually in the Explorer."
+            permissionDialog.permissionTitle.text = NSLocalizedString("manager_permission_location_tracking_title", comment: "")
+            permissionDialog.permissionDescription.text = NSLocalizedString("manager_permission_location_tracking_description", comment: "")
             permissionDialog.permissionPreview.image = UIImage(named: "permission_location_always")
-            permissionDialog.askBtn.setTitle("Use Tracking Services", forState: .Normal)
+            permissionDialog.askBtn.setTitle(NSLocalizedString("manager_permission_location_tracking_button", comment: ""), forState: .Normal)
         }
         else {
             askForAccess()

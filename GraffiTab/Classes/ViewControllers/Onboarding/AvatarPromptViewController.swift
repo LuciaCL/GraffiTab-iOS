@@ -49,10 +49,10 @@ class AvatarPromptViewController: UIViewController {
     
     override func buildActionSheet(title: String?) -> AHKActionSheet {
         let user = GTMeManager.sharedInstance.loggedInUser
-        let actionSheet = super.buildActionSheet("Choose a source for your profile picture")
+        let actionSheet = super.buildActionSheet(NSLocalizedString("controller_avatar_prompt_picture_source", comment: ""))
         
-        actionSheet.addButtonWithTitle("Import from Facebook", image: UIImage(named: "facebook"), type: user!.isLinkedAccount(.FACEBOOK) ? .Default : .Disabled) { (sheet) in
-            self.view.showActivityViewWithLabel("Processing")
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_avatar_prompt_import_from_facebook", comment: ""), image: UIImage(named: "facebook"), type: user!.isLinkedAccount(.FACEBOOK) ? .Default : .Disabled) { (sheet) in
+            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
             self.view.rn_activityView.dimBackground = false
             
             GTMeManager.importAvatar(.FACEBOOK, successBlock: { (response) -> Void in
@@ -81,7 +81,7 @@ class AvatarPromptViewController: UIViewController {
         }
         
         if image != nil { // Saving a new image.
-            self.view.showActivityViewWithLabel("Processing")
+            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
             self.view.rn_activityView.dimBackground = false
             
             GTMeManager.editAvatar(image!, successBlock: { (response) in
@@ -93,7 +93,7 @@ class AvatarPromptViewController: UIViewController {
             })
         }
         else { // Removing an image.
-            self.view.showActivityViewWithLabel("Processing")
+            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
             self.view.rn_activityView.dimBackground = false
             
             GTMeManager.deleteAvatar({ (response) in
@@ -127,8 +127,6 @@ class AvatarPromptViewController: UIViewController {
     }
     
     func setupButtons() {
-//        sayCheeseBtn.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.6).CGColor
-//        sayCheeseBtn.layer.borderWidth = 1
         sayCheeseBtn.layer.cornerRadius = 3
     }
 }

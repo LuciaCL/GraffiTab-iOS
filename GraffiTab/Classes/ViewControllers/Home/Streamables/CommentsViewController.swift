@@ -224,20 +224,20 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
             let comment = items[indexPath.row]
             let canEdit = comment.user!.isEqual(GTMeManager.sharedInstance.loggedInUser)
             
-            let actionSheet = buildActionSheet("What would you like to do with this comment?")
+            let actionSheet = buildActionSheet(NSLocalizedString("controller_comments_options_title", comment: ""))
             if canEdit {
-                actionSheet.addButtonWithTitle("Edit", image: UIImage(named: "ic_mode_edit_white"), type: .Default) { (sheet) in
+                actionSheet.addButtonWithTitle(NSLocalizedString("other_edit", comment: ""), image: UIImage(named: "ic_mode_edit_white"), type: .Default) { (sheet) in
                     self.commentToEdit = comment
                     self.editText(comment.text!)
                     self.tableView!.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
                 }
             }
-            actionSheet.addButtonWithTitle("Copy", image: UIImage(named: "ic_content_copy_white"), type: .Default) { (sheet) in
+            actionSheet.addButtonWithTitle(NSLocalizedString("other_copy", comment: ""), image: UIImage(named: "ic_content_copy_white"), type: .Default) { (sheet) in
                 UIPasteboard.generalPasteboard().string = comment.text
             }
             if canEdit {
-                actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
-                    DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to delete this comment?", title: App.Title, yesTitle: "Yes, delete it!", noTitle: "Cancel", yesAction: {
+                actionSheet.addButtonWithTitle(NSLocalizedString("other_delete", comment: ""), image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+                    DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_comments_options_delete_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_locations_delete_prompt_yes", comment: ""), noTitle: NSLocalizedString("other_cancel", comment: ""), yesAction: {
                         self.doDeleteComment(comment, shouldDeleteRemotely: true)
                     }, noAction: {
                             
@@ -462,7 +462,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     }
     
     func didTapUsername(username: String) {
-        self.view.showActivityViewWithLabel("Processing")
+        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
         self.view.rn_activityView.dimBackground = false
         
         GTUserManager.getUserProfileByUsername(username, successBlock: { (response) in
@@ -477,13 +477,13 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     }
     
     func didTapErrorView(comment: GTComment) {
-        let actionSheet = buildActionSheet("This comment was not sent")
-        actionSheet.addButtonWithTitle("Try again", image: UIImage(named: "ic_refresh_white"), type: .Default) { (sheet) in
+        let actionSheet = buildActionSheet(NSLocalizedString("controller_comments_send_failure_options_title", comment: ""))
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_comments_send_failure_options_try_again", comment: ""), image: UIImage(named: "ic_refresh_white"), type: .Default) { (sheet) in
             self.doPostComment(comment, shouldRefresh: true)
         }
-        actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+        actionSheet.addButtonWithTitle(NSLocalizedString("other_delete", comment: ""), image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
             Utils.runWithDelay(0.3, block: {
-                DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to delete this comment?", title: App.Title, yesTitle: "Yes, delete it!", noTitle: "Cancel", yesAction: {
+                DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_comments_options_delete_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_locations_delete_prompt_yes", comment: ""), noTitle: NSLocalizedString("other_cancel", comment: ""), yesAction: {
                     self.doDeleteComment(comment, shouldDeleteRemotely: false)
                 }, noAction: {
                         
@@ -502,10 +502,10 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = "Comments"
+        self.title = NSLocalizedString("controller_comments", comment: "")
         
         if self.navigationController?.viewControllers.count <= 1 { // We're running in a container so show a close button.
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .Plain, target: self, action: #selector(onClickClose))
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("other_close", comment: ""), style: .Plain, target: self, action: #selector(onClickClose))
         }
     }
     
@@ -529,14 +529,14 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         self.tableView!.separatorStyle = .None
         self.tableView!.registerNib(UINib(nibName: CommentCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellReuseIdentifier: CommentCell.reusableIdentifier())
         
-        self.rightButton.setTitle("Post", forState: .Normal)
+        self.rightButton.setTitle(NSLocalizedString("other_post", comment: ""), forState: .Normal)
         
         self.textInputbar.editorTitle.textColor = UIColor.darkGrayColor()
         self.textInputbar.editorLeftButton.tintColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
         self.textInputbar.editorRightButton.tintColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
         
         self.textInputbar.autoHideRightButton = true
-        self.textView.placeholder = "Write your comment here"
+        self.textView.placeholder = NSLocalizedString("controller_comments_post_prompt", comment: "")
         
         self.typingIndicatorView!.canResignByTouch = true
         

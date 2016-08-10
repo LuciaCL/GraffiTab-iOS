@@ -105,7 +105,7 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
         controllers?.append(self.storyboard!.instantiateViewControllerWithIdentifier("SearchUsersViewController"))
         controllers?.append(self.storyboard!.instantiateViewControllerWithIdentifier("SearchStreamablesViewController"))
         
-        tabs = ["People", "Graffiti"]
+        tabs = [NSLocalizedString("controller_search_people", comment: ""), NSLocalizedString("controller_search_graffiti", comment: "")]
         carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: tabs, delegate: self)
         carbonTabSwipeNavigation!.insertIntoRootViewController(self)
         

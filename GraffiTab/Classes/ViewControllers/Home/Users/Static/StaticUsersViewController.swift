@@ -31,6 +31,6 @@ class StaticUsersViewController: ListUsersViewController {
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = "\(items.count) people"
+        self.title = String(format: NSLocalizedString("controller_static_users", comment: ""), items.count)
     }
 }

@@ -66,9 +66,9 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     @IBAction func onClickMenu(sender: AnyObject) {
-        let actionSheet = buildActionSheet("What would you like to do with this graffiti?")
+        let actionSheet = buildActionSheet(NSLocalizedString("controller_streamable_options_title", comment: ""))
         if isMe() {
-            actionSheet.addButtonWithTitle("Edit", image: UIImage(named: "ic_mode_edit_white"), type: .Default) { (sheet) in
+            actionSheet.addButtonWithTitle(NSLocalizedString("other_edit", comment: ""), image: UIImage(named: "ic_mode_edit_white"), type: .Default) { (sheet) in
                 DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Edit graffiti")
                 
                 // Register analytics events.
@@ -76,7 +76,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
                 
                 self.edit()
             }
-            actionSheet.addButtonWithTitle(streamable?.isPrivate == true ? "Mark Public" : "Mark Private", image: UIImage(named: streamable?.isPrivate == true ? "ic_visibility_white" : "ic_visibility_off_white"), type: .Default) { (sheet) in
+            actionSheet.addButtonWithTitle(streamable?.isPrivate == true ? NSLocalizedString("controller_streamable_options_public", comment: "") : NSLocalizedString("controller_streamable_options_private", comment: ""), image: UIImage(named: streamable?.isPrivate == true ? "ic_visibility_white" : "ic_visibility_off_white"), type: .Default) { (sheet) in
                 DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Toggle privacy")
                 
                 // Register analytics events.
@@ -84,7 +84,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
                 
                 self.togglePrivacy()
             }
-            actionSheet.addButtonWithTitle("Save to Photos Library", image: UIImage(named: "ic_file_download_white"), type: .Default) { (sheet) in
+            actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_share_save", comment: ""), image: UIImage(named: "ic_file_download_white"), type: .Default) { (sheet) in
                 DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Save graffiti")
                 
                 // Register analytics events.
@@ -92,7 +92,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
                 
                 self.save()
             }
-            actionSheet.addButtonWithTitle("Set as Profile Picture", image: UIImage(named: "ic_person_white"), type: .Default) { (sheet) in
+            actionSheet.addButtonWithTitle(NSLocalizedString("controller_streamable_options_set_avatar", comment: ""), image: UIImage(named: "ic_person_white"), type: .Default) { (sheet) in
                 DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Set as profile picture")
                 
                 // Register analytics events.
@@ -101,7 +101,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
                 self.setAsAvatar()
             }
         }
-        actionSheet.addButtonWithTitle("Flag Inappropriate", image: UIImage(named: "ic_flag_white"), type: .Default) { (sheet) in
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_streamable_options_flag", comment: ""), image: UIImage(named: "ic_flag_white"), type: .Default) { (sheet) in
             DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Flag graffiti")
             
             // Register analytics events.
@@ -109,7 +109,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             
             self.flag()
         }
-        actionSheet.addButtonWithTitle("Explore Map Area", image: UIImage(named: "ic_near_me_white"), type: .Default) { (sheet) in
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_streamable_options_explore", comment: ""), image: UIImage(named: "ic_near_me_white"), type: .Default) { (sheet) in
             DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Explore area")
             
             // Register analytics events.
@@ -117,7 +117,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             
             self.exploreArea()
         }
-        actionSheet.addButtonWithTitle("Copy Link", image: UIImage(named: "ic_link_white"), type: .Default) { (sheet) in
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_streamable_options_copy_link", comment: ""), image: UIImage(named: "ic_link_white"), type: .Default) { (sheet) in
             DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Copy link")
             
             // Register analytics events.
@@ -126,12 +126,12 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             self.copyLink()
         }
         if isMe() {
-            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Delete graffiti")
-            
-            // Register analytics events.
-            AnalyticsUtils.sendAppEvent("delete_graffiti", label: nil)
-            
-            actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+            actionSheet.addButtonWithTitle(NSLocalizedString("other_delete", comment: ""), image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+                DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Delete graffiti")
+                
+                // Register analytics events.
+                AnalyticsUtils.sendAppEvent("delete_graffiti", label: nil)
+                
                 self.delete()
             }
         }
@@ -234,7 +234,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     // MARK: - Actions
     
     func flag() {
-        DialogBuilder.showYesNoAlert(self, status: "Mark this graffiti as inappropriate?", title: App.Title, yesAction: {
+        DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_streamable_options_flag_prompt", comment: ""), title: App.Title, yesAction: {
             GTStreamableManager.flag(self.streamable!.id!, successBlock: { (response) in
                 
             }, failureBlock: { (response) in
@@ -250,7 +250,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     func save() {
-        self.view.showActivityViewWithLabel("Processing")
+        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
         self.view.rn_activityView.dimBackground = false
         
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
@@ -260,7 +260,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
                 self.view.hideActivityView()
                 
                 Utils.runWithDelay(0.3, block: {
-                    DialogBuilder.showSuccessAlert(self, status: "This graffiti was saved in your photos album", title: App.Title)
+                    DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_streamable_options_save_success", comment: ""), title: App.Title)
                 })
             })
         })
@@ -271,8 +271,8 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     func delete() {
-        DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to delete this graffiti?", title: App.Title, yesAction: {
-            self.view.showActivityViewWithLabel("Processing")
+        DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_streamable_options_delete_prompt", comment: ""), title: App.Title, yesAction: {
+            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
             self.view.rn_activityView.dimBackground = false
             
             GTMeManager.deleteStreamable(self.streamable!.id!, successBlock: { (response) in
@@ -342,12 +342,12 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             }
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert(self, status: "Avatar updated!", title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_avatar_success", comment: ""), title: App.Title)
             }
         }
         
         if image != nil { // Saving a new image.
-            self.view.showActivityViewWithLabel("Processing")
+            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
             self.view.rn_activityView.dimBackground = false
             
             GTMeManager.editAvatar(image!, successBlock: { (response) in

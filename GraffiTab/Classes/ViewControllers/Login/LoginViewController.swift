@@ -68,7 +68,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
     // MARK: - Sign up
     
     func signUpWithFacebook(userId: String, token: String, email: String, firstName: String, lastName: String, username: String) {
-        self.view.showActivityViewWithLabel("Processing")
+        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
         self.view.rn_activityView.dimBackground = false
         
         GTUserManager.register(.FACEBOOK, externalId: userId, accessToken: token, email: email, firstName: firstName, lastName: lastName, username: username, successBlock: { (response) -> Void in
@@ -113,7 +113,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         let pa = passwordField.text
         
         if (InputValidator.validateLogin(self, username: un!, password: pa!)) {
-            self.view.showActivityViewWithLabel("Processing")
+            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
             self.view.rn_activityView.dimBackground = false
             
             GTUserManager.login(un!, password: pa!, successBlock: { (response) -> Void in
@@ -125,7 +125,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
                 self.view.hideActivityView()
                 
                 if response.error.reason == .USER_NOT_LOGGED_IN {
-                    DialogBuilder.showAPIErrorAlert(self, status: "These credentials are incorrect. Please try again.", title: App.Title, forceShow: true, reason: response.error.reason)
+                    DialogBuilder.showAPIErrorAlert(self, status: NSLocalizedString("controller_login_invalid_credentials", comment: ""), title: App.Title, forceShow: true, reason: response.error.reason)
                     return
                 }
                 
@@ -140,7 +140,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         // Register analytics events.
         AnalyticsUtils.sendAppEvent("login_facebook", label: nil)
         
-        self.view.showActivityViewWithLabel("Processing")
+        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
         self.view.rn_activityView.dimBackground = false
         
         loginToFacebookWithSuccess(forceLogin, successBlock: { (userId: String, token: String, email: String, firstName: String, lastName: String) -> () in
@@ -173,7 +173,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
             self.view.hideActivityView()
             
             if error != nil {
-                DialogBuilder.showErrorAlert(self, status: "Facebook login is not available at the moment. Please try again later.", title: App.Title)
+                DialogBuilder.showErrorAlert(self, status: NSLocalizedString("controller_login_facebook_unavailable", comment: ""), title: App.Title)
             }
         }
     }
@@ -209,7 +209,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
     func setupLabels() {
         let title = signUpLbl.text! as String
         let attString = NSMutableAttributedString(string: title)
-        let range = (title as NSString).rangeOfString("Sign up")
+        let range = (title as NSString).rangeOfString(NSLocalizedString("controller_login_sign_up", comment: ""))
         attString.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor().colorWithAlphaComponent(0.9), range: range)
         signUpLbl.attributedText = attString;
     }

@@ -31,6 +31,6 @@ class FollowersViewController: ListUsersViewController {
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = "Followers"
+        self.title = NSLocalizedString("controller_followers", comment: "")
     }
 }

@@ -48,14 +48,14 @@ class LinkedAccountViewController: BackButtonTableViewController {
             // Register analytics events.
             AnalyticsUtils.sendAppEvent("linked_accounts_unlink", label: self.accountProvider?.rawValue)
             
-            DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to unlink this account?", title: App.Title, yesTitle: "Unlink", yesAction: {
-                self.view.showActivityViewWithLabel("Processing")
+            DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_linked_account_unlink_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_linked_account_unlink_prompt_yes", comment: ""), yesAction: {
+                self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
                 self.view.rn_activityView.dimBackground = false
                 
                 GTMeManager.unlinkExternalProvider(self.accountProvider!, successBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showSuccessAlert(self, status: "This account has successfully been unlinked.", title: App.Title, okAction: {
+                    DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_linked_account_unlink_success", comment: ""), title: App.Title, okAction: {
                         self.navigationController?.popViewControllerAnimated(true)
                     })
                 }, failureBlock: { (response) in
@@ -75,13 +75,13 @@ class LinkedAccountViewController: BackButtonTableViewController {
         super.setupTopBar()
         
         if accountProvider == .FACEBOOK {
-            self.title = "Facebook"
+            self.title = NSLocalizedString("controller_linked_account_facebook", comment: "")
         }
         else if accountProvider == .TWITTER {
-            self.title = "Twitter"
+            self.title = NSLocalizedString("controller_linked_account_twitter", comment: "")
         }
         else if accountProvider == .GOOGLE {
-            self.title = "Google"
+            self.title = NSLocalizedString("controller_linked_account_google", comment: "")
         }
     }
 }

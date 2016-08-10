@@ -26,7 +26,7 @@ class ActivitySingleCommentCell: ActivitySingleCell {
     }
     
     override func getActionText() -> NSAttributedString? {
-        let text = String(format: "%@ posted a comment:", item!.user!.getFullName())
+        let text = String(format: NSLocalizedString("cell_activity_commented_single", comment: ""), item!.user!.getFullName())
         
         let attString = NSMutableAttributedString(string: text)
         let range = (text as NSString).rangeOfString(item!.user!.getFullName())

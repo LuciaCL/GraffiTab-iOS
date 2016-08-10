@@ -35,6 +35,6 @@ class UserStreamablesViewController: ToggleStreamablesViewController {
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = "Graffiti"
+        self.title = NSLocalizedString("controller_search_graffiti", comment: "")
     }
 }

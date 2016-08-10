@@ -59,9 +59,9 @@ class CommentCell: UITableViewCell {
         self.nameLbl.attributedText = attString
         
         if item?.updatedOn != nil {
-            let text = String(format: "%@ (edited)", item!.text!)
+            let text = String(format: "%@ (%@)", item!.text!, NSLocalizedString("cell_comment_edited", comment: ""))
             let attString = NSMutableAttributedString(string: text)
-            let range = (text as NSString).rangeOfString("(edited)")
+            let range = (text as NSString).rangeOfString(String(format: "(%@)", NSLocalizedString("cell_comment_edited", comment: "")))
             attString.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(textLbl.font.pointSize - 4), range: range)
             self.textLbl.attributedText = attString
         }
@@ -87,7 +87,7 @@ class CommentCell: UITableViewCell {
                 
                 if item!.updatedOn != nil {
                     let attString = NSMutableAttributedString(attributedString: textLbl.attributedText!)
-                    let range = (textLbl.text! as NSString).rangeOfString("(edited)")
+                    let range = (textLbl.text! as NSString).rangeOfString(String(format: "(%@)", NSLocalizedString("cell_comment_edited", comment: "")))
                     attString.addAttribute(NSForegroundColorAttributeName, value: UIColor(hexString: "#d0d0d0")!, range: range)
                     self.textLbl.attributedText = attString
                 }

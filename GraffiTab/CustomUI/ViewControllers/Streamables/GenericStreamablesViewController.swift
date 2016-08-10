@@ -457,11 +457,11 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func getEmptyDataSetTitle() -> String! {
-        return "No graffiti"
+        return NSLocalizedString("controller_streamables_no_graffiti", comment: "")
     }
     
     func getEmptyDataSetDescription() -> String! {
-        return "No graffiti were found over here. Please come back again."
+        return NSLocalizedString("controller_streamables_no_graffiti_detail", comment: "")
     }
     
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {

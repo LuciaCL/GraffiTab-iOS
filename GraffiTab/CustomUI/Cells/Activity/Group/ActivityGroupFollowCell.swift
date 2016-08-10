@@ -17,8 +17,8 @@ class ActivityGroupFollowCell: ActivityGroupCell {
     }
     
     override func getActionText() -> NSAttributedString? {
-        let targetText = String(format: "%li people", item!.activities!.count)
-        let text = String(format: "%@ started following %@.", item!.user!.getFullName(), targetText)
+        let targetText = String(format: NSLocalizedString("cell_activity_people", comment: ""), item!.activities!.count)
+        let text = String(format: NSLocalizedString("cell_activity_following", comment: ""), item!.user!.getFullName(), targetText)
         
         let attString = NSMutableAttributedString(string: text)
         var range = (text as NSString).rangeOfString(item!.user!.getFullName())

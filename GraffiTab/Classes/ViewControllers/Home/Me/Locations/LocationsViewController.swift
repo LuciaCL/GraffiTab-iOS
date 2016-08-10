@@ -342,11 +342,11 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     }
     
     func getEmptyDataSetTitle() -> String! {
-        return "No locations"
+        return NSLocalizedString("controller_locations_empty_title", comment: "")
     }
     
     func getEmptyDataSetDescription() -> String! {
-        return "No locations were found. Please come back again."
+        return NSLocalizedString("controller_locations_empty_description", comment: "")
     }
     
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
@@ -403,8 +403,8 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     func didTapOptions(location: GTLocation, indexPath: NSIndexPath) {
         let tracked = GTLocationManager.manager.getRegions().contains(getRegionForLocation(location))
         
-        let actionSheet = buildActionSheet("What would you like to do with this place?")
-        actionSheet.addButtonWithTitle("Edit", image: UIImage(named: "ic_mode_edit_white"), type: .Default) { (sheet) in
+        let actionSheet = buildActionSheet(NSLocalizedString("controller_locations_options_title", comment: ""))
+        actionSheet.addButtonWithTitle(NSLocalizedString("other_edit", comment: ""), image: UIImage(named: "ic_mode_edit_white"), type: .Default) { (sheet) in
             let handler = {
                 // Register analytics events.
                 AnalyticsUtils.sendAppEvent("location_edit", label: nil)
@@ -418,13 +418,13 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
                 handler()
             }
         }
-        actionSheet.addButtonWithTitle("Copy address", image: UIImage(named: "ic_content_copy_white"), type: .Default) { (sheet) in
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_locations_copy_address", comment: ""), image: UIImage(named: "ic_content_copy_white"), type: .Default) { (sheet) in
             // Register analytics events.
             AnalyticsUtils.sendAppEvent("location_copy_address", label: nil)
             
             UIPasteboard.generalPasteboard().string = location.address
         }
-        actionSheet.addButtonWithTitle(tracked ? "Untrack" : "Track", image: UIImage(named: tracked ? "ic_radio_button_checked_white" : "ic_radio_button_unchecked_white"), type: .Default) { (sheet) in
+        actionSheet.addButtonWithTitle(tracked ? NSLocalizedString("controller_locations_untrack", comment: "") : NSLocalizedString("controller_locations_track", comment: ""), image: UIImage(named: tracked ? "ic_radio_button_checked_white" : "ic_radio_button_unchecked_white"), type: .Default) { (sheet) in
             let handler = {
                 if tracked {
                     // Register analytics events.
@@ -444,8 +444,8 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
                 handler()
             })
         }
-        actionSheet.addButtonWithTitle("Delete", image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
-            DialogBuilder.showYesNoAlert(self, status: "Are you sure you want to delete this location?", title: App.Title, yesTitle: "Yes, delete it!", noTitle: "Cancel", yesAction: {
+        actionSheet.addButtonWithTitle(NSLocalizedString("other_delete", comment: ""), image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+            DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_locations_delete_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_locations_delete_prompt_yes", comment: ""), noTitle: NSLocalizedString("other_cancel", comment: ""), yesAction: {
                 // Register analytics events.
                 AnalyticsUtils.sendAppEvent("location_delete", label: nil)
                 
@@ -483,7 +483,7 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     
     func addGeofenceForLocation(location: GTLocation, indexPath: NSIndexPath) {
         if !GTLocationManager.manager.canMonitorRegions() {
-            DialogBuilder.showErrorAlert(self, status: "Your device does not support geofences.", title: App.Title)
+            DialogBuilder.showErrorAlert(self, status: NSLocalizedString("controller_locations_geofence_unsupported", comment: ""), title: App.Title)
             return
         }
         
@@ -531,7 +531,7 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = "Locations"
+        self.title = NSLocalizedString("controller_locations", comment: "")
     }
     
     func setupCollectionView() {

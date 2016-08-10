@@ -35,7 +35,7 @@ class GTNetworkManager: NSObject {
             return
         }
         
-        noNetworkLabel?.text = "Connected"
+        noNetworkLabel?.text = NSLocalizedString("manager_network_connected", comment: "")
         noNetworkLabel?.backgroundColor = UIColor(hexString: Colors.Green)!
         noNetworkLabel?.setNeedsDisplay()
         animateLabel()
@@ -46,7 +46,7 @@ class GTNetworkManager: NSObject {
             return
         }
         
-        noNetworkLabel?.text = "No Internet connection"
+        noNetworkLabel?.text = NSLocalizedString("manager_network_not_connected", comment: "")
         noNetworkLabel?.backgroundColor = UIColor.blackColor()
         noNetworkLabel?.setNeedsDisplay()
         animateLabel()

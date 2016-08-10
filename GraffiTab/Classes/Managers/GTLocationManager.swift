@@ -40,7 +40,7 @@ class GTLocationManager: NSObject, CLLocationManagerDelegate {
                 locationManager?.requestWhenInUseAuthorization()
             }
             else {
-                DialogBuilder.showOKAlert(controller, status: "You will have to enable Location Services for GraffiTab in Settings before continuing with this action.", title: App.Title)
+                DialogBuilder.showOKAlert(controller, status: NSLocalizedString("manager_location_permission", comment: ""), title: App.Title)
             }
         }
         else {
@@ -57,7 +57,7 @@ class GTLocationManager: NSObject, CLLocationManagerDelegate {
                 locationManager?.requestAlwaysAuthorization()
             }
             else {
-                DialogBuilder.showYesNoAlert(controller, status: "You will have to enable Location Services for GraffiTab in Settings before continuing with this action.", title: App.Title, yesTitle: "Open Location Settings", noTitle: "No, thanks", yesAction: {
+                DialogBuilder.showYesNoAlert(controller, status: NSLocalizedString("manager_location_permission", comment: ""), title: App.Title, yesTitle: NSLocalizedString("manager_location_permission_yes", comment: ""), noTitle: NSLocalizedString("manager_location_permission_no", comment: ""), yesAction: {
                     // Send the user to the Settings for this app.
                     Utils.openUrl(UIApplicationOpenSettingsURLString)
                 }, noAction: { 
@@ -113,7 +113,7 @@ class GTLocationManager: NSObject, CLLocationManagerDelegate {
         }
         else {
             let notification = UILocalNotification()
-            notification.alertBody = "You have entered one of your geographical regions. Explore it here."
+            notification.alertBody = NSLocalizedString("manager_location_permission_geofencing", comment: "")
             notification.fireDate = NSDate(timeIntervalSinceNow: 1)
             notification.timeZone = NSTimeZone.defaultTimeZone()
             UIApplication.sharedApplication().scheduleLocalNotification(notification)

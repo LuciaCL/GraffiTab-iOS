@@ -35,6 +35,6 @@ class ClusterViewController: GridStreamablesViewController {
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.title = "\(items.count) around"
+        self.title = String(format: NSLocalizedString("controller_streamable_cluster", comment: ""), items.count)
     }
 }
