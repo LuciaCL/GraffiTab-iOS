@@ -262,7 +262,7 @@
 
 "controller_web_file_error" = "Could not open file.";
 
-"controller_home" = "Home";
+"controller_home" = "Casa";
 "controller_trending" = "Trending";
 "controller_notifications" = "Notifications";
 "controller_recent" = "Recent";

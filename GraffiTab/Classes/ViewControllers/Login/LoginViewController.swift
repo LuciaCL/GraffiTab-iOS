@@ -213,7 +213,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         forgotPasswordLbl.text = NSLocalizedString("controller_login_forgot_password", comment: "")
         loginLbl.text = NSLocalizedString("controller_login", comment: "")
         facebookLoginLbl.text = NSLocalizedString("controller_login_facebook", comment: "")
-        signUpLbl.text = NSLocalizedString("controller_login_sign_up", comment: "")
+        signUpLbl.text = NSLocalizedString("controller_login_sign_up_full", comment: "")
         
         let title = signUpLbl.text! as String
         let attString = NSMutableAttributedString(string: title)

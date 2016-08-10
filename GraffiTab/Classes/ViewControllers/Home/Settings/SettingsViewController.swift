@@ -14,6 +14,8 @@ import Instabug
 
 class SettingsViewController: GeneralSettingsViewController {
 
+    @IBOutlet weak var languageLbl: UILabel!
+    @IBOutlet weak var languageField: UILabel!
     @IBOutlet weak var editProfileLbl: UILabel!
     @IBOutlet weak var changePasswordLbl: UILabel!
     @IBOutlet weak var likedPostsLbl: UILabel!
@@ -140,6 +142,8 @@ class SettingsViewController: GeneralSettingsViewController {
     func loadData() {
         logoutCell.detailTextLabel?.text = GTMeManager.sharedInstance.loggedInUser?.getFullName()
         
+        languageField.text = Settings.sharedInstance.language
+        
         rememberCredentialsSwitch.on = Settings.sharedInstance.rememberCredentials!
         showDrawingAssistantSwitch.on = !Settings.sharedInstance.showedDrawingAssistant!
     }
@@ -166,7 +170,7 @@ class SettingsViewController: GeneralSettingsViewController {
             }
         }
         else if indexPath.section == 2 {
-            if indexPath.row == 1 { // Clear app cache.
+            if indexPath.row == 2 { // Clear app cache.
                 let actionSheet = buildActionSheet(NSLocalizedString("controller_settings_clear_cache_prompt", comment: ""))
                 actionSheet.addButtonWithTitle(NSLocalizedString("controller_settings_clear_cache", comment: ""), image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
                     AppImageCache.sharedInstance.clearDiskCache()
@@ -248,6 +252,7 @@ class SettingsViewController: GeneralSettingsViewController {
     // MARK: - Setup
     
     func setupLabels() {
+        languageLbl.text = NSLocalizedString("controller_settings_language", comment: "")
         editProfileLbl.text = NSLocalizedString("controller_edit_profile", comment: "")
         changePasswordLbl.text = NSLocalizedString("controller_settings_change_password", comment: "")
         likedPostsLbl.text = NSLocalizedString("controller_settings_liked_posts", comment: "")

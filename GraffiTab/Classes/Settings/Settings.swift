@@ -15,6 +15,15 @@ class Settings: NSObject {
     
     // App properties.
     
+    var language: String? {
+        get {
+            return getStringPreference(SettingsKeys.kLanguage)
+        }
+        set(newValue) {
+            setStringPreference(newValue!, key: SettingsKeys.kLanguage)
+        }
+    }
+    
     var rememberCredentials: Bool? {
         get {
             return getBoolPreference(SettingsKeys.kRememberCredentials)
@@ -124,7 +133,9 @@ class Settings: NSObject {
     }
     
     func basicInit() {
-        
+        if language == nil { // Language has not been set before.
+            language = AppConfig.sharedInstance.defaultLanguage
+        }
     }
     
     func getStringPreference(key: String) -> String? {

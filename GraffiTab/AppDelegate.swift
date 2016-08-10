@@ -16,7 +16,7 @@ import PAGestureAssistant
 import CoreLocation
 import Instabug
 
-@UIApplicationMain
+//@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?

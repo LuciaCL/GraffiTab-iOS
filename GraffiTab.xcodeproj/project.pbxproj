@@ -443,6 +443,12 @@
 		E5F40D071D50100400832D92 /* OnboardingScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F40D051D50100400832D92 /* OnboardingScreenView.xib */; };
 		E5F40D161D502DD100832D92 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40D151D502DD100832D92 /* OnboardingScreen.swift */; };
 		E5F40D171D502DD100832D92 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40D151D502DD100832D92 /* OnboardingScreen.swift */; };
+		E5F46CAE1D5B831D00F52256 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F46CAD1D5B831D00F52256 /* LanguageViewController.swift */; };
+		E5F46CAF1D5B831D00F52256 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F46CAD1D5B831D00F52256 /* LanguageViewController.swift */; };
+		E5F46CB71D5B86F200F52256 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F46CB61D5B86F200F52256 /* AppConfig.swift */; };
+		E5F46CB81D5B86F200F52256 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F46CB61D5B86F200F52256 /* AppConfig.swift */; };
+		E5F46CBD1D5BAA0A00F52256 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F46CBC1D5BAA0A00F52256 /* main.swift */; };
+		E5F46CBE1D5BAA0A00F52256 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F46CBC1D5BAA0A00F52256 /* main.swift */; };
 		E5FE1D7E1CFEF71B009CFB72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5FE1D811CFEF71B009CFB72 /* Localizable.strings */; };
 		E5FE1D7F1CFEF71B009CFB72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5FE1D811CFEF71B009CFB72 /* Localizable.strings */; };
 		E5FE1D8A1CFF7DFE009CFB72 /* AssetImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1D871CFF7DFE009CFB72 /* AssetImageView.swift */; };
@@ -789,6 +795,11 @@
 		E5F40D021D500FF300832D92 /* OnboardingScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingScreenView.swift; sourceTree = "<group>"; };
 		E5F40D051D50100400832D92 /* OnboardingScreenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingScreenView.xib; sourceTree = "<group>"; };
 		E5F40D151D502DD100832D92 /* OnboardingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
+		E5F46CAD1D5B831D00F52256 /* LanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
+		E5F46CB61D5B86F200F52256 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		E5F46CBA1D5B943C00F52256 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E5F46CBB1D5B943F00F52256 /* bg-BG */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "bg-BG"; path = "bg-BG.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E5F46CBC1D5BAA0A00F52256 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E5FE1D801CFEF71B009CFB72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E5FE1D871CFF7DFE009CFB72 /* AssetImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetImageView.swift; sourceTree = "<group>"; };
 		E5FE1D881CFF7DFE009CFB72 /* AvatarImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
@@ -1354,6 +1365,7 @@
 				E5B6B5891CC56F5800DC8EFC /* FeedbackViewController.swift */,
 				E5B6B58A1CC56F5800DC8EFC /* GeneralSettingsViewController.swift */,
 				E5B6B58B1CC56F5800DC8EFC /* SettingsViewController.swift */,
+				E5F46CAD1D5B831D00F52256 /* LanguageViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1564,6 +1576,7 @@
 		E5DFDBE71CB2C31B00BB3D27 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E5F46CB51D5B86E100F52256 /* Config */,
 				E5A1D6651D23101E0027E438 /* Managers */,
 				E5E293761D05CA8500C272EE /* Log */,
 				E59262541D018C4400368212 /* Cache */,
@@ -1713,6 +1726,7 @@
 		E5DFDC0B1CB2C33800BB3D27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E5F46CBC1D5BAA0A00F52256 /* main.swift */,
 				E5C3693D1D2163D8005FA4A0 /* GoogleService-Info.plist */,
 				E5DFDC0C1CB2C39200BB3D27 /* Default-568h@2x.png */,
 				E5DFDBE11CB2BF9E00BB3D27 /* Info.plist */,
@@ -1766,6 +1780,14 @@
 				E52BD58E1D50B83C001DC931 /* onboard_5.png */,
 			);
 			path = Onboard;
+			sourceTree = "<group>";
+		};
+		E5F46CB51D5B86E100F52256 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				E5F46CB61D5B86F200F52256 /* AppConfig.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		E5FE1D861CFF7DFE009CFB72 /* Assets */ = {
@@ -2247,6 +2269,7 @@
 				E584325A1CE9242000FB1E50 /* TintImageView.swift in Sources */,
 				E5494E6B1D1ABC49004F31A7 /* UISlider+CustomFlat.swift in Sources */,
 				E5FE1D8D1CFF7DFE009CFB72 /* AvatarImageView.swift in Sources */,
+				E5F46CB81D5B86F200F52256 /* AppConfig.swift in Sources */,
 				E584325B1CE9242000FB1E50 /* NotificationWelcomeCell.swift in Sources */,
 				E584325C1CE9242000FB1E50 /* AutocompleteHashCell.swift in Sources */,
 				E584325D1CE9242000FB1E50 /* ActivitySingleLikeCell.swift in Sources */,
@@ -2294,6 +2317,7 @@
 				E584327C1CE9242000FB1E50 /* ViewController+ImagePicker.swift in Sources */,
 				E5F40CFB1D4E8BF200832D92 /* GTError+Localize.swift in Sources */,
 				E584327D1CE9242000FB1E50 /* IntroScene.m in Sources */,
+				E5F46CAF1D5B831D00F52256 /* LanguageViewController.swift in Sources */,
 				E584327E1CE9242000FB1E50 /* ColorSprayCan.swift in Sources */,
 				E584327F1CE9242000FB1E50 /* ActivityGroupFollowCell.swift in Sources */,
 				E58432801CE9242000FB1E50 /* SearchStreamablesViewController.swift in Sources */,
@@ -2321,6 +2345,7 @@
 				E58432921CE9242000FB1E50 /* RecentViewController.swift in Sources */,
 				E58432931CE9242000FB1E50 /* EditProfileViewController.swift in Sources */,
 				E5AEDA881D1D3C4A006D4296 /* PatternDetector.cpp in Sources */,
+				E5F46CBE1D5BAA0A00F52256 /* main.swift in Sources */,
 				E58432941CE9242000FB1E50 /* GTUser+Extra.swift in Sources */,
 				E5FE1D8F1CFF7DFE009CFB72 /* StreamableImageView.swift in Sources */,
 				E58432951CE9242000FB1E50 /* ListFullStreamablesViewController.swift in Sources */,
@@ -2416,6 +2441,7 @@
 				E5B6B6271CC630B000DC8EFC /* CCViewController.m in Sources */,
 				E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */,
 				E5494E6A1D1ABC49004F31A7 /* UISlider+CustomFlat.swift in Sources */,
+				E5F46CB71D5B86F200F52256 /* AppConfig.swift in Sources */,
 				E5FE1D8C1CFF7DFE009CFB72 /* AvatarImageView.swift in Sources */,
 				E51006AC1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift in Sources */,
 				E5DAA8971CE37A26000CB2F4 /* AutocompleteHashCell.swift in Sources */,
@@ -2463,6 +2489,7 @@
 				E5B6B64D1CC9A48200DC8EFC /* ViewController+ImagePicker.swift in Sources */,
 				E5F40CFA1D4E8BF200832D92 /* GTError+Localize.swift in Sources */,
 				E5B6B63D1CC6C40C00DC8EFC /* IntroScene.m in Sources */,
+				E5F46CAE1D5B831D00F52256 /* LanguageViewController.swift in Sources */,
 				E5B6B62E1CC64D4400DC8EFC /* ColorSprayCan.swift in Sources */,
 				E51006C81CBC199B00AC66A5 /* ActivityGroupFollowCell.swift in Sources */,
 				E5B6B5BD1CC56F5800DC8EFC /* SearchStreamablesViewController.swift in Sources */,
@@ -2490,6 +2517,7 @@
 				E5B6B5AB1CC56F5800DC8EFC /* EditProfileViewController.swift in Sources */,
 				E5AEDA871D1D3C4A006D4296 /* PatternDetector.cpp in Sources */,
 				E5DAA8B61CE49418000CB2F4 /* GTUser+Extra.swift in Sources */,
+				E5F46CBD1D5BAA0A00F52256 /* main.swift in Sources */,
 				E5FE1D8E1CFF7DFE009CFB72 /* StreamableImageView.swift in Sources */,
 				E5A1D6691D23101E0027E438 /* GTLocationManager.swift in Sources */,
 				E510064F1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */,
@@ -2529,6 +2557,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				E5FE1D801CFEF71B009CFB72 /* Base */,
+				E5F46CBA1D5B943C00F52256 /* es */,
+				E5F46CBB1D5B943F00F52256 /* bg-BG */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
