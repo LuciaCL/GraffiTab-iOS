@@ -12,10 +12,10 @@ class AppConfig: NSObject {
 
     static var sharedInstance: AppConfig = AppConfig()
     
-    var defaultLanguage = "English"
+    var fallbackLanguage = "English"
     var languages = [
-        "English" : "en_EN"
-//        "Spanish" : "es_ES",
-//        "Bulgarian" : "bg_BG",
+        "English" : "en_EN",
+        "Español" : "es_ES",
+        "Български" : "bg_BG",
     ]
 }
