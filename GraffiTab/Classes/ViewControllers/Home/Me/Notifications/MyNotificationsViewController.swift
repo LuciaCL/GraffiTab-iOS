@@ -32,9 +32,6 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
 
         // Do any additional setup after loading the view.
         
-        // Clear app badge.
-        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
-        
         registerForEvents()
         
         setupTableView()
@@ -47,6 +44,9 @@ class MyNotificationsViewController: BackButtonViewController, UITableViewDelega
         
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
+        
+        // Clear app badge.
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     }
     
     override func viewDidAppear(animated: Bool) {
