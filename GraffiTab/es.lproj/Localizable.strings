@@ -8,147 +8,147 @@
 
 // Notifications
 
-"NOTIF_FOLLOW" = "%@ started following you.";
-"NOTIF_COMMENT" = "%@ commented on your graffiti:";
-"NOTIF_LIKE" = "%@ liked your graffiti.";
-"NOTIF_MENTION" = "%@ mentioned you in a comment:";
+"NOTIF_FOLLOW" = "%@ ahora te sigue.”;
+"NOTIF_COMMENT" = "%@ ha comentado tu grafiti:";
+"NOTIF_LIKE" = “A %@ le gusta tu grafiti.";
+"NOTIF_MENTION" = "%@ te ha mencionado en un comentario:";
 
 // Cells
 
-"cell_comment_edited" = "edited";
+"cell_comment_edited" = "editado";
 
-"cell_activity_people" = "%li people";
-"cell_activity_following" = "%@ started following %@";
-"cell_activity_graffiti" = "%li graffiti";
-"cell_activity_likes" = "%@ likes %@";
-"cell_activity_created" = "%@ created %@";
-"cell_activity_commented" = "%@ commented on %@";
-"cell_activity_likes_single" = "%@ likes %@'s graffiti";
-"cell_activity_created_single" = "%@ created graffiti";
-"cell_activity_commented_single" = "%@ posted a comment:";
+"cell_activity_people" = "%li gente";
+"cell_activity_following" = "%@ ahora sigue a %@";
+"cell_activity_graffiti" = "%li grafiti";
+"cell_activity_likes" = "%@ le gusta %@";
+"cell_activity_created" = "%@ ha creado %@";
+"cell_activity_commented" = "%@ ha comentado en %@";
+"cell_activity_likes_single" = “A %@ le gusta el grafiti de %@";
+"cell_activity_created_single" = "%@ ha creado un grafiti";
+"cell_activity_commented_single" = "%@ ha comentado:";
 
-"cell_streamable_like" = "Like";
-"cell_streamable_likes" = "Likes";
-"cell_streamable_liked" = "Liked";
-"cell_streamable_comment" = "Comment";
-"cell_streamable_comments" = "Comments";
+"cell_streamable_like" = “Me gusta“;
+"cell_streamable_likes" = “Me gusta“;
+"cell_streamable_liked" = “Me gusta“;
+"cell_streamable_comment" = "Comentario";
+"cell_streamable_comments" = "Comentarios";
 
-"cell_notification_welcome_title" = "Welcome to GraffiTab!";
-"cell_notification_welcome_description" = "Now that you have signed up, you can quickly start creating amazing graffiti and share them with your comminuty. If you get stuck, feel free to check out the tutorials again in Settings.";
+"cell_notification_welcome_title" = "Bienvenido a GraffiTab!";
+"cell_notification_welcome_description" = "Ahora que ya estás registrado, puedes empezar a crear grafitis y compartirlos con quien quieras. Si tienes alguna duda, puedes volver a consultar los tutoriales en la sección de Ajustes.”;
 
 // Views
 
-"view_follow_button_follow" = "Follow";
-"view_follow_button_following" = "Following";
+"view_follow_button_follow" = "Seguir";
+"view_follow_button_following" = "Siguiendo";
 
-"view_profile_header_graffiti" = "graffiti";
-"view_profile_header_followers" = "followers";
-"view_profile_header_following" = "following";
+"view_profile_header_graffiti" = "grafiti";
+"view_profile_header_followers" = "Seguidores";
+"view_profile_header_following" = "Siguiendo”;
 
 // Managers
 
-"manager_location_permission" = "You will have to enable Location Services for GraffiTab in Settings before continuing with this action.";
-"manager_location_permission_yes" = "Open Location Settings";
-"manager_location_permission_no" = "No, thanks";
-"manager_location_permission_geofencing" = "You have entered one of your geographical regions. Explore it here.";
+"manager_location_permission" = "Tendrás que habilitar los servicios de localización para GraffiTab en Ajustes antes de continuar con esta acción.";
+"manager_location_permission_yes" = "Abrir Ajustes de localización";
+"manager_location_permission_no" = "No, gracias";
+"manager_location_permission_geofencing" = “Has introducido una de tus regiones geográficas. Consúltalas aquí.”;
 
-"manager_network_connected" = "Connected";
-"manager_network_not_connected" = "No Internet Connection";
+"manager_network_connected" = "Conectado";
+"manager_network_not_connected" = "No hay conexión a internet";
 
-"manager_permission_notifications_title" = "Receive Notifications";
-"manager_permission_notifications_description" = "Staying connected with the people you follow is easier with push notifications.\n\nOtherwise you'll have to manually check the app for updates.";
-"manager_permission_notifications_button" = "Use Push Notifications";
+"manager_permission_notifications_title" = "Recibir notificaciones";
+"manager_permission_notifications_description" = “Estar conectado con la gente que sigues es fácil con las notificaciones Push.\n\nSin ellas, tendrás que comprobar manualmente las actualizaciones en la aplicación.";
+"manager_permission_notifications_button" = “Usar notificaciones Push”;
 
-"manager_permission_photos_title" = "Background Pictures";
-"manager_permission_photos_description" = "Want to set a background picture and draw on top of it? Awesome! We just need your permission first.\n\nPhotos will never be posted without your consent.";
-"manager_permission_photos_button" = "Use Background Pictures";
-"manager_permission_photos_denied" = "We need your permission to access the photos library. Please enable this in Settings.";
+"manager_permission_photos_title" = “Imágenes de fondo”;
+"manager_permission_photos_description" = “¿Quieres seleccionar una imagen de fondo y dibujar sobre ella? ¡Genial! Simplemente necesitamos tu aprobación.\n\n Las imágenes nunca serán publicadas sin tu consentimiento.";
+"manager_permission_photos_button" = "Usar Imágenes de fondo";
+"manager_permission_photos_denied" = "Necesitamos tu permiso para acceder a tu galería de fotografías. Por favor, habilítalo en Ajustes.";
 
-"manager_permission_location_title" = "Location Services";
-"manager_permission_location_description" = "In order to use the Explorer or create graffiti, we need to know your location.\n\nOtherwise, you can still draw and publish graffiti but they won't appear on the map.";
-"manager_permission_location_button" = "Use Location Services";
+"manager_permission_location_title" = "Servicios de localización";
+"manager_permission_location_description" = “Para usar el Explorador o crear grafitis, necesitamos conocer tu localización.\n\nSin ella, podrás dibujar y publicar grafitis pero no aparecerán en el mapa.";
+"manager_permission_location_button" = “Usar servicios de localización“;
 
-"manager_permission_location_tracking_title" = "Location Tracking Services";
-"manager_permission_location_tracking_description" = "By tracking a location you will receive notifications when someone creates graffiti in that area or when you visit it.\n\nOtherwise you will have to check manually in the Explorer.";
-"manager_permission_location_tracking_button" = "Use Tracking Services";
+"manager_permission_location_tracking_title" = “Seguimiento de localizaciones“;
+"manager_permission_location_tracking_description" = “Al suscribirte a una determinada zona, recibirás notificaciones al visitarla o alguien cree grafitis en ella.\n\nSi no lo haces tendrás que comprobarlo manualmente en el Explorador.";
+"manager_permission_location_tracking_button" = “Usar seguimiento de localización“;
 
 // Models
 
-"models_comment_sending" = "Sending";
-"models_comment_failed" = "Failed";
-"models_comment_sent" = "Sent";
+"models_comment_sending" = "Enviando";
+"models_comment_failed" = "Se ha producido un error";
+"models_comment_sent" = "Enviado";
 
 // API Errors
 
-"api_error_unsupported_file_type" = "This file type is not supported.";
-"api_error_invalid_token" = "The provided token is invalid.";
-"api_error_stream_could_not_be_read" = "The file stream could not be read.";
-"api_error_invalid_argument" = "Invalid argument passed in the request.";
-"api_error_missing_argument" = "Missing argument in the request.";
-"api_error_invalid_json" = "Invalid JSON in the request.";
-"api_error_invalid_followee" = "You cannot follow yourself.";
-"api_error_empty_mandatory_field" = "Mandatory fields missing.";
-"api_error_invalid_username" = "This username is invalid.";
-"api_error_invalid_email" = "This email is invalid.";
-"api_error_username_already_in_use" = "This username already exists.";
-"api_error_email_already_in_use" = "This email already exists.";
+"api_error_unsupported_file_type" = "El tipo de archivo no está soportado.";
+"api_error_invalid_token" = "El token proporcionado no es válido.";
+"api_error_stream_could_not_be_read" = “El archivo no se puede leer.";
+"api_error_invalid_argument" = “Valor incorrecto.”;
+"api_error_missing_argument" = “Valor incorrecto.”;
+"api_error_invalid_json" = “Valor incorrecto.”;
+"api_error_invalid_followee" = "No te puedes seguir a tí mismo.";
+"api_error_empty_mandatory_field" = “Falta campo obligatorio.”;
+"api_error_invalid_username" = “El nombre de usuario no es válido.”;
+"api_error_invalid_email" = “El email no es válido.";
+"api_error_username_already_in_use" = "Este nombre de usuario ya existe.";
+"api_error_email_already_in_use" = "Este email ya existe.";
 "api_error_invalid_id" = "You cannot pass ID to create request.";
 
-"api_error_user_not_logged_in" = "Your session has expired. Please login to continue.";
-"api_error_user_not_owner" = "You do not have permission to edit this item.";
+"api_error_user_not_logged_in" = "La sesión ha expirado. Por favor, vuelve a iniciar sesión para continuar.";
+"api_error_user_not_owner" = "No tienes permisos para editar este elemento.”; 
 
-"api_error_incorrect_password" = "Your password is incorrect. Please try again.";
-"api_error_max_login_attempts" = "Maximum login attempts have been reached. Please reset your password to continue.";
-"api_error_forbidden" = "This resource is forbidden.";
+"api_error_incorrect_password" = "Contraseña incorrecta. Por favor vuelve a intentarlo.";
+"api_error_max_login_attempts" = "Has alcanzado el número máximo de intentos para iniciar sesión. Por favor, reestablece tu contraseña para continuar.";
+"api_error_forbidden" = “Esta acción está prohibida.”;
 
-"api_error_external_provider_not_found" = "This external provider does not exist.";
-"api_error_external_provider_not_linked" = "This external provider has not been linked.";
-"api_error_device_not_found" = "The requested device does not exist.";
-"api_error_user_not_found" = "The requested user does not exist.";
-"api_error_asset_not_found" = "The requested asset does not exist.";
-"api_error_streamable_not_found" = "The requested streamable does not exist.";
-"api_error_comment_not_found" = "The requested comment does not exist.";
-"api_error_location_not_found" = "The requested location does not exist.";
-"api_error_token_not_found" = "This token does not exist.";
+"api_error_external_provider_not_found" = “Este servicio externo no existe.”;
+"api_error_external_provider_not_linked" = "Este servicio externo no está vinculado.”;
+"api_error_device_not_found" = “El dispositivo requerido no está disponible.”;
+"api_error_user_not_found" = “El usuario no está disponible.”;
+"api_error_asset_not_found" = “El recurso no existe”;
+"api_error_streamable_not_found" = “El recurso no existe.”;
+"api_error_comment_not_found" = “El comentario no existe.”;
+"api_error_location_not_found" = “La localización no existe.”;
+"api_error_token_not_found" = “EL token no existe.”;
 
-"api_error_token_expired" = "The provided token has expired.";
-"api_error_user_not_in_expected_state" = "Your account is not in the expected state. Please reset your password or login to continue.";
+"api_error_token_expired" = “El token ha expirado.”;
+"api_error_user_not_in_expected_state" = “La cuenta no está en el estado esperado. Por favor, restablece tu contraseña o inicia sesión para continuar.”;
 
-"api_error_device_already_exists" = "This device already exists.";
-"api_error_external_provider_already_linked" = "This external provider has already been linked.";
-"api_error_external_provider_already_linked_for_another_user" = "This external provider has already been linked for another user.";
+"api_error_device_already_exists" = “El dispositivo ya existe.”;
+"api_error_external_provider_already_linked" = “Este servicio externo ya ha sido vinculado.";
+"api_error_external_provider_already_linked_for_another_user" = “Este servicio externo ya ha sido vinculado por otro usuario.”;
 
-"api_error_general" = "An unexpected error has ocurred. Please contast support to raise a ticket.";
+"api_error_general" = “Ha ocurrido un error inesperado. Por favor, contacta con soporte.";
 
-"api_error_other" = "Looks like we're experiencing some errors processing your request. Make sure you're Internet connection is working and try again. Otherwise please check our status page for more information.";
+"api_error_other" = “Parece que tenemos problemas con tu petición. Asegúrate de que estás conectado a Internet e inténtalo de nuevo. Para más información comprueba nuestra página web.";
 
-"api_error" = "An unexpected error has ocurred. Please contast support to raise a ticket.";
+"api_error" = "Ha ocurrido un error inesperado. Por favor contacta con soporte.";
 
 // Dialogs
 
-"dialog_input_done" = "Done";
-"dialog_input_prompt" = "Please enter a valid username.";
+"dialog_input_done" = "Listo";
+"dialog_input_prompt" = "Por favor introduce un nombre de usuario valido.";
 
 // Validation
 
-"validation_login_username" = "Please enter a username.";
-"validation_login_password" = "Please enter a password.";
+"validation_login_username" = "Por favor introduce un nombre de usuario.";
+"validation_login_password" = "Por favor introduce una contraseña.";
 
-"validation_login_new_password" = "Please enter your new password.";
+"validation_login_new_password" = "Por favor introduce una contraseña nueva.";
 
-"validation_sign_up_firstname" = "Please enter your first name.";
-"validation_sign_up_lastname" = "Please enter your last name.";
-"validation_sign_up_email" = "Please enter your email address.";
-"validation_sign_up_confirm_password" = "Please confirm your password.";
-"validation_sign_up_password_mismatch" = "Your passwords do not match.";
+"validation_sign_up_firstname" = "Por favor introduce tu nombre.";
+"validation_sign_up_lastname" = "Por favor introduce tus apellidos.";
+"validation_sign_up_email" = "Por favor introduce tu cuenta de email.";
+"validation_sign_up_confirm_password" = "Por favor confirma tu contraseña.";
+"validation_sign_up_password_mismatch" = "Tus contraseñas no coinciden.";
 
 // Sharing
 
-"share_image" = "This post cannot be shared yet..";
+"share_image" = "Este post no se pudo compartir aún...";
 
 // Dates
 
-"date_now" = "now";
+"date_now" = “ahora”;
 "date_y" = "%liy";
 "date_month" = "%limo";
 "date_d" = "%lid";
@@ -156,264 +156,264 @@
 "date_m" = "%lim";
 "date_s" = "%lis";
 
-"date_time_ago" = "%li %@ ago";
-"date_just_now" = "Just now";
-"date_year" = "year";
-"date_years" = "years";
-"date_month" = "month";
-"date_months" = "months";
-"date_day" = "day";
-"date_days" = "days";
-"date_hour" = "hour";
-"date_hours" = "hours";
-"date_minute" = "minute";
-"date_minutes" = "minutes";
+"date_time_ago" = “hace %li %@ ";
+"date_just_now" = “Ahora mismo";
+"date_year" = "año";
+"date_years" = "años";
+"date_month" = "mes";
+"date_months" = "meses";
+"date_day" = "día";
+"date_days" = "días";
+"date_hour" = "hora";
+"date_hours" = "horas";
+"date_minute" = "minuto";
+"date_minutes" = "minutos";
 
 // Controllers
 
-"controller_streamables_no_graffiti" = "No graffiti";
-"controller_streamables_no_graffiti_detail" = "No graffiti were found over here. Please come back again.";
+"controller_streamables_no_graffiti" = "No hay grafitis”;
+"controller_streamables_no_graffiti_detail" = “No se encontraron grafitis por esta zona. Vuelve más adelante o crea uno tú mismo.”;
 
-"controller_users_no_users" = "No users";
-"controller_users_no_users_detail" = "No users were found. Please come back again.";
+"controller_users_no_users" = "No hay usuarios";
+"controller_users_no_users_detail" = “No se encontraron usuarios.";
 
-"controller_image_picker_prompt" = "Choose image source";
-"controller_image_picker_photos" = "Choose from photos";
-"controller_image_picker_take_picture" = "Take a picture";
-"controller_image_picker_remove" = "Remove image";
-"controller_image_picker_remove_prompt" = "Are you sure you want to clear this image?";
-"controller_image_picker_remove_prompt_yes" = "Yes, clear it!";
-"controller_image_picker_remove_prompt_cancel" = "Cancel";
+"controller_image_picker_prompt" = “Elige el origen de las imágenes”;
+"controller_image_picker_photos" = “Elegir desde la galería de imágenes”;
+"controller_image_picker_take_picture" = “Sacar foto”;
+"controller_image_picker_remove" = “Eliminar foto“;
+"controller_image_picker_remove_prompt" = “¿Estás seguro de que quieres eliminar la imagen?”;
+"controller_image_picker_remove_prompt_yes" = “Si, elimínala”;
+"controller_image_picker_remove_prompt_cancel" = "Cancelar”;
 
-"controller_avatar_prompt_picture_source" = "Choose a source for your profile picture";
-"controller_avatar_prompt_import_from_facebook" = "Import from Facebook";
-"controller_avatar_prompt_say_cheese" = "Say \"Cheese!\"";
-"controller_avatar_prompt_later" = "I'll do it later";
+"controller_avatar_prompt_picture_source" = “¿Desde donde quieres elegir tu foto de perfil?“;
+"controller_avatar_prompt_import_from_facebook" = “Importar desde Facebook";
+"controller_avatar_prompt_say_cheese" = “Dí \”¡Pataaataaa!\””;
+"controller_avatar_prompt_later" = “Más tarde”;
 
-"controller_onboarding_go" = "Let's go!";
-"controller_onboarding_screen_1_title" = "Paint";
-"controller_onboarding_screen_1_description" = "Creating beautiful art is as easy as moving your finger across the canvas.";
-"controller_onboarding_screen_2_title" = "Enhance";
-"controller_onboarding_screen_2_description" = "Make your drawing stand out with a variety of filters and effects.";
-"controller_onboarding_screen_3_title" = "Explore";
-"controller_onboarding_screen_3_description" = "Discover what your friends are creating around your area.";
-"controller_onboarding_screen_4_title" = "Follow";
-"controller_onboarding_screen_4_description" = "Follow your favourite artists and get instant updates about new content.";
-"controller_onboarding_screen_5_title" = "Profile";
-"controller_onboarding_screen_5_description" = "Everything you make is nicely stored in your creative profile. Ready to get started?";
+"controller_onboarding_go" = “¡Allá vamos!”;
+"controller_onboarding_screen_1_title" = “Pintar”;
+"controller_onboarding_screen_1_description" = “Crear arte es tan fácil como deslizar tu dedo a través del lienzo.";
+"controller_onboarding_screen_2_title" = “Mejorar”;
+"controller_onboarding_screen_2_description" = “Destaca tu dibujo con variedad de filtros y efectos.";
+"controller_onboarding_screen_3_title" = "Explorar”;
+"controller_onboarding_screen_3_description" = “Descubre lo que tus amigos están creando en tu zona.";
+"controller_onboarding_screen_4_title" = “Seguir”;
+"controller_onboarding_screen_4_description" = “Sigue a tus artistas favoritos y obtén actualizaciones al instante.";
+"controller_onboarding_screen_5_title" = “Perfil”;
+"controller_onboarding_screen_5_description" = “Todas tus creaciones se guardan en tu perfil creativo. ¿Listo para empezar?";
 
-"controller_create_skip_description" = "Ready to draw? No problem, you can enable the tutorial again from Settings.";
-"controller_create_location_unavailable" = "Your location could not be determined right now. Would you like to still publish this post?";
-"controller_create_location_unavailable_yes" = "Yes, publish it";
-"controller_create_saved" = "Your graffiti was saved in your photos album";
-"controller_create_share_prompt" = "Looks great! How about sharing it with the rest of the world?";
-"controller_create_share_publish" = "Publish";
-"controller_create_share" = "Share";
-"controller_create_share_save" = "Save to Photos Album";
-"controller_create_share_discard" = "Discard";
-"controller_create_share_discard_prompt" = "Are you sure you want to discard this drawing? Any unsaved progress will be lost.";
-"controller_create_share_discard_prompt_yes" = "Yes, discard it";
-"controller_create_clear_description" = "What would you like to do?";
-"controller_create_clear_drawing_layer" = "Clear drawing layer";
-"controller_create_clear_drawing_prompt" = "Are you sure you want to clear your drawing? Any unsaved progress will be lost.";
-"controller_create_clear_prompt_yes" = "Yes, clear it";
-"controller_create_clear_background_layer" = "Clear background image";
-"controller_create_clear_background_prompt" = "Are you sure you want to clear the background image? Any unsaved progress will be lost.";
-"controller_create_clear_everything" = "Clear everything";
-"controller_create_assistant_intro" = "Drawing with the canvas is quick and easy. Tap on the screen to get started!";
-"controller_create_assistant_line" = "You can draw by sliding your finger on the screen. Give it a try!";
-"controller_create_assistant_line_tool" = "Great tool choice. Lets see it in action!";
-"controller_create_assistant_line_stroke" = "Give that new brush a try!";
-"controller_create_assistant_line_color" = "That color looks nice. Why don't you give it a try?";
-"controller_create_assistant_color" = "Drawing lines is fun but it's even nicer with colors. Tap on the palette to choose a different color.";
-"controller_create_assistant_stroke" = "In addition to colors you can also control the width and opacity of the current brush. Tap the brush settings to check it out.";
-"controller_create_assistant_menu" = "So far so good but what's a great artist without his brushes? Let's see what you've got in your toolbox.";
-"controller_create_assistant_tool" = "These are your available tools. Tap on a different tool to continue.";
-"controller_create_assistant_eraser" = "Even great artists make mistakes sometimes. Do not fear, we have the perfect tool for this. Tap the eraser to erase mistakes.";
-"controller_create_assistant_background" = "The white canvas is nice but can quickly become boring. Why not put a background picture and draw on top of it?";
-"controller_create_assistant_enhance" = "Now that your masterpiece is almost done, it's time to add some cool effects to it and make it looks really pro. Tap the enhancer to add filters or stickers to your drawing.";
-"controller_create_assistant_publish" = "Not bad for a first try! Why don't you share it with your friends or the rest of the GraffiTab community?";
+"controller_create_skip_description" = “¿Listo para dibujar? No te preocupes, puedes activar el tutorial en cualquier momento desde Ajustes.";
+"controller_create_location_unavailable" = “No se puede determinar tu localization en este momento. ¿Quieres publicarlo igualmente?”;
+"controller_create_location_unavailable_yes" = “Sí, publícalo”;
+"controller_create_saved" = “Tu grafiti se ha guardado en tu album de fotos";
+"controller_create_share_prompt" = “¡Estupendo! ¿Quieres que todo el mundo lo vea?”;
+"controller_create_share_publish" = "Publicar”;
+"controller_create_share" = “Compartir”;
+"controller_create_share_save" = “Guardar en el álbum de fotos”;
+"controller_create_share_discard" = "Descartar”;
+"controller_create_share_discard_prompt" = “¿Estás seguro de que quieres descartar este dibujo? Se perderá cualquier cambio no guardado.";
+"controller_create_share_discard_prompt_yes" = “Sí, descártalo”;
+"controller_create_clear_description" = “¿Que te gustaría hacer?";
+"controller_create_clear_drawing_layer" = “Limpiar capa“;
+"controller_create_clear_drawing_prompt" = “¿Estás seguro de que quieres limpiar tu dibujo? Se perderá cualquier cambio no guardado.";
+"controller_create_clear_prompt_yes" = “Sí, límpialo“;
+"controller_create_clear_background_layer" = “Limpiar imagen de fondo“;
+"controller_create_clear_background_prompt" = “¿Estás seguro de que quieres quitar la imagen de fondo? Se perderá cualquier cambio no guardado.";
+"controller_create_clear_everything" = “Borrar todo”;
+"controller_create_assistant_intro" = “Dibujar en el lienzo es fácil y rápido. ¡Toca la pantalla para empezar!”;
+"controller_create_assistant_line" = “Dibuja deslizando tu dedo por la pantalla. ¡Prueba!”;
+"controller_create_assistant_line_tool" = “Buena elección!. ¡Veámosla en acción!”;
+"controller_create_assistant_line_stroke" = “¡Prueba un nuevo pincel!";
+"controller_create_assistant_line_color" = “Ese color queda genial. Pruébalo!”;
+"controller_create_assistant_color" = “Dibujar lineas es divertido, pero con colores es mucho mejor!. Toca la paleta para elegir un color diferente.”;
+"controller_create_assistant_stroke" = “Además del color, puedes cambiar el tamaño y la opacidad del pincel. Toca los ajustes del pincel y pruébalo.";
+"controller_create_assistant_menu" = “Hasta ahora todo bien pero, ¿Qué es un artista sin sus pinceles? Veamos que hay en tus de herramientas.";
+"controller_create_assistant_tool" = “Estas son las herramientas disponibles. Elige una para continuar.";
+"controller_create_assistant_eraser" = “Incluso los mejores artistas cometen errores. No temas, tenemos la herramienta perfecta para esto. Selecciona la goma para borrar errores.";
+"controller_create_assistant_background" = “Un lienzo en blanco está bien pero se vuelve aburrido rápidamente. ¿Por que no poner una imagen de fondo y dibujar sobre ella?";
+"controller_create_assistant_enhance" = “Ahora que tu obra de arte está casi lista, es el momento de añadir algunos efectos. Toca en filtros para seleccionar uno y aplicarlo al dibujo.”;
+"controller_create_assistant_publish" = “¡No está mal para ser la primera vez! ¿Porque no compartirla con tus amigos y/o el resto de la comunidad GraffiTab?";
 
-"controller_login_invalid_credentials" = "These credentials are incorrect. Please try again.";
-"controller_login_facebook_unavailable" = "Facebook login is not available at the moment. Please try again later.";
-"controller_login_sign_up" = "Sign up";
-"controller_login_username" = "Username";
-"controller_login_password" = "Password";
-"controller_login_forgot_password" = "Forgotten password?";
-"controller_login" = "Login";
-"controller_login_facebook" = "Login with Facebook";
-"controller_login_sign_up_full" = "Don't have an account yet? Sign up";
+"controller_login_invalid_credentials" = “Las credenciales son incorrectas. Inténtalo de nuevo.”;
+"controller_login_facebook_unavailable" = “Iniciar sesión con Facebook no está disponible en este momento. Por favor, inténtalo de nuevo maás tarde.”;
+"controller_login_sign_up" = “Registrarse”;
+"controller_login_username" = “Usuario“;
+"controller_login_password" = “Contraseña”;
+"controller_login_forgot_password" = “¿No recuerdas tu contraseña?”;
+"controller_login" = “Iniciar sesión“;
+"controller_login_facebook" = “Iniciar sesión con Facebook";
+"controller_login_sign_up_full" = “¿Todavía no tienes una cuenta? Regístrate!";
 
-"controller_pasword_reset_confirmation" = "Check your email for instructions to reset your password.";
-"controller_pasword_reset_reset" = "Reset";
-"controller_pasword_reset" = "Reset password";
-"controller_pasword_reset_description" = "You will receive an email containing your password and instructions on how to reset it.";
+"controller_pasword_reset_confirmation" = “Comprueba tu correo para restablecer tu contraseña.";
+"controller_pasword_reset_reset" = "Restablecer”;
+"controller_pasword_reset" = "Restablecer contraseña;
+"controller_pasword_reset_description" = “Recibirás un correo electrónico con instrucciones para restaurar tu contraseña.”;
 "controller_pasword_reset_email" = "Email";
 
-"controller_sign_up_confirmation" = "You have successfully registered! Please check your email to activate your account.";
-"controller_sign_up_confirmation_title" = "Almost done!";
-"controller_sign_up_first_name" = "First name";
-"controller_sign_up_last_name" = "Last name";
-"controller_sign_up_confirm_password" = "Confirm password";
-"controller_sign_up_terms" = "By registering you agree to our Terms of Use";
-"controller_sign_up" = "Sign me up";
+"controller_sign_up_confirmation" = “¡Te has registrado satisfactoriamente! Por favor, comprueba tu correo electrónico para activar la cuenta.";
+"controller_sign_up_confirmation_title" = “¡Casi listo!“;
+"controller_sign_up_first_name" = “Nombre”;
+"controller_sign_up_last_name" = “Apellidos”;
+"controller_sign_up_confirm_password" = “Confirmar contraseña";
+"controller_sign_up_terms" = “Al registrarte aceptas los términos de uso";
+"controller_sign_up" = “Registrarse”;
 
-"controller_terms_title" = "Terms of Use";
+"controller_terms_title" = "Términos de uso”;
 
-"controller_web_file_error" = "Could not open file.";
+"controller_web_file_error" = “No se pudo abrir el archivo";
 
-"controller_home" = "Casa";
-"controller_trending" = "Trending";
-"controller_notifications" = "Notifications";
-"controller_recent" = "Recent";
+"controller_home" = “Inicio”;
+"controller_trending" = “Popular”;
+"controller_notifications" = "Notificaciones”;
+"controller_recent" = "Reciente";
 
-"controller_private" = "Private Graffiti";
+"controller_private" = “Grafiti privado”;
 
-"controller_feed_empty_title" = "Your feed is empty";
-"controller_feed_empty_description" = "How about drawing your first sketch?";
-"controller_feed_draw" = "Draw";
+"controller_feed_empty_title" = “Tu sección de grafitis está vacía“;
+"controller_feed_empty_description" = “¿Quieres dibujar tu primer borrador?";
+"controller_feed_draw" = "Dibujar”;
 
-"controller_locations_empty_title" = "No locations yet";
-"controller_locations_empty_description" = "Create your first location and start tracking areas of interest.";
-"controller_locations_options_title" = "What would you like to do with this place?";
-"controller_locations_copy_address" = "Copy address";
-"controller_locations_track" = "Track";
-"controller_locations_untrack" = "Untrack";
-"controller_locations_delete" = "Delete";
-"controller_locations_delete_prompt" = "Are you sure you want to delete this location?";
-"controller_locations_delete_prompt_yes" = "Yes, delete it";
-"controller_locations_geofence_unsupported" = "Your device does not support locatino tracking.";
-"controller_locations" = "Locations";
+"controller_locations_empty_title" = “Aún no hay localizaciones“;
+"controller_locations_empty_description" = “Crea tu primera localización y empieza a seguir zonas de tu interés.";
+"controller_locations_options_title" = “¿Que te gustaría hacer con este lugar?";
+"controller_locations_copy_address" = “Copiar dirección”;
+"controller_locations_track" = “Seguir”;
+"controller_locations_untrack" = “Dejar de seguir“;
+"controller_locations_delete" = “Borrar”;
+"controller_locations_delete_prompt" = “¿Estás seguro de que quieres borrar esta localización?”;
+"controller_locations_delete_prompt_yes" = “Sí, borrala“;
+"controller_locations_geofence_unsupported" = “Tu dispositivo no soporta seguimiento de localizaciones.";
+"controller_locations" = "Localizaciones”;
 
-"controller_create_location_not_selected" = "Select a location first.";
-"controller_create_location_saved" = "Location saved successfully!";
-"controller_create_location_none" = "No locations found for this address.";
-"controller_create_location_multiple" = "Multiple matches found. The first one will be used.";
+"controller_create_location_not_selected" = “Selecciona primero una localización.”;
+"controller_create_location_saved" = “¡Localización guardada satisfactoriamente!”;
+"controller_create_location_none" = “No se han encontrado direcciones de localización.";
+"controller_create_location_multiple" = “Se han encontrado múltiples coincidencias. Se usará la primera de ellas.”;
 
-"controller_edit_password_success" = "Password updated!";
-"controller_edit_password" = "Edit password";
-"controller_edit_password_your" = "Your password";
-"controller_edit_password_new" = "New password";
-"controller_edit_password_confirm" = "Confirm password";
+"controller_edit_password_success" = “Contraseña actualizada”;
+"controller_edit_password" = “Cambiar contraseña“;
+"controller_edit_password_your" = “Tu contraseña”;
+"controller_edit_password_new" = “Nueva contraseña“;
+"controller_edit_password_confirm" = “Confirmar contraseña“;
 
-"controller_edit_profile_success" = "Profile updated!";
-"controller_edit_profile" = "Edit Profile";
-"controller_edit_profile_avatar_success" = "Avatar updated!";
-"controller_edit_profile_cover_success" = "Banner updated!";
-"controller_edit_profile_avatar" = "Profile Picture";
-"controller_edit_profile_cover" = "Cover Picture";
-"controller_edit_profile_website" = "Website";
-"controller_edit_profile_private_graffiti" = "Manage Private Graffiti";
-"controller_edit_profile_private_graffiti_title" = "Private Graffiti";
-"controller_edit_profile_private_graffiti_description" = "Private graffiti can only be viewed by you and nobody else.";
+"controller_edit_profile_success" = “Perfil actualizado”;
+"controller_edit_profile" = "Editar perfil“;
+"controller_edit_profile_avatar_success" = “Foto de perfil actualizada“;
+"controller_edit_profile_cover_success" = “Foto de portada actualizada“;
+"controller_edit_profile_avatar" = “Foto de perfil“;
+"controller_edit_profile_cover" = “Foto de portada“;
+"controller_edit_profile_website" = “Página web”;
+"controller_edit_profile_private_graffiti" = “Gestionar grafitis privados”;
+"controller_edit_profile_private_graffiti_title" = "Grafitis privados“;
+"controller_edit_profile_private_graffiti_description" = “Un graffiti privado solamente puede ser visto por ti y nadie más.";
 
-"controller_edit_text_mandatory" = "This field cannot be empty.";
+"controller_edit_text_mandatory" = “Este campo no puede estar vacío.”;
 
-"controller_activity_empty_title" = "No activity";
-"controller_activity_empty_description" = "Looks like we don't have any activity to display yet. Please come back again.";
+"controller_activity_empty_title" = “No hay actividad“;
+"controller_activity_empty_description" = “Parece que no tenemos ninguna actividad que mostrar aún. Por favor, vuelve más tarde.";
 
-"controller_notifications_empty_title" = "No notifications";
-"controller_notifications_empty_description" = "Looks like you have no notifications yet.";
+"controller_notifications_empty_title" = "No hay notificaciones”;
+"controller_notifications_empty_description" = “Parece que aún no tienes notificaciones.";
 
-"controller_menu_profile" = "Profile";
-"controller_menu_locations" = "Locations";
-"controller_menu_search" = "Search";
-"controller_menu_settings" = "Settings";
+"controller_menu_profile" = “Perfil”;
+"controller_menu_locations" = "Localizaciones”;
+"controller_menu_search" = “Buscar”;
+"controller_menu_settings" = “Ajustes”;
 
-"controller_search_people" = "People";
-"controller_search_graffiti" = "Graffiti";
+"controller_search_people" = “Gente”;
+"controller_search_graffiti" = "Grafiti";
 
-"controller_linked_accounts_facebook_login_error" = "Could not login to Facebook";
-"controller_linked_accounts" = "Linked Accounts";
+"controller_linked_accounts_facebook_login_error" = “No se puede iniciar sesión con Facebook“;
+"controller_linked_accounts" = “Cuentas vinculadas“;
 
-"controller_linked_account_unlink_prompt" = "Are you sure you want to unlink this account?";
-"controller_linked_account_unlink_prompt_yes" = "Unlink";
-"controller_linked_account_unlink_description" = "Unlinking your account will disable login with that speciffic provider.";
-"controller_linked_account_find_friends" = "Find Friends";
-"controller_linked_account_unlink_success" = "This account has successfully been unlinked.";
+"controller_linked_account_unlink_prompt" = “¿Estás seguro de que quieres desvincular esta cuenta?”;
+"controller_linked_account_unlink_prompt_yes" = “Desvincular”;
+"controller_linked_account_unlink_description" = “Al desvincular tu cuenta desactivarás el inicio de sesión para este servicio.";
+"controller_linked_account_find_friends" = “Encontrar amigos“;
+"controller_linked_account_unlink_success" = “Esta cuenta ha sido desvinculada satisfactoriamente.";
 "controller_linked_account_facebook" = "Facebook";
 "controller_linked_account_twitter" = "Twitter";
 "controller_linked_account_google" = "Google";
 
-"controller_social_friends_facebook" = "Facebook Friends";
-"controller_social_friends_twitter" = "Twitter Friends";
-"controller_social_friends_google" = "Google Friends";
+"controller_social_friends_facebook" = “Amigos en Facebook“;
+"controller_social_friends_twitter" = “Amigos en Twitter";
+"controller_social_friends_google" = “Amigos en Google";
 
-"controller_about_release_notes" = "Release notes";
-"controller_about_release_info" = "Release Information";
-"controller_about_version" = "Version";
-"controller_about_version_info" = "Version information";
+"controller_about_release_notes" = “Notas de la actualización“;
+"controller_about_release_info" = “Información de la actualización“;
+"controller_about_version" = "Versión";
+"controller_about_version_info" = “Información sobre la versión.”;
 "controller_about_copyright" = "© 2016 GraffiTab All Rights Reserved";
-"controller_about_build" = "Build";
+"controller_about_build" = “Construir”;
 
-"controller_settings_clear_cache_prompt" = "Are you sure you want to clear the app's cache? Clearing the cache will force the app to re-download all images and may incur additional charges if you are not using WiFi.";
-"controller_settings_clear_cache" = "Clear Cache";
+"controller_settings_clear_cache_prompt" = “¿Estás seguro de que quieres borrar la caché de la aplicación? Borrando la cache fuerzas a la aplicación a volver a descargar todas las imágenes y puede incluir cargos adicionales si no estás utilizando WiFi.";
+"controller_settings_clear_cache" = “Borrar Cache";
 "controller_settings_eula" = "End User License Agreement";
-"controller_settings_logout_prompt" = "Are you sure you want to log out?";
-"controller_settings_logout" = "Log out";
-"controller_settings_change_password" = "Change Password";
-"controller_settings_liked_posts" = "Posts You've Liked";
-"controller_settings_remember_me" = "Remember me";
-"controller_settings_remember_me_description" = "Remembers your login credentials and autofills them in case you log out.";
-"controller_settings_find_facebook_friends" = "Find Facebook Friends";
-"controller_settings_invite_facebook_friends" = "Invite Facebook Friends";
-"controller_settings_followers_activity" = "Followers Activity";
-"controller_settings_linked_accounts" = "Linked Accounts";
-"controller_settings_clear_cache" = "Clear App Cache";
-"controller_settings_assistant" = "Show Drawing Assistant";
-"controller_settings_help_center" = "Help Center";
-"controller_settings_feedback" = "Report a Problem";
-"controller_settings_about" = "About";
-"controller_settings_account" = "Account";
-"controller_settings_discover" = "Discover";
-"controller_settings_support" = "Support";
-"controller_settings_language" = "Language";
+"controller_settings_logout_prompt" = “¿Estás seguro de que quieres cerrar sesión?";
+"controller_settings_logout" = “Cerrar sesión”;
+"controller_settings_change_password" = “Cambiar contraseña“;
+"controller_settings_liked_posts" = "Publicaciones que te han gustado”;
+"controller_settings_remember_me" = "Recordarme”;
+"controller_settings_remember_me_description" = “Recuerda tus credenciales de inicio de sesión y te las recuerda en caso de cerrar sesión.";
+"controller_settings_find_facebook_friends" = “Buscar a tus amigos de Facebook“;
+"controller_settings_invite_facebook_friends" = "Invitar a tus amigos de Facebook“;
+"controller_settings_followers_activity" = “Actividad de seguidores”;
+"controller_settings_linked_accounts" = “Cuentas vinculadas“;
+"controller_settings_clear_cache" = “Borrar la caché de la aplicación“;
+"controller_settings_assistant" = “Mostrar asistente de dibujo“;
+"controller_settings_help_center" = “Centro de ayuda“;
+"controller_settings_feedback" = "Reportar un problema”;
+"controller_settings_about" = “Sobre”;
+"controller_settings_account" = “Cuenta”;
+"controller_settings_discover" = "Descubre”;
+"controller_settings_support" = "Soporte”;
+"controller_settings_language" = “Idioma”;
 
-"controller_language_prompt" = "Select language";
-"controller_language_prompt_description" = "You will need to restart the app for the language to take effect.";
+"controller_language_prompt" = "Seleciona un idioma”;
+"controller_language_prompt_description" = “Necesitas reiniciar la aplicación para que el cambio de idioma tenga efecto.";
 
-"controller_streamable_options_title" = "What would you like to do with this graffiti?";
-"controller_streamable_options_public" = "Mark Public";
-"controller_streamable_options_private" = "Mark Private";
-"controller_streamable_options_set_avatar" = "Set as Profile Picture";
-"controller_streamable_options_flag" = "Flag Inappropriate";
-"controller_streamable_options_flag_prompt" = "Mark this graffiti as inappropriate?";
-"controller_streamable_options_explore" = "Explore Map Area";
-"controller_streamable_options_copy_link" = "Copy Link";
-"controller_streamable_options_save_success" = "This graffiti was saved in your photos album";
-"controller_streamable_options_delete_prompt" = "Are you sure you want to delete this graffiti?";
+"controller_streamable_options_title" = “¿Que te gustaría hacer con este grafiti?";
+"controller_streamable_options_public" = “Marcar como público”;
+"controller_streamable_options_private" = "Marcar como privado“;
+"controller_streamable_options_set_avatar" = “Poner como foto de perfil“;
+"controller_streamable_options_flag" = “Marcar como inapropiado“;
+"controller_streamable_options_flag_prompt" = “¿Marcar este grafiti como inapropiado?”;
+"controller_streamable_options_explore" = "Explorar zona del mapa“;
+"controller_streamable_options_copy_link" = "Copiar enlace";
+"controller_streamable_options_save_success" = “Este graffiti ha sido guardado en tu album de fotos";
+"controller_streamable_options_delete_prompt" = “¿Estás seguro de que quieres borrar este grafiti?”;
 
-"controller_comments_options_title" = "What would you like to do with this comment?";
-"controller_comments_options_delete_prompt" = "Are you sure you want to delete this comment?";
-"controller_comments_send_failure_options_title" = "This comment was not sent";
-"controller_comments_send_failure_options_try_again" = "Try again";
-"controller_comments" = "Comments";
-"controller_comments_post_prompt" = "Write your comment here";
+"controller_comments_options_title" = “¿Qué te gustaría hacer con este comentario?”;
+"controller_comments_options_delete_prompt" = “¿Estás seguro de que quieres borrar este comentario?”;
+"controller_comments_send_failure_options_title" = “Este comentario no ha sido enviado“;
+"controller_comments_send_failure_options_try_again" = “Vuelve a intentarlo“;
+"controller_comments" = "Comentarios”;
+"controller_comments_post_prompt" = “Escribe tu comentario aquí";
 
-"controller_likers" = "Likers";
+"controller_likers" = “Personas a las que les gusta“;
 
-"controller_likes" = "Likes";
+"controller_likes" = “Me gustas“;
 
-"controller_streamable_cluster" = "%li around";
+"controller_streamable_cluster" = "%li en los alrededores”;
 
-"controller_static_streamables" = "%li graffiti";
+"controller_static_streamables" = "%li grafiti";
 
-"controller_static_users" = "%li people";
+"controller_static_users" = "%li gente”;
 
-"controller_followers" = "Followers";
+"controller_followers" = “Seguidores”;
 
-"controller_following" = "Following";
+"controller_following" = “Siguiendo”;
 
 // Other
 
-"other_skip" = "Skip";
-"other_post" = "Post";
-"other_close" = "Close";
-"other_copy" = "Copy";
-"other_edit" = "Edit";
-"other_save" = "Save";
-"other_processing" = "Processing";
-"other_cancel" = "Cancel";
-"other_done" = "Done";
-"other_send" = "Send";
-"other_delete" = "Delete";
+"other_skip" = “Saltar”;
+"other_post" = "Publicar”;
+"other_close" = "Cerrar”;
+"other_copy" = "Copiar”;
+"other_edit" = "Editar”;
+"other_save" = “Guardar”;
+"other_processing" = "Procesando”;
+"other_cancel" = "Cancelar”;
+"other_done" = “Listo”;
+"other_send" = “Enviado”;
+"other_delete" = “Borrar”;
