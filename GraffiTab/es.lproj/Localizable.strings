@@ -55,6 +55,7 @@
 "manager_network_connected" = "Conectado";
 "manager_network_not_connected" = "No hay conexión a internet";
 
+"manager_permission_later_button" = "Intentalo más tarde";
 "manager_permission_notifications_title" = "Recibir notificaciones";
 "manager_permission_notifications_description" = "Estar conectado con la gente que sigues es fácil con las notificaciones Push.\n\nSin ellas, tendrás que comprobar manualmente las actualizaciones en la aplicación.";
 "manager_permission_notifications_button" = "Usar notificaciones Push";

@@ -78,6 +78,8 @@ class AskPermissionViewController: UIViewController {
         laterBtn.layer.borderWidth = 1
         laterBtn.layer.borderColor = askBtn.backgroundColor?.CGColor
         laterBtn.layer.cornerRadius = 3
+        
+        laterBtn.setTitle(NSLocalizedString("manager_permission_later_button", comment: ""), forState: .Normal)
     }
     
     func setupTextViews() {

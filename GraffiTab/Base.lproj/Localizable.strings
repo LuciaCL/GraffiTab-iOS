@@ -55,6 +55,7 @@
 "manager_network_connected" = "Connected";
 "manager_network_not_connected" = "No Internet Connection";
 
+"manager_permission_later_button" = "I'll do it later";
 "manager_permission_notifications_title" = "Receive Notifications";
 "manager_permission_notifications_description" = "Staying connected with the people you follow is easier with push notifications.\n\nOtherwise you'll have to manually check the app for updates.";
 "manager_permission_notifications_button" = "Use Push Notifications";
