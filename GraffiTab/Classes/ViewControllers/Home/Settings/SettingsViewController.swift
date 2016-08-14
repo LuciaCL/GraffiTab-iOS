@@ -251,6 +251,12 @@ class SettingsViewController: GeneralSettingsViewController {
     
     // MARK: - Setup
     
+    override func setupTopBar() {
+        super.setupTopBar()
+        
+        self.title = NSLocalizedString("controller_menu_settings", comment: "")
+    }
+    
     func setupLabels() {
         languageLbl.text = NSLocalizedString("controller_settings_language", comment: "")
         editProfileLbl.text = NSLocalizedString("controller_edit_profile", comment: "")

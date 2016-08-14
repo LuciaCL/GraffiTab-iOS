@@ -320,6 +320,12 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
     
     // MARK: - Setup
     
+    override func setupTopBar() {
+        super.setupTopBar()
+        
+        self.title = NSLocalizedString("controller_followers", comment: "")
+    }
+    
     func setupTableView() {
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableViewAutomaticDimension

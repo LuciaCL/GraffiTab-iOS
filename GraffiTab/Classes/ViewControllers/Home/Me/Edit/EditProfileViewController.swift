@@ -345,7 +345,7 @@ class EditProfileViewController: BackButtonTableViewController {
         coverLbl.text = NSLocalizedString("controller_edit_profile_cover", comment: "")
         changePasswordLbl.text = NSLocalizedString("controller_settings_change_password", comment: "")
         firstNameLbl.text = NSLocalizedString("controller_sign_up_first_name", comment: "")
-        lastnameField.text = NSLocalizedString("controller_sign_up_last_name", comment: "")
+        lastNameLbl.text = NSLocalizedString("controller_sign_up_last_name", comment: "")
         emailLbl.text = NSLocalizedString("controller_pasword_reset_email", comment: "")
         aboutLbl.text = NSLocalizedString("controller_settings_about", comment: "")
         websiteLbl.text = NSLocalizedString("controller_edit_profile_website", comment: "")

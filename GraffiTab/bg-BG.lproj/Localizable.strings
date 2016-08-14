@@ -150,7 +150,7 @@
 
 "date_now" = "now";
 "date_y" = "%liy";
-"date_month" = "%limo";
+"date_mo" = "%limo";
 "date_d" = "%lid";
 "date_h" = "%lih";
 "date_m" = "%lim";
@@ -233,6 +233,9 @@
 "controller_create_assistant_background" = "The white canvas is nice but can quickly become boring. Why not put a background picture and draw on top of it?";
 "controller_create_assistant_enhance" = "Now that your masterpiece is almost done, it's time to add some cool effects to it and make it looks really pro. Tap the enhancer to add filters or stickers to your drawing.";
 "controller_create_assistant_publish" = "Not bad for a first try! Why don't you share it with your friends or the rest of the GraffiTab community?";
+
+"controller_tune_size" = "Size";
+"controller_tune_opacity" = "Opacity";
 
 "controller_login_invalid_credentials" = "These credentials are incorrect. Please try again.";
 "controller_login_facebook_unavailable" = "Facebook login is not available at the moment. Please try again later.";

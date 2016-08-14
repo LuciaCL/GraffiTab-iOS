@@ -499,9 +499,11 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="300" height="220"/>
                     <connections>
+                        <outlet property="opacityLbl" destination="YKp-Lg-zt3" id="92E-yd-Lzg"/>
                         <outlet property="opacitySlider" destination="NMH-LE-Fxg" id="k4I-bR-coE"/>
                         <outlet property="previewCanvas" destination="LSW-Xe-MBG" id="nzM-cv-cvw"/>
                         <outlet property="previewImage" destination="sIz-en-uiB" id="ERj-FM-UIS"/>
+                        <outlet property="sizeLbl" destination="sbD-rm-9iw" id="GZv-7f-dVY"/>
                         <outlet property="sizeSlider" destination="WEd-tM-tRy" id="cSy-Cx-FZN"/>
                     </connections>
                 </viewController>

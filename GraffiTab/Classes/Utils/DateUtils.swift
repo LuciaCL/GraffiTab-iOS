@@ -19,7 +19,7 @@ class DateUtils: NSObject {
             date = String(format: NSLocalizedString("date_y", comment: ""), components.year)
         }
         else if components.month > 0 {
-            date = String(format: NSLocalizedString("date_month", comment: ""), components.month)
+            date = String(format: NSLocalizedString("date_mo", comment: ""), components.month)
         }
         else if components.day > 0 {
             date = String(format: NSLocalizedString("date_d", comment: ""), components.day)

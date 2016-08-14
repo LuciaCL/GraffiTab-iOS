@@ -21,6 +21,7 @@ extension UIViewController {
         actionSheet.cancelButtonShadowColor = UIColor.blackColor().colorWithAlphaComponent(0.1)
         actionSheet.separatorColor = UIColor.clearColor()
         actionSheet.selectedBackgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.3)
+        actionSheet.cancelButtonTitle = NSLocalizedString("other_cancel", comment: "")
         
         let defaultFont = UIFont.systemFontOfSize(17)
         actionSheet.buttonTextAttributes = [NSFontAttributeName:defaultFont,

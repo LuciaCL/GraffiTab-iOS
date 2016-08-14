@@ -68,6 +68,12 @@ class AboutViewController: GeneralSettingsViewController {
     
     // MARK: - Setup
     
+    override func setupTopBar() {
+        super.setupTopBar()
+        
+        self.title = NSLocalizedString("controller_settings_about", comment: "")
+    }
+    
     func setupLabels() {
         releaseInfoLbl.text = NSLocalizedString("controller_about_release_info", comment: "")
         versionLbl.text = NSLocalizedString("controller_about_version", comment: "")

@@ -715,10 +715,10 @@
             </objects>
             <point key="canvasLocation" x="-189" y="1828"/>
         </scene>
-        <!--About-->
+        <!--About View Controller-->
         <scene sceneID="mAw-fR-f0I">
             <objects>
-                <tableViewController title="About" id="MrM-qW-Mfc" customClass="AboutViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="MrM-qW-Mfc" customClass="AboutViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="O9c-jo-YW8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1187,10 +1187,10 @@
             </objects>
             <point key="canvasLocation" x="-900" y="1828"/>
         </scene>
-        <!--Settings-->
+        <!--Settings View Controller-->
         <scene sceneID="f1Z-RS-YAp">
             <objects>
-                <tableViewController title="Settings" id="xnR-NK-Ex6" customClass="SettingsViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="xnR-NK-Ex6" customClass="SettingsViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="J9t-jH-vEc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1366,7 +1366,7 @@
                                                     <rect key="frame" x="15" y="12" width="72" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="English" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zbN-kK-BH3">
@@ -1758,10 +1758,10 @@
             </objects>
             <point key="canvasLocation" x="-900" y="3269"/>
         </scene>
-        <!--Followers-->
+        <!--Followers Activity View Controller-->
         <scene sceneID="wOZ-Ba-gjy">
             <objects>
-                <viewController storyboardIdentifier="FollowersActivityViewController" title="Followers" id="4e6-fQ-RH1" customClass="FollowersActivityViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FollowersActivityViewController" id="4e6-fQ-RH1" customClass="FollowersActivityViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qpr-aI-qII"/>
                         <viewControllerLayoutGuide type="bottom" id="pJR-is-eio"/>
@@ -2621,7 +2621,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="4zc-2o-5HQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LanguageCell" id="rdH-OD-zeo">
                                 <rect key="frame" x="0.0" y="114" width="600" height="44"/>
@@ -2918,10 +2918,10 @@
             </objects>
             <point key="canvasLocation" x="-189" y="-1060"/>
         </scene>
-        <!--Feed-->
+        <!--Feed View Controller-->
         <scene sceneID="iej-4n-RvL">
             <objects>
-                <viewController storyboardIdentifier="FeedViewController" title="Feed" useStoryboardIdentifierAsRestorationIdentifier="YES" id="912-9U-C1p" customClass="FeedViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="912-9U-C1p" customClass="FeedViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8l0-IM-kcc"/>
                         <viewControllerLayoutGuide type="bottom" id="TAc-5l-wBs"/>
@@ -3256,10 +3256,10 @@
             </objects>
             <point key="canvasLocation" x="515" y="-1060"/>
         </scene>
-        <!--Trending-->
+        <!--Trending View Controller-->
         <scene sceneID="yc8-lk-dBc">
             <objects>
-                <viewController storyboardIdentifier="TrendingViewController" title="Trending" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TtA-fV-YRL" customClass="TrendingViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TrendingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TtA-fV-YRL" customClass="TrendingViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Rx-R1-bL5"/>
                         <viewControllerLayoutGuide type="bottom" id="DOv-nn-TYP"/>
@@ -3300,10 +3300,10 @@
             </objects>
             <point key="canvasLocation" x="515" y="-328"/>
         </scene>
-        <!--Recent-->
+        <!--Recent View Controller-->
         <scene sceneID="hlf-Cg-toQ">
             <objects>
-                <viewController storyboardIdentifier="RecentViewController" title="Recent" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MNr-0a-QT2" customClass="RecentViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MNr-0a-QT2" customClass="RecentViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vNG-rk-Dsh"/>
                         <viewControllerLayoutGuide type="bottom" id="L4e-tw-IY7"/>
@@ -4524,8 +4524,8 @@
         <image name="icn_facebook" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SVD-oI-QFh"/>
         <segue reference="6jS-sv-VUd"/>
+        <segue reference="Qr8-iV-26A"/>
         <segue reference="Bcp-ev-VfR"/>
     </inferredMetricsTieBreakers>
 </document>

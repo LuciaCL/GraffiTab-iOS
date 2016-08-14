@@ -150,8 +150,8 @@
 // Dates
 
 "date_now" = "ahora";
-"date_y" = "%liy";
-"date_month" = "%limo";
+"date_y" = "%lia";
+"date_mo" = "%lime";
 "date_d" = "%lid";
 "date_h" = "%lih";
 "date_m" = "%lim";
@@ -234,6 +234,9 @@
 "controller_create_assistant_background" = "Un lienzo en blanco está bien pero se vuelve aburrido rápidamente. ¿Por que no poner una imagen de fondo y dibujar sobre ella?";
 "controller_create_assistant_enhance" = "Ahora que tu obra de arte está casi lista, es el momento de añadir algunos efectos. Toca en filtros para seleccionar uno y aplicarlo al dibujo.";
 "controller_create_assistant_publish" = "¡No está mal para ser la primera vez! ¿Porque no compartirla con tus amigos y/o el resto de la comunidad GraffiTab?";
+
+"controller_tune_size" = "Tamaño";
+"controller_tune_opacity" = "Opacidad";
 
 "controller_login_invalid_credentials" = "Las credenciales son incorrectas. Inténtalo de nuevo.";
 "controller_login_facebook_unavailable" = "Iniciar sesión con Facebook no está disponible en este momento. Por favor, inténtalo de nuevo maás tarde.";

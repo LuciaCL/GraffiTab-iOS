@@ -15,6 +15,8 @@ class TuneViewController: UIViewController {
     @IBOutlet weak var previewCanvas: UIView!
     @IBOutlet weak var sizeSlider: UISlider!
     @IBOutlet weak var opacitySlider: UISlider!
+    @IBOutlet weak var sizeLbl: UILabel!
+    @IBOutlet weak var opacityLbl: UILabel!
     
     var sizeChangedBlock: ((value: Float) -> Void)?
     var opacityChangedBlock: ((value: Float) -> Void)?
@@ -26,6 +28,7 @@ class TuneViewController: UIViewController {
         
         setupCanvasView()
         setupSliders()
+        setupLabels()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -72,5 +75,10 @@ class TuneViewController: UIViewController {
         let thumbColor = UIColor.lightGrayColor()
         sizeSlider.configureFatSlider(sliderColor, progressColor: sliderColor, thumbColorNormal: thumbColor, thumbColorHighlighted: thumbColor)
         opacitySlider.configureFatSlider(sliderColor, progressColor: sliderColor, thumbColorNormal: thumbColor, thumbColorHighlighted: thumbColor)
+    }
+    
+    func setupLabels() {
+        sizeLbl.text = NSLocalizedString("controller_tune_size", comment: "")
+        opacityLbl.text = NSLocalizedString("controller_tune_opacity", comment: "")
     }
 }
