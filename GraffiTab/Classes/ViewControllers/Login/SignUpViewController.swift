@@ -21,6 +21,7 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
     @IBOutlet weak var confirmPasswordField: JVFloatLabeledTextField!
     @IBOutlet weak var signupBtn: UIButton!
     @IBOutlet weak var termsLbl: UILabel!
+    @IBOutlet weak var signupLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,6 +171,8 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
         let range = (title as NSString).rangeOfString(NSLocalizedString("controller_terms_title", comment: ""))
         attString.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor().colorWithAlphaComponent(0.9), range: range)
         termsLbl.attributedText = attString;
+        
+        signupLbl.text = NSLocalizedString("controller_login_sign_up", comment: "")
     }
     
     func setupButtons() {

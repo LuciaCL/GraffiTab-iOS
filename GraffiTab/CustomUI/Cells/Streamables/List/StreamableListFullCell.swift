@@ -56,7 +56,7 @@ class StreamableListFullCell: StreamableCell {
         self.likesLbl.text = String(format: "%i %@", item!.likersCount!, item!.likersCount! == 1 ? NSLocalizedString("cell_streamable_like", comment: "") : NSLocalizedString("cell_streamable_likes", comment: ""));
         self.commentsLbl.text = String(format: "%i %@", item!.commentsCount!, item!.commentsCount! == 1 ? NSLocalizedString("cell_streamable_comment", comment: "") : NSLocalizedString("cell_streamable_comments", comment: ""));
         
-        self.likeBtn.setTitle(item!.likedByCurrentUser! ? NSLocalizedString("cell_streamable_liked", comment: "") : NSLocalizedString("cell_streamable_like", comment: ""), forState: .Normal)
+        self.likeBtn.setTitle(DeviceType.IS_IPHONE_5 || DeviceType.IS_IPHONE_4_OR_LESS ? "" : (item!.likedByCurrentUser! ? NSLocalizedString("cell_streamable_liked", comment: "") : NSLocalizedString("cell_streamable_like", comment: "")), forState: .Normal)
         self.likeBtn.tintColor = item!.likedByCurrentUser! ? UIColor(hexString: Colors.Green) : UIColor(hexString: Colors.Main)
         self.likeBtn.setTitleColor(self.likeBtn.tintColor, forState: .Normal)
     }
@@ -108,7 +108,7 @@ class StreamableListFullCell: StreamableCell {
     }
     
     func setupLabels() {
-        commentBtn.setTitle(NSLocalizedString("cell_streamable_comment", comment: ""), forState: .Normal)
-        shareBtn.setTitle(NSLocalizedString("controller_create_share", comment: ""), forState: .Normal)
+        commentBtn.setTitle(DeviceType.IS_IPHONE_5 || DeviceType.IS_IPHONE_4_OR_LESS ? "" : NSLocalizedString("cell_streamable_comment", comment: ""), forState: .Normal)
+        shareBtn.setTitle(DeviceType.IS_IPHONE_5 || DeviceType.IS_IPHONE_4_OR_LESS ? "" : NSLocalizedString("controller_create_share", comment: ""), forState: .Normal)
     }
 }

@@ -898,6 +898,7 @@
                         <outlet property="lastnameField" destination="URR-xf-g1L" id="0q6-0i-6lj"/>
                         <outlet property="passwordField" destination="L8h-2f-vHk" id="vE3-NM-7kq"/>
                         <outlet property="signupBtn" destination="xHU-nf-kG3" id="lOP-v9-1dj"/>
+                        <outlet property="signupLbl" destination="eoQ-bu-gXk" id="OqW-1D-VfH"/>
                         <outlet property="termsLbl" destination="F3h-Rg-YPO" id="SUl-pP-wKc"/>
                         <outlet property="usernameField" destination="xQZ-Vh-Inq" id="Osk-wR-kwn"/>
                     </connections>

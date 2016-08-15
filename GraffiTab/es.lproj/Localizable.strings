@@ -292,7 +292,7 @@
 "controller_sign_up_first_name" = "Nombre";
 "controller_sign_up_last_name" = "Apellidos";
 "controller_sign_up_confirm_password" = "Confirmar contraseña";
-"controller_sign_up_terms" = "Al registrarte aceptas los términos de uso";
+"controller_sign_up_terms" = "Al registrarte aceptas los Términos de uso";
 "controller_sign_up" = "Registrarse";
 
 "controller_terms_title" = "Términos de uso";
