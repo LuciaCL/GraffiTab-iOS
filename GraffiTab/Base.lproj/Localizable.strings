@@ -13,6 +13,39 @@
 "NOTIF_LIKE" = "%@ liked your graffiti.";
 "NOTIF_MENTION" = "%@ mentioned you in a comment:";
 
+// Enhance tools
+
+"Photo" = "Photo";
+"Save photo" = "Save photo";
+"Discard photo" = "Discard photo";
+"Filter" = "Filter";
+"Frame" = "Frame";
+"Focus" = "Focus";
+"Adjust" = "Adjust";
+"None" = "None";
+"Magic" = "Magic";
+"Apply changes" = "Apply changes";
+"Discard changes" = "Discard changes";
+"No Frame" = "No Frame";
+"Linear focus area" = "Linear focus area";
+"Double-tap and hold to move focus area" = "Double-tap and hold to move focus area";
+"Rotate left" = "Rotate left";
+"Rotate right" = "Rotate right";
+"Radial focus area" = "Radial focus area";
+"Blur intensity" = "Blur intensity";
+"No Focus" = "No Focus";
+"Linear" = "Linear";
+"Radial" = "Radial";
+"Radial focus" = "Radial focus";
+"Brightness" = "Brightness";
+"Contrast" = "Contrast";
+"Saturation" = "Saturation";
+"Clarity" = "Clarity";
+"Shadows" = "Shadows";
+"Highlights" = "Highlights";
+"Exposure" = "Exposure";
+"Editor" = "Editor";
+
 // Cells
 
 "cell_comment_edited" = "edited";

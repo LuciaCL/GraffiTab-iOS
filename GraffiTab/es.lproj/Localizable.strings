@@ -13,6 +13,39 @@
 "NOTIF_LIKE" = "A %@ le gusta tu grafiti.";
 "NOTIF_MENTION" = "%@ te ha mencionado en un comentario:";
 
+// Enhance tools
+
+"Photo" = "Foto";
+"Save photo" = "Salvar foto";
+"Discard photo" = "Foto de descarte";
+"Filter" = "Filtrar";
+"Frame" = "Marco";
+"Focus" = "Foco";
+"Adjust" = "Ajustar";
+"None" = "Ninguno";
+"Magic" = "Magia";
+"Apply changes" = "Aplicar cambios";
+"Discard changes" = "Descartar los cambios";
+"No Frame" = "Sin marco";
+"Linear focus area" = "área de enfoque lineal";
+"Double-tap and hold to move focus area" = "Doble toque y mantenga presionado para mover la zona de enfoque";
+"Rotate left" = "Girar a la izquierda";
+"Rotate right" = "Gira a la derecha";
+"Radial focus area" = "área de enfoque radial";
+"Blur intensity" = "La intensidad de la falta de definición";
+"No Focus" = "Sin Focus";
+"Linear" = "Lineal";
+"Radial" = "Radial";
+"Radial focus" = "Еnfoque radial";
+"Brightness" = "Brillo";
+"Contrast" = "Contraste";
+"Saturation" = "Saturación";
+"Clarity" = "Claridad";
+"Shadows" = "Oscuridad";
+"Highlights" = "Reflejos";
+"Exposure" = "Exposición";
+"Editor" = "Editor";
+
 // Cells
 
 "cell_comment_edited" = "editado";

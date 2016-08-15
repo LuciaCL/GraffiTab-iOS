@@ -342,8 +342,13 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         
         let configuration = Configuration() { builder in
             builder.configurePhotoEditorViewController({ (options) in
-                options.allowedPhotoEditorActions = [.Filter, .Adjust, .Separator, .Text, .Sticker, .Separator, .Focus, .Magic]
+                options.allowedPhotoEditorActions = [.Filter, .Frame, .Separator, .Focus, .Adjust, .Separator, .Magic]
             })
+        }
+        
+        // Configure localization.
+        IMGLYSetLocalizationBlock { (stringToLocalize) -> String? in
+            return NSLocalizedString(stringToLocalize, comment: "")
         }
         
         let photoEditViewController = PhotoEditViewController(photo: optimizedImage!, configuration: configuration)
