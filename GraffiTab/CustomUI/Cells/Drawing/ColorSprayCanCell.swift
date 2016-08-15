@@ -71,7 +71,7 @@ class ColorSprayCanCell: UITableViewCell {
             let f = CGRectMake(x, self.frame.height - itemHeight - 8, itemWidth, itemHeight)
             colorBtn.tag = index
             colorBtn.frame = f
-            colorBtn.tintColor = colors![index]
+            colorBtn.canColor = colors![index]
             colorBtn.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ColorSprayCanCell.onClickColor(_:))))
         }
     }

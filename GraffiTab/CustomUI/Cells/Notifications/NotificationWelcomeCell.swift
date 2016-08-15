@@ -24,6 +24,8 @@ class NotificationWelcomeCell: NotificationCell {
     // MARK: - Setup
     
     override func setupLabels() {
+        super.setupLabels()
+        
         notificationField.text = NSLocalizedString("cell_notification_welcome_title", comment: "")
         descriptionField.text = NSLocalizedString("cell_notification_welcome_description", comment: "")
     }

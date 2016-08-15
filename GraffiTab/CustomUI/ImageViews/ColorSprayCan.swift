@@ -14,6 +14,11 @@ class ColorSprayCan: UIImageView {
     static var cache = NSCache()
     
     var overlay = UIImageView()
+    var canColor: UIColor! = .blackColor() {
+        didSet {
+            loadColor()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,9 +33,13 @@ class ColorSprayCan: UIImageView {
     }
     
     func basicInit() {
+        
+    }
+    
+    func loadColor() {
         let image = UIImage(named: "can_bottom")
         
-        let hex = self.tintColor.hexString(false)
+        let hex = self.canColor.hexString(false)
         let cachedImage = ColorSprayCan.cache.objectForKey(hex) as? UIImage
         if cachedImage != nil { // We've already processed the color.
             self.alpha = 1.0
@@ -44,7 +53,7 @@ class ColorSprayCan: UIImageView {
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.image = img
-                    UIView.animateWithDuration(0.3, animations: { 
+                    UIView.animateWithDuration(0.3, animations: {
                         self.alpha = 1.0
                     })
                 })
@@ -62,12 +71,6 @@ class ColorSprayCan: UIImageView {
         overlay.image = UIImage(named: "can_top")
         overlay.contentMode = .ScaleAspectFit
         overlay.autoresizingMask = [.FlexibleBottomMargin, .FlexibleTopMargin, .FlexibleLeftMargin, .FlexibleRightMargin, .FlexibleWidth, .FlexibleHeight]
-    }
-    
-    override var tintColor: UIColor! {
-        didSet {
-            basicInit()
-        }
     }
     
     // MARK: - UIImage operations
@@ -91,7 +94,7 @@ class ColorSprayCan: UIImageView {
         
         // read colors to CGFloats and convert and position to proper bit positions in UInt32
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, alpha: CGFloat = 0
-        self.tintColor.getRed(&r, green: &g, blue: &b, alpha: &alpha)
+        self.canColor.getRed(&r, green: &g, blue: &b, alpha: &alpha)
         
         for _ in 0 ..< Int(height) {
             for _ in 0 ..< Int(width) {
