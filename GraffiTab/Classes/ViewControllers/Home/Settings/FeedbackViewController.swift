@@ -91,6 +91,8 @@ class FeedbackViewController: BackButtonTableViewController {
         button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         button.titleLabel?.font = UIFont.boldSystemFontOfSize(15)
         button.addTarget(self, action: #selector(FeedbackViewController.onClickSend), forControlEvents: .TouchUpInside)
+        button.sizeToFit()
+        button.frame = CGRectMake(0, 0, button.frame.width + 10, 30)
         
         let negativeSpacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
         negativeSpacer.width = -10

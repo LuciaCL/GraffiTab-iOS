@@ -8,7 +8,7 @@
             <connections>
                 <outlet property="askBtn" destination="Y52-eE-8LP" id="ao2-vf-dm5"/>
                 <outlet property="laterBtn" destination="utv-wF-ybv" id="ODa-eQ-GoZ"/>
-                <outlet property="permissionDescription" destination="E9M-pG-OdZ" id="tlI-k2-ekL"/>
+                <outlet property="permissionDescription" destination="eFA-AJ-kdh" id="VgB-y8-9If"/>
                 <outlet property="permissionPreview" destination="OkB-AG-rLo" id="GqA-GB-RCt"/>
                 <outlet property="permissionTitle" destination="HUp-K8-hXr" id="rIn-8h-3Rh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -31,14 +31,6 @@
                         <constraint firstAttribute="height" constant="130" id="MLw-eF-kvq"/>
                     </constraints>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="E9M-pG-OdZ">
-                    <rect key="frame" x="11" y="205" width="578" height="266"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <string key="text">Staying connected with the people you follow is easier with push notifications.  Otherwise you'll have to manually check the app for updates.</string>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utv-wF-ybv">
                     <rect key="frame" x="15" y="543" width="570" height="42"/>
                     <constraints>
@@ -65,24 +57,31 @@
                         <action selector="onClickAsk:" destination="-1" eventType="touchUpInside" id="L9D-bP-ShX"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="eFA-AJ-kdh">
+                    <rect key="frame" x="15" y="205" width="570" height="266"/>
+                    <string key="text">Staying connected with the people you follow is easier with push notifications.  Otherwise you'll have to manually check the app for updates.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.13725490196078433" green="0.15294117647058825" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="eFA-AJ-kdh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="9dc-tT-Zks"/>
                 <constraint firstAttribute="trailing" secondItem="utv-wF-ybv" secondAttribute="trailing" constant="15" id="9wR-t5-pml"/>
                 <constraint firstItem="OkB-AG-rLo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="CDw-LS-oPz"/>
                 <constraint firstItem="OkB-AG-rLo" firstAttribute="top" secondItem="HUp-K8-hXr" secondAttribute="bottom" constant="20" id="ChD-BF-epe"/>
+                <constraint firstAttribute="trailing" secondItem="eFA-AJ-kdh" secondAttribute="trailing" constant="15" id="Cje-GQ-Y9Y"/>
                 <constraint firstItem="Y52-eE-8LP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="HWj-hy-sef"/>
-                <constraint firstAttribute="trailing" secondItem="E9M-pG-OdZ" secondAttribute="trailing" constant="11" id="K8H-wH-Aee"/>
+                <constraint firstItem="eFA-AJ-kdh" firstAttribute="top" secondItem="OkB-AG-rLo" secondAttribute="bottom" constant="10" id="N07-y8-LOW"/>
+                <constraint firstItem="Y52-eE-8LP" firstAttribute="top" secondItem="eFA-AJ-kdh" secondAttribute="bottom" constant="20" id="NBZ-Jo-AVy"/>
                 <constraint firstItem="utv-wF-ybv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="NRm-KF-FBn"/>
                 <constraint firstItem="utv-wF-ybv" firstAttribute="top" secondItem="Y52-eE-8LP" secondAttribute="bottom" constant="10" id="Ngc-1D-Bwe"/>
                 <constraint firstItem="HUp-K8-hXr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="V5w-4M-TdK"/>
                 <constraint firstAttribute="trailing" secondItem="HUp-K8-hXr" secondAttribute="trailing" constant="15" id="ZzR-ed-ZcQ"/>
                 <constraint firstAttribute="trailing" secondItem="OkB-AG-rLo" secondAttribute="trailing" constant="15" id="bKM-GR-KjX"/>
-                <constraint firstItem="E9M-pG-OdZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="11" id="csF-iD-b13"/>
                 <constraint firstAttribute="bottom" secondItem="utv-wF-ybv" secondAttribute="bottom" constant="15" id="fQe-7b-yNK"/>
-                <constraint firstItem="Y52-eE-8LP" firstAttribute="top" secondItem="E9M-pG-OdZ" secondAttribute="bottom" constant="20" id="fWu-H7-g02"/>
                 <constraint firstAttribute="trailing" secondItem="Y52-eE-8LP" secondAttribute="trailing" constant="15" id="ikR-wZ-iva"/>
-                <constraint firstItem="E9M-pG-OdZ" firstAttribute="top" secondItem="OkB-AG-rLo" secondAttribute="bottom" constant="10" id="kOs-w0-UwB"/>
                 <constraint firstItem="HUp-K8-hXr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="qSl-eH-kUI"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

@@ -13,7 +13,7 @@ class AskPermissionViewController: UIViewController {
 
     @IBOutlet weak var permissionTitle: UILabel!
     @IBOutlet weak var permissionPreview: UIImageView!
-    @IBOutlet weak var permissionDescription: UITextView!
+    @IBOutlet weak var permissionDescription: UILabel!
     @IBOutlet weak var askBtn: UIButton!
     @IBOutlet weak var laterBtn: UIButton!
     
@@ -55,10 +55,6 @@ class AskPermissionViewController: UIViewController {
         setupButtons()
     }
     
-    override func viewWillLayoutSubviews() {
-        setupTextViews()
-    }
-    
     @IBAction func onClickAsk(sender: AnyObject) {
         if askPermissionHandler != nil {
             self.askPermissionHandler!()
@@ -80,9 +76,5 @@ class AskPermissionViewController: UIViewController {
         laterBtn.layer.cornerRadius = 3
         
         laterBtn.setTitle(NSLocalizedString("manager_permission_later_button", comment: ""), forState: .Normal)
-    }
-    
-    func setupTextViews() {
-        permissionDescription.setContentOffset(CGPointZero, animated: false)
     }
 }
