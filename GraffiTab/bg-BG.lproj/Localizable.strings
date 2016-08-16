@@ -8,232 +8,233 @@
 
 // Notifications
 
-"NOTIF_FOLLOW" = "%@ started following you.";
-"NOTIF_COMMENT" = "%@ commented on your graffiti:";
-"NOTIF_LIKE" = "%@ liked your graffiti.";
-"NOTIF_MENTION" = "%@ mentioned you in a comment:";
+"NOTIF_FOLLOW" = "%@ те последва.";
+"NOTIF_COMMENT" = "%@ коментира на рисунката ти:";
+"NOTIF_LIKE" = "%@ хареса твоята рисунка.";
+"NOTIF_MENTION" = "%@ те спомена в коментар:";
 
 // Enhance tools
 
-"Photo" = "Photo";
-"Save photo" = "Save photo";
-"Discard photo" = "Discard photo";
-"Filter" = "Filter";
-"Frame" = "Frame";
-"Focus" = "Focus";
-"Adjust" = "Adjust";
-"None" = "None";
-"Magic" = "Magic";
-"Apply changes" = "Apply changes";
-"Discard changes" = "Discard changes";
-"No Frame" = "No Frame";
-"Linear focus area" = "Linear focus area";
-"Double-tap and hold to move focus area" = "Double-tap and hold to move focus area";
-"Rotate left" = "Rotate left";
-"Rotate right" = "Rotate right";
-"Radial focus area" = "Radial focus area";
-"Blur intensity" = "Blur intensity";
-"No Focus" = "No Focus";
-"Linear" = "Linear";
-"Radial" = "Radial";
-"Radial focus" = "Radial focus";
-"Brightness" = "Brightness";
-"Contrast" = "Contrast";
-"Saturation" = "Saturation";
-"Clarity" = "Clarity";
-"Shadows" = "Shadows";
-"Highlights" = "Highlights";
-"Exposure" = "Exposure";
-"Editor" = "Editor";
+"Photo" = "Снимка";
+"Save photo" = "Запази";
+"Discard photo" = "Отмяна";
+"Filter" = "Филтър";
+"Frame" = "Рамка";
+"Focus" = "Фокус";
+"Adjust" = "Настройки";
+"None" = "Без";
+"Magic" = "Магия";
+"Apply changes" = "Запази";
+"Discard changes" = "Отмяна";
+"No Frame" = "Без рамка";
+"Linear focus area" = "Линеен фокус";
+"Double-tap and hold to move focus area" = "Натисни два пъти и плъзни, за да преместиш фокуса";
+"Rotate left" = "Завърти наляво";
+"Rotate right" = "Завърти надясно";
+"Radial focus area" = "Кръгъл фокус";
+"Blur intensity" = "Замъгляване";
+"No Focus" = "Без фокус";
+"Linear" = "Линеен";
+"Radial" = "Кръг";
+"Radial focus" = "Кръгъл фокус";
+"Brightness" = "Яркост";
+"Contrast" = "Контраст";
+"Saturation" = "Наситеност";
+"Clarity" = "Яснота";
+"Shadows" = "Сенки";
+"Highlights" = "Акценти";
+"Exposure" = "Експозиция";
+"Editor" = "Редактор";
 
 // Cells
 
-"cell_comment_edited" = "edited";
+"cell_comment_edited" = "редактиран";
 
-"cell_activity_people" = "%li people";
-"cell_activity_following" = "%@ started following %@";
-"cell_activity_graffiti" = "%li graffiti";
-"cell_activity_likes" = "%@ likes %@";
-"cell_activity_created" = "%@ created %@";
-"cell_activity_commented" = "%@ commented on %@";
-"cell_activity_likes_single" = "%@ likes %@'s graffiti";
-"cell_activity_created_single" = "%@ created graffiti";
-"cell_activity_commented_single" = "%@ posted a comment:";
+"cell_activity_people" = "%li потребители";
+"cell_activity_following" = "%@ последва %@";
+"cell_activity_graffiti" = "%li рисунки";
+"cell_activity_likes" = "%@ хареса %@";
+"cell_activity_created" = "%@ създаде %@";
+"cell_activity_commented" = "%@ коментира за %@";
+"cell_activity_likes_single" = "%@ хареса рисунката на %@";
+"cell_activity_created_single" = "%@ създаде рисунка";
+"cell_activity_commented_single" = "%@ коментира:";
 
-"cell_streamable_like" = "Like";
-"cell_streamable_likes" = "Likes";
-"cell_streamable_liked" = "Liked";
-"cell_streamable_comment" = "Comment";
-"cell_streamable_comments" = "Comments";
+"cell_streamable_like" = "Харесай";
+"cell_streamable_likes" = "Харесвания";
+"cell_streamable_liked" = "Харесано";
+"cell_streamable_comment" = "Коментирай";
+"cell_streamable_comments" = "Коментари";
 
-"cell_notification_welcome_title" = "Welcome to GraffiTab!";
-"cell_notification_welcome_description" = "Now that you have signed up, you can quickly start creating amazing graffiti and share them with your comminuty. If you get stuck, feel free to check out the tutorials again in Settings.";
+"cell_notification_welcome_title" = "Добре дошли в GraffiTab!";
+"cell_notification_welcome_description" = "След като вече се регистрира, можеш бързо и лесно да започнеш да рисуваш и споделяш с приятели. Ако имаш нужда от помощ, винаги можеш да погледнеш в менюто Настройки за повече информация.";
 
 // Views
 
-"view_follow_button_follow" = "Follow";
-"view_follow_button_following" = "Following";
+"view_follow_button_follow" = "Последвай";
+"view_follow_button_following" = "Последван";
 
-"view_profile_header_graffiti" = "graffiti";
-"view_profile_header_followers" = "followers";
-"view_profile_header_following" = "following";
+"view_profile_header_graffiti" = "рисунки";
+"view_profile_header_followers" = "последователи";
+"view_profile_header_following" = "следвани";
 
 // Managers
 
-"manager_location_permission" = "You will have to enable Location Services for GraffiTab in Settings before continuing with this action.";
-"manager_location_permission_yes" = "Open Location Settings";
-"manager_location_permission_no" = "No, thanks";
-"manager_location_permission_geofencing" = "You have entered one of your geographical regions. Explore it here.";
+"manager_location_permission" = "Преди да продулжите, ще трябва да активирате Location Services за GraffiTab в Settings.";
+"manager_location_permission_yes" = "Отвори Location Settings";
+"manager_location_permission_no" = "Не, благодаря";
+"manager_location_permission_geofencing" = "Току-що влезе в един от наблюдаваните си райони. Натисни тук, за да го проучиш.";
 
-"manager_network_connected" = "Connected";
-"manager_network_not_connected" = "No Internet Connection";
+"manager_network_connected" = "Свързан";
+"manager_network_not_connected" = "Няма Интернет Връзка";
 
-"manager_permission_notifications_title" = "Receive Notifications";
-"manager_permission_notifications_description" = "Staying connected with the people you follow is easier with push notifications.\n\nOtherwise you'll have to manually check the app for updates.";
-"manager_permission_notifications_button" = "Use Push Notifications";
+"manager_permission_later_button" = "По-късно";
+"manager_permission_notifications_title" = "Получаване на известия";
+"manager_permission_notifications_description" = "Получаването на информация за хората, които следвате е по-лесно с Известия.\n\nАко откажете, ще трябва да проверявате приложението сами.";
+"manager_permission_notifications_button" = "Използвай Известия";
 
-"manager_permission_photos_title" = "Background Pictures";
-"manager_permission_photos_description" = "Want to set a background picture and draw on top of it? Awesome! We just need your permission first.\n\nPhotos will never be posted without your consent.";
-"manager_permission_photos_button" = "Use Background Pictures";
-"manager_permission_photos_denied" = "We need your permission to access the photos library. Please enable this in Settings.";
+"manager_permission_photos_title" = "Снимки за Фон";
+"manager_permission_photos_description" = "Искаш да рисуваш върху снимка? Страхотно! Трябва ни само разрешението ти.\n\nНикога няма да публикуваме снимка без разрешението ти.";
+"manager_permission_photos_button" = "Използвай снимки за фон";
+"manager_permission_photos_denied" = "Трябва ни разрешението ти за достъп до твоите снимки. Провери Settings на устройството си, за да ни го дадеш.";
 
-"manager_permission_location_title" = "Location Services";
-"manager_permission_location_description" = "In order to use the Explorer or create graffiti, we need to know your location.\n\nOtherwise, you can still draw and publish graffiti but they won't appear on the map.";
-"manager_permission_location_button" = "Use Location Services";
+"manager_permission_location_title" = "Позициониране";
+"manager_permission_location_description" = "Създаването на рисуки е по-забавно ако можеш да ги запазиш на реално географаско местоположение. Публикуването без локация е също разрешено.";
+"manager_permission_location_button" = "Използвай позициониране";
 
-"manager_permission_location_tracking_title" = "Location Tracking Services";
-"manager_permission_location_tracking_description" = "By tracking a location you will receive notifications when someone creates graffiti in that area or when you visit it.\n\nOtherwise you will have to check manually in the Explorer.";
-"manager_permission_location_tracking_button" = "Use Tracking Services";
+"manager_permission_location_tracking_title" = "Следене на район";
+"manager_permission_location_tracking_description" = "Следенето на район ти дава възможност да получаваш известия, когато някой създаде нещо там или когато влезеш в района.\n\nИначе, ще трябва ръчно да проверяваш какво има наоколо в Explorer..";
+"manager_permission_location_tracking_button" = "Използвай следене на район";
 
 // Models
 
-"models_comment_sending" = "Sending";
-"models_comment_failed" = "Failed";
-"models_comment_sent" = "Sent";
+"models_comment_sending" = "Изпраща се";
+"models_comment_failed" = "Грешка";
+"models_comment_sent" = "Изпратено";
 
 // API Errors
 
-"api_error_unsupported_file_type" = "This file type is not supported.";
-"api_error_invalid_token" = "The provided token is invalid.";
-"api_error_stream_could_not_be_read" = "The file stream could not be read.";
-"api_error_invalid_argument" = "Invalid argument passed in the request.";
-"api_error_missing_argument" = "Missing argument in the request.";
-"api_error_invalid_json" = "Invalid JSON in the request.";
-"api_error_invalid_followee" = "You cannot follow yourself.";
-"api_error_empty_mandatory_field" = "Mandatory fields missing.";
-"api_error_invalid_username" = "This username is invalid.";
-"api_error_invalid_email" = "This email is invalid.";
-"api_error_username_already_in_use" = "This username already exists.";
-"api_error_email_already_in_use" = "This email already exists.";
+"api_error_unsupported_file_type" = "Не поддържаме този тип файлове.";
+"api_error_invalid_token" = "Сесията е невалидна.";
+"api_error_stream_could_not_be_read" = "Файлът не може да бъде прочетен.";
+"api_error_invalid_argument" = "Невалиден аргумент за заявката.";
+"api_error_missing_argument" = "Липсващ аргумент за заявката.";
+"api_error_invalid_json" = "Невалидна заявка.";
+"api_error_invalid_followee" = "Не можеш да последваш себе си.";
+"api_error_empty_mandatory_field" = "Липсват задължителни полета.";
+"api_error_invalid_username" = "Невалидно потребителско име.";
+"api_error_invalid_email" = "Невалиден имейл.";
+"api_error_username_already_in_use" = "Това потребителско име е вече заето.";
+"api_error_email_already_in_use" = "Този имейл е вече зает.";
 "api_error_invalid_id" = "You cannot pass ID to create request.";
 
-"api_error_user_not_logged_in" = "Your session has expired. Please login to continue.";
-"api_error_user_not_owner" = "You do not have permission to edit this item.";
+"api_error_user_not_logged_in" = "Сесията ти е невалидна. Впиши се отново.";
+"api_error_user_not_owner" = "Не можеш да редактираш.";
 
-"api_error_incorrect_password" = "Your password is incorrect. Please try again.";
-"api_error_max_login_attempts" = "Maximum login attempts have been reached. Please reset your password to continue.";
+"api_error_incorrect_password" = "Грешна парола. Опитай пак.";
+"api_error_max_login_attempts" = "Достигна максималния брой на неуспешни вписвания. Възстанови паролата си, за да продължиш.";
 "api_error_forbidden" = "This resource is forbidden.";
 
-"api_error_external_provider_not_found" = "This external provider does not exist.";
-"api_error_external_provider_not_linked" = "This external provider has not been linked.";
-"api_error_device_not_found" = "The requested device does not exist.";
-"api_error_user_not_found" = "The requested user does not exist.";
-"api_error_asset_not_found" = "The requested asset does not exist.";
-"api_error_streamable_not_found" = "The requested streamable does not exist.";
-"api_error_comment_not_found" = "The requested comment does not exist.";
-"api_error_location_not_found" = "The requested location does not exist.";
-"api_error_token_not_found" = "This token does not exist.";
+"api_error_external_provider_not_found" = "Невалиден провайдър.";
+"api_error_external_provider_not_linked" = "Провайдърът не е свързан към акаунт.";
+"api_error_device_not_found" = "Невалидно устройство.";
+"api_error_user_not_found" = "Този потребител не е намерен.";
+"api_error_asset_not_found" = "Този елемент не е намерен.";
+"api_error_streamable_not_found" = "Този елемент не е намерен.";
+"api_error_comment_not_found" = "Този елемент не е намерен.";
+"api_error_location_not_found" = "Този елемент не е намерен.";
+"api_error_token_not_found" = "Този елемент не е намерен.";
 
-"api_error_token_expired" = "The provided token has expired.";
-"api_error_user_not_in_expected_state" = "Your account is not in the expected state. Please reset your password or login to continue.";
+"api_error_token_expired" = "Невалидна сесия.";
+"api_error_user_not_in_expected_state" = "Акаунтът ти е в неподходящо състояние. Възстанови паролата си, за да продължиш.";
 
-"api_error_device_already_exists" = "This device already exists.";
-"api_error_external_provider_already_linked" = "This external provider has already been linked.";
-"api_error_external_provider_already_linked_for_another_user" = "This external provider has already been linked for another user.";
+"api_error_device_already_exists" = "Устройството е вече регистрирано.";
+"api_error_external_provider_already_linked" = "Този провайдър е вече регистриран.";
+"api_error_external_provider_already_linked_for_another_user" = "Този провайдър е вече регистриран за друг потребител.";
 
-"api_error_general" = "An unexpected error has ocurred. Please contast support to raise a ticket.";
+"api_error_general" = "Неочаквана грешка. Свържете се с Поддръжка, за да подадете сигнал.";
 
-"api_error_other" = "Looks like we're experiencing some errors processing your request. Make sure you're Internet connection is working and try again. Otherwise please check our status page for more information.";
+"api_error_other" = "Имаме проблем с обработката на заявката. Провери Интернет връзката си и опитай пак. Ако проблемът продължи, провери статус страницата ни за повече информация.";
 
-"api_error" = "An unexpected error has ocurred. Please contast support to raise a ticket.";
+"api_error" = "Неочаквана грешка. Свържете се с Поддръжка, за да подадете сигнал.";
 
 // Dialogs
 
-"dialog_input_done" = "Done";
-"dialog_input_prompt" = "Please enter a valid username.";
+"dialog_input_done" = "Готово";
+"dialog_input_prompt" = "Въведи потребителско име.";
 
 // Validation
 
-"validation_login_username" = "Please enter a username.";
-"validation_login_password" = "Please enter a password.";
+"validation_login_username" = "Въведи потребителско име.";
+"validation_login_password" = "Въведи парола.";
 
-"validation_login_new_password" = "Please enter your new password.";
+"validation_login_new_password" = "Въведи нова парола.";
 
-"validation_sign_up_firstname" = "Please enter your first name.";
-"validation_sign_up_lastname" = "Please enter your last name.";
-"validation_sign_up_email" = "Please enter your email address.";
-"validation_sign_up_confirm_password" = "Please confirm your password.";
-"validation_sign_up_password_mismatch" = "Your passwords do not match.";
+"validation_sign_up_firstname" = "Въведи име.";
+"validation_sign_up_lastname" = "Въведи фамилия.";
+"validation_sign_up_email" = "Въведи имейл адрес.";
+"validation_sign_up_confirm_password" = "Потвърди паролата си.";
+"validation_sign_up_password_mismatch" = "Паролите не съвпадат.";
 
 // Sharing
 
-"share_image" = "This post cannot be shared yet..";
+"share_image" = "Споделянето на този елемент е все още невъзможно";
 
 // Dates
 
-"date_now" = "now";
-"date_y" = "%liy";
-"date_mo" = "%limo";
-"date_d" = "%lid";
-"date_h" = "%lih";
-"date_m" = "%lim";
-"date_s" = "%lis";
+"date_now" = "сега";
+"date_y" = "%liг";
+"date_mo" = "%liм";
+"date_d" = "%liд";
+"date_h" = "%liч";
+"date_m" = "%liмин";
+"date_s" = "%liсек";
 
-"date_time_ago" = "%li %@ ago";
-"date_just_now" = "Just now";
-"date_year" = "year";
-"date_years" = "years";
-"date_month" = "month";
-"date_months" = "months";
-"date_day" = "day";
-"date_days" = "days";
-"date_hour" = "hour";
-"date_hours" = "hours";
-"date_minute" = "minute";
-"date_minutes" = "minutes";
+"date_time_ago" = "преди %li %@";
+"date_just_now" = "Сега";
+"date_year" = "година";
+"date_years" = "години";
+"date_month" = "месец";
+"date_months" = "месеца";
+"date_day" = "ден";
+"date_days" = "дни";
+"date_hour" = "час";
+"date_hours" = "часа";
+"date_minute" = "минута";
+"date_minutes" = "минути";
 
 // Controllers
 
-"controller_streamables_no_graffiti" = "No graffiti";
-"controller_streamables_no_graffiti_detail" = "No graffiti were found over here. Please come back again.";
+"controller_streamables_no_graffiti" = "Няма рисунки";
+"controller_streamables_no_graffiti_detail" = "Няма намерени рисунки. Опитай пак.";
 
-"controller_users_no_users" = "No users";
-"controller_users_no_users_detail" = "No users were found. Please come back again.";
+"controller_users_no_users" = "Няма потребители";
+"controller_users_no_users_detail" = "Няма намерени потребители. Опитай пак.";
 
-"controller_image_picker_prompt" = "Choose image source";
-"controller_image_picker_photos" = "Choose from photos";
-"controller_image_picker_take_picture" = "Take a picture";
-"controller_image_picker_remove" = "Remove image";
-"controller_image_picker_remove_prompt" = "Are you sure you want to clear this image?";
-"controller_image_picker_remove_prompt_yes" = "Yes, clear it!";
-"controller_image_picker_remove_prompt_cancel" = "Cancel";
+"controller_image_picker_prompt" = "Избери снимка";
+"controller_image_picker_photos" = "Избери от Албуми";
+"controller_image_picker_take_picture" = "Снимай";
+"controller_image_picker_remove" = "Изчисти снимката";
+"controller_image_picker_remove_prompt" = "Сигурен ли си, че искаш да изчистиш снимката?";
+"controller_image_picker_remove_prompt_yes" = "Да, изчисти!";
+"controller_image_picker_remove_prompt_cancel" = "Отмяна";
 
-"controller_avatar_prompt_picture_source" = "Choose a source for your profile picture";
-"controller_avatar_prompt_import_from_facebook" = "Import from Facebook";
-"controller_avatar_prompt_say_cheese" = "Say \"Cheese!\"";
-"controller_avatar_prompt_later" = "I'll do it later";
+"controller_avatar_prompt_picture_source" = "Избери снимка";
+"controller_avatar_prompt_import_from_facebook" = "Изпозлвай снимката ми от Facebook";
+"controller_avatar_prompt_say_cheese" = "Кажи \"Зеле!\"";
+"controller_avatar_prompt_later" = "По-късно";
 
-"controller_onboarding_go" = "Let's go!";
-"controller_onboarding_screen_1_title" = "Paint";
-"controller_onboarding_screen_1_description" = "Creating beautiful art is as easy as moving your finger across the canvas.";
-"controller_onboarding_screen_2_title" = "Enhance";
-"controller_onboarding_screen_2_description" = "Make your drawing stand out with a variety of filters and effects.";
-"controller_onboarding_screen_3_title" = "Explore";
-"controller_onboarding_screen_3_description" = "Discover what your friends are creating around your area.";
-"controller_onboarding_screen_4_title" = "Follow";
-"controller_onboarding_screen_4_description" = "Follow your favourite artists and get instant updates about new content.";
-"controller_onboarding_screen_5_title" = "Profile";
-"controller_onboarding_screen_5_description" = "Everything you make is nicely stored in your creative profile. Ready to get started?";
+"controller_onboarding_go" = "Напред!";
+"controller_onboarding_screen_1_title" = "Рисувай";
+"controller_onboarding_screen_1_description" = "Рисувай лесно и бързо с едно докосване.";
+"controller_onboarding_screen_2_title" = "Филтрирай";
+"controller_onboarding_screen_2_description" = "Добави филтри и специални ефекти, за да завършиш творението си.";
+"controller_onboarding_screen_3_title" = "Търси";
+"controller_onboarding_screen_3_description" = "Открий какво рисуват приятелите ти наоколо.";
+"controller_onboarding_screen_4_title" = "Следвай";
+"controller_onboarding_screen_4_description" = "Следвай любимите си творци и получавай известия за нови рисунки.";
+"controller_onboarding_screen_5_title" = "Профиле";
+"controller_onboarding_screen_5_description" = "Всичко, което създаваш се запазва в твоя профиле. Готов ли си да започнеш?";
 
 "controller_create_skip_description" = "Ready to draw? No problem, you can enable the tutorial again from Settings.";
 "controller_create_location_unavailable" = "Your location could not be determined right now. Would you like to still publish this post?";
