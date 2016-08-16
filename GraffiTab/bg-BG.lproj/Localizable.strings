@@ -66,7 +66,7 @@
 "cell_streamable_comment" = "Коментирай";
 "cell_streamable_comments" = "Коментари";
 
-"cell_notification_welcome_title" = "Добре дошли в GraffiTab!";
+"cell_notification_welcome_title" = "Добре дошъл в GraffiTab!";
 "cell_notification_welcome_description" = "След като вече се регистрира, можеш бързо и лесно да започнеш да рисуваш и споделяш с приятели. Ако имаш нужда от помощ, винаги можеш да погледнеш в менюто Настройки за повече информация.";
 
 // Views
@@ -75,12 +75,12 @@
 "view_follow_button_following" = "Последван";
 
 "view_profile_header_graffiti" = "рисунки";
-"view_profile_header_followers" = "последователи";
+"view_profile_header_followers" = "следователи";
 "view_profile_header_following" = "следвани";
 
 // Managers
 
-"manager_location_permission" = "Преди да продулжите, ще трябва да активирате Location Services за GraffiTab в Settings.";
+"manager_location_permission" = "Преди да продължиш, ще трябва да активираш Location Services за GraffiTab в Settings.";
 "manager_location_permission_yes" = "Отвори Location Settings";
 "manager_location_permission_no" = "Не, благодаря";
 "manager_location_permission_geofencing" = "Току-що влезе в един от наблюдаваните си райони. Натисни тук, за да го проучиш.";
@@ -90,7 +90,7 @@
 
 "manager_permission_later_button" = "По-късно";
 "manager_permission_notifications_title" = "Получаване на известия";
-"manager_permission_notifications_description" = "Получаването на информация за хората, които следвате е по-лесно с Известия.\n\nАко откажете, ще трябва да проверявате приложението сами.";
+"manager_permission_notifications_description" = "Получаването на информация за хората, които следваш е по-лесно с Известия.\n\nАко решиш да не ги използваш, ще трябва да проверяваш приложението ръчно.";
 "manager_permission_notifications_button" = "Използвай Известия";
 
 "manager_permission_photos_title" = "Снимки за Фон";
@@ -99,7 +99,7 @@
 "manager_permission_photos_denied" = "Трябва ни разрешението ти за достъп до твоите снимки. Провери Settings на устройството си, за да ни го дадеш.";
 
 "manager_permission_location_title" = "Позициониране";
-"manager_permission_location_description" = "Създаването на рисуки е по-забавно ако можеш да ги запазиш на реално географаско местоположение. Публикуването без локация е също разрешено.";
+"manager_permission_location_description" = "Създаването на рисуки е по-забавно ако можеш да ги запазиш на реално географаско местоположение.\n\nПубликуването без локация е също разрешено.";
 "manager_permission_location_button" = "Използвай позициониране";
 
 "manager_permission_location_tracking_title" = "Следене на район";
@@ -236,221 +236,222 @@
 "controller_onboarding_screen_5_title" = "Профиле";
 "controller_onboarding_screen_5_description" = "Всичко, което създаваш се запазва в твоя профиле. Готов ли си да започнеш?";
 
-"controller_create_skip_description" = "Ready to draw? No problem, you can enable the tutorial again from Settings.";
-"controller_create_location_unavailable" = "Your location could not be determined right now. Would you like to still publish this post?";
-"controller_create_location_unavailable_yes" = "Yes, publish it";
-"controller_create_saved" = "Your graffiti was saved in your photos album";
-"controller_create_share_prompt" = "Looks great! How about sharing it with the rest of the world?";
-"controller_create_share_publish" = "Publish";
-"controller_create_share" = "Share";
-"controller_create_share_save" = "Save to Photos Album";
-"controller_create_share_discard" = "Discard";
-"controller_create_share_discard_prompt" = "Are you sure you want to discard this drawing? Any unsaved progress will be lost.";
-"controller_create_share_discard_prompt_yes" = "Yes, discard it";
-"controller_create_clear_description" = "What would you like to do?";
-"controller_create_clear_drawing_layer" = "Clear drawing layer";
-"controller_create_clear_drawing_prompt" = "Are you sure you want to clear your drawing? Any unsaved progress will be lost.";
-"controller_create_clear_prompt_yes" = "Yes, clear it";
-"controller_create_clear_background_layer" = "Clear background image";
-"controller_create_clear_background_prompt" = "Are you sure you want to clear the background image? Any unsaved progress will be lost.";
-"controller_create_clear_everything" = "Clear everything";
-"controller_create_assistant_intro" = "Drawing with the canvas is quick and easy. Tap on the screen to get started!";
-"controller_create_assistant_line" = "You can draw by sliding your finger on the screen. Give it a try!";
-"controller_create_assistant_line_tool" = "Great tool choice. Lets see it in action!";
-"controller_create_assistant_line_stroke" = "Give that new brush a try!";
-"controller_create_assistant_line_color" = "That color looks nice. Why don't you give it a try?";
-"controller_create_assistant_color" = "Drawing lines is fun but it's even nicer with colors. Tap on the palette to choose a different color.";
-"controller_create_assistant_stroke" = "In addition to colors you can also control the width and opacity of the current brush. Tap the brush settings to check it out.";
-"controller_create_assistant_menu" = "So far so good but what's a great artist without his brushes? Let's see what you've got in your toolbox.";
-"controller_create_assistant_tool" = "These are your available tools. Tap on a different tool to continue.";
-"controller_create_assistant_eraser" = "Even great artists make mistakes sometimes. Do not fear, we have the perfect tool for this. Tap the eraser to erase mistakes.";
-"controller_create_assistant_background" = "The white canvas is nice but can quickly become boring. Why not put a background picture and draw on top of it?";
-"controller_create_assistant_enhance" = "Now that your masterpiece is almost done, it's time to add some cool effects to it and make it looks really pro. Tap the enhancer to add filters or stickers to your drawing.";
-"controller_create_assistant_publish" = "Not bad for a first try! Why don't you share it with your friends or the rest of the GraffiTab community?";
+"controller_create_skip_description" = "Готов си да рисуваш? Няма проблем, може да активираш помощника отново през Настройки.";
+"controller_create_location_unavailable" = "Не можем да те позиционираме в момента. Искаш ли все пак да публикуваш рисунката?";
+"controller_create_location_unavailable_yes" = "Да, публикувай";
+"controller_create_saved" = "Рисунката е запазена в Албуми.";
+"controller_create_share_prompt" = "Изглежда страхотно! Защо не го споделиш с всички?";
+"controller_create_share_publish" = "Публикувай";
+"controller_create_share" = "Сподели";
+"controller_create_share_save" = "Запази в Албуми";
+"controller_create_share_discard" = "Отхвърли";
+"controller_create_share_discard_prompt" = "Сигурен ли си, че искаш да отхвърлиш тази рисунка?";
+"controller_create_share_discard_prompt_yes" = "Да, отхвърли";
+"controller_create_clear_description" = "Опции";
+"controller_create_clear_drawing_layer" = "Изчисти рисунката";
+"controller_create_clear_drawing_prompt" = "Сигурен ли си, че искаш да изчистиш рисунката?";
+"controller_create_clear_prompt_yes" = "Да, изчисти";
+"controller_create_clear_background_layer" = "Премахни фон";
+"controller_create_clear_background_prompt" = "Сигурен ли си, че искаш да премахнеш фоновата снимка?";
+"controller_create_clear_everything" = "Изчисти всичко";
+"controller_create_assistant_intro" = "Рисуването става лесно и бързо. Докосни екрана, за да започнеш!";
+"controller_create_assistant_line" = "Рисувай, докосвайки екрана. Пробвай!";
+"controller_create_assistant_line_tool" = "Страхотен избор. Да видим как изглежда!";
+"controller_create_assistant_line_stroke" = "Пробвай новата четка!";
+"controller_create_assistant_line_color" = "Красив цвят. Защо не го пробваме?";
+"controller_create_assistant_color" = "Линиите за забавни, но още по-забавно е с цветове. Натисни, за да избереш нов цвят.";
+"controller_create_assistant_stroke" = "Освен цветовете, можеш да контролираш дебелината и силата на четката. Натисни, за да пробваш.";
+"controller_create_assistant_menu" = "До тук добре, но какво е един добър артист без добри четки? Да видим какво има в инструментите за рисуване.";
+"controller_create_assistant_tool" = "Това са инструментите ти за рисуване. Избери инструмент, за да продължиш.";
+"controller_create_assistant_eraser" = "Дори великите артисти правят грешки. Не се притеснявай, имаме идеалното решение на този проблем. Избери гумичката за корекция на проблеми.";
+"controller_create_assistant_background" = "Бялото платно е красиво, но може бързо да доскучае. Защо не сложим фон и да порисуваме върху него?";
+"controller_create_assistant_enhance" = "Творението ти е почти завършено. Нека да добавим малко визуални ефекти за финал.";
+"controller_create_assistant_publish" = "Не е зле като за начало! Защо не го споделиш с приятели или с други потребители в GraffiTab?";
 
-"controller_tune_size" = "Size";
-"controller_tune_opacity" = "Opacity";
+"controller_tune_size" = "Размер";
+"controller_tune_opacity" = "Сила";
 
-"controller_login_invalid_credentials" = "These credentials are incorrect. Please try again.";
-"controller_login_facebook_unavailable" = "Facebook login is not available at the moment. Please try again later.";
-"controller_login_sign_up" = "Sign up";
-"controller_login_username" = "Username";
-"controller_login_password" = "Password";
-"controller_login_forgot_password" = "Forgotten password?";
-"controller_login" = "Login";
-"controller_login_facebook" = "Login with Facebook";
-"controller_login_sign_up_full" = "Don't have an account yet? Sign up";
+"controller_login_invalid_credentials" = "Невалидни инициали. Опитай пак.";
+"controller_login_facebook_unavailable" = "Вход с Facebook е невъзможен в момента. Опитай пак.";
+"controller_login_sign_up" = "Регистрация";
+"controller_login_username" = "Потребителско име";
+"controller_login_password" = "Парола";
+"controller_login_forgot_password" = "Забравена парола?";
+"controller_login" = "Вход";
+"controller_login_facebook" = "Вход с Facebook";
+"controller_login_sign_up_full" = "Все още нямаш акаунт? Регистрация";
 
-"controller_pasword_reset_confirmation" = "Check your email for instructions to reset your password.";
-"controller_pasword_reset_reset" = "Reset";
-"controller_pasword_reset" = "Reset password";
-"controller_pasword_reset_description" = "You will receive an email containing your password and instructions on how to reset it.";
-"controller_pasword_reset_email" = "Email";
+"controller_pasword_reset_confirmation" = "Провери имейла си за инструкции как да възстановиш паролата си.";
+"controller_pasword_reset_reset" = "Възстанови";
+"controller_pasword_reset" = "Възстанови парола";
+"controller_pasword_reset_description" = "Ще получиш имейл как да възстановиш паролата си.";
+"controller_pasword_reset_email" = "Имейл";
 
-"controller_sign_up_confirmation" = "You have successfully registered! Please check your email to activate your account.";
-"controller_sign_up_confirmation_title" = "Almost done!";
-"controller_sign_up_first_name" = "First name";
-"controller_sign_up_last_name" = "Last name";
-"controller_sign_up_confirm_password" = "Confirm password";
-"controller_sign_up_terms" = "By registering you agree to our Terms of Use";
-"controller_sign_up" = "Sign me up";
+"controller_sign_up_confirmation" = "Регистрацията ти е успешна! Провери имейла си, за да си активираш акаунта.";
+"controller_sign_up_confirmation_title" = "Почти сме готови!";
+"controller_sign_up_first_name" = "Име";
+"controller_sign_up_last_name" = "Фамилия";
+"controller_sign_up_confirm_password" = "Потвърди парола";
+"controller_sign_up_terms" = "Регистрирайки се, се съгласяваш с нашите Условия за Ползване";
+"controller_sign_up" = "Регистрирай ме";
 
-"controller_terms_title" = "Terms of Use";
+"controller_terms_title" = "Условия за Ползване";
 
-"controller_web_file_error" = "Could not open file.";
+"controller_web_file_error" = "Грешка при отварянето на файла.";
 
 "controller_home" = "Начало";
-"controller_trending" = "Trending";
-"controller_notifications" = "Notifications";
-"controller_recent" = "Recent";
+"controller_trending" = "Популярни";
+"controller_notifications" = "Известия";
+"controller_recent" = "Нови";
 
-"controller_private" = "Private Graffiti";
+"controller_private" = "Скрити Рисунки";
 
-"controller_feed_empty_title" = "Your feed is empty";
-"controller_feed_empty_description" = "How about drawing your first sketch?";
-"controller_feed_draw" = "Draw";
+"controller_feed_empty_title" = "Няма нови рисунки";
+"controller_feed_empty_description" = "Защо не нарисуваш първата си рисунка?";
+"controller_feed_draw" = "Рисувай";
 
-"controller_locations_empty_title" = "No locations yet";
-"controller_locations_empty_description" = "Create your first location and start tracking areas of interest.";
-"controller_locations_options_title" = "What would you like to do with this place?";
-"controller_locations_copy_address" = "Copy address";
-"controller_locations_track" = "Track";
-"controller_locations_untrack" = "Untrack";
-"controller_locations_delete" = "Delete";
-"controller_locations_delete_prompt" = "Are you sure you want to delete this location?";
-"controller_locations_delete_prompt_yes" = "Yes, delete it";
-"controller_locations_geofence_unsupported" = "Your device does not support locatino tracking.";
-"controller_locations" = "Locations";
+"controller_locations_empty_title" = "Няма местоположения";
+"controller_locations_empty_description" = "Създай първото си местоположение и започни да получаваш известия за него.";
+"controller_locations_options_title" = "Опции";
+"controller_locations_copy_address" = "Копирай адрес";
+"controller_locations_track" = "Следи";
+"controller_locations_untrack" = "Спри следене";
+"controller_locations_delete" = "Изтрий";
+"controller_locations_delete_prompt" = "Сигурен ли си, че искаш да изтриеш това местоположение?";
+"controller_locations_delete_prompt_yes" = "Да, изтрий";
+"controller_locations_geofence_unsupported" = "Устройството ти не поддържа следене на местоположение.";
+"controller_locations" = "Местоположения";
 
-"controller_create_location_not_selected" = "Select a location first.";
-"controller_create_location_saved" = "Location saved successfully!";
-"controller_create_location_none" = "No locations found for this address.";
-"controller_create_location_multiple" = "Multiple matches found. The first one will be used.";
+"controller_create_location_not_selected" = "Избери местоположение.";
+"controller_create_location_saved" = "Местоположението бе запазено!";
+"controller_create_location_none" = "Няма местоположения за този адрес.";
+"controller_create_location_multiple" = "Намерени са няколко съвпадения. Ще използваме първото.";
 
-"controller_edit_password_success" = "Password updated!";
-"controller_edit_password" = "Edit password";
-"controller_edit_password_your" = "Your password";
-"controller_edit_password_new" = "New password";
-"controller_edit_password_confirm" = "Confirm password";
+"controller_edit_password_success" = "Паролата е променена!";
+"controller_edit_password" = "Смяна на парола";
+"controller_edit_password_your" = "Парола";
+"controller_edit_password_new" = "Нова парола";
+"controller_edit_password_confirm" = "Потвърди парола";
 
-"controller_edit_profile_success" = "Profile updated!";
-"controller_edit_profile" = "Edit Profile";
-"controller_edit_profile_avatar_success" = "Avatar updated!";
-"controller_edit_profile_cover_success" = "Banner updated!";
-"controller_edit_profile_avatar" = "Profile Picture";
-"controller_edit_profile_cover" = "Cover Picture";
-"controller_edit_profile_website" = "Website";
-"controller_edit_profile_private_graffiti" = "Manage Private Graffiti";
-"controller_edit_profile_private_graffiti_title" = "Private Graffiti";
-"controller_edit_profile_private_graffiti_description" = "Private graffiti can only be viewed by you and nobody else.";
+"controller_edit_profile_success" = "Профилът ти е запазен!";
+"controller_edit_profile" = "Редакция на Профил";
+"controller_edit_profile_avatar_success" = "Профилната ти снимка бе променена!";
+"controller_edit_profile_cover_success" = "Фоновата ти снимка бе променена!";
+"controller_edit_profile_avatar" = "Профилна Снимка";
+"controller_edit_profile_cover" = "Фонова Снимка";
+"controller_edit_profile_website" = "Уебсайт";
+"controller_edit_profile_about" = "Био";
+"controller_edit_profile_private_graffiti" = "Скрити Рисунки";
+"controller_edit_profile_private_graffiti_title" = "Скрити Рисунки";
+"controller_edit_profile_private_graffiti_description" = "Само ти имаш достъп до скритите си рисунки.";
 
-"controller_edit_text_mandatory" = "This field cannot be empty.";
+"controller_edit_text_mandatory" = "Това поле не може да е празно.";
 
-"controller_activity_empty_title" = "No activity";
-"controller_activity_empty_description" = "Looks like we don't have any activity to display yet. Please come back again.";
+"controller_activity_empty_title" = "Нищо не е намерено";
+"controller_activity_empty_description" = "Все още няма нищо тук. Опитай пак.";
 
-"controller_notifications_empty_title" = "No notifications";
-"controller_notifications_empty_description" = "Looks like you have no notifications yet.";
+"controller_notifications_empty_title" = "Няма известия";
+"controller_notifications_empty_description" = "Все още нямаш известия.";
 
-"controller_menu_profile" = "Profile";
-"controller_menu_locations" = "Locations";
-"controller_menu_search" = "Search";
-"controller_menu_settings" = "Settings";
+"controller_menu_profile" = "Профил";
+"controller_menu_locations" = "Местоположения";
+"controller_menu_search" = "Търсене";
+"controller_menu_settings" = "Настройки";
 
-"controller_search_people" = "People";
-"controller_search_graffiti" = "Graffiti";
+"controller_search_people" = "Потребители";
+"controller_search_graffiti" = "Рисунки";
 
-"controller_linked_accounts_facebook_login_error" = "Could not login to Facebook";
-"controller_linked_accounts" = "Linked Accounts";
+"controller_linked_accounts_facebook_login_error" = "Грешка при входа с Facebook";
+"controller_linked_accounts" = "Свързани Акаунти";
 
-"controller_linked_account_unlink_prompt" = "Are you sure you want to unlink this account?";
-"controller_linked_account_unlink_prompt_yes" = "Unlink";
-"controller_linked_account_unlink_description" = "Unlinking your account will disable login with that speciffic provider.";
-"controller_linked_account_find_friends" = "Find Friends";
-"controller_linked_account_unlink_success" = "This account has successfully been unlinked.";
+"controller_linked_account_unlink_prompt" = "Сигурен ли си, че искаш да откачиш този акаунт?";
+"controller_linked_account_unlink_prompt_yes" = "Откачи";
+"controller_linked_account_unlink_description" = "Откачането на акаунта ще премахне възможността за вход с този акаунт.";
+"controller_linked_account_find_friends" = "Намери Приятели";
+"controller_linked_account_unlink_success" = "Аканутът е успешно свързан.";
 "controller_linked_account_facebook" = "Facebook";
 "controller_linked_account_twitter" = "Twitter";
 "controller_linked_account_google" = "Google";
 
-"controller_social_friends_facebook" = "Facebook Friends";
-"controller_social_friends_twitter" = "Twitter Friends";
-"controller_social_friends_google" = "Google Friends";
+"controller_social_friends_facebook" = "Facebook Приятели";
+"controller_social_friends_twitter" = "Twitter Приятели";
+"controller_social_friends_google" = "Google Приятели";
 
-"controller_about_release_notes" = "Release notes";
-"controller_about_release_info" = "Release Information";
-"controller_about_version" = "Version";
-"controller_about_version_info" = "Version information";
+"controller_about_release_notes" = "Новости";
+"controller_about_release_info" = "Информация за тази версия";
+"controller_about_version" = "Версия";
+"controller_about_version_info" = "Информация за тази версия";
 "controller_about_copyright" = "© 2016 GraffiTab All Rights Reserved";
 "controller_about_build" = "Build";
 
-"controller_settings_clear_cache_prompt" = "Are you sure you want to clear the app's cache? Clearing the cache will force the app to re-download all images and may incur additional charges if you are not using WiFi.";
-"controller_settings_clear_cache" = "Clear Cache";
+"controller_settings_clear_cache_prompt" = "Сигурен ли си, че искаш да изчистиш кеша на приложението? Изчистването на кеша ще принуди приложението да свали наново снимки и други ресурси.";
+"controller_settings_clear_cache" = "Изчисти кеш";
 "controller_settings_eula" = "End User License Agreement";
-"controller_settings_logout_prompt" = "Are you sure you want to log out?";
-"controller_settings_logout" = "Log out";
-"controller_settings_change_password" = "Change Password";
-"controller_settings_liked_posts" = "Posts You've Liked";
-"controller_settings_remember_me" = "Remember me";
-"controller_settings_remember_me_description" = "Remembers your login credentials and autofills them in case you log out.";
-"controller_settings_find_facebook_friends" = "Find Facebook Friends";
-"controller_settings_invite_facebook_friends" = "Invite Facebook Friends";
-"controller_settings_followers_activity" = "Followers Activity";
-"controller_settings_linked_accounts" = "Linked Accounts";
-"controller_settings_clear_cache" = "Clear App Cache";
-"controller_settings_assistant" = "Show Drawing Assistant";
-"controller_settings_help_center" = "Help Center";
-"controller_settings_feedback" = "Report a Problem";
-"controller_settings_about" = "About";
-"controller_settings_account" = "Account";
-"controller_settings_discover" = "Discover";
-"controller_settings_support" = "Support";
-"controller_settings_language" = "Language";
+"controller_settings_logout_prompt" = "Сигурен ли си, че искаш да се отпишеш?";
+"controller_settings_logout" = "Отпиши ме";
+"controller_settings_change_password" = "Промяна на Парола";
+"controller_settings_liked_posts" = "Неща Харесани от Теб";
+"controller_settings_remember_me" = "Запомни ме";
+"controller_settings_remember_me_description" = "Ще запомним потребителското ти име и парола и ще ги попълним атвоматично на логин страницата.";
+"controller_settings_find_facebook_friends" = "Намери Приятели от Facebook";
+"controller_settings_invite_facebook_friends" = "Покани Приятели от Facebook";
+"controller_settings_followers_activity" = "Други Известия";
+"controller_settings_linked_accounts" = "ВЪрзани Акаунти";
+"controller_settings_clear_cache" = "Изчисти Кеш";
+"controller_settings_assistant" = "Показване на Асистент за Рисуване";
+"controller_settings_help_center" = "Помощ и Поддърка";
+"controller_settings_feedback" = "Докладвай Проблем";
+"controller_settings_about" = "За GraffiTab";
+"controller_settings_account" = "Акаунт";
+"controller_settings_discover" = "Открий";
+"controller_settings_support" = "Поддръжка";
+"controller_settings_language" = "Език";
 
-"controller_language_prompt" = "Select language";
-"controller_language_prompt_description" = "You will need to restart the app for the language to take effect.";
+"controller_language_prompt" = "Избери език";
+"controller_language_prompt_description" = "Ще трябва да рестартираш приложението, за да се промени езикът.";
 
-"controller_streamable_options_title" = "What would you like to do with this graffiti?";
-"controller_streamable_options_public" = "Mark Public";
-"controller_streamable_options_private" = "Mark Private";
-"controller_streamable_options_set_avatar" = "Set as Profile Picture";
-"controller_streamable_options_flag" = "Flag Inappropriate";
-"controller_streamable_options_flag_prompt" = "Mark this graffiti as inappropriate?";
-"controller_streamable_options_explore" = "Explore Map Area";
-"controller_streamable_options_copy_link" = "Copy Link";
-"controller_streamable_options_save_success" = "This graffiti was saved in your photos album";
-"controller_streamable_options_delete_prompt" = "Are you sure you want to delete this graffiti?";
+"controller_streamable_options_title" = "Опции";
+"controller_streamable_options_public" = "Маркирай като Публичен";
+"controller_streamable_options_private" = "Скрий";
+"controller_streamable_options_set_avatar" = "Използвай за Профилна Снимка";
+"controller_streamable_options_flag" = "Докладвай";
+"controller_streamable_options_flag_prompt" = "Докладвай тази снимка?";
+"controller_streamable_options_explore" = "Разучи Район на Картата";
+"controller_streamable_options_copy_link" = "Копирай Линк";
+"controller_streamable_options_save_success" = "Рисунката бе запазена в Албуми";
+"controller_streamable_options_delete_prompt" = "Сигурен ли си, че искаш да изтриеш тази рисунка?";
 
-"controller_comments_options_title" = "What would you like to do with this comment?";
-"controller_comments_options_delete_prompt" = "Are you sure you want to delete this comment?";
-"controller_comments_send_failure_options_title" = "This comment was not sent";
-"controller_comments_send_failure_options_try_again" = "Try again";
-"controller_comments" = "Comments";
-"controller_comments_post_prompt" = "Write your comment here";
+"controller_comments_options_title" = "Опции";
+"controller_comments_options_delete_prompt" = "Сигурен ли си, че искаш да изтриеш този коментар?";
+"controller_comments_send_failure_options_title" = "Коментарът не бе изпратен";
+"controller_comments_send_failure_options_try_again" = "Опитай отново";
+"controller_comments" = "Коментари";
+"controller_comments_post_prompt" = "Напиши коментар тук";
 
-"controller_likers" = "Likers";
+"controller_likers" = "Хора, които харесват";
 
-"controller_likes" = "Likes";
+"controller_likes" = "Харесвания";
 
-"controller_streamable_cluster" = "%li around";
+"controller_streamable_cluster" = "%li наоколо";
 
-"controller_static_streamables" = "%li graffiti";
+"controller_static_streamables" = "%li рисунки";
 
-"controller_static_users" = "%li people";
+"controller_static_users" = "%li потребители";
 
-"controller_followers" = "Followers";
+"controller_followers" = "Последователи";
 
-"controller_following" = "Following";
+"controller_following" = "Следвани";
 
 // Other
 
-"other_skip" = "Skip";
-"other_post" = "Post";
-"other_close" = "Close";
-"other_copy" = "Copy";
-"other_edit" = "Edit";
-"other_save" = "Save";
-"other_processing" = "Processing";
-"other_cancel" = "Cancel";
-"other_done" = "Done";
-"other_send" = "Send";
-"other_delete" = "Delete";
+"other_skip" = "Пропусни";
+"other_post" = "Публикувай";
+"other_close" = "Затвори";
+"other_copy" = "Копирай";
+"other_edit" = "Редакция";
+"other_save" = "Запази";
+"other_processing" = "Обработка";
+"other_cancel" = "Отмени";
+"other_done" = "Готово";
+"other_send" = "Изпрати";
+"other_delete" = "Изтрий";

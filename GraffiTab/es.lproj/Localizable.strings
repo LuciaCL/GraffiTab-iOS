@@ -265,7 +265,7 @@
 "controller_create_assistant_tool" = "Estas son las herramientas disponibles. Elige una para continuar.";
 "controller_create_assistant_eraser" = "Incluso los mejores artistas cometen errores. No temas, tenemos la herramienta perfecta para esto. Selecciona la goma para borrar errores.";
 "controller_create_assistant_background" = "Un lienzo en blanco está bien pero se vuelve aburrido rápidamente. ¿Por que no poner una imagen de fondo y dibujar sobre ella?";
-"controller_create_assistant_enhance" = "Ahora que tu obra de arte está casi lista, es el momento de añadir algunos efectos. Toca en filtros para seleccionar uno y aplicarlo al dibujo.";
+"controller_create_assistant_enhance" = "Ahora que tu obra de arte está casi lista, es el momento de añadir algunos efectos.";
 "controller_create_assistant_publish" = "¡No está mal para ser la primera vez! ¿Porque no compartirla con tus amigos y/o el resto de la comunidad GraffiTab?";
 
 "controller_tune_size" = "Tamaño";
@@ -340,6 +340,7 @@
 "controller_edit_profile_avatar" = "Foto de perfil";
 "controller_edit_profile_cover" = "Foto de portada";
 "controller_edit_profile_website" = "Página web";
+"controller_edit_profile_about" = "Sobre";
 "controller_edit_profile_private_graffiti" = "Gestionar grafitis privados";
 "controller_edit_profile_private_graffiti_title" = "Grafitis privados";
 "controller_edit_profile_private_graffiti_description" = "Un graffiti privado solamente puede ser visto por ti y nadie más.";

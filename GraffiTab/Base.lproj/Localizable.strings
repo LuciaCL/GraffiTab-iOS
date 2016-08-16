@@ -265,7 +265,7 @@
 "controller_create_assistant_tool" = "These are your available tools. Tap on a different tool to continue.";
 "controller_create_assistant_eraser" = "Even great artists make mistakes sometimes. Do not fear, we have the perfect tool for this. Tap the eraser to erase mistakes.";
 "controller_create_assistant_background" = "The white canvas is nice but can quickly become boring. Why not put a background picture and draw on top of it?";
-"controller_create_assistant_enhance" = "Now that your masterpiece is almost done, it's time to add some cool effects to it and make it looks really pro. Tap the enhancer to add filters or stickers to your drawing.";
+"controller_create_assistant_enhance" = "Now that your masterpiece is almost done, it's time to add some cool effects to it and make it looks really pro.";
 "controller_create_assistant_publish" = "Not bad for a first try! Why don't you share it with your friends or the rest of the GraffiTab community?";
 
 "controller_tune_size" = "Size";
@@ -319,7 +319,7 @@
 "controller_locations_delete" = "Delete";
 "controller_locations_delete_prompt" = "Are you sure you want to delete this location?";
 "controller_locations_delete_prompt_yes" = "Yes, delete it";
-"controller_locations_geofence_unsupported" = "Your device does not support locatino tracking.";
+"controller_locations_geofence_unsupported" = "Your device does not support location tracking.";
 "controller_locations" = "Locations";
 
 "controller_create_location_not_selected" = "Select a location first.";
@@ -340,6 +340,7 @@
 "controller_edit_profile_avatar" = "Profile Picture";
 "controller_edit_profile_cover" = "Cover Picture";
 "controller_edit_profile_website" = "Website";
+"controller_edit_profile_about" = "Sobre";
 "controller_edit_profile_private_graffiti" = "Manage Private Graffiti";
 "controller_edit_profile_private_graffiti_title" = "Private Graffiti";
 "controller_edit_profile_private_graffiti_description" = "Private graffiti can only be viewed by you and nobody else.";

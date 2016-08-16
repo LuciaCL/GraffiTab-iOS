@@ -15,7 +15,7 @@ class AppConfig: NSObject {
     var fallbackLanguage = "English"
     var languages = [
         "English" : "en_EN",
-        "Español" : "es_ES"
-//        "Български" : "bg_BG",
+        "Español" : "es_ES",
+        "Български" : "bg_BG"
     ]
 }

@@ -166,7 +166,7 @@
                                     <constraint firstItem="9CW-ws-KPw" firstAttribute="leading" secondItem="qPS-TW-QtY" secondAttribute="leading" id="rkZ-KT-Fga"/>
                                 </constraints>
                             </scrollView>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account yet? Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Aq-qb-0iw">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account yet? Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5Aq-qb-0iw">
                                 <rect key="frame" x="30" y="558" width="540" height="21"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -420,7 +420,7 @@
                                     <action selector="onClickClose:" destination="zDL-Wm-j8N" eventType="touchUpInside" id="HE6-9j-RuF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRH-DN-mfZ">
+                            <label opaque="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NRH-DN-mfZ">
                                 <rect key="frame" x="20" y="152" width="560" height="35"/>
                                 <gestureRecognizers/>
                                 <constraints>

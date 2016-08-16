@@ -25,6 +25,7 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
         // Do any additional setup after loading the view.
         
         setupCarbonKit()
+        setupSearchBar()
         
         if searchedHashtag != nil {
             searchBar.text = searchedHashtag
@@ -118,5 +119,9 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
         carbonTabSwipeNavigation!.setSelectedColor(tintColor!, font: UIFont.boldSystemFontOfSize(14))
         
         configureTabsSize()
+    }
+    
+    func setupSearchBar() {
+        searchBar.placeholder = NSLocalizedString("controller_menu_search", comment: "")
     }
 }
