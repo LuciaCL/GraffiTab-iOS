@@ -196,23 +196,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (GTMeManager.sharedInstance.isLoggedIn()) {
             DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User logged in")
             
+            let successHandler = {(refreshed: Bool) in
+                if refreshed {
+                    DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Profile refreshed")
+                }
+                else {
+                    DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Connection not available. Opening main app.")
+                }
+                
+                UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
+                
+                self.userDidLogin(launchOptions)
+            }
+            
+            let errorHandler = {
+                DDLogError("[\(NSStringFromClass(self.dynamicType))] Failed to refresh profile")
+                UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
+                
+                self.userDidLogin(launchOptions)
+            }
+            
             if GTNetworkManager.manager.reach.isReachable() {
                 DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Refreshing profile")
                 GTMeManager.getMyFullProfile(successBlock: { (response) -> Void in
-                    DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Profile refreshed")
-                    UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
-                    
-                    self.userDidLogin(launchOptions)
+                    successHandler(true)
                 }, failureBlock: { (response) -> Void in
-                    DDLogError("[\(NSStringFromClass(self.dynamicType))] Failed to refresh profile")
-                    UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
-                    
-                    self.userDidLogin(launchOptions)
+                    errorHandler()
                 })
             }
             else {
-                DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Connection not available. Opening main app.")
-                self.userDidLogin(launchOptions)
+                successHandler(false)
             }
         }
         else {
