@@ -18,4 +18,7 @@ class AppConfig: NSObject {
         "Español" : "es_ES",
         "Български" : "bg_BG"
     ]
+    
+    var isAppStore: Bool = false
+    var useAnalytics: Bool = false
 }

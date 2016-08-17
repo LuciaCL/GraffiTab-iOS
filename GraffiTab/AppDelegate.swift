@@ -21,8 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var isAppStore: Bool = false
-    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -309,7 +307,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupTestFramework() {
-        if !isAppStore {
+        if !AppConfig.sharedInstance.isAppStore {
             #if DEBUG
                 
             #else
@@ -324,7 +322,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Configure log.
         config.logEnabled = true
         
-        if !isAppStore { // We are deploying to dev or testing locally.
+        if !AppConfig.sharedInstance.isAppStore { // We are deploying to dev or testing locally.
             #if DEBUG // Show full debug traces.
                 config.logLevel = .Debug
             #else
@@ -341,15 +339,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupAnalytics() {
-        // Configure tracker from GoogleService-Info.plist.
-        var configureError:NSError?
-        GGLContext.sharedInstance().configureWithError(&configureError)
-        assert(configureError == nil, "Error configuring Google services: \(configureError)")
-        
-        // Optional: configure GAI options.
-        let gai = GAI.sharedInstance()
-        gai.trackUncaughtExceptions = true  // report uncaught exceptions
-        gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
+        // No need to setup analytics here.
+        if AppConfig.sharedInstance.useAnalytics {
+            // Configure tracker from GoogleService-Info.plist.
+            var configureError:NSError?
+            GGLContext.sharedInstance().configureWithError(&configureError)
+            assert(configureError == nil, "Error configuring Google services: \(configureError)")
+            
+            // Optional: configure GAI options.
+            let gai = GAI.sharedInstance()
+            gai.trackUncaughtExceptions = true  // report uncaught exceptions
+            
+            if AppConfig.sharedInstance.isAppStore {
+                gai.logger.logLevel = GAILogLevel.Info
+            }
+            else {
+                gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
+            }
+        }
     }
     
     func setupGestureAssistant() {
