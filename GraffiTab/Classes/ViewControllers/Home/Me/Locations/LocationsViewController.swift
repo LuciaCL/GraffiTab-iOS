@@ -71,7 +71,7 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
         
-        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+        UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.defaultStatusBarStyle!, animated: true)
         
         if self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -284,7 +284,7 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     }
     
     func showLoadingIndicator() {
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .White)
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: AppConfig.sharedInstance.theme!.navigationBarLoadingIndicatorStyle!)
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         self.navigationItem.setRightBarButtonItem(UIBarButtonItem(customView: activityIndicator), animated: true)
@@ -535,13 +535,15 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     }
     
     func setupCollectionView() {
+        self.view.backgroundColor = AppConfig.sharedInstance.theme?.collectionBackgroundColor
+        
         collectionView.alwaysBounceVertical = true
         collectionView.registerNib(UINib(nibName: LocationListCell.reusableIdentifier(), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: LocationListCell.reusableIdentifier())
         
         // Setup pull to refresh.
         pullToRefresh = CarbonSwipeRefresh(scrollView: collectionView)
         pullToRefresh.setMarginTop(self.parentViewController!.isKindOfClass(UINavigationController) ? 64 : 0)
-        pullToRefresh.colors = [UIColor(hexString: Colors.Main)!, UIColor(hexString: Colors.Orange)!, UIColor(hexString: Colors.Green)!]
+        pullToRefresh.colors = [AppConfig.sharedInstance.theme!.primaryColor!, AppConfig.sharedInstance.theme!.secondaryColor!, AppConfig.sharedInstance.theme!.confirmationColor!]
         self.view.addSubview(pullToRefresh)
         pullToRefresh.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
         

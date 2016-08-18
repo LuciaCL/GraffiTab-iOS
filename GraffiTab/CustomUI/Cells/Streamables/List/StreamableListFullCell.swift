@@ -57,7 +57,7 @@ class StreamableListFullCell: StreamableCell {
         self.commentsLbl.text = String(format: "%i %@", item!.commentsCount!, item!.commentsCount! == 1 ? NSLocalizedString("cell_streamable_comment", comment: "") : NSLocalizedString("cell_streamable_comments", comment: ""));
         
         self.likeBtn.setTitle(DeviceType.IS_IPHONE_5 || DeviceType.IS_IPHONE_4_OR_LESS ? "" : (item!.likedByCurrentUser! ? NSLocalizedString("cell_streamable_liked", comment: "") : NSLocalizedString("cell_streamable_like", comment: "")), forState: .Normal)
-        self.likeBtn.tintColor = item!.likedByCurrentUser! ? UIColor(hexString: Colors.Green) : UIColor(hexString: Colors.Main)
+        self.likeBtn.tintColor = item!.likedByCurrentUser! ? AppConfig.sharedInstance.theme!.confirmationColor : AppConfig.sharedInstance.theme?.primaryColor
         self.likeBtn.setTitleColor(self.likeBtn.tintColor, forState: .Normal)
     }
     

@@ -105,7 +105,7 @@ class LinkedAccountsViewController: BackButtonTableViewController {
     }
     
     func showLoadingIndicator() {
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .White)
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: AppConfig.sharedInstance.theme!.navigationBarLoadingIndicatorStyle!)
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         self.navigationItem.setRightBarButtonItem(UIBarButtonItem(customView: activityIndicator), animated: true)

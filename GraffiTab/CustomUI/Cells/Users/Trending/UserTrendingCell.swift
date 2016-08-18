@@ -62,16 +62,16 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
     
     func setStats() {
         if item!.followedByCurrentUser! {
-            self.followBtn.layer.borderColor = UIColor(hexString: Colors.Green)?.CGColor
-            self.followBtn.backgroundColor = UIColor(hexString: Colors.Green)
+            self.followBtn.layer.borderColor = AppConfig.sharedInstance.theme!.confirmationColor?.CGColor
+            self.followBtn.backgroundColor = AppConfig.sharedInstance.theme!.confirmationColor
             self.followBtn.setImage(UIImage(named: "ic_action_unfollow"), forState: .Normal)
             self.followBtn.tintColor = UIColor.whiteColor()
         }
         else {
-            self.followBtn.layer.borderColor = UIColor(hexString: Colors.Main)?.CGColor
+            self.followBtn.layer.borderColor = AppConfig.sharedInstance.theme?.primaryColor?.CGColor
             self.followBtn.backgroundColor = UIColor.clearColor()
             self.followBtn.setImage(UIImage(named: "ic_action_follow"), forState: .Normal)
-            self.followBtn.tintColor = UIColor(hexString: Colors.Main)
+            self.followBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
         }
         
         self.followBtn.hidden = item?.id == GTMeManager.sharedInstance.loggedInUser?.id
@@ -217,7 +217,7 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
     
     func setupLoadingIndicator() {
         loadingIndicator.circleLayer.lineWidth = 2.5
-        loadingIndicator.circleLayer.strokeColor = UIColor(hexString: Colors.Main)?.CGColor
+        loadingIndicator.circleLayer.strokeColor = AppConfig.sharedInstance.theme?.primaryColor?.CGColor
     }
     
     func setupLabels() {

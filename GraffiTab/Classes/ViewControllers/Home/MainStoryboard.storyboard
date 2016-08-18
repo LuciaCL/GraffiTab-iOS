@@ -155,7 +155,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KO7-44-H4u">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NotificationFollowCell" rowHeight="51" id="IWx-lf-aUF" customClass="NotificationFollowCell" customModule="GraffiTab" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="51"/>
@@ -669,7 +669,6 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="KO7-44-H4u" secondAttribute="trailing" id="4hd-5E-3k4"/>
                             <constraint firstItem="KO7-44-H4u" firstAttribute="leading" secondItem="xd9-X0-T4P" secondAttribute="leading" id="GSS-pX-aWa"/>
@@ -1764,7 +1763,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6dI-fR-41g">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActivitySingleCommentCell" rowHeight="157" id="f3B-Ha-kd1" customClass="ActivitySingleCommentCell" customModule="GraffiTab" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="157"/>
@@ -2590,7 +2589,6 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6dI-fR-41g" firstAttribute="top" secondItem="nSg-sf-57w" secondAttribute="top" id="7L0-Vi-FMG"/>
                             <constraint firstItem="6dI-fR-41g" firstAttribute="leading" secondItem="nSg-sf-57w" secondAttribute="leading" id="FnV-MN-KHu"/>
@@ -2668,7 +2666,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="jBg-kt-yNR">
                         <barButtonItem key="rightBarButtonItem" image="ic_map_white" id="cJk-BM-0Ax">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onClickExplore:" destination="qng-4L-K63" id="jJF-ES-WTZ"/>
                             </connections>
@@ -2938,7 +2935,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="TAc-5l-wBs" firstAttribute="top" secondItem="Rjs-36-xPW" secondAttribute="bottom" id="2HZ-PA-vbH"/>
                             <constraint firstItem="Rjs-36-xPW" firstAttribute="top" secondItem="D5S-Nb-kcn" secondAttribute="top" id="5o1-p7-jIe"/>
@@ -3276,7 +3272,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3eC-9Q-ToL" firstAttribute="top" secondItem="EBN-hy-vkJ" secondAttribute="top" id="BZW-Iy-eqY"/>
                             <constraint firstItem="DOv-nn-TYP" firstAttribute="top" secondItem="3eC-9Q-ToL" secondAttribute="bottom" id="QDk-GA-fMo"/>
@@ -3320,7 +3315,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cTj-ZC-dzQ" secondAttribute="trailing" id="8uu-42-laJ"/>
                             <constraint firstItem="L4e-tw-IY7" firstAttribute="top" secondItem="cTj-ZC-dzQ" secondAttribute="bottom" id="bLn-Nf-pXT"/>
@@ -3364,7 +3358,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="NDj-mY-6Wn" firstAttribute="leading" secondItem="PDA-Fe-Mok" secondAttribute="leading" id="5Yj-Zb-WuB"/>
                             <constraint firstItem="9iO-cN-gO2" firstAttribute="top" secondItem="NDj-mY-6Wn" secondAttribute="bottom" id="EuG-xd-QeO"/>
@@ -3409,7 +3402,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Lnk-Za-vMe" secondAttribute="trailing" id="40W-kK-s9k"/>
                             <constraint firstItem="Lnk-Za-vMe" firstAttribute="top" secondItem="qGN-5X-SAn" secondAttribute="top" id="Cn0-HM-6p7"/>
@@ -3504,7 +3496,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="lFk-dy-5jP" secondAttribute="trailing" id="3Y1-Xd-VD2"/>
                             <constraint firstItem="4oB-iH-anT" firstAttribute="top" secondItem="lFk-dy-5jP" secondAttribute="bottom" id="gtO-Yl-IMC"/>
@@ -3650,7 +3641,6 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="le1-Kq-4i2" firstAttribute="top" secondItem="UB6-nC-tIn" secondAttribute="bottom" constant="20" id="4EB-Yl-Uj4"/>
                             <constraint firstItem="Rs7-ch-3qN" firstAttribute="leading" secondItem="g6L-pG-w2k" secondAttribute="leading" id="87K-Vl-AyU"/>
@@ -3710,7 +3700,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tnK-gg-slq" firstAttribute="top" secondItem="Qho-Li-fxD" secondAttribute="top" id="GmW-fj-NJg"/>
                             <constraint firstItem="GJF-FQ-Wji" firstAttribute="top" secondItem="tnK-gg-slq" secondAttribute="bottom" id="SgL-Ti-yuP"/>
@@ -3754,7 +3743,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="VhB-UW-EhC" secondAttribute="trailing" id="AsE-aG-IPu"/>
                             <constraint firstItem="dNX-vz-V8y" firstAttribute="top" secondItem="VhB-UW-EhC" secondAttribute="bottom" id="CWG-Ew-n18"/>
@@ -3798,7 +3786,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="biM-0q-PCR" firstAttribute="top" secondItem="aMW-BM-Eem" secondAttribute="bottom" id="W6c-xV-SO1"/>
                             <constraint firstItem="aMW-BM-Eem" firstAttribute="leading" secondItem="9Yc-EO-BoH" secondAttribute="leading" id="hx2-mI-oTC"/>
@@ -3842,7 +3829,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Qg-ZH-cNs" firstAttribute="top" secondItem="40X-dq-deF" secondAttribute="bottom" id="9fB-Py-Wno"/>
                             <constraint firstItem="40X-dq-deF" firstAttribute="top" secondItem="2Nv-ON-cys" secondAttribute="top" id="Hc1-bb-veH"/>
@@ -3935,7 +3921,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="S5T-hH-L5U" firstAttribute="top" secondItem="Vc8-5K-Lmf" secondAttribute="top" id="3El-wf-ZWz"/>
                             <constraint firstAttribute="trailing" secondItem="S5T-hH-L5U" secondAttribute="trailing" id="O2p-Wg-xc1"/>
@@ -4037,7 +4022,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vCy-pd-HoH" firstAttribute="leading" secondItem="aff-hr-XY8" secondAttribute="leading" id="J9F-74-Cuc"/>
                             <constraint firstItem="8ff-xj-yi4" firstAttribute="top" secondItem="vCy-pd-HoH" secondAttribute="bottom" id="N0o-x3-oMz"/>
@@ -4223,7 +4207,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wkB-Wv-XW0" firstAttribute="leading" secondItem="n03-7h-jwn" secondAttribute="leading" id="1oR-dr-4FT"/>
                             <constraint firstAttribute="trailing" secondItem="wkB-Wv-XW0" secondAttribute="trailing" id="JKQ-Jo-pfI"/>
@@ -4270,7 +4253,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="uvz-5v-8sb" secondAttribute="trailing" id="0TX-Un-9e9"/>
                             <constraint firstItem="LcL-w0-VOr" firstAttribute="top" secondItem="uvz-5v-8sb" secondAttribute="bottom" id="EqB-dg-Ybk"/>
@@ -4314,7 +4296,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="51Z-1N-WUZ" firstAttribute="top" secondItem="qE5-lD-gj1" secondAttribute="bottom" id="L8y-iD-LU5"/>
                             <constraint firstItem="qE5-lD-gj1" firstAttribute="top" secondItem="drT-3X-cRx" secondAttribute="top" id="OlW-AV-2UH"/>
@@ -4358,7 +4339,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mve-LU-vby" firstAttribute="top" secondItem="HBb-UP-PS8" secondAttribute="top" id="E9g-QN-GDn"/>
                             <constraint firstItem="mve-LU-vby" firstAttribute="leading" secondItem="HBb-UP-PS8" secondAttribute="leading" id="IX2-0K-VYi"/>
@@ -4474,7 +4454,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Mma-nb-35S" firstAttribute="top" secondItem="tIH-Oy-Orw" secondAttribute="top" id="cfZ-cP-81s"/>
                             <constraint firstItem="Mma-nb-35S" firstAttribute="leading" secondItem="tIH-Oy-Orw" secondAttribute="leading" id="e1e-3c-fg8"/>
@@ -4517,7 +4496,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="SVD-oI-QFh"/>
-        <segue reference="hNv-af-iHZ"/>
+        <segue reference="6jS-sv-VUd"/>
         <segue reference="Bcp-ev-VfR"/>
     </inferredMetricsTieBreakers>
 </document>

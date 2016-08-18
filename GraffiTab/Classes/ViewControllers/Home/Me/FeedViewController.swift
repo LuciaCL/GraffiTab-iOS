@@ -49,7 +49,7 @@ class FeedViewController: ListFullStreamablesViewController {
     }
     
     func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
-        let attributes = [NSFontAttributeName:UIFont.boldSystemFontOfSize(17), NSForegroundColorAttributeName:UIColor(hexString: Colors.Main)! as UIColor]
+        let attributes = [NSFontAttributeName:UIFont.boldSystemFontOfSize(17), NSForegroundColorAttributeName:AppConfig.sharedInstance.theme!.primaryColor! as UIColor]
         
         return NSAttributedString(string: NSLocalizedString("controller_feed_draw", comment: ""), attributes: attributes)
     }

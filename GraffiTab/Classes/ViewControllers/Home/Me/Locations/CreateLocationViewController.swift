@@ -188,7 +188,7 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
     }
     
     func hideLoadingIndicator() {
-        searchBtn.tintColor = UIColor(hexString: Colors.Main)
+        searchBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
         loadingIndicator.stopAnimating()
     }
     
@@ -263,7 +263,7 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
     override func setupTopBar() {
         super.setupTopBar()
         
-        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
+        UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.mapStatusBarStyle!, animated: true)
     }
     
     func setupButtons() {

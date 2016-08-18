@@ -13,15 +13,27 @@ class DismissalAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     weak var animatedView: UIView?
     
     var openingFrame: CGRect?
+    var toViewController: UIViewController?
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.5
     }
     
+    func animationEnded(transitionCompleted: Bool) {
+        if !transitionCompleted {
+            toViewController!.view.transform = CGAffineTransformIdentity
+        }
+        else {
+            toViewController!.endAppearanceTransition()
+        }
+    }
+    
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
-        _ = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         let containerView = transitionContext.containerView()
+        
+        toViewController!.beginAppearanceTransition(true, animated: true)
         
         let animationDuration = self.transitionDuration(transitionContext)
         

@@ -41,7 +41,7 @@ class LanguageViewController: BackButtonTableViewController {
         let item = languagesArray[indexPath.row]
         
         cell?.textLabel?.text = item
-        cell?.tintColor = UIColor(hexString: Colors.Main)
+        cell?.tintColor = AppConfig.sharedInstance.theme?.primaryColor
         
         if item == Settings.sharedInstance.language {
             cell?.accessoryType = .Checkmark

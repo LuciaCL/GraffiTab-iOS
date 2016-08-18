@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogin(_:)), name:Notifications.UserLoggedIn, object:nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogout), name:Notifications.UserLoggedOut, object:nil)
         
-        setupTopBar()
+        setupThemeBar()
         setupCache()
         setupGraffiTabSDK()
         setupAnalytics()
@@ -250,6 +250,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func userDidLogout() {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] User logged out. Showing login screen")
         
+        UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.loginStatusBarStyle!, animated: true)
+        
         GTMeManager.sharedInstance.logout()
         Settings.sharedInstance.resetPreferences()
         
@@ -291,12 +293,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Setup
     
-    func setupTopBar() {
-        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
-        
-        UINavigationBar.appearance().barTintColor = UIColor(hexString: Colors.Main)
-        UINavigationBar.appearance().tintColor = UIColor(hexString: Colors.TitleTint)
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor(hexString: Colors.TitleTint)!]
+    func setupThemeBar() {
+        let theme = GTLightTheme()
+        AppConfig.sharedInstance.applyTheme(theme)
     }
     
     func setupCache() {
@@ -321,6 +320,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Configure log.
         config.logEnabled = true
+        config.httpsEnabled = true
         
         if !AppConfig.sharedInstance.isAppStore { // We are deploying to dev or testing locally.
             #if DEBUG // Show full debug traces.
@@ -362,8 +362,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupGestureAssistant() {
         PAGestureAssistant.appearance().tapImage = UIImage(named: "hand")
         PAGestureAssistant.appearance().backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.75)
-        PAGestureAssistant.appearance().tapColor = UIColor(hexString: Colors.Main)
-        PAGestureAssistant.appearance().textColor = UIColor(hexString: Colors.Main)
+        PAGestureAssistant.appearance().tapColor = AppConfig.sharedInstance.theme?.primaryColor
+        PAGestureAssistant.appearance().textColor = AppConfig.sharedInstance.theme?.primaryColor
     }
     
     func setupInstabug() {

@@ -50,7 +50,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
         
-        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+        UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.defaultStatusBarStyle!, animated: true)
         
         if self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -264,7 +264,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         
         let menuBtn = TintButton.init(frame: CGRectMake(0, 0, 25, 25))
         menuBtn.setImage(UIImage(named: "ic_menu_white"), forState: .Normal)
-        menuBtn.tintColor = UIColor.whiteColor()
+        menuBtn.tintColor = UINavigationBar.appearance().tintColor
         menuBtn.addTarget(self, action: #selector(HomeViewController.onClickMenu(_:)), forControlEvents: .TouchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuBtn)
     }
@@ -282,18 +282,16 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         carbonTabSwipeNavigation!.insertIntoRootViewController(self)
         
         // Styling.
-        let tintColor = UIColor(hexString: Colors.Main)
-        carbonTabSwipeNavigation!.setIndicatorColor(tintColor)
+        carbonTabSwipeNavigation!.setIndicatorColor(AppConfig.sharedInstance.theme?.tabsElementsColor)
         carbonTabSwipeNavigation!.setTabExtraWidth(30)
-        
         carbonTabSwipeNavigation!.setNormalColor(UIColor.blackColor().colorWithAlphaComponent(0.2))
-        carbonTabSwipeNavigation!.setSelectedColor(tintColor!, font: UIFont.boldSystemFontOfSize(14))
-        
+        carbonTabSwipeNavigation!.setSelectedColor(AppConfig.sharedInstance.theme!.tabsElementsColor!, font: UIFont.boldSystemFontOfSize(14))
+        carbonTabSwipeNavigation!.carbonSegmentedControl?.backgroundColor = AppConfig.sharedInstance.theme?.tabsBackgroundColor
         configureTabsSize()
     }
     
     func setupButtons() {
-        createBtn.backgroundColor = UIColor(hexString: Colors.Main)
+        createBtn.backgroundColor = AppConfig.sharedInstance.theme?.primaryColor
         self.view.bringSubviewToFront(createBtn)
     }
     
@@ -307,7 +305,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         
         notificationsBadge.alpha = 0.0
         notificationsBadge.frame = CGRectMake(0, 0, 4, 4)
-        notificationsBadge.backgroundColor = UIColor(hexString: Colors.Main)
+        notificationsBadge.backgroundColor = AppConfig.sharedInstance.theme?.primaryColor
         notificationsBadge.layer.cornerRadius = notificationsBadge.frame.size.width / 2
     }
 }

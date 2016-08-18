@@ -136,7 +136,7 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
     }
     
     func showLoadingIndicator() {
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .White)
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: AppConfig.sharedInstance.theme!.navigationBarLoadingIndicatorStyle!)
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         self.navigationItem.setRightBarButtonItem(UIBarButtonItem(customView: activityIndicator), animated: true)
@@ -327,6 +327,8 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
     }
     
     func setupTableView() {
+        self.view.backgroundColor = AppConfig.sharedInstance.theme?.collectionBackgroundColor
+        
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 160.0
@@ -334,7 +336,7 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
         // Setup pull to refresh.
         pullToRefresh = CarbonSwipeRefresh(scrollView: self.tableView)
         pullToRefresh.setMarginTop(self.parentViewController!.isKindOfClass(UINavigationController) ? 64 : 0)
-        pullToRefresh.colors = [UIColor(hexString: Colors.Main)!, UIColor(hexString: Colors.Orange)!, UIColor(hexString: Colors.Green)!]
+        pullToRefresh.colors = [AppConfig.sharedInstance.theme!.primaryColor!, AppConfig.sharedInstance.theme!.secondaryColor!, AppConfig.sharedInstance.theme!.confirmationColor!]
         self.view.addSubview(pullToRefresh)
         pullToRefresh.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
         

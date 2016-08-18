@@ -116,9 +116,9 @@ class CommentCell: UITableViewCell {
     // MARK: - Setup
     
     func setupLabels() {
-        textLbl.hashtagColor = UIColor(hexString: Colors.Awesome)!
-        textLbl.mentionColor = UIColor(hexString: Colors.Awesome)!
-        textLbl.URLColor = UIColor(hexString: Colors.Links)!
+        textLbl.hashtagColor = AppConfig.sharedInstance.theme!.hashtagColor!
+        textLbl.mentionColor = AppConfig.sharedInstance.theme!.mentionColor!
+        textLbl.URLColor = AppConfig.sharedInstance.theme!.linksColor!
         
         textLbl.handleURLTap { (url) in
             if self.delegate != nil {

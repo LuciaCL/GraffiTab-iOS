@@ -54,7 +54,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
         
-        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+        UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.detailsStatusBarStyle!, animated: true)
     }
     
     @IBAction func onClickUser(sender: AnyObject) {
@@ -377,7 +377,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         self.likesLbl.text = "\(streamable!.likersCount!)"
         self.commentsLbl.text = "\(streamable!.commentsCount!)"
         
-        self.likesContainer.backgroundColor = streamable!.likedByCurrentUser! ? UIColor(hexString: Colors.Green) : UIColor.blackColor().colorWithAlphaComponent(0.2)
+        self.likesContainer.backgroundColor = streamable!.likedByCurrentUser! ? AppConfig.sharedInstance.theme!.confirmationColor : UIColor.blackColor().colorWithAlphaComponent(0.2)
     }
     
     func loadAvatar() {

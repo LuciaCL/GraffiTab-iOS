@@ -107,6 +107,11 @@ class ViewControllerUtils: NSObject {
             vc.transitioningDelegate = transitioningDelegate
         }
         
-        viewController.presentViewController(vc, animated: true, completion: nil)
+        if viewController.navigationController != nil {
+            viewController.navigationController!.viewControllers.first!.presentViewController(vc, animated: true, completion: nil)
+        }
+        else {
+            viewController.presentViewController(vc, animated: true, completion: nil)
+        }
     }
 }

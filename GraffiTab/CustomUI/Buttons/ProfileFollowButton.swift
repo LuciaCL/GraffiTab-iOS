@@ -34,8 +34,8 @@ class ProfileFollowButton: UIView {
     // MARK: - Styling
     
     func styleForUser(user: GTUser) {
-        self.backgroundColor = user.followedByCurrentUser! ? UIColor(hexString: Colors.Green) : UIColor.whiteColor()
-        followBtnTitle.textColor = user.followedByCurrentUser! ? UIColor.whiteColor() : UIColor(hexString: Colors.Main)
+        self.backgroundColor = user.followedByCurrentUser! ? AppConfig.sharedInstance.theme!.confirmationColor : UIColor.whiteColor()
+        followBtnTitle.textColor = user.followedByCurrentUser! ? UIColor.whiteColor() : AppConfig.sharedInstance.theme?.primaryColor
         followBtnTitle.text = user.followedByCurrentUser! ? NSLocalizedString("view_follow_button_following", comment: "") : NSLocalizedString("view_follow_button_follow", comment: "")
         followBtnImage.image = UIImage(named: user.followedByCurrentUser! ? "ic_action_unfollow" : "ic_action_follow")
         followBtnImage.tintColor = followBtnTitle.textColor

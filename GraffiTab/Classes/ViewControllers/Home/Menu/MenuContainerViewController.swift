@@ -39,4 +39,14 @@ class MenuContainerViewController: RESideMenu, RESideMenuDelegate {
         }
         return .All
     }
+    
+    // MARK: - RESideMenuDelegate
+    
+    func sideMenu(sideMenu: RESideMenu!, willShowMenuViewController menuViewController: UIViewController!) {
+        UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.menuStatusBarStyle!, animated: true)
+    }
+    
+    func sideMenu(sideMenu: RESideMenu!, willHideMenuViewController menuViewController: UIViewController!) {
+        UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.defaultStatusBarStyle!, animated: true)
+    }
 }

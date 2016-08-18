@@ -128,6 +128,8 @@
 		E554CFDA1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
 		E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD81CB5641B00668D85 /* release_notes.html */; };
 		E554CFDE1CB5641B00668D85 /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD91CB5641B00668D85 /* terms.html */; };
+		E5571B581D66465A00BDA004 /* GTLightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5571B571D66465A00BDA004 /* GTLightTheme.swift */; };
+		E5571B591D66465A00BDA004 /* GTLightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5571B571D66465A00BDA004 /* GTLightTheme.swift */; };
 		E558A8A61CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */; };
 		E56D1F231CDD1917007B3698 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D1F221CDD1917007B3698 /* ArrayUtils.swift */; };
 		E57716881CE6008600006572 /* ZoomableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E57716871CE6008600006572 /* ZoomableImageView.m */; };
@@ -379,6 +381,10 @@
 		E5C3693F1D2163D8005FA4A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5C3693D1D2163D8005FA4A0 /* GoogleService-Info.plist */; };
 		E5C369491D216727005FA4A0 /* AnalyticsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C369481D216727005FA4A0 /* AnalyticsUtils.swift */; };
 		E5C3694A1D216727005FA4A0 /* AnalyticsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C369481D216727005FA4A0 /* AnalyticsUtils.swift */; };
+		E5C61C851D65A4B700BBFA87 /* GTTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C61C841D65A4B700BBFA87 /* GTTheme.swift */; };
+		E5C61C861D65A4B700BBFA87 /* GTTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C61C841D65A4B700BBFA87 /* GTTheme.swift */; };
+		E5C61C881D65A51B00BBFA87 /* GTDarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C61C871D65A51B00BBFA87 /* GTDarkTheme.swift */; };
+		E5C61C891D65A51B00BBFA87 /* GTDarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C61C871D65A51B00BBFA87 /* GTDarkTheme.swift */; };
 		E5CC52FA1D0EDAFF00425744 /* TransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC52F91D0EDAFF00425744 /* TransitioningDelegate.swift */; };
 		E5CC52FB1D0EDAFF00425744 /* TransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC52F91D0EDAFF00425744 /* TransitioningDelegate.swift */; };
 		E5CC53021D0EDB2600425744 /* PresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC53011D0EDB2600425744 /* PresentationAnimator.swift */; };
@@ -626,6 +632,7 @@
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
 		E554CFD81CB5641B00668D85 /* release_notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = release_notes.html; sourceTree = "<group>"; };
 		E554CFD91CB5641B00668D85 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
+		E5571B571D66465A00BDA004 /* GTLightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTLightTheme.swift; sourceTree = "<group>"; };
 		E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicStreamablesViewController.swift; sourceTree = "<group>"; };
 		E56D1F221CDD1917007B3698 /* ArrayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
 		E57295D01CEB2FE400875AF3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -717,6 +724,8 @@
 		E5C369321D214482005FA4A0 /* VideoSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoSource.mm; sourceTree = "<group>"; };
 		E5C3693D1D2163D8005FA4A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5C369481D216727005FA4A0 /* AnalyticsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsUtils.swift; sourceTree = "<group>"; };
+		E5C61C841D65A4B700BBFA87 /* GTTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTTheme.swift; sourceTree = "<group>"; };
+		E5C61C871D65A51B00BBFA87 /* GTDarkTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTDarkTheme.swift; sourceTree = "<group>"; };
 		E5CC52F91D0EDAFF00425744 /* TransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitioningDelegate.swift; sourceTree = "<group>"; };
 		E5CC53011D0EDB2600425744 /* PresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationAnimator.swift; sourceTree = "<group>"; };
 		E5CC53041D0EDB7700425744 /* DismissalAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissalAnimator.swift; sourceTree = "<group>"; };
@@ -1477,6 +1486,16 @@
 			path = VideoSource;
 			sourceTree = "<group>";
 		};
+		E5C61C831D65A4A500BBFA87 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				E5C61C841D65A4B700BBFA87 /* GTTheme.swift */,
+				E5C61C871D65A51B00BBFA87 /* GTDarkTheme.swift */,
+				E5571B571D66465A00BDA004 /* GTLightTheme.swift */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
 		E5D0857E1CD8D30000226589 /* TOCropViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1785,6 +1804,7 @@
 		E5F46CB51D5B86E100F52256 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				E5C61C831D65A4A500BBFA87 /* Themes */,
 				E5F46CB61D5B86F200F52256 /* AppConfig.swift */,
 			);
 			path = Config;
@@ -2190,6 +2210,7 @@
 				E5FE1D921CFF840B009CFB72 /* CoverImageView.swift in Sources */,
 				E58432271CE9242000FB1E50 /* TintButton.swift in Sources */,
 				E5E293821D05DC0200C272EE /* UIApplication+TopViewController.swift in Sources */,
+				E5C61C861D65A4B700BBFA87 /* GTTheme.swift in Sources */,
 				E58432281CE9242000FB1E50 /* StreamableThumbnail.swift in Sources */,
 				E58432291CE9242000FB1E50 /* ViewControllerUtils.swift in Sources */,
 				E55452E51CF329580076CEC9 /* LocationCell.swift in Sources */,
@@ -2306,6 +2327,7 @@
 				E58432731CE9242000FB1E50 /* UserStreamablesViewController.swift in Sources */,
 				E58432741CE9242000FB1E50 /* StreamableDetailViewController.swift in Sources */,
 				E58432751CE9242000FB1E50 /* SignUpViewController.swift in Sources */,
+				E5571B591D66465A00BDA004 /* GTLightTheme.swift in Sources */,
 				E58432761CE9242000FB1E50 /* StreamableAnnotation.swift in Sources */,
 				E58432771CE9242000FB1E50 /* ActivityGroupCell.swift in Sources */,
 				E5CC52FB1D0EDAFF00425744 /* TransitioningDelegate.swift in Sources */,
@@ -2342,6 +2364,7 @@
 				E584328F1CE9242000FB1E50 /* MyNotificationsViewController.swift in Sources */,
 				E58432911CE9242000FB1E50 /* TOCropView.m in Sources */,
 				E5544BF31D5565CA002AA88A /* UIImage+Utils.swift in Sources */,
+				E5C61C891D65A51B00BBFA87 /* GTDarkTheme.swift in Sources */,
 				E58432921CE9242000FB1E50 /* RecentViewController.swift in Sources */,
 				E58432931CE9242000FB1E50 /* EditProfileViewController.swift in Sources */,
 				E5AEDA881D1D3C4A006D4296 /* PatternDetector.cpp in Sources */,
@@ -2362,6 +2385,7 @@
 				E5FE1D911CFF840B009CFB72 /* CoverImageView.swift in Sources */,
 				E5DFDC051CB2C31B00BB3D27 /* TintButton.swift in Sources */,
 				E51006E21CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */,
+				E5C61C851D65A4B700BBFA87 /* GTTheme.swift in Sources */,
 				E52DC73F1CE551D300375828 /* ViewControllerUtils.swift in Sources */,
 				E55452E41CF329580076CEC9 /* LocationCell.swift in Sources */,
 				E5B6B5B51CC56F5800DC8EFC /* FollowersActivityViewController.swift in Sources */,
@@ -2478,6 +2502,7 @@
 				E52DC75F1CE56B7D00375828 /* UserStreamablesViewController.swift in Sources */,
 				E52DC7801CE5E37A00375828 /* StreamableDetailViewController.swift in Sources */,
 				E5B6B5DF1CC56F5800DC8EFC /* SignUpViewController.swift in Sources */,
+				E5571B581D66465A00BDA004 /* GTLightTheme.swift in Sources */,
 				E51006DF1CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */,
 				E51006CE1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,
 				E5CC52FA1D0EDAFF00425744 /* TransitioningDelegate.swift in Sources */,
@@ -2514,6 +2539,7 @@
 				E5D085B01CD8D30000226589 /* TOCropView.m in Sources */,
 				E52DC7781CE5E09900375828 /* RecentViewController.swift in Sources */,
 				E5544BF21D5565CA002AA88A /* UIImage+Utils.swift in Sources */,
+				E5C61C881D65A51B00BBFA87 /* GTDarkTheme.swift in Sources */,
 				E5B6B5AB1CC56F5800DC8EFC /* EditProfileViewController.swift in Sources */,
 				E5AEDA871D1D3C4A006D4296 /* PatternDetector.cpp in Sources */,
 				E5DAA8B61CE49418000CB2F4 /* GTUser+Extra.swift in Sources */,

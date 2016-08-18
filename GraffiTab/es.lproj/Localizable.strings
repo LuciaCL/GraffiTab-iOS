@@ -277,8 +277,8 @@
 "controller_login_username" = "Usuario";
 "controller_login_password" = "Contraseña";
 "controller_login_forgot_password" = "¿No recuerdas tu contraseña?";
-"controller_login" = "Iniciar sesión";
-"controller_login_facebook" = "Iniciar sesión con Facebook";
+"controller_login" = "Accede";
+"controller_login_facebook" = "Inicia con Facebook";
 "controller_login_sign_up_full" = "¿Todavía no tienes una cuenta? Regístrate!";
 
 "controller_pasword_reset_confirmation" = "Comprueba tu correo para restablecer tu contraseña.";

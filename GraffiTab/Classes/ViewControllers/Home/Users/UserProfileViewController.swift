@@ -51,7 +51,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
         
-        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+        UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.profileStatusBarStyle!, animated: true)
         
         if !self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -355,7 +355,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         
         let offset = maxScrollDistance - scrollY
         let alpha = (1.0 * offset) / distanceToTravel
-        navigationBar.backgroundColor = UIColor(hexString: Colors.Main)?.colorWithAlphaComponent(1.0 - alpha)
+        navigationBar.backgroundColor = AppConfig.sharedInstance.theme?.primaryColor?.colorWithAlphaComponent(1.0 - alpha)
         titleView!.alpha = 1.0 - alpha
     }
     
@@ -485,6 +485,9 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         navigationBar.backgroundColor = .clearColor()
         navigationBar.shadowImage = UIImage()
+        
+        navigationBar.tintColor = AppConfig.sharedInstance.theme?.navigationBarProfileElementsColor
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : AppConfig.sharedInstance.theme!.navigationBarProfileElementsColor!]
         
         let negativeSpacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
         negativeSpacer.width = -14

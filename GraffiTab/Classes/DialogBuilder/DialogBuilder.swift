@@ -140,7 +140,7 @@ class DialogBuilder: NSObject {
         dialogAppearance.titleFont = UIFont.boldSystemFontOfSize(17)
         
         let db = DefaultButton.appearance()
-        db.titleColor = UIColor(hexString: Colors.Main)
+        db.titleColor = AppConfig.sharedInstance.theme?.primaryColor
         
         let popup = PopupDialog(title: title, message: status, image: nil, buttonAlignment: .Horizontal, transitionStyle: .ZoomIn, gestureDismissal: true)
         return popup

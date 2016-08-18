@@ -87,7 +87,7 @@ class ActivitySingleCell: UITableViewCell {
     // MARK: - Setup
     
     func setupLabels() {
-        notificationField.textColor = UIColor(hexString: Colors.Main)
+        notificationField.textColor = AppConfig.sharedInstance.theme?.primaryColor
     }
     
     func setupTimelineIndicators() {

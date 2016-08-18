@@ -45,7 +45,7 @@ class StreamableTrendingCell: StreamableCell {
         self.likesLbl.text = String(format: "%i", item!.likersCount!);
         self.commentsLbl.text = String(format: "%i", item!.commentsCount!);
         
-        self.likesImg.tintColor = item!.likedByCurrentUser! ? UIColor(hexString: Colors.Green) : UIColor(hexString: Colors.Main)
+        self.likesImg.tintColor = item!.likedByCurrentUser! ? AppConfig.sharedInstance.theme!.confirmationColor : AppConfig.sharedInstance.theme?.primaryColor
     }
     
     // MARK: - Setup

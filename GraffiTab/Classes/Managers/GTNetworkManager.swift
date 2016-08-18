@@ -36,7 +36,7 @@ class GTNetworkManager: NSObject {
         }
         
         noNetworkLabel?.text = NSLocalizedString("manager_network_connected", comment: "")
-        noNetworkLabel?.backgroundColor = UIColor(hexString: Colors.Green)!
+        noNetworkLabel?.backgroundColor = AppConfig.sharedInstance.theme!.confirmationColor!
         noNetworkLabel?.setNeedsDisplay()
         animateLabel()
     }

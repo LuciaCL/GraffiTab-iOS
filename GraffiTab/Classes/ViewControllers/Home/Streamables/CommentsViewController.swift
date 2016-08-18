@@ -46,6 +46,8 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.defaultStatusBarStyle!, animated: true)
+        
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
         
@@ -149,7 +151,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     }
     
     func showLoadingIndicator() {
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .White)
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: AppConfig.sharedInstance.theme!.navigationBarLoadingIndicatorStyle!)
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         self.navigationItem.setRightBarButtonItem(UIBarButtonItem(customView: activityIndicator), animated: true)

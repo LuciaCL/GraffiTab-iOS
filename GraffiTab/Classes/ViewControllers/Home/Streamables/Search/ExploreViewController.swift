@@ -62,7 +62,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
         
-        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
+        UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.mapStatusBarStyle!, animated: true)
         
         if self.navigationController != nil && !self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -151,13 +151,13 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
             mapView.mapType = .Standard
             terrainBtn.tintColor = UIColor(hexString: "#e0e0e0")
             
-            UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
+            UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.mapStatusBarStyle!, animated: true)
         }
         else {
             mapView.mapType = .Satellite
-            terrainBtn.tintColor = UIColor(hexString: Colors.Main)
+            terrainBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
             
-            UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+            UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.mapTerrainStatusBarStyle!, animated: true)
         }
     }
     
@@ -256,7 +256,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     }
     
     func finalizeLoad() {
-        searchBtn.tintColor = UIColor(hexString: Colors.Main)
+        searchBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
         loadingIndicator.stopAnimating()
         
         clusteringManager.setAnnotations(annotations)
@@ -416,7 +416,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         }
         
         if isMovedByTap {
-            searchBtn.tintColor = UIColor(hexString: Colors.Main)
+            searchBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
             loadingIndicator.stopAnimating()
             
             isMovedByTap = false
@@ -424,7 +424,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         }
         
         if mapView.region.span.latitudeDelta > 11.0 || mapView.region.span.longitudeDelta > 11.0 {
-            searchBtn.tintColor = UIColor(hexString: Colors.Main)
+            searchBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
             loadingIndicator.stopAnimating()
             
             var region = mapView.region
