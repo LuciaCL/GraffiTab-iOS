@@ -111,13 +111,11 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
         carbonTabSwipeNavigation!.insertIntoRootViewController(self)
         
         // Styling.
-        let tintColor = AppConfig.sharedInstance.theme?.primaryColor
-        carbonTabSwipeNavigation!.setIndicatorColor(tintColor)
+        carbonTabSwipeNavigation!.setIndicatorColor(AppConfig.sharedInstance.theme?.tabsElementsColor)
         carbonTabSwipeNavigation!.setTabExtraWidth(30)
-        
         carbonTabSwipeNavigation!.setNormalColor(UIColor.blackColor().colorWithAlphaComponent(0.2))
-        carbonTabSwipeNavigation!.setSelectedColor(tintColor!, font: UIFont.boldSystemFontOfSize(14))
-        
+        carbonTabSwipeNavigation!.setSelectedColor(AppConfig.sharedInstance.theme!.tabsElementsColor!, font: UIFont.boldSystemFontOfSize(14))
+        carbonTabSwipeNavigation!.carbonSegmentedControl?.backgroundColor = AppConfig.sharedInstance.theme?.tabsBackgroundColor
         configureTabsSize()
     }
     

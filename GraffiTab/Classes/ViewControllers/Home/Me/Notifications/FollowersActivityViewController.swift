@@ -42,6 +42,8 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.defaultStatusBarStyle!, animated: true)
+        
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
     }
