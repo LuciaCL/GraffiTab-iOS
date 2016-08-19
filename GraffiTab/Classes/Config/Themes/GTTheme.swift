@@ -16,6 +16,7 @@ class GTTheme: NSObject {
     var navigationBarBackgroundColor: UIColor?
     var navigationBarElementsColor: UIColor?
     var navigationBarProfileElementsColor: UIColor?
+    var navigationBarProfileElementsWithNavigationBarColor: UIColor?
     var navigationBarLoadingIndicatorStyle: UIActivityIndicatorViewStyle?
     
     var collectionBackgroundColor: UIColor?
@@ -34,5 +35,6 @@ class GTTheme: NSObject {
     var mapTerrainStatusBarStyle: UIStatusBarStyle?
     var detailsStatusBarStyle: UIStatusBarStyle?
     var profileStatusBarStyle: UIStatusBarStyle?
+    var profileStatusBarWithNavigationBarStyle: UIStatusBarStyle?
     var menuStatusBarStyle: UIStatusBarStyle?
 }

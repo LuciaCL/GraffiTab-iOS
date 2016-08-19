@@ -19,6 +19,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     
     let parallaxHeaderHeight = CGFloat(405)
     
+    var navigationSeparator: UIView?
     var imageType: ImageType?
     var header: UserCollectionParallaxHeader?
     var titleView: UILabel?
@@ -51,7 +52,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
         
-        UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.profileStatusBarStyle!, animated: true)
+        configureStatusBarForScrollOffset()
         
         if !self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -355,8 +356,30 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         
         let offset = maxScrollDistance - scrollY
         let alpha = (1.0 * offset) / distanceToTravel
-        navigationBar.backgroundColor = AppConfig.sharedInstance.theme?.primaryColor?.colorWithAlphaComponent(1.0 - alpha)
+        navigationBar.backgroundColor = AppConfig.sharedInstance.theme?.navigationBarBackgroundColor?.colorWithAlphaComponent(1.0 - alpha)
         titleView!.alpha = 1.0 - alpha
+        navigationSeparator?.alpha = titleView!.alpha
+        
+        configureStatusBarForScrollOffset()
+    }
+    
+    func configureStatusBarForScrollOffset() {
+        let minScrollDistance = CGFloat(100)
+        let scrollY = collectionView.contentOffset.y
+        if scrollY > minScrollDistance {
+            UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.profileStatusBarWithNavigationBarStyle!, animated: true)
+            
+            navigationBar.tintColor = AppConfig.sharedInstance.theme?.navigationBarProfileElementsWithNavigationBarColor
+            navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : AppConfig.sharedInstance.theme!.navigationBarProfileElementsWithNavigationBarColor!]
+        }
+        else {
+            UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.profileStatusBarStyle!, animated: true)
+            
+            navigationBar.tintColor = AppConfig.sharedInstance.theme?.navigationBarProfileElementsColor
+            navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : AppConfig.sharedInstance.theme!.navigationBarProfileElementsColor!]
+        }
+        
+        titleView!.textColor = navigationBar.titleTextAttributes![NSForegroundColorAttributeName] as! UIColor
     }
     
     // MARK: - UICollectionViewDelegate
@@ -496,12 +519,18 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         
         titleView = UILabel()
         titleView!.text = user?.getFullName()
-        titleView!.textColor = .whiteColor()
+        titleView!.textColor = navigationBar.titleTextAttributes![NSForegroundColorAttributeName] as! UIColor
         titleView!.textAlignment = .Center
         titleView!.font = UIFont.boldSystemFontOfSize(17)
         titleView!.frame = CGRectMake(0, 0, self.view.frame.width - 120, 21)
         navigationBar.topItem?.titleView = titleView
         titleView!.alpha = 0.0
+        
+        navigationSeparator = UIView()
+        navigationSeparator?.alpha = 0
+        navigationSeparator!.backgroundColor = UIColor.lightGrayColor()
+        navigationSeparator!.frame = CGRectMake(0, navigationBar.frame.height - 1, navigationBar.frame.width, 1)
+        navigationBar.addSubview(navigationSeparator!)
     }
     
     func setupButtons() {

@@ -19,10 +19,11 @@ class GTLightTheme: GTTheme {
         
         self.navigationBarBackgroundColor = UIColor.whiteColor()
         self.navigationBarElementsColor = self.primaryColor
-        self.navigationBarProfileElementsColor = UIColor.whiteColor()
         self.navigationBarLoadingIndicatorStyle = UIActivityIndicatorViewStyle.Gray
+        self.navigationBarProfileElementsColor = UIColor.whiteColor()
+        self.navigationBarProfileElementsWithNavigationBarColor = self.primaryColor
         
-        self.collectionBackgroundColor = UIColor(hexString: "#f0f0f0")
+        self.collectionBackgroundColor = UIColor(hexString: "#F2F3F4")
         self.confirmationColor = UIColor(hexString: "#6cbd52")
         
         self.linksColor = UIColor(hexString: "#ef6a0e")
@@ -39,6 +40,7 @@ class GTLightTheme: GTTheme {
         self.mapTerrainStatusBarStyle = UIStatusBarStyle.LightContent
         self.detailsStatusBarStyle = UIStatusBarStyle.LightContent
         self.profileStatusBarStyle = UIStatusBarStyle.LightContent
+        self.profileStatusBarWithNavigationBarStyle = UIStatusBarStyle.Default
         self.menuStatusBarStyle = UIStatusBarStyle.LightContent
     }
 }
