@@ -270,6 +270,8 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     }
     
     func setupCarbonKit() {
+        self.view.backgroundColor = AppConfig.sharedInstance.theme?.collectionBackgroundColor
+        
         controllers = [UIViewController]()
         controllers?.append(self.storyboard!.instantiateViewControllerWithIdentifier("FeedViewController"))
         controllers?.append(self.storyboard!.instantiateViewControllerWithIdentifier("TrendingViewController"))
