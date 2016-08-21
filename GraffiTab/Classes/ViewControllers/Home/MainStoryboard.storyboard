@@ -2859,7 +2859,9 @@
                     <connections>
                         <outlet property="backBtn" destination="KyY-PQ-UX7" id="rUV-Uf-LTh"/>
                         <outlet property="bottomContainer" destination="8uV-Hi-2Tp" id="vy5-a9-NTD"/>
+                        <outlet property="gridBtn" destination="LRf-in-D8f" id="hX2-l4-5pP"/>
                         <outlet property="loadingIndicator" destination="vhy-WK-mJ2" id="UyW-fh-Nl1"/>
+                        <outlet property="locateBtn" destination="lqP-BW-T7h" id="phg-3D-hzN"/>
                         <outlet property="mapView" destination="N7O-QM-cdF" id="TWY-ZU-SwH"/>
                         <outlet property="searchBtn" destination="tKl-P9-n03" id="hTw-Mz-PQS"/>
                         <outlet property="searchContainer" destination="Bd3-Tw-Igz" id="0Yx-g6-G2s"/>

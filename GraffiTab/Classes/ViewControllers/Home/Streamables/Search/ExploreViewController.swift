@@ -27,6 +27,8 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var terrainBtn: TintButton!
     @IBOutlet weak var streetViewBtn: TintButton!
+    @IBOutlet weak var gridBtn: TintButton!
+    @IBOutlet weak var locateBtn: TintButton!
     
     var toShowLatitude: CLLocationDegrees?
     var toShowLongitude: CLLocationDegrees?
@@ -563,6 +565,8 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
         
         backBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
         streetViewBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
+        gridBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
+        locateBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
     }
     
     func setupMapView() {
