@@ -60,10 +60,10 @@
 "cell_activity_created_single" = "%@ създаде рисунка";
 "cell_activity_commented_single" = "%@ коментира:";
 
-"cell_streamable_like" = "Харесай";
+"cell_streamable_like" = "Харесване";
 "cell_streamable_likes" = "Харесвания";
 "cell_streamable_liked" = "Харесано";
-"cell_streamable_comment" = "Коментирай";
+"cell_streamable_comment" = "Коментар";
 "cell_streamable_comments" = "Коментари";
 
 "cell_notification_welcome_title" = "Добре дошъл в GraffiTab!";
