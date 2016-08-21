@@ -26,6 +26,8 @@ class WebViewController: BackButtonViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.defaultStatusBarStyle!, animated: true)
+        
         if self.navigationController?.navigationBarHidden == true {
             self.navigationController?.setNavigationBarHidden(false, animated: true)
         }

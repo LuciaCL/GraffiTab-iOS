@@ -4154,7 +4154,9 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="backBtn" destination="Y61-U3-Z6F" id="64g-PM-xeJ"/>
+                        <outlet property="createBtn" destination="4bS-9X-t01" id="oGS-WP-qMp"/>
                         <outlet property="loadingIndicator" destination="grS-Zu-sVN" id="lZE-d1-GY9"/>
+                        <outlet property="mapCenterImage" destination="Z3M-qC-2BX" id="YVe-DG-I9I"/>
                         <outlet property="mapView" destination="rqE-af-7KP" id="yd5-zT-8wq"/>
                         <outlet property="searchBtn" destination="5Ff-6B-Pvv" id="jyX-l7-lc2"/>
                         <outlet property="searchContainer" destination="m4Q-vY-MTK" id="QD0-A2-pDz"/>
@@ -4218,6 +4220,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="wkB-Wv-XW0" id="VJV-fD-rQo"/>
+                        <outlet property="createBtn" destination="U9R-Na-pfR" id="ou2-lC-vQl"/>
                         <segue destination="mug-OZ-SJN" kind="show" identifier="SEGUE_EDIT_LOCATION" id="2Hl-Ey-s2o"/>
                     </connections>
                 </viewController>

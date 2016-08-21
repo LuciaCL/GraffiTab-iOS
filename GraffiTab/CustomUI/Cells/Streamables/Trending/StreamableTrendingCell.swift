@@ -27,6 +27,8 @@ class StreamableTrendingCell: StreamableCell {
         
         setupImageViews()
         setupGestureRecognizers()
+        setupButtons()
+        setupLabels()
     }
     
     override func layoutSubviews() {
@@ -45,7 +47,8 @@ class StreamableTrendingCell: StreamableCell {
         self.likesLbl.text = String(format: "%i", item!.likersCount!);
         self.commentsLbl.text = String(format: "%i", item!.commentsCount!);
         
-        self.likesImg.tintColor = item!.likedByCurrentUser! ? AppConfig.sharedInstance.theme!.confirmationColor : AppConfig.sharedInstance.theme?.primaryColor
+        self.likesImg.tintColor = item!.likedByCurrentUser! ? AppConfig.sharedInstance.theme!.primaryColor : UIColor.lightGrayColor()
+        self.likesLbl.textColor = self.likesImg.tintColor
     }
     
     // MARK: - Setup
@@ -65,5 +68,15 @@ class StreamableTrendingCell: StreamableCell {
         avatar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickUser)))
         usernameField.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickUser)))
         nameField.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickUser)))
+    }
+    
+    func setupButtons() {
+        self.likesImg.tintColor = AppConfig.sharedInstance.theme?.metadataColor
+        self.commentsImg.tintColor = AppConfig.sharedInstance.theme?.metadataColor
+    }
+    
+    func setupLabels() {
+        self.likesLbl.textColor = AppConfig.sharedInstance.theme?.metadataColor
+        self.commentsLbl.textColor = AppConfig.sharedInstance.theme?.metadataColor
     }
 }

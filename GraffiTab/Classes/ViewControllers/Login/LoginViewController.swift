@@ -207,6 +207,8 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
     func setupButtons() {
         facebookBtn.layer.cornerRadius = 3
         loginBtn.layer.cornerRadius = 3
+        
+        loginBtn.backgroundColor = AppConfig.sharedInstance.theme?.secondaryColor
     }
     
     func setupLabels() {

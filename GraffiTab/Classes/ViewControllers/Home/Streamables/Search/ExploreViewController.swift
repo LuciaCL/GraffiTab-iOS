@@ -560,6 +560,9 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
             Utils.applyShadowEffectToView(view)
             view.layer.cornerRadius = 5.0
         }
+        
+        backBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
+        streetViewBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
     }
     
     func setupMapView() {

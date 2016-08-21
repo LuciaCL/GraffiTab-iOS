@@ -10,24 +10,24 @@ import UIKit
 
 class GTTheme: NSObject {
 
-    var primaryColor: UIColor?
-    var secondaryColor: UIColor?
+    var primaryColor = BrandColors.Primary
+    var secondaryColor = BrandColors.Secondary
+    var metadataColor = BrandColors.Metadata
+    
+    var collectionBackgroundColor = BrandColors.collectionBackground
+    
+    var linksColor = BrandColors.Links
+    var mentionColor = BrandColors.Mentions
+    var hashtagColor = BrandColors.Hashtags
+    
+    var tabsBackgroundColor = UIColor.whiteColor()
+    var tabsElementsColor = BrandColors.Primary
     
     var navigationBarBackgroundColor: UIColor?
     var navigationBarElementsColor: UIColor?
     var navigationBarProfileElementsColor: UIColor?
     var navigationBarProfileElementsWithNavigationBarColor: UIColor?
     var navigationBarLoadingIndicatorStyle: UIActivityIndicatorViewStyle?
-    
-    var collectionBackgroundColor: UIColor?
-    var confirmationColor: UIColor?
-    
-    var linksColor: UIColor?
-    var mentionColor: UIColor?
-    var hashtagColor: UIColor?
-    
-    var tabsBackgroundColor: UIColor?
-    var tabsElementsColor: UIColor?
     
     var defaultStatusBarStyle: UIStatusBarStyle?
     var loginStatusBarStyle: UIStatusBarStyle?

@@ -453,10 +453,14 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     // MARK: - MessageDelegate
     
     func didTapLink(link: String) {
+        self.view.endEditing(true)
+        
         Utils.openUrl(link)
     }
     
     func didTapHashtag(hashtag: String) {
+        self.view.endEditing(true)
+        
         let nav = self.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as? UINavigationController
         let vc = nav?.viewControllers.first as? SearchViewController
         vc?.searchedHashtag = hashtag
@@ -464,6 +468,8 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     }
     
     func didTapUsername(username: String) {
+        self.view.endEditing(true)
+        
         self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
         self.view.rn_activityView.dimBackground = false
         
@@ -479,6 +485,8 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     }
     
     func didTapErrorView(comment: GTComment) {
+        self.view.endEditing(true)
+        
         let actionSheet = buildActionSheet(NSLocalizedString("controller_comments_send_failure_options_title", comment: ""))
         actionSheet.addButtonWithTitle(NSLocalizedString("controller_comments_send_failure_options_try_again", comment: ""), image: UIImage(named: "ic_refresh_white"), type: .Default) { (sheet) in
             self.doPostComment(comment, shouldRefresh: true)
@@ -496,6 +504,8 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     }
     
     func didTapAvatar(user: GTUser) {
+        self.view.endEditing(true)
+        
         ViewControllerUtils.showUserProfile(user, viewController: self)
     }
     

@@ -388,7 +388,7 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
         // Setup pull to refresh.
         pullToRefresh = CarbonSwipeRefresh(scrollView: collectionView)
         pullToRefresh.setMarginTop(self.parentViewController!.isKindOfClass(UINavigationController) ? 64 : 0)
-        pullToRefresh.colors = [AppConfig.sharedInstance.theme!.primaryColor!, AppConfig.sharedInstance.theme!.secondaryColor!, AppConfig.sharedInstance.theme!.confirmationColor!]
+        pullToRefresh.colors = [AppConfig.sharedInstance.theme!.primaryColor!, AppConfig.sharedInstance.theme!.secondaryColor!]
         self.view.addSubview(pullToRefresh)
         pullToRefresh.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
         

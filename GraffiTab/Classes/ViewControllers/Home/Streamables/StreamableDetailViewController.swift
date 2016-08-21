@@ -377,7 +377,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         self.likesLbl.text = "\(streamable!.likersCount!)"
         self.commentsLbl.text = "\(streamable!.commentsCount!)"
         
-        self.likesContainer.backgroundColor = streamable!.likedByCurrentUser! ? AppConfig.sharedInstance.theme!.confirmationColor : UIColor.blackColor().colorWithAlphaComponent(0.2)
+        self.likesContainer.backgroundColor = streamable!.likedByCurrentUser! ? AppConfig.sharedInstance.theme!.primaryColor : UIColor.blackColor().colorWithAlphaComponent(0.2)
     }
     
     func loadAvatar() {

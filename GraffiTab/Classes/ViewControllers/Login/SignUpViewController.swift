@@ -40,6 +40,8 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
         
+        UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.loginStatusBarStyle!, animated: true)
+        
         if self.navigationController?.navigationBarHidden == false {
             self.navigationController?.setNavigationBarHidden(true, animated: true)
         }
@@ -178,5 +180,6 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
     func setupButtons() {
         signupBtn.setTitle(NSLocalizedString("controller_sign_up", comment: ""), forState: .Normal)
         signupBtn.layer.cornerRadius = 3
+        signupBtn.backgroundColor = AppConfig.sharedInstance.theme?.secondaryColor
     }
 }

@@ -70,6 +70,8 @@ class AskPermissionViewController: UIViewController {
     // MARK: - Setup
     
     func setupButtons() {
+        askBtn.backgroundColor = AppConfig.sharedInstance.theme?.primaryColor
+        
         askBtn.layer.cornerRadius = 3
         laterBtn.layer.borderWidth = 1
         laterBtn.layer.borderColor = askBtn.backgroundColor?.CGColor

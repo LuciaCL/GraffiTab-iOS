@@ -14,24 +14,11 @@ class GTLightTheme: GTTheme {
         super.init()
         
         // Colors.
-        self.primaryColor = UIColor(hexString: "#005c86", alpha: 0.9)
-        self.secondaryColor = UIColor(hexString: "#e9a13a")
-        
         self.navigationBarBackgroundColor = UIColor.whiteColor()
         self.navigationBarElementsColor = self.primaryColor
         self.navigationBarLoadingIndicatorStyle = UIActivityIndicatorViewStyle.Gray
         self.navigationBarProfileElementsColor = UIColor.whiteColor()
         self.navigationBarProfileElementsWithNavigationBarColor = self.primaryColor
-        
-        self.collectionBackgroundColor = UIColor(hexString: "#F2F3F4")
-        self.confirmationColor = UIColor(hexString: "#6cbd52")
-        
-        self.linksColor = UIColor(hexString: "#ef6a0e")
-        self.mentionColor = UIColor(hexString: "#3F739A")
-        self.hashtagColor = UIColor(hexString: "#3F739A")
-        
-        self.tabsBackgroundColor = UIColor.whiteColor()
-        self.tabsElementsColor = self.primaryColor
         
         // Status bar.
         self.defaultStatusBarStyle = UIStatusBarStyle.Default

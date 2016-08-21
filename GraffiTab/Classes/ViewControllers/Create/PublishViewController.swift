@@ -228,7 +228,7 @@ class PublishViewController: UIViewController {
     }
     
     func setupButtons() {
-        createBtn.backgroundColor = AppConfig.sharedInstance.theme!.confirmationColor
+        createBtn.backgroundColor = AppConfig.sharedInstance.theme!.primaryColor
         cancelBtn.backgroundColor = UIColor.whiteColor()
         infoBtn.backgroundColor = UIColor.whiteColor()
     }

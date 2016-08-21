@@ -97,7 +97,7 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
         button.frame = CGRectMake(0, 0, 50, 30)
         button.layer.cornerRadius = 3
         button.setTitle(NSLocalizedString("other_save", comment: ""), forState: .Normal)
-        button.backgroundColor = AppConfig.sharedInstance.theme!.secondaryColor
+        button.backgroundColor = AppConfig.sharedInstance.theme!.primaryColor
         button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         button.titleLabel?.font = UIFont.boldSystemFontOfSize(15)
         button.addTarget(self, action: #selector(EditPasswordViewController.onClickSave), forControlEvents: .TouchUpInside)

@@ -41,6 +41,10 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
     @IBOutlet weak var followersLbl: UILabel!
     @IBOutlet weak var followingCountLbl: UILabel!
     @IBOutlet weak var followingLbl: UILabel!
+    @IBOutlet weak var listBtn: TintButton!
+    @IBOutlet weak var gridBtn: TintButton!
+    @IBOutlet weak var likesBtn: TintButton!
+    @IBOutlet weak var locationBtn: TintButton!
     
     var delegate: UserHeaderDelegate?
     var item: GTUser? {
@@ -62,6 +66,7 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
         setupPageControl()
         setupGestureRecognizers()
         setupLabels()
+        setupButtons()
     }
     
     override func layoutSubviews() {
@@ -256,5 +261,12 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
         streamablesLbl.text = NSLocalizedString("view_profile_header_graffiti", comment: "")
         followersLbl.text = NSLocalizedString("view_profile_header_followers", comment: "")
         followingLbl.text = NSLocalizedString("view_profile_header_following", comment: "")
+    }
+    
+    func setupButtons() {
+        listBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
+        gridBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
+        likesBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
+        locationBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
     }
 }

@@ -98,6 +98,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         
         setupCocos2D()
         setupLabels()
+        setupButtons()
         
         loadColors()
         loadTools()
@@ -1060,5 +1061,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     func setupLabels() {
         skipBtn.setTitle(NSLocalizedString("other_skip", comment: ""), forState: .Normal)
+    }
+    
+    func setupButtons() {
+        publishBtn.backgroundColor = AppConfig.sharedInstance.theme?.primaryColor
     }
 }

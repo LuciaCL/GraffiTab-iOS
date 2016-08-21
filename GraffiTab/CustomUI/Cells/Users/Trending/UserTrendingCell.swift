@@ -62,8 +62,8 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
     
     func setStats() {
         if item!.followedByCurrentUser! {
-            self.followBtn.layer.borderColor = AppConfig.sharedInstance.theme!.confirmationColor?.CGColor
-            self.followBtn.backgroundColor = AppConfig.sharedInstance.theme!.confirmationColor
+            self.followBtn.layer.borderColor = AppConfig.sharedInstance.theme!.primaryColor?.CGColor
+            self.followBtn.backgroundColor = AppConfig.sharedInstance.theme!.primaryColor
             self.followBtn.setImage(UIImage(named: "ic_action_unfollow"), forState: .Normal)
             self.followBtn.tintColor = UIColor.whiteColor()
         }

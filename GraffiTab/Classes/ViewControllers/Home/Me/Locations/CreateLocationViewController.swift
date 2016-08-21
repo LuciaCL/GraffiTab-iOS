@@ -21,6 +21,8 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
     @IBOutlet weak var searchContainer: UIView!
     @IBOutlet weak var searchWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var createBtn: MaterializeRoundButton!
+    @IBOutlet weak var mapCenterImage: TintImageView!
     
     var toEdit: GTLocation?
     
@@ -37,6 +39,7 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
         
         setupButtons()
         setupMapView()
+        setupImageViews()
         
         if toEdit != nil {
             centerToLocation(CLLocation(latitude: toEdit!.latitude!, longitude: toEdit!.longitude!))
@@ -273,10 +276,17 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
             Utils.applyShadowEffectToView(view)
             view.layer.cornerRadius = 5.0
         }
+        
+        createBtn.backgroundColor = AppConfig.sharedInstance.theme?.primaryColor
+        backBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
     }
     
     func setupMapView() {
         mapView.rotateEnabled = false
         mapView.showsUserLocation = (CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse)
+    }
+    
+    func setupImageViews() {
+        mapCenterImage.tintColor = AppConfig.sharedInstance.theme?.primaryColor
     }
 }

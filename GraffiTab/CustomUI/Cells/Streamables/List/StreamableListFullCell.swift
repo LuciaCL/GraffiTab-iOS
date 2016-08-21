@@ -32,6 +32,7 @@ class StreamableListFullCell: StreamableCell {
         setupImageViews()
         setupGestureRecognizers()
         setupLabels()
+        setupButtons()
     }
     
     override func layoutSubviews() {
@@ -57,7 +58,7 @@ class StreamableListFullCell: StreamableCell {
         self.commentsLbl.text = String(format: "%i %@", item!.commentsCount!, item!.commentsCount! == 1 ? NSLocalizedString("cell_streamable_comment", comment: "") : NSLocalizedString("cell_streamable_comments", comment: ""));
         
         self.likeBtn.setTitle(DeviceType.IS_IPHONE_5 || DeviceType.IS_IPHONE_4_OR_LESS ? "" : (item!.likedByCurrentUser! ? NSLocalizedString("cell_streamable_liked", comment: "") : NSLocalizedString("cell_streamable_like", comment: "")), forState: .Normal)
-        self.likeBtn.tintColor = item!.likedByCurrentUser! ? AppConfig.sharedInstance.theme!.confirmationColor : AppConfig.sharedInstance.theme?.primaryColor
+        self.likeBtn.tintColor = item!.likedByCurrentUser! ? AppConfig.sharedInstance.theme!.primaryColor : UIColor.lightGrayColor()
         self.likeBtn.setTitleColor(self.likeBtn.tintColor, forState: .Normal)
     }
     
@@ -108,7 +109,19 @@ class StreamableListFullCell: StreamableCell {
     }
     
     func setupLabels() {
+        self.likesLbl.tintColor = AppConfig.sharedInstance.theme?.metadataColor
+        self.commentsLbl.tintColor = AppConfig.sharedInstance.theme?.metadataColor
+        
         commentBtn.setTitle(DeviceType.IS_IPHONE_5 || DeviceType.IS_IPHONE_4_OR_LESS ? "" : NSLocalizedString("cell_streamable_comment", comment: ""), forState: .Normal)
         shareBtn.setTitle(DeviceType.IS_IPHONE_5 || DeviceType.IS_IPHONE_4_OR_LESS ? "" : NSLocalizedString("controller_create_share", comment: ""), forState: .Normal)
+    }
+    
+    func setupButtons() {
+        self.likeBtn.tintColor = AppConfig.sharedInstance.theme?.metadataColor
+        self.likeBtn.setTitleColor(self.likeBtn.tintColor, forState: .Normal)
+        self.commentBtn.tintColor = AppConfig.sharedInstance.theme?.metadataColor
+        self.commentBtn.setTitleColor(self.commentBtn.tintColor, forState: .Normal)
+        self.shareBtn.tintColor = AppConfig.sharedInstance.theme?.metadataColor
+        self.shareBtn.setTitleColor(self.shareBtn.tintColor, forState: .Normal)
     }
 }

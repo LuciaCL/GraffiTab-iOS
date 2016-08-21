@@ -22,6 +22,19 @@ struct Image {
     static let MaxImageWidth = 1024.0
 }
 
+struct BrandColors {
+//    static let Primary = UIColor(hexString: "#005c86", alpha: 0.9)
+    static let Primary = UIColor(hexString: "#2584b2")
+    static let Secondary = UIColor(hexString: "#e9a13a")
+    static let Metadata = UIColor(hexString: "#a0a0a0")
+    
+    static let collectionBackground = UIColor(hexString: "#F2F3F4")
+    
+    static let Links = Primary
+    static let Mentions = Primary
+    static let Hashtags = Primary
+}
+
 struct SettingsKeys {
     static let kUsername = "kUsername"
     static let kPassword = "kPassword"

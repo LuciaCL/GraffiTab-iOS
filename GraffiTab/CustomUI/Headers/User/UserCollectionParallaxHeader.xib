@@ -276,6 +276,10 @@
                 <outlet property="followersLbl" destination="uZV-lI-9M2" id="vA1-gl-1j6"/>
                 <outlet property="followingCountLbl" destination="CHo-00-0LE" id="oll-Aw-8tA"/>
                 <outlet property="followingLbl" destination="WjZ-x2-Db2" id="LNT-dH-ggh"/>
+                <outlet property="gridBtn" destination="wow-Bx-2z5" id="vXF-uI-bdA"/>
+                <outlet property="likesBtn" destination="9XN-Ka-cbR" id="zyV-dH-WgX"/>
+                <outlet property="listBtn" destination="c3A-xk-wFQ" id="it9-E9-4D7"/>
+                <outlet property="locationBtn" destination="RCF-zV-gyv" id="yO0-yJ-tB4"/>
                 <outlet property="nameField" destination="Aws-tH-8Uf" id="TEe-Y4-Za9"/>
                 <outlet property="pageControl" destination="5jv-4R-m6V" id="ah4-bQ-6Xm"/>
                 <outlet property="streamablesCountLbl" destination="Is1-Yv-M3o" id="Osj-01-jqL"/>
