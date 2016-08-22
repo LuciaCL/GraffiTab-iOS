@@ -206,7 +206,7 @@ class GenericUsersViewController: BackButtonViewController, UICollectionViewDele
                     let listItemsResult = response.object as! GTListItemsResult<GTUser>
                     self.items.appendContentsOf(listItemsResult.items!)
                     
-                    if listItemsResult.items!.count <= 0 && listItemsResult.items!.count < GTConstants.MaxItems {
+                    if listItemsResult.items!.count <= 0 || listItemsResult.items!.count < GTConstants.MaxItems {
                         self.canLoadMore = false
                     }
                     

@@ -92,14 +92,14 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
                 
                 self.save()
             }
-            actionSheet.addButtonWithTitle(NSLocalizedString("controller_streamable_options_set_avatar", comment: ""), image: UIImage(named: "ic_person_white"), type: .Default) { (sheet) in
-                DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Set as profile picture")
-                
-                // Register analytics events.
-                AnalyticsUtils.sendAppEvent("set_as_profile_picture", label: nil)
-                
-                self.setAsAvatar()
-            }
+//            actionSheet.addButtonWithTitle(NSLocalizedString("controller_streamable_options_set_avatar", comment: ""), image: UIImage(named: "ic_person_white"), type: .Default) { (sheet) in
+//                DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Set as profile picture")
+//                
+//                // Register analytics events.
+//                AnalyticsUtils.sendAppEvent("set_as_profile_picture", label: nil)
+//                
+//                self.setAsAvatar()
+//            }
         }
         actionSheet.addButtonWithTitle(NSLocalizedString("controller_streamable_options_flag", comment: ""), image: UIImage(named: "ic_flag_white"), type: .Default) { (sheet) in
             DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Flag graffiti")
@@ -117,14 +117,14 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             
             self.exploreArea()
         }
-        actionSheet.addButtonWithTitle(NSLocalizedString("controller_streamable_options_copy_link", comment: ""), image: UIImage(named: "ic_link_white"), type: .Default) { (sheet) in
-            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Copy link")
-            
-            // Register analytics events.
-            AnalyticsUtils.sendAppEvent("copy_link", label: nil)
-            
-            self.copyLink()
-        }
+//        actionSheet.addButtonWithTitle(NSLocalizedString("controller_streamable_options_copy_link", comment: ""), image: UIImage(named: "ic_link_white"), type: .Default) { (sheet) in
+//            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Copy link")
+//            
+//            // Register analytics events.
+//            AnalyticsUtils.sendAppEvent("copy_link", label: nil)
+//            
+//            self.copyLink()
+//        }
         if isMe() {
             actionSheet.addButtonWithTitle(NSLocalizedString("other_delete", comment: ""), image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
                 DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Delete graffiti")
