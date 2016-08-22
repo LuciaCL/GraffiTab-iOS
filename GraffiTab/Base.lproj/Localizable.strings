@@ -135,8 +135,8 @@
 "api_error_max_login_attempts" = "Maximum login attempts have been reached. Please reset your password to continue.";
 "api_error_forbidden" = "This resource is forbidden.";
 
-"api_error_external_provider_not_found" = "This external provider does not exist.";
-"api_error_external_provider_not_linked" = "This external provider has not been linked.";
+"api_error_external_provider_not_found" = "This social account does not exist.";
+"api_error_external_provider_not_linked" = "This social account has not been linked.";
 "api_error_device_not_found" = "The requested device does not exist.";
 "api_error_user_not_found" = "The requested user does not exist.";
 "api_error_asset_not_found" = "The requested asset does not exist.";
@@ -149,7 +149,7 @@
 "api_error_user_not_in_expected_state" = "Your account is not in the expected state. Please reset your password or login to continue.";
 
 "api_error_device_already_exists" = "This device already exists.";
-"api_error_external_provider_already_linked" = "This external provider has already been linked.";
+"api_error_external_provider_already_linked" = "This social account has already been linked.";
 "api_error_external_provider_already_linked_for_another_user" = "This external provider has already been linked for another user.";
 
 "api_error_general" = "An unexpected error has ocurred. Please contast support to raise a ticket.";
@@ -340,7 +340,7 @@
 "controller_edit_profile_avatar" = "Profile Picture";
 "controller_edit_profile_cover" = "Cover Picture";
 "controller_edit_profile_website" = "Website";
-"controller_edit_profile_about" = "Sobre";
+"controller_edit_profile_about" = "About";
 "controller_edit_profile_private_graffiti" = "Manage Private Graffiti";
 "controller_edit_profile_private_graffiti_title" = "Private Graffiti";
 "controller_edit_profile_private_graffiti_description" = "Private graffiti can only be viewed by you and nobody else.";

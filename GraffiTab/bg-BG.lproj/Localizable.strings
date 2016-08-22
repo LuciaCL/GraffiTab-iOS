@@ -149,8 +149,8 @@
 "api_error_user_not_in_expected_state" = "Акаунтът ти е в неподходящо състояние. Възстанови паролата си, за да продължиш.";
 
 "api_error_device_already_exists" = "Устройството е вече регистрирано.";
-"api_error_external_provider_already_linked" = "Този провайдър е вече регистриран.";
-"api_error_external_provider_already_linked_for_another_user" = "Този провайдър е вече регистриран за друг потребител.";
+"api_error_external_provider_already_linked" = "Този акаунт е вече регистриран.";
+"api_error_external_provider_already_linked_for_another_user" = "Този акаунт е вече регистриран за друг потребител.";
 
 "api_error_general" = "Неочаквана грешка. Свържете се с Поддръжка, за да подадете сигнал.";
 
