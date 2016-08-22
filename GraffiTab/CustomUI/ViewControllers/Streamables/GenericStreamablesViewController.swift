@@ -308,7 +308,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
                 let listItemsResult = response.object as! GTListItemsResult<GTStreamable>
                 self.items.appendContentsOf(listItemsResult.items!)
                 
-                if listItemsResult.items!.count <= 0 || listItemsResult.items!.count < GTConstants.MaxItems {
+                if listItemsResult.items!.count <= 0 || listItemsResult.items!.count < listItemsResult.limit! {
                     self.canLoadMore = false
                 }
                 

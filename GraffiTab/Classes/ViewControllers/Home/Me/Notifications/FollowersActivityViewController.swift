@@ -122,7 +122,7 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
     }
     
     func loadItems(isStart: Bool, offset: Int, cacheBlock: (response: GTResponseObject) -> Void, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
-        GTMeManager.getFollowersActivity(offset: offset, limit: 20, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: successBlock, failureBlock: failureBlock)
+        GTMeManager.getFollowersActivity(offset: offset, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: successBlock, failureBlock: failureBlock)
     }
     
     func finalizeLoad() {

@@ -35,6 +35,6 @@ class RecentViewController: SwimLaneStreamablesViewController {
     // MARK: - Loading
     
     override func loadItems(isStart: Bool, offset: Int, cacheBlock: (response: GTResponseObject) -> Void, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {
-        GTStreamableManager.getNewest(offset, limit: 20, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: successBlock, failureBlock: failureBlock)
+        GTStreamableManager.getNewest(offset, cacheResponse: isStart, cacheBlock: cacheBlock, successBlock: successBlock, failureBlock: failureBlock)
     }
 }
