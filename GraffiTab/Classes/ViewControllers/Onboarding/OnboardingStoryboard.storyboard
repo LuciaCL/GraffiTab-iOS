@@ -132,7 +132,9 @@
                             <constraint firstItem="xvZ-IV-fRk" firstAttribute="top" secondItem="2Ep-Ga-Fxh" secondAttribute="bottom" constant="20" id="hcp-bA-CRn"/>
                             <constraint firstItem="utU-Bz-iL5" firstAttribute="top" secondItem="NnC-pW-pKW" secondAttribute="top" id="kIK-Lc-FcL"/>
                             <constraint firstItem="2Ep-Ga-Fxh" firstAttribute="leading" secondItem="NnC-pW-pKW" secondAttribute="leading" id="kmK-68-P5J"/>
-                            <constraint firstItem="xvZ-IV-fRk" firstAttribute="top" secondItem="nMC-ME-nQy" secondAttribute="bottom" constant="15" id="qiQ-c2-J8t"/>
+                            <constraint firstItem="xvZ-IV-fRk" firstAttribute="top" secondItem="nMC-ME-nQy" secondAttribute="bottom" constant="15" id="qiQ-c2-J8t">
+                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                            </constraint>
                             <constraint firstItem="2Ep-Ga-Fxh" firstAttribute="top" secondItem="sNr-5A-uRA" secondAttribute="bottom" constant="13" id="riJ-gc-oe4"/>
                             <constraint firstItem="xvZ-IV-fRk" firstAttribute="top" secondItem="utU-Bz-iL5" secondAttribute="bottom" id="wER-Aa-wHt"/>
                         </constraints>

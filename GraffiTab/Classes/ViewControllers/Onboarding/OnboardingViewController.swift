@@ -44,31 +44,31 @@ class OnboardingViewController: UIViewController, iCarouselDelegate, iCarouselDa
         var screen = OnboardingScreen()
         screen.title = NSLocalizedString("controller_onboarding_screen_1_title", comment: "")
         screen.subtitle = NSLocalizedString("controller_onboarding_screen_1_description", comment: "")
-        screen.screenshot = "onboard_1"
+        screen.screenshot = DeviceType.IS_IPAD ? (Orientation.isLandscape() ? "placeholder_ipad_landscape" : "placeholder_ipad_portrait") : "onboard_1"
         screens.append(screen)
         
         screen = OnboardingScreen()
         screen.title = NSLocalizedString("controller_onboarding_screen_2_title", comment: "")
         screen.subtitle = NSLocalizedString("controller_onboarding_screen_2_description", comment: "")
-        screen.screenshot = "onboard_2"
+        screen.screenshot = DeviceType.IS_IPAD ? (Orientation.isLandscape() ? "placeholder_ipad_landscape" : "placeholder_ipad_portrait") : "onboard_2"
         screens.append(screen)
         
         screen = OnboardingScreen()
         screen.title = NSLocalizedString("controller_onboarding_screen_3_title", comment: "")
         screen.subtitle = NSLocalizedString("controller_onboarding_screen_3_description", comment: "")
-        screen.screenshot = "onboard_3"
+        screen.screenshot = DeviceType.IS_IPAD ? (Orientation.isLandscape() ? "placeholder_ipad_landscape" : "placeholder_ipad_portrait") : "onboard_3"
         screens.append(screen)
         
         screen = OnboardingScreen()
         screen.title = NSLocalizedString("controller_onboarding_screen_4_title", comment: "")
         screen.subtitle = NSLocalizedString("controller_onboarding_screen_4_description", comment: "")
-        screen.screenshot = "onboard_4"
+        screen.screenshot = DeviceType.IS_IPAD ? (Orientation.isLandscape() ? "placeholder_ipad_landscape" : "placeholder_ipad_portrait") : "onboard_4"
         screens.append(screen)
         
         screen = OnboardingScreen()
         screen.title = NSLocalizedString("controller_onboarding_screen_5_title", comment: "")
         screen.subtitle = NSLocalizedString("controller_onboarding_screen_5_description", comment: "")
-        screen.screenshot = "onboard_5"
+        screen.screenshot = DeviceType.IS_IPAD ? (Orientation.isLandscape() ? "placeholder_ipad_landscape" : "placeholder_ipad_portrait") : "onboard_5"
         screens.append(screen)
         
         carousel.reloadData()
@@ -118,7 +118,20 @@ class OnboardingViewController: UIViewController, iCarouselDelegate, iCarouselDa
     // MARK: - Orientation
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        if DeviceType.IS_IPAD {
+            return .All
+        }
         return [.Portrait, .PortraitUpsideDown]
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
+        coordinator.animateAlongsideTransition({ (context) in
+            self.loadOnboarding()
+            self.carousel.reloadData()
+        }) { (context) in
+        }
     }
     
     // MARK: - Setup
@@ -135,5 +148,6 @@ class OnboardingViewController: UIViewController, iCarouselDelegate, iCarouselDa
     
     func setupLabels() {
         goBtn.setTitle(NSLocalizedString("controller_onboarding_go", comment: ""), forState: .Normal)
+        goBtn.titleLabel?.font = UIFont.systemFontOfSize(DeviceType.IS_IPAD ? 24 : 16)
     }
 }

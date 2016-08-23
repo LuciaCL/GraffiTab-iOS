@@ -111,18 +111,15 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     // MARK: - ViewType-specific helpers
     
     func getNumCols() -> Int {
-        let orientation = UIApplication.sharedApplication().statusBarOrientation
-        let landscape = orientation == .LandscapeLeft || orientation == .LandscapeRight
-        
         switch viewType {
             case .Grid, .SwimLane:
-                return landscape ? 4 : 3
+                return Orientation.isLandscape() ? 4 : 3
             case .Trending:
-                return landscape ? 3 : 2
+                return Orientation.isLandscape() ? 3 : 2
             case .ListFull:
                 return 1
             case .Mosaic:
-                return landscape ? 4 : 3
+                return Orientation.isLandscape() ? 4 : 3
         }
     }
     

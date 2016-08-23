@@ -66,6 +66,13 @@ struct DeviceType {
     static let IS_IPHONE_5 = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH == 568.0
     static let IS_IPHONE_6 = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH == 667.0
     static let IS_IPHONE_6P = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH == 736.0
+    static let IS_IPAD = UIDevice.currentDevice().userInterfaceIdiom == .Pad
+}
+
+struct Orientation {
+    static func isLandscape() -> Bool {
+        return UIApplication.sharedApplication().statusBarOrientation.isLandscape
+    }
 }
 
 let colorPallete = ["cad0cc", "cdc7b9", "a9b3b2", "b9bbb8", "c2d1cc", "c2c8c4", "b4bfb9"]

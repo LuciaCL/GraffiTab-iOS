@@ -544,11 +544,14 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         self.rightButton.setTitle(NSLocalizedString("other_post", comment: ""), forState: .Normal)
         
         self.textInputbar.editorTitle.textColor = UIColor.darkGrayColor()
-        self.textInputbar.editorLeftButton.tintColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
-        self.textInputbar.editorRightButton.tintColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
+        self.textInputbar.editorLeftButton.tintColor = AppConfig.sharedInstance.theme?.primaryColor
+        self.textInputbar.editorRightButton.tintColor = AppConfig.sharedInstance.theme?.primaryColor
+        self.textInputbar.leftButton.tintColor = AppConfig.sharedInstance.theme?.primaryColor
+        self.textInputbar.rightButton.tintColor = AppConfig.sharedInstance.theme?.primaryColor
         
         self.textInputbar.autoHideRightButton = true
         self.textView.placeholder = NSLocalizedString("controller_comments_post_prompt", comment: "")
+        self.textView.tintColor = AppConfig.sharedInstance.theme?.primaryColor
         
         self.typingIndicatorView!.canResignByTouch = true
         
