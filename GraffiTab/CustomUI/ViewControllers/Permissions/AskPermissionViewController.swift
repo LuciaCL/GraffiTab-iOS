@@ -21,7 +21,7 @@ class AskPermissionViewController: UIViewController {
     var decideLaterHandler: (() -> Void)?
     
     class func showPermissionViewController(controller: UIViewController, askPermissionHandler: () -> Void, decideLaterHandler: () -> Void) -> AskPermissionViewController {
-        MZFormSheetPresentationController.appearance().shouldApplyBackgroundBlurEffect = true
+        MZFormSheetPresentationController.appearance().shouldApplyBackgroundBlurEffect = !DeviceType.IS_IPAD
         MZFormSheetPresentationController.appearance().shouldCenterHorizontally = true
         MZFormSheetPresentationController.appearance().shouldCenterVertically = true
         MZFormSheetPresentationController.appearance().shouldDismissOnBackgroundViewTap = false

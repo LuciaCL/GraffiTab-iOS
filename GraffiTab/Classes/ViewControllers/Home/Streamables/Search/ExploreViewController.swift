@@ -177,7 +177,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     
     func openClusterView(streamables: [GTStreamable]) {
         if streamables.count > 0 {
-            MZFormSheetPresentationController.appearance().shouldApplyBackgroundBlurEffect = true
+            MZFormSheetPresentationController.appearance().shouldApplyBackgroundBlurEffect = !DeviceType.IS_IPAD
             MZFormSheetPresentationController.appearance().shouldCenterHorizontally = true
             MZFormSheetPresentationController.appearance().shouldCenterVertically = true
             MZFormSheetPresentationController.appearance().shouldDismissOnBackgroundViewTap = true

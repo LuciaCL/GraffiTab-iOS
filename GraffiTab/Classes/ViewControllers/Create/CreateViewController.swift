@@ -485,7 +485,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         // Register analytics events.
         AnalyticsUtils.sendAppEvent("tool_options", label: nil)
         
-        MZFormSheetPresentationController.appearance().shouldApplyBackgroundBlurEffect = true
+        MZFormSheetPresentationController.appearance().shouldApplyBackgroundBlurEffect = !DeviceType.IS_IPAD
         MZFormSheetPresentationController.appearance().shouldCenterHorizontally = true
         MZFormSheetPresentationController.appearance().shouldCenterVertically = true
         MZFormSheetPresentationController.appearance().shouldDismissOnBackgroundViewTap = true

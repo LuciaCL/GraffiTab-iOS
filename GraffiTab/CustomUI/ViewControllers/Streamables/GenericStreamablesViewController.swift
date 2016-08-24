@@ -115,7 +115,12 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
             case .Grid, .SwimLane:
                 return Orientation.isLandscape() ? 4 : 3
             case .Trending:
-                return Orientation.isLandscape() ? 3 : 2
+                if DeviceType.IS_IPAD {
+                    return Orientation.isLandscape() ? 4 : 3
+                }
+                else {
+                    return Orientation.isLandscape() ? 3 : 2
+                }
             case .ListFull:
                 return 1
             case .Mosaic:
