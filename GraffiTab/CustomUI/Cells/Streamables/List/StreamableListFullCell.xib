@@ -176,9 +176,13 @@
                 <constraint firstItem="3N2-f9-YN8" firstAttribute="leading" secondItem="4LD-IP-0Pr" secondAttribute="leading" constant="8" id="LNb-zY-AeT"/>
                 <constraint firstItem="hDM-YV-Uwg" firstAttribute="top" secondItem="EkX-tZ-xUK" secondAttribute="bottom" constant="10" id="NxZ-fu-fNz"/>
                 <constraint firstAttribute="bottom" secondItem="EkX-tZ-xUK" secondAttribute="bottom" constant="90" id="QKd-e2-52n"/>
-                <constraint firstAttribute="trailing" secondItem="EkX-tZ-xUK" secondAttribute="trailing" id="gw4-vv-xOt"/>
+                <constraint firstAttribute="trailing" secondItem="EkX-tZ-xUK" secondAttribute="trailing" id="gw4-vv-xOt">
+                    <variation key="heightClass=regular-widthClass=regular" constant="8"/>
+                </constraint>
                 <constraint firstItem="EkX-tZ-xUK" firstAttribute="top" secondItem="4LD-IP-0Pr" secondAttribute="top" constant="54" id="nko-mr-dXE"/>
-                <constraint firstItem="EkX-tZ-xUK" firstAttribute="leading" secondItem="4LD-IP-0Pr" secondAttribute="leading" id="olS-gJ-rfu"/>
+                <constraint firstItem="EkX-tZ-xUK" firstAttribute="leading" secondItem="4LD-IP-0Pr" secondAttribute="leading" id="olS-gJ-rfu">
+                    <variation key="heightClass=regular-widthClass=regular" constant="8"/>
+                </constraint>
                 <constraint firstItem="3N2-f9-YN8" firstAttribute="top" secondItem="4LD-IP-0Pr" secondAttribute="top" id="rFa-0I-bEk"/>
                 <constraint firstItem="mnN-cg-Tpg" firstAttribute="centerX" secondItem="EkX-tZ-xUK" secondAttribute="centerX" id="sfV-ja-Xyc"/>
                 <constraint firstItem="mnN-cg-Tpg" firstAttribute="centerY" secondItem="EkX-tZ-xUK" secondAttribute="centerY" id="zqR-hy-Mfg"/>

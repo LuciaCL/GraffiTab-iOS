@@ -146,11 +146,16 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
             case .Trending, .SwimLane:
                 return 250
             case .ListFull, .Mosaic:
-                return 464
+                return DeviceType.IS_IPAD ? 500 : 464
         }
     }
     
     func getPadding(spacing: CGFloat) -> CGFloat {
+        if DeviceType.IS_IPAD {
+            if viewType == .ListFull {
+                return Orientation.isLandscape() ? 230 : 100
+            }
+        }
         return spacing
     }
     
@@ -199,10 +204,16 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         }
         else {
             let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-            layout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
             layout.itemSize = CGSize(width: width, height: height)
             layout.minimumInteritemSpacing = spacing
             layout.minimumLineSpacing = spacing
+            
+            if DeviceType.IS_IPAD && viewType == .ListFull {
+                layout.sectionInset = UIEdgeInsets(top: spacing, left: 0, bottom: spacing, right: 0)
+            }
+            else {
+                layout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+            }
         }
     }
     
