@@ -30,6 +30,12 @@ class AvatarPromptViewController: UIViewController {
         loadData()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.avatarPromptStatusBarStyle!, animated: true)
+    }
+    
     @IBAction func onClickPicture(sender: AnyObject) {
         askForImage()
     }

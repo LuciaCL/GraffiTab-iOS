@@ -30,6 +30,7 @@ class GTTheme: NSObject {
     var navigationBarLoadingIndicatorStyle: UIActivityIndicatorViewStyle?
     
     var defaultStatusBarStyle: UIStatusBarStyle?
+    var avatarPromptStatusBarStyle: UIStatusBarStyle?
     var loginStatusBarStyle: UIStatusBarStyle?
     var mapStatusBarStyle: UIStatusBarStyle?
     var mapTerrainStatusBarStyle: UIStatusBarStyle?

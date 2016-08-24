@@ -23,6 +23,7 @@ class GTDarkTheme: GTTheme {
         // Status bar.
         self.defaultStatusBarStyle = UIStatusBarStyle.LightContent
         self.loginStatusBarStyle = UIStatusBarStyle.LightContent
+        self.avatarPromptStatusBarStyle = UIStatusBarStyle.LightContent
         self.mapStatusBarStyle = UIStatusBarStyle.Default
         self.mapTerrainStatusBarStyle = UIStatusBarStyle.LightContent
         self.detailsStatusBarStyle = UIStatusBarStyle.LightContent

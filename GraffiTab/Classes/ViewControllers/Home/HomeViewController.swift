@@ -157,7 +157,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         Utils.runWithDelay(1) {
             let user = GTMeManager.sharedInstance.loggedInUser
             
-            if user?.avatar == nil {
+//            if user?.avatar == nil {
                 if !Settings.sharedInstance.promptedForAvatar! {
                     let avatarPrompt = UIStoryboard(name: "OnboardingStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("AvatarPromptViewController") as! AvatarPromptViewController
                     avatarPrompt.dismissHandler = {
@@ -165,9 +165,9 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
                     }
                     self.presentViewController(avatarPrompt, animated: true, completion: nil)
                     
-                    Settings.sharedInstance.promptedForAvatar = true
+//                    Settings.sharedInstance.promptedForAvatar = true
                 }
-            }
+//            }
         }
     }
     
