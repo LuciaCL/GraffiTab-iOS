@@ -50,6 +50,11 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
         configureTabsSize()
     }
     
+    @IBAction func onClickCancel(sender: AnyObject) {
+        self.view.endEditing(true)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func configureTabsSize() {
         for (index, _) in (tabs?.enumerate())! {
             carbonTabSwipeNavigation!.carbonSegmentedControl!.setWidth(self.view.frame.width / CGFloat((tabs?.count)!), forSegmentAtIndex: index)
@@ -82,14 +87,6 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
         else if vc.isKindOfClass(SearchStreamablesViewController) {
             let streamablesVC = vc as! SearchStreamablesViewController
             streamablesVC.search(searchBar.text!)
-        }
-    }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        
-        Utils.runWithDelay(0.3) { () in
-            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
