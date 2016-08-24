@@ -35,8 +35,12 @@
                                                     <rect key="frame" x="30" y="15" width="25" height="25"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="IaI-5Q-NSk"/>
-                                                        <constraint firstAttribute="width" constant="25" id="V0F-IR-cwS"/>
+                                                        <constraint firstAttribute="height" constant="25" id="IaI-5Q-NSk">
+                                                            <variation key="heightClass=regular-widthClass=regular" constant="35"/>
+                                                        </constraint>
+                                                        <constraint firstAttribute="width" constant="25" id="V0F-IR-cwS">
+                                                            <variation key="heightClass=regular-widthClass=regular" constant="35"/>
+                                                        </constraint>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ri8-ra-x2q">
@@ -74,7 +78,9 @@
                                                 <constraint firstItem="Qfb-uN-jWm" firstAttribute="centerY" secondItem="1nA-3i-SXT" secondAttribute="centerY" constant="1" id="3KF-Ql-yFd"/>
                                                 <constraint firstItem="Qfb-uN-jWm" firstAttribute="leading" secondItem="ri8-ra-x2q" secondAttribute="trailing" constant="17" id="FsU-pC-xR6"/>
                                                 <constraint firstItem="4XO-2M-zjs" firstAttribute="centerY" secondItem="1nA-3i-SXT" secondAttribute="centerY" id="Nrf-ts-Hwf"/>
-                                                <constraint firstItem="ri8-ra-x2q" firstAttribute="leading" secondItem="4XO-2M-zjs" secondAttribute="trailing" constant="13" id="gOe-VF-Qlb"/>
+                                                <constraint firstItem="ri8-ra-x2q" firstAttribute="leading" secondItem="4XO-2M-zjs" secondAttribute="trailing" constant="13" id="gOe-VF-Qlb">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="25"/>
+                                                </constraint>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

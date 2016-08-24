@@ -19,6 +19,12 @@ class MenuContainerViewController: RESideMenu, RESideMenuDelegate {
         self.contentViewShadowRadius = 12;
         self.contentViewShadowEnabled = true;
         
+        if DeviceType.IS_IPAD {
+            self.contentViewScaleValue = 0.8
+            self.contentViewInLandscapeOffsetCenterX = -100
+            self.contentViewInPortraitOffsetCenterX = -100
+        }
+        
         self.contentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController")
         self.leftMenuViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MenuViewController")
         self.backgroundImage = UIImage(named: "grafitab_login")

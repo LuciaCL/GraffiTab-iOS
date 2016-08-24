@@ -20,6 +20,7 @@ class MenuCell: UITableViewCell {
         // Initialization code
         
         setupBadge()
+        setupLabels()
     }
     
     func setBadgeNumber(number: Int) {
@@ -37,5 +38,9 @@ class MenuCell: UITableViewCell {
     func setupBadge() {
         badgeView.layer.cornerRadius = badgeView.frame.height / 2
         badgeView.hidden = true
+    }
+    
+    func setupLabels() {
+        titleLbl.font = titleLbl.font.fontWithSize(DeviceType.IS_IPAD ? 24 : 18)
     }
 }

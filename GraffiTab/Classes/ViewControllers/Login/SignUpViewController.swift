@@ -193,7 +193,7 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
         termsLbl.attributedText = attString;
         
         signupLbl.text = NSLocalizedString("controller_login_sign_up", comment: "")
-        signupLbl.font = UIFont.systemFontOfSize(DeviceType.IS_IPAD ? 34 : 28)
+        signupLbl.font = signupLbl.font.fontWithSize(DeviceType.IS_IPAD ? 34 : 28)
     }
     
     func setupButtons() {
