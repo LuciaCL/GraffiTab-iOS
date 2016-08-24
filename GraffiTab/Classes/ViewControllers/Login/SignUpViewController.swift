@@ -122,7 +122,7 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 120
+            return DeviceType.IS_IPAD ? Orientation.isLandscape() ? 180 : 250 : 120
         }
         else if indexPath.row == 8 {
             return 90
@@ -131,10 +131,27 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
         return UITableViewAutomaticDimension
     }
     
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = UIColor.clearColor()
+    }
+    
     // MARK: - Orientation
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        if DeviceType.IS_IPAD {
+            return .All
+        }
         return [.Portrait, .PortraitUpsideDown]
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
+        coordinator.animateAlongsideTransition({ (context) in
+            self.tableView.reloadData()
+        }) { (context) in
+                
+        }
     }
     
     // MARK: - Setup
@@ -147,6 +164,7 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
         iv.contentMode = .ScaleAspectFill;
         iv.clipsToBounds = true;
         self.tableView.backgroundView = iv;
+        self.tableView.backgroundView?.backgroundColor = UIColor.clearColor()
     }
     
     func setupTextFields() {
@@ -175,6 +193,7 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
         termsLbl.attributedText = attString;
         
         signupLbl.text = NSLocalizedString("controller_login_sign_up", comment: "")
+        signupLbl.font = UIFont.systemFontOfSize(DeviceType.IS_IPAD ? 34 : 28)
     }
     
     func setupButtons() {

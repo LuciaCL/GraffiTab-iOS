@@ -196,7 +196,10 @@ class PublishViewController: UIViewController {
     // MARK: - Orientation
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [.Portrait]
+        if DeviceType.IS_IPAD {
+            return .All
+        }
+        return [.Portrait, .PortraitUpsideDown]
     }
     
     // MARK: - Setup

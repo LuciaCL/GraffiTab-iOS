@@ -82,6 +82,10 @@ class MenuViewController: BackButtonViewController, UITableViewDelegate, UITable
         }
     }
     
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = UIColor.clearColor()
+    }
+    
     // MARK: - Setup
     
     func setupTableView() {

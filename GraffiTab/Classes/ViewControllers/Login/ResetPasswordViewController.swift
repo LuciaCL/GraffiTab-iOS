@@ -109,6 +109,9 @@ class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate
     // MARK: - Orientation
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        if DeviceType.IS_IPAD {
+            return .All
+        }
         return [.Portrait, .PortraitUpsideDown]
     }
     
@@ -123,5 +126,8 @@ class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate
         resetPasswordLbl.text = NSLocalizedString("controller_pasword_reset", comment: "")
         resetPasswordDescriptionLbl.text = NSLocalizedString("controller_pasword_reset_description", comment: "")
         emailField.placeholder = NSLocalizedString("controller_pasword_reset_email", comment: "")
+        
+        resetPasswordLbl.font = UIFont.systemFontOfSize(DeviceType.IS_IPAD ? 34 : 28)
+        resetPasswordDescriptionLbl.font = UIFont.systemFontOfSize(DeviceType.IS_IPAD ? 18 : 13)
     }
 }

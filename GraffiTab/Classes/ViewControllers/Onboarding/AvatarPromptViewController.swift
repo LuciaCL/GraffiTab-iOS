@@ -117,6 +117,9 @@ class AvatarPromptViewController: UIViewController {
     // MARK: - Orientation
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        if DeviceType.IS_IPAD {
+            return .All
+        }
         return [.Portrait, .PortraitUpsideDown]
     }
     
