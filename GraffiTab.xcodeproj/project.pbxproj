@@ -294,6 +294,8 @@
 		E5973AE71D6C50890000970D /* placeholder_ipad_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = E5973AE41D6C50890000970D /* placeholder_ipad_landscape.png */; };
 		E5973AE81D6C50890000970D /* placeholder_ipad_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = E5973AE51D6C50890000970D /* placeholder_ipad_portrait.png */; };
 		E5973AE91D6C50890000970D /* placeholder_ipad_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = E5973AE51D6C50890000970D /* placeholder_ipad_portrait.png */; };
+		E5973AEB1D6E2E3B0000970D /* UIView+RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5973AEA1D6E2E3B0000970D /* UIView+RoundedCorners.swift */; };
+		E5973AEC1D6E2E3B0000970D /* UIView+RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5973AEA1D6E2E3B0000970D /* UIView+RoundedCorners.swift */; };
 		E59BC2F31D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */; };
 		E59BC2F41D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */; };
 		E59BC2F61D12B225009781BA /* MostActiveUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F51D12B225009781BA /* MostActiveUsersViewController.swift */; };
@@ -653,6 +655,7 @@
 		E592625D1D0197E400368212 /* ProfileFollowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFollowButton.swift; sourceTree = "<group>"; };
 		E5973AE41D6C50890000970D /* placeholder_ipad_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_ipad_landscape.png; sourceTree = "<group>"; };
 		E5973AE51D6C50890000970D /* placeholder_ipad_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_ipad_portrait.png; sourceTree = "<group>"; };
+		E5973AEA1D6E2E3B0000970D /* UIView+RoundedCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+RoundedCorners.swift"; sourceTree = "<group>"; };
 		E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwimLaneStreamablesViewController.swift; sourceTree = "<group>"; };
 		E59BC2F51D12B225009781BA /* MostActiveUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MostActiveUsersViewController.swift; sourceTree = "<group>"; };
 		E59BC2F91D12B423009781BA /* UserTrendingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrendingCell.swift; sourceTree = "<group>"; };
@@ -1774,6 +1777,7 @@
 			isa = PBXGroup;
 			children = (
 				E5E2937D1D05DB6E00C272EE /* UIView+Materialize.swift */,
+				E5973AEA1D6E2E3B0000970D /* UIView+RoundedCorners.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2340,6 +2344,7 @@
 				E58432741CE9242000FB1E50 /* StreamableDetailViewController.swift in Sources */,
 				E58432751CE9242000FB1E50 /* SignUpViewController.swift in Sources */,
 				E5571B591D66465A00BDA004 /* GTLightTheme.swift in Sources */,
+				E5973AEC1D6E2E3B0000970D /* UIView+RoundedCorners.swift in Sources */,
 				E58432761CE9242000FB1E50 /* StreamableAnnotation.swift in Sources */,
 				E58432771CE9242000FB1E50 /* ActivityGroupCell.swift in Sources */,
 				E5CC52FB1D0EDAFF00425744 /* TransitioningDelegate.swift in Sources */,
@@ -2515,6 +2520,7 @@
 				E52DC7801CE5E37A00375828 /* StreamableDetailViewController.swift in Sources */,
 				E5B6B5DF1CC56F5800DC8EFC /* SignUpViewController.swift in Sources */,
 				E5571B581D66465A00BDA004 /* GTLightTheme.swift in Sources */,
+				E5973AEB1D6E2E3B0000970D /* UIView+RoundedCorners.swift in Sources */,
 				E51006DF1CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */,
 				E51006CE1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,
 				E5CC52FA1D0EDAFF00425744 /* TransitioningDelegate.swift in Sources */,

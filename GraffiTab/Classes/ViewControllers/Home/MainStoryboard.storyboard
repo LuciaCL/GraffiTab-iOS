@@ -162,6 +162,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KO7-44-H4u">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="800" id="VMu-DE-Aaa">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="580"/>
+                                    </constraint>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NotificationFollowCell" rowHeight="51" id="IWx-lf-aUF" customClass="NotificationFollowCell" customModule="GraffiTab" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="51"/>
@@ -669,6 +674,16 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="VMu-DE-Aaa"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="VMu-DE-Aaa"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="4QK-Wy-1X6" id="pRJ-ix-qGC"/>
                                     <outlet property="delegate" destination="4QK-Wy-1X6" id="2Xm-v3-vRl"/>
@@ -678,9 +693,24 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="KO7-44-H4u" secondAttribute="trailing" id="4hd-5E-3k4"/>
                             <constraint firstItem="KO7-44-H4u" firstAttribute="leading" secondItem="xd9-X0-T4P" secondAttribute="leading" id="GSS-pX-aWa"/>
-                            <constraint firstItem="KO7-44-H4u" firstAttribute="top" secondItem="xd9-X0-T4P" secondAttribute="top" id="RQe-Ey-Xim"/>
+                            <constraint firstItem="KO7-44-H4u" firstAttribute="top" secondItem="xd9-X0-T4P" secondAttribute="top" id="RQe-Ey-Xim">
+                                <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                            </constraint>
                             <constraint firstItem="pAF-f4-FKr" firstAttribute="top" secondItem="KO7-44-H4u" secondAttribute="bottom" id="WGS-FI-YwD"/>
+                            <constraint firstItem="KO7-44-H4u" firstAttribute="centerX" secondItem="xd9-X0-T4P" secondAttribute="centerX" id="kaz-6L-0wZ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="kaz-6L-0wZ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="4hd-5E-3k4"/>
+                                <exclude reference="GSS-pX-aWa"/>
+                                <include reference="kaz-6L-0wZ"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="KO7-44-H4u" id="Cb3-Y0-C2y"/>
@@ -1770,6 +1800,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6dI-fR-41g">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="800" id="kQH-xR-ouC">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="580"/>
+                                    </constraint>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActivitySingleCommentCell" rowHeight="157" id="f3B-Ha-kd1" customClass="ActivitySingleCommentCell" customModule="GraffiTab" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="157"/>
@@ -2589,6 +2624,16 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="kQH-xR-ouC"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="kQH-xR-ouC"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="4e6-fQ-RH1" id="jdQ-9O-JJD"/>
                                     <outlet property="delegate" destination="4e6-fQ-RH1" id="CJu-lh-rS5"/>
@@ -2596,11 +2641,26 @@
                             </tableView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="6dI-fR-41g" firstAttribute="top" secondItem="nSg-sf-57w" secondAttribute="top" id="7L0-Vi-FMG"/>
+                            <constraint firstItem="6dI-fR-41g" firstAttribute="centerX" secondItem="nSg-sf-57w" secondAttribute="centerX" id="32G-aS-cKt"/>
+                            <constraint firstItem="6dI-fR-41g" firstAttribute="top" secondItem="nSg-sf-57w" secondAttribute="top" id="7L0-Vi-FMG">
+                                <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                            </constraint>
                             <constraint firstItem="6dI-fR-41g" firstAttribute="leading" secondItem="nSg-sf-57w" secondAttribute="leading" id="FnV-MN-KHu"/>
                             <constraint firstAttribute="trailing" secondItem="6dI-fR-41g" secondAttribute="trailing" id="q6b-zw-Uqi"/>
                             <constraint firstItem="pJR-is-eio" firstAttribute="top" secondItem="6dI-fR-41g" secondAttribute="bottom" id="yDc-Xb-qdQ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="32G-aS-cKt"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="32G-aS-cKt"/>
+                                <exclude reference="FnV-MN-KHu"/>
+                                <exclude reference="q6b-zw-Uqi"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="6dI-fR-41g" id="LBT-kr-Wwd"/>
