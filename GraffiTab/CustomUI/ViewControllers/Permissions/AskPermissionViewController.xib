@@ -28,7 +28,9 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="permission_notifications.png" translatesAutoresizingMaskIntoConstraints="NO" id="OkB-AG-rLo">
                     <rect key="frame" x="15" y="65" width="570" height="130"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="130" id="MLw-eF-kvq"/>
+                        <constraint firstAttribute="height" constant="130" id="MLw-eF-kvq">
+                            <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                        </constraint>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utv-wF-ybv">
@@ -70,11 +72,17 @@
                 <constraint firstItem="eFA-AJ-kdh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="9dc-tT-Zks"/>
                 <constraint firstAttribute="trailing" secondItem="utv-wF-ybv" secondAttribute="trailing" constant="15" id="9wR-t5-pml"/>
                 <constraint firstItem="OkB-AG-rLo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="CDw-LS-oPz"/>
-                <constraint firstItem="OkB-AG-rLo" firstAttribute="top" secondItem="HUp-K8-hXr" secondAttribute="bottom" constant="20" id="ChD-BF-epe"/>
+                <constraint firstItem="OkB-AG-rLo" firstAttribute="top" secondItem="HUp-K8-hXr" secondAttribute="bottom" constant="20" id="ChD-BF-epe">
+                    <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                </constraint>
                 <constraint firstAttribute="trailing" secondItem="eFA-AJ-kdh" secondAttribute="trailing" constant="15" id="Cje-GQ-Y9Y"/>
                 <constraint firstItem="Y52-eE-8LP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="HWj-hy-sef"/>
-                <constraint firstItem="eFA-AJ-kdh" firstAttribute="top" secondItem="OkB-AG-rLo" secondAttribute="bottom" constant="10" id="N07-y8-LOW"/>
-                <constraint firstItem="Y52-eE-8LP" firstAttribute="top" secondItem="eFA-AJ-kdh" secondAttribute="bottom" constant="20" id="NBZ-Jo-AVy"/>
+                <constraint firstItem="eFA-AJ-kdh" firstAttribute="top" secondItem="OkB-AG-rLo" secondAttribute="bottom" constant="10" id="N07-y8-LOW">
+                    <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                </constraint>
+                <constraint firstItem="Y52-eE-8LP" firstAttribute="top" secondItem="eFA-AJ-kdh" secondAttribute="bottom" constant="20" id="NBZ-Jo-AVy">
+                    <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                </constraint>
                 <constraint firstItem="utv-wF-ybv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="NRm-KF-FBn"/>
                 <constraint firstItem="utv-wF-ybv" firstAttribute="top" secondItem="Y52-eE-8LP" secondAttribute="bottom" constant="10" id="Ngc-1D-Bwe"/>
                 <constraint firstItem="HUp-K8-hXr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="V5w-4M-TdK"/>

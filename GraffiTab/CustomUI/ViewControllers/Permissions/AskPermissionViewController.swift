@@ -39,7 +39,12 @@ class AskPermissionViewController: UIViewController {
         }
         
         let formSheetController = MZFormSheetPresentationViewController(contentViewController: vc)
-        formSheetController.presentationController?.contentViewSize = CGSizeMake(300, 450)
+        if DeviceType.IS_IPAD {
+            formSheetController.presentationController?.contentViewSize = CGSizeMake(350, 500)
+        }
+        else {
+            formSheetController.presentationController?.contentViewSize = CGSizeMake(300, 450)
+        }
         formSheetController.contentViewControllerTransitionStyle = .SlideFromBottom
         
         controller.presentViewController(formSheetController, animated: true, completion: nil)
