@@ -734,7 +734,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ffM-Pr-MN0">
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="i9U-gu-xxe">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i9U-gu-xxe">
                             <connections>
                                 <action selector="onClickCancel:" destination="JDr-RB-R7R" id="GEv-q8-71e"/>
                             </connections>

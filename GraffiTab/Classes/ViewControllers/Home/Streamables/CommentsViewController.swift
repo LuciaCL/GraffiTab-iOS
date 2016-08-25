@@ -461,10 +461,22 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     func didTapHashtag(hashtag: String) {
         self.view.endEditing(true)
         
-        let nav = self.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as? UINavigationController
-        let vc = nav?.viewControllers.first as? SearchViewController
-        vc?.searchedHashtag = hashtag
-        self.presentViewController(nav!, animated: true, completion: nil)
+        let completionBlock = {(controller: UIViewController) in
+            let nav = self.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as? UINavigationController
+            let vc = nav?.viewControllers.first as? SearchViewController
+            vc?.searchedHashtag = hashtag
+            controller.presentViewController(nav!, animated: true, completion: nil)
+        }
+        
+        if DeviceType.IS_IPAD {
+            weak var vc = self.presentingViewController
+            self.dismissViewControllerAnimated(true, completion: {
+                completionBlock(vc!)
+            })
+        }
+        else {
+            completionBlock(self)
+        }
     }
     
     func didTapUsername(username: String) {
@@ -476,7 +488,15 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         GTUserManager.getUserProfileByUsername(username, successBlock: { (response) in
             self.view.hideActivityView()
             
-            ViewControllerUtils.showUserProfile(response.object as! GTUser, viewController: self)
+            if DeviceType.IS_IPAD {
+                weak var vc = self.presentingViewController
+                self.dismissViewControllerAnimated(true, completion: {
+                    ViewControllerUtils.showUserProfile(response.object as! GTUser, viewController: vc!)
+                })
+            }
+            else {
+                ViewControllerUtils.showUserProfile(response.object as! GTUser, viewController: self)
+            }
         }) { (response) in
             self.view.hideActivityView()
             
@@ -506,7 +526,15 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     func didTapAvatar(user: GTUser) {
         self.view.endEditing(true)
         
-        ViewControllerUtils.showUserProfile(user, viewController: self)
+        if DeviceType.IS_IPAD {
+            weak var vc = self.presentingViewController
+            self.dismissViewControllerAnimated(true, completion: { 
+                ViewControllerUtils.showUserProfile(user, viewController: vc!)
+            })
+        }
+        else {
+            ViewControllerUtils.showUserProfile(user, viewController: self)
+        }
     }
     
     // MARK: - Setup

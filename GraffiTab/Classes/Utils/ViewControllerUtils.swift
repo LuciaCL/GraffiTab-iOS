@@ -8,6 +8,7 @@
 
 import UIKit
 import GraffiTab_iOS_SDK
+import MZFormSheetPresentationController
 
 class ViewControllerUtils: NSObject {
 
@@ -28,12 +29,26 @@ class ViewControllerUtils: NSObject {
         let vc = UIStoryboard(name: "MainStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CommentsViewController") as! CommentsViewController
         vc.streamable = streamable
         
-        if viewController.navigationController != nil {
-            viewController.navigationController?.pushViewController(vc, animated: true)
+        if DeviceType.IS_IPAD {
+            MZFormSheetPresentationController.appearance().shouldApplyBackgroundBlurEffect = !DeviceType.IS_IPAD
+            MZFormSheetPresentationController.appearance().shouldCenterHorizontally = true
+            MZFormSheetPresentationController.appearance().shouldCenterVertically = true
+            MZFormSheetPresentationController.appearance().shouldDismissOnBackgroundViewTap = true
+            
+            let formSheetController = MZFormSheetPresentationViewController(contentViewController: UINavigationController(rootViewController: vc))
+            formSheetController.presentationController?.contentViewSize = CGSizeMake(550, 600)
+            formSheetController.contentViewControllerTransitionStyle = .SlideFromBottom
+            
+            viewController.presentViewController(formSheetController, animated: true, completion: nil)
         }
         else {
-            let nav = UINavigationController(rootViewController: vc)
-            viewController.presentViewController(nav, animated: true, completion: nil)
+            if viewController.navigationController != nil {
+                viewController.navigationController?.pushViewController(vc, animated: true)
+            }
+            else {
+                let nav = UINavigationController(rootViewController: vc)
+                viewController.presentViewController(nav, animated: true, completion: nil)
+            }
         }
     }
     
