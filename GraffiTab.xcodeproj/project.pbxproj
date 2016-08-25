@@ -222,7 +222,6 @@
 		E584327F1CE9242000FB1E50 /* ActivityGroupFollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006C71CBC199B00AC66A5 /* ActivityGroupFollowCell.swift */; };
 		E58432801CE9242000FB1E50 /* SearchStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5831CC56F5800DC8EFC /* SearchStreamablesViewController.swift */; };
 		E58432811CE9242000FB1E50 /* ToggleStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7641CE5DD2E00375828 /* ToggleStreamablesViewController.swift */; };
-		E58432821CE9242000FB1E50 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5891CC56F5800DC8EFC /* FeedbackViewController.swift */; };
 		E58432831CE9242000FB1E50 /* LineDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B63B1CC6C40C00DC8EFC /* LineDrawer.m */; };
 		E58432841CE9242000FB1E50 /* StreamableTrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006691CB7DEB100AC66A5 /* StreamableTrendingCell.swift */; };
 		E58432851CE9242000FB1E50 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBE91CB2C31B00BB3D27 /* Constants.swift */; };
@@ -352,7 +351,6 @@
 		E5B6B5BD1CC56F5800DC8EFC /* SearchStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5831CC56F5800DC8EFC /* SearchStreamablesViewController.swift */; };
 		E5B6B5BF1CC56F5800DC8EFC /* SearchUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5841CC56F5800DC8EFC /* SearchUsersViewController.swift */; };
 		E5B6B5C11CC56F5800DC8EFC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5851CC56F5800DC8EFC /* SearchViewController.swift */; };
-		E5B6B5C51CC56F5800DC8EFC /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5891CC56F5800DC8EFC /* FeedbackViewController.swift */; };
 		E5B6B5C71CC56F5800DC8EFC /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B58A1CC56F5800DC8EFC /* GeneralSettingsViewController.swift */; };
 		E5B6B5C91CC56F5800DC8EFC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B58B1CC56F5800DC8EFC /* SettingsViewController.swift */; };
 		E5B6B5CF1CC56F5800DC8EFC /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5911CC56F5800DC8EFC /* ExploreViewController.swift */; };
@@ -698,7 +696,6 @@
 		E5B6B5831CC56F5800DC8EFC /* SearchStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStreamablesViewController.swift; sourceTree = "<group>"; };
 		E5B6B5841CC56F5800DC8EFC /* SearchUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUsersViewController.swift; sourceTree = "<group>"; };
 		E5B6B5851CC56F5800DC8EFC /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		E5B6B5891CC56F5800DC8EFC /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		E5B6B58A1CC56F5800DC8EFC /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
 		E5B6B58B1CC56F5800DC8EFC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E5B6B5911CC56F5800DC8EFC /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
@@ -1377,7 +1374,6 @@
 			children = (
 				E59BC30C1D17502C009781BA /* Social */,
 				E52DC76D1CE5E05600375828 /* AboutViewController.swift */,
-				E5B6B5891CC56F5800DC8EFC /* FeedbackViewController.swift */,
 				E5B6B58A1CC56F5800DC8EFC /* GeneralSettingsViewController.swift */,
 				E5B6B58B1CC56F5800DC8EFC /* SettingsViewController.swift */,
 				E5F46CAD1D5B831D00F52256 /* LanguageViewController.swift */,
@@ -2357,7 +2353,6 @@
 				E584327F1CE9242000FB1E50 /* ActivityGroupFollowCell.swift in Sources */,
 				E58432801CE9242000FB1E50 /* SearchStreamablesViewController.swift in Sources */,
 				E58432811CE9242000FB1E50 /* ToggleStreamablesViewController.swift in Sources */,
-				E58432821CE9242000FB1E50 /* FeedbackViewController.swift in Sources */,
 				E5494E5F1D1A1D30004F31A7 /* ViewController+ActionSheet.swift in Sources */,
 				E58432831CE9242000FB1E50 /* LineDrawer.m in Sources */,
 				E58432841CE9242000FB1E50 /* StreamableTrendingCell.swift in Sources */,
@@ -2532,7 +2527,6 @@
 				E51006C81CBC199B00AC66A5 /* ActivityGroupFollowCell.swift in Sources */,
 				E5B6B5BD1CC56F5800DC8EFC /* SearchStreamablesViewController.swift in Sources */,
 				E52DC7651CE5DD2E00375828 /* ToggleStreamablesViewController.swift in Sources */,
-				E5B6B5C51CC56F5800DC8EFC /* FeedbackViewController.swift in Sources */,
 				E5494E5E1D1A1D30004F31A7 /* ViewController+ActionSheet.swift in Sources */,
 				E5B6B63F1CC6C40C00DC8EFC /* LineDrawer.m in Sources */,
 				E510066B1CB7DEB100AC66A5 /* StreamableTrendingCell.swift in Sources */,
