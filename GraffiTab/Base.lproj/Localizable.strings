@@ -358,6 +358,8 @@
 "controller_menu_search" = "Search";
 "controller_menu_settings" = "Settings";
 
+"controller_search_placeholder" = "Search GraffiTab";
+
 "controller_search_people" = "People";
 "controller_search_graffiti" = "Graffiti";
 

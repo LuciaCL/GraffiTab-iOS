@@ -20,6 +20,8 @@ class GTDarkTheme: GTTheme {
         self.navigationBarProfileElementsColor = self.navigationBarElementsColor
         self.navigationBarProfileElementsWithNavigationBarColor = self.navigationBarProfileElementsWithNavigationBarColor
         
+        self.searchBarTextViewBackgroundColor = UIColor.whiteColor()
+        
         // Status bar.
         self.defaultStatusBarStyle = UIStatusBarStyle.LightContent
         self.loginStatusBarStyle = UIStatusBarStyle.LightContent

@@ -29,6 +29,8 @@ class GTTheme: NSObject {
     var navigationBarProfileElementsWithNavigationBarColor: UIColor?
     var navigationBarLoadingIndicatorStyle: UIActivityIndicatorViewStyle?
     
+    var searchBarTextViewBackgroundColor: UIColor?
+    
     var defaultStatusBarStyle: UIStatusBarStyle?
     var avatarPromptStatusBarStyle: UIStatusBarStyle?
     var loginStatusBarStyle: UIStatusBarStyle?

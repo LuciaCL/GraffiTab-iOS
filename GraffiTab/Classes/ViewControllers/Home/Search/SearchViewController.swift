@@ -10,6 +10,13 @@ import UIKit
 import CarbonKit
 import CocoaLumberjack
 
+extension UISearchBar {
+    
+    func setTextViewColor(color: UIColor) {
+        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).backgroundColor = color
+    }
+}
+
 class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDelegate, UISearchBarDelegate {
 
     @IBOutlet var searchBar: UISearchBar!
@@ -116,7 +123,18 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
     override func setupTopBar() {
         super.setupTopBar()
         
-        self.navigationItem.titleView = searchBar
+        if DeviceType.IS_IPAD {
+            let container = UIView()
+            container.frame = CGRectMake(0, 0, 400, 44)
+            searchBar.frame = container.bounds
+            searchBar.backgroundImage = UIImage()
+            searchBar.backgroundColor = UIColor.clearColor()
+            container.addSubview(searchBar)
+            self.navigationItem.titleView = container
+        }
+        else {
+            self.navigationItem.titleView = searchBar
+        }
         
         self.removeNavigationBarBackground()
     }
@@ -146,6 +164,7 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
     }
     
     func setupSearchBar() {
-        searchBar.placeholder = NSLocalizedString("controller_menu_search", comment: "")
+        searchBar.placeholder = NSLocalizedString("controller_search_placeholder", comment: "")
+        searchBar.setTextViewColor(AppConfig.sharedInstance.theme!.searchBarTextViewBackgroundColor!)
     }
 }

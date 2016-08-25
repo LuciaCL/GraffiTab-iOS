@@ -358,6 +358,8 @@
 "controller_menu_search" = "Търсене";
 "controller_menu_settings" = "Настройки";
 
+"controller_search_placeholder" = "Търси в GraffiTab";
+
 "controller_search_people" = "Потребители";
 "controller_search_graffiti" = "Рисунки";
 

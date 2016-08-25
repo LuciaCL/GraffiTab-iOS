@@ -10,14 +10,14 @@ import UIKit
 
 extension UIViewController {
 
-    func removeNavigationBarBackground() {
+    func removeNavigationBarBackground(color: UIColor? = AppConfig.sharedInstance.theme?.navigationBarBackgroundColor) {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         var bounds = self.navigationController!.navigationBar.bounds
         bounds.size.height = bounds.size.height + 20
         bounds.origin.y = bounds.origin.y - 20
         let background = UIView()
         background.userInteractionEnabled = false
-        background.backgroundColor = UIColor.whiteColor()
+        background.backgroundColor = color
         background.frame = bounds
         background.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.navigationController!.navigationBar.addSubview(background)
