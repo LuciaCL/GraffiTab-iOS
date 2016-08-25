@@ -21,12 +21,14 @@ class SettingsViewController: GeneralSettingsViewController {
     @IBOutlet weak var changePasswordLbl: UILabel!
     @IBOutlet weak var likedPostsLbl: UILabel!
     @IBOutlet weak var rememberMeLbl: UILabel!
+    @IBOutlet weak var rememberMeXConstraint: NSLayoutConstraint!
     @IBOutlet weak var findFacebookFriendsLbl: UILabel!
     @IBOutlet weak var inviteFacebookFriendsLbl: UILabel!
     @IBOutlet weak var followersActivityLbl: UILabel!
     @IBOutlet weak var linkedAccountsLbl: UILabel!
     @IBOutlet weak var appCacheLbl: UILabel!
     @IBOutlet weak var drawingAssistantLbl: UILabel!
+    @IBOutlet weak var drawingAssistantXConstraint: NSLayoutConstraint!
     @IBOutlet weak var helpCenter: UILabel!
     @IBOutlet weak var reportProblemLbl: UILabel!
     @IBOutlet weak var termsLbl: UILabel!
@@ -217,6 +219,9 @@ class SettingsViewController: GeneralSettingsViewController {
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        rememberMeXConstraint.constant = cell.separatorInset.left
+        drawingAssistantXConstraint.constant = cell.separatorInset.left
+        
         if indexPath.section == 1 && indexPath.row == 1 { // Disable Facebook invites for now.
             cell.hidden = true
         }

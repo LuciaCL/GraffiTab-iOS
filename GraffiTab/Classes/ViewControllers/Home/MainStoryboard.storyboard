@@ -1605,6 +1605,7 @@
                         <outlet property="appCacheLbl" destination="vEK-ac-ifZ" id="FgU-cw-DKU"/>
                         <outlet property="changePasswordLbl" destination="ote-xl-xIh" id="xQe-qP-dvL"/>
                         <outlet property="drawingAssistantLbl" destination="VtC-Ck-DUI" id="AQv-9G-oZc"/>
+                        <outlet property="drawingAssistantXConstraint" destination="wjm-Df-llY" id="6lw-02-6k0"/>
                         <outlet property="editProfileLbl" destination="9Lu-47-bSu" id="XAK-SA-7Zo"/>
                         <outlet property="eulaLbl" destination="D4X-dc-St8" id="HTy-AY-nao"/>
                         <outlet property="findFacebookFriendsLbl" destination="k80-or-WhQ" id="Nzf-7k-ETf"/>
@@ -1619,6 +1620,7 @@
                         <outlet property="logoutLbl" destination="siK-Nt-FUZ" id="DQT-Ce-UNV"/>
                         <outlet property="rememberCredentialsSwitch" destination="RoE-i2-mTG" id="s8P-yK-Jpg"/>
                         <outlet property="rememberMeLbl" destination="SY8-jx-C1q" id="xcP-7g-YhS"/>
+                        <outlet property="rememberMeXConstraint" destination="Swz-Qu-2H1" id="zIB-gm-I38"/>
                         <outlet property="reportProblemLbl" destination="bh2-ph-LBL" id="zVg-cN-E1G"/>
                         <outlet property="showDrawingAssistantSwitch" destination="U9d-Lo-ZJg" id="GKT-0k-BE3"/>
                         <outlet property="termsLbl" destination="5Jm-mn-Uxc" id="4qQ-qp-hJt"/>

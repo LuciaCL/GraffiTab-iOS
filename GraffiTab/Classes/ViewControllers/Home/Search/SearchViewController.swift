@@ -42,6 +42,7 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
         AnalyticsUtils.sendScreenEvent(self)
         
         UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.defaultStatusBarStyle!, animated: true)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         
         if self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -50,6 +51,14 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
         Utils.runWithDelay(0.05) {
             self.carbonTabSwipeNavigation!.carbonTabSwipeScrollView.setNeedsLayout()
             self.carbonTabSwipeNavigation!.carbonTabSwipeScrollView.layoutIfNeeded()
+        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        Utils.runWithDelay(0.1) {
+            self.navigationController?.navigationBar.shadowImage = UIImage(named: "border")
         }
     }
     
@@ -108,6 +117,8 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
         super.setupTopBar()
         
         self.navigationItem.titleView = searchBar
+        
+        self.removeNavigationBarBackground()
     }
     
     func setupCarbonKit() {

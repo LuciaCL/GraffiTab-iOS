@@ -43,13 +43,14 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         configureTabBasedViews(0)
         checkOnboardingSequence()
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
         
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.defaultStatusBarStyle!, animated: true)
         
         if self.navigationController!.navigationBarHidden {
@@ -62,6 +63,14 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         }
         
         loadUnseenNotificationsCount()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        Utils.runWithDelay(0.1) {
+            self.navigationController?.navigationBar.shadowImage = UIImage(named: "border")
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -277,6 +286,8 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         menuBtn.tintColor = UINavigationBar.appearance().tintColor
         menuBtn.addTarget(self, action: #selector(HomeViewController.onClickMenu(_:)), forControlEvents: .TouchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuBtn)
+        
+        self.removeNavigationBarBackground()
     }
     
     func setupCarbonKit() {
