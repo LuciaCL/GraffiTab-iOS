@@ -261,6 +261,9 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
         streamablesLbl.text = NSLocalizedString("view_profile_header_graffiti", comment: "")
         followersLbl.text = NSLocalizedString("view_profile_header_followers", comment: "")
         followingLbl.text = NSLocalizedString("view_profile_header_following", comment: "")
+        
+        nameField.font = nameField.font.fontWithSize(DeviceType.IS_IPAD ? 24 : 17)
+        usernameField.font = usernameField.font.fontWithSize(DeviceType.IS_IPAD ? 16 : 13)
     }
     
     func setupButtons() {

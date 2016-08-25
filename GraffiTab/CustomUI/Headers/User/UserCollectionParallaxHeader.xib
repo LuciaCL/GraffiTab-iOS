@@ -32,8 +32,12 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="85" id="FTl-Zz-3xj"/>
-                        <constraint firstAttribute="width" constant="85" id="qFU-wK-ZyN"/>
+                        <constraint firstAttribute="height" constant="85" id="FTl-Zz-3xj">
+                            <variation key="heightClass=regular-widthClass=regular" constant="140"/>
+                        </constraint>
+                        <constraint firstAttribute="width" constant="85" id="qFU-wK-ZyN">
+                            <variation key="heightClass=regular-widthClass=regular" constant="140"/>
+                        </constraint>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ELD-7B-L4g">
@@ -176,18 +180,12 @@
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Georgi Christov" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aws-tH-8Uf">
                     <rect key="frame" x="106" y="250" width="206" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="c5A-aM-ihE"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@georgi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNj-Z6-Q72">
-                    <rect key="frame" x="106" y="269" width="206" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="qQV-9t-xWR"/>
-                    </constraints>
+                    <rect key="frame" x="106" y="271" width="206" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -202,7 +200,9 @@
                 <constraint firstItem="Is1-Yv-M3o" firstAttribute="top" secondItem="PRj-KU-hYu" secondAttribute="bottom" constant="15" id="1dj-YS-EF0"/>
                 <constraint firstItem="c3A-xk-wFQ" firstAttribute="leading" secondItem="G3b-uK-KwE" secondAttribute="leading" constant="8" id="2h1-pM-Mi7"/>
                 <constraint firstItem="okP-nb-cud" firstAttribute="top" secondItem="cHD-2m-SRQ" secondAttribute="top" id="2iX-sE-Eoc"/>
-                <constraint firstItem="cNj-Z6-Q72" firstAttribute="top" secondItem="Aws-tH-8Uf" secondAttribute="bottom" constant="-2" id="611-pP-xMh"/>
+                <constraint firstItem="cNj-Z6-Q72" firstAttribute="top" secondItem="Aws-tH-8Uf" secondAttribute="bottom" id="611-pP-xMh">
+                    <variation key="heightClass=regular-widthClass=regular" constant="2"/>
+                </constraint>
                 <constraint firstItem="uZV-lI-9M2" firstAttribute="top" secondItem="13V-J2-V75" secondAttribute="bottom" constant="-4" id="6qz-oI-rzF"/>
                 <constraint firstItem="WjZ-x2-Db2" firstAttribute="top" secondItem="CHo-00-0LE" secondAttribute="bottom" constant="-4" id="8iS-NG-sq9"/>
                 <constraint firstItem="BOf-4b-tJ8" firstAttribute="centerY" secondItem="ELD-7B-L4g" secondAttribute="centerY" id="961-Xe-AxE"/>
@@ -220,7 +220,9 @@
                 <constraint firstItem="9XN-Ka-cbR" firstAttribute="centerY" secondItem="wow-Bx-2z5" secondAttribute="centerY" id="JgU-0T-hPi"/>
                 <constraint firstItem="sT6-jj-cZ0" firstAttribute="leading" secondItem="G3b-uK-KwE" secondAttribute="leading" constant="8" id="Kkg-Uv-tf1"/>
                 <constraint firstItem="uhh-CJ-ckj" firstAttribute="centerY" secondItem="9XN-Ka-cbR" secondAttribute="centerY" id="NCC-6E-Vtn"/>
-                <constraint firstItem="cNj-Z6-Q72" firstAttribute="leading" secondItem="PRj-KU-hYu" secondAttribute="trailing" constant="8" id="PyG-gD-M1N"/>
+                <constraint firstItem="cNj-Z6-Q72" firstAttribute="leading" secondItem="PRj-KU-hYu" secondAttribute="trailing" constant="8" id="PyG-gD-M1N">
+                    <variation key="heightClass=regular-widthClass=regular" constant="15"/>
+                </constraint>
                 <constraint firstItem="okP-nb-cud" firstAttribute="bottom" secondItem="cHD-2m-SRQ" secondAttribute="bottom" id="Q6d-vt-7Hn"/>
                 <constraint firstItem="Aws-tH-8Uf" firstAttribute="leading" secondItem="cNj-Z6-Q72" secondAttribute="leading" id="QXc-XB-5KD"/>
                 <constraint firstItem="WjZ-x2-Db2" firstAttribute="height" secondItem="uZV-lI-9M2" secondAttribute="height" id="QY9-iT-Z1q"/>
@@ -233,7 +235,9 @@
                 <constraint firstItem="Is1-Yv-M3o" firstAttribute="centerX" secondItem="sT6-jj-cZ0" secondAttribute="centerX" id="UyM-ul-qY0"/>
                 <constraint firstItem="WjZ-x2-Db2" firstAttribute="width" secondItem="uZV-lI-9M2" secondAttribute="width" id="V7G-XF-K65"/>
                 <constraint firstItem="RCF-zV-gyv" firstAttribute="leading" secondItem="9XN-Ka-cbR" secondAttribute="trailing" id="VxU-Xj-32B"/>
-                <constraint firstItem="cNj-Z6-Q72" firstAttribute="top" secondItem="PRj-KU-hYu" secondAttribute="bottom" constant="-23" id="Vyu-0H-PF6"/>
+                <constraint firstItem="cNj-Z6-Q72" firstAttribute="top" secondItem="PRj-KU-hYu" secondAttribute="bottom" constant="-21" id="Vyu-0H-PF6">
+                    <variation key="heightClass=regular-widthClass=regular" constant="-35"/>
+                </constraint>
                 <constraint firstItem="uhh-CJ-ckj" firstAttribute="height" secondItem="vXK-th-Xin" secondAttribute="height" id="WeG-KR-cpt"/>
                 <constraint firstItem="vXK-th-Xin" firstAttribute="centerY" secondItem="wow-Bx-2z5" secondAttribute="centerY" id="Ylu-DW-fDu"/>
                 <constraint firstItem="9XN-Ka-cbR" firstAttribute="height" secondItem="wow-Bx-2z5" secondAttribute="height" id="auE-tk-Lmm"/>
@@ -243,14 +247,18 @@
                 <constraint firstItem="wow-Bx-2z5" firstAttribute="centerY" secondItem="c3A-xk-wFQ" secondAttribute="centerY" id="dOd-Ut-oaq"/>
                 <constraint firstAttribute="trailing" secondItem="hZp-I2-U95" secondAttribute="trailing" constant="13" id="dYX-Ry-emt"/>
                 <constraint firstItem="cHD-2m-SRQ" firstAttribute="leading" secondItem="G3b-uK-KwE" secondAttribute="leading" id="dvJ-7Y-N0u"/>
-                <constraint firstAttribute="bottom" secondItem="cHD-2m-SRQ" secondAttribute="bottom" constant="162" id="e3u-8X-9Eq"/>
+                <constraint firstAttribute="bottom" secondItem="cHD-2m-SRQ" secondAttribute="bottom" constant="162" id="e3u-8X-9Eq">
+                    <variation key="heightClass=regular-widthClass=regular" constant="190"/>
+                </constraint>
                 <constraint firstItem="WjZ-x2-Db2" firstAttribute="centerY" secondItem="uZV-lI-9M2" secondAttribute="centerY" id="gdC-sW-yOT"/>
                 <constraint firstItem="uZV-lI-9M2" firstAttribute="centerY" secondItem="sT6-jj-cZ0" secondAttribute="centerY" id="hg1-WB-ANF"/>
                 <constraint firstItem="vXK-th-Xin" firstAttribute="trailing" secondItem="wow-Bx-2z5" secondAttribute="trailing" id="hqh-Yf-5Sm"/>
                 <constraint firstItem="uZV-lI-9M2" firstAttribute="leading" secondItem="sT6-jj-cZ0" secondAttribute="trailing" id="kbU-Ri-eS9"/>
                 <constraint firstItem="TLB-m2-EyG" firstAttribute="centerY" secondItem="c3A-xk-wFQ" secondAttribute="centerY" id="kbp-YQ-RQQ"/>
                 <constraint firstItem="hZp-I2-U95" firstAttribute="top" secondItem="ELD-7B-L4g" secondAttribute="bottom" constant="12" id="ktK-nV-7uI"/>
-                <constraint firstItem="PRj-KU-hYu" firstAttribute="leading" secondItem="G3b-uK-KwE" secondAttribute="leading" constant="13" id="l4a-1K-acJ"/>
+                <constraint firstItem="PRj-KU-hYu" firstAttribute="leading" secondItem="G3b-uK-KwE" secondAttribute="leading" constant="13" id="l4a-1K-acJ">
+                    <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                </constraint>
                 <constraint firstItem="Aws-tH-8Uf" firstAttribute="width" secondItem="cNj-Z6-Q72" secondAttribute="width" id="mmR-gL-LxW"/>
                 <constraint firstItem="WjZ-x2-Db2" firstAttribute="leading" secondItem="uZV-lI-9M2" secondAttribute="trailing" id="mmT-yu-ChL"/>
                 <constraint firstItem="ELD-7B-L4g" firstAttribute="trailing" secondItem="sT6-jj-cZ0" secondAttribute="trailing" id="msa-gb-Lel"/>

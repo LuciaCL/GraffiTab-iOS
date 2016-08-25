@@ -17,7 +17,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     @IBOutlet weak var followBtn: ProfileFollowButton!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
-    let parallaxHeaderHeight = CGFloat(405)
+    let parallaxHeaderHeight = CGFloat(DeviceType.IS_IPAD ? 480 : 405)
     
     var navigationSeparator: UIView?
     var imageType: ImageType?
@@ -530,6 +530,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         navigationSeparator?.alpha = 0
         navigationSeparator!.backgroundColor = UIColor.lightGrayColor()
         navigationSeparator!.frame = CGRectMake(0, navigationBar.frame.height - 1, navigationBar.frame.width, 1)
+        navigationSeparator?.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin, .FlexibleBottomMargin, .FlexibleWidth]
         navigationBar.addSubview(navigationSeparator!)
     }
     
