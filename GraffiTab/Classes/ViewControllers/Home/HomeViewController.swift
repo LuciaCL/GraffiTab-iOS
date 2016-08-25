@@ -9,7 +9,6 @@
 import UIKit
 import CarbonKit
 import GraffiTab_iOS_SDK
-import JTMaterialTransition
 import CocoaLumberjack
 
 class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDelegate, UIViewControllerTransitioningDelegate {
@@ -18,7 +17,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     
     var notificationsBadge = UIView()
     
-    var transition: JTMaterialTransition?
+    var transition: JTMaterialTransitionWithFinishListener?
     var carbonTabSwipeNavigation: CarbonTabSwipeNavigation?
     var tabs: [AnyObject]?
     var titles: [AnyObject]?
@@ -325,7 +324,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     }
     
     func setupTransition() {
-        transition = JTMaterialTransition(animatedView: createBtn)
+        transition = JTMaterialTransitionWithFinishListener(animatedView: createBtn)
     }
     
     func setupBadgeViews() {

@@ -135,6 +135,8 @@
 		E57716881CE6008600006572 /* ZoomableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E57716871CE6008600006572 /* ZoomableImageView.m */; };
 		E57AB6771D6F64BF002C35D3 /* ViewController+NoNavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57AB6761D6F64BF002C35D3 /* ViewController+NoNavigationBarViewController.swift */; };
 		E57AB6781D6F64BF002C35D3 /* ViewController+NoNavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57AB6761D6F64BF002C35D3 /* ViewController+NoNavigationBarViewController.swift */; };
+		E57AB67F1D6F71D1002C35D3 /* JTMaterialTransitionWithFinishListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57AB67E1D6F71D1002C35D3 /* JTMaterialTransitionWithFinishListener.swift */; };
+		E57AB6801D6F71D1002C35D3 /* JTMaterialTransitionWithFinishListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57AB67E1D6F71D1002C35D3 /* JTMaterialTransitionWithFinishListener.swift */; };
 		E57FAB231CD224B700C0D125 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57FAB221CD224B700C0D125 /* Photos.framework */; };
 		E57FAB261CD4106E00C0D125 /* DrawToolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FAB251CD4106E00C0D125 /* DrawToolCell.swift */; };
 		E58432251CE9242000FB1E50 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5851CC56F5800DC8EFC /* SearchViewController.swift */; };
@@ -645,6 +647,7 @@
 		E57716861CE6008600006572 /* ZoomableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomableImageView.h; sourceTree = "<group>"; };
 		E57716871CE6008600006572 /* ZoomableImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomableImageView.m; sourceTree = "<group>"; };
 		E57AB6761D6F64BF002C35D3 /* ViewController+NoNavigationBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+NoNavigationBarViewController.swift"; sourceTree = "<group>"; };
+		E57AB67E1D6F71D1002C35D3 /* JTMaterialTransitionWithFinishListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTMaterialTransitionWithFinishListener.swift; sourceTree = "<group>"; };
 		E57FAB1A1CD2245500C0D125 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		E57FAB221CD224B700C0D125 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		E57FAB251CD4106E00C0D125 /* DrawToolCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawToolCell.swift; sourceTree = "<group>"; };
@@ -1203,6 +1206,7 @@
 				E5CC52F91D0EDAFF00425744 /* TransitioningDelegate.swift */,
 				E5CC53011D0EDB2600425744 /* PresentationAnimator.swift */,
 				E5CC53041D0EDB7700425744 /* DismissalAnimator.swift */,
+				E57AB67E1D6F71D1002C35D3 /* JTMaterialTransitionWithFinishListener.swift */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -2382,6 +2386,7 @@
 				E5A1D66C1D2310300027E438 /* GTNetworkManager.swift in Sources */,
 				E584328A1CE9242000FB1E50 /* ZoomableImageView.m in Sources */,
 				E584328B1CE9242000FB1E50 /* UIImage+CropRotate.m in Sources */,
+				E57AB6801D6F71D1002C35D3 /* JTMaterialTransitionWithFinishListener.swift in Sources */,
 				E5F40D041D500FF300832D92 /* OnboardingScreenView.swift in Sources */,
 				E584328C1CE9242000FB1E50 /* TrendingStreamablesViewController.swift in Sources */,
 				E584328D1CE9242000FB1E50 /* CommentsViewController.swift in Sources */,
@@ -2558,6 +2563,7 @@
 				E57716881CE6008600006572 /* ZoomableImageView.m in Sources */,
 				E5D085AB1CD8D30000226589 /* UIImage+CropRotate.m in Sources */,
 				E51006361CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
+				E57AB67F1D6F71D1002C35D3 /* JTMaterialTransitionWithFinishListener.swift in Sources */,
 				E5F40D031D500FF300832D92 /* OnboardingScreenView.swift in Sources */,
 				E52DC7741CE5E09900375828 /* CommentsViewController.swift in Sources */,
 				E51006FF1CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */,

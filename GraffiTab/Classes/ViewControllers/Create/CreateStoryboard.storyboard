@@ -288,11 +288,24 @@
                                             <constraint firstItem="rhu-Zf-Sf7" firstAttribute="centerY" secondItem="TvL-dT-yP8" secondAttribute="centerY" id="lsO-aE-rqj"/>
                                             <constraint firstItem="QbB-j2-onO" firstAttribute="top" secondItem="cJs-Hi-oHp" secondAttribute="bottom" constant="10" id="xsW-tD-xjx"/>
                                         </constraints>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <mask key="subviews">
+                                                <exclude reference="QbB-j2-onO"/>
+                                                <exclude reference="cJs-Hi-oHp"/>
+                                                <exclude reference="XXN-ro-q5M"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Rrk-r8-yd7" firstAttribute="leading" secondItem="2Hl-Br-rIP" secondAttribute="trailing" id="AHd-EG-7Os"/>
+                                    <constraint firstItem="TvL-dT-yP8" firstAttribute="leading" secondItem="2Hl-Br-rIP" secondAttribute="trailing" constant="-55" id="AZS-pE-ZIH">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
+                                    </constraint>
+                                    <constraint firstItem="TvL-dT-yP8" firstAttribute="top" secondItem="Rrk-r8-yd7" secondAttribute="bottom" constant="-55" id="D95-ll-cZO">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
+                                    </constraint>
                                     <constraint firstItem="Rrk-r8-yd7" firstAttribute="top" secondItem="fMz-pD-gGX" secondAttribute="top" id="KUd-d8-bKl"/>
                                     <constraint firstItem="2Hl-Br-rIP" firstAttribute="leading" secondItem="fMz-pD-gGX" secondAttribute="leading" id="Mqd-gI-f6m"/>
                                     <constraint firstItem="QbB-j2-onO" firstAttribute="centerY" secondItem="MBZ-v0-gRR" secondAttribute="centerY" constant="-8" id="SEw-WR-gQB"/>
@@ -305,6 +318,20 @@
                                     <constraint firstItem="2Hl-Br-rIP" firstAttribute="top" secondItem="fMz-pD-gGX" secondAttribute="top" id="jcr-wU-hia"/>
                                     <constraint firstAttribute="bottom" secondItem="2Hl-Br-rIP" secondAttribute="bottom" id="vge-fO-bb9"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="AZS-pE-ZIH"/>
+                                        <exclude reference="D95-ll-cZO"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="AZS-pE-ZIH"/>
+                                        <include reference="D95-ll-cZO"/>
+                                        <exclude reference="Yea-3Q-DTf"/>
+                                        <exclude reference="bnB-ib-jgD"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oKo-4x-Uqe">
                                 <rect key="frame" x="600" y="0.0" width="240" height="600"/>
