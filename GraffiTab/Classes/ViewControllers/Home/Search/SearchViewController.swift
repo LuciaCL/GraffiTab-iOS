@@ -41,6 +41,8 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
         
+        UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.defaultStatusBarStyle!, animated: true)
+        
         if self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(false, animated: true)
         }
