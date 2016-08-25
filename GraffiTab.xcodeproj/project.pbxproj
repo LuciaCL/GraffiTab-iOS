@@ -298,8 +298,6 @@
 		E5973AEC1D6E2E3B0000970D /* UIView+RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5973AEA1D6E2E3B0000970D /* UIView+RoundedCorners.swift */; };
 		E59BC2F31D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */; };
 		E59BC2F41D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */; };
-		E59BC2F61D12B225009781BA /* MostActiveUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F51D12B225009781BA /* MostActiveUsersViewController.swift */; };
-		E59BC2F71D12B225009781BA /* MostActiveUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F51D12B225009781BA /* MostActiveUsersViewController.swift */; };
 		E59BC2FB1D12B423009781BA /* UserTrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F91D12B423009781BA /* UserTrendingCell.swift */; };
 		E59BC2FC1D12B423009781BA /* UserTrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F91D12B423009781BA /* UserTrendingCell.swift */; };
 		E59BC2FD1D12B423009781BA /* UserTrendingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59BC2FA1D12B423009781BA /* UserTrendingCell.xib */; };
@@ -657,7 +655,6 @@
 		E5973AE51D6C50890000970D /* placeholder_ipad_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_ipad_portrait.png; sourceTree = "<group>"; };
 		E5973AEA1D6E2E3B0000970D /* UIView+RoundedCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+RoundedCorners.swift"; sourceTree = "<group>"; };
 		E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwimLaneStreamablesViewController.swift; sourceTree = "<group>"; };
-		E59BC2F51D12B225009781BA /* MostActiveUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MostActiveUsersViewController.swift; sourceTree = "<group>"; };
 		E59BC2F91D12B423009781BA /* UserTrendingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrendingCell.swift; sourceTree = "<group>"; };
 		E59BC2FA1D12B423009781BA /* UserTrendingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTrendingCell.xib; sourceTree = "<group>"; };
 		E59BC2FF1D12B4EF009781BA /* TrendingUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingUsersViewController.swift; sourceTree = "<group>"; };
@@ -1420,7 +1417,6 @@
 				E52DC75B1CE55FA900375828 /* FollowingViewController.swift */,
 				E52DC75E1CE56B7D00375828 /* UserStreamablesViewController.swift */,
 				E52DC7611CE5DA2A00375828 /* UserLikedStreamablesViewController.swift */,
-				E59BC2F51D12B225009781BA /* MostActiveUsersViewController.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -2376,7 +2372,6 @@
 				E5F40D041D500FF300832D92 /* OnboardingScreenView.swift in Sources */,
 				E584328C1CE9242000FB1E50 /* TrendingStreamablesViewController.swift in Sources */,
 				E584328D1CE9242000FB1E50 /* CommentsViewController.swift in Sources */,
-				E59BC2F71D12B225009781BA /* MostActiveUsersViewController.swift in Sources */,
 				E584328E1CE9242000FB1E50 /* ListUsersViewController.swift in Sources */,
 				E584328F1CE9242000FB1E50 /* MyNotificationsViewController.swift in Sources */,
 				E58432911CE9242000FB1E50 /* TOCropView.m in Sources */,
@@ -2551,7 +2546,6 @@
 				E51006361CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
 				E5F40D031D500FF300832D92 /* OnboardingScreenView.swift in Sources */,
 				E52DC7741CE5E09900375828 /* CommentsViewController.swift in Sources */,
-				E59BC2F61D12B225009781BA /* MostActiveUsersViewController.swift in Sources */,
 				E51006FF1CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */,
 				E5B6B5B71CC56F5800DC8EFC /* MyNotificationsViewController.swift in Sources */,
 				E5D085B01CD8D30000226589 /* TOCropView.m in Sources */,

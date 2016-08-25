@@ -105,7 +105,7 @@ class UserTrendingCell: UserCell, UICollectionViewDelegate, UICollectionViewData
     }
     
     func getNumCols() -> Int {
-        return 3
+        return DeviceType.IS_IPAD ? 4 : 3
     }
     
     func getPadding(spacing: CGFloat) -> CGFloat {

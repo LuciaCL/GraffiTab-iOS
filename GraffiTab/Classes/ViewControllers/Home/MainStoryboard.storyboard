@@ -3478,7 +3478,9 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Lnk-Za-vMe" secondAttribute="trailing" id="40W-kK-s9k"/>
-                            <constraint firstItem="Lnk-Za-vMe" firstAttribute="top" secondItem="qGN-5X-SAn" secondAttribute="top" id="Cn0-HM-6p7"/>
+                            <constraint firstItem="Lnk-Za-vMe" firstAttribute="top" secondItem="qGN-5X-SAn" secondAttribute="top" id="Cn0-HM-6p7">
+                                <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                            </constraint>
                             <constraint firstItem="Lnk-Za-vMe" firstAttribute="leading" secondItem="qGN-5X-SAn" secondAttribute="leading" id="wHo-R6-e7x"/>
                             <constraint firstItem="Duz-HS-o58" firstAttribute="top" secondItem="Lnk-Za-vMe" secondAttribute="bottom" id="wL6-LE-ENx"/>
                         </constraints>
@@ -3775,7 +3777,9 @@
                             </collectionView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="tnK-gg-slq" firstAttribute="top" secondItem="Qho-Li-fxD" secondAttribute="top" id="GmW-fj-NJg"/>
+                            <constraint firstItem="tnK-gg-slq" firstAttribute="top" secondItem="Qho-Li-fxD" secondAttribute="top" id="GmW-fj-NJg">
+                                <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                            </constraint>
                             <constraint firstItem="GJF-FQ-Wji" firstAttribute="top" secondItem="tnK-gg-slq" secondAttribute="bottom" id="SgL-Ti-yuP"/>
                             <constraint firstAttribute="trailing" secondItem="tnK-gg-slq" secondAttribute="trailing" id="hPr-oM-KAm"/>
                             <constraint firstItem="tnK-gg-slq" firstAttribute="leading" secondItem="Qho-Li-fxD" secondAttribute="leading" id="ob1-cD-PJc"/>
@@ -3820,7 +3824,9 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="VhB-UW-EhC" secondAttribute="trailing" id="AsE-aG-IPu"/>
                             <constraint firstItem="dNX-vz-V8y" firstAttribute="top" secondItem="VhB-UW-EhC" secondAttribute="bottom" id="CWG-Ew-n18"/>
-                            <constraint firstItem="VhB-UW-EhC" firstAttribute="top" secondItem="NgZ-wd-50T" secondAttribute="top" id="CgC-N9-qRM"/>
+                            <constraint firstItem="VhB-UW-EhC" firstAttribute="top" secondItem="NgZ-wd-50T" secondAttribute="top" id="CgC-N9-qRM">
+                                <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                            </constraint>
                             <constraint firstItem="VhB-UW-EhC" firstAttribute="leading" secondItem="NgZ-wd-50T" secondAttribute="leading" id="rOU-iL-tUX"/>
                         </constraints>
                     </view>
@@ -3864,7 +3870,9 @@
                             <constraint firstItem="biM-0q-PCR" firstAttribute="top" secondItem="aMW-BM-Eem" secondAttribute="bottom" id="W6c-xV-SO1"/>
                             <constraint firstItem="aMW-BM-Eem" firstAttribute="leading" secondItem="9Yc-EO-BoH" secondAttribute="leading" id="hx2-mI-oTC"/>
                             <constraint firstAttribute="trailing" secondItem="aMW-BM-Eem" secondAttribute="trailing" id="jdX-9h-nXs"/>
-                            <constraint firstItem="aMW-BM-Eem" firstAttribute="top" secondItem="9Yc-EO-BoH" secondAttribute="top" id="qVs-UW-q4S"/>
+                            <constraint firstItem="aMW-BM-Eem" firstAttribute="top" secondItem="9Yc-EO-BoH" secondAttribute="top" id="qVs-UW-q4S">
+                                <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                            </constraint>
                         </constraints>
                     </view>
                     <connections>
@@ -4289,7 +4297,9 @@
                             <constraint firstAttribute="trailing" secondItem="U9R-Na-pfR" secondAttribute="trailing" constant="20" id="KMP-qy-UjS"/>
                             <constraint firstItem="Y1s-qB-tE9" firstAttribute="top" secondItem="wkB-Wv-XW0" secondAttribute="bottom" id="kVQ-4C-iGT"/>
                             <constraint firstItem="Y1s-qB-tE9" firstAttribute="top" secondItem="U9R-Na-pfR" secondAttribute="bottom" constant="20" id="pIb-nE-PjZ"/>
-                            <constraint firstItem="wkB-Wv-XW0" firstAttribute="top" secondItem="n03-7h-jwn" secondAttribute="top" id="rHT-M6-oHp"/>
+                            <constraint firstItem="wkB-Wv-XW0" firstAttribute="top" secondItem="n03-7h-jwn" secondAttribute="top" id="rHT-M6-oHp">
+                                <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                            </constraint>
                         </constraints>
                     </view>
                     <connections>
@@ -4375,7 +4385,9 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="51Z-1N-WUZ" firstAttribute="top" secondItem="qE5-lD-gj1" secondAttribute="bottom" id="L8y-iD-LU5"/>
-                            <constraint firstItem="qE5-lD-gj1" firstAttribute="top" secondItem="drT-3X-cRx" secondAttribute="top" id="OlW-AV-2UH"/>
+                            <constraint firstItem="qE5-lD-gj1" firstAttribute="top" secondItem="drT-3X-cRx" secondAttribute="top" id="OlW-AV-2UH">
+                                <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                            </constraint>
                             <constraint firstItem="qE5-lD-gj1" firstAttribute="leading" secondItem="drT-3X-cRx" secondAttribute="leading" id="q1y-2O-9Mf"/>
                             <constraint firstAttribute="trailing" secondItem="qE5-lD-gj1" secondAttribute="trailing" id="xj8-rT-Azh"/>
                         </constraints>
@@ -4387,49 +4399,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWh-y1-w7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3995" y="1107"/>
-        </scene>
-        <!--Most Active Users View Controller-->
-        <scene sceneID="rk2-OH-qep">
-            <objects>
-                <viewController storyboardIdentifier="MostActiveUsersViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ihk-8u-18U" customClass="MostActiveUsersViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="AfF-xD-cxv"/>
-                        <viewControllerLayoutGuide type="bottom" id="eQb-Gw-PHH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HBb-UP-PS8">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mve-LU-vby">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xgl-XY-Vsh">
-                                    <size key="itemSize" width="150" height="200"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Ihk-8u-18U" id="IaU-Eu-McA"/>
-                                    <outlet property="delegate" destination="Ihk-8u-18U" id="2Cw-se-ukg"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="mve-LU-vby" firstAttribute="top" secondItem="HBb-UP-PS8" secondAttribute="top" id="E9g-QN-GDn"/>
-                            <constraint firstItem="mve-LU-vby" firstAttribute="leading" secondItem="HBb-UP-PS8" secondAttribute="leading" id="IX2-0K-VYi"/>
-                            <constraint firstItem="eQb-Gw-PHH" firstAttribute="top" secondItem="mve-LU-vby" secondAttribute="bottom" id="Yl2-i5-F2G"/>
-                            <constraint firstAttribute="trailing" secondItem="mve-LU-vby" secondAttribute="trailing" id="pFo-uD-vgg"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="collectionView" destination="mve-LU-vby" id="I0s-U5-8eM"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3lW-za-Rcy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1914" y="-328"/>
         </scene>
         <!--Linked Account View Controller-->
         <scene sceneID="z8P-EK-oSt">
@@ -4532,7 +4501,9 @@
                             </collectionView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Mma-nb-35S" firstAttribute="top" secondItem="tIH-Oy-Orw" secondAttribute="top" id="cfZ-cP-81s"/>
+                            <constraint firstItem="Mma-nb-35S" firstAttribute="top" secondItem="tIH-Oy-Orw" secondAttribute="top" id="cfZ-cP-81s">
+                                <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                            </constraint>
                             <constraint firstItem="Mma-nb-35S" firstAttribute="leading" secondItem="tIH-Oy-Orw" secondAttribute="leading" id="e1e-3c-fg8"/>
                             <constraint firstAttribute="trailing" secondItem="Mma-nb-35S" secondAttribute="trailing" id="fW1-kt-6Tc"/>
                             <constraint firstItem="MWP-P7-jha" firstAttribute="top" secondItem="Mma-nb-35S" secondAttribute="bottom" id="iUc-4n-OLv"/>

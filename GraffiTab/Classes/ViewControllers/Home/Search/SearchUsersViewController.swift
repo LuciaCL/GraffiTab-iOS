@@ -30,6 +30,9 @@ class SearchUsersViewController: ListUsersViewController {
     // MARK: - ViewType-specific helpers
     
     override func getPadding(spacing: CGFloat) -> CGFloat {
+        if DeviceType.IS_IPAD {
+            return super.getPadding(spacing)
+        }
         return 7
     }
     

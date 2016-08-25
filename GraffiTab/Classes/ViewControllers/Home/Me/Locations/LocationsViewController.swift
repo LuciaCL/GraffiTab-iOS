@@ -148,6 +148,9 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     }
     
     func getPadding(spacing: CGFloat) -> CGFloat {
+        if DeviceType.IS_IPAD {
+            return Orientation.isLandscape() ? 230 : 100
+        }
         return 8
     }
     
@@ -162,10 +165,16 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
         height = getHeight(width)
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         layout.itemSize = CGSize(width: width, height: height)
         layout.minimumInteritemSpacing = spacing
         layout.minimumLineSpacing = spacing
+        
+        if DeviceType.IS_IPAD {
+            layout.sectionInset = UIEdgeInsets(top: spacing, left: 0, bottom: spacing, right: 0)
+        }
+        else {
+            layout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        }
     }
     
     // MARK: - Events
