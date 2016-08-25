@@ -46,6 +46,11 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
         if self.navigationController!.navigationBarHidden {
             self.navigationController?.setNavigationBarHidden(false, animated: true)
         }
+        
+        Utils.runWithDelay(0.05) {
+            self.carbonTabSwipeNavigation!.carbonTabSwipeScrollView.setNeedsLayout()
+            self.carbonTabSwipeNavigation!.carbonTabSwipeScrollView.layoutIfNeeded()
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -59,7 +64,12 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
     
     func configureTabsSize() {
         for (index, _) in (tabs?.enumerate())! {
-            carbonTabSwipeNavigation!.carbonSegmentedControl!.setWidth(self.view.frame.width / CGFloat((tabs?.count)!), forSegmentAtIndex: index)
+            if DeviceType.IS_IPAD {
+                carbonTabSwipeNavigation!.carbonSegmentedControl!.setWidth(200, forSegmentAtIndex: index)
+            }
+            else {
+                carbonTabSwipeNavigation!.carbonSegmentedControl!.setWidth(self.view.frame.width / CGFloat((tabs?.count)!), forSegmentAtIndex: index)
+            }
         }
         
         carbonTabSwipeNavigation!.carbonSegmentedControl?.setNeedsDisplay()
@@ -115,7 +125,13 @@ class SearchViewController: BackButtonViewController, CarbonTabSwipeNavigationDe
         carbonTabSwipeNavigation!.setNormalColor(UIColor.blackColor().colorWithAlphaComponent(0.2))
         carbonTabSwipeNavigation!.setSelectedColor(AppConfig.sharedInstance.theme!.tabsElementsColor!, font: UIFont.boldSystemFontOfSize(14))
         carbonTabSwipeNavigation!.carbonSegmentedControl?.backgroundColor = AppConfig.sharedInstance.theme?.tabsBackgroundColor
-        configureTabsSize()
+        carbonTabSwipeNavigation!.carbonTabSwipeScrollView.backgroundColor = AppConfig.sharedInstance.theme?.tabsBackgroundColor
+        carbonTabSwipeNavigation!.toolbar.translucent = false
+        carbonTabSwipeNavigation!.toolbar.barTintColor = AppConfig.sharedInstance.theme?.tabsBackgroundColor
+        
+        Utils.runWithDelay(0.1) {
+            self.configureTabsSize()
+        }
     }
     
     func setupSearchBar() {

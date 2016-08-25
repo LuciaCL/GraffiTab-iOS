@@ -184,7 +184,12 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
             
             let nav = self.storyboard!.instantiateViewControllerWithIdentifier("ClusterViewController") as! UINavigationController
             let formSheetController = MZFormSheetPresentationViewController(contentViewController: nav)
-            formSheetController.presentationController?.contentViewSize = CGSizeMake(300, 344)
+            if DeviceType.IS_IPAD {
+                formSheetController.presentationController?.contentViewSize = CGSizeMake(400, 450)
+            }
+            else {
+                formSheetController.presentationController?.contentViewSize = CGSizeMake(300, 344)
+            }
             formSheetController.contentViewControllerTransitionStyle = .SlideFromBottom
             
             let vc = nav.viewControllers.first as! ClusterViewController

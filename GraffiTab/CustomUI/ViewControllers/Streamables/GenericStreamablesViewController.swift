@@ -132,7 +132,9 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         switch viewType {
             case .Grid, .Mosaic:
                 return 2
-            case .Trending, .ListFull:
+            case .Trending:
+                return DeviceType.IS_IPAD ? 20 : 7
+            case .ListFull:
                 return 7
             case .SwimLane:
                 return 4

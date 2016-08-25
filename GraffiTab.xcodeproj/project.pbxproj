@@ -295,6 +295,8 @@
 		E5973AE91D6C50890000970D /* placeholder_ipad_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = E5973AE51D6C50890000970D /* placeholder_ipad_portrait.png */; };
 		E5973AEB1D6E2E3B0000970D /* UIView+RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5973AEA1D6E2E3B0000970D /* UIView+RoundedCorners.swift */; };
 		E5973AEC1D6E2E3B0000970D /* UIView+RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5973AEA1D6E2E3B0000970D /* UIView+RoundedCorners.swift */; };
+		E5973AEF1D6F00480000970D /* CarbonScrollView+iPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5973AEE1D6F00480000970D /* CarbonScrollView+iPad.swift */; };
+		E5973AF01D6F00480000970D /* CarbonScrollView+iPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5973AEE1D6F00480000970D /* CarbonScrollView+iPad.swift */; };
 		E59BC2F31D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */; };
 		E59BC2F41D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */; };
 		E59BC2FB1D12B423009781BA /* UserTrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F91D12B423009781BA /* UserTrendingCell.swift */; };
@@ -652,6 +654,7 @@
 		E5973AE41D6C50890000970D /* placeholder_ipad_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_ipad_landscape.png; sourceTree = "<group>"; };
 		E5973AE51D6C50890000970D /* placeholder_ipad_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_ipad_portrait.png; sourceTree = "<group>"; };
 		E5973AEA1D6E2E3B0000970D /* UIView+RoundedCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+RoundedCorners.swift"; sourceTree = "<group>"; };
+		E5973AEE1D6F00480000970D /* CarbonScrollView+iPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CarbonScrollView+iPad.swift"; sourceTree = "<group>"; };
 		E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwimLaneStreamablesViewController.swift; sourceTree = "<group>"; };
 		E59BC2F91D12B423009781BA /* UserTrendingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrendingCell.swift; sourceTree = "<group>"; };
 		E59BC2FA1D12B423009781BA /* UserTrendingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTrendingCell.xib; sourceTree = "<group>"; };
@@ -1217,6 +1220,14 @@
 			path = Cache;
 			sourceTree = "<group>";
 		};
+		E5973AED1D6F002B0000970D /* CarbonKit */ = {
+			isa = PBXGroup;
+			children = (
+				E5973AEE1D6F00480000970D /* CarbonScrollView+iPad.swift */,
+			);
+			path = CarbonKit;
+			sourceTree = "<group>";
+		};
 		E59BC2F81D12B3AE009781BA /* Trending */ = {
 			isa = PBXGroup;
 			children = (
@@ -1655,6 +1666,7 @@
 		E5DFDBF41CB2C31B00BB3D27 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				E5973AED1D6F002B0000970D /* CarbonKit */,
 				E5F40D011D500B0400832D92 /* Onboarding */,
 				E5494E681D1ABC31004F31A7 /* Sliders */,
 				E5E2937F1D05DBC800C272EE /* Application */,
@@ -2242,6 +2254,7 @@
 				E58432341CE9242000FB1E50 /* ActivitySingleCreateCell.swift in Sources */,
 				E59BC3011D12B4EF009781BA /* TrendingUsersViewController.swift in Sources */,
 				E58432351CE9242000FB1E50 /* GTComment+Status.swift in Sources */,
+				E5973AF01D6F00480000970D /* CarbonScrollView+iPad.swift in Sources */,
 				E58432361CE9242000FB1E50 /* MenuViewController.swift in Sources */,
 				E58432DB1CEA469B00FB1E50 /* Settings.swift in Sources */,
 				E58432371CE9242000FB1E50 /* NotificationCommentCell.swift in Sources */,
@@ -2416,6 +2429,7 @@
 				E59BC3001D12B4EF009781BA /* TrendingUsersViewController.swift in Sources */,
 				E5A4F13D1CE34846005CF12C /* GTComment+Status.swift in Sources */,
 				E5B6B5BB1CC56F5800DC8EFC /* MenuViewController.swift in Sources */,
+				E5973AEF1D6F00480000970D /* CarbonScrollView+iPad.swift in Sources */,
 				E58432DA1CEA469B00FB1E50 /* Settings.swift in Sources */,
 				E5A1D66B1D2310300027E438 /* GTNetworkManager.swift in Sources */,
 				E51006A31CBBCA7B00AC66A5 /* NotificationCommentCell.swift in Sources */,
