@@ -344,6 +344,7 @@ class FollowersActivityViewController: BackButtonViewController, UITableViewDele
         
         // Setup infite scroll.
         tableView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
+        tableView.infiniteScrollIndicatorView?.tintColor = AppConfig.sharedInstance.theme?.primaryColor
         tableView?.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
             if self!.canLoadMore && !self!.isDownloading {
                 self!.offset = self!.offset + GTConstants.MaxItems

@@ -561,6 +561,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
         
         // Setup infite scroll.
         self.tableView!.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
+        self.tableView!.infiniteScrollIndicatorView?.tintColor = AppConfig.sharedInstance.theme?.primaryColor
         self.tableView?.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
             if self!.canLoadMore && !self!.isDownloading {
                 self!.offset = self!.offset + GTConstants.MaxItems

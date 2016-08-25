@@ -594,6 +594,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         
         // Setup infite scroll.
         collectionView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
+        collectionView.infiniteScrollIndicatorView?.tintColor = AppConfig.sharedInstance.theme?.primaryColor
         collectionView?.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
             if self!.canLoadMore && !self!.isDownloading {
                 self!.offset = self!.offset + GTConstants.MaxItems
