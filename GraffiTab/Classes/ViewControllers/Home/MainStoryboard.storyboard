@@ -954,9 +954,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="7N2-7e-0dj" kind="show" id="hNv-af-iHZ"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -996,9 +993,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="F41-F3-mhT" secondAttribute="trailing" constant="8" id="PBr-hT-7hG"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Vm0-mk-AUv" kind="show" identifier="SEGUE_EDIT_FIRSTNAME" id="Tkg-P9-t1t"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="nBF-KI-0nl">
                                         <rect key="frame" x="0.0" y="347" width="600" height="44"/>
@@ -1034,9 +1028,6 @@
                                                 <constraint firstItem="SLw-Hw-6AQ" firstAttribute="centerY" secondItem="fJ1-eH-Eau" secondAttribute="centerY" id="iBx-uC-RbJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Vm0-mk-AUv" kind="show" identifier="SEGUE_EDIT_LASTNAME" id="4F3-oo-lZi"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="0fZ-Pv-482">
                                         <rect key="frame" x="0.0" y="391" width="600" height="44"/>
@@ -1072,9 +1063,6 @@
                                                 <constraint firstItem="2ZO-f5-ocM" firstAttribute="centerY" secondItem="4Uh-6M-X4h" secondAttribute="centerY" id="xWY-6G-Nes"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Vm0-mk-AUv" kind="show" identifier="SEGUE_EDIT_EMAIL" id="LjT-89-SXs"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="hNP-bQ-dTv">
                                         <rect key="frame" x="0.0" y="435" width="600" height="44"/>
@@ -1110,9 +1098,6 @@
                                                 <constraint firstItem="S9B-vG-21T" firstAttribute="leading" secondItem="bpS-wb-rQg" secondAttribute="trailing" constant="50" id="Z5O-kY-T4g"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="tsC-Cp-TYn" kind="show" identifier="SEGUE_EDIT_ABOUT" id="RA7-qJ-60W"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="bcO-hS-Qb0">
                                         <rect key="frame" x="0.0" y="479" width="600" height="44"/>
@@ -1148,9 +1133,6 @@
                                                 <constraint firstItem="kiY-KG-U4j" firstAttribute="centerY" secondItem="2ba-7V-jwD" secondAttribute="centerY" id="yUy-nu-uWH"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Vm0-mk-AUv" kind="show" identifier="SEGUE_EDIT_WEBSITE" id="Bcp-ev-VfR"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1270,9 +1252,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="7N2-7e-0dj" kind="show" id="6jS-sv-VUd"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="EF8-aA-235" style="IBUITableViewCellStyleDefault" id="W4n-6l-EPS">
                                         <rect key="frame" x="0.0" y="202" width="600" height="44"/>
@@ -1662,7 +1641,7 @@
                             <tableViewSection id="OgL-Hm-1ot">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="f2L-ah-GCQ">
-                                        <rect key="frame" x="0.0" y="99" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="35" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f2L-ah-GCQ" id="4OD-eL-PNn">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -1701,7 +1680,7 @@
                             <tableViewSection id="Csa-wq-5NK">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KxF-yd-N1C">
-                                        <rect key="frame" x="0.0" y="179" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="115" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KxF-yd-N1C" id="ydJ-qI-Xta">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -1736,7 +1715,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="6Pe-dM-520">
-                                        <rect key="frame" x="0.0" y="223" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="159" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Pe-dM-520" id="5Hy-WE-2ba">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -3496,7 +3475,7 @@
         <!--Edit Text Field View Controller-->
         <scene sceneID="DbX-2F-QoW">
             <objects>
-                <tableViewController id="Vm0-mk-AUv" customClass="EditTextFieldViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EditTextFieldViewController" id="Vm0-mk-AUv" customClass="EditTextFieldViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="2hB-1k-CQs">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3505,7 +3484,7 @@
                             <tableViewSection id="8Xf-31-3YU">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="uFr-en-Zw9">
-                                        <rect key="frame" x="0.0" y="99" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="35" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uFr-en-Zw9" id="sBu-Xx-ZiN">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -3590,7 +3569,7 @@
         <!--Edit Text View Controller-->
         <scene sceneID="A9T-RI-LzJ">
             <objects>
-                <tableViewController id="tsC-Cp-TYn" customClass="EditTextViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EditTextViewController" id="tsC-Cp-TYn" customClass="EditTextViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="V3O-jo-gEy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3599,7 +3578,7 @@
                             <tableViewSection id="tMl-eP-PWP">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="160" id="lgj-JK-NUy">
-                                        <rect key="frame" x="0.0" y="99" width="600" height="160"/>
+                                        <rect key="frame" x="0.0" y="35" width="600" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lgj-JK-NUy" id="PU8-KX-Icd">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="159"/>
@@ -4544,7 +4523,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="SVD-oI-QFh"/>
-        <segue reference="6jS-sv-VUd"/>
-        <segue reference="Bcp-ev-VfR"/>
     </inferredMetricsTieBreakers>
 </document>

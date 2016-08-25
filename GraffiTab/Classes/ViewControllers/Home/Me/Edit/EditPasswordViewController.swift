@@ -9,6 +9,7 @@
 import UIKit
 import GraffiTab_iOS_SDK
 import CocoaLumberjack
+import MZFormSheetPresentationController
 
 class EditPasswordViewController: BackButtonTableViewController, UITextFieldDelegate {
 
@@ -18,6 +19,26 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var newPasswordField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
+    
+    class func showPasswordEditController(controller: UIViewController) {
+        let vc = controller.storyboard?.instantiateViewControllerWithIdentifier("EditPasswordViewController")
+        
+        if DeviceType.IS_IPAD {
+            MZFormSheetPresentationController.appearance().shouldApplyBackgroundBlurEffect = !DeviceType.IS_IPAD
+            MZFormSheetPresentationController.appearance().shouldCenterHorizontally = true
+            MZFormSheetPresentationController.appearance().shouldCenterVertically = true
+            MZFormSheetPresentationController.appearance().shouldDismissOnBackgroundViewTap = true
+            
+            let formSheetController = MZFormSheetPresentationViewController(contentViewController: UINavigationController(rootViewController: vc!))
+            formSheetController.presentationController?.contentViewSize = CGSizeMake(450, 500)
+            formSheetController.contentViewControllerTransitionStyle = .SlideFromBottom
+            
+            controller.presentViewController(formSheetController, animated: true, completion: nil)
+        }
+        else {
+            controller.navigationController?.pushViewController(vc!, animated: true)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +81,12 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
                 self.view.hideActivityView()
                 
                 DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_password_success", comment: ""), title: App.Title, okAction: {
-                    self.navigationController?.popViewControllerAnimated(true)
+                    if DeviceType.IS_IPAD {
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    }
+                    else {
+                        self.navigationController?.popViewControllerAnimated(true)
+                    }
                 })
             }, failureBlock: { (response) in
                 self.view.hideActivityView()
@@ -68,6 +94,10 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
                 DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
             })
         }
+    }
+    
+    func onClickClose() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - UITextFieldDelegate
@@ -108,6 +138,10 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
         negativeSpacer.width = -10
         
         self.navigationItem.rightBarButtonItems = [negativeSpacer, UIBarButtonItem(customView: button)]
+        
+        if DeviceType.IS_IPAD {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("other_close", comment: ""), style: .Plain, target: self, action: #selector(self.onClickClose))
+        }
     }
     
     func setupLabels() {

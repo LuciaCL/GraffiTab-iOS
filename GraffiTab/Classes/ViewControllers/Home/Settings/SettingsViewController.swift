@@ -11,6 +11,7 @@ import GraffiTab_iOS_SDK
 import UIActionSheet_Blocks
 import CocoaLumberjack
 import Instabug
+import MZFormSheetPresentationController
 
 class SettingsViewController: GeneralSettingsViewController {
 
@@ -154,7 +155,10 @@ class SettingsViewController: GeneralSettingsViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         if indexPath.section == 0 {
-            if indexPath.row == 2 {
+            if indexPath.row == 1 {
+                EditPasswordViewController.showPasswordEditController(self)
+            }
+            else if indexPath.row == 2 {
                 let vc = self.storyboard?.instantiateViewControllerWithIdentifier("UserLikedStreamablesViewController") as! UserLikedStreamablesViewController
                 vc.user = GTMeManager.sharedInstance.loggedInUser
                 

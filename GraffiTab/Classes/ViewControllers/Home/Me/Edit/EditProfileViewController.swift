@@ -11,6 +11,7 @@ import Alamofire
 import GraffiTab_iOS_SDK
 import CocoaLumberjack
 import AHKActionSheet
+import MZFormSheetPresentationController
 
 enum ImageType {
     case Avatar
@@ -233,56 +234,6 @@ class EditProfileViewController: BackButtonTableViewController {
         self.cover.asset = user.cover
     }
     
-    // MARK: - Navigation
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "SEGUE_EDIT_FIRSTNAME" {
-            let vc = segue.destinationViewController as! EditTextFieldViewController
-            vc.capitalizationType = .Words
-            vc.allowEmpty = false
-            vc.defaultValue = firstnameField.text
-            vc.doneBlock = { (value) in
-                self.firstnameField.text = value
-            }
-        }
-        else if segue.identifier == "SEGUE_EDIT_LASTNAME" {
-            let vc = segue.destinationViewController as! EditTextFieldViewController
-            vc.capitalizationType = .Words
-            vc.allowEmpty = false
-            vc.defaultValue = lastnameField.text
-            vc.doneBlock = { (value) in
-                self.lastnameField.text = value
-            }
-        }
-        else if segue.identifier == "SEGUE_EDIT_EMAIL" {
-            let vc = segue.destinationViewController as! EditTextFieldViewController
-            vc.keyboardType = .EmailAddress
-            vc.allowEmpty = false
-            vc.defaultValue = emailField.text
-            vc.doneBlock = { (value) in
-                self.emailField.text = value
-            }
-        }
-        else if segue.identifier == "SEGUE_EDIT_WEBSITE" {
-            let vc = segue.destinationViewController as! EditTextFieldViewController
-            vc.keyboardType = .EmailAddress
-            vc.allowEmpty = true
-            vc.defaultValue = websiteField.text
-            vc.doneBlock = { (value) in
-                self.websiteField.text = value
-            }
-        }
-        else if segue.identifier == "SEGUE_EDIT_ABOUT" {
-            let vc = segue.destinationViewController as! EditTextViewController
-            vc.capitalizationType = .Sentences
-            vc.allowEmpty = true
-            vc.defaultValue = aboutField.text
-            vc.doneBlock = { (value) in
-                self.aboutField.text = value
-            }
-        }
-    }
-    
     // MARK: - UITableViewDelegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -296,6 +247,38 @@ class EditProfileViewController: BackButtonTableViewController {
             else {
                 imageType = .Cover
                 askForImage()
+            }
+        }
+        else if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                EditPasswordViewController.showPasswordEditController(self)
+            }
+        }
+        else if indexPath.section == 2 {
+            if indexPath.row == 0 {
+                EditTextFieldViewController.showEditFieldController(self, doneBlock: { (value) in
+                    self.firstnameField.text = value
+                }, defaultValue: firstnameField.text!, allowEmpty: false, capitalizationType: .Words, keyboardType: .Default)
+            }
+            else if indexPath.row == 1 {
+                EditTextFieldViewController.showEditFieldController(self, doneBlock: { (value) in
+                    self.lastnameField.text = value
+                }, defaultValue: lastnameField.text!, allowEmpty: false, capitalizationType: .Words, keyboardType: .Default)
+            }
+            else if indexPath.row == 2 {
+                EditTextFieldViewController.showEditFieldController(self, doneBlock: { (value) in
+                    self.emailField.text = value
+                }, defaultValue: emailField.text!, allowEmpty: false, capitalizationType: .None, keyboardType: .EmailAddress)
+            }
+            else if indexPath.row == 3 {
+                EditTextViewController.showEditFieldController(self, doneBlock: { (value) in
+                    self.aboutField.text = value
+                }, defaultValue: aboutField.text!, allowEmpty: true, capitalizationType: .Sentences, keyboardType: .Default)
+            }
+            else if indexPath.row == 4 {
+                EditTextFieldViewController.showEditFieldController(self, doneBlock: { (value) in
+                    self.websiteField.text = value
+                }, defaultValue: websiteField.text!, allowEmpty: true, capitalizationType: .None, keyboardType: .URL)
             }
         }
     }
