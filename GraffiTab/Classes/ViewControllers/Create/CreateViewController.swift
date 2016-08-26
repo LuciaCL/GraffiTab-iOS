@@ -51,6 +51,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var onCanvasColorBtn: MaterializeRoundButton!
     @IBOutlet weak var onCanvasMenuBtn: MaterializeRoundButton!
     @IBOutlet weak var skipBtn: UIButton!
+    @IBOutlet weak var previewImage: UIImageView!
+    @IBOutlet weak var sizeSlider: UISlider!
+    @IBOutlet weak var opacitySlider: UISlider!
     
     // Edit.
     var toEdit: GTStreamable?
@@ -72,7 +75,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     // Drawing assistant.
     var drawingAssistantIndex = 0
-    var drawingAssistantSequence: [DrawingAssistantState] = [.Intro, .DrawLine, .Color, .DrawColorLine, .Stroke, .DrawStrokeLine, .Menu, .Tool, .DrawToolLine, .Eraser, .Background, .Enhancer, .Publish]
+    var drawingAssistantSequence: [DrawingAssistantState] = DeviceType.IS_IPAD ? [.Intro, .DrawLine, .Tool, .DrawToolLine, .Eraser, .Background, .Enhancer, .Publish] : [.Intro, .DrawLine, .Color, .DrawColorLine, .Stroke, .DrawStrokeLine, .Menu, .Tool, .DrawToolLine, .Eraser, .Background, .Enhancer, .Publish]
     var isDrawAssistantMode = false
     var interactiveComponents: [UIView]?
     
@@ -94,11 +97,15 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                                                enhanceBtn,
                                                publishBtn,
                                                undoBtn,
-                                               redoBtn]
+                                               redoBtn,
+                                               sizeSlider,
+                                               opacitySlider]
         
         setupCocos2D()
         setupLabels()
         setupButtons()
+        setupImageViews()
+        setupSliders()
         
         loadColors()
         loadTools()
@@ -140,11 +147,24 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             colorsTableView.reloadData()
             
             configureToolsLayout()
+            loadPreviewImage()
             
             Utils.runWithDelay(1.3, block: { () in
                 self.checkScreenAssistant()
             })
         }
+    }
+    
+    @IBAction func onChangedSize(sender: AnyObject) {
+        self.canvas!.sizeOffset = CGFloat(sizeSlider!.value)
+        
+        loadPreviewImage()
+    }
+    
+    @IBAction func onChangeOpacity(sender: AnyObject) {
+        self.canvas!.opacityOffset = CGFloat(opacitySlider!.value)
+        
+        loadPreviewImage()
     }
     
     @IBAction func onClickSkip(sender: AnyObject) {
@@ -360,6 +380,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         nav.navigationBar.barTintColor = UIColor(hexString: "#222222")
         nav.navigationBar.translucent = false
         presentViewController(nav, animated: true, completion: nil)
+        
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
     }
     
     @IBAction func onClickClose(sender: AnyObject?) {
@@ -755,6 +777,13 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     // MARK: - Loading
     
+    func loadPreviewImage() {
+        previewImage.alpha = CGFloat(opacitySlider.value)
+        
+        let scale = CGFloat(((1.0 * sizeSlider.value) / Float(MAX_SIZE_OFFSET)) + 0.1)
+        previewImage.transform = CGAffineTransformMakeScale(scale, scale)
+    }
+    
     func loadPhrase() {
         var phrases = [[String : String]]()
         phrases.append(["author":"Salvador Dali", "text":"Drawing is the honesty of the art. There is no possibility of cheating. It is either good or bad."])
@@ -1065,5 +1094,24 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     func setupButtons() {
         publishBtn.backgroundColor = AppConfig.sharedInstance.theme?.primaryColor
+    }
+    
+    func setupSliders() {
+        let sliderColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+        let thumbColor = UIColor.lightGrayColor()
+        sizeSlider.configureFatSlider(sliderColor, progressColor: sliderColor, thumbColorNormal: thumbColor, thumbColorHighlighted: thumbColor)
+        opacitySlider.configureFatSlider(sliderColor, progressColor: sliderColor, thumbColorNormal: thumbColor, thumbColorHighlighted: thumbColor)
+        
+        sizeSlider.minimumValue = Float(MIN_SIZE_OFFSET)
+        sizeSlider.maximumValue = Float(MAX_SIZE_OFFSET)
+        sizeSlider.value = Float(canvas!.sizeOffset)
+        
+        opacitySlider.minimumValue = Float(MIN_OPACITY_OFFSET)
+        opacitySlider.maximumValue = Float(MAX_OPACITY_OFFSET)
+        opacitySlider.value = Float(canvas!.opacityOffset)
+    }
+    
+    func setupImageViews() {
+        previewImage.layer.cornerRadius = 19
     }
 }

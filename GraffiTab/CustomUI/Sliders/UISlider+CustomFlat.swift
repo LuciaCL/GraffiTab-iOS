@@ -12,7 +12,7 @@ import FlatUIKit
 extension UISlider {
 
     func configureFatSlider(trackColor: UIColor, progressColor: UIColor, thumbColorNormal: UIColor, thumbColorHighlighted: UIColor) {
-        let size = CGFloat(20)
+        let size = CGFloat(self.frame.size.height)
         
         let progressImage = UIImage(color: progressColor, cornerRadius: size / 2).imageWithMinimumSize(CGSizeMake(size, size))
         let trackImage = UIImage(color: trackColor, cornerRadius: size / 2).imageWithMinimumSize(CGSizeMake(size, size))
