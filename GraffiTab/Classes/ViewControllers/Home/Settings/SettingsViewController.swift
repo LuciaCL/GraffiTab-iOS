@@ -45,6 +45,7 @@ class SettingsViewController: GeneralSettingsViewController {
         // Do any additional setup after loading the view.
         
         setupLabels()
+        setupSwitches()
         
         loadData()
     }
@@ -284,5 +285,10 @@ class SettingsViewController: GeneralSettingsViewController {
         eulaLbl.text = NSLocalizedString("controller_settings_eula", comment: "")
         aboutLbl.text = NSLocalizedString("controller_settings_about", comment: "")
         logoutLbl.text = NSLocalizedString("controller_settings_logout", comment: "")
+    }
+    
+    func setupSwitches() {
+        rememberCredentialsSwitch.onTintColor = AppConfig.sharedInstance.theme?.primaryColor
+        showDrawingAssistantSwitch.onTintColor = AppConfig.sharedInstance.theme?.primaryColor
     }
 }
