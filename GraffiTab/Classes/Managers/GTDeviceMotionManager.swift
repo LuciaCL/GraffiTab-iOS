@@ -10,7 +10,7 @@ import UIKit
 import CoreMotion
 import CocoaLumberjack
 
-protocol MotionDelegate {
+protocol MotionDelegate: class {
     
     func didReceiveMotionUpdate(pitch: CGFloat, roll: CGFloat, yaw: CGFloat)
 }
@@ -19,7 +19,7 @@ class GTDeviceMotionManager: NSObject {
 
     static var manager: GTDeviceMotionManager = GTDeviceMotionManager()
     
-    var delegate: MotionDelegate?
+    weak var delegate: MotionDelegate?
     var motionManager: CMMotionManager?
     var pitch: CGFloat?
     var roll: CGFloat?

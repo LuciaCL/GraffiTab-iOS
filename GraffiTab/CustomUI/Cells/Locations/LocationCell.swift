@@ -11,7 +11,7 @@ import GraffiTab_iOS_SDK
 import Alamofire
 import AlamofireImage
 
-protocol LocationCellDelegate {
+protocol LocationCellDelegate: class {
     
     func didTapOptions(location: GTLocation, indexPath: NSIndexPath)
 }
@@ -21,7 +21,7 @@ class LocationCell: UICollectionViewCell {
     @IBOutlet weak var thumbnail: AssetImageView!
     @IBOutlet weak var addressLbl: UILabel!
     
-    var delegate: LocationCellDelegate?
+    weak var delegate: LocationCellDelegate?
     var previousItem: GTLocation?
     var item: GTLocation? {
         didSet {

@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol ColorSprayCanCellDelegate {
+protocol ColorSprayCanCellDelegate: class {
     
     func didChooseColor(color: UIColor)
 }
 
 class ColorSprayCanCell: UITableViewCell {
     
-    var delegate: ColorSprayCanCellDelegate?
+    weak var delegate: ColorSprayCanCellDelegate?
     var colorBtns: [ColorSprayCan]?
     var colors: [UIColor]? {
         didSet {

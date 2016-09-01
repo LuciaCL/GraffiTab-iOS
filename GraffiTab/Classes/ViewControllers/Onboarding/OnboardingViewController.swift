@@ -9,7 +9,7 @@
 import UIKit
 import iCarousel
 
-class OnboardingViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
+class OnboardingViewController: BackButtonViewController, iCarouselDelegate, iCarouselDataSource {
 
     @IBOutlet weak var carousel: iCarousel!
     @IBOutlet weak var pageControl: UIPageControl!

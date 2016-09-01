@@ -91,7 +91,7 @@ class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate
         else { // Enable Send button.
             UIView.animateWithDuration(0.3, animations: { () -> Void in
                 self.resetBtn.enabled = true
-                self.resetBtn.backgroundColor = AppConfig.sharedInstance.theme!.secondaryColor
+                self.resetBtn.backgroundColor = AppConfig.sharedInstance.theme!.primaryColor
                 self.resetBtn.layer.borderWidth = 0
                 self.resetBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
             })

@@ -10,7 +10,7 @@ import UIKit
 import AHKActionSheet
 import GraffiTab_iOS_SDK
 
-class AvatarPromptViewController: UIViewController {
+class AvatarPromptViewController: BackButtonViewController {
 
     @IBOutlet weak var avatar: AvatarImageView!
     @IBOutlet weak var name: UILabel!

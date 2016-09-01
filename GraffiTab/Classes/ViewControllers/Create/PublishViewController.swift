@@ -12,7 +12,7 @@ import RNActivityView
 import GraffiTab_iOS_SDK
 import CocoaLumberjack
 
-protocol PublishDelegate {
+protocol PublishDelegate: class {
     
     func didPublish()
     func didCancel()
@@ -29,7 +29,7 @@ class PublishViewController: UIViewController {
     
     var toEdit: GTStreamable?
     
-    var delegate: PublishDelegate?
+    weak var delegate: PublishDelegate?
     let captureSession = AVCaptureSession()
     let stillImageOutput = AVCaptureStillImageOutput()
     var error: NSError?

@@ -11,7 +11,7 @@ import GraffiTab_iOS_SDK
 import Alamofire
 import ActiveLabel
 
-protocol MessageDelegate {
+protocol MessageDelegate: class {
     
     func didTapAvatar(user: GTUser)
     
@@ -31,7 +31,7 @@ class CommentCell: UITableViewCell {
     @IBOutlet weak var avatar: AvatarImageView!
     @IBOutlet weak var errorView: UIImageView!
     
-    var delegate: MessageDelegate?
+    weak var delegate: MessageDelegate?
     var item: GTComment? {
         didSet {
             setItem()

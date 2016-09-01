@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol InputUsernameDelegate {
+protocol InputUsernameDelegate: class {
     
     func didInputUsername(value: String)
 }
@@ -19,7 +19,7 @@ class InputUsernameViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var descriptionField: UILabel!
     @IBOutlet weak var usernameField: UITextField!
     
-    var delegate: InputUsernameDelegate?
+    weak var delegate: InputUsernameDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()

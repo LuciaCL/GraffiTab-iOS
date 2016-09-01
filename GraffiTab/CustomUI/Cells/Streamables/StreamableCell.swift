@@ -12,7 +12,7 @@ import Alamofire
 import AlamofireImage
 import JTMaterialSpinner
 
-protocol StreamableDelegate {
+protocol StreamableDelegate: class {
     
     func didTapLikes(streamable: GTStreamable)
     func didTapComments(streamable: GTStreamable)
@@ -31,7 +31,7 @@ class StreamableCell: UICollectionViewCell {
     
     var pollTimer: NSTimer?
     var indexPath: NSIndexPath?
-    var delegate: StreamableDelegate?
+    weak var delegate: StreamableDelegate?
     var previousItem: GTStreamable?
     var item: GTStreamable? {
         didSet {

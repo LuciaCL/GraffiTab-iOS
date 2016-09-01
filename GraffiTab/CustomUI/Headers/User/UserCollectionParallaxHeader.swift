@@ -11,7 +11,7 @@ import GraffiTab_iOS_SDK
 import Alamofire
 import iCarousel
 
-protocol UserHeaderDelegate {
+protocol UserHeaderDelegate: class {
     
     func didTapCover(user: GTUser)
     func didTapAvatar(user: GTUser)
@@ -46,7 +46,7 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
     @IBOutlet weak var likesBtn: TintButton!
     @IBOutlet weak var locationBtn: TintButton!
     
-    var delegate: UserHeaderDelegate?
+    weak var delegate: UserHeaderDelegate?
     var item: GTUser? {
         didSet {
             setItem()
