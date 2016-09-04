@@ -59,7 +59,7 @@ class AvatarPromptViewController: BackButtonViewController {
         let actionSheet = super.buildActionSheet(NSLocalizedString("controller_avatar_prompt_picture_source", comment: ""))
         
         actionSheet.addButtonWithTitle(NSLocalizedString("controller_avatar_prompt_import_from_facebook", comment: ""), image: UIImage(named: "facebook"), type: user!.isLinkedAccount(.FACEBOOK) ? .Default : .Disabled) { (sheet) in
-            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+            self.view.showActivityView()
             self.view.rn_activityView.dimBackground = false
             
             GTMeManager.importAvatar(.FACEBOOK, successBlock: { (response) -> Void in
@@ -88,7 +88,7 @@ class AvatarPromptViewController: BackButtonViewController {
         }
         
         if image != nil { // Saving a new image.
-            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+            self.view.showActivityView()
             self.view.rn_activityView.dimBackground = false
             
             GTMeManager.editAvatar(image!, successBlock: { (response) in
@@ -100,7 +100,7 @@ class AvatarPromptViewController: BackButtonViewController {
             })
         }
         else { // Removing an image.
-            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+            self.view.showActivityView()
             self.view.rn_activityView.dimBackground = false
             
             GTMeManager.deleteAvatar({ (response) in

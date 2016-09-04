@@ -250,7 +250,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     }
     
     func save() {
-        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+        self.view.showActivityView()
         self.view.rn_activityView.dimBackground = false
         
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
@@ -272,7 +272,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     
     func delete() {
         DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_streamable_options_delete_prompt", comment: ""), title: App.Title, yesAction: {
-            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+            self.view.showActivityView()
             self.view.rn_activityView.dimBackground = false
             
             GTMeManager.deleteStreamable(self.streamable!.id!, successBlock: { (response) in
@@ -347,7 +347,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         }
         
         if image != nil { // Saving a new image.
-            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+            self.view.showActivityView()
             self.view.rn_activityView.dimBackground = false
             
             GTMeManager.editAvatar(image!, successBlock: { (response) in

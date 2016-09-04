@@ -482,7 +482,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
     func didTapUsername(username: String) {
         self.view.endEditing(true)
         
-        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+        self.view.showActivityView()
         self.view.rn_activityView.dimBackground = false
         
         GTUserManager.getUserProfileByUsername(username, successBlock: { (response) in

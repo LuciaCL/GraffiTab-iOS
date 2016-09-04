@@ -52,7 +52,7 @@ class LinkedAccountsViewController: BackButtonTableViewController {
         }
         
         if !isLinkedFacebook {
-            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+            self.view.showActivityView()
             self.view.rn_activityView.dimBackground = false
             
             loginToFacebookWithSuccess(false, successBlock: { (userId, token, email, firstName, lastName) in

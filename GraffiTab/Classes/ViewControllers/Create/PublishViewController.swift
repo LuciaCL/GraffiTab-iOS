@@ -139,7 +139,7 @@ class PublishViewController: UIViewController {
         }
         
         let saveBlock = {
-            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+            self.view.showActivityView()
             self.view.rn_activityView.dimBackground = false
             
             if self.toEdit != nil {

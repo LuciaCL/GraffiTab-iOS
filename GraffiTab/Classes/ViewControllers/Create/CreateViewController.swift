@@ -227,7 +227,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             }
             
             let saveBlock = {
-                self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+                self.view.showActivityView()
                 self.view.rn_activityView.dimBackground = false
                 
                 if self.toEdit != nil {
@@ -288,7 +288,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         // Register analytics events.
         AnalyticsUtils.sendAppEvent("saving", label: "Saving canvas snapshot")
         
-        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+        self.view.showActivityView()
         self.view.rn_activityView.dimBackground = false
         
         let sampleImage = self.canvas?.grabFrame()

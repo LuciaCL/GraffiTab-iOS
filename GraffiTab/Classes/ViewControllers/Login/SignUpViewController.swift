@@ -67,7 +67,7 @@ class SignUpViewController: BackButtonTableViewController, UITextFieldDelegate {
         let cp = confirmPasswordField.text
         
         if InputValidator.validateSignUp(self, firstName: fn!, lastName: ln!, email: e!, username: u!, password: p!, confirmPassword: cp!) {
-            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+            self.view.showActivityView()
             self.view.rn_activityView.dimBackground = false
             
             GTUserManager.register(fn!, lastName: ln!, email: e!, username: u!, password: p!, successBlock: { (response) in

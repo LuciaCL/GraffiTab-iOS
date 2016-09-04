@@ -71,7 +71,7 @@ class SettingsViewController: GeneralSettingsViewController {
         // Register analytics events.
         AnalyticsUtils.sendAppEvent("logout", label: nil)
         
-        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+        self.view.showActivityView()
         self.view.rn_activityView.dimBackground = false
         
         GTUserManager.logout({ (response) in
@@ -98,7 +98,7 @@ class SettingsViewController: GeneralSettingsViewController {
         }
         
         if !isLinkedFacebook {
-            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+            self.view.showActivityView()
             self.view.rn_activityView.dimBackground = false
             
             loginToFacebookWithSuccess(false, successBlock: { (userId, token, email, firstName, lastName) in

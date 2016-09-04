@@ -71,7 +71,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
     // MARK: - Sign up
     
     func signUpWithFacebook(userId: String, token: String, email: String, firstName: String, lastName: String, username: String) {
-        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+        self.view.showActivityView()
         self.view.rn_activityView.dimBackground = false
         
         GTUserManager.register(.FACEBOOK, externalId: userId, accessToken: token, email: email, firstName: firstName, lastName: lastName, username: username, successBlock: { (response) -> Void in
@@ -116,7 +116,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         let pa = passwordField.text
         
         if (InputValidator.validateLogin(self, username: un!, password: pa!)) {
-            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+            self.view.showActivityView()
             self.view.rn_activityView.dimBackground = false
             
             GTUserManager.login(un!, password: pa!, successBlock: { (response) -> Void in
@@ -143,7 +143,7 @@ class LoginViewController: BackButtonViewController, UITextFieldDelegate {
         // Register analytics events.
         AnalyticsUtils.sendAppEvent("login_facebook", label: nil)
         
-        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+        self.view.showActivityView()
         self.view.rn_activityView.dimBackground = false
         
         loginToFacebookWithSuccess(forceLogin, successBlock: { (userId: String, token: String, email: String, firstName: String, lastName: String) -> () in

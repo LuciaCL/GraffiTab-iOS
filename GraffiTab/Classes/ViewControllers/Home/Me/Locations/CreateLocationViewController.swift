@@ -67,7 +67,7 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
             // Register analytics events.
             AnalyticsUtils.sendAppEvent("location_create", label: nil)
             
-            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+            self.view.showActivityView()
             self.view.rn_activityView.dimBackground = false
             
             let success = {
@@ -154,7 +154,7 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
     // MARK: - Search
     
     func searchLocationForAddress(address: String) {
-        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+        self.view.showActivityView()
         self.view.rn_activityView.dimBackground = false
         
         let request = MKLocalSearchRequest()

@@ -74,7 +74,7 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
             // Register analytics events.
             AnalyticsUtils.sendAppEvent("profile_change_password", label: nil)
             
-            self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+            self.view.showActivityView()
             self.view.rn_activityView.dimBackground = false
             
             GTMeManager.editPassword(p!, newPassword: np!, successBlock: { (response) in

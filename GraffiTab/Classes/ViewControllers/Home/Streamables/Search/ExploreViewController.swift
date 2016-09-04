@@ -357,7 +357,7 @@ class ExploreViewController: BackButtonViewController, UITextFieldDelegate, MKMa
     // MARK: - Search
     
     func searchLocationForAddress(address: String) {
-        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+        self.view.showActivityView()
         self.view.rn_activityView.dimBackground = false
         
         let request = MKLocalSearchRequest()

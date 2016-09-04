@@ -51,7 +51,7 @@ class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate
         
         self.view.endEditing(true)
         
-        self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+        self.view.showActivityView()
         self.view.rn_activityView.dimBackground = false
         
         let successHandler = {

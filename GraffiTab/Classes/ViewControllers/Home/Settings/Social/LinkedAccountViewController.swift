@@ -54,7 +54,7 @@ class LinkedAccountViewController: BackButtonTableViewController {
             AnalyticsUtils.sendAppEvent("linked_accounts_unlink", label: self.accountProvider?.rawValue)
             
             DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_linked_account_unlink_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_linked_account_unlink_prompt_yes", comment: ""), yesAction: {
-                self.view.showActivityViewWithLabel(NSLocalizedString("other_processing", comment: ""))
+                self.view.showActivityView()
                 self.view.rn_activityView.dimBackground = false
                 
                 GTMeManager.unlinkExternalProvider(self.accountProvider!, successBlock: { (response) in
