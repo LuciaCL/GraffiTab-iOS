@@ -123,6 +123,7 @@
 }
 
 - (IBAction)close:(id)sender {
+    [[CCDirector sharedDirector] purgeCachedData];
     [[CCDirector sharedDirector] dismissViewControllerAnimated:YES completion:nil];
 }
 

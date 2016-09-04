@@ -67,7 +67,7 @@ class TuneViewController: UIViewController {
     func setupCanvasView() {
         previewImage.layer.cornerRadius = previewImage.frame.height / 2
         
-        Utils.applyCanvasShadowEffectToView(self.previewCanvas)
+        Utils.applyShadowEffect(previewCanvas, offset: CGSizeMake(-2, -2), opacity: 0.3, radius: 2.0)
     }
     
     func setupSliders() {

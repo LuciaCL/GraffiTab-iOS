@@ -33,7 +33,6 @@
 #import "CCRenderer_private.h"
 
 #define ADD_TRIANGLE(A, B, C, Z) vertices[index].pos = A, vertices[index++].z = Z, vertices[index].pos = B, vertices[index++].z = Z, vertices[index].pos = C, vertices[index++].z = Z
-#define MAX_UNDO 15
 
 @protocol LineDrawGestureRecognizerDelegate <UIGestureRecognizerDelegate>;
 
@@ -133,7 +132,8 @@ typedef struct {
 	BOOL finishingLine;
     CGFloat opacity;
     CGPoint previousPoint;
-	
+    int maxUndo;
+    
 	CGFloat forceFraction; // Used when a stylus or 3D touch is giving force values. 0 < forceFraction <= 1 when force active. <= 0 when no force value available
 }
 
@@ -150,6 +150,7 @@ typedef struct {
         // Setup constants and tools.
         self.sizeOffset = 3.0;
         self.opacityOffset = 0.8;
+        maxUndo = 1;
         
         ccColor4F c = {0, 0, 0, opacity};
 		_strokeColor = c;
@@ -162,30 +163,9 @@ typedef struct {
         chalkSprite = [[CCSprite alloc] initWithImageNamed:@"Chalk.png"];
         brushSprite = [[CCSprite alloc] initWithImageNamed:@"Brush.png"];
         
-        CGSize s = [[CCDirector sharedDirector] viewSize];
-        // Setup background texture.
-        backgroundTexture = [[CCRenderTexture alloc] initWithWidth:s.width height:s.height pixelFormat:CCTexturePixelFormat_RGBA8888];
-        backgroundTexture.positionType = CCPositionTypeNormalized;
-        backgroundTexture.anchorPoint = ccp(0, 0);
-        backgroundTexture.position = ccp(0.5, 0.5);
+        // Setup textures.
+        [self reframeViews:[[CCDirector sharedDirector] view].frame];
         
-        [backgroundTexture.sprite setBlendMode:[CCBlendMode blendModeWithOptions:@{
-                                                                               CCBlendFuncSrcColor: @GL_SRC_ALPHA,
-                                                                               CCBlendFuncDstColor: @GL_ONE_MINUS_SRC_ALPHA,
-                                                                               }]];
-        [backgroundTexture clear:1.0 g:1.0 b:1.0 a:1.0];
-        [self addChild:backgroundTexture];
-        
-        // Setup main texture.
-		renderTexture = [[CCRenderTexture alloc] initWithWidth:s.width height:s.height pixelFormat:CCTexturePixelFormat_RGBA8888];
-		
-		renderTexture.positionType = CCPositionTypeNormalized;
-		renderTexture.anchorPoint = ccp(0, 0);
-		renderTexture.position = ccp(0.5, 0.5);
-		
-        [self clearTexture];
-		[self addChild:renderTexture];
-		
 		[[[CCDirector sharedDirector] view] setUserInteractionEnabled:YES];
 		
 		gestureRecognizer = [[LineDrawGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
@@ -195,6 +175,35 @@ typedef struct {
 	}
     
 	return self;
+}
+
+- (void)reframeViews:(CGRect)frame {
+    [backgroundTexture removeFromParent];
+    [renderTexture removeFromParent];
+    
+    CGSize s = [[CCDirector sharedDirector] viewSize];
+    // Setup background texture.
+    backgroundTexture = [[CCRenderTexture alloc] initWithWidth:s.width height:s.height pixelFormat:CCTexturePixelFormat_RGBA8888];
+    backgroundTexture.positionType = CCPositionTypeNormalized;
+    backgroundTexture.anchorPoint = ccp(0, 0);
+    backgroundTexture.position = ccp(0.5, 0.5);
+    
+    [backgroundTexture.sprite setBlendMode:[CCBlendMode blendModeWithOptions:@{
+                                                                               CCBlendFuncSrcColor: @GL_SRC_ALPHA,
+                                                                               CCBlendFuncDstColor: @GL_ONE_MINUS_SRC_ALPHA,
+                                                                               }]];
+    [backgroundTexture clear:1.0 g:1.0 b:1.0 a:1.0];
+    [self addChild:backgroundTexture];
+    
+    // Setup main texture.
+    renderTexture = [[CCRenderTexture alloc] initWithWidth:s.width height:s.height pixelFormat:CCTexturePixelFormat_RGBA8888];
+    
+    renderTexture.positionType = CCPositionTypeNormalized;
+    renderTexture.anchorPoint = ccp(0, 0);
+    renderTexture.position = ccp(0.5, 0.5);
+    
+    [self clearTexture];
+    [self addChild:renderTexture];
 }
 
 - (UIPanGestureRecognizer *)panRecognizer {
@@ -213,8 +222,8 @@ typedef struct {
 
 - (void)clearDrawingLayer {
     [self clearTexture];
-    [undos removeAllObjects];
-    [redos removeAllObjects];
+    [self clearUndos];
+    [self clearRedos];
     
     if (_delegate != nil && [_delegate respondsToSelector:@selector(didInteractWithCanvas)])
         [_delegate didInteractWithCanvas];
@@ -269,6 +278,10 @@ typedef struct {
     }
 }
 
+- (void)setMaxUndo:(int)value {
+    maxUndo = value;
+}
+
 - (UIImage *)grabFrame {
     CCRenderTexture *renTxture = [self grabTexture:self];
     return [renTxture getUIImage];
@@ -308,14 +321,18 @@ typedef struct {
 
 - (void)addUndoDrawAction:(CCRenderTexture *)texture {
     [undos addObject:texture];
-    if (undos.count > MAX_UNDO) { // We only allow a certain number of undos.
+    if (undos.count > maxUndo) { // We only allow a certain number of undos.
+        CCRenderTexture *toRemove = [undos objectAtIndex:0];
+        [toRemove removeFromParent];
         [undos removeObjectAtIndex:0];
     }
 }
 
 - (void)addRedoDrawAction:(CCRenderTexture *)texture {
     [redos addObject:texture];
-    if (redos.count > MAX_UNDO) { // We only allow a certain number of redos.
+    if (redos.count > maxUndo) { // We only allow a certain number of redos.
+        CCRenderTexture *toRemove = [redos objectAtIndex:0];
+        [toRemove removeFromParent];
         [redos removeObjectAtIndex:0];
     }
 }
@@ -362,6 +379,18 @@ typedef struct {
     [renderTexture begin];
     [texture visit];
     [renderTexture end];
+}
+
+- (void)clearUndos {
+    for (CCRenderTexture *texture in undos)
+        [texture removeFromParent];
+    [undos removeAllObjects];
+}
+
+- (void)clearRedos {
+    for (CCRenderTexture *texture in redos)
+        [texture removeFromParent];
+    [redos removeAllObjects];
 }
 
 #pragma mark - Handling points
@@ -707,7 +736,7 @@ typedef struct {
     }
     
     [self addUndoDrawAction:[self grabTexture:renderTexture]];
-    [redos removeAllObjects]; // Clear redos after user interaction.
+    [self clearRedos]; // Clear redos after user interaction.
     
     if (_delegate != nil && [_delegate respondsToSelector:@selector(didInteractWithCanvas)])
         [_delegate didInteractWithCanvas];

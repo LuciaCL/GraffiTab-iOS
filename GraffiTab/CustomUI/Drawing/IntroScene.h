@@ -15,5 +15,6 @@
 @property (nonatomic, strong) LineDrawer *canvas;
 
 - (id)init:(CGRect)frame;
+- (void)reframeViews:(CGRect)frame;
 
 @end

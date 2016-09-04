@@ -237,6 +237,6 @@ class PublishViewController: UIViewController {
     }
     
     func setupImageContainer() {
-        Utils.applyPublishShadowEffectToView(imageContainer)
+        Utils.applyShadowEffect(imageContainer, offset: CGSizeMake(1, 1), opacity: 0.3, radius: 2.0)
     }
 }

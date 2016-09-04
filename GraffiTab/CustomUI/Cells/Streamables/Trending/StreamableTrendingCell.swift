@@ -34,7 +34,7 @@ class StreamableTrendingCell: StreamableCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        Utils.applyShadowEffectToCellView(self)
+        Utils.applyShadowEffect(self, offset: CGSizeMake(1, 1), opacity: 0.1, radius: 2.0)
     }
     
     override func setItem() {

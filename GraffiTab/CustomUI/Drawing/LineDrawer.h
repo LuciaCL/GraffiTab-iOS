@@ -60,6 +60,8 @@ typedef enum {
 @property (nonatomic, assign) CGFloat opacityOffset;
 @property (nonatomic, assign) CGFloat sizeOffset;
 
+- (void)reframeViews:(CGRect)frame;
+
 - (UIPanGestureRecognizer *)panRecognizer;
 
 - (void)setDrawColor:(UIColor *)color;
@@ -69,6 +71,7 @@ typedef enum {
 - (void)clearBackground;
 - (void)clearCanvas;
 
+- (void)setMaxUndo:(int)value;
 - (UIImage *)grabFrame;
 - (BOOL)canUndo;
 - (void)undo;

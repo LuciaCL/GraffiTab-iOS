@@ -20,7 +20,7 @@ class Utils: NSObject {
         NSNotificationCenter.defaultCenter().postNotificationName(Notifications.UserLoggedOut, object: nil)
     }
     
-    class func applyShadowEffectToCellView(view: UIView) {
+    class func applyShadowEffect(view: UIView, offset: CGSize, opacity: CGFloat, radius: CGFloat) {
         let shadowPath: CGPathRef = UIBezierPath(rect: view.bounds).CGPath
         let layer = view.layer
         layer.shadowColor = UIColor.blackColor().CGColor
@@ -28,33 +28,6 @@ class Utils: NSObject {
         layer.shadowOffset = CGSizeMake(1, 1)
         layer.shadowRadius = 2.0
         layer.shadowPath = shadowPath
-        view.clipsToBounds = false
-    }
-    
-    class func applyShadowEffectToView(view: UIView) {
-        let layer = view.layer
-        layer.shadowColor = UIColor.blackColor().CGColor
-        layer.shadowOpacity = 0.1
-        layer.shadowOffset = CGSizeMake(1, 1)
-        layer.shadowRadius = 2.0
-        view.clipsToBounds = false
-    }
-    
-    class func applyPublishShadowEffectToView(view: UIView) {
-        let layer = view.layer
-        layer.shadowColor = UIColor.blackColor().CGColor
-        layer.shadowOpacity = 0.3
-        layer.shadowOffset = CGSizeMake(1, 1)
-        layer.shadowRadius = 2.0
-        view.clipsToBounds = false
-    }
-    
-    class func applyCanvasShadowEffectToView(view: UIView) {
-        let layer = view.layer
-        layer.shadowColor = UIColor.blackColor().CGColor
-        layer.shadowOpacity = 0.3
-        layer.shadowOffset = CGSizeMake(-2, -2)
-        layer.shadowRadius = 2.0
         view.clipsToBounds = false
     }
     

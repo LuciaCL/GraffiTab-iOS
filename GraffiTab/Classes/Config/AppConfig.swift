@@ -21,6 +21,7 @@ class AppConfig: NSObject {
     
     var isAppStore: Bool = false
     var useAnalytics: Bool = false
+    var maxUndoActions = 10
     
     var theme: GTTheme?
     

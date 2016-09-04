@@ -101,16 +101,15 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                                                sizeSlider,
                                                opacitySlider]
         
+        loadColors()
+        loadTools()
+        loadPhrase()
+        
         setupCocos2D()
         setupLabels()
         setupButtons()
         setupImageViews()
         setupSliders()
-        
-        loadColors()
-        loadTools()
-        loadPhrase()
-        
         setupColorConstants()
         
         configureUndoButtons()
@@ -385,6 +384,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickClose(sender: AnyObject?) {
+        // Clear everything before closing the canvas.
+        canvas!.clearCanvas()
+        
+        // Savely close canvas.
         super.close(sender)
     }
     
@@ -1058,15 +1061,18 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     // MARK: - Setup
     
     func setupCocos2D() {
+        canvasView.setNeedsLayout()
+        canvasView.layoutIfNeeded()
+        
         DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Setting up IntroScene")
         
-        canvasScene = IntroScene(self.canvasView.bounds)
-        
         if CCDirector.sharedDirector().runningScene != nil {
-            CCDirector.sharedDirector().replaceScene(canvasScene)
+            canvasScene = CCDirector.sharedDirector().runningScene as? IntroScene
+            canvasScene?.reframeViews(canvasView.bounds)
         }
         else {
-            CCDirector.sharedDirector().pushScene(canvasScene)
+            canvasScene = IntroScene(canvasView.bounds)
+            CCDirector.sharedDirector().runWithScene(canvasScene)
         }
         
         canvas = canvasScene!.canvas
@@ -1074,13 +1080,18 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         
         DDLogInfo("[\(NSStringFromClass(self.dynamicType))] IntroScene set up - \(canvasScene)")
         
-        // Setup default colors.
+        // Setup default values.
         let color = UIColor.blackColor()
         colorBtn.backgroundColor = color
         canvas?.setDrawColor(color)
         
+        canvas?.setMaxUndo(Int32(AppConfig.sharedInstance.maxUndoActions))
+        
+        toolCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: .None)
+        canvas?.tool = SPRAY
+        
         // Setup canvas view.
-        Utils.applyCanvasShadowEffectToView(self.canvasView)
+        Utils.applyShadowEffect(canvasView, offset: CGSizeMake(-2, -2), opacity: 0.3, radius: 2.0)
     }
     
     func setupColorConstants() {
@@ -1112,6 +1123,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     func setupImageViews() {
-        previewImage.layer.cornerRadius = 19
+        previewImage.setNeedsLayout()
+        previewImage.layoutIfNeeded()
+        previewImage.layer.cornerRadius = previewImage.frame.height / 2
     }
 }
