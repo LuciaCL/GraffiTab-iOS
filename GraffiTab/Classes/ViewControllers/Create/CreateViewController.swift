@@ -343,7 +343,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                     
             })
         }
-        actionSheet.show()
+        showActionSheet(actionSheet)
     }
     
     @IBAction func onClickEnhance(sender: AnyObject?) {
@@ -436,7 +436,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                                 
                         })
                     }
-                    actionSheet.show()
+                    showActionSheet(actionSheet)
                 }
             }
         }

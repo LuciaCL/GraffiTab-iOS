@@ -135,7 +135,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
                 self.delete()
             }
         }
-        actionSheet.show()
+        showActionSheet(actionSheet)
     }
     
     @IBAction func onClickShare(sender: AnyObject) {

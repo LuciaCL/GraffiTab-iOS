@@ -465,7 +465,7 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
                     
             })
         }
-        actionSheet.show()
+        showActionSheet(actionSheet)
     }
     
     func doDeleteLocation(location: GTLocation, indexPath: NSIndexPath) {

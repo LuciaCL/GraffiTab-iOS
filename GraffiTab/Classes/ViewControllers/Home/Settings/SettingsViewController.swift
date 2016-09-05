@@ -182,7 +182,7 @@ class SettingsViewController: GeneralSettingsViewController {
                 actionSheet.addButtonWithTitle(NSLocalizedString("controller_settings_clear_cache", comment: ""), image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
                     AppImageCache.sharedInstance.clearDiskCache()
                 }
-                actionSheet.show()
+                showActionSheet(actionSheet)
             }
         }
         else if indexPath.section == 3 {
@@ -204,7 +204,7 @@ class SettingsViewController: GeneralSettingsViewController {
                 actionSheet.addButtonWithTitle(NSLocalizedString("controller_settings_logout", comment: ""), image: UIImage(named: "ic_exit_to_app_white"), type: .Destructive) { (sheet) in
                     self.onClickLogout()
                 }
-                actionSheet.show()
+                showActionSheet(actionSheet)
             }
         }
     }

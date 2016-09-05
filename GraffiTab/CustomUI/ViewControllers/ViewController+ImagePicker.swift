@@ -30,7 +30,7 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
                 
             })
         }
-        actionSheet.show()
+        showActionSheet(actionSheet)
     }
     
     func chooseFromGallery(imagePicker: UIImagePickerController) {

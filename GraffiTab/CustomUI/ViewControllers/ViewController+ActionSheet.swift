@@ -35,4 +35,26 @@ extension UIViewController {
         
         return actionSheet
     }
+    
+    func showActionSheet(actionSheet: AHKActionSheet) {
+        actionSheet.show()
+        
+        if DeviceType.IS_IPAD {
+            for subview in actionSheet.subviews {
+                if subview.isKindOfClass(UITableView.classForCoder()) {
+                    let tableView = subview as? UITableView
+                    for sv in tableView!.tableHeaderView!.subviews {
+                        if sv.isKindOfClass(UILabel.classForCoder()) {
+                            let label = sv as? UILabel
+                            
+                            var f = label?.frame
+                            f?.origin.x = Orientation.isLandscape() ? 175 : 50
+                            label?.frame = f!
+                            return
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

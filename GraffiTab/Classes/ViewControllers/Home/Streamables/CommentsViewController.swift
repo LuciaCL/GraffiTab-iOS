@@ -246,7 +246,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
                     })
                 }
             }
-            actionSheet.show()
+            showActionSheet(actionSheet)
         }
         else {
             var string: String?
@@ -520,7 +520,7 @@ class CommentsViewController: BackButtonSlackViewController, MessageDelegate {
                 })
             })
         }
-        actionSheet.show()
+        showActionSheet(actionSheet)
     }
     
     func didTapAvatar(user: GTUser) {
