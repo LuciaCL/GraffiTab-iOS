@@ -398,7 +398,7 @@
 "controller_settings_find_facebook_friends" = "Намери Приятели от Facebook";
 "controller_settings_invite_facebook_friends" = "Покани Приятели от Facebook";
 "controller_settings_followers_activity" = "Други Известия";
-"controller_settings_linked_accounts" = "ВЪрзани Акаунти";
+"controller_settings_linked_accounts" = "Свързани Акаунти";
 "controller_settings_clear_cache" = "Изчисти Кеш";
 "controller_settings_assistant" = "Показване на Асистент за Рисуване";
 "controller_settings_help_center" = "Помощ и Поддърка";
@@ -409,8 +409,9 @@
 "controller_settings_support" = "Поддръжка";
 "controller_settings_language" = "Език";
 
-"controller_language_prompt" = "Избери език";
+"controller_language_prompt" = "Други езици";
 "controller_language_prompt_description" = "Ще трябва да рестартираш приложението, за да се промени езикът.";
+"controller_language_system" = "Системен Език";
 
 "controller_streamable_options_title" = "Опции";
 "controller_streamable_options_public" = "Маркирай като Публичен";

@@ -12,11 +12,8 @@ class AppConfig: NSObject {
 
     static var sharedInstance: AppConfig = AppConfig()
     
-    var fallbackLanguage = "English"
-    var languages = [
-        "English" : "en_EN",
-        "Español" : "es_ES",
-        "Български" : "bg_BG"
+    var customLanguages = [
+        "bg-BG" : "Български"
     ]
     
     var isAppStore: Bool = false

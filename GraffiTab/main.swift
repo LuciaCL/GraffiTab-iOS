@@ -11,8 +11,6 @@ import UIKit
 
 // Your initialization code here.
 
-// Setup language.
-NSUserDefaults.standardUserDefaults().setObject(NSArray(object: AppConfig.sharedInstance.languages[Settings.sharedInstance.language!]!), forKey: "AppleLanguages")
-NSUserDefaults.standardUserDefaults().synchronize()
+Settings.sharedInstance.setupLanguage()
 
 UIApplicationMain(Process.argc, Process.unsafeArgv, nil, NSStringFromClass(AppDelegate))

@@ -55,6 +55,8 @@ class SettingsViewController: GeneralSettingsViewController {
         
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
+        
+        loadData()
     }
 
     @IBAction func onSwitchRememberCredentials(sender: AnyObject) {
@@ -146,7 +148,7 @@ class SettingsViewController: GeneralSettingsViewController {
     func loadData() {
         logoutCell.detailTextLabel?.text = GTMeManager.sharedInstance.loggedInUser?.getFullName()
         
-        languageField.text = Settings.sharedInstance.language
+        languageField.text = Settings.sharedInstance.language != nil ? AppConfig.sharedInstance.customLanguages[Settings.sharedInstance.language!] : NSLocalizedString("controller_language_system", comment: "")
         
         rememberCredentialsSwitch.on = Settings.sharedInstance.rememberCredentials!
         showDrawingAssistantSwitch.on = !Settings.sharedInstance.showedDrawingAssistant!

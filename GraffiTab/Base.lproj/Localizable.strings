@@ -409,8 +409,9 @@
 "controller_settings_support" = "Support";
 "controller_settings_language" = "Language";
 
-"controller_language_prompt" = "Select language";
+"controller_language_prompt" = "Other languages";
 "controller_language_prompt_description" = "You will need to restart the app for the language to take effect.";
+"controller_language_system" = "System Language";
 
 "controller_streamable_options_title" = "What would you like to do with this graffiti?";
 "controller_streamable_options_public" = "Mark Public";

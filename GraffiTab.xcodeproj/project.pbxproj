@@ -131,6 +131,8 @@
 		E5571B581D66465A00BDA004 /* GTLightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5571B571D66465A00BDA004 /* GTLightTheme.swift */; };
 		E5571B591D66465A00BDA004 /* GTLightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5571B571D66465A00BDA004 /* GTLightTheme.swift */; };
 		E558A8A61CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */; };
+		E56293511D7DA4B500283F53 /* NSBundle+Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56293501D7DA4B500283F53 /* NSBundle+Language.swift */; };
+		E56293521D7DA4B500283F53 /* NSBundle+Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56293501D7DA4B500283F53 /* NSBundle+Language.swift */; };
 		E56D1F231CDD1917007B3698 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D1F221CDD1917007B3698 /* ArrayUtils.swift */; };
 		E57716881CE6008600006572 /* ZoomableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E57716871CE6008600006572 /* ZoomableImageView.m */; };
 		E57AB6771D6F64BF002C35D3 /* ViewController+NoNavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57AB6761D6F64BF002C35D3 /* ViewController+NoNavigationBarViewController.swift */; };
@@ -642,6 +644,7 @@
 		E554CFD91CB5641B00668D85 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
 		E5571B571D66465A00BDA004 /* GTLightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTLightTheme.swift; sourceTree = "<group>"; };
 		E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicStreamablesViewController.swift; sourceTree = "<group>"; };
+		E56293501D7DA4B500283F53 /* NSBundle+Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+Language.swift"; sourceTree = "<group>"; };
 		E56D1F221CDD1917007B3698 /* ArrayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
 		E57295D01CEB2FE400875AF3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		E57716861CE6008600006572 /* ZoomableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomableImageView.h; sourceTree = "<group>"; };
@@ -1198,6 +1201,14 @@
 				E5B6B55D1CC4E8D400DC8EFC /* UserAboutView.xib */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		E562934A1D7DA49C00283F53 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				E56293501D7DA4B500283F53 /* NSBundle+Language.swift */,
+			);
+			path = Language;
 			sourceTree = "<group>";
 		};
 		E57716851CE6007B00006572 /* Transitions */ = {
@@ -1828,6 +1839,7 @@
 		E5F46CB51D5B86E100F52256 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				E562934A1D7DA49C00283F53 /* Language */,
 				E5C61C831D65A4A500BBFA87 /* Themes */,
 				E5F46CB61D5B86F200F52256 /* AppConfig.swift */,
 			);
@@ -2366,6 +2378,7 @@
 				E55452EE1CF340C20076CEC9 /* CreateLocationViewController.swift in Sources */,
 				E584327A1CE9242000FB1E50 /* MenuCell.swift in Sources */,
 				E59BC2FC1D12B423009781BA /* UserTrendingCell.swift in Sources */,
+				E56293521D7DA4B500283F53 /* NSBundle+Language.swift in Sources */,
 				E584327B1CE9242000FB1E50 /* UserCell.swift in Sources */,
 				E584327C1CE9242000FB1E50 /* ViewController+ImagePicker.swift in Sources */,
 				E5F40CFB1D4E8BF200832D92 /* GTError+Localize.swift in Sources */,
@@ -2543,6 +2556,7 @@
 				E55452ED1CF340C20076CEC9 /* CreateLocationViewController.swift in Sources */,
 				E51005F41CB69BDE00AC66A5 /* MenuCell.swift in Sources */,
 				E59BC2FB1D12B423009781BA /* UserTrendingCell.swift in Sources */,
+				E56293511D7DA4B500283F53 /* NSBundle+Language.swift in Sources */,
 				E51006F51CBD1B0000AC66A5 /* UserCell.swift in Sources */,
 				E5B6B64D1CC9A48200DC8EFC /* ViewController+ImagePicker.swift in Sources */,
 				E5F40CFA1D4E8BF200832D92 /* GTError+Localize.swift in Sources */,

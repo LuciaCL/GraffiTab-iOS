@@ -17,10 +17,10 @@ class Settings: NSObject {
     
     var language: String? {
         get {
-            return getStringPreference(SettingsKeys.kLanguage)
+            return getStringPreference(SettingsKeys.kAppLanguage)
         }
         set(newValue) {
-            setStringPreference(newValue!, key: SettingsKeys.kLanguage)
+            setStringPreference(newValue, key: SettingsKeys.kAppLanguage)
         }
     }
     
@@ -133,21 +133,16 @@ class Settings: NSObject {
     }
     
     func basicInit() {
-        if language == nil { // Language has not been set before.
-            let currentLanguage = NSLocale.preferredLanguages().first!
-            let range = currentLanguage.rangeOfString("-", options: .BackwardsSearch)
-            var languageMark = currentLanguage.substringToIndex(range!.startIndex)
-            languageMark = "\(languageMark)_\(languageMark.uppercaseString)" // Needed for setting the appropriate language.
-            
-            if AppConfig.sharedInstance.languages.values.contains(languageMark) { // If the current language is supported, set it as the app language.
-                let keys = (AppConfig.sharedInstance.languages as NSDictionary).allKeysForObject(languageMark) as! [NSString]
-                language = keys.first as? String
-            }
-            else { // Language is not supported so fall back to default.
-                language = AppConfig.sharedInstance.fallbackLanguage
-            }
-        }
+        
     }
+    
+    // MARK: - Languages
+    
+    func setupLanguage() {
+        NSBundle.language = self.language
+    }
+    
+    // MARK: - Helper functions
     
     func getStringPreference(key: String) -> String? {
         let defaults = NSUserDefaults.standardUserDefaults()

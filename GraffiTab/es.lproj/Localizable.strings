@@ -409,8 +409,9 @@
 "controller_settings_support" = "Soporte";
 "controller_settings_language" = "Idioma";
 
-"controller_language_prompt" = "Seleciona un idioma";
+"controller_language_prompt" = "Otros idiomas";
 "controller_language_prompt_description" = "Necesitas reiniciar la aplicación para que el cambio de idioma tenga efecto.";
+"controller_language_system" = "Idioma del Sistema";
 
 "controller_streamable_options_title" = "¿Que te gustaría hacer con este grafiti?";
 "controller_streamable_options_public" = "Marcar como público";
