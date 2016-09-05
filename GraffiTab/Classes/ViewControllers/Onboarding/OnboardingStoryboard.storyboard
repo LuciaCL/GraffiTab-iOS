@@ -110,7 +110,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ep-Ga-Fxh" customClass="iCarousel">
-                                <rect key="frame" x="0.0" y="60" width="600" height="520"/>
+                                <rect key="frame" x="0.0" y="52" width="600" height="491"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="eU0-Wi-LDa" id="YIN-WL-dgD"/>
@@ -129,13 +129,15 @@
                             <constraint firstItem="sNr-5A-uRA" firstAttribute="top" secondItem="1hk-H1-28Y" secondAttribute="bottom" constant="15" id="Qpb-SF-977"/>
                             <constraint firstAttribute="trailing" secondItem="utU-Bz-iL5" secondAttribute="trailing" id="aUV-SU-UMV"/>
                             <constraint firstItem="utU-Bz-iL5" firstAttribute="leading" secondItem="NnC-pW-pKW" secondAttribute="leading" id="elH-yH-CMe"/>
-                            <constraint firstItem="xvZ-IV-fRk" firstAttribute="top" secondItem="2Ep-Ga-Fxh" secondAttribute="bottom" constant="20" id="hcp-bA-CRn"/>
                             <constraint firstItem="utU-Bz-iL5" firstAttribute="top" secondItem="NnC-pW-pKW" secondAttribute="top" id="kIK-Lc-FcL"/>
                             <constraint firstItem="2Ep-Ga-Fxh" firstAttribute="leading" secondItem="NnC-pW-pKW" secondAttribute="leading" id="kmK-68-P5J"/>
+                            <constraint firstItem="nMC-ME-nQy" firstAttribute="top" secondItem="2Ep-Ga-Fxh" secondAttribute="bottom" constant="5" id="pJ5-L5-r8b"/>
                             <constraint firstItem="xvZ-IV-fRk" firstAttribute="top" secondItem="nMC-ME-nQy" secondAttribute="bottom" constant="15" id="qiQ-c2-J8t">
                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                             </constraint>
-                            <constraint firstItem="2Ep-Ga-Fxh" firstAttribute="top" secondItem="sNr-5A-uRA" secondAttribute="bottom" constant="13" id="riJ-gc-oe4"/>
+                            <constraint firstItem="2Ep-Ga-Fxh" firstAttribute="top" secondItem="sNr-5A-uRA" secondAttribute="bottom" constant="5" id="riJ-gc-oe4">
+                                <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                            </constraint>
                             <constraint firstItem="xvZ-IV-fRk" firstAttribute="top" secondItem="utU-Bz-iL5" secondAttribute="bottom" id="wER-Aa-wHt"/>
                         </constraints>
                     </view>

@@ -44,31 +44,31 @@ class OnboardingViewController: BackButtonViewController, iCarouselDelegate, iCa
         var screen = OnboardingScreen()
         screen.title = NSLocalizedString("controller_onboarding_screen_1_title", comment: "")
         screen.subtitle = NSLocalizedString("controller_onboarding_screen_1_description", comment: "")
-        screen.screenshot = DeviceType.IS_IPAD ? (Orientation.isLandscape() ? "placeholder_ipad_landscape" : "placeholder_ipad_portrait") : "onboard_1"
+        screen.screenshot = DeviceType.IS_IPAD ? (Orientation.isLandscape() ? "onboard_pad_l_1" : "onboard_pad_1") : "onboard_1"
         screens.append(screen)
         
         screen = OnboardingScreen()
         screen.title = NSLocalizedString("controller_onboarding_screen_2_title", comment: "")
         screen.subtitle = NSLocalizedString("controller_onboarding_screen_2_description", comment: "")
-        screen.screenshot = DeviceType.IS_IPAD ? (Orientation.isLandscape() ? "placeholder_ipad_landscape" : "placeholder_ipad_portrait") : "onboard_2"
+        screen.screenshot = DeviceType.IS_IPAD ? (Orientation.isLandscape() ? "onboard_pad_l_2" : "onboard_pad_2") : "onboard_2"
         screens.append(screen)
         
         screen = OnboardingScreen()
         screen.title = NSLocalizedString("controller_onboarding_screen_3_title", comment: "")
         screen.subtitle = NSLocalizedString("controller_onboarding_screen_3_description", comment: "")
-        screen.screenshot = DeviceType.IS_IPAD ? (Orientation.isLandscape() ? "placeholder_ipad_landscape" : "placeholder_ipad_portrait") : "onboard_3"
+        screen.screenshot = DeviceType.IS_IPAD ? (Orientation.isLandscape() ? "onboard_pad_l_3" : "onboard_pad_3") : "onboard_3"
         screens.append(screen)
         
         screen = OnboardingScreen()
         screen.title = NSLocalizedString("controller_onboarding_screen_4_title", comment: "")
         screen.subtitle = NSLocalizedString("controller_onboarding_screen_4_description", comment: "")
-        screen.screenshot = DeviceType.IS_IPAD ? (Orientation.isLandscape() ? "placeholder_ipad_landscape" : "placeholder_ipad_portrait") : "onboard_4"
+        screen.screenshot = DeviceType.IS_IPAD ? (Orientation.isLandscape() ? "onboard_pad_l_4" : "onboard_pad_4") : "onboard_4"
         screens.append(screen)
         
         screen = OnboardingScreen()
         screen.title = NSLocalizedString("controller_onboarding_screen_5_title", comment: "")
         screen.subtitle = NSLocalizedString("controller_onboarding_screen_5_description", comment: "")
-        screen.screenshot = DeviceType.IS_IPAD ? (Orientation.isLandscape() ? "placeholder_ipad_landscape" : "placeholder_ipad_portrait") : "onboard_5"
+        screen.screenshot = DeviceType.IS_IPAD ? (Orientation.isLandscape() ? "onboard_pad_l_5" : "onboard_pad_5") : "onboard_5"
         screens.append(screen)
         
         carousel.reloadData()

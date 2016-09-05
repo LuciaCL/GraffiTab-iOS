@@ -26,7 +26,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="glT-83-ShS">
-                    <rect key="frame" x="10" y="141" width="580" height="449"/>
+                    <rect key="frame" x="10" y="136" width="580" height="454"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NxI-Nc-Ye4">
                     <rect key="frame" x="30" y="67" width="540" height="39"/>
@@ -51,10 +51,10 @@
                 <constraint firstItem="NxI-Nc-Ye4" firstAttribute="centerY" secondItem="Y1E-SC-fpl" secondAttribute="centerY" id="Icg-d4-z88"/>
                 <constraint firstItem="NxI-Nc-Ye4" firstAttribute="centerX" secondItem="Y1E-SC-fpl" secondAttribute="centerX" id="iAC-FH-TJJ"/>
                 <constraint firstAttribute="bottom" secondItem="glT-83-ShS" secondAttribute="bottom" constant="10" id="kD6-Aq-TUM">
-                    <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                    <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                 </constraint>
-                <constraint firstItem="glT-83-ShS" firstAttribute="top" secondItem="NxI-Nc-Ye4" secondAttribute="bottom" constant="35" id="nah-zx-uUF">
-                    <variation key="heightClass=regular-widthClass=regular" constant="55"/>
+                <constraint firstItem="glT-83-ShS" firstAttribute="top" secondItem="NxI-Nc-Ye4" secondAttribute="bottom" constant="30" id="nah-zx-uUF">
+                    <variation key="heightClass=regular-widthClass=regular" constant="60"/>
                 </constraint>
                 <constraint firstItem="iiz-zo-QMl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pSf-TF-gYc"/>
                 <constraint firstItem="Y1E-SC-fpl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="qjG-cy-ojQ">
