@@ -1123,8 +1123,6 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     func setupImageViews() {
-        previewImage.setNeedsLayout()
-        previewImage.layoutIfNeeded()
-        previewImage.layer.cornerRadius = previewImage.frame.height / 2
+        previewImage.layer.cornerRadius = 19
     }
 }
