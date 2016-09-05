@@ -153,8 +153,14 @@ class AssetImageView: UIImageView {
         else if url == targetUrl { // Verify we're still loading the current image.
             self.image = image
             
-            // Add image to cache.
-            AppImageCache.sharedInstance.cacheImage(url, image: image)
+            dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
+                // Add image to cache.
+                AppImageCache.sharedInstance.cacheImage(url, image: image)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    
+                })
+            })
             
             if completionHandler != nil {
                 completionHandler!(imageSet: true)
