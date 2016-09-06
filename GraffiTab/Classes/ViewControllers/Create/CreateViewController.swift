@@ -333,6 +333,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_share_save", comment: ""), image: UIImage(named: "ic_file_download_white"), type: .Default) { (sheet) in
             self.onClickSave(nil)
         }
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_clear", comment: ""), image: UIImage(named: "ic_filter_none_white"), type: .Default) { (sheet) in
+            self.showClearOptions()
+        }
         actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_share_discard", comment: ""), image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
             DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_create_share_discard_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_create_share_discard_prompt_yes", comment: ""), noTitle: NSLocalizedString("other_cancel", comment: ""), yesAction: {
                 // Register analytics events.
@@ -414,29 +417,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             let indexPath = toolCollectionView.indexPathForItemAtPoint(p)
             if indexPath != nil {
                 if indexPath?.row == 0 {
-                    let actionSheet = buildActionSheet(NSLocalizedString("controller_create_clear_description", comment: ""))
-                    actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_clear_drawing_layer", comment: ""), type: .Default) { (sheet) in
-                        DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_create_clear_drawing_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_create_clear_prompt_yes", comment: ""), noTitle: NSLocalizedString("other_cancel", comment: ""), yesAction: {
-                            self.canvas!.clearDrawingLayer()
-                        }, noAction: {
-                                
-                        })
-                    }
-                    actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_clear_background_layer", comment: ""), type: .Default) { (sheet) in
-                        DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_create_clear_background_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_create_clear_prompt_yes", comment: ""), noTitle: NSLocalizedString("other_cancel", comment: ""), yesAction: {
-                            self.canvas!.clearBackground()
-                        }, noAction: {
-                                
-                        })
-                    }
-                    actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_clear_everything", comment: ""), image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
-                        DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_create_clear_drawing_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_create_clear_prompt_yes", comment: ""), noTitle: NSLocalizedString("other_cancel", comment: ""), yesAction: {
-                            self.canvas!.clearCanvas()
-                        }, noAction: {
-                                
-                        })
-                    }
-                    showActionSheet(actionSheet)
+                    showClearOptions()
                 }
             }
         }
@@ -542,6 +523,32 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         }
         
         self.presentViewController(formSheetController, animated: true, completion: nil)
+    }
+    
+    func showClearOptions() {
+        let actionSheet = buildActionSheet(NSLocalizedString("controller_create_clear_description", comment: ""))
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_clear_drawing_layer", comment: ""), type: .Default) { (sheet) in
+            DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_create_clear_drawing_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_create_clear_prompt_yes", comment: ""), noTitle: NSLocalizedString("other_cancel", comment: ""), yesAction: {
+                self.canvas!.clearDrawingLayer()
+                }, noAction: {
+                    
+            })
+        }
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_clear_background_layer", comment: ""), type: .Default) { (sheet) in
+            DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_create_clear_background_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_create_clear_prompt_yes", comment: ""), noTitle: NSLocalizedString("other_cancel", comment: ""), yesAction: {
+                self.canvas!.clearBackground()
+                }, noAction: {
+                    
+            })
+        }
+        actionSheet.addButtonWithTitle(NSLocalizedString("controller_create_clear_everything", comment: ""), image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
+            DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_create_clear_drawing_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_create_clear_prompt_yes", comment: ""), noTitle: NSLocalizedString("other_cancel", comment: ""), yesAction: {
+                self.canvas!.clearCanvas()
+                }, noAction: {
+                    
+            })
+        }
+        showActionSheet(actionSheet)
     }
     
     func configureUndoButtons() {

@@ -38,6 +38,7 @@ class SettingsViewController: GeneralSettingsViewController {
     @IBOutlet weak var logoutCell: UITableViewCell!
     @IBOutlet weak var rememberCredentialsSwitch: UISwitch!
     @IBOutlet weak var showDrawingAssistantSwitch: UISwitch!
+    @IBOutlet weak var editProfileCell: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -222,8 +223,8 @@ class SettingsViewController: GeneralSettingsViewController {
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        rememberMeXConstraint.constant = cell.separatorInset.left
-        drawingAssistantXConstraint.constant = cell.separatorInset.left
+        rememberMeXConstraint.constant = editProfileCell.separatorInset.left
+        drawingAssistantXConstraint.constant = editProfileCell.separatorInset.left
         
         if indexPath.section == 1 && indexPath.row == 1 { // Disable Facebook invites for now.
             cell.hidden = true

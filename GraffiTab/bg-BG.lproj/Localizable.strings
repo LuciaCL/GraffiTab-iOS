@@ -247,6 +247,7 @@
 "controller_create_share_discard" = "Отхвърли";
 "controller_create_share_discard_prompt" = "Сигурен ли си, че искаш да отхвърлиш тази рисунка?";
 "controller_create_share_discard_prompt_yes" = "Да, отхвърли";
+"controller_create_clear" = "Изчисти рисунката";
 "controller_create_clear_description" = "Опции";
 "controller_create_clear_drawing_layer" = "Изчисти рисунката";
 "controller_create_clear_drawing_prompt" = "Сигурен ли си, че искаш да изчистиш рисунката?";
@@ -444,6 +445,9 @@
 "controller_followers" = "Последователи";
 
 "controller_following" = "Следвани";
+
+"controller_input_username_title" = "Почти си готов!";
+"controller_input_username_prompt" = "Остава само да избереш потребителско име.";
 
 // Other
 

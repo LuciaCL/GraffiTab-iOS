@@ -247,6 +247,7 @@
 "controller_create_share_discard" = "Discard";
 "controller_create_share_discard_prompt" = "Are you sure you want to discard this drawing? Any unsaved progress will be lost.";
 "controller_create_share_discard_prompt_yes" = "Yes, discard it";
+"controller_create_clear" = "Clear Canvas";
 "controller_create_clear_description" = "What would you like to do?";
 "controller_create_clear_drawing_layer" = "Clear drawing layer";
 "controller_create_clear_drawing_prompt" = "Are you sure you want to clear your drawing? Any unsaved progress will be lost.";
@@ -444,6 +445,9 @@
 "controller_followers" = "Followers";
 
 "controller_following" = "Following";
+
+"controller_input_username_title" = "Almost there!";
+"controller_input_username_prompt" = "Pick a username for your account.";
 
 // Other
 

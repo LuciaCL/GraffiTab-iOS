@@ -25,6 +25,8 @@ class InputUsernameViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        setupTextViews()
     }
     
     // MARK: - UITextFIeldDelegate
@@ -32,5 +34,16 @@ class InputUsernameViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    // MARK: - Setup
+    
+    func setupTextViews() {
+        titleField.text = NSLocalizedString("controller_input_username_title", comment: "")
+        descriptionField.text = NSLocalizedString("controller_input_username_prompt", comment: "")
+        
+        usernameField.placeholder = NSLocalizedString("controller_login_username", comment: "")
+        usernameField.textColor = AppConfig.sharedInstance.theme?.primaryColor
+        usernameField.tintColor = AppConfig.sharedInstance.theme?.primaryColor
     }
 }

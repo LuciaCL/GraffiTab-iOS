@@ -247,6 +247,7 @@
 "controller_create_share_discard" = "Descartar";
 "controller_create_share_discard_prompt" = "¿Estás seguro de que quieres descartar este dibujo? Se perderá cualquier cambio no guardado.";
 "controller_create_share_discard_prompt_yes" = "Sí, descártalo";
+"controller_create_clear" = "Limpiar";
 "controller_create_clear_description" = "¿Que te gustaría hacer?";
 "controller_create_clear_drawing_layer" = "Limpiar capa";
 "controller_create_clear_drawing_prompt" = "¿Estás seguro de que quieres limpiar tu dibujo? Se perderá cualquier cambio no guardado.";
@@ -444,6 +445,9 @@
 "controller_followers" = "Seguidores";
 
 "controller_following" = "Siguiendo";
+
+"controller_input_username_title" = "Casi listo!";
+"controller_input_username_prompt" = "Escoge un nombre de usuario para su cuenta.";
 
 // Other
 

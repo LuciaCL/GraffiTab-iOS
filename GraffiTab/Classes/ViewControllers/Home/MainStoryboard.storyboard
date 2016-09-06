@@ -1606,6 +1606,7 @@
                         <outlet property="changePasswordLbl" destination="ote-xl-xIh" id="xQe-qP-dvL"/>
                         <outlet property="drawingAssistantLbl" destination="VtC-Ck-DUI" id="AQv-9G-oZc"/>
                         <outlet property="drawingAssistantXConstraint" destination="wjm-Df-llY" id="6lw-02-6k0"/>
+                        <outlet property="editProfileCell" destination="1iu-QZ-zbE" id="Xdl-1L-luU"/>
                         <outlet property="editProfileLbl" destination="9Lu-47-bSu" id="XAK-SA-7Zo"/>
                         <outlet property="eulaLbl" destination="D4X-dc-St8" id="HTy-AY-nao"/>
                         <outlet property="findFacebookFriendsLbl" destination="k80-or-WhQ" id="Nzf-7k-ETf"/>
