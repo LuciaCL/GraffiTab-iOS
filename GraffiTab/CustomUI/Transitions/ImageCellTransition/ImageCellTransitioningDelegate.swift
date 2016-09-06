@@ -1,5 +1,5 @@
 //
-//  TransitioningDelegate.swift
+//  ImageCellTransitioningDelegate.swift
 //  GraffiTab
 //
 //  Created by Georgi Christov on 13/06/2016.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class TransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
+class ImageCellTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
     
-    var presentationAnimator = PresentationAnimator()
-    var dismissAnimator = DismissalAnimator()
-    weak var animatedView: UIView? {
+    var presentationAnimator = ImageCellPresentationAnimator()
+    var dismissAnimator = ImageCellDismissalAnimator()
+    weak var animatedView: UIImageView? {
         didSet {
             presentationAnimator.animatedView = animatedView!
             dismissAnimator.animatedView = animatedView!

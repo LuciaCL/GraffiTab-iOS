@@ -57,6 +57,14 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.detailsStatusBarStyle!, animated: true)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        Utils.runWithDelay(0.2) {
+            self.showViews()
+        }
+    }
+    
     @IBAction func onClickUser(sender: AnyObject) {
         ViewControllerUtils.showUserProfile(streamable!.user!, viewController: self)
     }
@@ -277,7 +285,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             
             GTMeManager.deleteStreamable(self.streamable!.id!, successBlock: { (response) in
                 Utils.runWithDelay(0.3, block: {
-                    (self.transitioningDelegate as! TransitioningDelegate).resetState()
+                    (self.transitioningDelegate as! ImageCellTransitioningDelegate).resetState()
                     self.transitioningDelegate = nil
                     self.dismissViewControllerAnimated(true, completion: nil)
                 })
@@ -292,7 +300,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     func edit() {
         let parent = self.presentingViewController
         
-        (self.transitioningDelegate as! TransitioningDelegate).resetState()
+        (self.transitioningDelegate as! ImageCellTransitioningDelegate).resetState()
         self.transitioningDelegate = nil
         self.dismissViewControllerAnimated(true, completion: {
             let vc = UIStoryboard(name: "CreateStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CreateViewController") as! CreateViewController
@@ -445,5 +453,9 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
         commentsContainer.layer.cornerRadius = likesContainer.layer.cornerRadius
         menuContainer.layer.cornerRadius = likesContainer.layer.cornerRadius
         shareContainer.layer.cornerRadius = likesContainer.layer.cornerRadius
+        
+        viewsVisible = false
+        topMenu.alpha = 0
+        bottomMenu.alpha = 0
     }
 }

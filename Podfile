@@ -53,6 +53,7 @@ def common_pods
     pod 'PAGestureAssistant'
     pod 'Instabug'
     pod 'JTMaterialSpinner'
+    pod 'INSImageView'
 end
 
 target 'GraffiTab' do

@@ -153,6 +153,12 @@
 		E56293A11D7DECA100283F53 /* onboard_pad_l_4.png in Resources */ = {isa = PBXBuildFile; fileRef = E56293981D7DECA100283F53 /* onboard_pad_l_4.png */; };
 		E56293A21D7DECA100283F53 /* onboard_pad_l_5.png in Resources */ = {isa = PBXBuildFile; fileRef = E56293991D7DECA100283F53 /* onboard_pad_l_5.png */; };
 		E56293A31D7DECA100283F53 /* onboard_pad_l_5.png in Resources */ = {isa = PBXBuildFile; fileRef = E56293991D7DECA100283F53 /* onboard_pad_l_5.png */; };
+		E56293C21D7E413100283F53 /* ImageCellDismissalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56293BF1D7E413100283F53 /* ImageCellDismissalAnimator.swift */; };
+		E56293C31D7E413100283F53 /* ImageCellPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56293C01D7E413100283F53 /* ImageCellPresentationAnimator.swift */; };
+		E56293C41D7E413100283F53 /* ImageCellTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56293C11D7E413100283F53 /* ImageCellTransitioningDelegate.swift */; };
+		E56293C51D7E4ABB00283F53 /* ImageCellDismissalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56293BF1D7E413100283F53 /* ImageCellDismissalAnimator.swift */; };
+		E56293C61D7E4ABB00283F53 /* ImageCellPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56293C01D7E413100283F53 /* ImageCellPresentationAnimator.swift */; };
+		E56293C71D7E4ABB00283F53 /* ImageCellTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56293C11D7E413100283F53 /* ImageCellTransitioningDelegate.swift */; };
 		E56D1F231CDD1917007B3698 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D1F221CDD1917007B3698 /* ArrayUtils.swift */; };
 		E57716881CE6008600006572 /* ZoomableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E57716871CE6008600006572 /* ZoomableImageView.m */; };
 		E57AB6771D6F64BF002C35D3 /* ViewController+NoNavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57AB6761D6F64BF002C35D3 /* ViewController+NoNavigationBarViewController.swift */; };
@@ -411,12 +417,6 @@
 		E5C61C861D65A4B700BBFA87 /* GTTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C61C841D65A4B700BBFA87 /* GTTheme.swift */; };
 		E5C61C881D65A51B00BBFA87 /* GTDarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C61C871D65A51B00BBFA87 /* GTDarkTheme.swift */; };
 		E5C61C891D65A51B00BBFA87 /* GTDarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C61C871D65A51B00BBFA87 /* GTDarkTheme.swift */; };
-		E5CC52FA1D0EDAFF00425744 /* TransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC52F91D0EDAFF00425744 /* TransitioningDelegate.swift */; };
-		E5CC52FB1D0EDAFF00425744 /* TransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC52F91D0EDAFF00425744 /* TransitioningDelegate.swift */; };
-		E5CC53021D0EDB2600425744 /* PresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC53011D0EDB2600425744 /* PresentationAnimator.swift */; };
-		E5CC53031D0EDB2600425744 /* PresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC53011D0EDB2600425744 /* PresentationAnimator.swift */; };
-		E5CC53051D0EDB7700425744 /* DismissalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC53041D0EDB7700425744 /* DismissalAnimator.swift */; };
-		E5CC53061D0EDB7700425744 /* DismissalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC53041D0EDB7700425744 /* DismissalAnimator.swift */; };
 		E5D085A71CD8D30000226589 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5D0857F1CD8D30000226589 /* TOCropViewControllerLocalizable.strings */; };
 		E5D085A81CD8D30000226589 /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0858D1CD8D30000226589 /* TOActivityCroppedImageProvider.m */; };
 		E5D085A91CD8D30000226589 /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0858F1CD8D30000226589 /* TOCroppedImageAttributes.m */; };
@@ -671,6 +671,9 @@
 		E56293971D7DECA100283F53 /* onboard_pad_l_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onboard_pad_l_3.png; sourceTree = "<group>"; };
 		E56293981D7DECA100283F53 /* onboard_pad_l_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onboard_pad_l_4.png; sourceTree = "<group>"; };
 		E56293991D7DECA100283F53 /* onboard_pad_l_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onboard_pad_l_5.png; sourceTree = "<group>"; };
+		E56293BF1D7E413100283F53 /* ImageCellDismissalAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCellDismissalAnimator.swift; sourceTree = "<group>"; };
+		E56293C01D7E413100283F53 /* ImageCellPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCellPresentationAnimator.swift; sourceTree = "<group>"; };
+		E56293C11D7E413100283F53 /* ImageCellTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCellTransitioningDelegate.swift; sourceTree = "<group>"; };
 		E56D1F221CDD1917007B3698 /* ArrayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
 		E57295D01CEB2FE400875AF3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		E57716861CE6008600006572 /* ZoomableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomableImageView.h; sourceTree = "<group>"; };
@@ -765,9 +768,6 @@
 		E5C369481D216727005FA4A0 /* AnalyticsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsUtils.swift; sourceTree = "<group>"; };
 		E5C61C841D65A4B700BBFA87 /* GTTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTTheme.swift; sourceTree = "<group>"; };
 		E5C61C871D65A51B00BBFA87 /* GTDarkTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTDarkTheme.swift; sourceTree = "<group>"; };
-		E5CC52F91D0EDAFF00425744 /* TransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitioningDelegate.swift; sourceTree = "<group>"; };
-		E5CC53011D0EDB2600425744 /* PresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationAnimator.swift; sourceTree = "<group>"; };
-		E5CC53041D0EDB7700425744 /* DismissalAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissalAnimator.swift; sourceTree = "<group>"; };
 		E5D085801CD8D30000226589 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		E5D085811CD8D30000226589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		E5D085821CD8D30000226589 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
@@ -1272,12 +1272,20 @@
 			path = Landscape;
 			sourceTree = "<group>";
 		};
+		E56293BE1D7E413100283F53 /* ImageCellTransition */ = {
+			isa = PBXGroup;
+			children = (
+				E56293BF1D7E413100283F53 /* ImageCellDismissalAnimator.swift */,
+				E56293C01D7E413100283F53 /* ImageCellPresentationAnimator.swift */,
+				E56293C11D7E413100283F53 /* ImageCellTransitioningDelegate.swift */,
+			);
+			path = ImageCellTransition;
+			sourceTree = "<group>";
+		};
 		E57716851CE6007B00006572 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
-				E5CC52F91D0EDAFF00425744 /* TransitioningDelegate.swift */,
-				E5CC53011D0EDB2600425744 /* PresentationAnimator.swift */,
-				E5CC53041D0EDB7700425744 /* DismissalAnimator.swift */,
+				E56293BE1D7E413100283F53 /* ImageCellTransition */,
 				E57AB67E1D6F71D1002C35D3 /* JTMaterialTransitionWithFinishListener.swift */,
 			);
 			path = Transitions;
@@ -2316,6 +2324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E56293C71D7E4ABB00283F53 /* ImageCellTransitioningDelegate.swift in Sources */,
 				E58432251CE9242000FB1E50 /* SearchViewController.swift in Sources */,
 				E5D3749D1D07B29200A60343 /* UINavigationController+Orientation.swift in Sources */,
 				E58432261CE9242000FB1E50 /* EditPasswordViewController.swift in Sources */,
@@ -2366,9 +2375,9 @@
 				E59BC2F41D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */,
 				E58432421CE9242000FB1E50 /* StreamableCell.swift in Sources */,
 				E57AB6781D6F64BF002C35D3 /* ViewController+NoNavigationBarViewController.swift in Sources */,
+				E56293C51D7E4ABB00283F53 /* ImageCellDismissalAnimator.swift in Sources */,
 				E5FE1DA61D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */,
 				E5D3748E1D07417800A60343 /* DeployGateLogger.swift in Sources */,
-				E5CC53061D0EDB7700425744 /* DismissalAnimator.swift in Sources */,
 				E59BC30F1D175466009781BA /* LinkedAccountsViewController.swift in Sources */,
 				E58432431CE9242000FB1E50 /* TOCroppedImageAttributes.m in Sources */,
 				E58432441CE9242000FB1E50 /* LikersViewController.swift in Sources */,
@@ -2393,7 +2402,6 @@
 				E58432511CE9242000FB1E50 /* StreamableGridCell.swift in Sources */,
 				E58432521CE9242000FB1E50 /* ColorSprayCanCell.swift in Sources */,
 				E58432531CE9242000FB1E50 /* SplashViewController.swift in Sources */,
-				E5CC53031D0EDB2600425744 /* PresentationAnimator.swift in Sources */,
 				E58432541CE9242000FB1E50 /* NotificationCell.swift in Sources */,
 				E58432551CE9242000FB1E50 /* NotificationLikeCell.swift in Sources */,
 				E58432561CE9242000FB1E50 /* UserListCell.swift in Sources */,
@@ -2445,7 +2453,6 @@
 				E5973AEC1D6E2E3B0000970D /* UIView+RoundedCorners.swift in Sources */,
 				E58432761CE9242000FB1E50 /* StreamableAnnotation.swift in Sources */,
 				E58432771CE9242000FB1E50 /* ActivityGroupCell.swift in Sources */,
-				E5CC52FB1D0EDAFF00425744 /* TransitioningDelegate.swift in Sources */,
 				E58432791CE9242000FB1E50 /* TOCropScrollView.m in Sources */,
 				E55452EE1CF340C20076CEC9 /* CreateLocationViewController.swift in Sources */,
 				E584327A1CE9242000FB1E50 /* MenuCell.swift in Sources */,
@@ -2484,6 +2491,7 @@
 				E58432931CE9242000FB1E50 /* EditProfileViewController.swift in Sources */,
 				E5AEDA881D1D3C4A006D4296 /* PatternDetector.cpp in Sources */,
 				E5F46CBE1D5BAA0A00F52256 /* main.swift in Sources */,
+				E56293C61D7E4ABB00283F53 /* ImageCellPresentationAnimator.swift in Sources */,
 				E58432941CE9242000FB1E50 /* GTUser+Extra.swift in Sources */,
 				E5FE1D8F1CFF7DFE009CFB72 /* StreamableImageView.swift in Sources */,
 				E58432951CE9242000FB1E50 /* ListFullStreamablesViewController.swift in Sources */,
@@ -2498,6 +2506,7 @@
 				E5D3749C1D07B29200A60343 /* UINavigationController+Orientation.swift in Sources */,
 				E5B6B5A91CC56F5800DC8EFC /* EditPasswordViewController.swift in Sources */,
 				E5FE1D911CFF840B009CFB72 /* CoverImageView.swift in Sources */,
+				E56293C21D7E413100283F53 /* ImageCellDismissalAnimator.swift in Sources */,
 				E5DFDC051CB2C31B00BB3D27 /* TintButton.swift in Sources */,
 				E51006E21CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */,
 				E5C61C851D65A4B700BBFA87 /* GTTheme.swift in Sources */,
@@ -2505,6 +2514,7 @@
 				E55452E41CF329580076CEC9 /* LocationCell.swift in Sources */,
 				E5B6B5B51CC56F5800DC8EFC /* FollowersActivityViewController.swift in Sources */,
 				E52DC75C1CE55FA900375828 /* FollowingViewController.swift in Sources */,
+				E56293C31D7E413100283F53 /* ImageCellPresentationAnimator.swift in Sources */,
 				E53F3FA81CEAA63900537D1B /* DrawingOptionButton.swift in Sources */,
 				E59BC3031D140BD7009781BA /* ViewController+Facebook.swift in Sources */,
 				E55452E71CF336A50076CEC9 /* LocationListCell.swift in Sources */,
@@ -2546,7 +2556,6 @@
 				E57AB6771D6F64BF002C35D3 /* ViewController+NoNavigationBarViewController.swift in Sources */,
 				E5FE1DA51D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */,
 				E5D3748D1D07417800A60343 /* DeployGateLogger.swift in Sources */,
-				E5CC53051D0EDB7700425744 /* DismissalAnimator.swift in Sources */,
 				E59BC30E1D175466009781BA /* LinkedAccountsViewController.swift in Sources */,
 				E5D085A91CD8D30000226589 /* TOCroppedImageAttributes.m in Sources */,
 				E52DC7761CE5E09900375828 /* LikersViewController.swift in Sources */,
@@ -2571,7 +2580,6 @@
 				E510065E1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
 				E5B6B6321CC6566100DC8EFC /* ColorSprayCanCell.swift in Sources */,
 				E5A4F1041CE1EDF2005CF12C /* SplashViewController.swift in Sources */,
-				E5CC53021D0EDB2600425744 /* PresentationAnimator.swift in Sources */,
 				E510069D1CBBB4C900AC66A5 /* NotificationCell.swift in Sources */,
 				E51006A61CBBDD1D00AC66A5 /* NotificationLikeCell.swift in Sources */,
 				E5A1D6681D23101E0027E438 /* GTDeviceMotionManager.swift in Sources */,
@@ -2623,7 +2631,6 @@
 				E5973AEB1D6E2E3B0000970D /* UIView+RoundedCorners.swift in Sources */,
 				E51006DF1CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */,
 				E51006CE1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,
-				E5CC52FA1D0EDAFF00425744 /* TransitioningDelegate.swift in Sources */,
 				E5D085AE1CD8D30000226589 /* TOCropScrollView.m in Sources */,
 				E55452ED1CF340C20076CEC9 /* CreateLocationViewController.swift in Sources */,
 				E51005F41CB69BDE00AC66A5 /* MenuCell.swift in Sources */,
@@ -2659,6 +2666,7 @@
 				E5544BF21D5565CA002AA88A /* UIImage+Utils.swift in Sources */,
 				E5C61C881D65A51B00BBFA87 /* GTDarkTheme.swift in Sources */,
 				E5B6B5AB1CC56F5800DC8EFC /* EditProfileViewController.swift in Sources */,
+				E56293C41D7E413100283F53 /* ImageCellTransitioningDelegate.swift in Sources */,
 				E5AEDA871D1D3C4A006D4296 /* PatternDetector.cpp in Sources */,
 				E5DAA8B61CE49418000CB2F4 /* GTUser+Extra.swift in Sources */,
 				E5F46CBD1D5BAA0A00F52256 /* main.swift in Sources */,

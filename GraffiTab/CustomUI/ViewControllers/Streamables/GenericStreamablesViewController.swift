@@ -31,11 +31,11 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     var selectedCell: StreamableCell? {
         didSet {
             let frameToOpenFrom = selectedCell!.thumbnail.superview?.convertRect(selectedCell!.thumbnail.frame, toView: nil)
-            transitionDelegate.openingFrame = frameToOpenFrom
-            transitionDelegate.animatedView = selectedCell!.thumbnail
+            imageTransitionDelegate.openingFrame = frameToOpenFrom
+            imageTransitionDelegate.animatedView = selectedCell!.thumbnail
         }
     }
-    let transitionDelegate = TransitioningDelegate()
+    let imageTransitionDelegate = ImageCellTransitioningDelegate()
     var items = [GTStreamable]()
     var isDownloading = false
     var canLoadMore = true
@@ -555,7 +555,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     func didTapThumbnail(cell: UICollectionViewCell, streamable: GTStreamable) {
         selectedCell = (cell as! StreamableCell)
         
-        ViewControllerUtils.showStreamableDetails(streamable, modalPresentationStyle: .Custom, transitioningDelegate: transitionDelegate, viewController: self)
+        ViewControllerUtils.showStreamableDetails(streamable, modalPresentationStyle: .Custom, transitioningDelegate: imageTransitionDelegate, viewController: self)
     }
     
     // MARK: - Orientation

@@ -1,5 +1,5 @@
 //
-//  DismissalAnimator.swift
+//  ImageCellDismissalAnimator.swift
 //  GraffiTab
 //
 //  Created by Georgi Christov on 13/06/2016.
@@ -7,16 +7,17 @@
 //
 
 import UIKit
+import INSImageView
 
-class DismissalAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+class ImageCellDismissalAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    weak var animatedView: UIView?
+    weak var animatedView: UIImageView?
     
     var openingFrame: CGRect?
     var toViewController: UIViewController?
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 0.5
+        return 0.3
     }
     
     func animationEnded(transitionCompleted: Bool) {
@@ -29,30 +30,34 @@ class DismissalAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        // Obtain common properties.
         let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         let containerView = transitionContext.containerView()
         
+        // Begin transition.
         toViewController!.beginAppearanceTransition(true, animated: true)
         
-        let animationDuration = self.transitionDuration(transitionContext)
-        
-        let snapshotView = fromViewController.view.resizableSnapshotViewFromRect(fromViewController.view.bounds, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
+        // Create snapshot view.
+        let snapshotView = INSImageView(image: animatedView?.image)
+        snapshotView.frame = fromViewController.view.frame
+        snapshotView.backgroundColor = UIColor.blackColor()
+        snapshotView.contentMode = .ScaleAspectFit
+        snapshotView.clipsToBounds = animatedView!.clipsToBounds
         containerView!.addSubview(snapshotView)
         
         fromViewController.view.alpha = 0.0
         
-        UIView.animateWithDuration(animationDuration, animations: { () -> Void in
+        // Perform animations.
+        UIView.animateWithDuration(self.transitionDuration(transitionContext), animations: { () -> Void in
             snapshotView.frame = self.openingFrame!
-            snapshotView.alpha = 0.0
+            snapshotView.contentMode = self.animatedView!.contentMode
         }) { (finished) -> Void in
-            snapshotView.removeFromSuperview()
-            fromViewController.view.removeFromSuperview()
-            transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+            if finished {
+                snapshotView.removeFromSuperview()
+                fromViewController.view.removeFromSuperview()
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+            }
         }
-        
-        UIView.animateWithDuration(animationDuration, delay: 0.13, options: [], animations: {
-            self.animatedView!.alpha = 1.0
-        }, completion: nil)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  PresentationAnimator.swift
+//  ImageCellPresentationAnimator.swift
 //  GraffiTab
 //
 //  Created by Georgi Christov on 13/06/2016.
@@ -7,16 +7,17 @@
 //
 
 import UIKit
+import INSImageView
 
-class PresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+class ImageCellPresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    weak var animatedView: UIView?
+    weak var animatedView: UIImageView?
     
     var openingFrame: CGRect?
     var toViewController: UIViewController?
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 0.5
+        return 0.3
     }
     
     func animationEnded(transitionCompleted: Bool) {
@@ -29,39 +30,36 @@ class PresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        // Obtain common properties.
         let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         let containerView = transitionContext.containerView()
         
+        // Begin transition.
         toViewController!.beginAppearanceTransition(true, animated: true)
         
-        let animationDuration = self.transitionDuration(transitionContext)
-        
-        // add blurred background to the view
-//        let fromViewFrame = fromViewController.view.frame
-        let fromViewFrame = UIApplication.sharedApplication().keyWindow?.bounds
-        
-        UIGraphicsBeginImageContext(fromViewFrame!.size)
-        fromViewController.view.drawViewHierarchyInRect(fromViewFrame!, afterScreenUpdates: true)
-        let snapshotImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        let snapshotView = toViewController!.view.resizableSnapshotViewFromRect(toViewController!.view.frame, afterScreenUpdates: true, withCapInsets: UIEdgeInsetsZero)
+        // Create snapshot view.
+        let snapshotView = INSImageView(image: animatedView?.image)
         snapshotView.frame = openingFrame!
+        snapshotView.backgroundColor = UIColor.blackColor()
+        snapshotView.contentMode = animatedView!.contentMode
+        snapshotView.clipsToBounds = animatedView!.clipsToBounds
         containerView!.addSubview(snapshotView)
         
         toViewController!.view.alpha = 0.0
         containerView!.addSubview(toViewController!.view)
         
-        UIView.animateWithDuration(animationDuration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 20.0, options: [], animations: { () -> Void in
-            snapshotView.frame = fromViewFrame!
-            
-            self.animatedView!.alpha = 0.0
+        // Perform animations.
+        UIView.animateWithDuration(self.transitionDuration(transitionContext), animations: { () -> Void in
+            snapshotView.frame = fromViewController.view.frame
+            snapshotView.contentMode = .ScaleAspectFit
         }, completion: { (finished) -> Void in
-            snapshotView.removeFromSuperview()
-            self.toViewController!.view.alpha = 1.0
-            
-            transitionContext.completeTransition(finished)
+            if finished {
+                snapshotView.removeFromSuperview()
+                self.toViewController!.view.alpha = 1.0
+                
+                transitionContext.completeTransition(finished)
+            }
         })
     }
 }
