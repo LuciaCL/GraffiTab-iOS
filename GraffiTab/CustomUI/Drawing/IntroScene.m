@@ -12,18 +12,22 @@
 
     if (self) {
 		_canvas = [[LineDrawer alloc] init];
-        [self reframeViews:frame];
+        [self reframeViews:frame.size];
 		[self addChild:_canvas];
 	}
 	
     return self;
 }
 
-- (void)reframeViews:(CGRect)frame {
-    _canvas.contentSize = CGSizeMake(frame.size.width, frame.size.height);
+- (void)reframeViews:(CGSize)size {
+    self.contentSize = size;
+    self.position = CGPointZero;
+    self.anchorPoint = CGPointZero;
+    
+    _canvas.contentSize = size;
     _canvas.position = CGPointZero;
     _canvas.anchorPoint = CGPointZero;
-    [_canvas reframeViews:frame];
+    [_canvas reframeViews:size];
 }
 
 @end

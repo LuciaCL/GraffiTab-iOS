@@ -63,9 +63,9 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     var canvasScene: IntroScene?
     var canvas: LineDrawer?
     var colors: [UIColor]?
-    var chunkedColors: [[UIColor]]?
+    var chunkedColors = [[UIColor]]()
     var tools: [String]?
-    var laidOut: Bool = false
+    var initialSetup: Bool = false
     var selectedToolIndex: Int = 6
     var isPortrait: Bool?
     var menuPinchStartPointX: CGFloat?
@@ -104,21 +104,6 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         loadColors()
         loadTools()
         loadPhrase()
-        
-        setupCocos2D()
-        setupLabels()
-        setupButtons()
-        setupImageViews()
-        setupSliders()
-        setupColorConstants()
-        
-        configureUndoButtons()
-        
-        if toEdit != nil {
-            Utils.runWithDelay(0.3, block: {
-                self.loadEdit()
-            })
-        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -139,18 +124,33 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if laidOut == false {
-            laidOut = true
+        if initialSetup == false {
+            initialSetup = true
             
+            setupCocos2D()
+            setupLabels()
+            setupButtons()
+            setupImageViews()
+            setupSliders()
             setupColorConstants()
-            colorsTableView.reloadData()
             
+            configureUndoButtons()
             configureToolsLayout()
+            
             loadPreviewImage()
             
-            Utils.runWithDelay(1.3, block: { () in
-                self.checkScreenAssistant()
-            })
+            if !Settings.sharedInstance.showedDrawingAssistant! { // Show screen assistant.
+                Utils.runWithDelay(1.3, block: { () in
+                    self.showScreenAssistant()
+                })
+            }
+            else { // Check for other initial actions.
+                 if toEdit != nil {
+                    Utils.runWithDelay(0.3, block: {
+                        self.loadEdit()
+                    })
+                }
+            }
         }
     }
     
@@ -572,16 +572,14 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     // MARK: - Drawing assistant
     
-    func checkScreenAssistant() {
-        if !Settings.sharedInstance.showedDrawingAssistant! {
-            DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing drawing assistant")
-            AnalyticsUtils.sendAppEvent("showing_drawing_assistant", label: nil)
-            
-            isDrawAssistantMode = true
-            drawingAssistantIndex = 0;
-            showNextDrawingAssistantScreen()
-            showSkipBtn()
-        }
+    func showScreenAssistant() {
+        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing drawing assistant")
+        AnalyticsUtils.sendAppEvent("showing_drawing_assistant", label: nil)
+        
+        isDrawAssistantMode = true
+        drawingAssistantIndex = 0;
+        showNextDrawingAssistantScreen()
+        showSkipBtn()
     }
     
     func showNextDrawingAssistantScreen() {
@@ -918,14 +916,14 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     // MARK: - UITableViewDelegate
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return max(chunkedColors!.count, minRows)
+        return max(chunkedColors.count, minRows)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(ColorSprayCanCell.reusableIdentifier()) as! ColorSprayCanCell
         
-        if indexPath.row < chunkedColors?.count {
-            cell.colors = Array(self.chunkedColors![indexPath.row])
+        if indexPath.row < chunkedColors.count {
+            cell.colors = Array(self.chunkedColors[indexPath.row])
             cell.delegate = self
         }
         else {
@@ -1068,14 +1066,11 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     // MARK: - Setup
     
     func setupCocos2D() {
-        canvasView.setNeedsLayout()
-        canvasView.layoutIfNeeded()
-        
         DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Setting up IntroScene")
         
         if CCDirector.sharedDirector().runningScene != nil {
             canvasScene = CCDirector.sharedDirector().runningScene as? IntroScene
-            canvasScene?.reframeViews(canvasView.bounds)
+            canvasScene?.reframeViews(canvasView.frame.size)
         }
         else {
             canvasScene = IntroScene(canvasView.bounds)
@@ -1104,6 +1099,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     func setupColorConstants() {
         minRows = Int(self.colorsTableView.frame.height / self.colorsTableView.rowHeight) + 2
         chunkedColors = colors!.chunk(withDistance: App.ColorsPerRow)
+        colorsTableView.reloadData()
     }
     
     func setupLabels() {

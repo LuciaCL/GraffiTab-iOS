@@ -24,9 +24,9 @@ class Utils: NSObject {
         let shadowPath: CGPathRef = UIBezierPath(rect: view.bounds).CGPath
         let layer = view.layer
         layer.shadowColor = UIColor.blackColor().CGColor
-        layer.shadowOpacity = 0.1
-        layer.shadowOffset = CGSizeMake(1, 1)
-        layer.shadowRadius = 2.0
+        layer.shadowOpacity = Float(opacity)
+        layer.shadowOffset = offset
+        layer.shadowRadius = radius
         layer.shadowPath = shadowPath
         view.clipsToBounds = false
     }

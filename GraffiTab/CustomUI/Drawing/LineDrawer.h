@@ -60,7 +60,7 @@ typedef enum {
 @property (nonatomic, assign) CGFloat opacityOffset;
 @property (nonatomic, assign) CGFloat sizeOffset;
 
-- (void)reframeViews:(CGRect)frame;
+- (void)reframeViews:(CGSize)size;
 
 - (UIPanGestureRecognizer *)panRecognizer;
 

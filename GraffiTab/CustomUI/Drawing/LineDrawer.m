@@ -164,7 +164,7 @@ typedef struct {
         brushSprite = [[CCSprite alloc] initWithImageNamed:@"Brush.png"];
         
         // Setup textures.
-        [self reframeViews:[[CCDirector sharedDirector] view].frame];
+        [self reframeViews:[[CCDirector sharedDirector] viewSize]];
         
 		[[[CCDirector sharedDirector] view] setUserInteractionEnabled:YES];
 		
@@ -177,13 +177,12 @@ typedef struct {
 	return self;
 }
 
-- (void)reframeViews:(CGRect)frame {
+- (void)reframeViews:(CGSize)size {
     [backgroundTexture removeFromParent];
     [renderTexture removeFromParent];
     
-    CGSize s = [[CCDirector sharedDirector] viewSize];
     // Setup background texture.
-    backgroundTexture = [[CCRenderTexture alloc] initWithWidth:s.width height:s.height pixelFormat:CCTexturePixelFormat_RGBA8888];
+    backgroundTexture = [[CCRenderTexture alloc] initWithWidth:size.width height:size.height pixelFormat:CCTexturePixelFormat_RGBA8888];
     backgroundTexture.positionType = CCPositionTypeNormalized;
     backgroundTexture.anchorPoint = ccp(0, 0);
     backgroundTexture.position = ccp(0.5, 0.5);
@@ -196,7 +195,7 @@ typedef struct {
     [self addChild:backgroundTexture];
     
     // Setup main texture.
-    renderTexture = [[CCRenderTexture alloc] initWithWidth:s.width height:s.height pixelFormat:CCTexturePixelFormat_RGBA8888];
+    renderTexture = [[CCRenderTexture alloc] initWithWidth:size.width height:size.height pixelFormat:CCTexturePixelFormat_RGBA8888];
     
     renderTexture.positionType = CCPositionTypeNormalized;
     renderTexture.anchorPoint = ccp(0, 0);

@@ -27,7 +27,10 @@
 #import "CCViewController.h"
 #import "IntroScene.h"
 
-@interface CCViewController ()
+@interface CCViewController () {
+    
+    BOOL initialSetup;
+}
 
 @property (nonatomic) CCGLView *glView;
 
@@ -38,17 +41,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    initialSetup = NO;
+    
     CCDirector *director = [CCDirector sharedDirector];
 
     // If the director's OpenGL view hasn't been set up yet, then we should create it now. If you would like to prevent this "lazy loading", you should initialize the director and set its view elsewhere in your code.
     if ([director isViewLoaded] == NO) {
         director.view = [self createDirectorGLView];
         [self didInitializeDirector];
-    }
-    else {
-        director.view.frame = [self getCanvasFrame];
-        [director.view setNeedsLayout];
-        [director.view layoutIfNeeded];
     }
 
     director.delegate = self;
@@ -114,6 +114,19 @@
     [super viewDidUnload];
 
     [[CCDirector sharedDirector] setDelegate:nil];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    if (!initialSetup) { // Resize OpenGL frame to fit current drawing area.
+        initialSetup = YES;
+        
+        CCDirector *director = [CCDirector sharedDirector];
+        director.view.frame = [self getCanvasFrame];
+        [director.view setNeedsLayout];
+        [director.view layoutIfNeeded];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
