@@ -273,12 +273,12 @@ class EditProfileViewController: BackButtonTableViewController {
             else if indexPath.row == 3 {
                 EditTextViewController.showEditFieldController(self, doneBlock: { (value) in
                     self.aboutField.text = value
-                }, defaultValue: aboutField.text!, allowEmpty: true, capitalizationType: .Sentences, keyboardType: .Default)
+                    }, defaultValue: aboutField.text != nil ? aboutField.text! : "", allowEmpty: true, capitalizationType: .Sentences, keyboardType: .Default)
             }
             else if indexPath.row == 4 {
                 EditTextFieldViewController.showEditFieldController(self, doneBlock: { (value) in
                     self.websiteField.text = value
-                }, defaultValue: websiteField.text!, allowEmpty: true, capitalizationType: .None, keyboardType: .URL)
+                }, defaultValue: websiteField.text != nil ? websiteField.text! : "", allowEmpty: true, capitalizationType: .None, keyboardType: .URL)
             }
         }
     }

@@ -322,6 +322,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         config.logEnabled = true
         config.httpsEnabled = true
         
+        config.domain = "localhost:8091"
+        config.httpsEnabled = false
+        
         if !AppConfig.sharedInstance.isAppStore { // We are deploying to dev or testing locally.
             #if DEBUG // Show full debug traces.
                 config.logLevel = .Debug
