@@ -20,7 +20,7 @@ class Settings: NSObject {
             return getStringPreference(SettingsKeys.kAppLanguage)
         }
         set(newValue) {
-            setStringPreference(newValue, key: SettingsKeys.kAppLanguage)
+            setObjectPreference(newValue, key: SettingsKeys.kAppLanguage)
         }
     }
     
@@ -48,6 +48,15 @@ class Settings: NSObject {
         }
         set(newValue) {
             setBoolPreference(newValue!, key: SettingsKeys.kOnboarding)
+        }
+    }
+    
+    var showedFeedbackOnboarding: Bool? {
+        get {
+            return getBoolPreference(SettingsKeys.kFeedbackOnboarding)
+        }
+        set(newValue) {
+            setBoolPreference(newValue!, key: SettingsKeys.kFeedbackOnboarding)
         }
     }
     
@@ -136,6 +145,21 @@ class Settings: NSObject {
         
     }
     
+    func resetPreferences() {
+        self.promptedForAvatar = false
+    }
+    
+    func shouldShowFeedbackOnboarding() -> Bool {
+        if getObjectPreference(SettingsKeys.kFirstStartDate) == nil {
+            setObjectPreference(NSDate(), key: SettingsKeys.kFirstStartDate)
+        }
+        
+        let firstStartDate = getObjectPreference(SettingsKeys.kFirstStartDate) as! NSDate
+        let now = NSDate()
+        let daysBetween = DateUtils.daysBetweenDates(firstStartDate, endDate: now)
+        return daysBetween >= AppConfig.sharedInstance.onboardingFeedbackDaysTrigger
+    }
+    
     // MARK: - Languages
     
     func setupLanguage() {
@@ -144,18 +168,12 @@ class Settings: NSObject {
     
     // MARK: - Helper functions
     
-    func getStringPreference(key: String) -> String? {
+    func getObjectPreference(key: String) -> AnyObject? {
         let defaults = NSUserDefaults.standardUserDefaults()
-        
-        if (defaults.objectForKey(key) != nil) {
-            return defaults.objectForKey(key) as? String
-        }
-        else {
-            return nil
-        }
+        return defaults.objectForKey(key)
     }
     
-    func setStringPreference(value: String?, key: String) {
+    func setObjectPreference(value: AnyObject?, key: String) {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         if value == nil {
@@ -166,6 +184,17 @@ class Settings: NSObject {
         }
         
         defaults.synchronize()
+    }
+    
+    func getStringPreference(key: String) -> String? {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if (defaults.objectForKey(key) != nil) {
+            return defaults.objectForKey(key) as? String
+        }
+        else {
+            return nil
+        }
     }
     
     func getBoolPreference(key: String) -> Bool {
@@ -183,9 +212,5 @@ class Settings: NSObject {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.removeObjectForKey(key)
         defaults.synchronize()
-    }
-    
-    func resetPreferences() {
-        self.promptedForAvatar = false
     }
 }

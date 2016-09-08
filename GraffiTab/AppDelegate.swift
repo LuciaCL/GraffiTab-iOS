@@ -14,7 +14,6 @@ import GraffiTab_iOS_SDK
 import CocoaLumberjack
 import PAGestureAssistant
 import CoreLocation
-import Instabug
 
 //@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,8 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        setupTestFramework()
         
         // Facebook-specific call.
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -41,11 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogin(_:)), name:Notifications.UserLoggedIn, object:nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogout), name:Notifications.UserLoggedOut, object:nil)
         
-        setupThemeBar()
-        setupCache()
-        setupGraffiTabSDK()
-        setupAnalytics()
         setupGestureAssistant()
+        
+        configureApp()
         
         Utils.runWithDelay(1) { () in
             self.checkOnboarding(launchOptions)
@@ -243,8 +238,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Check if app has been started by clicking on a push notification.
         self.processPushNotificationInfo(launchOptions)
-        
-        setupInstabug()
     }
     
     func userDidLogout() {
@@ -293,75 +286,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Setup
     
-    func setupThemeBar() {
-        let theme = GTLightTheme()
-        AppConfig.sharedInstance.applyTheme(theme)
-    }
-    
-    func setupCache() {
-        let cacheSizeMemory = 50 * 1024 * 1024
-        let cacheSizeDisk = 300 * 1024 * 1024
-        let sharedCache = NSURLCache(memoryCapacity: cacheSizeMemory, diskCapacity: cacheSizeDisk, diskPath: nil)
-        NSURLCache.setSharedURLCache(sharedCache)
-    }
-    
-    func setupTestFramework() {
-        if !AppConfig.sharedInstance.isAppStore {
-            #if DEBUG
-                
-            #else
-                DeployGateSDK.sharedInstance().launchApplicationWithAuthor("graffitab", key: "747b4f90cf1d7573866748c0f81f1b687fa77313")
-            #endif
-        }
-    }
-    
-    func setupGraffiTabSDK() {
-        let config = GTConfig.defaultConfig
-        
-        // Configure log.
-        config.logEnabled = true
-        config.httpsEnabled = true
-        
-//        config.domain = "localhost:8091"
-//        config.httpsEnabled = false
-        
-        if !AppConfig.sharedInstance.isAppStore { // We are deploying to dev or testing locally.
-            #if DEBUG // Show full debug traces.
-                config.logLevel = .Debug
-            #else
-                config.logLevel = .Info
-                DDLog.addLogger(DeployGateLogger.sharedInstance)
-            #endif
-        }
-        else { // Packaging for the App Store.
-            // Show only errors.
-            config.logLevel = .Error
-        }
-        
-        GTSDKConfig.sharedInstance.setConfiguration(config)
-    }
-    
-    func setupAnalytics() {
-        // No need to setup analytics here.
-        if AppConfig.sharedInstance.useAnalytics {
-            // Configure tracker from GoogleService-Info.plist.
-            var configureError:NSError?
-            GGLContext.sharedInstance().configureWithError(&configureError)
-            assert(configureError == nil, "Error configuring Google services: \(configureError)")
-            
-            // Optional: configure GAI options.
-            let gai = GAI.sharedInstance()
-            gai.trackUncaughtExceptions = true  // report uncaught exceptions
-            
-            if AppConfig.sharedInstance.isAppStore {
-                gai.logger.logLevel = GAILogLevel.Info
-            }
-            else {
-                gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
-            }
-        }
-    }
-    
     func setupGestureAssistant() {
         PAGestureAssistant.appearance().tapImage = UIImage(named: "hand")
         PAGestureAssistant.appearance().backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.75)
@@ -369,8 +293,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PAGestureAssistant.appearance().textColor = AppConfig.sharedInstance.theme?.primaryColor
     }
     
-    func setupInstabug() {
-        Instabug.startWithToken("95a2ae49aceb3d7c2b0d32c573a6231f", invocationEvent: IBGInvocationEvent.Shake)
+    // MARK: - Configuration
+    
+    func configureApp() {
+        AppConfig.sharedInstance.configureApp()
     }
 }
 

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GraffiTab_iOS_SDK
+import Instabug
 
 class AppConfig: NSObject {
 
@@ -19,16 +21,111 @@ class AppConfig: NSObject {
     var isAppStore: Bool = false
     var useAnalytics: Bool = false
     var maxUndoActions = 10
+    var onboardingFeedbackDaysTrigger = 2
+    
+    var logEnabled = true
+    var httpsEnabled = true
+    var customUrl: String?
+//    var customUrl = "localhost:8091"
     
     var theme: GTTheme?
     
+    func configureApp() {
+        configureTestFramework()
+        configureTheme(GTLightTheme())
+        configureCache()
+        configureSDK()
+        configureAnalytics()
+        configureInstabug()
+    }
+    
     // MARK: - Themes
     
-    func applyTheme(theme: GTTheme) {
+    private func configureTheme(theme: GTTheme) {
         self.theme = theme
         
         UINavigationBar.appearance().barTintColor = theme.navigationBarBackgroundColor
         UINavigationBar.appearance().tintColor = theme.navigationBarElementsColor
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : theme.navigationBarElementsColor!]
+    }
+    
+    // MARK: - GraffiTab SDK
+    
+    private func configureSDK() {
+        let config = GTConfig.defaultConfig
+        
+        // Configure log.
+        config.logEnabled = logEnabled
+        config.httpsEnabled = httpsEnabled
+        
+        if customUrl != nil {
+            config.domain = customUrl
+        }
+        
+        if !isAppStore { // We are deploying to dev or testing locally.
+            #if DEBUG // Show full debug traces.
+                config.logLevel = .Debug
+            #else
+                config.logLevel = .Info
+                DDLog.addLogger(DeployGateLogger.sharedInstance)
+            #endif
+        }
+        else { // Packaging for the App Store.
+            // Show only errors.
+            config.logLevel = .Error
+        }
+        
+        GTSDKConfig.sharedInstance.setConfiguration(config)
+    }
+    
+    // MARK: - App cache
+    
+    private func configureCache() {
+        let cacheSizeMemory = 50 * 1024 * 1024
+        let cacheSizeDisk = 300 * 1024 * 1024
+        let sharedCache = NSURLCache(memoryCapacity: cacheSizeMemory, diskCapacity: cacheSizeDisk, diskPath: nil)
+        NSURLCache.setSharedURLCache(sharedCache)
+    }
+    
+    // MARK: - DeployGate
+    
+    private func configureTestFramework() {
+        if !AppConfig.sharedInstance.isAppStore {
+            #if DEBUG
+                
+            #else
+                DeployGateSDK.sharedInstance().launchApplicationWithAuthor("graffitab", key: "747b4f90cf1d7573866748c0f81f1b687fa77313")
+            #endif
+        }
+    }
+    
+    // MARK: - Google Analytics
+    
+    private func configureAnalytics() {
+        // No need to setup analytics here.
+        if AppConfig.sharedInstance.useAnalytics {
+            // Configure tracker from GoogleService-Info.plist.
+            var configureError:NSError?
+            GGLContext.sharedInstance().configureWithError(&configureError)
+            assert(configureError == nil, "Error configuring Google services: \(configureError)")
+            
+            // Optional: configure GAI options.
+            let gai = GAI.sharedInstance()
+            gai.trackUncaughtExceptions = true  // report uncaught exceptions
+            
+            if AppConfig.sharedInstance.isAppStore {
+                gai.logger.logLevel = GAILogLevel.Info
+            }
+            else {
+                gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
+            }
+        }
+    }
+    
+    // MARK: - Instabug
+    
+    private func configureInstabug() {
+        Instabug.startWithToken("95a2ae49aceb3d7c2b0d32c573a6231f", invocationEvent: IBGInvocationEvent.Shake)
+        Instabug.setIntroMessageEnabled(false)
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 import CarbonKit
 import GraffiTab_iOS_SDK
 import CocoaLumberjack
+import Instabug
 
 class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDelegate, UIViewControllerTransitioningDelegate {
 
@@ -175,16 +176,35 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         Utils.runWithDelay(1) {
             let user = GTMeManager.sharedInstance.loggedInUser
             
+            let shakePromptSequence = {
+                if !Settings.sharedInstance.showedFeedbackOnboarding! {
+                    if Settings.sharedInstance.shouldShowFeedbackOnboarding() {
+                        Settings.sharedInstance.showedFeedbackOnboarding = true
+                        
+                        Utils.runWithDelay(1, block: {
+                            Instabug.showIntroMessage()
+                        })
+                    }
+                }
+            }
+            
             if user?.avatar == nil {
                 if !Settings.sharedInstance.promptedForAvatar! {
                     let avatarPrompt = UIStoryboard(name: "OnboardingStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("AvatarPromptViewController") as! AvatarPromptViewController
                     avatarPrompt.dismissHandler = {
                         self.dismissViewControllerAnimated(true, completion: nil)
+                        shakePromptSequence()
                     }
                     self.presentViewController(avatarPrompt, animated: true, completion: nil)
                     
                     Settings.sharedInstance.promptedForAvatar = true
                 }
+                else {
+                    shakePromptSequence()
+                }
+            }
+            else {
+                shakePromptSequence()
             }
         }
     }
