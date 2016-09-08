@@ -38,9 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogin(_:)), name:Notifications.UserLoggedIn, object:nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.userDidLogout), name:Notifications.UserLoggedOut, object:nil)
         
-        setupGestureAssistant()
-        
         configureApp()
+        
+        setupGestureAssistant()
         
         Utils.runWithDelay(1) { () in
             self.checkOnboarding(launchOptions)
