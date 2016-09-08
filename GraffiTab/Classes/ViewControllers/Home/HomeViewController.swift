@@ -193,7 +193,6 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
                     let avatarPrompt = UIStoryboard(name: "OnboardingStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("AvatarPromptViewController") as! AvatarPromptViewController
                     avatarPrompt.dismissHandler = {
                         self.dismissViewControllerAnimated(true, completion: nil)
-                        shakePromptSequence()
                     }
                     self.presentViewController(avatarPrompt, animated: true, completion: nil)
                     
