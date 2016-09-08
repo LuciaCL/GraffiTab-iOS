@@ -54,9 +54,10 @@ class AppConfig: NSObject {
     private func configureSDK() {
         let config = GTConfig.defaultConfig
         
-        // Configure log.
         config.logEnabled = logEnabled
         config.httpsEnabled = httpsEnabled
+        
+        config.language = currentLanguage() // Set language to whatever is the chosen device language.
         
         if customUrl != nil {
             config.domain = customUrl
@@ -127,5 +128,22 @@ class AppConfig: NSObject {
     private func configureInstabug() {
         Instabug.startWithToken("95a2ae49aceb3d7c2b0d32c573a6231f", invocationEvent: IBGInvocationEvent.Shake)
         Instabug.setIntroMessageEnabled(false)
+    }
+    
+    // MARK: - Language
+    
+    func updateSDKLanguage() {
+        let config = GTSDKConfig.sharedInstance.getConfiguration()
+        config.language = currentLanguage() // Set language to whatever is the chosen device language.
+    }
+    
+    private func currentLanguage() -> String {
+        var currentLanguage = Settings.sharedInstance.language == nil ? NSLocale.preferredLanguages().first! : Settings.sharedInstance.language!
+        if currentLanguage.containsString("-") { // Parse language in the form en-UK
+            let range = currentLanguage.rangeOfString("-", options: .BackwardsSearch)
+            currentLanguage = currentLanguage.substringToIndex(range!.startIndex)
+        }
+        
+        return currentLanguage
     }
 }

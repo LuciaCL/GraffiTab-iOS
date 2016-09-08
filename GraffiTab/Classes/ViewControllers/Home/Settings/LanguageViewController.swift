@@ -96,6 +96,7 @@ class LanguageViewController: BackButtonTableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+        // Set app language.
         if indexPath.section == 0 {
             Settings.sharedInstance.language = nil
         }
@@ -103,6 +104,9 @@ class LanguageViewController: BackButtonTableViewController {
             let item = languagesArray[indexPath.row]
             Settings.sharedInstance.language = item
         }
+        
+        // Configure language for the SDK.
+        AppConfig.sharedInstance.updateSDKLanguage()
         
         tableView.reloadData()
     }
