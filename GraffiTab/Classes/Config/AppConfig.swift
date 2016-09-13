@@ -9,6 +9,7 @@
 import UIKit
 import GraffiTab_iOS_SDK
 import Instabug
+import CocoaLumberjack
 
 class AppConfig: NSObject {
 
