@@ -309,7 +309,7 @@
 
 "controller_feed_empty_title" = "Your feed is empty";
 "controller_feed_empty_description" = "How about drawing your first sketch?";
-"controller_feed_draw" = "Draw";
+"controller_feed_draw" = "Start Drawing";
 
 "controller_locations_empty_title" = "No locations yet";
 "controller_locations_empty_description" = "Create your first location and start tracking areas of interest.";

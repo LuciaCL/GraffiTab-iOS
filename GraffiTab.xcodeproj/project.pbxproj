@@ -160,6 +160,8 @@
 		E56293C61D7E4ABB00283F53 /* ImageCellPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56293C01D7E413100283F53 /* ImageCellPresentationAnimator.swift */; };
 		E56293C71D7E4ABB00283F53 /* ImageCellTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56293C11D7E413100283F53 /* ImageCellTransitioningDelegate.swift */; };
 		E56D1F231CDD1917007B3698 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D1F221CDD1917007B3698 /* ArrayUtils.swift */; };
+		E57470BF1D886E7C00AE88B5 /* UIImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57470BE1D886E7C00AE88B5 /* UIImage+Tint.swift */; };
+		E57470C01D886E7C00AE88B5 /* UIImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57470BE1D886E7C00AE88B5 /* UIImage+Tint.swift */; };
 		E57716881CE6008600006572 /* ZoomableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E57716871CE6008600006572 /* ZoomableImageView.m */; };
 		E57AB6771D6F64BF002C35D3 /* ViewController+NoNavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57AB6761D6F64BF002C35D3 /* ViewController+NoNavigationBarViewController.swift */; };
 		E57AB6781D6F64BF002C35D3 /* ViewController+NoNavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57AB6761D6F64BF002C35D3 /* ViewController+NoNavigationBarViewController.swift */; };
@@ -676,6 +678,7 @@
 		E56293C11D7E413100283F53 /* ImageCellTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCellTransitioningDelegate.swift; sourceTree = "<group>"; };
 		E56D1F221CDD1917007B3698 /* ArrayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
 		E57295D01CEB2FE400875AF3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		E57470BE1D886E7C00AE88B5 /* UIImage+Tint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Tint.swift"; sourceTree = "<group>"; };
 		E57716861CE6008600006572 /* ZoomableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomableImageView.h; sourceTree = "<group>"; };
 		E57716871CE6008600006572 /* ZoomableImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomableImageView.m; sourceTree = "<group>"; };
 		E57AB6761D6F64BF002C35D3 /* ViewController+NoNavigationBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+NoNavigationBarViewController.swift"; sourceTree = "<group>"; };
@@ -1282,6 +1285,14 @@
 			path = ImageCellTransition;
 			sourceTree = "<group>";
 		};
+		E57470B81D886E7500AE88B5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E57470BE1D886E7C00AE88B5 /* UIImage+Tint.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		E57716851CE6007B00006572 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1753,6 +1764,7 @@
 		E5DFDBF41CB2C31B00BB3D27 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				E57470B81D886E7500AE88B5 /* Images */,
 				E5973AED1D6F002B0000970D /* CarbonKit */,
 				E5F40D011D500B0400832D92 /* Onboarding */,
 				E5494E681D1ABC31004F31A7 /* Sliders */,
@@ -2480,6 +2492,7 @@
 				E584328B1CE9242000FB1E50 /* UIImage+CropRotate.m in Sources */,
 				E57AB6801D6F71D1002C35D3 /* JTMaterialTransitionWithFinishListener.swift in Sources */,
 				E5F40D041D500FF300832D92 /* OnboardingScreenView.swift in Sources */,
+				E57470C01D886E7C00AE88B5 /* UIImage+Tint.swift in Sources */,
 				E584328C1CE9242000FB1E50 /* TrendingStreamablesViewController.swift in Sources */,
 				E584328D1CE9242000FB1E50 /* CommentsViewController.swift in Sources */,
 				E584328E1CE9242000FB1E50 /* ListUsersViewController.swift in Sources */,
@@ -2658,6 +2671,7 @@
 				E51006361CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
 				E57AB67F1D6F71D1002C35D3 /* JTMaterialTransitionWithFinishListener.swift in Sources */,
 				E5F40D031D500FF300832D92 /* OnboardingScreenView.swift in Sources */,
+				E57470BF1D886E7C00AE88B5 /* UIImage+Tint.swift in Sources */,
 				E52DC7741CE5E09900375828 /* CommentsViewController.swift in Sources */,
 				E51006FF1CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */,
 				E5B6B5B71CC56F5800DC8EFC /* MyNotificationsViewController.swift in Sources */,

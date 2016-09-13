@@ -48,10 +48,12 @@ class FeedViewController: ListFullStreamablesViewController {
         return NSLocalizedString("controller_feed_empty_description", comment: "")
     }
     
-    func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
-        let attributes = [NSFontAttributeName:UIFont.boldSystemFontOfSize(17), NSForegroundColorAttributeName:AppConfig.sharedInstance.theme!.primaryColor! as UIColor]
-        
-        return NSAttributedString(string: NSLocalizedString("controller_feed_draw", comment: ""), attributes: attributes)
+    override func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "empty_feed.png")
+    }
+    
+    override func imageTintColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
+        return UIColor(hexString: "d0d0d0")
     }
     
     func emptyDataSetDidTapButton(scrollView: UIScrollView!) {
