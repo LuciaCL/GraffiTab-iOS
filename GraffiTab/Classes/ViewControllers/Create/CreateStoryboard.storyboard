@@ -359,6 +359,9 @@
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="row-9A-KTA"/>
                                                     <constraint firstItem="8G4-ZA-fvb" firstAttribute="top" secondItem="4wN-5R-pJ3" secondAttribute="bottom" constant="7" id="z1T-4f-nl9"/>
                                                 </constraints>
+                                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                                    <rect key="frame" x="253" y="338" width="240" height="71"/>
+                                                </variation>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXN-ro-q5M" customClass="MaterializeRoundButton" customModule="GraffiTab" customModuleProvider="target">
                                                 <rect key="frame" x="545" y="433" width="45" height="45"/>

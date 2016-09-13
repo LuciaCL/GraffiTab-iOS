@@ -126,6 +126,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received push notification")
         
+        // Send PN locally to entire app.
+        NSNotificationCenter.defaultCenter().postNotificationName(Notifications.PushNotificationReceived, object: nil, userInfo: userInfo)
+        
+        // Process PN.
         if application.applicationState == .Active {
             DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Received push notification in Active state")
         }

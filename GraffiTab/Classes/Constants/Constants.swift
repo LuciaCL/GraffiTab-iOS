@@ -10,6 +10,7 @@ struct Notifications {
     static let UserLoggedIn = "UserLoggedIn"
     static let UserLoggedOut = "UserLoggedOut"
     static let AppStatusBarTouched = "AppStatusBarTouched"
+    static let PushNotificationReceived = "PushNotificationReceived"
 }
 
 struct App {
