@@ -1983,12 +1983,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E58432C71CE9242000FB1E50 /* Build configuration list for PBXNativeTarget "GraffiTab Release" */;
 			buildPhases = (
-				E58432231CE9242000FB1E50 /* 📦 Check Pods Manifest.lock */,
+				E58432231CE9242000FB1E50 /* [CP] Check Pods Manifest.lock */,
 				E58432241CE9242000FB1E50 /* Sources */,
 				E58432961CE9242000FB1E50 /* Frameworks */,
 				E58432A81CE9242000FB1E50 /* Resources */,
-				E58432C31CE9242000FB1E50 /* 📦 Embed Pods Frameworks */,
-				E58432C41CE9242000FB1E50 /* 📦 Copy Pods Resources */,
+				E58432C31CE9242000FB1E50 /* [CP] Embed Pods Frameworks */,
+				E58432C41CE9242000FB1E50 /* [CP] Copy Pods Resources */,
 				E58432D11CE9421B00FB1E50 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -2004,12 +2004,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5DFDBE41CB2BF9E00BB3D27 /* Build configuration list for PBXNativeTarget "GraffiTab" */;
 			buildPhases = (
-				E6A1E439568CA71B1D648516 /* 📦 Check Pods Manifest.lock */,
+				E6A1E439568CA71B1D648516 /* [CP] Check Pods Manifest.lock */,
 				E5DFDBCE1CB2BF9E00BB3D27 /* Sources */,
 				E5DFDBCF1CB2BF9E00BB3D27 /* Frameworks */,
 				E5DFDBD01CB2BF9E00BB3D27 /* Resources */,
-				7EA2372C146857745E60E532 /* 📦 Embed Pods Frameworks */,
-				1749F4D5124E8DE931B8F539 /* 📦 Copy Pods Resources */,
+				7EA2372C146857745E60E532 /* [CP] Embed Pods Frameworks */,
+				1749F4D5124E8DE931B8F539 /* [CP] Copy Pods Resources */,
 				E5DFDC1E1CB2C61500BB3D27 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -2239,14 +2239,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1749F4D5124E8DE931B8F539 /* 📦 Copy Pods Resources */ = {
+		1749F4D5124E8DE931B8F539 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2254,14 +2254,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7EA2372C146857745E60E532 /* 📦 Embed Pods Frameworks */ = {
+		7EA2372C146857745E60E532 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2269,29 +2269,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E58432231CE9242000FB1E50 /* 📦 Check Pods Manifest.lock */ = {
+		E58432231CE9242000FB1E50 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E58432C31CE9242000FB1E50 /* 📦 Embed Pods Frameworks */ = {
+		E58432C31CE9242000FB1E50 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2299,14 +2299,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GraffiTab Release/Pods-GraffiTab Release-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E58432C41CE9242000FB1E50 /* 📦 Copy Pods Resources */ = {
+		E58432C41CE9242000FB1E50 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2314,19 +2314,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GraffiTab Release/Pods-GraffiTab Release-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E6A1E439568CA71B1D648516 /* 📦 Check Pods Manifest.lock */ = {
+		E6A1E439568CA71B1D648516 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2785,10 +2785,6 @@
 					"-framework",
 					"\"DZNEmptyDataSet\"",
 					"-framework",
-					"\"EAIntroView\"",
-					"-framework",
-					"\"EARestrictedScrollView\"",
-					"-framework",
 					"\"FBAnnotationClusteringSwift\"",
 					"-framework",
 					"\"FBLikeLayout\"",
@@ -2813,19 +2809,9 @@
 					"-framework",
 					"\"RESideMenu\"",
 					"-framework",
-					"\"RSKGrowingTextView\"",
-					"-framework",
-					"\"RSKPlaceholderTextView\"",
-					"-framework",
-					"\"SABlurImageView\"",
-					"-framework",
 					"\"SwiftHEXColors\"",
 					"-framework",
-					"\"TLYShyNavBar\"",
-					"-framework",
 					"\"TPKeyboardAvoiding\"",
-					"-framework",
-					"\"UIActionSheet_Blocks\"",
 					"-framework",
 					"\"iCarousel\"",
 					"-ObjC",
@@ -2893,10 +2879,6 @@
 					"-framework",
 					"\"DZNEmptyDataSet\"",
 					"-framework",
-					"\"EAIntroView\"",
-					"-framework",
-					"\"EARestrictedScrollView\"",
-					"-framework",
 					"\"FBAnnotationClusteringSwift\"",
 					"-framework",
 					"\"FBLikeLayout\"",
@@ -2921,19 +2903,9 @@
 					"-framework",
 					"\"RESideMenu\"",
 					"-framework",
-					"\"RSKGrowingTextView\"",
-					"-framework",
-					"\"RSKPlaceholderTextView\"",
-					"-framework",
-					"\"SABlurImageView\"",
-					"-framework",
 					"\"SwiftHEXColors\"",
 					"-framework",
-					"\"TLYShyNavBar\"",
-					"-framework",
 					"\"TPKeyboardAvoiding\"",
-					"-framework",
-					"\"UIActionSheet_Blocks\"",
 					"-framework",
 					"\"iCarousel\"",
 					"-ObjC",
@@ -3075,10 +3047,6 @@
 					"-framework",
 					"\"DZNEmptyDataSet\"",
 					"-framework",
-					"\"EAIntroView\"",
-					"-framework",
-					"\"EARestrictedScrollView\"",
-					"-framework",
 					"\"FBAnnotationClusteringSwift\"",
 					"-framework",
 					"\"FBLikeLayout\"",
@@ -3103,19 +3071,9 @@
 					"-framework",
 					"\"RESideMenu\"",
 					"-framework",
-					"\"RSKGrowingTextView\"",
-					"-framework",
-					"\"RSKPlaceholderTextView\"",
-					"-framework",
-					"\"SABlurImageView\"",
-					"-framework",
 					"\"SwiftHEXColors\"",
 					"-framework",
-					"\"TLYShyNavBar\"",
-					"-framework",
 					"\"TPKeyboardAvoiding\"",
-					"-framework",
-					"\"UIActionSheet_Blocks\"",
 					"-framework",
 					"\"iCarousel\"",
 					"-ObjC",
@@ -3175,10 +3133,6 @@
 					"-framework",
 					"\"DZNEmptyDataSet\"",
 					"-framework",
-					"\"EAIntroView\"",
-					"-framework",
-					"\"EARestrictedScrollView\"",
-					"-framework",
 					"\"FBAnnotationClusteringSwift\"",
 					"-framework",
 					"\"FBLikeLayout\"",
@@ -3203,19 +3157,9 @@
 					"-framework",
 					"\"RESideMenu\"",
 					"-framework",
-					"\"RSKGrowingTextView\"",
-					"-framework",
-					"\"RSKPlaceholderTextView\"",
-					"-framework",
-					"\"SABlurImageView\"",
-					"-framework",
 					"\"SwiftHEXColors\"",
 					"-framework",
-					"\"TLYShyNavBar\"",
-					"-framework",
 					"\"TPKeyboardAvoiding\"",
-					"-framework",
-					"\"UIActionSheet_Blocks\"",
 					"-framework",
 					"\"iCarousel\"",
 					"-ObjC",
