@@ -24,7 +24,6 @@ def common_pods
     pod 'CarbonKit'
     pod 'FBAnnotationClusteringSwift'
     pod 'JPSThumbnailAnnotation'
-    pod 'FBLikeLayout'
     pod 'CHTCollectionViewWaterfallLayout'
     pod 'ALGReversedFlowLayout'
     pod 'SlackTextViewController'

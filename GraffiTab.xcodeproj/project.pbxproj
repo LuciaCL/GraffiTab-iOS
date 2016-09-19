@@ -114,7 +114,6 @@
 		E554CFDE1CB5641B00668D85 /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD91CB5641B00668D85 /* terms.html */; };
 		E5571B581D66465A00BDA004 /* GTLightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5571B571D66465A00BDA004 /* GTLightTheme.swift */; };
 		E5571B591D66465A00BDA004 /* GTLightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5571B571D66465A00BDA004 /* GTLightTheme.swift */; };
-		E558A8A61CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */; };
 		E56293771D7DDA7700283F53 /* onboard_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E56293721D7DDA7700283F53 /* onboard_1.png */; };
 		E56293781D7DDA7700283F53 /* onboard_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E56293721D7DDA7700283F53 /* onboard_1.png */; };
 		E56293791D7DDA7700283F53 /* onboard_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E56293731D7DDA7700283F53 /* onboard_2.png */; };
@@ -182,7 +181,6 @@
 		E58432451CE9242000FB1E50 /* DialogBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBEB1CB2C31B00BB3D27 /* DialogBuilder.swift */; };
 		E58432461CE9242000FB1E50 /* NotificationMentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006A81CBBDE8700AC66A5 /* NotificationMentionCell.swift */; };
 		E58432471CE9242000FB1E50 /* EditTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5781CC56F5800DC8EFC /* EditTextViewController.swift */; };
-		E58432481CE9242000FB1E50 /* MosaicStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */; };
 		E58432491CE9242000FB1E50 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B58B1CC56F5800DC8EFC /* SettingsViewController.swift */; };
 		E584324A1CE9242000FB1E50 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5911CC56F5800DC8EFC /* ExploreViewController.swift */; };
 		E584324B1CE9242000FB1E50 /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7371CE5085900375828 /* CustomInfiniteIndicator.swift */; };
@@ -653,7 +651,6 @@
 		E554CFD81CB5641B00668D85 /* release_notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = release_notes.html; sourceTree = "<group>"; };
 		E554CFD91CB5641B00668D85 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
 		E5571B571D66465A00BDA004 /* GTLightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTLightTheme.swift; sourceTree = "<group>"; };
-		E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicStreamablesViewController.swift; sourceTree = "<group>"; };
 		E56293721D7DDA7700283F53 /* onboard_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onboard_1.png; sourceTree = "<group>"; };
 		E56293731D7DDA7700283F53 /* onboard_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onboard_2.png; sourceTree = "<group>"; };
 		E56293741D7DDA7700283F53 /* onboard_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onboard_3.png; sourceTree = "<group>"; };
@@ -956,7 +953,6 @@
 			isa = PBXGroup;
 			children = (
 				E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */,
-				E558A8A51CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift */,
 				E510064E1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift */,
 				E51006351CB71EE400AC66A5 /* TrendingStreamablesViewController.swift */,
 				E51006321CB71EB200AC66A5 /* GridStreamablesViewController.swift */,
@@ -2461,7 +2457,6 @@
 				E5AEDA8F1D1D3DFB006D4296 /* ARView.m in Sources */,
 				E58432461CE9242000FB1E50 /* NotificationMentionCell.swift in Sources */,
 				E58432471CE9242000FB1E50 /* EditTextViewController.swift in Sources */,
-				E58432481CE9242000FB1E50 /* MosaicStreamablesViewController.swift in Sources */,
 				E58432491CE9242000FB1E50 /* SettingsViewController.swift in Sources */,
 				E5F40CF31D4AE41E00832D92 /* AvatarPromptViewController.swift in Sources */,
 				E584324A1CE9242000FB1E50 /* ExploreViewController.swift in Sources */,
@@ -2641,7 +2636,6 @@
 				E5AEDA8E1D1D3DFB006D4296 /* ARView.m in Sources */,
 				E51006A91CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
 				E5B6B5AF1CC56F5800DC8EFC /* EditTextViewController.swift in Sources */,
-				E558A8A61CC13D1300C2F9B1 /* MosaicStreamablesViewController.swift in Sources */,
 				E5B6B5C91CC56F5800DC8EFC /* SettingsViewController.swift in Sources */,
 				E5F40CF21D4AE41E00832D92 /* AvatarPromptViewController.swift in Sources */,
 				E5B6B5CF1CC56F5800DC8EFC /* ExploreViewController.swift in Sources */,
@@ -2851,8 +2845,6 @@
 					"-framework",
 					"\"FBAnnotationClusteringSwift\"",
 					"-framework",
-					"\"FBLikeLayout\"",
-					"-framework",
 					"\"FBSDKCoreKit\"",
 					"-framework",
 					"\"FBSDKLoginKit\"",
@@ -2944,8 +2936,6 @@
 					"\"DZNEmptyDataSet\"",
 					"-framework",
 					"\"FBAnnotationClusteringSwift\"",
-					"-framework",
-					"\"FBLikeLayout\"",
 					"-framework",
 					"\"FBSDKCoreKit\"",
 					"-framework",
@@ -3113,8 +3103,6 @@
 					"-framework",
 					"\"FBAnnotationClusteringSwift\"",
 					"-framework",
-					"\"FBLikeLayout\"",
-					"-framework",
 					"\"FBSDKCoreKit\"",
 					"-framework",
 					"\"FBSDKLoginKit\"",
@@ -3198,8 +3186,6 @@
 					"\"DZNEmptyDataSet\"",
 					"-framework",
 					"\"FBAnnotationClusteringSwift\"",
-					"-framework",
-					"\"FBLikeLayout\"",
 					"-framework",
 					"\"FBSDKCoreKit\"",
 					"-framework",

@@ -9,7 +9,6 @@
 import UIKit
 import DZNEmptyDataSet
 import GraffiTab_iOS_SDK
-import FBLikeLayout
 import CHTCollectionViewWaterfallLayout
 import CarbonKit
 import CocoaLumberjack
@@ -19,7 +18,6 @@ enum StreamableViewType : Int {
     case Trending
     case SwimLane
     case ListFull
-    case Mosaic
 }
 
 class GenericStreamablesViewController: BackButtonViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CHTCollectionViewDelegateWaterfallLayout, StreamableDelegate {
@@ -123,14 +121,12 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
                 }
             case .ListFull:
                 return 1
-            case .Mosaic:
-                return Orientation.isLandscape() ? 4 : 3
         }
     }
     
     func getSpacing() -> Int {
         switch viewType {
-            case .Grid, .Mosaic:
+            case .Grid:
                 return 2
             case .Trending:
                 return DeviceType.IS_IPAD ? 20 : 7
@@ -147,8 +143,18 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
                 return width
             case .Trending, .SwimLane:
                 return 250
-            case .ListFull, .Mosaic:
-                return DeviceType.IS_IPAD ? 500 : 464
+        case .ListFull:
+                if DeviceType.IS_IPAD {
+                    return 500
+                }
+                else {
+                    if DeviceType.IS_IPHONE_4_OR_LESS || DeviceType.IS_IPHONE_5 {
+                        return 464
+                    }
+                    else { // iPhone 6 and 6 Plus
+                        return 500
+                    }
+                }
         }
     }
     
@@ -171,24 +177,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
         width = ((collectionView.frame.size.width - 2*padding) - CGFloat((numCols - 1)*spacing)) / CGFloat(numCols)
         height = getHeight(width)
         
-        if viewType == .Mosaic {
-            let layout: FBLikeLayout
-            
-            if !collectionView.collectionViewLayout.isKindOfClass(FBLikeLayout.classForCoder()) {
-                layout = FBLikeLayout()
-            }
-            else {
-                layout = collectionView.collectionViewLayout as! FBLikeLayout
-            }
-            
-            layout.minimumInteritemSpacing = spacing
-            layout.singleCellWidth = width
-            layout.maxCellSpace = Int(spacing)
-            layout.forceCellWidthForMinimumInteritemSpacing = true
-            layout.fullImagePercentageOfOccurrency = 50
-            collectionView.collectionViewLayout = layout
-        }
-        else if viewType == .Trending || viewType == .SwimLane {
+        if viewType == .Trending || viewType == .SwimLane {
             let layout: CHTCollectionViewWaterfallLayout
             
             if !collectionView.collectionViewLayout.isKindOfClass(CHTCollectionViewWaterfallLayout.classForCoder()) {
@@ -400,7 +389,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        if viewType == .Grid || viewType == .Mosaic || viewType == .SwimLane {
+        if viewType == .Grid || viewType == .SwimLane {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(StreamableGridCell.reusableIdentifier(), forIndexPath: indexPath) as! StreamableGridCell
             
             cell.item = items[indexPath.row]
@@ -447,14 +436,7 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let item = items[indexPath.row]
         
-        if viewType == .Mosaic {
-            if item.asset!.state! != .COMPLETED { // Guard in case asset is not processed yet.
-                return CGSizeMake(CGFloat(50), CGFloat(50))
-            }
-            
-            return CGSizeMake(CGFloat(item.asset!.thumbnailWidth!), CGFloat(item.asset!.thumbnailHeight!))
-        }
-        else if viewType == .Trending || viewType == .SwimLane {
+        if viewType == .Trending || viewType == .SwimLane {
             if item.asset!.state! != .COMPLETED { // Guard in case asset is not processed yet.
                 return CGSizeMake(CGFloat(50), CGFloat(50))
             }
