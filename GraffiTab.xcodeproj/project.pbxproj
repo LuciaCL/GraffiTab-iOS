@@ -467,6 +467,8 @@
 		E5DFDC1A1CB2C5D900BB3D27 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC191CB2C5D900BB3D27 /* OpenGLES.framework */; };
 		E5DFDC1C1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */; };
 		E5DFDC1D1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E5E490EC1D907CA600486AD6 /* UserMentionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E490EB1D907CA600486AD6 /* UserMentionsViewController.swift */; };
+		E5E490ED1D907CA600486AD6 /* UserMentionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E490EB1D907CA600486AD6 /* UserMentionsViewController.swift */; };
 		E5F40CF21D4AE41E00832D92 /* AvatarPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40CF11D4AE41E00832D92 /* AvatarPromptViewController.swift */; };
 		E5F40CF31D4AE41E00832D92 /* AvatarPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40CF11D4AE41E00832D92 /* AvatarPromptViewController.swift */; };
 		E5F40CFF1D4FFAF800832D92 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40CFE1D4FFAF800832D92 /* OnboardingViewController.swift */; };
@@ -839,6 +841,7 @@
 		E5DFDC171CB2C5D100BB3D27 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E5DFDC191CB2C5D900BB3D27 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS-SDK/_Archive/iOS/Debug/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
+		E5E490EB1D907CA600486AD6 /* UserMentionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMentionsViewController.swift; sourceTree = "<group>"; };
 		E5F40CF11D4AE41E00832D92 /* AvatarPromptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarPromptViewController.swift; sourceTree = "<group>"; };
 		E5F40CFE1D4FFAF800832D92 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		E5F40D021D500FF300832D92 /* OnboardingScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingScreenView.swift; sourceTree = "<group>"; };
@@ -1610,6 +1613,7 @@
 				E52DC75B1CE55FA900375828 /* FollowingViewController.swift */,
 				E52DC75E1CE56B7D00375828 /* UserStreamablesViewController.swift */,
 				E52DC7611CE5DA2A00375828 /* UserLikedStreamablesViewController.swift */,
+				E5E490EB1D907CA600486AD6 /* UserMentionsViewController.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -2552,6 +2556,7 @@
 				E5A3A8351D900BFD0001138A /* UINavigationController+Utils.swift in Sources */,
 				E584328C1CE9242000FB1E50 /* TrendingStreamablesViewController.swift in Sources */,
 				E584328D1CE9242000FB1E50 /* CommentsViewController.swift in Sources */,
+				E5E490ED1D907CA600486AD6 /* UserMentionsViewController.swift in Sources */,
 				E584328E1CE9242000FB1E50 /* ListUsersViewController.swift in Sources */,
 				E584328F1CE9242000FB1E50 /* MyNotificationsViewController.swift in Sources */,
 				E58432911CE9242000FB1E50 /* TOCropView.m in Sources */,
@@ -2730,6 +2735,7 @@
 				E5A3A8341D900BFD0001138A /* UINavigationController+Utils.swift in Sources */,
 				E51006361CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
 				E5F40D031D500FF300832D92 /* OnboardingScreenView.swift in Sources */,
+				E5E490EC1D907CA600486AD6 /* UserMentionsViewController.swift in Sources */,
 				E52DC7741CE5E09900375828 /* CommentsViewController.swift in Sources */,
 				E51006FF1CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */,
 				E5B6B5B71CC56F5800DC8EFC /* MyNotificationsViewController.swift in Sources */,

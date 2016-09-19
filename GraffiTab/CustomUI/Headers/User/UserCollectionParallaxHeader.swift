@@ -24,7 +24,7 @@ protocol UserHeaderDelegate: class {
     func didTapList(user: GTUser)
     func didTapGrid(user: GTUser)
     func didTapFavourites(user: GTUser)
-    func didTapMap(user: GTUser)
+    func didTapTags(user: GTUser)
 }
 
 class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate, iCarouselDataSource {
@@ -44,7 +44,7 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
     @IBOutlet weak var listBtn: TintButton!
     @IBOutlet weak var gridBtn: TintButton!
     @IBOutlet weak var likesBtn: TintButton!
-    @IBOutlet weak var locationBtn: TintButton!
+    @IBOutlet weak var tagsBtn: TintButton!
     
     weak var delegate: UserHeaderDelegate?
     var item: GTUser? {
@@ -139,9 +139,9 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
         }
     }
     
-    @IBAction func onClickMap(sender: AnyObject) {
+    @IBAction func onClickTags(sender: AnyObject) {
         if delegate != nil {
-            delegate?.didTapMap(item!)
+            delegate?.didTapTags(item!)
         }
     }
     
@@ -270,6 +270,6 @@ class UserCollectionParallaxHeader: UICollectionReusableView, iCarouselDelegate,
         listBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
         gridBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
         likesBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
-        locationBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
+        tagsBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
     }
 }

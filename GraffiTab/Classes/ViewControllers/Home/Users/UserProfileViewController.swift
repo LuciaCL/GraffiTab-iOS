@@ -311,6 +311,10 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             let vc = segue.destinationViewController as! UserLikedStreamablesViewController
             vc.user = user
         }
+        else if segue.identifier == "SEGUE_MENTIONS" {
+            let vc = segue.destinationViewController as! UserMentionsViewController
+            vc.user = user
+        }
     }
     
     // MARK: - Loading
@@ -450,8 +454,8 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         performSegueWithIdentifier("SEGUE_LIKES", sender: nil)
     }
     
-    func didTapMap(user: GTUser) {
-        ViewControllerUtils.showExplorer(user: self.user, viewController: self)
+    func didTapTags(user: GTUser) {
+        performSegueWithIdentifier("SEGUE_MENTIONS", sender: nil)
     }
     
     // MARK: - Orientation

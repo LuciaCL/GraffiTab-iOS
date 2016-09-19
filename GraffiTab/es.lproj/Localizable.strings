@@ -449,6 +449,8 @@
 "controller_input_username_title" = "Casi listo!";
 "controller_input_username_prompt" = "Escoge un nombre de usuario para su cuenta.";
 
+"controller_mentions" = "Mencionado en";
+
 // Other
 
 "other_skip" = "Saltar";

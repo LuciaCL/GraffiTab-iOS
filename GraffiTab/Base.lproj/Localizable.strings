@@ -449,6 +449,8 @@
 "controller_input_username_title" = "Almost there!";
 "controller_input_username_prompt" = "Pick a username for your account.";
 
+"controller_mentions" = "Mentioned in";
+
 // Other
 
 "other_skip" = "Skip";

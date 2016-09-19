@@ -449,6 +449,8 @@
 "controller_input_username_title" = "Почти си готов!";
 "controller_input_username_prompt" = "Остава само да избереш потребителско име.";
 
+"controller_mentions" = "Споменат в";
+
 // Other
 
 "other_skip" = "Пропусни";
