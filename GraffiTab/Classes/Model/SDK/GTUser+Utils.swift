@@ -1,5 +1,5 @@
 //
-//  GTUser+Extra.swift
+//  GTUser+Utils.swift
 //  GraffiTab
 //
 //  Created by Georgi Christov on 12/05/2016.

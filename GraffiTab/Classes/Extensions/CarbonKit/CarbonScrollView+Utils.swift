@@ -1,5 +1,5 @@
 //
-//  CarbonScrollView+iPad.swift
+//  CarbonScrollView+Utils.swift
 //  GraffiTab
 //
 //  Created by Georgi Christov on 25/08/2016.

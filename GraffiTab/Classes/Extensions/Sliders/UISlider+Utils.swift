@@ -1,5 +1,5 @@
 //
-//  UISlider+CustomFlat.swift
+//  UISlider+Utils.swift
 //  GraffiTab
 //
 //  Created by Georgi Christov on 22/06/2016.

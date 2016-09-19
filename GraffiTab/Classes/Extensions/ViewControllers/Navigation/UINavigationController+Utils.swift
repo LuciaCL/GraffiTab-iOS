@@ -1,5 +1,5 @@
 //
-//  UINavigationController+Orientation.swift
+//  UINavigationController+Utils.swift
 //  GraffiTab
 //
 //  Created by Georgi Christov on 08/06/2016.

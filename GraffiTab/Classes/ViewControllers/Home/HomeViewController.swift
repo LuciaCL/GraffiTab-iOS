@@ -51,7 +51,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         // Register analytics events.
         AnalyticsUtils.sendScreenEvent(self)
         
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.hideBottomHairline(true)
         UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.defaultStatusBarStyle!, animated: true)
         
         if self.navigationController!.navigationBarHidden {
@@ -69,9 +69,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        Utils.runWithDelay(0.1) {
-            self.navigationController?.navigationBar.shadowImage = UIImage(named: "border")
-        }
+        self.navigationController?.navigationBar.showBottomHairline(true)
     }
     
     override func viewDidLayoutSubviews() {
@@ -307,6 +305,7 @@ class HomeViewController: BackButtonViewController, CarbonTabSwipeNavigationDele
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuBtn)
         
         self.removeNavigationBarBackground()
+        self.navigationController?.navigationBar.hideBottomHairline(false)
     }
     
     func setupCarbonKit() {

@@ -1,5 +1,5 @@
 //
-//  UIApplication+TopViewController.swift
+//  UIApplication+Utils.swift
 //  GraffiTab
 //
 //  Created by Georgi Christov on 01/06/2016.

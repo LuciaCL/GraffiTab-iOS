@@ -1,5 +1,5 @@
 //
-//  GTLocation+Asset.swift
+//  GTLocation+Utils.swift
 //  GraffiTab
 //
 //  Created by Georgi Christov on 02/06/2016.

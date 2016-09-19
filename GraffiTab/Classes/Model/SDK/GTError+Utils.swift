@@ -1,5 +1,5 @@
 //
-//  GTError+Localize.swift
+//  GTError+Utils.swift
 //  GraffiTab
 //
 //  Created by Georgi Christov on 31/07/2016.
