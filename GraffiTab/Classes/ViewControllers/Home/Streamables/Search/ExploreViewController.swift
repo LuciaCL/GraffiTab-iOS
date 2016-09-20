@@ -251,7 +251,10 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
         if annotation.isKindOfClass(FBAnnotationCluster) {
             let reuseId = "Cluster"
             var clusterView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
-            clusterView = FBAnnotationClusterView(annotation: annotation, reuseIdentifier: reuseId, options: nil)
+            if clusterView == nil {
+                let options = FBAnnotationClusterViewOptions(smallClusterImage: "clusterSmall", mediumClusterImage: "clusterMedium", largeClusterImage: "clusterLarge")
+                clusterView = FBAnnotationClusterView(annotation: annotation, reuseIdentifier: reuseId, options: options)
+            }
             return clusterView
         }
         else if annotation.isKindOfClass(StreamableAnnotation) {

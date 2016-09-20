@@ -12,6 +12,7 @@ import GraffiTab_iOS_SDK
 import CocoaLumberjack
 import MZFormSheetPresentationController
 import PAGestureAssistant
+import MapKit
 
 enum DrawingAssistantState {
     case Intro

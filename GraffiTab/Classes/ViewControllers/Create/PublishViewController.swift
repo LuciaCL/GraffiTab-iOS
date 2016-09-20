@@ -11,6 +11,7 @@ import AVFoundation
 import RNActivityView
 import GraffiTab_iOS_SDK
 import CocoaLumberjack
+import MapKit
 
 protocol PublishDelegate: class {
     

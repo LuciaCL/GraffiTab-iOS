@@ -27,7 +27,6 @@
 #import <iCarousel/iCarousel.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import <RESideMenu/RESideMenu.h>
-#import <JPSThumbnailAnnotation/JPSThumbnailAnnotation.h>
 #import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 #import <UIScrollView_InfiniteScroll/UIScrollView+InfiniteScroll.h>
 #import <Reachability/Reachability.h>

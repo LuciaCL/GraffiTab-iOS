@@ -11,6 +11,7 @@ import DZNEmptyDataSet
 import GraffiTab_iOS_SDK
 import CarbonKit
 import CocoaLumberjack
+import MapKit
 
 enum LocationViewType : Int {
     case List

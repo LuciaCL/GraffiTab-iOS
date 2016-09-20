@@ -23,7 +23,6 @@ def common_pods
     pod 'CSStickyHeaderFlowLayout'
     pod 'CarbonKit'
     pod 'FBAnnotationClusteringSwift'
-    pod 'JPSThumbnailAnnotation'
     pod 'CHTCollectionViewWaterfallLayout'
     pod 'ALGReversedFlowLayout'
     pod 'SlackTextViewController'

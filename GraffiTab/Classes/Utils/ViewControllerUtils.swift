@@ -9,6 +9,7 @@
 import UIKit
 import GraffiTab_iOS_SDK
 import MZFormSheetPresentationController
+import MapKit
 
 class ViewControllerUtils: NSObject {
 

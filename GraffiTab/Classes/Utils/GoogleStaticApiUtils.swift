@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 struct Google {
     static let StaticMap = "http://maps.googleapis.com/maps/api/staticmap?"
