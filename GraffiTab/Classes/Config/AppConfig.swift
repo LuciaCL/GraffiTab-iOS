@@ -23,6 +23,7 @@ class AppConfig: NSObject {
     var useAnalytics: Bool = false
     var maxUndoActions = 10
     var onboardingFeedbackDaysTrigger = 2
+    var locationRadius = 1000 // 1km radius.
     
     var logEnabled = true
     var httpsEnabled = true

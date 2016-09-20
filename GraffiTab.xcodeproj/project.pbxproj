@@ -45,7 +45,6 @@
 		E51006D41CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006D31CBC205000AC66A5 /* ActivityGroupCreateCell.swift */; };
 		E51006D71CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006D61CBC210F00AC66A5 /* ActivityGroupCommentCell.swift */; };
 		E51006DF1CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006DE1CBCF6B000AC66A5 /* StreamableAnnotation.swift */; };
-		E51006E21CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006E11CBCF6FB00AC66A5 /* StreamableThumbnail.swift */; };
 		E51006F11CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006F01CBD193E00AC66A5 /* GenericUsersViewController.swift */; };
 		E51006F51CBD1B0000AC66A5 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006F41CBD1B0000AC66A5 /* UserCell.swift */; };
 		E51006FA1CBD1C3B00AC66A5 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006F81CBD1C3B00AC66A5 /* UserListCell.swift */; };
@@ -151,7 +150,6 @@
 		E58432251CE9242000FB1E50 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5851CC56F5800DC8EFC /* SearchViewController.swift */; };
 		E58432261CE9242000FB1E50 /* EditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5751CC56F5800DC8EFC /* EditPasswordViewController.swift */; };
 		E58432271CE9242000FB1E50 /* TintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBF61CB2C31B00BB3D27 /* TintButton.swift */; };
-		E58432281CE9242000FB1E50 /* StreamableThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006E11CBCF6FB00AC66A5 /* StreamableThumbnail.swift */; };
 		E58432291CE9242000FB1E50 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC73E1CE551D300375828 /* ViewControllerUtils.swift */; };
 		E584322A1CE9242000FB1E50 /* FollowersActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B57D1CC56F5800DC8EFC /* FollowersActivityViewController.swift */; };
 		E584322B1CE9242000FB1E50 /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC75B1CE55FA900375828 /* FollowingViewController.swift */; };
@@ -599,7 +597,6 @@
 		E51006D31CBC205000AC66A5 /* ActivityGroupCreateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityGroupCreateCell.swift; sourceTree = "<group>"; };
 		E51006D61CBC210F00AC66A5 /* ActivityGroupCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityGroupCommentCell.swift; sourceTree = "<group>"; };
 		E51006DE1CBCF6B000AC66A5 /* StreamableAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableAnnotation.swift; sourceTree = "<group>"; };
-		E51006E11CBCF6FB00AC66A5 /* StreamableThumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableThumbnail.swift; sourceTree = "<group>"; };
 		E51006F01CBD193E00AC66A5 /* GenericUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericUsersViewController.swift; sourceTree = "<group>"; };
 		E51006F41CBD1B0000AC66A5 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		E51006F81CBD1C3B00AC66A5 /* UserListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
@@ -1061,7 +1058,6 @@
 			isa = PBXGroup;
 			children = (
 				E51006DE1CBCF6B000AC66A5 /* StreamableAnnotation.swift */,
-				E51006E11CBCF6FB00AC66A5 /* StreamableThumbnail.swift */,
 			);
 			path = Annotations;
 			sourceTree = "<group>";
@@ -2408,7 +2404,6 @@
 				E5C61C861D65A4B700BBFA87 /* GTTheme.swift in Sources */,
 				E5B357991D8FE96E00DA6809 /* JTMaterialTransitionWithFinishListener.swift in Sources */,
 				E5B357941D8FE96E00DA6809 /* UIView+Utils.swift in Sources */,
-				E58432281CE9242000FB1E50 /* StreamableThumbnail.swift in Sources */,
 				E58432291CE9242000FB1E50 /* ViewControllerUtils.swift in Sources */,
 				E55452E51CF329580076CEC9 /* LocationCell.swift in Sources */,
 				E584322A1CE9242000FB1E50 /* FollowersActivityViewController.swift in Sources */,
@@ -2586,7 +2581,6 @@
 				E5FE1D911CFF840B009CFB72 /* CoverImageView.swift in Sources */,
 				E5DFDC051CB2C31B00BB3D27 /* TintButton.swift in Sources */,
 				E5B3576D1D8FE84400DA6809 /* JTMaterialTransitionWithFinishListener.swift in Sources */,
-				E51006E21CBCF6FB00AC66A5 /* StreamableThumbnail.swift in Sources */,
 				E5C61C851D65A4B700BBFA87 /* GTTheme.swift in Sources */,
 				E52DC73F1CE551D300375828 /* ViewControllerUtils.swift in Sources */,
 				E55452E41CF329580076CEC9 /* LocationCell.swift in Sources */,

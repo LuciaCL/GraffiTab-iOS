@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import JPSThumbnailAnnotation
+import MapKit
 import GraffiTab_iOS_SDK
 
-class StreamableAnnotation: JPSThumbnailAnnotation {
+class StreamableAnnotation: MKPointAnnotation {
 
     var streamable: GTStreamable?
 }
