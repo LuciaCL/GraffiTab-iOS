@@ -216,7 +216,8 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
             return
         }
         
-        mapView.region = MKCoordinateRegionMakeWithDistance(location.coordinate, 50, 50)
+        mapView.camera.centerCoordinate = location.coordinate
+        mapView.camera.altitude = 100
         mapView.camera.pitch = 65
     }
     

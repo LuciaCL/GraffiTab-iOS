@@ -18,6 +18,10 @@ class ClusterViewController: GridStreamablesViewController {
         AnalyticsUtils.sendScreenEvent(self)
     }
     
+    override func showStreamable(streamable: GTStreamable) {
+        ViewControllerUtils.showStreamableDetails(streamable, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
+    }
+    
     // MARK: - Init
     
     override func basicInit() {

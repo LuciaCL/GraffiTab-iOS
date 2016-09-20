@@ -537,6 +537,10 @@ class GenericStreamablesViewController: BackButtonViewController, UICollectionVi
     func didTapThumbnail(cell: UICollectionViewCell, streamable: GTStreamable) {
         selectedCell = (cell as! StreamableCell)
         
+        showStreamable(streamable)
+    }
+    
+    func showStreamable(streamable: GTStreamable) {
         ViewControllerUtils.showStreamableDetails(streamable, modalPresentationStyle: .Custom, transitioningDelegate: imageTransitionDelegate, viewController: self)
     }
     
