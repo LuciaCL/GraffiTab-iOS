@@ -30,6 +30,7 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
     var imageDownloadTasks = [NSURLSessionTask]()
     var refreshTimer: NSTimer?
     let clusteringManager = FBClusteringManager()
+    var initialMapSetup = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,9 +151,6 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
             let successBlock = {(response: GTResponseObject) -> Void in
                 let listItemsResult = response.object as! GTListItemsResult<GTStreamable>
                 
-                self.items.removeAll()
-                self.annotations.removeAll()
-                
                 self.processAnnotations(listItemsResult.items!)
                 self.finalizeLoad()
             }
@@ -217,8 +215,13 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
         }
         
         mapView.camera.centerCoordinate = location.coordinate
-        mapView.camera.altitude = 100
-        mapView.camera.pitch = 65
+        
+        if !initialMapSetup {
+            initialMapSetup = true
+            
+            mapView.camera.altitude = 100
+            mapView.camera.pitch = 65
+        }
     }
     
     func didEndMapRegionChange() {
