@@ -106,6 +106,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
     
+    // MARK: - Universal links
+    
+    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+        // 1. First, you verify that the passed-in userActivity has expected characteristics. Ultimately, you want to get the path component for the activity. Otherwise, you return false to indicate that the app can’t handle the activity.
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+            let url = userActivity.webpageURL,
+            let components = NSURLComponents(URL: url, resolvingAgainstBaseURL: true),
+            let path = components.path else {
+                return false
+        }
+
+        // 2. Using the path, check if it can be handled by the app.
+        if path.localizedCaseInsensitiveContainsString("getstarted") { // The default action for this is to start the main app.
+            return true
+        }
+        
+        // 3. If no computer that matches the path is found, you instruct the application to open the URL, which will use the default system app instead—most likely Safari. You also return false here, to indicate that the app can’t handle the user activity.
+        let webpageUrl = url
+        application.openURL(webpageUrl)
+        
+        return false
+    }
+    
     // MARK: - Push notifications
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {

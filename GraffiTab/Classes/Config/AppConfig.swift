@@ -28,7 +28,7 @@ class AppConfig: NSObject {
     var logEnabled = true
     var httpsEnabled = true
     var customUrl: String?
-//    var customUrl = "localhost:8091"
+//    var customUrl: String? = "localhost:8091"
     
     var theme: GTTheme?
     
