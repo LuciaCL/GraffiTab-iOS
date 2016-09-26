@@ -113,6 +113,8 @@
 		E554CFDE1CB5641B00668D85 /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD91CB5641B00668D85 /* terms.html */; };
 		E5571B581D66465A00BDA004 /* GTLightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5571B571D66465A00BDA004 /* GTLightTheme.swift */; };
 		E5571B591D66465A00BDA004 /* GTLightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5571B571D66465A00BDA004 /* GTLightTheme.swift */; };
+		E5610E201D99204C005418B7 /* GraffiTab.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = E5610E1A1D96E149005418B7 /* GraffiTab.entitlements */; };
+		E5610E211D99204D005418B7 /* GraffiTab.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = E5610E1A1D96E149005418B7 /* GraffiTab.entitlements */; };
 		E56293771D7DDA7700283F53 /* onboard_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E56293721D7DDA7700283F53 /* onboard_1.png */; };
 		E56293781D7DDA7700283F53 /* onboard_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E56293721D7DDA7700283F53 /* onboard_1.png */; };
 		E56293791D7DDA7700283F53 /* onboard_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E56293731D7DDA7700283F53 /* onboard_2.png */; };
@@ -2241,6 +2243,7 @@
 				E536A2F91D52375800D82E34 /* permission_location_always.png in Resources */,
 				E58432C01CE9242000FB1E50 /* Default-568h@2x.png in Resources */,
 				E562937E1D7DDA7700283F53 /* onboard_4.png in Resources */,
+				E5610E211D99204D005418B7 /* GraffiTab.entitlements in Resources */,
 				E536A2F31D518D9300D82E34 /* permission_photos.png in Resources */,
 				E5C3692A1D213D6F005FA4A0 /* target.jpg in Resources */,
 				E58432C21CE9242000FB1E50 /* UserAboutView.xib in Resources */,
@@ -2274,6 +2277,7 @@
 				E56293771D7DDA7700283F53 /* onboard_1.png in Resources */,
 				E562938D1D7DE38100283F53 /* onboard_pad_2.png in Resources */,
 				E5DAA89F1CE37A5F000CB2F4 /* AutocompleteUserCell.xib in Resources */,
+				E5610E201D99204C005418B7 /* GraffiTab.entitlements in Resources */,
 				E56293A01D7DECA100283F53 /* onboard_pad_l_4.png in Resources */,
 				E5B6B5A11CC56F5800DC8EFC /* CreateStoryboard.storyboard in Resources */,
 				E5B6B5E11CC56F5800DC8EFC /* SplashStoryboard.storyboard in Resources */,
@@ -2809,8 +2813,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GraffiTab/GraffiTab.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Christov (PD6JJX75F4)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2888,7 +2891,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = GraffiTab;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "bf31f2b9-6059-4a0d-a022-87892372d3a2";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2901,8 +2904,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GraffiTab/GraffiTab.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Christov (PD6JJX75F4)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2979,7 +2981,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = GraffiTab;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "bf31f2b9-6059-4a0d-a022-87892372d3a2";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
