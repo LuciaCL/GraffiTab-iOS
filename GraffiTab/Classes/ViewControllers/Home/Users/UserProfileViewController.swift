@@ -532,8 +532,8 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
         
         navigationSeparator = UIView()
         navigationSeparator?.alpha = 0
-        navigationSeparator!.backgroundColor = UIColor.lightGrayColor()
-        navigationSeparator!.frame = CGRectMake(0, navigationBar.frame.height - 1, navigationBar.frame.width, 1)
+        navigationSeparator!.backgroundColor = UIColor(hexString: "#b0b0b0")
+        navigationSeparator!.frame = CGRectMake(0, navigationBar.frame.height, navigationBar.frame.width, 0.5)
         navigationSeparator?.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin, .FlexibleBottomMargin, .FlexibleWidth]
         navigationBar.addSubview(navigationSeparator!)
     }

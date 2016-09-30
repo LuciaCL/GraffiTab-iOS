@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="teY-0g-xhu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="teY-0g-xhu">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -138,11 +138,8 @@
                                                 </connections>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="axV-lQ-QXe">
-                                                <rect key="frame" x="180" y="87" width="240" height="90"/>
+                                                <rect key="frame" x="30" y="87" width="540" height="90"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="240" id="wb4-Od-5rX">
-                                                        <variation key="heightClass=regular-widthClass=regular" constant="300"/>
-                                                    </constraint>
                                                     <constraint firstAttribute="height" constant="90" id="y6r-HK-bYX">
                                                         <variation key="heightClass=regular-widthClass=regular" constant="120"/>
                                                     </constraint>
@@ -151,6 +148,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="axV-lQ-QXe" firstAttribute="leading" secondItem="oKv-lS-Af3" secondAttribute="leading" id="4NQ-1L-318"/>
                                             <constraint firstAttribute="bottom" secondItem="Hl0-xa-ieZ" secondAttribute="bottom" constant="5" id="7tN-Dh-Qmu"/>
                                             <constraint firstItem="axV-lQ-QXe" firstAttribute="centerX" secondItem="9CW-ws-KPw" secondAttribute="centerX" id="MAQ-Kc-xWL"/>
                                             <constraint firstItem="oKv-lS-Af3" firstAttribute="leading" secondItem="Hl0-xa-ieZ" secondAttribute="leading" id="TzH-wW-J68"/>
@@ -158,6 +156,7 @@
                                             <constraint firstItem="oKv-lS-Af3" firstAttribute="top" secondItem="axV-lQ-QXe" secondAttribute="bottom" constant="30" id="awq-y1-gmf">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="70"/>
                                             </constraint>
+                                            <constraint firstItem="axV-lQ-QXe" firstAttribute="trailing" secondItem="oKv-lS-Af3" secondAttribute="trailing" id="hbq-hk-jcr"/>
                                             <constraint firstItem="oKv-lS-Af3" firstAttribute="trailing" secondItem="Hl0-xa-ieZ" secondAttribute="trailing" id="kSB-lv-Y7C"/>
                                         </constraints>
                                     </view>
