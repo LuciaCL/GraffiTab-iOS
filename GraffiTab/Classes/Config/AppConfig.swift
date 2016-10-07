@@ -20,7 +20,7 @@ class AppConfig: NSObject {
     ]
     
     var isAppStore: Bool = false
-    var useAnalytics: Bool = false
+    var useAnalytics: Bool = true
     var maxUndoActions = 10
     var onboardingFeedbackDaysTrigger = 2
     var locationRadius = 1000 // 1km radius.

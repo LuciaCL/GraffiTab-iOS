@@ -499,6 +499,8 @@
 		E5FE1DA31D0060F9009CFB72 /* ClusterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA11D0060F9009CFB72 /* ClusterViewController.swift */; };
 		E5FE1DA51D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA41D006154009CFB72 /* StaticStreamablesViewController.swift */; };
 		E5FE1DA61D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE1DA41D006154009CFB72 /* StaticStreamablesViewController.swift */; };
+		E5FFCE5C1DA7BF89002D2E1B /* ToolType+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FFCE5B1DA7BF89002D2E1B /* ToolType+Utils.swift */; };
+		E5FFCE5D1DA7BF89002D2E1B /* ToolType+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FFCE5B1DA7BF89002D2E1B /* ToolType+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -859,6 +861,7 @@
 		E5FE1D901CFF840B009CFB72 /* CoverImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverImageView.swift; sourceTree = "<group>"; };
 		E5FE1DA11D0060F9009CFB72 /* ClusterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterViewController.swift; sourceTree = "<group>"; };
 		E5FE1DA41D006154009CFB72 /* StaticStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticStreamablesViewController.swift; sourceTree = "<group>"; };
+		E5FFCE5B1DA7BF89002D2E1B /* ToolType+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ToolType+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1424,6 +1427,7 @@
 		E5B3576E1D8FE90A00DA6809 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E5FFCE551DA7BF69002D2E1B /* Drawing */,
 				E5A3A8531D900F0B0001138A /* ToolBar */,
 				E5A3A84F1D900E4A0001138A /* Bundle */,
 				E5A3A8261D900B380001138A /* NavigationBar */,
@@ -2006,6 +2010,14 @@
 			path = Static;
 			sourceTree = "<group>";
 		};
+		E5FFCE551DA7BF69002D2E1B /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				E5FFCE5B1DA7BF89002D2E1B /* ToolType+Utils.swift */,
+			);
+			path = Drawing;
+			sourceTree = "<group>";
+		};
 		F89B9B6C7903A7912D4CD2E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2487,6 +2499,7 @@
 				E5A3A84E1D900D860001138A /* GTUser+Utils.swift in Sources */,
 				E58432501CE9242000FB1E50 /* InputValidator.swift in Sources */,
 				E58432511CE9242000FB1E50 /* StreamableGridCell.swift in Sources */,
+				E5FFCE5D1DA7BF89002D2E1B /* ToolType+Utils.swift in Sources */,
 				E58432521CE9242000FB1E50 /* ColorSprayCanCell.swift in Sources */,
 				E58432531CE9242000FB1E50 /* SplashViewController.swift in Sources */,
 				E58432541CE9242000FB1E50 /* NotificationCell.swift in Sources */,
@@ -2665,6 +2678,7 @@
 				E5A3A84D1D900D860001138A /* GTUser+Utils.swift in Sources */,
 				E505676B1D0F0B4F00D2F245 /* StaticUsersViewController.swift in Sources */,
 				E5B6B5DB1CC56F5800DC8EFC /* LoginViewController.swift in Sources */,
+				E5FFCE5C1DA7BF89002D2E1B /* ToolType+Utils.swift in Sources */,
 				E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */,
 				E510065E1CB7BC5A00AC66A5 /* StreamableGridCell.swift in Sources */,
 				E5B6B6321CC6566100DC8EFC /* ColorSprayCanCell.swift in Sources */,

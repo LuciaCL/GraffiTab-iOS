@@ -65,9 +65,8 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     var canvas: LineDrawer?
     var colors: [UIColor]?
     var chunkedColors = [[UIColor]]()
-    var tools: [String]?
+    var tools: [ToolType]?
     var initialSetup: Bool = false
-    var selectedToolIndex: Int = 6
     var isPortrait: Bool?
     var menuPinchStartPointX: CGFloat?
     var isMenuOpen: Bool?
@@ -364,16 +363,25 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         let sampleImage = self.canvas?.grabFrame()
         let optimizedImage = UIImage(data: UIImageJPEGRepresentation(sampleImage!, 0.6)!)
         
+        // Configure appearance.
         let configuration = Configuration() { builder in
             builder.configurePhotoEditorViewController({ (options) in
-                options.allowedPhotoEditorActions = [.Filter, .Frame, .Separator, .Focus, .Adjust, .Separator, .Magic]
+//                options.allowedPhotoEditorActions = [.Filter, .Frame, .Separator, .Focus, .Adjust, .Separator, .Magic] /* Removed for PRO */
+                options.allowedPhotoEditorActions = [.Filter, .Focus, .Magic]
             })
+        }
+        if let window = UIApplication.sharedApplication().delegate?.window! {
+            window.tintColor = backgroundBtn.tintColor
         }
         
         // Configure localization.
         IMGLYSetLocalizationBlock { (stringToLocalize) -> String? in
             return NSLocalizedString(stringToLocalize, comment: "")
         }
+        
+        // Configure filters. /* Removed for PRO */
+        let newArray = Array(PhotoEffect.allEffects[0...25])
+        PhotoEffect.allEffects = newArray
         
         let photoEditViewController = PhotoEditViewController(photo: optimizedImage!, configuration: configuration)
         let toolStackController = ToolStackController(photoEditViewController: photoEditViewController, configuration: configuration)
@@ -634,7 +642,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
             case .Tool:
                 configureUIComponentsForTutorial(toolCollectionView, showAll: false)
                 
-                self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: self.toolCollectionView, text: NSLocalizedString("controller_create_assistant_tool", comment: ""), afterIdleInterval: 0.3)
+                let cell = self.toolCollectionView.cellForItemAtIndexPath(NSIndexPath(forRow: tools!.count - 2, inSection: 0))
+                if cell != nil {
+                    self.showGestureAssistantForTap(PAGestureAssistantTapSingle, view: cell!, text: NSLocalizedString("controller_create_assistant_tool", comment: ""), afterIdleInterval: 0.3)
+                }
                 break
             case .Eraser:
                 configureUIComponentsForTutorial(toolCollectionView, showAll: false)
@@ -834,14 +845,14 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     func loadTools() {
-        tools = [String]()
-        tools?.append("t_spray")
-        tools?.append("t_brush")
-        tools?.append("t_pen")
-        tools?.append("t_pencil")
-        tools?.append("t_highlighter")
-        tools?.append("t_chalk")
-        tools?.append("t_eraser")
+        tools = [ToolType]()
+        tools?.append(SPRAY)
+        tools?.append(BRUSH)
+//        tools?.append(PEN) /* Removed for PRO */
+        tools?.append(PENCIL)
+//        tools?.append(MARKER) /* Removed for PRO */
+//        tools?.append(CHALK) /* Removed for PRO */
+        tools?.append(ERASER)
         tools = tools?.reverse()
     }
     
@@ -862,9 +873,10 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         if collectionView == toolCollectionView {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(DrawToolCell.reusableIdentifier(), forIndexPath: indexPath) as? DrawToolCell
 
-            cell?.toolImg.image = UIImage(named: tools![indexPath.row])
+            let tool = tools![indexPath.row]
+            cell?.toolImg.image = tool.icon()
             
-            if indexPath.row == selectedToolIndex {
+            if tool == canvas!.tool {
                 cell?.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
             }
             else {
@@ -878,33 +890,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if collectionView == toolCollectionView {
-            switch indexPath.row {
-                case 6:
-                    canvas!.tool = SPRAY
-                    break;
-                case 5:
-                    canvas!.tool = BRUSH
-                    break;
-                case 4:
-                    canvas!.tool = PEN
-                    break;
-                case 3:
-                    canvas!.tool = PENCIL
-                    break;
-                case 2:
-                    canvas!.tool = MARKER
-                    break;
-                case 1:
-                    canvas!.tool = CHALK
-                    break;
-                case 0:
-                    canvas!.tool = ERASER
-                    break;
-                default:
-                    break;
-            }
-            
-            selectedToolIndex = indexPath.row
+            canvas!.tool = tools![indexPath.row]
             collectionView.reloadData()
             
             if self.isDrawAssistantMode { // If we're showing the drawing assistant, move to next stage.
@@ -1091,7 +1077,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         canvas?.setMaxUndo(Int32(AppConfig.sharedInstance.maxUndoActions))
         
         toolCollectionView.selectItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: .None)
-        canvas?.tool = SPRAY
+        canvas?.tool = BRUSH
         
         // Setup canvas view.
         Utils.applyShadowEffect(canvasView, offset: CGSizeMake(-2, -2), opacity: 0.3, radius: 2.0)

@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  GraffiTab
-
-  Created by Georgi Christov on 01/06/2016.
-  Copyright © 2016 GraffiTab. All rights reserved.
-*/
+/*
+ Localizable.strings
+ GraffiTab
+ 
+ Created by Georgi Christov on 01/06/2016.
+ Copyright © 2016 GraffiTab. All rights reserved.
+ */
 
 // Notifications
 
@@ -16,8 +16,8 @@
 // Enhance tools
 
 "Photo" = "Foto";
-"Save photo" = "Salvar foto";
-"Discard photo" = "Foto de descarte";
+"Save photo" = "Guardar foto";
+"Discard photo" = "Descartar foto";
 "Filter" = "Filtrar";
 "Frame" = "Marco";
 "Focus" = "Foco";
@@ -27,11 +27,11 @@
 "Apply changes" = "Aplicar cambios";
 "Discard changes" = "Descartar los cambios";
 "No Frame" = "Sin marco";
-"Linear focus area" = "área de enfoque lineal";
+"Linear focus area" = "Área de enfoque lineal";
 "Double-tap and hold to move focus area" = "Doble toque y mantenga presionado para mover la zona de enfoque";
 "Rotate left" = "Girar a la izquierda";
 "Rotate right" = "Gira a la derecha";
-"Radial focus area" = "área de enfoque radial";
+"Radial focus area" = "Área de enfoque radial";
 "Blur intensity" = "La intensidad de la falta de definición";
 "No Focus" = "Sin Focus";
 "Linear" = "Lineal";
@@ -41,7 +41,7 @@
 "Contrast" = "Contraste";
 "Saturation" = "Saturación";
 "Clarity" = "Claridad";
-"Shadows" = "Oscuridad";
+"Shadows" = "Sombreados";
 "Highlights" = "Reflejos";
 "Exposure" = "Exposición";
 "Editor" = "Editor";
@@ -63,11 +63,11 @@
 "cell_streamable_like" = "Me gusta";
 "cell_streamable_likes" = "Me gusta";
 "cell_streamable_liked" = "Me gusta";
-"cell_streamable_comment" = "Comentario";
+"cell_streamable_comment" = "Comentar";
 "cell_streamable_comments" = "Comentarios";
 
 "cell_notification_welcome_title" = "Bienvenido a GraffiTab!";
-"cell_notification_welcome_description" = "Ahora que ya estás registrado, puedes empezar a crear grafitis y compartirlos con quien quieras. Si tienes alguna duda, puedes volver a consultar los tutoriales en la sección de Ajustes.";
+"cell_notification_welcome_description" = "Ahora que ya estás registrado, puedes empezar a crear grafitis y compartirlos. Si tienes alguna duda, puedes volver a consultar los tutoriales en la sección de Ajustes.";
 
 // Views
 
@@ -90,8 +90,8 @@
 
 "manager_permission_later_button" = "Intentalo más tarde";
 "manager_permission_notifications_title" = "Recibir notificaciones";
-"manager_permission_notifications_description" = "Estar conectado con la gente que sigues es fácil con las notificaciones Push.\n\nSin ellas, tendrás que comprobar manualmente las actualizaciones en la aplicación.";
-"manager_permission_notifications_button" = "Usar notificaciones Push";
+"manager_permission_notifications_description" = "Estar conectado con la gente que sigues es fácil con las notificaciones.\n\nSin ellas, tendrás que comprobarlas en la aplicación.";
+"manager_permission_notifications_button" = "Usar notificaciones";
 
 "manager_permission_photos_title" = "Imágenes de fondo";
 "manager_permission_photos_description" = "¿Quieres seleccionar una imagen de fondo y dibujar sobre ella? ¡Genial! Simplemente necesitamos tu aprobación.\n\n Las imágenes nunca serán publicadas sin tu consentimiento.";
@@ -103,7 +103,7 @@
 "manager_permission_location_button" = "Usar servicios de localización";
 
 "manager_permission_location_tracking_title" = "Seguimiento de localizaciones";
-"manager_permission_location_tracking_description" = "Al suscribirte a una determinada zona, recibirás notificaciones al visitarla o alguien cree grafitis en ella.\n\nSi no lo haces tendrás que comprobarlo manualmente en el Explorador.";
+"manager_permission_location_tracking_description" = "Al suscribirte a una determinada zona, recibirás notificaciones al visitarla ó alguien cree grafitis en ella.\n\nSi no lo haces tendrás que comprobarlo manualmente en el Explorador.";
 "manager_permission_location_tracking_button" = "Usar seguimiento de localización";
 
 // Models
@@ -129,7 +129,7 @@
 "api_error_invalid_id" = "You cannot pass ID to create request.";
 
 "api_error_user_not_logged_in" = "La sesión ha expirado. Por favor, vuelve a iniciar sesión para continuar.";
-"api_error_user_not_owner" = "No tienes permisos para editar este elemento."; 
+"api_error_user_not_owner" = "No tienes permisos para editar este elemento.";
 
 "api_error_incorrect_password" = "Contraseña incorrecta. Por favor vuelve a intentarlo.";
 "api_error_max_login_attempts" = "Has alcanzado el número máximo de intentos para iniciar sesión. Por favor, reestablece tu contraseña para continuar.";
@@ -206,13 +206,13 @@
 // Controllers
 
 "controller_streamables_no_graffiti" = "No hay grafitis";
-"controller_streamables_no_graffiti_detail" = "No se encontraron grafitis por esta zona. Vuelve más adelante o crea uno tú mismo.";
+"controller_streamables_no_graffiti_detail" = "No se encontraron grafitis por esta zona. Vuelve más tarde o crea uno.";
 
 "controller_users_no_users" = "No hay usuarios";
 "controller_users_no_users_detail" = "No se encontraron usuarios.";
 
 "controller_image_picker_prompt" = "Elige el origen de las imágenes";
-"controller_image_picker_photos" = "Elegir desde la galería de imágenes";
+"controller_image_picker_photos" = "Elegir desde el dispositivo";
 "controller_image_picker_take_picture" = "Sacar foto";
 "controller_image_picker_remove" = "Eliminar foto";
 "controller_image_picker_remove_prompt" = "¿Estás seguro de que quieres eliminar la imagen?";
@@ -243,16 +243,16 @@
 "controller_create_share_prompt" = "¡Estupendo! ¿Quieres que todo el mundo lo vea?";
 "controller_create_share_publish" = "Publicar";
 "controller_create_share" = "Compartir";
-"controller_create_share_save" = "Guardar en el álbum de fotos";
+"controller_create_share_save" = "Guardar en el dispositivo";
 "controller_create_share_discard" = "Descartar";
 "controller_create_share_discard_prompt" = "¿Estás seguro de que quieres descartar este dibujo? Se perderá cualquier cambio no guardado.";
 "controller_create_share_discard_prompt_yes" = "Sí, descártalo";
-"controller_create_clear" = "Limpiar";
+"controller_create_clear" = "Borrar";
 "controller_create_clear_description" = "¿Que te gustaría hacer?";
-"controller_create_clear_drawing_layer" = "Limpiar capa";
-"controller_create_clear_drawing_prompt" = "¿Estás seguro de que quieres limpiar tu dibujo? Se perderá cualquier cambio no guardado.";
-"controller_create_clear_prompt_yes" = "Sí, límpialo";
-"controller_create_clear_background_layer" = "Limpiar imagen de fondo";
+"controller_create_clear_drawing_layer" = "Borrar capa";
+"controller_create_clear_drawing_prompt" = "¿Estás seguro de que quieres borrar tu dibujo? Se perderá cualquier cambio no guardado.";
+"controller_create_clear_prompt_yes" = "Sí, borrar";
+"controller_create_clear_background_layer" = "Borrar imagen de fondo";
 "controller_create_clear_background_prompt" = "¿Estás seguro de que quieres quitar la imagen de fondo? Se perderá cualquier cambio no guardado.";
 "controller_create_clear_everything" = "Borrar todo";
 "controller_create_assistant_intro" = "Dibujar en el lienzo es fácil y rápido. ¡Toca la pantalla para empezar!";
@@ -264,16 +264,16 @@
 "controller_create_assistant_stroke" = "Además del color, puedes cambiar el tamaño y la opacidad del pincel. Toca los ajustes del pincel y pruébalo.";
 "controller_create_assistant_menu" = "Hasta ahora todo bien pero, ¿Qué es un artista sin sus pinceles? Veamos que hay en tus de herramientas.";
 "controller_create_assistant_tool" = "Estas son las herramientas disponibles. Elige una para continuar.";
-"controller_create_assistant_eraser" = "Incluso los mejores artistas cometen errores. No temas, tenemos la herramienta perfecta para esto. Selecciona la goma para borrar errores.";
-"controller_create_assistant_background" = "Un lienzo en blanco está bien pero se vuelve aburrido rápidamente. ¿Por que no poner una imagen de fondo y dibujar sobre ella?";
+"controller_create_assistant_eraser" = "Incluso los mejores artistas cometen errores. No temas, tenemos la herramienta perfecta para esto. Selecciona la goma para corregir errores.";
+"controller_create_assistant_background" = "Un lienzo en blanco está bien pero se puede volver aburrido. ¿Por qué no poner una imagen de fondo y dibujar sobre ella?";
 "controller_create_assistant_enhance" = "Ahora que tu obra de arte está casi lista, es el momento de añadir algunos efectos.";
-"controller_create_assistant_publish" = "¡No está mal para ser la primera vez! ¿Porque no compartirla con tus amigos y/o el resto de la comunidad GraffiTab?";
+"controller_create_assistant_publish" = "¡No está mal para ser la primera vez! ¿Porque no compartirla con tus amigos y el resto de la comunidad GraffiTab?";
 
 "controller_tune_size" = "Tamaño";
 "controller_tune_opacity" = "Opacidad";
 
 "controller_login_invalid_credentials" = "Las credenciales son incorrectas. Inténtalo de nuevo.";
-"controller_login_facebook_unavailable" = "Iniciar sesión con Facebook no está disponible en este momento. Por favor, inténtalo de nuevo maás tarde.";
+"controller_login_facebook_unavailable" = "Iniciar sesión con Facebook no está disponible en este momento. Por favor, inténtalo de nuevo más tarde.";
 "controller_login_sign_up" = "Registrarse";
 "controller_login_username" = "Usuario";
 "controller_login_password" = "Contraseña";
@@ -389,13 +389,13 @@
 
 "controller_settings_clear_cache_prompt" = "¿Estás seguro de que quieres borrar la caché de la aplicación? Borrando la cache fuerzas a la aplicación a volver a descargar todas las imágenes y puede incluir cargos adicionales si no estás utilizando WiFi.";
 "controller_settings_clear_cache" = "Borrar Cache";
-"controller_settings_eula" = "End User License Agreement";
+"controller_settings_eula" = "Acuerdo de Licencia con el Usuario final";
 "controller_settings_logout_prompt" = "¿Estás seguro de que quieres cerrar sesión?";
 "controller_settings_logout" = "Cerrar sesión";
 "controller_settings_change_password" = "Cambiar contraseña";
 "controller_settings_liked_posts" = "Publicaciones que te han gustado";
 "controller_settings_remember_me" = "Recordarme";
-"controller_settings_remember_me_description" = "Recuerda tus credenciales de inicio de sesión y te las recuerda en caso de cerrar sesión.";
+"controller_settings_remember_me_description" = "Guarda tus credenciales de inicio de sesión y te las recuerda en caso de cerrar sesión.";
 "controller_settings_find_facebook_friends" = "Buscar a tus amigos de Facebook";
 "controller_settings_invite_facebook_friends" = "Invitar a tus amigos de Facebook";
 "controller_settings_followers_activity" = "Actividad de seguidores";
