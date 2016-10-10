@@ -19,7 +19,7 @@ class AppConfig: NSObject {
         "bg-BG" : "Български"
     ]
     
-    var isAppStore: Bool = false
+    var isAppStore: Bool = true
     var useAnalytics: Bool = true
     var maxUndoActions = 10
     var onboardingFeedbackDaysTrigger = 2

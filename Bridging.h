@@ -16,7 +16,6 @@
 #import "CCViewController.h"
 #import "TOCropViewController.h"
 #import "ZoomableImageView.h"
-#import "OpenCVWrapper.h"
 
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>

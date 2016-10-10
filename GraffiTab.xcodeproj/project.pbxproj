@@ -106,8 +106,6 @@
 		E55452F11CF350860076CEC9 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55452EF1CF3507D0076CEC9 /* AddressBookUI.framework */; };
 		E55452F31CF3586F0076CEC9 /* GoogleStaticApiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452F21CF3586F0076CEC9 /* GoogleStaticApiUtils.swift */; };
 		E55452F41CF3586F0076CEC9 /* GoogleStaticApiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452F21CF3586F0076CEC9 /* GoogleStaticApiUtils.swift */; };
-		E55452F61CF4950E0076CEC9 /* StreetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452F51CF4950E0076CEC9 /* StreetViewController.swift */; };
-		E55452F71CF4950E0076CEC9 /* StreetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55452F51CF4950E0076CEC9 /* StreetViewController.swift */; };
 		E554CFDA1CB5641B00668D85 /* eula.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD71CB5641B00668D85 /* eula.html */; };
 		E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD81CB5641B00668D85 /* release_notes.html */; };
 		E554CFDE1CB5641B00668D85 /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD91CB5641B00668D85 /* terms.html */; };
@@ -346,16 +344,8 @@
 		E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */; };
 		E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
 		E5A4F1301CE225AA005CF12C /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A4F12D1CE225AA005CF12C /* CommentCell.xib */; };
-		E5AEDA371D1C921A006D4296 /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5AEDA361D1C921A006D4296 /* OpenCVWrapper.mm */; };
-		E5AEDA381D1C921A006D4296 /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5AEDA361D1C921A006D4296 /* OpenCVWrapper.mm */; };
 		E5AEDA651D1CB589006D4296 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57FAB1A1CD2245500C0D125 /* AssetsLibrary.framework */; };
 		E5AEDA661D1CB58F006D4296 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57FAB1A1CD2245500C0D125 /* AssetsLibrary.framework */; };
-		E5AEDA791D1CCC50006D4296 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AEDA781D1CCC50006D4296 /* opencv2.framework */; };
-		E5AEDA7A1D1CCC50006D4296 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AEDA781D1CCC50006D4296 /* opencv2.framework */; };
-		E5AEDA871D1D3C4A006D4296 /* PatternDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5AEDA831D1D3C4A006D4296 /* PatternDetector.cpp */; };
-		E5AEDA881D1D3C4A006D4296 /* PatternDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5AEDA831D1D3C4A006D4296 /* PatternDetector.cpp */; };
-		E5AEDA8E1D1D3DFB006D4296 /* ARView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AEDA8D1D1D3DFB006D4296 /* ARView.m */; };
-		E5AEDA8F1D1D3DFB006D4296 /* ARView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AEDA8D1D1D3DFB006D4296 /* ARView.m */; };
 		E5B3576A1D8FE84400DA6809 /* ImageCellDismissalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B357651D8FE84400DA6809 /* ImageCellDismissalAnimator.swift */; };
 		E5B3576B1D8FE84400DA6809 /* ImageCellPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B357661D8FE84400DA6809 /* ImageCellPresentationAnimator.swift */; };
 		E5B3576C1D8FE84400DA6809 /* ImageCellTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B357671D8FE84400DA6809 /* ImageCellTransitioningDelegate.swift */; };
@@ -414,12 +404,6 @@
 		E5B6B6321CC6566100DC8EFC /* ColorSprayCanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B6311CC6566100DC8EFC /* ColorSprayCanCell.swift */; };
 		E5B6B63D1CC6C40C00DC8EFC /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B6391CC6C40C00DC8EFC /* IntroScene.m */; };
 		E5B6B63F1CC6C40C00DC8EFC /* LineDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B63B1CC6C40C00DC8EFC /* LineDrawer.m */; };
-		E5C369291D213D6F005FA4A0 /* target.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E5C369281D213D6F005FA4A0 /* target.jpg */; };
-		E5C3692A1D213D6F005FA4A0 /* target.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E5C369281D213D6F005FA4A0 /* target.jpg */; };
-		E5C3692D1D21428F005FA4A0 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C3692C1D21428F005FA4A0 /* UIImage+OpenCV.mm */; };
-		E5C3692E1D21428F005FA4A0 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C3692C1D21428F005FA4A0 /* UIImage+OpenCV.mm */; };
-		E5C369331D214482005FA4A0 /* VideoSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C369321D214482005FA4A0 /* VideoSource.mm */; };
-		E5C369341D214482005FA4A0 /* VideoSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5C369321D214482005FA4A0 /* VideoSource.mm */; };
 		E5C3693E1D2163D8005FA4A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5C3693D1D2163D8005FA4A0 /* GoogleService-Info.plist */; };
 		E5C3693F1D2163D8005FA4A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5C3693D1D2163D8005FA4A0 /* GoogleService-Info.plist */; };
 		E5C369491D216727005FA4A0 /* AnalyticsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C369481D216727005FA4A0 /* AnalyticsUtils.swift */; };
@@ -649,7 +633,6 @@
 		E55452EC1CF340C20076CEC9 /* CreateLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateLocationViewController.swift; sourceTree = "<group>"; };
 		E55452EF1CF3507D0076CEC9 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		E55452F21CF3586F0076CEC9 /* GoogleStaticApiUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleStaticApiUtils.swift; sourceTree = "<group>"; };
-		E55452F51CF4950E0076CEC9 /* StreetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreetViewController.swift; sourceTree = "<group>"; };
 		E554CFD71CB5641B00668D85 /* eula.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eula.html; sourceTree = "<group>"; };
 		E554CFD81CB5641B00668D85 /* release_notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = release_notes.html; sourceTree = "<group>"; };
 		E554CFD91CB5641B00668D85 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
@@ -709,15 +692,9 @@
 		E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonSlackViewController.swift; sourceTree = "<group>"; };
 		E5A4F12C1CE225AA005CF12C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		E5A4F12D1CE225AA005CF12C /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
-		E5AEDA361D1C921A006D4296 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
-		E5AEDA3E1D1C9247006D4296 /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
 		E5AEDA5C1D1CB1EB006D4296 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../../../Downloads/opencv2.framework; sourceTree = "<group>"; };
 		E5AEDA631D1CB467006D4296 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../OpenCV/opencv2.framework; sourceTree = "<group>"; };
 		E5AEDA781D1CCC50006D4296 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
-		E5AEDA831D1D3C4A006D4296 /* PatternDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PatternDetector.cpp; sourceTree = "<group>"; };
-		E5AEDA841D1D3C4A006D4296 /* PatternDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatternDetector.h; sourceTree = "<group>"; };
-		E5AEDA8C1D1D3DFB006D4296 /* ARView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARView.h; sourceTree = "<group>"; };
-		E5AEDA8D1D1D3DFB006D4296 /* ARView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARView.m; sourceTree = "<group>"; };
 		E5B357651D8FE84400DA6809 /* ImageCellDismissalAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCellDismissalAnimator.swift; sourceTree = "<group>"; };
 		E5B357661D8FE84400DA6809 /* ImageCellPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCellPresentationAnimator.swift; sourceTree = "<group>"; };
 		E5B357671D8FE84400DA6809 /* ImageCellTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCellTransitioningDelegate.swift; sourceTree = "<group>"; };
@@ -768,12 +745,6 @@
 		E5B6B6391CC6C40C00DC8EFC /* IntroScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroScene.m; sourceTree = "<group>"; };
 		E5B6B63A1CC6C40C00DC8EFC /* LineDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineDrawer.h; sourceTree = "<group>"; };
 		E5B6B63B1CC6C40C00DC8EFC /* LineDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineDrawer.m; sourceTree = "<group>"; };
-		E5C369281D213D6F005FA4A0 /* target.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = target.jpg; sourceTree = "<group>"; };
-		E5C3692B1D21428F005FA4A0 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
-		E5C3692C1D21428F005FA4A0 /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
-		E5C369301D214482005FA4A0 /* VideoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoFrame.h; sourceTree = "<group>"; };
-		E5C369311D214482005FA4A0 /* VideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSource.h; sourceTree = "<group>"; };
-		E5C369321D214482005FA4A0 /* VideoSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoSource.mm; sourceTree = "<group>"; };
 		E5C3693D1D2163D8005FA4A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5C369481D216727005FA4A0 /* AnalyticsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsUtils.swift; sourceTree = "<group>"; };
 		E5C61C841D65A4B700BBFA87 /* GTTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTTheme.swift; sourceTree = "<group>"; };
@@ -883,7 +854,6 @@
 				E584329F1CE9242000FB1E50 /* CoreLocation.framework in Frameworks */,
 				E58432A11CE9242000FB1E50 /* OpenGLES.framework in Frameworks */,
 				E58432A21CE9242000FB1E50 /* SystemConfiguration.framework in Frameworks */,
-				E5AEDA7A1D1CCC50006D4296 /* opencv2.framework in Frameworks */,
 				E58432A31CE9242000FB1E50 /* AVFoundation.framework in Frameworks */,
 				E58432A41CE9242000FB1E50 /* CoreMotion.framework in Frameworks */,
 				E58432A51CE9242000FB1E50 /* CoreMedia.framework in Frameworks */,
@@ -913,7 +883,6 @@
 				E5DFDC161CB2C5C900BB3D27 /* AVFoundation.framework in Frameworks */,
 				E5DFDC141CB2C5C100BB3D27 /* CoreMotion.framework in Frameworks */,
 				E5DFDC121CB2C5B900BB3D27 /* CoreMedia.framework in Frameworks */,
-				E5AEDA791D1CCC50006D4296 /* opencv2.framework in Frameworks */,
 				6E3E6AF34F1E3AC30E600CBF /* Pods_GraffiTab.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1147,18 +1116,6 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		E5494E6E1D1C9182004F31A7 /* OpenCV */ = {
-			isa = PBXGroup;
-			children = (
-				E5C3692F1D214482005FA4A0 /* VideoSource */,
-				E5AEDA8B1D1D3DEF006D4296 /* Visualization */,
-				E5AEDA821D1D3B8A006D4296 /* Detector */,
-				E5AEDA3E1D1C9247006D4296 /* OpenCVWrapper.h */,
-				E5AEDA361D1C921A006D4296 /* OpenCVWrapper.mm */,
-			);
-			path = OpenCV;
-			sourceTree = "<group>";
-		};
 		E55452CE1CF3150A0076CEC9 /* Locations */ = {
 			isa = PBXGroup;
 			children = (
@@ -1384,27 +1341,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		E5AEDA821D1D3B8A006D4296 /* Detector */ = {
-			isa = PBXGroup;
-			children = (
-				E5C369281D213D6F005FA4A0 /* target.jpg */,
-				E5AEDA841D1D3C4A006D4296 /* PatternDetector.h */,
-				E5AEDA831D1D3C4A006D4296 /* PatternDetector.cpp */,
-				E5C3692B1D21428F005FA4A0 /* UIImage+OpenCV.h */,
-				E5C3692C1D21428F005FA4A0 /* UIImage+OpenCV.mm */,
-			);
-			path = Detector;
-			sourceTree = "<group>";
-		};
-		E5AEDA8B1D1D3DEF006D4296 /* Visualization */ = {
-			isa = PBXGroup;
-			children = (
-				E5AEDA8C1D1D3DFB006D4296 /* ARView.h */,
-				E5AEDA8D1D1D3DFB006D4296 /* ARView.m */,
-			);
-			path = Visualization;
-			sourceTree = "<group>";
-		};
 		E5B357631D8FE84400DA6809 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1602,7 +1538,6 @@
 			isa = PBXGroup;
 			children = (
 				E5B6B5911CC56F5800DC8EFC /* ExploreViewController.swift */,
-				E55452F51CF4950E0076CEC9 /* StreetViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1679,16 +1614,6 @@
 				E5B6B63B1CC6C40C00DC8EFC /* LineDrawer.m */,
 			);
 			path = Drawing;
-			sourceTree = "<group>";
-		};
-		E5C3692F1D214482005FA4A0 /* VideoSource */ = {
-			isa = PBXGroup;
-			children = (
-				E5C369301D214482005FA4A0 /* VideoFrame.h */,
-				E5C369311D214482005FA4A0 /* VideoSource.h */,
-				E5C369321D214482005FA4A0 /* VideoSource.mm */,
-			);
-			path = VideoSource;
 			sourceTree = "<group>";
 		};
 		E5C61C831D65A4A500BBFA87 /* Themes */ = {
@@ -1923,7 +1848,6 @@
 			isa = PBXGroup;
 			children = (
 				E5B6B5EE1CC5A7C800DC8EFC /* cocos2d.xcodeproj */,
-				E5494E6E1D1C9182004F31A7 /* OpenCV */,
 				E5D0857E1CD8D30000226589 /* TOCropViewController */,
 			);
 			path = ExternalLibs;
@@ -2257,7 +2181,6 @@
 				E562937E1D7DDA7700283F53 /* onboard_4.png in Resources */,
 				E5610E211D99204D005418B7 /* GraffiTab.entitlements in Resources */,
 				E536A2F31D518D9300D82E34 /* permission_photos.png in Resources */,
-				E5C3692A1D213D6F005FA4A0 /* target.jpg in Resources */,
 				E58432C21CE9242000FB1E50 /* UserAboutView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2266,7 +2189,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5C369291D213D6F005FA4A0 /* target.jpg in Resources */,
 				E562939C1D7DECA100283F53 /* onboard_pad_l_2.png in Resources */,
 				E5DFDC0F1CB2C3AB00BB3D27 /* LaunchScreen.storyboard in Resources */,
 				E51CD0D01CD0C77800D56C58 /* Spray.png in Resources */,
@@ -2453,7 +2375,6 @@
 				E58432311CE9242000FB1E50 /* ActivityGroupCreateCell.swift in Sources */,
 				E58432321CE9242000FB1E50 /* TOActivityCroppedImageProvider.m in Sources */,
 				E58432331CE9242000FB1E50 /* AutocompleteUserCell.swift in Sources */,
-				E5C369341D214482005FA4A0 /* VideoSource.mm in Sources */,
 				E58432341CE9242000FB1E50 /* ActivitySingleCreateCell.swift in Sources */,
 				E59BC3011D12B4EF009781BA /* TrendingUsersViewController.swift in Sources */,
 				E58432361CE9242000FB1E50 /* MenuViewController.swift in Sources */,
@@ -2471,7 +2392,6 @@
 				E5FE1DA31D0060F9009CFB72 /* ClusterViewController.swift in Sources */,
 				E59BC3151D17DDF8009781BA /* SocialFriendsViewController.swift in Sources */,
 				E58432411CE9242000FB1E50 /* DrawToolCell.swift in Sources */,
-				E55452F71CF4950E0076CEC9 /* StreetViewController.swift in Sources */,
 				E59BC2F41D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */,
 				E58432421CE9242000FB1E50 /* StreamableCell.swift in Sources */,
 				E5FE1DA61D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */,
@@ -2481,7 +2401,6 @@
 				E58432431CE9242000FB1E50 /* TOCroppedImageAttributes.m in Sources */,
 				E58432441CE9242000FB1E50 /* LikersViewController.swift in Sources */,
 				E58432451CE9242000FB1E50 /* DialogBuilder.swift in Sources */,
-				E5AEDA8F1D1D3DFB006D4296 /* ARView.m in Sources */,
 				E58432461CE9242000FB1E50 /* NotificationMentionCell.swift in Sources */,
 				E58432471CE9242000FB1E50 /* EditTextViewController.swift in Sources */,
 				E58432491CE9242000FB1E50 /* SettingsViewController.swift in Sources */,
@@ -2493,7 +2412,6 @@
 				E584324D1CE9242000FB1E50 /* GenericUsersViewController.swift in Sources */,
 				E584324E1CE9242000FB1E50 /* ActivityGroupCommentCell.swift in Sources */,
 				E592625F1D0197E400368212 /* ProfileFollowButton.swift in Sources */,
-				E5C3692E1D21428F005FA4A0 /* UIImage+OpenCV.mm in Sources */,
 				E505676C1D0F0B5200D2F245 /* StaticUsersViewController.swift in Sources */,
 				E584324F1CE9242000FB1E50 /* LoginViewController.swift in Sources */,
 				E5A3A84E1D900D860001138A /* GTUser+Utils.swift in Sources */,
@@ -2522,7 +2440,6 @@
 				E5A1D66D1D2316880027E438 /* GTDeviceMotionManager.swift in Sources */,
 				E58432601CE9242000FB1E50 /* UserLikedStreamablesViewController.swift in Sources */,
 				E5B3578C1D8FE96E00DA6809 /* CarbonScrollView+Utils.swift in Sources */,
-				E5AEDA381D1C921A006D4296 /* OpenCVWrapper.mm in Sources */,
 				E5F40D001D4FFAF800832D92 /* OnboardingViewController.swift in Sources */,
 				E592625C1D018C7300368212 /* AppImageCache.swift in Sources */,
 				E5A3A84A1D900D860001138A /* GTError+Utils.swift in Sources */,
@@ -2588,7 +2505,6 @@
 				E58432921CE9242000FB1E50 /* RecentViewController.swift in Sources */,
 				E5A3A82E1D900B5F0001138A /* UINavigationBar+Utils.swift in Sources */,
 				E58432931CE9242000FB1E50 /* EditProfileViewController.swift in Sources */,
-				E5AEDA881D1D3C4A006D4296 /* PatternDetector.cpp in Sources */,
 				E5F46CBE1D5BAA0A00F52256 /* main.swift in Sources */,
 				E5B357931D8FE96E00DA6809 /* ViewController+Utils.swift in Sources */,
 				E5A3A81F1D9009590001138A /* UIImage+Utils.swift in Sources */,
@@ -2632,7 +2548,6 @@
 				E51006D41CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
 				E5D085A81CD8D30000226589 /* TOActivityCroppedImageProvider.m in Sources */,
 				E5DAA89D1CE37A5F000CB2F4 /* AutocompleteUserCell.swift in Sources */,
-				E5C369331D214482005FA4A0 /* VideoSource.mm in Sources */,
 				E51006C21CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */,
 				E59BC3001D12B4EF009781BA /* TrendingUsersViewController.swift in Sources */,
 				E5B6B5BB1CC56F5800DC8EFC /* MenuViewController.swift in Sources */,
@@ -2651,7 +2566,6 @@
 				E5FE1DA21D0060F9009CFB72 /* ClusterViewController.swift in Sources */,
 				E59BC3141D17DDF8009781BA /* SocialFriendsViewController.swift in Sources */,
 				E57FAB261CD4106E00C0D125 /* DrawToolCell.swift in Sources */,
-				E55452F61CF4950E0076CEC9 /* StreetViewController.swift in Sources */,
 				E59BC2F31D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */,
 				E510063A1CB71FAA00AC66A5 /* StreamableCell.swift in Sources */,
 				E5B3576A1D8FE84400DA6809 /* ImageCellDismissalAnimator.swift in Sources */,
@@ -2661,7 +2575,6 @@
 				E5D085A91CD8D30000226589 /* TOCroppedImageAttributes.m in Sources */,
 				E52DC7761CE5E09900375828 /* LikersViewController.swift in Sources */,
 				E5DFDC021CB2C31B00BB3D27 /* DialogBuilder.swift in Sources */,
-				E5AEDA8E1D1D3DFB006D4296 /* ARView.m in Sources */,
 				E51006A91CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
 				E5B6B5AF1CC56F5800DC8EFC /* EditTextViewController.swift in Sources */,
 				E5B6B5C91CC56F5800DC8EFC /* SettingsViewController.swift in Sources */,
@@ -2674,7 +2587,6 @@
 				E51006D71CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
 				E5B357881D8FE90A00DA6809 /* ViewController+Utils.swift in Sources */,
 				E592625E1D0197E400368212 /* ProfileFollowButton.swift in Sources */,
-				E5C3692D1D21428F005FA4A0 /* UIImage+OpenCV.mm in Sources */,
 				E5A3A84D1D900D860001138A /* GTUser+Utils.swift in Sources */,
 				E505676B1D0F0B4F00D2F245 /* StaticUsersViewController.swift in Sources */,
 				E5B6B5DB1CC56F5800DC8EFC /* LoginViewController.swift in Sources */,
@@ -2703,7 +2615,6 @@
 				E50564CC1CEC774000A42E56 /* PublishViewController.swift in Sources */,
 				E52DC77A1CE5E09900375828 /* TrendingViewController.swift in Sources */,
 				E52DC7621CE5DA2A00375828 /* UserLikedStreamablesViewController.swift in Sources */,
-				E5AEDA371D1C921A006D4296 /* OpenCVWrapper.mm in Sources */,
 				E5A3A8491D900D860001138A /* GTError+Utils.swift in Sources */,
 				E5F40CFF1D4FFAF800832D92 /* OnboardingViewController.swift in Sources */,
 				E592625B1D018C7300368212 /* AppImageCache.swift in Sources */,
@@ -2768,7 +2679,6 @@
 				E5A3A82D1D900B5F0001138A /* UINavigationBar+Utils.swift in Sources */,
 				E5C61C881D65A51B00BBFA87 /* GTDarkTheme.swift in Sources */,
 				E5B6B5AB1CC56F5800DC8EFC /* EditProfileViewController.swift in Sources */,
-				E5AEDA871D1D3C4A006D4296 /* PatternDetector.cpp in Sources */,
 				E5F46CBD1D5BAA0A00F52256 /* main.swift in Sources */,
 				E5A3A81E1D9009590001138A /* UIImage+Utils.swift in Sources */,
 				E5B3576B1D8FE84400DA6809 /* ImageCellPresentationAnimator.swift in Sources */,
@@ -2827,8 +2737,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GraffiTab/GraffiTab.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Christov (PD6JJX75F4)";
-				ENABLE_BITCODE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Georgi Christov (869AJN3V33)";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Release",
@@ -2905,7 +2815,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = GraffiTab;
-				PROVISIONING_PROFILE = "0cec6f1e-076f-4c39-b08f-06b0a795050e";
+				PROVISIONING_PROFILE = "5db7ca14-1b12-482b-a12b-eae3c2b56a51";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2918,8 +2828,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GraffiTab/GraffiTab.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Christov (PD6JJX75F4)";
-				ENABLE_BITCODE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Georgi Christov (869AJN3V33)";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)-SDK/_Archive/iOS/Release",
@@ -2995,7 +2905,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.graffitab;
 				PRODUCT_NAME = GraffiTab;
-				PROVISIONING_PROFILE = "0cec6f1e-076f-4c39-b08f-06b0a795050e";
+				PROVISIONING_PROFILE = "5db7ca14-1b12-482b-a12b-eae3c2b56a51";
 				SWIFT_OBJC_BRIDGING_HEADER = Bridging.h;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
