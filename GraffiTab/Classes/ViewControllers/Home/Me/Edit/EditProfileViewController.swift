@@ -93,7 +93,7 @@ class EditProfileViewController: BackButtonTableViewController {
             self.loadData()
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_success", comment: ""), title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_success", comment: ""), title: NSLocalizedString("other_success", comment: ""))
             }
         }, failureBlock: { (response) in
             self.view.hideActivityView()
@@ -120,7 +120,7 @@ class EditProfileViewController: BackButtonTableViewController {
                     self.loadAvatar()
                     
                     Utils.runWithDelay(0.3) { () in
-                        DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_avatar_success", comment: ""), title: App.Title)
+                        DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_avatar_success", comment: ""), title: NSLocalizedString("other_success", comment: ""))
                     }
                 }, failureBlock: { (response) -> Void in
                     self.view.hideActivityView()
@@ -139,7 +139,7 @@ class EditProfileViewController: BackButtonTableViewController {
             self.loadAvatar()
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_avatar_success", comment: ""), title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_avatar_success", comment: ""), title: NSLocalizedString("other_success", comment: ""))
             }
         }
         let coverSuccessBlock = {
@@ -148,7 +148,7 @@ class EditProfileViewController: BackButtonTableViewController {
             self.loadCover()
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_cover_success", comment: ""), title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_cover_success", comment: ""), title: NSLocalizedString("other_success", comment: ""))
             }
         }
         

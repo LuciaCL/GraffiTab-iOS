@@ -243,8 +243,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
     
     func flag() {
         DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_streamable_options_flag_prompt", comment: ""), title: App.Title, yesAction: {
-            GTStreamableManager.flag(self.streamable!.id!, successBlock: { (response) in
-                
+                GTStreamableManager.flag(self.streamable!.id!, successBlock: { (response) in
             }, failureBlock: { (response) in
                     
             })
@@ -268,7 +267,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
                 self.view.hideActivityView()
                 
                 Utils.runWithDelay(0.3, block: {
-                    DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_streamable_options_save_success", comment: ""), title: App.Title)
+                    DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_streamable_options_save_success", comment: ""), title: NSLocalizedString("other_success", comment: ""))
                 })
             })
         })
@@ -350,7 +349,7 @@ class StreamableDetailViewController: BackButtonViewController, ZoomableImageVie
             }
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_avatar_success", comment: ""), title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_avatar_success", comment: ""), title: NSLocalizedString("other_success", comment: ""))
             }
         }
         

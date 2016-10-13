@@ -102,10 +102,6 @@
 "manager_permission_location_description" = "In order to use the Explorer or create graffiti, we need to know your location.\n\nOtherwise, you can still draw and publish graffiti but they won't appear on the map.";
 "manager_permission_location_button" = "Use Location Services";
 
-"manager_permission_location_tracking_title" = "Location Tracking Services";
-"manager_permission_location_tracking_description" = "By tracking a location you will receive notifications when someone creates graffiti in that area or when you visit it.\n\nOtherwise you will have to check manually in the Explorer.";
-"manager_permission_location_tracking_button" = "Use Tracking Services";
-
 // Models
 
 "models_comment_sending" = "Sending";
@@ -312,19 +308,16 @@
 "controller_feed_draw" = "Start Drawing";
 
 "controller_locations_empty_title" = "No locations yet";
-"controller_locations_empty_description" = "Create your first location and start tracking areas of interest.";
+"controller_locations_empty_description" = "Create your first location and start receiving updates when new content is created in the area.";
 "controller_locations_options_title" = "What would you like to do with this place?";
 "controller_locations_copy_address" = "Copy address";
-"controller_locations_track" = "Track";
-"controller_locations_untrack" = "Untrack";
 "controller_locations_delete" = "Delete";
 "controller_locations_delete_prompt" = "Are you sure you want to delete this location?";
 "controller_locations_delete_prompt_yes" = "Yes, delete it";
-"controller_locations_geofence_unsupported" = "Your device does not support location tracking.";
 "controller_locations" = "Locations";
 
 "controller_create_location_not_selected" = "Select a location first.";
-"controller_create_location_saved" = "Location saved successfully!";
+"controller_create_location_saved" = "Location saved successfully. Now you will get notifications when new content is available around that area.";
 "controller_create_location_none" = "No locations found for this address.";
 "controller_create_location_multiple" = "Multiple matches found. The first one will be used.";
 
@@ -436,7 +429,7 @@
 
 "controller_likes" = "Likes";
 
-"controller_streamable_cluster" = "%li around";
+"controller_streamable_cluster" = "%li discovered";
 
 "controller_static_streamables" = "%li graffiti";
 
@@ -453,6 +446,7 @@
 
 // Other
 
+"other_success" = "Success";
 "other_skip" = "Skip";
 "other_post" = "Post";
 "other_close" = "Close";

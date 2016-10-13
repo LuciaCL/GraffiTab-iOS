@@ -60,7 +60,7 @@ class LinkedAccountViewController: BackButtonTableViewController {
                 GTMeManager.unlinkExternalProvider(self.accountProvider!, successBlock: { (response) in
                     self.view.hideActivityView()
                     
-                    DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_linked_account_unlink_success", comment: ""), title: App.Title, okAction: {
+                    DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_linked_account_unlink_success", comment: ""), title: NSLocalizedString("other_success", comment: ""), okAction: {
                         self.navigationController?.popViewControllerAnimated(true)
                     })
                 }, failureBlock: { (response) in

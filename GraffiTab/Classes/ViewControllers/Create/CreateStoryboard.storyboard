@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -72,7 +72,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DrawToolCell" id="aVB-FG-Wt9" customClass="DrawToolCell" customModule="GraffiTab" customModuleProvider="target">
-                                                        <rect key="frame" x="3" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="2.5" y="0.0" width="50" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -643,116 +643,8 @@
             </objects>
             <point key="canvasLocation" x="344" y="892"/>
         </scene>
-        <!--Publish View Controller-->
-        <scene sceneID="7ss-tV-pQs">
-            <objects>
-                <viewController storyboardIdentifier="PublishViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Sm4-dK-yn6" customClass="PublishViewController" customModule="GraffiTab" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dbu-Po-K7M"/>
-                        <viewControllerLayoutGuide type="bottom" id="wV9-lR-Iz9"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hiH-G1-Qdr">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JEA-SC-FL1">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMx-eS-hbw" customClass="MaterializeRoundButton" customModule="GraffiTab" customModuleProvider="target">
-                                <rect key="frame" x="263" y="500" width="75" height="75"/>
-                                <color key="backgroundColor" red="0.42352941176470588" green="0.74117647058823533" blue="0.32156862745098036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="Cd5-fr-3gH"/>
-                                    <constraint firstAttribute="width" constant="75" id="mlI-qk-ccL"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
-                                <state key="normal" image="check"/>
-                                <connections>
-                                    <action selector="onClickCreate:" destination="Sm4-dK-yn6" eventType="touchUpInside" id="yES-zz-Pah"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTd-qT-egz" customClass="MaterializeRoundButton" customModule="GraffiTab" customModuleProvider="target">
-                                <rect key="frame" x="178" y="515" width="45" height="45"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="MjH-jO-DSy"/>
-                                    <constraint firstAttribute="height" constant="45" id="ggi-oq-FRk"/>
-                                </constraints>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="ic_clear_white"/>
-                                <connections>
-                                    <action selector="onClickCancel:" destination="Sm4-dK-yn6" eventType="touchUpInside" id="N0F-I9-Vtd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GL6-9a-m2l" customClass="MaterializeRoundButton" customModule="GraffiTab" customModuleProvider="target">
-                                <rect key="frame" x="378" y="515" width="45" height="45"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="bOM-ZF-lsy"/>
-                                    <constraint firstAttribute="width" constant="45" id="oD4-cs-uqh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="?">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onClickInfo:" destination="Sm4-dK-yn6" eventType="touchUpInside" id="gBs-EP-6EH"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0w-59-laJ">
-                                <rect key="frame" x="50" y="70" width="500" height="380"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NqS-2W-tac">
-                                        <rect key="frame" x="0.0" y="0.0" width="500" height="380"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="NqS-2W-tac" firstAttribute="leading" secondItem="O0w-59-laJ" secondAttribute="leading" id="8bU-vJ-hsD"/>
-                                    <constraint firstItem="NqS-2W-tac" firstAttribute="top" secondItem="O0w-59-laJ" secondAttribute="top" id="Opg-EJ-cBZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="NqS-2W-tac" secondAttribute="bottom" id="tnX-JY-T9J"/>
-                                    <constraint firstAttribute="trailing" secondItem="NqS-2W-tac" secondAttribute="trailing" id="vsc-Lu-aVD"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="O0w-59-laJ" firstAttribute="leading" secondItem="hiH-G1-Qdr" secondAttribute="leading" constant="50" id="2I9-GJ-75J"/>
-                            <constraint firstItem="WMx-eS-hbw" firstAttribute="centerX" secondItem="hiH-G1-Qdr" secondAttribute="centerX" id="2zn-Pf-8gt"/>
-                            <constraint firstItem="wV9-lR-Iz9" firstAttribute="top" secondItem="WMx-eS-hbw" secondAttribute="bottom" constant="25" id="DMF-1d-l8z"/>
-                            <constraint firstItem="O0w-59-laJ" firstAttribute="top" secondItem="dbu-Po-K7M" secondAttribute="bottom" constant="50" id="EdU-OP-wFP"/>
-                            <constraint firstAttribute="trailing" secondItem="O0w-59-laJ" secondAttribute="trailing" constant="50" id="JqB-0I-YgL"/>
-                            <constraint firstItem="WMx-eS-hbw" firstAttribute="leading" secondItem="bTd-qT-egz" secondAttribute="trailing" constant="40" id="dP4-lj-c9R"/>
-                            <constraint firstItem="WMx-eS-hbw" firstAttribute="top" secondItem="O0w-59-laJ" secondAttribute="bottom" constant="50" id="f3D-Sa-OXC"/>
-                            <constraint firstItem="wV9-lR-Iz9" firstAttribute="top" secondItem="JEA-SC-FL1" secondAttribute="bottom" id="hYm-pd-Rmz"/>
-                            <constraint firstItem="bTd-qT-egz" firstAttribute="centerY" secondItem="WMx-eS-hbw" secondAttribute="centerY" id="in0-dM-PAt"/>
-                            <constraint firstAttribute="trailing" secondItem="JEA-SC-FL1" secondAttribute="trailing" id="jXs-C5-aKn"/>
-                            <constraint firstItem="GL6-9a-m2l" firstAttribute="leading" secondItem="WMx-eS-hbw" secondAttribute="trailing" constant="40" id="kON-on-0rD"/>
-                            <constraint firstItem="JEA-SC-FL1" firstAttribute="leading" secondItem="hiH-G1-Qdr" secondAttribute="leading" id="koO-jJ-hYP"/>
-                            <constraint firstItem="JEA-SC-FL1" firstAttribute="top" secondItem="hiH-G1-Qdr" secondAttribute="top" id="uPl-eD-sZV"/>
-                            <constraint firstItem="GL6-9a-m2l" firstAttribute="centerY" secondItem="WMx-eS-hbw" secondAttribute="centerY" id="xFX-ap-IDF"/>
-                            <constraint firstItem="O0w-59-laJ" firstAttribute="centerX" secondItem="hiH-G1-Qdr" secondAttribute="centerX" id="y5R-vD-Pnf"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="cameraView" destination="JEA-SC-FL1" id="dtc-Ia-fSl"/>
-                        <outlet property="cancelBtn" destination="bTd-qT-egz" id="TiT-X8-7pk"/>
-                        <outlet property="createBtn" destination="WMx-eS-hbw" id="9Rt-Wl-y3T"/>
-                        <outlet property="imageContainer" destination="O0w-59-laJ" id="wPY-1f-9O3"/>
-                        <outlet property="infoBtn" destination="GL6-9a-m2l" id="mvb-XZ-bld"/>
-                        <outlet property="streamableImageView" destination="NqS-2W-tac" id="oPh-Av-OXF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kNU-Gl-aJG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1036" y="170"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="check" width="512" height="512"/>
-        <image name="ic_clear_white" width="24" height="24"/>
         <image name="ic_color_lens" width="24" height="24"/>
         <image name="ic_menu_white" width="24" height="24"/>
         <image name="ic_more_vert_white" width="24" height="24"/>

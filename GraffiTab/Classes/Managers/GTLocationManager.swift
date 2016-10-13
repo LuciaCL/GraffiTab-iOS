@@ -48,48 +48,6 @@ class GTLocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func askPermissionAlways(controller: UIViewController, accessGrantedHandler: (() -> Void)?) {
-        self.accessGrantedHandler = accessGrantedHandler
-        
-        // If we haven't granted permission yet.
-        if CLLocationManager.authorizationStatus() != .AuthorizedAlways {
-            if CLLocationManager.authorizationStatus() == .NotDetermined || CLLocationManager.authorizationStatus() != .AuthorizedWhenInUse {
-                locationManager?.requestAlwaysAuthorization()
-            }
-            else {
-                DialogBuilder.showYesNoAlert(controller, status: NSLocalizedString("manager_location_permission", comment: ""), title: App.Title, yesTitle: NSLocalizedString("manager_location_permission_yes", comment: ""), noTitle: NSLocalizedString("manager_location_permission_no", comment: ""), yesAction: {
-                    // Send the user to the Settings for this app.
-                    Utils.openUrl(UIApplicationOpenSettingsURLString)
-                }, noAction: { 
-                    
-                })
-            }
-        }
-        else {
-            self.accessGrantedHandler!()
-        }
-    }
-    
-    // MARK: - Regions
-    
-    func getRegions() -> Set<CLRegion> {
-        return (locationManager?.monitoredRegions)!
-    }
-    
-    func canMonitorRegions() -> Bool {
-        return CLLocationManager.isMonitoringAvailableForClass(CLRegion.classForCoder())
-    }
-    
-    func startMonitoringRegion(region: CLRegion) {
-        region.notifyOnEntry = true
-        region.notifyOnExit = false
-        locationManager?.startMonitoringForRegion(region)
-    }
-    
-    func stopMonitoringRegion(region: CLRegion) {
-        locationManager?.stopMonitoringForRegion(region)
-    }
-    
     // MARK: - Location
     
     func startLocationUpdates() {

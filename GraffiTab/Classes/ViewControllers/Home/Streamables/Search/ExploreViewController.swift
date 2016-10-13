@@ -14,23 +14,23 @@ import MZFormSheetPresentationController
 import JTMaterialTransition
 import CocoaLumberjack
 
-class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClusteringManagerDelegate, UIViewControllerTransitioningDelegate {
+class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClusteringManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var backBtn: TintButton!
-    @IBOutlet weak var streetViewBtn: TintButton!
     @IBOutlet weak var gridBtn: TintButton!
+    @IBOutlet weak var locateBtn: TintButton!
+    @IBOutlet weak var bottomButtonsContainer: UIView!
     
     var toShowLatitude: CLLocationDegrees?
     var toShowLongitude: CLLocationDegrees?
     
-    var transition: JTMaterialTransition?
     var items = [GTStreamable]()
     var annotations = [StreamableAnnotation]()
-    var imageDownloadTasks = [NSURLSessionTask]()
     var refreshTimer: NSTimer?
     let clusteringManager = FBClusteringManager()
     var initialMapSetup = false
+    var modifyingMap = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,12 +39,13 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
         
         setupButtons()
         setupMapView()
-        setupTransition()
         
-        if toShowLatitude != nil && toShowLongitude != nil {
+        if toShowLatitude != nil && toShowLongitude != nil { // Center map to custom location.
             zoomMapToLocation(CLLocation(latitude: toShowLatitude!, longitude: toShowLongitude!))
-            
-            loadItems()
+        }
+        
+        Utils.runWithDelay(1) {
+            self.startTimer()
         }
     }
 
@@ -61,8 +62,17 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
         }
     }
     
+    @IBAction func onClickLocate(sender: AnyObject) {
+        if mapView.userLocation.location != nil {
+            mapView.camera.centerCoordinate = mapView.userLocation.coordinate
+            doClusterAnnotations()
+        }
+    }
+    
     @IBAction func onClickBack(sender: AnyObject) {
         let destroy = {
+            self.stopTimer()
+            
             self.mapView.mapType = self.mapView.mapType == .Standard ? .Satellite : .Standard
             self.mapView.delegate = nil
             self.mapView.removeFromSuperview()
@@ -88,18 +98,6 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
             
             openClusterView(items)
         }
-    }
-    
-    @IBAction func onClickStreetView(sender: AnyObject) {
-        // Register analytics events.
-        AnalyticsUtils.sendAppEvent("street_view", label: nil)
-        
-        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("StreetViewController")
-        
-        vc.modalPresentationStyle = .Custom
-        vc.transitioningDelegate = self
-        
-        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     func openClusterView(streamables: [GTStreamable]) {
@@ -140,31 +138,23 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
             return
         }
         
-        let location = toShowLatitude != nil && toShowLongitude != nil ? CLLocation(latitude: toShowLatitude!, longitude: toShowLongitude!) : (mapView.userLocation.location != nil ? mapView.userLocation.location : nil)
+        let mapCenter = mapView.centerCoordinate
+        let location = toShowLatitude != nil && toShowLongitude != nil ? CLLocation(latitude: toShowLatitude!, longitude: toShowLongitude!) : CLLocation(latitude: mapCenter.latitude, longitude: mapCenter.longitude)
         
-        if location != nil {
-            let latitude = location?.coordinate.latitude
-            let longitude = location?.coordinate.longitude
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Searching for location:\nLatitude: \(latitude)\nLongitude: \(longitude)")
+        
+        GTStreamableManager.searchForLocation(latitude, longitude: longitude, radius: AppConfig.sharedInstance.locationRadius, successBlock: { (response) -> Void in
+            let listItemsResult = response.object as! GTListItemsResult<GTStreamable>
             
-            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Searchin for location:\nLatitude: \(latitude)\nLongitude: \(longitude)")
+            self.processAnnotations(listItemsResult.items!)
+            self.finalizeLoad()
+        }) { (response) -> Void in
+            self.finalizeLoad()
             
-            let successBlock = {(response: GTResponseObject) -> Void in
-                let listItemsResult = response.object as! GTListItemsResult<GTStreamable>
-                
-                self.processAnnotations(listItemsResult.items!)
-                self.finalizeLoad()
-            }
-            let failureBlock = {(response: GTResponseObject) -> Void in
-                self.finalizeLoad()
-                
-                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
-            }
-            
-            GTStreamableManager.searchForLocation(latitude!, longitude: longitude!, radius: AppConfig.sharedInstance.locationRadius, successBlock: { (response) -> Void in
-                successBlock(response)
-            }) { (response) -> Void in
-                failureBlock(response)
-            }
+            DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
         }
     }
     
@@ -214,36 +204,29 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
             return
         }
         
-        mapView.camera.centerCoordinate = location.coordinate
-        
         if !initialMapSetup {
             initialMapSetup = true
             
-            mapView.camera.altitude = 100
-            mapView.camera.pitch = 65
+            mapView.setRegion(MKCoordinateRegionMakeWithDistance(location.coordinate, AppConfig.sharedInstance.mapInitialSpanDistance, AppConfig.sharedInstance.mapInitialSpanDistance), animated: true)
+        }
+        else {
+            mapView.camera.centerCoordinate = location.coordinate
         }
     }
     
-    func didEndMapRegionChange() {
-        if mapView == nil {
-            return
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        if mapView.calculateSpanDistance() > AppConfig.sharedInstance.mapMaxSpanDistance && !modifyingMap { // Enforce maximum zoom level.
+            modifyingMap = true // Prevents strange infinite loop case.
+            mapView.setRegion(MKCoordinateRegionMakeWithDistance(mapView.region.center, AppConfig.sharedInstance.mapMaxSpanDistance, AppConfig.sharedInstance.mapMaxSpanDistance), animated: true)
+            modifyingMap = false
         }
-
-        loadItems()
+        
+        doClusterAnnotations()
     }
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-        if toShowLatitude == nil && toShowLongitude == nil { // Only refresh-on-follow if the explorer is not showing an external location.
-            zoomMapToLocation(userLocation.location!)
-            
-            doClusterAnnotations()
-            
-            if refreshTimer != nil { // Kill previous timer.
-                refreshTimer?.invalidate()
-                refreshTimer = nil
-            }
-            
-            refreshTimer = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(didEndMapRegionChange), userInfo: nil, repeats: false)
+        if toShowLatitude == nil && toShowLongitude == nil { // We are not showing a custom location.
+            zoomMapToLocation(userLocation.location!) // So center map to user's location initially.
         }
     }
 
@@ -284,6 +267,7 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
         if view.isKindOfClass(FBAnnotationClusterView) { // Select cluster.
             // Process cluster click.
             let annotation = view.annotation as! FBAnnotationCluster
+            print(annotation.title)
             var streamables = [GTStreamable]()
             for streamableAnnotation in annotation.annotations {
                 streamables.append((streamableAnnotation as! StreamableAnnotation).streamable!)
@@ -319,45 +303,43 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
         return 1.0
     }
     
-    // MARK: - UIViewControllerTransitioningDelegate
+    // MARK: - Timer
     
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition?.reverse = false
-        
-        return transition
+    func stopTimer() {
+        if refreshTimer != nil {
+            refreshTimer?.invalidate()
+            refreshTimer = nil
+        }
     }
     
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition?.reverse = true
+    func startTimer() {
+        stopTimer()
         
-        return transition
+        refreshTimer = NSTimer.scheduledTimerWithTimeInterval(AppConfig.sharedInstance.mapRefreshRate, target: self, selector: #selector(self.loadItems), userInfo: nil, repeats: true)
+        loadItems()
     }
     
     // MARK: - Setup
     
     func setupButtons() {
-        let items = [backBtn, streetViewBtn, gridBtn]
+        let items = [backBtn, bottomButtonsContainer]
         
         for view in items {
             view.applyMaterializeStyle(0.2)
         }
         
         backBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
-        streetViewBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
         gridBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
+        locateBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
     }
     
     func setupMapView() {
         mapView.rotateEnabled = true
-        mapView.zoomEnabled = false
-        mapView.scrollEnabled = false
-        mapView.showsBuildings = false
+        mapView.zoomEnabled = true
+        mapView.scrollEnabled = true
+        mapView.showsBuildings = true
         mapView.showsTraffic = false
         mapView.showsCompass = false
         mapView.showsUserLocation = (CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse)
-    }
-    
-    func setupTransition() {
-        transition = JTMaterialTransition(animatedView: streetViewBtn)
     }
 }

@@ -11,7 +11,7 @@ import UIKit
 extension UIView {
 
     func applyMaterializeStyle(opacity: Float? = 0.5) {
-        self.layer.cornerRadius = self.frame.size.width / 2
+        self.layer.cornerRadius = self.frame.size.height / 2
         self.layer.shadowRadius = 3.0
         self.layer.shadowColor = UIColor.blackColor().CGColor;
         self.layer.shadowOffset = CGSizeMake(1.6, 1.6)

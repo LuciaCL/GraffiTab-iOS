@@ -55,7 +55,7 @@ class ResetPasswordViewController: BackButtonViewController, UITextFieldDelegate
         self.view.rn_activityView.dimBackground = false
         
         let successHandler = {
-            DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_pasword_reset_confirmation", comment: ""), title: App.Title, okAction: {
+            DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_pasword_reset_confirmation", comment: ""), title: NSLocalizedString("other_success", comment: ""), okAction: {
                 self.dismissViewControllerAnimated(true, completion: nil)
             })
         }

@@ -102,10 +102,6 @@
 "manager_permission_location_description" = "Para usar el Explorador o crear grafitis, necesitamos conocer tu localización.\n\nSin ella, podrás dibujar y publicar grafitis pero no aparecerán en el mapa.";
 "manager_permission_location_button" = "Usar servicios de localización";
 
-"manager_permission_location_tracking_title" = "Seguimiento de localizaciones";
-"manager_permission_location_tracking_description" = "Al suscribirte a una determinada zona, recibirás notificaciones al visitarla ó alguien cree grafitis en ella.\n\nSi no lo haces tendrás que comprobarlo manualmente en el Explorador.";
-"manager_permission_location_tracking_button" = "Usar seguimiento de localización";
-
 // Models
 
 "models_comment_sending" = "Enviando";
@@ -315,16 +311,13 @@
 "controller_locations_empty_description" = "Crea tu primera localización y empieza a seguir zonas de tu interés.";
 "controller_locations_options_title" = "¿Que te gustaría hacer con este lugar?";
 "controller_locations_copy_address" = "Copiar dirección";
-"controller_locations_track" = "Seguir";
-"controller_locations_untrack" = "Dejar de seguir";
 "controller_locations_delete" = "Borrar";
 "controller_locations_delete_prompt" = "¿Estás seguro de que quieres borrar esta localización?";
 "controller_locations_delete_prompt_yes" = "Sí, borrala";
-"controller_locations_geofence_unsupported" = "Tu dispositivo no soporta seguimiento de localizaciones.";
 "controller_locations" = "Localizaciones";
 
 "controller_create_location_not_selected" = "Selecciona primero una localización.";
-"controller_create_location_saved" = "¡Localización guardada satisfactoriamente!";
+"controller_create_location_saved" = "Localización guardada satisfactoriamente. Usted recibirá notificaciones cuando el nuevo contenido está disponible por esa zona.";
 "controller_create_location_none" = "No se han encontrado direcciones de localización.";
 "controller_create_location_multiple" = "Se han encontrado múltiples coincidencias. Se usará la primera de ellas.";
 
@@ -436,7 +429,7 @@
 
 "controller_likes" = "Me gustas";
 
-"controller_streamable_cluster" = "%li en los alrededores";
+"controller_streamable_cluster" = "%li descubierto";
 
 "controller_static_streamables" = "%li grafiti";
 
@@ -453,6 +446,7 @@
 
 // Other
 
+"other_success" = "Éxito";
 "other_skip" = "Saltar";
 "other_post" = "Publicar";
 "other_close" = "Cerrar";

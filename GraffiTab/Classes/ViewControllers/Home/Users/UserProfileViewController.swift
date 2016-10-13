@@ -199,7 +199,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
                     self.header?.item = GTMeManager.sharedInstance.loggedInUser
                     
                     Utils.runWithDelay(0.3) { () in
-                        DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_avatar_success", comment: ""), title: App.Title)
+                        DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_avatar_success", comment: ""), title: NSLocalizedString("other_success", comment: ""))
                     }
                 }, failureBlock: { (response) -> Void in
                     self.view.hideActivityView()
@@ -218,7 +218,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             self.header?.item = GTMeManager.sharedInstance.loggedInUser
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_avatar_success", comment: ""), title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_avatar_success", comment: ""), title: NSLocalizedString("other_success", comment: ""))
             }
         }
         let coverSuccessBlock = {
@@ -227,7 +227,7 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
             self.header?.item = GTMeManager.sharedInstance.loggedInUser
             
             Utils.runWithDelay(0.3) { () in
-                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_cover_success", comment: ""), title: App.Title)
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_profile_cover_success", comment: ""), title: NSLocalizedString("other_success", comment: ""))
             }
         }
         
@@ -318,6 +318,12 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     }
     
     // MARK: - Loading
+    
+    override func refresh() {
+        loadUserProfile()
+        
+        super.refresh()
+    }
     
     func loadData() {
         followBtn.hidden = isMe()

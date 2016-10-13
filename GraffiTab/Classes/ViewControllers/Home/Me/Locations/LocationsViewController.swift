@@ -324,7 +324,7 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
             cell.item = items[indexPath.row]
             cell.itemPosition = indexPath
             cell.delegate = self
-            cell.setTrackerVisible(GTLocationManager.manager.getRegions().contains(getRegionForLocation(cell.item!)))
+            cell.setTrackerVisible(false)
             
             return cell
         }
@@ -413,8 +413,6 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     // MARK: - LocationCellDelegate
     
     func didTapOptions(location: GTLocation, indexPath: NSIndexPath) {
-        let tracked = GTLocationManager.manager.getRegions().contains(getRegionForLocation(location))
-        
         let actionSheet = buildActionSheet(NSLocalizedString("controller_locations_options_title", comment: ""))
         actionSheet.addButtonWithTitle(NSLocalizedString("other_edit", comment: ""), image: UIImage(named: "ic_mode_edit_white"), type: .Default) { (sheet) in
             let handler = {
@@ -436,26 +434,6 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
             
             UIPasteboard.generalPasteboard().string = location.address
         }
-        actionSheet.addButtonWithTitle(tracked ? NSLocalizedString("controller_locations_untrack", comment: "") : NSLocalizedString("controller_locations_track", comment: ""), image: UIImage(named: tracked ? "ic_radio_button_checked_white" : "ic_radio_button_unchecked_white"), type: .Default) { (sheet) in
-            let handler = {
-                if tracked {
-                    // Register analytics events.
-                    AnalyticsUtils.sendAppEvent("location_untrack", label: nil)
-                    
-                    self.removeGeofenceForLocation(location, indexPath: indexPath)
-                }
-                else {
-                    // Register analytics events.
-                    AnalyticsUtils.sendAppEvent("location_track", label: nil)
-                    
-                    self.addGeofenceForLocation(location, indexPath: indexPath)
-                }
-            }
-            
-            GTPermissionsManager.manager.checkPermission(.LocationAlways, controller: self, accessGrantedHandler: {
-                handler()
-            })
-        }
         actionSheet.addButtonWithTitle(NSLocalizedString("other_delete", comment: ""), image: UIImage(named: "ic_clear_white"), type: .Destructive) { (sheet) in
             DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_locations_delete_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("controller_locations_delete_prompt_yes", comment: ""), noTitle: NSLocalizedString("other_cancel", comment: ""), yesAction: {
                 // Register analytics events.
@@ -470,8 +448,6 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
     }
     
     func doDeleteLocation(location: GTLocation, indexPath: NSIndexPath) {
-        removeGeofenceForLocation(location, indexPath: indexPath)
-        
         self.collectionView.performBatchUpdates({
             if indexPath.row < self.items.count {
                 self.items.removeAtIndex(indexPath.row)
@@ -489,40 +465,6 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
         }, failureBlock: { (response) in
             DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, reason: response.error.reason)
         })
-    }
-    
-    // MARK: - Geofencing
-    
-    func addGeofenceForLocation(location: GTLocation, indexPath: NSIndexPath) {
-        if !GTLocationManager.manager.canMonitorRegions() {
-            DialogBuilder.showErrorAlert(self, status: NSLocalizedString("controller_locations_geofence_unsupported", comment: ""), title: App.Title)
-            return
-        }
-        
-        // Initialize region to minitor.
-        let region = getRegionForLocation(location)
-        
-        // Start monitoring region.
-        GTLocationManager.manager.startMonitoringRegion(region)
-        
-        self.collectionView .reloadData()
-    }
-    
-    func removeGeofenceForLocation(location: GTLocation, indexPath: NSIndexPath) {
-        // Initialize region to minitor.
-        let region = getRegionForLocation(location)
-        
-        if GTLocationManager.manager.getRegions().contains(region) {
-            // Stop monitoring region.
-            GTLocationManager.manager.stopMonitoringRegion(region)
-            
-            self.collectionView .reloadData()
-        }
-    }
-    
-    func getRegionForLocation(location: GTLocation) -> CLCircularRegion {
-        let l = CLLocation(latitude: location.latitude!, longitude: location.longitude!)
-        return CLCircularRegion(center: l.coordinate, radius: 250, identifier: String(format: "%li", location.id!))
     }
     
     // MARK: - Orientation

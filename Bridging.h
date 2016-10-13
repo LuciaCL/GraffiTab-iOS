@@ -42,4 +42,9 @@
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewControllerInteractiveAnimator.h>
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewControllerInteractiveTransitioning.h>
 
+#import <kingpin/KPAnnotation.h>
+#import <kingpin/KPClusteringAlgorithm.h>
+#import <kingpin/KPGridClusteringAlgorithm.h>
+#import <kingpin/KPClusteringController.h>
+
 #endif /* Bridging_h */

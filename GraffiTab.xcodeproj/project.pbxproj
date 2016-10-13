@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		6120B15580E6E4D49C4FE058 /* Pods_GraffiTab_Release.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040A2F38D09E539338496576 /* Pods_GraffiTab_Release.framework */; };
 		6E3E6AF34F1E3AC30E600CBF /* Pods_GraffiTab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A858584C70AD43E9A1A96F8 /* Pods_GraffiTab.framework */; };
-		E50564CC1CEC774000A42E56 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50564CB1CEC774000A42E56 /* PublishViewController.swift */; };
-		E50564CD1CEC774000A42E56 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50564CB1CEC774000A42E56 /* PublishViewController.swift */; };
 		E50564D41CEC882B00A42E56 /* MaterializeRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50564D31CEC882B00A42E56 /* MaterializeRoundButton.swift */; };
 		E50564D51CEC882B00A42E56 /* MaterializeRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50564D31CEC882B00A42E56 /* MaterializeRoundButton.swift */; };
 		E505676B1D0F0B4F00D2F245 /* StaticUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E505676A1D0F0B4F00D2F245 /* StaticUsersViewController.swift */; };
@@ -296,6 +294,8 @@
 		E592625C1D018C7300368212 /* AppImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592625A1D018C7300368212 /* AppImageCache.swift */; };
 		E592625E1D0197E400368212 /* ProfileFollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592625D1D0197E400368212 /* ProfileFollowButton.swift */; };
 		E592625F1D0197E400368212 /* ProfileFollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592625D1D0197E400368212 /* ProfileFollowButton.swift */; };
+		E59A58681DAFBBEA005EE0A9 /* MKMapView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A58671DAFBBEA005EE0A9 /* MKMapView+Utils.swift */; };
+		E59A58691DAFBBEB005EE0A9 /* MKMapView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A58671DAFBBEA005EE0A9 /* MKMapView+Utils.swift */; };
 		E59BC2F31D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */; };
 		E59BC2F41D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */; };
 		E59BC2FB1D12B423009781BA /* UserTrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F91D12B423009781BA /* UserTrendingCell.swift */; };
@@ -550,7 +550,6 @@
 		60414BAA024EE71CB76A1383 /* Pods-GraffiTab Release.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab Release.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab Release/Pods-GraffiTab Release.release.xcconfig"; sourceTree = "<group>"; };
 		65C7EC7B6C44DA11DEAA502C /* Pods-GraffiTab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab.release.xcconfig"; sourceTree = "<group>"; };
 		68B6060E6C069394DFEF27BF /* Pods-GraffiTab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab.debug.xcconfig"; sourceTree = "<group>"; };
-		E50564CB1CEC774000A42E56 /* PublishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
 		E50564D31CEC882B00A42E56 /* MaterializeRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterializeRoundButton.swift; sourceTree = "<group>"; };
 		E505676A1D0F0B4F00D2F245 /* StaticUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticUsersViewController.swift; sourceTree = "<group>"; };
 		E51005F31CB69BDE00AC66A5 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
@@ -666,6 +665,7 @@
 		E58432D91CEA469B00FB1E50 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		E592625A1D018C7300368212 /* AppImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppImageCache.swift; sourceTree = "<group>"; };
 		E592625D1D0197E400368212 /* ProfileFollowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFollowButton.swift; sourceTree = "<group>"; };
+		E59A58671DAFBBEA005EE0A9 /* MKMapView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+Utils.swift"; sourceTree = "<group>"; };
 		E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwimLaneStreamablesViewController.swift; sourceTree = "<group>"; };
 		E59BC2F91D12B423009781BA /* UserTrendingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrendingCell.swift; sourceTree = "<group>"; };
 		E59BC2FA1D12B423009781BA /* UserTrendingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTrendingCell.xib; sourceTree = "<group>"; };
@@ -1225,6 +1225,14 @@
 			path = Cache;
 			sourceTree = "<group>";
 		};
+		E59A58661DAFBBDA005EE0A9 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				E59A58671DAFBBEA005EE0A9 /* MKMapView+Utils.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
 		E59BC2F81D12B3AE009781BA /* Trending */ = {
 			isa = PBXGroup;
 			children = (
@@ -1363,6 +1371,7 @@
 		E5B3576E1D8FE90A00DA6809 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E59A58661DAFBBDA005EE0A9 /* MapView */,
 				E5FFCE551DA7BF69002D2E1B /* Drawing */,
 				E5A3A8531D900F0B0001138A /* ToolBar */,
 				E5A3A84F1D900E4A0001138A /* Bundle */,
@@ -1435,7 +1444,6 @@
 				E5B6B6151CC5B34600DC8EFC /* Cocos2d */,
 				E5B6B56E1CC56F5800DC8EFC /* CreateStoryboard.storyboard */,
 				E5B6B56F1CC56F5800DC8EFC /* CreateViewController.swift */,
-				E50564CB1CEC774000A42E56 /* PublishViewController.swift */,
 				E5494E651D1AB329004F31A7 /* TuneViewController.swift */,
 			);
 			path = Create;
@@ -2435,7 +2443,6 @@
 				E584325D1CE9242000FB1E50 /* ActivitySingleLikeCell.swift in Sources */,
 				E536A2E71D5170C700D82E34 /* AskPermissionViewController.swift in Sources */,
 				E584325E1CE9242000FB1E50 /* TOCropViewController.m in Sources */,
-				E50564CD1CEC774000A42E56 /* PublishViewController.swift in Sources */,
 				E584325F1CE9242000FB1E50 /* TrendingViewController.swift in Sources */,
 				E5A1D66D1D2316880027E438 /* GTDeviceMotionManager.swift in Sources */,
 				E58432601CE9242000FB1E50 /* UserLikedStreamablesViewController.swift in Sources */,
@@ -2512,6 +2519,7 @@
 				E5FE1D8F1CFF7DFE009CFB72 /* StreamableImageView.swift in Sources */,
 				E58432951CE9242000FB1E50 /* ListFullStreamablesViewController.swift in Sources */,
 				E5B3578B1D8FE96E00DA6809 /* UIApplication+Utils.swift in Sources */,
+				E59A58691DAFBBEB005EE0A9 /* MKMapView+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2612,7 +2620,6 @@
 				E536A2E61D5170C700D82E34 /* AskPermissionViewController.swift in Sources */,
 				E51006BF1CBC0FA100AC66A5 /* ActivitySingleLikeCell.swift in Sources */,
 				E5D085AC1CD8D30000226589 /* TOCropViewController.m in Sources */,
-				E50564CC1CEC774000A42E56 /* PublishViewController.swift in Sources */,
 				E52DC77A1CE5E09900375828 /* TrendingViewController.swift in Sources */,
 				E52DC7621CE5DA2A00375828 /* UserLikedStreamablesViewController.swift in Sources */,
 				E5A3A8491D900D860001138A /* GTError+Utils.swift in Sources */,
@@ -2685,6 +2692,7 @@
 				E5FE1D8E1CFF7DFE009CFB72 /* StreamableImageView.swift in Sources */,
 				E5A1D6691D23101E0027E438 /* GTLocationManager.swift in Sources */,
 				E510064F1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift in Sources */,
+				E59A58681DAFBBEA005EE0A9 /* MKMapView+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

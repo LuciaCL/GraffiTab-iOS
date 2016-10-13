@@ -30,7 +30,7 @@ enum DrawingAssistantState {
     case Publish
 }
 
-class CreateViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, ColorSprayCanCellDelegate, PublishDelegate, CanvasDelegate, ToolStackControllerDelegate {
+class CreateViewController: CCViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, ColorSprayCanCellDelegate, CanvasDelegate, ToolStackControllerDelegate {
 
     @IBOutlet weak var toolCollectionView: UICollectionView!
     @IBOutlet weak var canvasContainerXconstraint: NSLayoutConstraint!
@@ -177,17 +177,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func onClickPublish(sender: AnyObject?) {
-//        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Showing publish screen")
-//        
-//        let sampleImage = self.canvas?.grabFrame()
-//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PublishViewController") as! PublishViewController
-//        vc.streamableImage = sampleImage
-//        vc.toEdit = toEdit
-//        vc.delegate = self
-//        self.presentViewController(vc, animated: true, completion: nil)
-        
         let handler = {
-            // TODO: Uncomment this to show the AR publisher. For now we won't track the position of the image in the real world.
             DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to publish")
             
             // Register analytics events.
@@ -266,7 +256,32 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         }
         
         GTPermissionsManager.manager.checkPermission(.LocationWhenInUse, controller: self, accessGrantedHandler: {
-            handler()
+            if GTLocationManager.manager.lastLocation == nil { // Wait a bit until we have location available.
+                self.view.showActivityView()
+                self.view.rn_activityView.dimBackground = false
+                
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                    for count in 1...AppConfig.sharedInstance.locationTimeout {
+                        sleep(1)
+                        
+                        if GTLocationManager.manager.lastLocation != nil {
+                            break
+                        }
+                        else {
+                            DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Waited for \(count) seconds for location to be available")
+                        }
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue()) { // At this point, either location is available or we have timed out.
+                        self.view.hideActivityView()
+                        
+                        handler()
+                    }
+                }
+            }
+            else {
+                handler()
+            }
         }) {
             handler()
         }
@@ -302,7 +317,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
                 self.view.hideActivityView()
                 
                 Utils.runWithDelay(0.3, block: {
-                    DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_create_saved", comment: ""), title: App.Title)
+                    DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_create_saved", comment: ""), title: NSLocalizedString("other_success", comment: ""))
                 })
             })
         })

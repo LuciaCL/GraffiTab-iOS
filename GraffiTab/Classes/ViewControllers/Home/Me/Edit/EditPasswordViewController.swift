@@ -80,7 +80,7 @@ class EditPasswordViewController: BackButtonTableViewController, UITextFieldDele
             GTMeManager.editPassword(p!, newPassword: np!, successBlock: { (response) in
                 self.view.hideActivityView()
                 
-                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_password_success", comment: ""), title: App.Title, okAction: {
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_edit_password_success", comment: ""), title: NSLocalizedString("other_success", comment: ""), okAction: {
                     if DeviceType.IS_IPAD {
                         self.dismissViewControllerAnimated(true, completion: nil)
                     }

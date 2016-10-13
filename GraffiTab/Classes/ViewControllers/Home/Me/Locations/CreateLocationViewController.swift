@@ -73,7 +73,7 @@ class CreateLocationViewController: BackButtonViewController, UITextFieldDelegat
             let success = {
                 self.view.hideActivityView()
                 
-                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_create_location_saved", comment: ""), title: App.Title, okAction: {
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_create_location_saved", comment: ""), title: NSLocalizedString("other_success", comment: ""), okAction: {
                     Utils.runWithDelay(0.3, block: {
                         self.onClickBack(nil)
                     })

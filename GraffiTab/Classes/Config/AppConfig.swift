@@ -19,15 +19,21 @@ class AppConfig: NSObject {
         "bg-BG" : "Български"
     ]
     
-    var isAppStore: Bool = true
+    var isAppStore: Bool = false
     var useAnalytics: Bool = true
     var maxUndoActions = 10
     var onboardingFeedbackDaysTrigger = 2
-    var locationRadius = 1000 // 1km radius.
+    
+    var locationRadius = 100 * 1000 // Distance in meters.
+    var locationTimeout = 10 // Waiting time for location to become available for publishing.
+    var mapInitialSpanDistance: Double = 1 * 1000 // Distance in meters.
+    var mapMaxSpanDistance: Double = 3000 * 1000 // Distance in meters.
+    var mapRefreshRate: Double = 3
     
     var logEnabled = true
     var httpsEnabled = true
-    var customUrl: String?
+//    var customUrl: String?
+    var customUrl: String? = "dev.graffitab.com"
 //    var customUrl: String? = "localhost:8091"
     
     var theme: GTTheme?

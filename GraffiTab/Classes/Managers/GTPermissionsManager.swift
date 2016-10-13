@@ -12,7 +12,6 @@ import Photos
 enum PermissionType {
     case Notifications
     case LocationWhenInUse
-    case LocationAlways
     case Photos
 }
 
@@ -29,9 +28,6 @@ class GTPermissionsManager: NSObject {
         }
         else if type == .LocationWhenInUse {
             checkLocationWhenInUse(controller, accessGrantedHandler: accessGrantedHandler, decideLaterHandler: decideLaterHandler)
-        }
-        else if type == .LocationAlways {
-            checkLocationAlways(controller, accessGrantedHandler: accessGrantedHandler, decideLaterHandler: decideLaterHandler)
         }
     }
     
@@ -119,31 +115,6 @@ class GTPermissionsManager: NSObject {
             permissionDialog.permissionDescription.text = NSLocalizedString("manager_permission_location_description", comment: "")
             permissionDialog.permissionPreview.image = UIImage(named: "permission_location_when_in_use")
             permissionDialog.askBtn.setTitle(NSLocalizedString("manager_permission_location_button", comment: ""), forState: .Normal)
-        }
-        else {
-            askForAccess()
-        }
-    }
-    
-    private func checkLocationAlways(controller: UIViewController, accessGrantedHandler: (() -> Void)?, decideLaterHandler: (() -> Void)?) {
-        let askForAccess = {
-            GTLocationManager.manager.askPermissionAlways(controller, accessGrantedHandler: accessGrantedHandler)
-        }
-        
-        if !Settings.sharedInstance.promptedForLocationAlways! {
-            let permissionDialog = AskPermissionViewController.showPermissionViewController(controller, askPermissionHandler: {
-                Settings.sharedInstance.promptedForLocationAlways = true
-                askForAccess()
-            }, decideLaterHandler: {
-                if decideLaterHandler != nil {
-                    decideLaterHandler!()
-                }
-            })
-            
-            permissionDialog.permissionTitle.text = NSLocalizedString("manager_permission_location_tracking_title", comment: "")
-            permissionDialog.permissionDescription.text = NSLocalizedString("manager_permission_location_tracking_description", comment: "")
-            permissionDialog.permissionPreview.image = UIImage(named: "permission_location_always")
-            permissionDialog.askBtn.setTitle(NSLocalizedString("manager_permission_location_tracking_button", comment: ""), forState: .Normal)
         }
         else {
             askForAccess()

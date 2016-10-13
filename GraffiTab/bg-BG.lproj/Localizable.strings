@@ -102,10 +102,6 @@
 "manager_permission_location_description" = "Създаването на рисуки е по-забавно ако можеш да ги запазиш на реално географаско местоположение.\n\nПубликуването без локация е също разрешено.";
 "manager_permission_location_button" = "Използвай позициониране";
 
-"manager_permission_location_tracking_title" = "Следене на район";
-"manager_permission_location_tracking_description" = "Следенето на район ти дава възможност да получаваш известия, когато някой създаде нещо там или когато влезеш в района.\n\nИначе, ще трябва ръчно да проверяваш какво има наоколо в Explorer..";
-"manager_permission_location_tracking_button" = "Използвай следене на район";
-
 // Models
 
 "models_comment_sending" = "Изпраща се";
@@ -312,19 +308,16 @@
 "controller_feed_draw" = "Рисувай";
 
 "controller_locations_empty_title" = "Няма местоположения";
-"controller_locations_empty_description" = "Създай първото си местоположение и започни да получаваш известия за него.";
+"controller_locations_empty_description" = "Създай първото си местоположение и започни да получаваш известия, когато някой публикъва нещо в района.";
 "controller_locations_options_title" = "Опции";
 "controller_locations_copy_address" = "Копирай адрес";
-"controller_locations_track" = "Следи";
-"controller_locations_untrack" = "Спри следене";
 "controller_locations_delete" = "Изтрий";
 "controller_locations_delete_prompt" = "Сигурен ли си, че искаш да изтриеш това местоположение?";
 "controller_locations_delete_prompt_yes" = "Да, изтрий";
-"controller_locations_geofence_unsupported" = "Устройството ти не поддържа следене на местоположение.";
 "controller_locations" = "Местоположения";
 
 "controller_create_location_not_selected" = "Избери местоположение.";
-"controller_create_location_saved" = "Местоположението бе запазено!";
+"controller_create_location_saved" = "Местоположението бе запазено. Сега вече ще получавате известия, когато някой публикува нещо в този район.";
 "controller_create_location_none" = "Няма местоположения за този адрес.";
 "controller_create_location_multiple" = "Намерени са няколко съвпадения. Ще използваме първото.";
 
@@ -436,7 +429,7 @@
 
 "controller_likes" = "Харесвания";
 
-"controller_streamable_cluster" = "%li наоколо";
+"controller_streamable_cluster" = "%li открити";
 
 "controller_static_streamables" = "%li рисунки";
 
@@ -453,6 +446,7 @@
 
 // Other
 
+"other_success" = "Готово";
 "other_skip" = "Пропусни";
 "other_post" = "Публикувай";
 "other_close" = "Затвори";

@@ -28,7 +28,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>FacebookAppID</key>
 	<string>427845203916953</string>
 	<key>FacebookDisplayName</key>
@@ -77,7 +77,7 @@
 	<string>We use your location to show relative graffiti in your area.</string>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>location</string>
+		<string>fetch</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
