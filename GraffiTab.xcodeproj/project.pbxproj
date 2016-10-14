@@ -296,6 +296,10 @@
 		E592625F1D0197E400368212 /* ProfileFollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592625D1D0197E400368212 /* ProfileFollowButton.swift */; };
 		E59A58681DAFBBEA005EE0A9 /* MKMapView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A58671DAFBBEA005EE0A9 /* MKMapView+Utils.swift */; };
 		E59A58691DAFBBEB005EE0A9 /* MKMapView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A58671DAFBBEA005EE0A9 /* MKMapView+Utils.swift */; };
+		E59A58721DB00A53005EE0A9 /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A58711DB00A53005EE0A9 /* ClusterAnnotationView.swift */; };
+		E59A58731DB00A53005EE0A9 /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A58711DB00A53005EE0A9 /* ClusterAnnotationView.swift */; };
+		E59A58751DB01C33005EE0A9 /* StreamableAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A58741DB01C33005EE0A9 /* StreamableAnnotationView.swift */; };
+		E59A58761DB01C33005EE0A9 /* StreamableAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A58741DB01C33005EE0A9 /* StreamableAnnotationView.swift */; };
 		E59BC2F31D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */; };
 		E59BC2F41D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */; };
 		E59BC2FB1D12B423009781BA /* UserTrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC2F91D12B423009781BA /* UserTrendingCell.swift */; };
@@ -666,6 +670,8 @@
 		E592625A1D018C7300368212 /* AppImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppImageCache.swift; sourceTree = "<group>"; };
 		E592625D1D0197E400368212 /* ProfileFollowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFollowButton.swift; sourceTree = "<group>"; };
 		E59A58671DAFBBEA005EE0A9 /* MKMapView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+Utils.swift"; sourceTree = "<group>"; };
+		E59A58711DB00A53005EE0A9 /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
+		E59A58741DB01C33005EE0A9 /* StreamableAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamableAnnotationView.swift; sourceTree = "<group>"; };
 		E59BC2F21D11B43F009781BA /* SwimLaneStreamablesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwimLaneStreamablesViewController.swift; sourceTree = "<group>"; };
 		E59BC2F91D12B423009781BA /* UserTrendingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrendingCell.swift; sourceTree = "<group>"; };
 		E59BC2FA1D12B423009781BA /* UserTrendingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTrendingCell.xib; sourceTree = "<group>"; };
@@ -1024,6 +1030,7 @@
 		E51006DC1CBCF63B00AC66A5 /* MapKit */ = {
 			isa = PBXGroup;
 			children = (
+				E59A586B1DB00A40005EE0A9 /* AnnotationViews */,
 				E51006DD1CBCF63B00AC66A5 /* Annotations */,
 			);
 			path = MapKit;
@@ -1231,6 +1238,15 @@
 				E59A58671DAFBBEA005EE0A9 /* MKMapView+Utils.swift */,
 			);
 			path = MapView;
+			sourceTree = "<group>";
+		};
+		E59A586B1DB00A40005EE0A9 /* AnnotationViews */ = {
+			isa = PBXGroup;
+			children = (
+				E59A58711DB00A53005EE0A9 /* ClusterAnnotationView.swift */,
+				E59A58741DB01C33005EE0A9 /* StreamableAnnotationView.swift */,
+			);
+			path = AnnotationViews;
 			sourceTree = "<group>";
 		};
 		E59BC2F81D12B3AE009781BA /* Trending */ = {
@@ -2393,6 +2409,7 @@
 				E584323A1CE9242000FB1E50 /* Utils.swift in Sources */,
 				E584323B1CE9242000FB1E50 /* BackButtonTableViewController.swift in Sources */,
 				E50564D51CEC882B00A42E56 /* MaterializeRoundButton.swift in Sources */,
+				E59A58761DB01C33005EE0A9 /* StreamableAnnotationView.swift in Sources */,
 				E584323C1CE9242000FB1E50 /* WebViewController.swift in Sources */,
 				E584323D1CE9242000FB1E50 /* HomeViewController.swift in Sources */,
 				E584323E1CE9242000FB1E50 /* TOCropViewControllerTransitioning.m in Sources */,
@@ -2488,6 +2505,7 @@
 				E5F46CAF1D5B831D00F52256 /* LanguageViewController.swift in Sources */,
 				E584327E1CE9242000FB1E50 /* ColorSprayCan.swift in Sources */,
 				E584327F1CE9242000FB1E50 /* ActivityGroupFollowCell.swift in Sources */,
+				E59A58731DB00A53005EE0A9 /* ClusterAnnotationView.swift in Sources */,
 				E58432801CE9242000FB1E50 /* SearchStreamablesViewController.swift in Sources */,
 				E58432811CE9242000FB1E50 /* ToggleStreamablesViewController.swift in Sources */,
 				E58432831CE9242000FB1E50 /* LineDrawer.m in Sources */,
@@ -2566,6 +2584,7 @@
 				E5B6B55B1CC4E8AD00DC8EFC /* UserAboutView.swift in Sources */,
 				E5DFDC041CB2C31B00BB3D27 /* Utils.swift in Sources */,
 				E5DFDC071CB2C31B00BB3D27 /* BackButtonTableViewController.swift in Sources */,
+				E59A58751DB01C33005EE0A9 /* StreamableAnnotationView.swift in Sources */,
 				E50564D41CEC882B00A42E56 /* MaterializeRoundButton.swift in Sources */,
 				E52DC77D1CE5E0BD00375828 /* WebViewController.swift in Sources */,
 				E5B6B5A51CC56F5800DC8EFC /* HomeViewController.swift in Sources */,
@@ -2661,6 +2680,7 @@
 				E51006F51CBD1B0000AC66A5 /* UserCell.swift in Sources */,
 				E5B6B63D1CC6C40C00DC8EFC /* IntroScene.m in Sources */,
 				E5F46CAE1D5B831D00F52256 /* LanguageViewController.swift in Sources */,
+				E59A58721DB00A53005EE0A9 /* ClusterAnnotationView.swift in Sources */,
 				E5B6B62E1CC64D4400DC8EFC /* ColorSprayCan.swift in Sources */,
 				E51006C81CBC199B00AC66A5 /* ActivityGroupFollowCell.swift in Sources */,
 				E5B6B5BD1CC56F5800DC8EFC /* SearchStreamablesViewController.swift in Sources */,
@@ -2792,8 +2812,6 @@
 					"-framework",
 					"\"DZNEmptyDataSet\"",
 					"-framework",
-					"\"FBAnnotationClusteringSwift\"",
-					"-framework",
 					"\"FBSDKCoreKit\"",
 					"-framework",
 					"\"FBSDKLoginKit\"",
@@ -2882,8 +2900,6 @@
 					"\"CarbonKit\"",
 					"-framework",
 					"\"DZNEmptyDataSet\"",
-					"-framework",
-					"\"FBAnnotationClusteringSwift\"",
 					"-framework",
 					"\"FBSDKCoreKit\"",
 					"-framework",
@@ -3049,8 +3065,6 @@
 					"-framework",
 					"\"DZNEmptyDataSet\"",
 					"-framework",
-					"\"FBAnnotationClusteringSwift\"",
-					"-framework",
 					"\"FBSDKCoreKit\"",
 					"-framework",
 					"\"FBSDKLoginKit\"",
@@ -3132,8 +3146,6 @@
 					"\"CarbonKit\"",
 					"-framework",
 					"\"DZNEmptyDataSet\"",
-					"-framework",
-					"\"FBAnnotationClusteringSwift\"",
 					"-framework",
 					"\"FBSDKCoreKit\"",
 					"-framework",

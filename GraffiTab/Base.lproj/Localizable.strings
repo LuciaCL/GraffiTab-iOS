@@ -316,10 +316,11 @@
 "controller_locations_delete_prompt_yes" = "Yes, delete it";
 "controller_locations" = "Locations";
 
-"controller_create_location_not_selected" = "Select a location first.";
+"controller_create_location_not_selected" = "This location is not valid or you haven't selected a location yet.";
 "controller_create_location_saved" = "Location saved successfully. Now you will get notifications when new content is available around that area.";
 "controller_create_location_none" = "No locations found for this address.";
 "controller_create_location_multiple" = "Multiple matches found. The first one will be used.";
+"controller_create_location_create_prompt" = "Save this area to your Locations?";
 
 "controller_edit_password_success" = "Password updated!";
 "controller_edit_password" = "Edit password";

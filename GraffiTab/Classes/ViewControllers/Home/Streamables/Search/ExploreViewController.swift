@@ -9,28 +9,33 @@
 import UIKit
 import MapKit
 import GraffiTab_iOS_SDK
-import FBAnnotationClusteringSwift
+import kingpin
 import MZFormSheetPresentationController
 import JTMaterialTransition
 import CocoaLumberjack
+import AddressBookUI
 
-class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClusteringManagerDelegate {
+class ExploreViewController: BackButtonViewController, MKMapViewDelegate, KPClusteringControllerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var backBtn: TintButton!
     @IBOutlet weak var gridBtn: TintButton!
     @IBOutlet weak var locateBtn: TintButton!
+    @IBOutlet weak var addLocationBtn: TintButton!
     @IBOutlet weak var bottomButtonsContainer: UIView!
     
     var toShowLatitude: CLLocationDegrees?
     var toShowLongitude: CLLocationDegrees?
     
+    var lastPlacemark: CLPlacemark?
+    var lastPlacemarkAddress: String?
     var items = [GTStreamable]()
     var annotations = [StreamableAnnotation]()
     var refreshTimer: NSTimer?
-    let clusteringManager = FBClusteringManager()
+    var clusteringController: KPClusteringController?
     var initialMapSetup = false
     var modifyingMap = false
+    var prevAnnotationCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +44,7 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
         
         setupButtons()
         setupMapView()
+        setupClustering()
         
         if toShowLatitude != nil && toShowLongitude != nil { // Center map to custom location.
             zoomMapToLocation(CLLocation(latitude: toShowLatitude!, longitude: toShowLongitude!))
@@ -48,7 +54,7 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
             self.startTimer()
         }
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -62,10 +68,17 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
         }
     }
     
+    @IBAction func onClickAddLocation(sender: AnyObject) {
+        DialogBuilder.showYesNoAlert(self, status: NSLocalizedString("controller_create_location_create_prompt", comment: ""), title: App.Title, yesTitle: NSLocalizedString("other_save", comment: ""), noTitle: NSLocalizedString("other_cancel", comment: ""), yesAction: {
+            self.saveLocation()
+        }) { 
+            
+        }
+    }
+    
     @IBAction func onClickLocate(sender: AnyObject) {
         if mapView.userLocation.location != nil {
             mapView.camera.centerCoordinate = mapView.userLocation.coordinate
-            doClusterAnnotations()
         }
     }
     
@@ -125,10 +138,35 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
     }
     
     func openAnnotationView(sender: UITapGestureRecognizer) {
-        let annotationView = sender.view as! MKPinAnnotationView
-        let streamableAnnotation = annotationView.annotation as! StreamableAnnotation
-        
+        let annotation = (sender.view as! StreamableAnnotationView).getStreamableAnnotation()
+        let streamableAnnotation = annotation
+
         ViewControllerUtils.showStreamableDetails(streamableAnnotation.streamable!, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
+    }
+    
+    func saveLocation() {
+        DDLogDebug("[\(NSStringFromClass(self.dynamicType))] Attempting to create location")
+        
+        if lastPlacemark == nil {
+            DialogBuilder.showErrorAlert(self, status: NSLocalizedString("controller_create_location_not_selected", comment: ""), title: App.Title)
+        }
+        else {
+            // Register analytics events.
+            AnalyticsUtils.sendAppEvent("location_create", label: nil)
+            
+            self.view.showActivityView()
+            self.view.rn_activityView.dimBackground = false
+            
+            GTMeManager.createLocation(lastPlacemarkAddress!, latitude: lastPlacemark!.location!.coordinate.latitude, longitude: lastPlacemark!.location!.coordinate.longitude, successBlock: { (response) in
+                self.view.hideActivityView()
+                
+                DialogBuilder.showSuccessAlert(self, status: NSLocalizedString("controller_create_location_saved", comment: ""), title: NSLocalizedString("other_success", comment: ""))
+            }, failureBlock: { (response) in
+                self.view.hideActivityView()
+                
+                DialogBuilder.showAPIErrorAlert(self, status: response.error.localizedMessage(), title: App.Title, forceShow: true, reason: response.error.reason)
+            })
+        }
     }
     
     // MARK: - Loading
@@ -139,7 +177,7 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
         }
         
         let mapCenter = mapView.centerCoordinate
-        let location = toShowLatitude != nil && toShowLongitude != nil ? CLLocation(latitude: toShowLatitude!, longitude: toShowLongitude!) : CLLocation(latitude: mapCenter.latitude, longitude: mapCenter.longitude)
+        let location = CLLocation(latitude: mapCenter.latitude, longitude: mapCenter.longitude)
         
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
@@ -175,26 +213,12 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
     }
     
     func finalizeLoad() {
-        clusteringManager.setAnnotations(annotations)
-        
-        // Cluster annotations.
-        doClusterAnnotations()
-    }
-    
-    func doClusterAnnotations() {
-        if mapView == nil {
-            return
+        if annotations.count != prevAnnotationCount {
+            clusteringController!.setAnnotations(annotations)
         }
+        prevAnnotationCount = annotations.count
         
-        NSOperationQueue().addOperationWithBlock({
-            let mapBoundsWidth = Double(self.mapView.bounds.size.width)
-            let mapRectWidth: Double = self.mapView.visibleMapRect.size.width
-            let scale: Double = mapBoundsWidth / mapRectWidth
-            
-            let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(self.mapView.visibleMapRect, withZoomScale:scale)
-            
-            self.clusteringManager.displayAnnotations(annotationArray, onMapView:self.mapView)
-        })
+        clusteringController!.refresh(true)
     }
     
     // MARK: - MKMapViewDelegate
@@ -214,6 +238,24 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
         }
     }
     
+    func reverseGeocodeMapCenter() {
+        let geoCoder = CLGeocoder()
+        geoCoder.reverseGeocodeLocation(CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)) { (placemarks, error) in
+            if error != nil {
+                DDLogError("[\(NSStringFromClass(self.dynamicType))] Geocoder failed with error - \(error)")
+                return
+            }
+            
+            if placemarks != nil && placemarks?.count > 0 {
+                self.lastPlacemark = placemarks?.first
+                
+                let addressText = ABCreateStringWithAddressDictionary(self.lastPlacemark!.addressDictionary!, false)
+                let newString = addressText.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet()).joinWithSeparator(", ")
+                self.lastPlacemarkAddress = newString
+            }
+        }
+    }
+    
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         if mapView.calculateSpanDistance() > AppConfig.sharedInstance.mapMaxSpanDistance && !modifyingMap { // Enforce maximum zoom level.
             modifyingMap = true // Prevents strange infinite loop case.
@@ -221,7 +263,9 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
             modifyingMap = false
         }
         
-        doClusterAnnotations()
+        clusteringController!.refresh(true)
+        
+        reverseGeocodeMapCenter()
     }
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
@@ -235,39 +279,44 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
             return nil
         }
         
-        if annotation.isKindOfClass(FBAnnotationCluster) {
-            let reuseId = "Cluster"
-            var clusterView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
-            if clusterView == nil {
-                let options = FBAnnotationClusterViewOptions(smallClusterImage: "clusterSmall", mediumClusterImage: "clusterMedium", largeClusterImage: "clusterLarge")
-                clusterView = FBAnnotationClusterView(annotation: annotation, reuseIdentifier: reuseId, options: options)
-            }
-            return clusterView
-        }
-        else if annotation.isKindOfClass(StreamableAnnotation) {
-            let reuseId = "Streamable"
-            let streamableAnnotation = annotation as! StreamableAnnotation
+        if annotation is KPAnnotation {
+            let a = annotation as! KPAnnotation
             
-            var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
-            if annotationView == nil {
-                let pinAnnotationView = MKPinAnnotationView(annotation: streamableAnnotation, reuseIdentifier: reuseId)
-                pinAnnotationView.canShowCallout = true
-                pinAnnotationView.animatesDrop = false
-                pinAnnotationView.pinTintColor = AppConfig.sharedInstance.theme?.primaryColor
-                annotationView = pinAnnotationView
+            if a.isCluster() {
+                let reuseId = "Cluster"
+                var clusterView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? ClusterAnnotationView
+                
+                if (clusterView == nil) {
+                    let options = ClusterAnnotationViewOptions(smallClusterImage: "clusterSmall", mediumClusterImage: "clusterMedium", largeClusterImage: "clusterLarge")
+                    clusterView = ClusterAnnotationView(annotation: annotation, reuseIdentifier: reuseId, options: options)
+                }
+                clusterView?.annotation = a
+                clusterView?.recomputeCluster()
+                
+                return clusterView
             }
-            
-            return annotationView
+            else {
+                let reuseId = "Streamable"
+                var streamableView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? StreamableAnnotationView
+                
+                if streamableView == nil {
+                    streamableView = StreamableAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                }
+                streamableView?.annotation = a
+                (annotation as! KPAnnotation).title = streamableView!.getStreamableAnnotation().streamable!.user!.getFullName()
+                
+                return streamableView
+            }
         }
         
         return nil
     }
 
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-        if view.isKindOfClass(FBAnnotationClusterView) { // Select cluster.
+        if view is ClusterAnnotationView { // Select cluster.
             // Process cluster click.
-            let annotation = view.annotation as! FBAnnotationCluster
-            print(annotation.title)
+            let annotation = view.annotation as! KPAnnotation
+            
             var streamables = [GTStreamable]()
             for streamableAnnotation in annotation.annotations {
                 streamables.append((streamableAnnotation as! StreamableAnnotation).streamable!)
@@ -283,24 +332,24 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
                 }
             })
         }
-        else if view.isKindOfClass(MKPinAnnotationView.classForCoder()) {
+        else if view is StreamableAnnotationView {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.openAnnotationView(_:)))
             view.addGestureRecognizer(tapGesture)
         }
     }
     
     func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView) {
-        if view.isKindOfClass(MKPinAnnotationView.classForCoder()) {
+        if view is StreamableAnnotationView {
             view.gestureRecognizers?.forEach({ (recognizer) in
                 view.removeGestureRecognizer(recognizer)
             })
         }
     }
     
-    // MARK: - FBClusteringManagerDelegate
+    // MARK: - KPClusteringControllerDelegate
     
-    func cellSizeFactorForCoordinator(coordinator: FBClusteringManager) -> CGFloat {
-        return 1.0
+    func clusteringControllerShouldClusterAnnotations(clusteringController: KPClusteringController!) -> Bool {
+        return true
     }
     
     // MARK: - Timer
@@ -331,6 +380,7 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
         backBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
         gridBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
         locateBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
+        addLocationBtn.tintColor = AppConfig.sharedInstance.theme?.primaryColor
     }
     
     func setupMapView() {
@@ -341,5 +391,14 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, FBClus
         mapView.showsTraffic = false
         mapView.showsCompass = false
         mapView.showsUserLocation = (CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse)
+    }
+    
+    func setupClustering() {
+        let algorithm = KPGridClusteringAlgorithm()
+        algorithm.annotationSize = CGSizeMake(25, 50)
+        algorithm.clusteringStrategy = KPGridClusteringAlgorithmStrategy.TwoPhase
+        
+        clusteringController = KPClusteringController(mapView: mapView, clusteringAlgorithm: algorithm)
+        clusteringController!.delegate = self
     }
 }

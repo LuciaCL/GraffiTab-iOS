@@ -316,10 +316,11 @@
 "controller_locations_delete_prompt_yes" = "Sí, borrala";
 "controller_locations" = "Localizaciones";
 
-"controller_create_location_not_selected" = "Selecciona primero una localización.";
+"controller_create_location_not_selected" = "Esta ubicación no es válido o no se ha seleccionado todavía.";
 "controller_create_location_saved" = "Localización guardada satisfactoriamente. Usted recibirá notificaciones cuando el nuevo contenido está disponible por esa zona.";
 "controller_create_location_none" = "No se han encontrado direcciones de localización.";
 "controller_create_location_multiple" = "Se han encontrado múltiples coincidencias. Se usará la primera de ellas.";
+"controller_create_location_create_prompt" = "¿Le gustaría guardar esta área?";
 
 "controller_edit_password_success" = "Contraseña actualizada";
 "controller_edit_password" = "Cambiar contraseña";

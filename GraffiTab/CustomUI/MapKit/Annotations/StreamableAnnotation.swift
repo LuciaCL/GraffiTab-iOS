@@ -9,8 +9,9 @@
 import UIKit
 import MapKit
 import GraffiTab_iOS_SDK
+import kingpin
 
-class StreamableAnnotation: MKPointAnnotation {
+class StreamableAnnotation: KPAnnotation {
 
     var streamable: GTStreamable?
 }

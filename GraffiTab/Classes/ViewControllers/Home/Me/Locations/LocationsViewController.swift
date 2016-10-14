@@ -225,7 +225,7 @@ class LocationsViewController: BackButtonViewController, UICollectionViewDelegat
         let location = notification.userInfo!["location"] as! GTLocation
         
         self.items.append(location)
-        self.collectionView.insertItemsAtIndexPaths([NSIndexPath(forRow: self.items.count - 1, inSection: 0)])
+//        self.collectionView.insertItemsAtIndexPaths([NSIndexPath(forRow: self.items.count - 1, inSection: 0)])
         self.collectionView.reloadData()
     }
     

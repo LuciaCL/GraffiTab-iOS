@@ -22,7 +22,6 @@ def common_pods
     pod 'JVFloatLabeledTextField'
     pod 'CSStickyHeaderFlowLayout'
     pod 'CarbonKit'
-    pod 'FBAnnotationClusteringSwift'
     pod 'CHTCollectionViewWaterfallLayout'
     pod 'ALGReversedFlowLayout'
     pod 'SlackTextViewController'

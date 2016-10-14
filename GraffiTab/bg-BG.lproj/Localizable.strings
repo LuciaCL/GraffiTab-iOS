@@ -316,10 +316,11 @@
 "controller_locations_delete_prompt_yes" = "Да, изтрий";
 "controller_locations" = "Местоположения";
 
-"controller_create_location_not_selected" = "Избери местоположение.";
+"controller_create_location_not_selected" = "Невалидно местоположение или все още не е избрано такова.";
 "controller_create_location_saved" = "Местоположението бе запазено. Сега вече ще получавате известия, когато някой публикува нещо в този район.";
 "controller_create_location_none" = "Няма местоположения за този адрес.";
 "controller_create_location_multiple" = "Намерени са няколко съвпадения. Ще използваме първото.";
+"controller_create_location_create_prompt" = "Добавяне на този район в списъка от запазени Местоположения?";
 
 "controller_edit_password_success" = "Паролата е променена!";
 "controller_edit_password" = "Смяна на парола";

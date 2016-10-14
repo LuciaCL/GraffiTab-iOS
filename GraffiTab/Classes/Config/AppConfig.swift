@@ -24,16 +24,16 @@ class AppConfig: NSObject {
     var maxUndoActions = 10
     var onboardingFeedbackDaysTrigger = 2
     
-    var locationRadius = 100 * 1000 // Distance in meters.
+    var locationRadius = 500 * 1000 // Distance in kilometers.
     var locationTimeout = 10 // Waiting time for location to become available for publishing.
-    var mapInitialSpanDistance: Double = 1 * 1000 // Distance in meters.
-    var mapMaxSpanDistance: Double = 3000 * 1000 // Distance in meters.
+    var mapInitialSpanDistance: Double = 1 * 1000 // Distance in kilometers.
+    var mapMaxSpanDistance: Double = 3000 * 1000 // Distance in kilometers.
     var mapRefreshRate: Double = 3
     
     var logEnabled = true
     var httpsEnabled = true
-//    var customUrl: String?
-    var customUrl: String? = "dev.graffitab.com"
+    var customUrl: String?
+//    var customUrl: String? = "dev.graffitab.com"
 //    var customUrl: String? = "localhost:8091"
     
     var theme: GTTheme?
