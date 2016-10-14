@@ -33,7 +33,8 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, KPClus
     var annotations = [StreamableAnnotation]()
     var refreshTimer: NSTimer?
     var clusteringController: KPClusteringController?
-    var initialMapSetup = false
+    var initialMapCenter = false
+    var initialMapRegionChanged = false
     var modifyingMap = false
     var prevAnnotationCount = 0
     
@@ -228,8 +229,8 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, KPClus
             return
         }
         
-        if !initialMapSetup {
-            initialMapSetup = true
+        if !initialMapCenter {
+            initialMapCenter = true
             
             mapView.setRegion(MKCoordinateRegionMakeWithDistance(location.coordinate, AppConfig.sharedInstance.mapInitialSpanDistance, AppConfig.sharedInstance.mapInitialSpanDistance), animated: true)
         }
@@ -257,7 +258,7 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, KPClus
     }
     
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        if mapView.calculateSpanDistance() > AppConfig.sharedInstance.mapMaxSpanDistance && !modifyingMap { // Enforce maximum zoom level.
+        if initialMapRegionChanged && mapView.calculateSpanDistance() > AppConfig.sharedInstance.mapMaxSpanDistance && !modifyingMap { // Enforce maximum zoom level.
             modifyingMap = true // Prevents strange infinite loop case.
             mapView.setRegion(MKCoordinateRegionMakeWithDistance(mapView.region.center, AppConfig.sharedInstance.mapMaxSpanDistance, AppConfig.sharedInstance.mapMaxSpanDistance), animated: true)
             modifyingMap = false
@@ -266,6 +267,8 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, KPClus
         clusteringController!.refresh(true)
         
         reverseGeocodeMapCenter()
+        
+        initialMapRegionChanged = true
     }
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
