@@ -2058,6 +2058,9 @@
 					E58432221CE9242000FB1E50 = {
 						DevelopmentTeam = 869AJN3V33;
 						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
 							com.apple.SafariKeychain = {
 								enabled = 1;
 							};
@@ -2067,6 +2070,9 @@
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 869AJN3V33;
 						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
 							com.apple.SafariKeychain = {
 								enabled = 1;
 							};

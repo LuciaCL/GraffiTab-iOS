@@ -272,7 +272,7 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, KPClus
     }
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-        if toShowLatitude == nil && toShowLongitude == nil { // We are not showing a custom location.
+        if toShowLatitude == nil && toShowLongitude == nil && !initialMapCenter { // We are not showing a custom location.
             zoomMapToLocation(userLocation.location!) // So center map to user's location initially.
         }
     }
@@ -285,7 +285,7 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, KPClus
         if annotation is KPAnnotation {
             let a = annotation as! KPAnnotation
             
-            if a.isCluster() {
+//            if a.isCluster() {
                 let reuseId = "Cluster"
                 var clusterView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? ClusterAnnotationView
                 
@@ -297,19 +297,19 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, KPClus
                 clusterView?.recomputeCluster()
                 
                 return clusterView
-            }
-            else {
-                let reuseId = "Streamable"
-                var streamableView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? StreamableAnnotationView
-                
-                if streamableView == nil {
-                    streamableView = StreamableAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-                }
-                streamableView?.annotation = a
-                (annotation as! KPAnnotation).title = streamableView!.getStreamableAnnotation().streamable!.user!.getFullName()
-                
-                return streamableView
-            }
+//            }
+//            else {
+//                let reuseId = "Streamable"
+//                var streamableView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? StreamableAnnotationView
+//                
+//                if streamableView == nil {
+//                    streamableView = StreamableAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+//                }
+//                streamableView?.annotation = a
+//                (annotation as! KPAnnotation).title = streamableView!.getStreamableAnnotation().streamable!.user!.getFullName()
+//                
+//                return streamableView
+//            }
         }
         
         return nil
@@ -325,7 +325,12 @@ class ExploreViewController: BackButtonViewController, MKMapViewDelegate, KPClus
                 streamables.append((streamableAnnotation as! StreamableAnnotation).streamable!)
             }
             if streamables.count > 0 {
-                openClusterView(streamables)
+                if streamables.count > 1 { // Open cluster with multiple items.
+                    openClusterView(streamables)
+                }
+                else { // Open cluster with single item.
+                    ViewControllerUtils.showStreamableDetails(streamables.first!, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
+                }
             }
             
             // Deselect annotation so that it can be clicked again.
