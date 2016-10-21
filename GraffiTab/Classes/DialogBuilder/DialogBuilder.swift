@@ -54,7 +54,7 @@ class DialogBuilder: NSObject {
         // Define custom action to listen for logout events.
         let action = {
             if (reason == .USER_NOT_LOGGED_IN || reason == .USER_NOT_IN_EXPECTED_STATE) && GTMeManager.sharedInstance.isLoggedIn() {
-                Utils.logoutUserAndShowLoginController()
+                Utils.logoutUserAndShowLoginController(controller)
             }
             else {
                 okAction()

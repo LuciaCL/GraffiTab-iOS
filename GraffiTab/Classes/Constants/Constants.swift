@@ -39,6 +39,7 @@ struct BrandColors {
 struct SettingsKeys {
     static let kUsername = "kUsername"
     static let kPassword = "kPassword"
+    static let kPushNotificationToken = "kPushNotificationToken"
     static let kAppDomain = "kAppDomain"
     
     static let kFirstStartDate = "kFirstStartDate"

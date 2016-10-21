@@ -122,7 +122,6 @@ class AppConfig: NSObject {
             // Optional: configure GAI options.
             let gai = GAI.sharedInstance()
             gai.trackUncaughtExceptions = true  // report uncaught exceptions
-            gai.dispatchInterval = 1
             
             if isAppStore {
                 gai.logger.logLevel = GAILogLevel.Info

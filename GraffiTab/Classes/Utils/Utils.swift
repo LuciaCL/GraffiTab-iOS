@@ -8,6 +8,7 @@
 
 import UIKit
 import GraffiTab_iOS_SDK
+import CocoaLumberjack
 
 class Utils: NSObject {
 
@@ -16,8 +17,48 @@ class Utils: NSObject {
         return (randomDouble * (max-min)) + min
     }
     
-    class func logoutUserAndShowLoginController() {
-        NSNotificationCenter.defaultCenter().postNotificationName(Notifications.UserLoggedOut, object: nil)
+    class func logoutUserAndShowLoginController(controller: UIViewController) {
+        DDLogInfo("[GraffiTab] Logout")
+        
+        // Register analytics events.
+        AnalyticsUtils.sendAppEvent("logout", label: nil)
+        
+        controller.view.showActivityView()
+        controller.view.rn_activityView.dimBackground = false
+        
+        // Show login screen.
+        let loginScreenBlock = {
+            NSNotificationCenter.defaultCenter().postNotificationName(Notifications.UserLoggedOut, object: nil)
+        }
+        
+        // Logout.
+        let logoutBlock = {
+            GTUserManager.logout({ (response) in
+                controller.view.hideActivityView()
+                
+                loginScreenBlock()
+            }) { (response) in
+                controller.view.hideActivityView()
+                
+                loginScreenBlock()
+            }
+        }
+        
+        // Unregister this device token, if it exists.
+        let unregisterDeviceBlock = {
+            if Settings.sharedInstance.lastPushNotificationToken != nil {
+                GTMeManager.unlinkDevice(Settings.sharedInstance.lastPushNotificationToken!, successBlock: { (response) in
+                    logoutBlock()
+                }, failureBlock: { (response) in
+                    logoutBlock()
+                })
+            }
+            else {
+                logoutBlock()
+            }
+        }
+        
+        unregisterDeviceBlock()
     }
     
     class func applyShadowEffect(view: UIView, offset: CGSize, opacity: CGFloat, radius: CGFloat) {

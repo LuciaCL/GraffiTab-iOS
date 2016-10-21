@@ -132,6 +132,14 @@ class Settings: NSObject {
             keychain[SettingsKeys.kPassword] = newValue
         }
     }
+    var lastPushNotificationToken: String? {
+        get {
+            return keychain[SettingsKeys.kPushNotificationToken]
+        }
+        set(newValue) {
+            keychain[SettingsKeys.kPushNotificationToken] = newValue
+        }
+    }
     
     var keychain = Keychain()
     

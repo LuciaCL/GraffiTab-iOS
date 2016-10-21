@@ -68,23 +68,7 @@ class SettingsViewController: GeneralSettingsViewController {
     }
     
     func onClickLogout() {
-        DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Logout")
-        
-        // Register analytics events.
-        AnalyticsUtils.sendAppEvent("logout", label: nil)
-        
-        self.view.showActivityView()
-        self.view.rn_activityView.dimBackground = false
-        
-        GTUserManager.logout({ (response) in
-            self.view.hideActivityView()
-            
-            Utils.logoutUserAndShowLoginController()
-        }) { (response) in
-            self.view.hideActivityView()
-            
-            Utils.logoutUserAndShowLoginController()
-        }
+        Utils.logoutUserAndShowLoginController(self)
     }
     
     // MARK: - Accounts

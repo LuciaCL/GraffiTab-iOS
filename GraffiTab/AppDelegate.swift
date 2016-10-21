@@ -134,6 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Original token: \(deviceToken)")
         let deviceTokenStr = convertDeviceTokenToString(deviceToken)
+        Settings.sharedInstance.lastPushNotificationToken = deviceTokenStr
         DDLogInfo("[\(NSStringFromClass(self.dynamicType))] Registering token: \(deviceTokenStr)")
         GTMeManager.linkDevice(deviceTokenStr, successBlock: { (response) in
             
