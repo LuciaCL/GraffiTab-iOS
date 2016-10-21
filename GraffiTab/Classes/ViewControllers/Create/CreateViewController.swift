@@ -294,7 +294,7 @@ class CreateViewController: CCViewController, UICollectionViewDelegate, UICollec
         AnalyticsUtils.sendAppEvent("share", label: "Sharing from Creator")
         
         let sampleImage = self.canvas?.grabFrame()
-        Utils.shareImage(sampleImage!, viewController: self)
+        Utils.shareImage(sampleImage!, viewController: self, fromView: publishBtn)
     }
     
     @IBAction func onClickSave(sender: AnyObject?) {

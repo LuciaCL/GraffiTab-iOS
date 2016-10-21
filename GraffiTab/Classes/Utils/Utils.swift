@@ -62,12 +62,19 @@ class Utils: NSObject {
         }
     }
     
-    class func shareImage(image: UIImage?, viewController: UIViewController) {
+    class func shareImage(image: UIImage?, viewController: UIViewController, fromView: UIView) {
         if image != nil {
-            let messageStr = "Check out my awesome graffiti at GraffiTab!"
+            let messageStr = "Check out my awesome drawing at GraffiTab!"
             let shareItems = [image!, messageStr]
             let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
             activityViewController.excludedActivityTypes = [UIActivityTypePrint, UIActivityTypePostToWeibo, UIActivityTypeCopyToPasteboard, UIActivityTypeAddToReadingList, UIActivityTypePostToVimeo]
+            
+            if DeviceType.IS_IPAD {
+                activityViewController.modalPresentationStyle = .Popover
+                activityViewController.popoverPresentationController?.sourceView = fromView
+                activityViewController.popoverPresentationController?.sourceRect = fromView.bounds
+            }
+            
             viewController.presentViewController(activityViewController, animated: true, completion: nil)
         }
         else {

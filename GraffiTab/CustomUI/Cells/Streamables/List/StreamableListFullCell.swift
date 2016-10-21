@@ -41,6 +41,12 @@ class StreamableListFullCell: StreamableCell {
         Utils.applyShadowEffect(containerView, offset: CGSizeMake(1, 1), opacity: 0.1, radius: 2.0)
     }
     
+    @IBAction func onClickShare(sender: AnyObject) {
+        if delegate != nil {
+            delegate?.didTapShare(thumbnail.image, streamable: item!, fromView: shareBtn)
+        }
+    }
+    
     override func setItem() {
         super.setItem()
         
