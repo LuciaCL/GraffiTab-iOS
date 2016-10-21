@@ -142,7 +142,7 @@
 "api_error_token_not_found" = "This token does not exist.";
 
 "api_error_token_expired" = "The provided token has expired.";
-"api_error_user_not_in_expected_state" = "Your account is not in the expected state. Please reset your password or login to continue.";
+"api_error_user_not_in_expected_state" = "You have not yet activated your account or have requested to reset your password. Please check your email or contact Support to report this issue.";
 
 "api_error_device_already_exists" = "This device already exists.";
 "api_error_external_provider_already_linked" = "This social account has already been linked.";

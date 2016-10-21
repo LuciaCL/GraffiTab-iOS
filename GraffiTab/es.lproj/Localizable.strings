@@ -142,7 +142,7 @@
 "api_error_token_not_found" = "EL token no existe.";
 
 "api_error_token_expired" = "El token ha expirado.";
-"api_error_user_not_in_expected_state" = "La cuenta no está en el estado esperado. Por favor, restablece tu contraseña o inicia sesión para continuar.";
+"api_error_user_not_in_expected_state" = "Aún no has activado tu cuenta o restablecido tu contraseña. Por favor, comprueba tu correo electrónico o contacta con Soporte para reportar una incidencia.";
 
 "api_error_device_already_exists" = "El dispositivo ya existe.";
 "api_error_external_provider_already_linked" = "Este servicio externo ya ha sido vinculado.";

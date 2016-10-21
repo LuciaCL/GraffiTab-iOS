@@ -142,7 +142,7 @@
 "api_error_token_not_found" = "Този елемент не е намерен.";
 
 "api_error_token_expired" = "Невалидна сесия.";
-"api_error_user_not_in_expected_state" = "Акаунтът ти е в неподходящо състояние. Възстанови паролата си, за да продължиш.";
+"api_error_user_not_in_expected_state" = "Все още не си активирал акаунта си или си подал заявка за преустановяване на парола. Моля, провери имейла си или се свържи с Поддръжка за повече информация.";
 
 "api_error_device_already_exists" = "Устройството е вече регистрирано.";
 "api_error_external_provider_already_linked" = "Този акаунт е вече регистриран.";
