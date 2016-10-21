@@ -99,19 +99,20 @@ class AppConfig: NSObject {
     // MARK: - DeployGate
     
     private func configureTestFramework() {
-        if !AppConfig.sharedInstance.isAppStore {
+        if !isAppStore {
             #if DEBUG
                 
             #else
                 DeployGateSDK.sharedInstance().launchApplicationWithAuthor("graffitab", key: "747b4f90cf1d7573866748c0f81f1b687fa77313")
             #endif
         }
+        
+        DeployGateSDK.sharedInstance().crashReportDisabled = true // Disbale crash reporting, as we have Google Analytics.
     }
     
     // MARK: - Google Analytics
     
     private func configureAnalytics() {
-        // No need to setup analytics here.
         if AppConfig.sharedInstance.useAnalytics {
             // Configure tracker from GoogleService-Info.plist.
             var configureError:NSError?
@@ -121,8 +122,9 @@ class AppConfig: NSObject {
             // Optional: configure GAI options.
             let gai = GAI.sharedInstance()
             gai.trackUncaughtExceptions = true  // report uncaught exceptions
+            gai.dispatchInterval = 1
             
-            if AppConfig.sharedInstance.isAppStore {
+            if isAppStore {
                 gai.logger.logLevel = GAILogLevel.Info
             }
             else {
@@ -136,6 +138,7 @@ class AppConfig: NSObject {
     private func configureInstabug() {
         Instabug.startWithToken("95a2ae49aceb3d7c2b0d32c573a6231f", invocationEvent: IBGInvocationEvent.Shake)
         Instabug.setIntroMessageEnabled(false)
+        Instabug.setCrashReportingEnabled(false) // Disbale crash reporting, as we have Google Analytics.
     }
     
     // MARK: - Language

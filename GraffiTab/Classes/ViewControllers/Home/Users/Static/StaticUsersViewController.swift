@@ -11,13 +11,6 @@ import GraffiTab_iOS_SDK
 
 class StaticUsersViewController: ListUsersViewController {
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Register analytics events.
-        AnalyticsUtils.sendScreenEvent(self)
-    }
-    
     // MARK: - Init
     
     override func basicInit() {

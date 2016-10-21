@@ -26,4 +26,11 @@ class AnalyticsUtils: NSObject {
             tracker.send(GAIDictionaryBuilder.createEventWithCategory("ui_action", action: action, label: label, value: nil).build() as [NSObject : AnyObject])
         }
     }
+    
+    static func sendCrashReport(exception: NSException, fatal: Bool) {
+        if AppConfig.sharedInstance.useAnalytics {
+            let tracker = GAI.sharedInstance().defaultTracker
+            tracker.send(GAIDictionaryBuilder.createExceptionWithDescription(exception.description, withFatal: fatal).build() as [NSObject : AnyObject])
+        }
+    }
 }

@@ -13,13 +13,6 @@ class FollowersViewController: ListUsersViewController {
     
     var user: GTUser?
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Register analytics events.
-        AnalyticsUtils.sendScreenEvent(self)
-    }
-    
     // MARK: - Loading
     
     override func loadItems(isStart: Bool, offset: Int, cacheBlock: (response: GTResponseObject) -> Void, successBlock: (response: GTResponseObject) -> Void, failureBlock: (response: GTResponseObject) -> Void) {

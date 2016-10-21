@@ -11,13 +11,6 @@ import GraffiTab_iOS_SDK
 
 class ClusterViewController: GridStreamablesViewController {
 
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Register analytics events.
-        AnalyticsUtils.sendScreenEvent(self)
-    }
-    
     override func showStreamable(streamable: GTStreamable) {
         ViewControllerUtils.showStreamableDetails(streamable, modalPresentationStyle: nil, transitioningDelegate: nil, viewController: self)
     }

@@ -33,6 +33,9 @@ class AvatarPromptViewController: BackButtonViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+        
         UIApplication.sharedApplication().setStatusBarStyle(AppConfig.sharedInstance.theme!.avatarPromptStatusBarStyle!, animated: true)
     }
     

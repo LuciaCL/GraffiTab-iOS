@@ -49,9 +49,6 @@ class UserProfileViewController: ListFullStreamablesViewController, UserHeaderDe
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Register analytics events.
-        AnalyticsUtils.sendScreenEvent(self)
-        
         configureStatusBarForScrollOffset()
         
         if !self.navigationController!.navigationBarHidden {

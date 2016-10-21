@@ -13,13 +13,6 @@ class SearchUsersViewController: ListUsersViewController {
 
     var searchQuery: String?
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Register analytics events.
-        AnalyticsUtils.sendScreenEvent(self)
-    }
-    
     func search(query: String) {
         pullToRefresh.startRefreshing()
         searchQuery = query

@@ -11,13 +11,6 @@ import GraffiTab_iOS_SDK
 
 class RecentViewController: SwimLaneStreamablesViewController {
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Register analytics events.
-        AnalyticsUtils.sendScreenEvent(self)
-    }
-    
     // MARK: - Events
     
     override func registerForEvents() {

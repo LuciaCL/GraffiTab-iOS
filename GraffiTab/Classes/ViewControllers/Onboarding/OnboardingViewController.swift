@@ -30,6 +30,13 @@ class OnboardingViewController: BackButtonViewController, iCarouselDelegate, iCa
         loadOnboarding()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Register analytics events.
+        AnalyticsUtils.sendScreenEvent(self)
+    }
+    
     @IBAction func onClickSkip(sender: AnyObject) {
         if dismissHandler != nil {
             dismissHandler!()
