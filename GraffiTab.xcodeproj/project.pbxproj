@@ -9,6 +9,30 @@
 /* Begin PBXBuildFile section */
 		6120B15580E6E4D49C4FE058 /* Pods_GraffiTab_Release.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040A2F38D09E539338496576 /* Pods_GraffiTab_Release.framework */; };
 		6E3E6AF34F1E3AC30E600CBF /* Pods_GraffiTab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A858584C70AD43E9A1A96F8 /* Pods_GraffiTab.framework */; };
+		85EBF37E1DD5152900754360 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EBF37D1DD5152900754360 /* GraffiTab_iOS_SDK.framework */; };
+		85EBF37F1DD5152900754360 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85EBF37D1DD5152900754360 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		85EBF3821DD5154500754360 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EBF3811DD5154400754360 /* GraffiTab_iOS_SDK.framework */; };
+		85EBF3831DD5154500754360 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85EBF3811DD5154400754360 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		85EBF3B41DD5171400754360 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85EBF38A1DD5171400754360 /* TOCropViewControllerLocalizable.strings */; };
+		85EBF3B51DD5171400754360 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85EBF38A1DD5171400754360 /* TOCropViewControllerLocalizable.strings */; };
+		85EBF3B81DD5171400754360 /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF3991DD5171400754360 /* TOActivityCroppedImageProvider.m */; };
+		85EBF3B91DD5171400754360 /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF3991DD5171400754360 /* TOActivityCroppedImageProvider.m */; };
+		85EBF3BA1DD5171400754360 /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF39B1DD5171400754360 /* TOCroppedImageAttributes.m */; };
+		85EBF3BB1DD5171400754360 /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF39B1DD5171400754360 /* TOCroppedImageAttributes.m */; };
+		85EBF3BC1DD5171400754360 /* TOCropViewControllerTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF39D1DD5171400754360 /* TOCropViewControllerTransitioning.m */; };
+		85EBF3BD1DD5171400754360 /* TOCropViewControllerTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF39D1DD5171400754360 /* TOCropViewControllerTransitioning.m */; };
+		85EBF3BE1DD5171400754360 /* UIImage+CropRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF39F1DD5171400754360 /* UIImage+CropRotate.m */; };
+		85EBF3BF1DD5171400754360 /* UIImage+CropRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF39F1DD5171400754360 /* UIImage+CropRotate.m */; };
+		85EBF3C01DD5171400754360 /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF3A61DD5171400754360 /* TOCropViewController.m */; };
+		85EBF3C11DD5171400754360 /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF3A61DD5171400754360 /* TOCropViewController.m */; };
+		85EBF3C21DD5171400754360 /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF3AB1DD5171400754360 /* TOCropOverlayView.m */; };
+		85EBF3C31DD5171400754360 /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF3AB1DD5171400754360 /* TOCropOverlayView.m */; };
+		85EBF3C41DD5171400754360 /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF3AD1DD5171400754360 /* TOCropScrollView.m */; };
+		85EBF3C51DD5171400754360 /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF3AD1DD5171400754360 /* TOCropScrollView.m */; };
+		85EBF3C61DD5171400754360 /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF3AF1DD5171400754360 /* TOCropToolbar.m */; };
+		85EBF3C71DD5171400754360 /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF3AF1DD5171400754360 /* TOCropToolbar.m */; };
+		85EBF3C81DD5171400754360 /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF3B11DD5171400754360 /* TOCropView.m */; };
+		85EBF3C91DD5171400754360 /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF3B11DD5171400754360 /* TOCropView.m */; };
 		E50564D41CEC882B00A42E56 /* MaterializeRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50564D31CEC882B00A42E56 /* MaterializeRoundButton.swift */; };
 		E50564D51CEC882B00A42E56 /* MaterializeRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50564D31CEC882B00A42E56 /* MaterializeRoundButton.swift */; };
 		E505676B1D0F0B4F00D2F245 /* StaticUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E505676A1D0F0B4F00D2F245 /* StaticUsersViewController.swift */; };
@@ -157,7 +181,6 @@
 		E584322F1CE9242000FB1E50 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B59D1CC56F5800DC8EFC /* ResetPasswordViewController.swift */; };
 		E58432301CE9242000FB1E50 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7671CE5DFC700375828 /* FeedViewController.swift */; };
 		E58432311CE9242000FB1E50 /* ActivityGroupCreateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006D31CBC205000AC66A5 /* ActivityGroupCreateCell.swift */; };
-		E58432321CE9242000FB1E50 /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0858D1CD8D30000226589 /* TOActivityCroppedImageProvider.m */; };
 		E58432331CE9242000FB1E50 /* AutocompleteUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAA89B1CE37A5F000CB2F4 /* AutocompleteUserCell.swift */; };
 		E58432341CE9242000FB1E50 /* ActivitySingleCreateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006C11CBC118B00AC66A5 /* ActivitySingleCreateCell.swift */; };
 		E58432361CE9242000FB1E50 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5811CC56F5800DC8EFC /* MenuViewController.swift */; };
@@ -168,11 +191,9 @@
 		E584323B1CE9242000FB1E50 /* BackButtonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBFB1CB2C31B00BB3D27 /* BackButtonTableViewController.swift */; };
 		E584323C1CE9242000FB1E50 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC77C1CE5E0BD00375828 /* WebViewController.swift */; };
 		E584323D1CE9242000FB1E50 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5711CC56F5800DC8EFC /* HomeViewController.swift */; };
-		E584323E1CE9242000FB1E50 /* TOCropViewControllerTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085911CD8D30000226589 /* TOCropViewControllerTransitioning.m */; };
 		E584323F1CE9242000FB1E50 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006661CB7CE2300AC66A5 /* DateUtils.swift */; };
 		E58432411CE9242000FB1E50 /* DrawToolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FAB251CD4106E00C0D125 /* DrawToolCell.swift */; };
 		E58432421CE9242000FB1E50 /* StreamableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006391CB71FAA00AC66A5 /* StreamableCell.swift */; };
-		E58432431CE9242000FB1E50 /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0858F1CD8D30000226589 /* TOCroppedImageAttributes.m */; };
 		E58432441CE9242000FB1E50 /* LikersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7711CE5E09900375828 /* LikersViewController.swift */; };
 		E58432451CE9242000FB1E50 /* DialogBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBEB1CB2C31B00BB3D27 /* DialogBuilder.swift */; };
 		E58432461CE9242000FB1E50 /* NotificationMentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006A81CBBDE8700AC66A5 /* NotificationMentionCell.swift */; };
@@ -180,7 +201,6 @@
 		E58432491CE9242000FB1E50 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B58B1CC56F5800DC8EFC /* SettingsViewController.swift */; };
 		E584324A1CE9242000FB1E50 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5911CC56F5800DC8EFC /* ExploreViewController.swift */; };
 		E584324B1CE9242000FB1E50 /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7371CE5085900375828 /* CustomInfiniteIndicator.swift */; };
-		E584324C1CE9242000FB1E50 /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A21CD8D30000226589 /* TOCropToolbar.m */; };
 		E584324D1CE9242000FB1E50 /* GenericUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006F01CBD193E00AC66A5 /* GenericUsersViewController.swift */; };
 		E584324E1CE9242000FB1E50 /* ActivityGroupCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006D61CBC210F00AC66A5 /* ActivityGroupCommentCell.swift */; };
 		E584324F1CE9242000FB1E50 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B59C1CC56F5800DC8EFC /* LoginViewController.swift */; };
@@ -192,13 +212,11 @@
 		E58432551CE9242000FB1E50 /* NotificationLikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006A51CBBDD1D00AC66A5 /* NotificationLikeCell.swift */; };
 		E58432561CE9242000FB1E50 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006F81CBD1C3B00AC66A5 /* UserListCell.swift */; };
 		E58432571CE9242000FB1E50 /* ActivityGroupLikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006D01CBC1F9700AC66A5 /* ActivityGroupLikeCell.swift */; };
-		E58432581CE9242000FB1E50 /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0859E1CD8D30000226589 /* TOCropOverlayView.m */; };
 		E58432591CE9242000FB1E50 /* CCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B6241CC630B000DC8EFC /* CCViewController.m */; };
 		E584325A1CE9242000FB1E50 /* TintImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFDBF81CB2C31B00BB3D27 /* TintImageView.swift */; };
 		E584325B1CE9242000FB1E50 /* NotificationWelcomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006AB1CBBE0B500AC66A5 /* NotificationWelcomeCell.swift */; };
 		E584325C1CE9242000FB1E50 /* AutocompleteHashCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAA8951CE37A26000CB2F4 /* AutocompleteHashCell.swift */; };
 		E584325D1CE9242000FB1E50 /* ActivitySingleLikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006BE1CBC0FA100AC66A5 /* ActivitySingleLikeCell.swift */; };
-		E584325E1CE9242000FB1E50 /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085991CD8D30000226589 /* TOCropViewController.m */; };
 		E584325F1CE9242000FB1E50 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7731CE5E09900375828 /* TrendingViewController.swift */; };
 		E58432601CE9242000FB1E50 /* UserLikedStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7611CE5DA2A00375828 /* UserLikedStreamablesViewController.swift */; };
 		E58432641CE9242000FB1E50 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4F12C1CE225AA005CF12C /* CommentCell.swift */; };
@@ -220,7 +238,6 @@
 		E58432751CE9242000FB1E50 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B59E1CC56F5800DC8EFC /* SignUpViewController.swift */; };
 		E58432761CE9242000FB1E50 /* StreamableAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006DE1CBCF6B000AC66A5 /* StreamableAnnotation.swift */; };
 		E58432771CE9242000FB1E50 /* ActivityGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006CD1CBC1B9C00AC66A5 /* ActivityGroupCell.swift */; };
-		E58432791CE9242000FB1E50 /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A01CD8D30000226589 /* TOCropScrollView.m */; };
 		E584327A1CE9242000FB1E50 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51005F31CB69BDE00AC66A5 /* MenuCell.swift */; };
 		E584327B1CE9242000FB1E50 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006F41CBD1B0000AC66A5 /* UserCell.swift */; };
 		E584327D1CE9242000FB1E50 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B6391CC6C40C00DC8EFC /* IntroScene.m */; };
@@ -236,12 +253,10 @@
 		E58432881CE9242000FB1E50 /* SearchUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5841CC56F5800DC8EFC /* SearchUsersViewController.swift */; };
 		E58432891CE9242000FB1E50 /* EditTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5771CC56F5800DC8EFC /* EditTextFieldViewController.swift */; };
 		E584328A1CE9242000FB1E50 /* ZoomableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E57716871CE6008600006572 /* ZoomableImageView.m */; };
-		E584328B1CE9242000FB1E50 /* UIImage+CropRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085931CD8D30000226589 /* UIImage+CropRotate.m */; };
 		E584328C1CE9242000FB1E50 /* TrendingStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006351CB71EE400AC66A5 /* TrendingStreamablesViewController.swift */; };
 		E584328D1CE9242000FB1E50 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7701CE5E09900375828 /* CommentsViewController.swift */; };
 		E584328E1CE9242000FB1E50 /* ListUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51006FE1CBD1EBF00AC66A5 /* ListUsersViewController.swift */; };
 		E584328F1CE9242000FB1E50 /* MyNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B57E1CC56F5800DC8EFC /* MyNotificationsViewController.swift */; };
-		E58432911CE9242000FB1E50 /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A41CD8D30000226589 /* TOCropView.m */; };
 		E58432921CE9242000FB1E50 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DC7721CE5E09900375828 /* RecentViewController.swift */; };
 		E58432931CE9242000FB1E50 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B5761CC56F5800DC8EFC /* EditProfileViewController.swift */; };
 		E58432951CE9242000FB1E50 /* ListFullStreamablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510064E1CB7A5F200AC66A5 /* ListFullStreamablesViewController.swift */; };
@@ -279,15 +294,12 @@
 		E58432B91CE9242000FB1E50 /* StreamableGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51006591CB7BC5A00AC66A5 /* StreamableGridCell.xib */; };
 		E58432BA1CE9242000FB1E50 /* UserListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51006F91CBD1C3B00AC66A5 /* UserListCell.xib */; };
 		E58432BB1CE9242000FB1E50 /* release_notes.html in Resources */ = {isa = PBXBuildFile; fileRef = E554CFD81CB5641B00668D85 /* release_notes.html */; };
-		E58432BC1CE9242000FB1E50 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5D0857F1CD8D30000226589 /* TOCropViewControllerLocalizable.strings */; };
 		E58432BD1CE9242000FB1E50 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B5721CC56F5800DC8EFC /* MainStoryboard.storyboard */; };
 		E58432BE1CE9242000FB1E50 /* StreamableTrendingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E510066A1CB7DEB100AC66A5 /* StreamableTrendingCell.xib */; };
 		E58432BF1CE9242000FB1E50 /* AutocompleteHashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DAA8961CE37A26000CB2F4 /* AutocompleteHashCell.xib */; };
 		E58432C01CE9242000FB1E50 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5DFDC0C1CB2C39200BB3D27 /* Default-568h@2x.png */; };
 		E58432C21CE9242000FB1E50 /* UserAboutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B55D1CC4E8D400DC8EFC /* UserAboutView.xib */; };
 		E58432CD1CE940F900FB1E50 /* Release-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E58432CC1CE940F900FB1E50 /* Release-Info.plist */; };
-		E58432CF1CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58432CE1CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework */; };
-		E58432D01CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E58432CE1CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E58432DA1CEA469B00FB1E50 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58432D91CEA469B00FB1E50 /* Settings.swift */; };
 		E58432DB1CEA469B00FB1E50 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58432D91CEA469B00FB1E50 /* Settings.swift */; };
 		E592625B1D018C7300368212 /* AppImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592625A1D018C7300368212 /* AppImageCache.swift */; };
@@ -416,16 +428,6 @@
 		E5C61C861D65A4B700BBFA87 /* GTTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C61C841D65A4B700BBFA87 /* GTTheme.swift */; };
 		E5C61C881D65A51B00BBFA87 /* GTDarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C61C871D65A51B00BBFA87 /* GTDarkTheme.swift */; };
 		E5C61C891D65A51B00BBFA87 /* GTDarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C61C871D65A51B00BBFA87 /* GTDarkTheme.swift */; };
-		E5D085A71CD8D30000226589 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5D0857F1CD8D30000226589 /* TOCropViewControllerLocalizable.strings */; };
-		E5D085A81CD8D30000226589 /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0858D1CD8D30000226589 /* TOActivityCroppedImageProvider.m */; };
-		E5D085A91CD8D30000226589 /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0858F1CD8D30000226589 /* TOCroppedImageAttributes.m */; };
-		E5D085AA1CD8D30000226589 /* TOCropViewControllerTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085911CD8D30000226589 /* TOCropViewControllerTransitioning.m */; };
-		E5D085AB1CD8D30000226589 /* UIImage+CropRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085931CD8D30000226589 /* UIImage+CropRotate.m */; };
-		E5D085AC1CD8D30000226589 /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085991CD8D30000226589 /* TOCropViewController.m */; };
-		E5D085AD1CD8D30000226589 /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0859E1CD8D30000226589 /* TOCropOverlayView.m */; };
-		E5D085AE1CD8D30000226589 /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A01CD8D30000226589 /* TOCropScrollView.m */; };
-		E5D085AF1CD8D30000226589 /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A21CD8D30000226589 /* TOCropToolbar.m */; };
-		E5D085B01CD8D30000226589 /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D085A41CD8D30000226589 /* TOCropView.m */; };
 		E5D3748D1D07417800A60343 /* DeployGateLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3748C1D07417800A60343 /* DeployGateLogger.swift */; };
 		E5D3748E1D07417800A60343 /* DeployGateLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3748C1D07417800A60343 /* DeployGateLogger.swift */; };
 		E5D694C61D595766002F2AEC /* InputUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D694C41D595766002F2AEC /* InputUsernameViewController.swift */; };
@@ -453,8 +455,6 @@
 		E5DFDC161CB2C5C900BB3D27 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC151CB2C5C900BB3D27 /* AVFoundation.framework */; };
 		E5DFDC181CB2C5D100BB3D27 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC171CB2C5D100BB3D27 /* SystemConfiguration.framework */; };
 		E5DFDC1A1CB2C5D900BB3D27 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC191CB2C5D900BB3D27 /* OpenGLES.framework */; };
-		E5DFDC1C1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */; };
-		E5DFDC1D1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E5E490EC1D907CA600486AD6 /* UserMentionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E490EB1D907CA600486AD6 /* UserMentionsViewController.swift */; };
 		E5E490ED1D907CA600486AD6 /* UserMentionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E490EB1D907CA600486AD6 /* UserMentionsViewController.swift */; };
 		E5F40CF21D4AE41E00832D92 /* AvatarPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F40CF11D4AE41E00832D92 /* AvatarPromptViewController.swift */; };
@@ -523,24 +523,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		85EBF3801DD5152A00754360 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				85EBF37F1DD5152900754360 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E58432D11CE9421B00FB1E50 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E58432D01CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E5DFDC1E1CB2C61500BB3D27 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				E5DFDC1D1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */,
+				85EBF3831DD5154500754360 /* GraffiTab_iOS_SDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,6 +554,45 @@
 		60414BAA024EE71CB76A1383 /* Pods-GraffiTab Release.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab Release.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab Release/Pods-GraffiTab Release.release.xcconfig"; sourceTree = "<group>"; };
 		65C7EC7B6C44DA11DEAA502C /* Pods-GraffiTab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab.release.xcconfig"; sourceTree = "<group>"; };
 		68B6060E6C069394DFEF27BF /* Pods-GraffiTab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraffiTab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraffiTab/Pods-GraffiTab.debug.xcconfig"; sourceTree = "<group>"; };
+		85EBF37D1DD5152900754360 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/lucia/Documents/graffitab-ios/GraffiTab-iOS-SDK/_Archive/iOS/Debug/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
+		85EBF3811DD5154400754360 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/lucia/Documents/graffitab-ios/GraffiTab-iOS-SDK/_Archive/iOS/Release/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
+		85EBF38B1DD5171400754360 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF38C1DD5171400754360 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF38D1DD5171400754360 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF38E1DD5171400754360 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF38F1DD5171400754360 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF3901DD5171400754360 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF3911DD5171400754360 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF3921DD5171400754360 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF3941DD5171400754360 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF3951DD5171400754360 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF3961DD5171400754360 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF3981DD5171400754360 /* TOActivityCroppedImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOActivityCroppedImageProvider.h; sourceTree = "<group>"; };
+		85EBF3991DD5171400754360 /* TOActivityCroppedImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOActivityCroppedImageProvider.m; sourceTree = "<group>"; };
+		85EBF39A1DD5171400754360 /* TOCroppedImageAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCroppedImageAttributes.h; sourceTree = "<group>"; };
+		85EBF39B1DD5171400754360 /* TOCroppedImageAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCroppedImageAttributes.m; sourceTree = "<group>"; };
+		85EBF39C1DD5171400754360 /* TOCropViewControllerTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewControllerTransitioning.h; sourceTree = "<group>"; };
+		85EBF39D1DD5171400754360 /* TOCropViewControllerTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewControllerTransitioning.m; sourceTree = "<group>"; };
+		85EBF39E1DD5171400754360 /* UIImage+CropRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CropRotate.h"; sourceTree = "<group>"; };
+		85EBF39F1DD5171400754360 /* UIImage+CropRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CropRotate.m"; sourceTree = "<group>"; };
+		85EBF3A01DD5171400754360 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF3A11DD5171400754360 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF3A21DD5171400754360 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF3A31DD5171400754360 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF3A51DD5171400754360 /* TOCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewController.h; sourceTree = "<group>"; };
+		85EBF3A61DD5171400754360 /* TOCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewController.m; sourceTree = "<group>"; };
+		85EBF3A71DD5171400754360 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF3A81DD5171400754360 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		85EBF3AA1DD5171400754360 /* TOCropOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropOverlayView.h; sourceTree = "<group>"; };
+		85EBF3AB1DD5171400754360 /* TOCropOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropOverlayView.m; sourceTree = "<group>"; };
+		85EBF3AC1DD5171400754360 /* TOCropScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropScrollView.h; sourceTree = "<group>"; };
+		85EBF3AD1DD5171400754360 /* TOCropScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropScrollView.m; sourceTree = "<group>"; };
+		85EBF3AE1DD5171400754360 /* TOCropToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropToolbar.h; sourceTree = "<group>"; };
+		85EBF3AF1DD5171400754360 /* TOCropToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropToolbar.m; sourceTree = "<group>"; };
+		85EBF3B01DD5171400754360 /* TOCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropView.h; sourceTree = "<group>"; };
+		85EBF3B11DD5171400754360 /* TOCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropView.m; sourceTree = "<group>"; };
+		85EBF3B21DD5171400754360 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
+		85EBF3B31DD5171400754360 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
 		E50564D31CEC882B00A42E56 /* MaterializeRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterializeRoundButton.swift; sourceTree = "<group>"; };
 		E505676A1D0F0B4F00D2F245 /* StaticUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticUsersViewController.swift; sourceTree = "<group>"; };
 		E51005F31CB69BDE00AC66A5 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
@@ -665,7 +704,6 @@
 		E57FAB251CD4106E00C0D125 /* DrawToolCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawToolCell.swift; sourceTree = "<group>"; };
 		E58432CA1CE9242000FB1E50 /* GraffiTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraffiTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58432CC1CE940F900FB1E50 /* Release-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Release-Info.plist"; sourceTree = "<group>"; };
-		E58432CE1CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS-SDK/_Archive/iOS/Release/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
 		E58432D91CEA469B00FB1E50 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		E592625A1D018C7300368212 /* AppImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppImageCache.swift; sourceTree = "<group>"; };
 		E592625D1D0197E400368212 /* ProfileFollowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFollowButton.swift; sourceTree = "<group>"; };
@@ -698,9 +736,6 @@
 		E5A4F1281CE21F5A005CF12C /* BackButtonSlackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonSlackViewController.swift; sourceTree = "<group>"; };
 		E5A4F12C1CE225AA005CF12C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		E5A4F12D1CE225AA005CF12C /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
-		E5AEDA5C1D1CB1EB006D4296 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../../../Downloads/opencv2.framework; sourceTree = "<group>"; };
-		E5AEDA631D1CB467006D4296 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../OpenCV/opencv2.framework; sourceTree = "<group>"; };
-		E5AEDA781D1CCC50006D4296 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		E5B357651D8FE84400DA6809 /* ImageCellDismissalAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCellDismissalAnimator.swift; sourceTree = "<group>"; };
 		E5B357661D8FE84400DA6809 /* ImageCellPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCellPresentationAnimator.swift; sourceTree = "<group>"; };
 		E5B357671D8FE84400DA6809 /* ImageCellTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCellTransitioningDelegate.swift; sourceTree = "<group>"; };
@@ -755,43 +790,6 @@
 		E5C369481D216727005FA4A0 /* AnalyticsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsUtils.swift; sourceTree = "<group>"; };
 		E5C61C841D65A4B700BBFA87 /* GTTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTTheme.swift; sourceTree = "<group>"; };
 		E5C61C871D65A51B00BBFA87 /* GTDarkTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTDarkTheme.swift; sourceTree = "<group>"; };
-		E5D085801CD8D30000226589 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D085811CD8D30000226589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D085821CD8D30000226589 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D085831CD8D30000226589 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D085841CD8D30000226589 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D085851CD8D30000226589 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D085861CD8D30000226589 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D085871CD8D30000226589 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D085881CD8D30000226589 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D085891CD8D30000226589 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D0858A1CD8D30000226589 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D0858C1CD8D30000226589 /* TOActivityCroppedImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOActivityCroppedImageProvider.h; sourceTree = "<group>"; };
-		E5D0858D1CD8D30000226589 /* TOActivityCroppedImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOActivityCroppedImageProvider.m; sourceTree = "<group>"; };
-		E5D0858E1CD8D30000226589 /* TOCroppedImageAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCroppedImageAttributes.h; sourceTree = "<group>"; };
-		E5D0858F1CD8D30000226589 /* TOCroppedImageAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCroppedImageAttributes.m; sourceTree = "<group>"; };
-		E5D085901CD8D30000226589 /* TOCropViewControllerTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewControllerTransitioning.h; sourceTree = "<group>"; };
-		E5D085911CD8D30000226589 /* TOCropViewControllerTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewControllerTransitioning.m; sourceTree = "<group>"; };
-		E5D085921CD8D30000226589 /* UIImage+CropRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CropRotate.h"; sourceTree = "<group>"; };
-		E5D085931CD8D30000226589 /* UIImage+CropRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CropRotate.m"; sourceTree = "<group>"; };
-		E5D085941CD8D30000226589 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D085951CD8D30000226589 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D085961CD8D30000226589 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D085971CD8D30000226589 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D085981CD8D30000226589 /* TOCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewController.h; sourceTree = "<group>"; };
-		E5D085991CD8D30000226589 /* TOCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewController.m; sourceTree = "<group>"; };
-		E5D0859A1CD8D30000226589 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D0859B1CD8D30000226589 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		E5D0859D1CD8D30000226589 /* TOCropOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropOverlayView.h; sourceTree = "<group>"; };
-		E5D0859E1CD8D30000226589 /* TOCropOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropOverlayView.m; sourceTree = "<group>"; };
-		E5D0859F1CD8D30000226589 /* TOCropScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropScrollView.h; sourceTree = "<group>"; };
-		E5D085A01CD8D30000226589 /* TOCropScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropScrollView.m; sourceTree = "<group>"; };
-		E5D085A11CD8D30000226589 /* TOCropToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropToolbar.h; sourceTree = "<group>"; };
-		E5D085A21CD8D30000226589 /* TOCropToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropToolbar.m; sourceTree = "<group>"; };
-		E5D085A31CD8D30000226589 /* TOCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropView.h; sourceTree = "<group>"; };
-		E5D085A41CD8D30000226589 /* TOCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropView.m; sourceTree = "<group>"; };
-		E5D085A51CD8D30000226589 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
-		E5D085A61CD8D30000226589 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
 		E5D3748C1D07417800A60343 /* DeployGateLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeployGateLogger.swift; sourceTree = "<group>"; };
 		E5D694C41D595766002F2AEC /* InputUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputUsernameViewController.swift; sourceTree = "<group>"; };
 		E5D694C51D595766002F2AEC /* InputUsernameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputUsernameViewController.xib; sourceTree = "<group>"; };
@@ -819,7 +817,6 @@
 		E5DFDC151CB2C5C900BB3D27 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E5DFDC171CB2C5D100BB3D27 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E5DFDC191CB2C5D900BB3D27 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraffiTab_iOS_SDK.framework; path = "/Users/georgichristov/Documents/Workspace/Examples/GraffiTab/GraffiTab-iOS-SDK/_Archive/iOS/Debug/GraffiTab_iOS_SDK.framework"; sourceTree = "<absolute>"; };
 		E5E490EB1D907CA600486AD6 /* UserMentionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMentionsViewController.swift; sourceTree = "<group>"; };
 		E5F40CF11D4AE41E00832D92 /* AvatarPromptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarPromptViewController.swift; sourceTree = "<group>"; };
 		E5F40CFE1D4FFAF800832D92 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -856,7 +853,6 @@
 				E584329C1CE9242000FB1E50 /* GLKit.framework in Frameworks */,
 				E584329D1CE9242000FB1E50 /* libcocos2d.a in Frameworks */,
 				E584329E1CE9242000FB1E50 /* MapKit.framework in Frameworks */,
-				E58432CF1CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework in Frameworks */,
 				E584329F1CE9242000FB1E50 /* CoreLocation.framework in Frameworks */,
 				E58432A11CE9242000FB1E50 /* OpenGLES.framework in Frameworks */,
 				E58432A21CE9242000FB1E50 /* SystemConfiguration.framework in Frameworks */,
@@ -864,6 +860,7 @@
 				E58432A41CE9242000FB1E50 /* CoreMotion.framework in Frameworks */,
 				E58432A51CE9242000FB1E50 /* CoreMedia.framework in Frameworks */,
 				E58432A61CE9242000FB1E50 /* Pods_GraffiTab.framework in Frameworks */,
+				85EBF3821DD5154500754360 /* GraffiTab_iOS_SDK.framework in Frameworks */,
 				6120B15580E6E4D49C4FE058 /* Pods_GraffiTab_Release.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -883,10 +880,10 @@
 				E5B6B60B1CC5AE0200DC8EFC /* libcocos2d.a in Frameworks */,
 				E5B6B60A1CC5ADF300DC8EFC /* MapKit.framework in Frameworks */,
 				E5B6B6091CC5ADEA00DC8EFC /* CoreLocation.framework in Frameworks */,
-				E5DFDC1C1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework in Frameworks */,
 				E5DFDC1A1CB2C5D900BB3D27 /* OpenGLES.framework in Frameworks */,
 				E5DFDC181CB2C5D100BB3D27 /* SystemConfiguration.framework in Frameworks */,
 				E5DFDC161CB2C5C900BB3D27 /* AVFoundation.framework in Frameworks */,
+				85EBF37E1DD5152900754360 /* GraffiTab_iOS_SDK.framework in Frameworks */,
 				E5DFDC141CB2C5C100BB3D27 /* CoreMotion.framework in Frameworks */,
 				E5DFDC121CB2C5B900BB3D27 /* CoreMedia.framework in Frameworks */,
 				6E3E6AF34F1E3AC30E600CBF /* Pods_GraffiTab.framework in Frameworks */,
@@ -896,6 +893,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		85EBF3891DD5171400754360 /* TOCropViewController */ = {
+			isa = PBXGroup;
+			children = (
+				85EBF38A1DD5171400754360 /* TOCropViewControllerLocalizable.strings */,
+				85EBF3971DD5171400754360 /* Models */,
+				85EBF3A51DD5171400754360 /* TOCropViewController.h */,
+				85EBF3A61DD5171400754360 /* TOCropViewController.m */,
+				85EBF3A91DD5171400754360 /* Views */,
+			);
+			path = TOCropViewController;
+			sourceTree = "<group>";
+		};
+		85EBF3971DD5171400754360 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				85EBF3981DD5171400754360 /* TOActivityCroppedImageProvider.h */,
+				85EBF3991DD5171400754360 /* TOActivityCroppedImageProvider.m */,
+				85EBF39A1DD5171400754360 /* TOCroppedImageAttributes.h */,
+				85EBF39B1DD5171400754360 /* TOCroppedImageAttributes.m */,
+				85EBF39C1DD5171400754360 /* TOCropViewControllerTransitioning.h */,
+				85EBF39D1DD5171400754360 /* TOCropViewControllerTransitioning.m */,
+				85EBF39E1DD5171400754360 /* UIImage+CropRotate.h */,
+				85EBF39F1DD5171400754360 /* UIImage+CropRotate.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		85EBF3A91DD5171400754360 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				85EBF3AA1DD5171400754360 /* TOCropOverlayView.h */,
+				85EBF3AB1DD5171400754360 /* TOCropOverlayView.m */,
+				85EBF3AC1DD5171400754360 /* TOCropScrollView.h */,
+				85EBF3AD1DD5171400754360 /* TOCropScrollView.m */,
+				85EBF3AE1DD5171400754360 /* TOCropToolbar.h */,
+				85EBF3AF1DD5171400754360 /* TOCropToolbar.m */,
+				85EBF3B01DD5171400754360 /* TOCropView.h */,
+				85EBF3B11DD5171400754360 /* TOCropView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A67BB771F4F2E46A2E3BA6E7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1650,48 +1689,6 @@
 			path = Themes;
 			sourceTree = "<group>";
 		};
-		E5D0857E1CD8D30000226589 /* TOCropViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E5D0857F1CD8D30000226589 /* TOCropViewControllerLocalizable.strings */,
-				E5D0858B1CD8D30000226589 /* Models */,
-				E5D085981CD8D30000226589 /* TOCropViewController.h */,
-				E5D085991CD8D30000226589 /* TOCropViewController.m */,
-				E5D0859C1CD8D30000226589 /* Views */,
-			);
-			path = TOCropViewController;
-			sourceTree = "<group>";
-		};
-		E5D0858B1CD8D30000226589 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E5D0858C1CD8D30000226589 /* TOActivityCroppedImageProvider.h */,
-				E5D0858D1CD8D30000226589 /* TOActivityCroppedImageProvider.m */,
-				E5D0858E1CD8D30000226589 /* TOCroppedImageAttributes.h */,
-				E5D0858F1CD8D30000226589 /* TOCroppedImageAttributes.m */,
-				E5D085901CD8D30000226589 /* TOCropViewControllerTransitioning.h */,
-				E5D085911CD8D30000226589 /* TOCropViewControllerTransitioning.m */,
-				E5D085921CD8D30000226589 /* UIImage+CropRotate.h */,
-				E5D085931CD8D30000226589 /* UIImage+CropRotate.m */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		E5D0859C1CD8D30000226589 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E5D0859D1CD8D30000226589 /* TOCropOverlayView.h */,
-				E5D0859E1CD8D30000226589 /* TOCropOverlayView.m */,
-				E5D0859F1CD8D30000226589 /* TOCropScrollView.h */,
-				E5D085A01CD8D30000226589 /* TOCropScrollView.m */,
-				E5D085A11CD8D30000226589 /* TOCropToolbar.h */,
-				E5D085A21CD8D30000226589 /* TOCropToolbar.m */,
-				E5D085A31CD8D30000226589 /* TOCropView.h */,
-				E5D085A41CD8D30000226589 /* TOCropView.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		E5D694C31D59574D002F2AEC /* Input */ = {
 			isa = PBXGroup;
 			children = (
@@ -1871,8 +1868,8 @@
 		E5DFDBFD1CB2C31B00BB3D27 /* ExternalLibs */ = {
 			isa = PBXGroup;
 			children = (
+				85EBF3891DD5171400754360 /* TOCropViewController */,
 				E5B6B5EE1CC5A7C800DC8EFC /* cocos2d.xcodeproj */,
-				E5D0857E1CD8D30000226589 /* TOCropViewController */,
 			);
 			path = ExternalLibs;
 			sourceTree = "<group>";
@@ -1969,16 +1966,14 @@
 		F89B9B6C7903A7912D4CD2E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E5AEDA781D1CCC50006D4296 /* opencv2.framework */,
-				E5AEDA631D1CB467006D4296 /* opencv2.framework */,
-				E5AEDA5C1D1CB1EB006D4296 /* opencv2.framework */,
+				85EBF3811DD5154400754360 /* GraffiTab_iOS_SDK.framework */,
+				85EBF37D1DD5152900754360 /* GraffiTab_iOS_SDK.framework */,
 				E55452EF1CF3507D0076CEC9 /* AddressBookUI.framework */,
 				E57295D01CEB2FE400875AF3 /* libsqlite3.tbd */,
 				E53F3FB21CEAB6F400537D1B /* MobileCoreServices.framework */,
 				E53F3FB01CEAB6DE00537D1B /* libz.tbd */,
 				E53F3FAE1CEAB6D000537D1B /* libc++.tbd */,
 				E53F3FAC1CEAB69600537D1B /* AdobeCreativeSDKImage.framework */,
-				E58432CE1CE9421A00FB1E50 /* GraffiTab_iOS_SDK.framework */,
 				E57FAB221CD224B700C0D125 /* Photos.framework */,
 				E57FAB1A1CD2245500C0D125 /* AssetsLibrary.framework */,
 				E5B6B6071CC5A8CE00DC8EFC /* CoreGraphics.framework */,
@@ -1988,7 +1983,6 @@
 				E5B6B5FF1CC5A89200DC8EFC /* GLKit.framework */,
 				E510067F1CB7F41C00AC66A5 /* MapKit.framework */,
 				E510067D1CB7F41000AC66A5 /* CoreLocation.framework */,
-				E5DFDC1B1CB2C61500BB3D27 /* GraffiTab_iOS_SDK.framework */,
 				E5DFDC191CB2C5D900BB3D27 /* OpenGLES.framework */,
 				E5DFDC171CB2C5D100BB3D27 /* SystemConfiguration.framework */,
 				E5DFDC151CB2C5C900BB3D27 /* AVFoundation.framework */,
@@ -2034,7 +2028,7 @@
 				E5DFDBD01CB2BF9E00BB3D27 /* Resources */,
 				7EA2372C146857745E60E532 /* [CP] Embed Pods Frameworks */,
 				1749F4D5124E8DE931B8F539 /* [CP] Copy Pods Resources */,
-				E5DFDC1E1CB2C61500BB3D27 /* Embed Frameworks */,
+				85EBF3801DD5152A00754360 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2068,7 +2062,7 @@
 					};
 					E5DFDBD11CB2BF9E00BB3D27 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 869AJN3V33;
+						DevelopmentTeam = 38YB3T9LUN;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -2166,6 +2160,7 @@
 				E536A2E91D5170C700D82E34 /* AskPermissionViewController.xib in Resources */,
 				E56293A31D7DECA100283F53 /* onboard_pad_l_5.png in Resources */,
 				E58432AC1CE9242000FB1E50 /* CommentCell.xib in Resources */,
+				85EBF3B51DD5171400754360 /* TOCropViewControllerLocalizable.strings in Resources */,
 				E5FE1D7F1CFEF71B009CFB72 /* Localizable.strings in Resources */,
 				E56293781D7DDA7700283F53 /* onboard_1.png in Resources */,
 				E58432AD1CE9242000FB1E50 /* Brush.png in Resources */,
@@ -2192,7 +2187,6 @@
 				E58432BA1CE9242000FB1E50 /* UserListCell.xib in Resources */,
 				E562939D1D7DECA100283F53 /* onboard_pad_l_2.png in Resources */,
 				E58432BB1CE9242000FB1E50 /* release_notes.html in Resources */,
-				E58432BC1CE9242000FB1E50 /* TOCropViewControllerLocalizable.strings in Resources */,
 				E5494E5B1D19A1F5004F31A7 /* OnboardingStoryboard.storyboard in Resources */,
 				E5C3693F1D2163D8005FA4A0 /* GoogleService-Info.plist in Resources */,
 				E56293921D7DE38100283F53 /* onboard_pad_4.png in Resources */,
@@ -2252,6 +2246,7 @@
 				E562938B1D7DE38100283F53 /* onboard_pad_1.png in Resources */,
 				E536A2F51D52139800D82E34 /* permission_location_when_in_use.png in Resources */,
 				E5FE1D7E1CFEF71B009CFB72 /* Localizable.strings in Resources */,
+				85EBF3B41DD5171400754360 /* TOCropViewControllerLocalizable.strings in Resources */,
 				E56293911D7DE38100283F53 /* onboard_pad_4.png in Resources */,
 				E55452EA1CF336CC0076CEC9 /* LocationListCell.xib in Resources */,
 				E5F40D061D50100400832D92 /* OnboardingScreenView.xib in Resources */,
@@ -2259,7 +2254,6 @@
 				E58432CD1CE940F900FB1E50 /* Release-Info.plist in Resources */,
 				E554CFDC1CB5641B00668D85 /* release_notes.html in Resources */,
 				E562937D1D7DDA7700283F53 /* onboard_4.png in Resources */,
-				E5D085A71CD8D30000226589 /* TOCropViewControllerLocalizable.strings in Resources */,
 				E56293791D7DDA7700283F53 /* onboard_2.png in Resources */,
 				E5B6B5A71CC56F5800DC8EFC /* MainStoryboard.storyboard in Resources */,
 				E56293931D7DE38100283F53 /* onboard_pad_5.png in Resources */,
@@ -2403,7 +2397,6 @@
 				E58432301CE9242000FB1E50 /* FeedViewController.swift in Sources */,
 				E5A3A84C1D900D860001138A /* GTLocation+Utils.swift in Sources */,
 				E58432311CE9242000FB1E50 /* ActivityGroupCreateCell.swift in Sources */,
-				E58432321CE9242000FB1E50 /* TOActivityCroppedImageProvider.m in Sources */,
 				E58432331CE9242000FB1E50 /* AutocompleteUserCell.swift in Sources */,
 				E58432341CE9242000FB1E50 /* ActivitySingleCreateCell.swift in Sources */,
 				E59BC3011D12B4EF009781BA /* TrendingUsersViewController.swift in Sources */,
@@ -2418,10 +2411,11 @@
 				E59A58761DB01C33005EE0A9 /* StreamableAnnotationView.swift in Sources */,
 				E584323C1CE9242000FB1E50 /* WebViewController.swift in Sources */,
 				E584323D1CE9242000FB1E50 /* HomeViewController.swift in Sources */,
-				E584323E1CE9242000FB1E50 /* TOCropViewControllerTransitioning.m in Sources */,
 				E584323F1CE9242000FB1E50 /* DateUtils.swift in Sources */,
 				E5FE1DA31D0060F9009CFB72 /* ClusterViewController.swift in Sources */,
+				85EBF3C11DD5171400754360 /* TOCropViewController.m in Sources */,
 				E59BC3151D17DDF8009781BA /* SocialFriendsViewController.swift in Sources */,
+				85EBF3B91DD5171400754360 /* TOActivityCroppedImageProvider.m in Sources */,
 				E58432411CE9242000FB1E50 /* DrawToolCell.swift in Sources */,
 				E59BC2F41D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */,
 				E58432421CE9242000FB1E50 /* StreamableCell.swift in Sources */,
@@ -2429,7 +2423,6 @@
 				E5B357961D8FE96E00DA6809 /* ImageCellDismissalAnimator.swift in Sources */,
 				E5D3748E1D07417800A60343 /* DeployGateLogger.swift in Sources */,
 				E59BC30F1D175466009781BA /* LinkedAccountsViewController.swift in Sources */,
-				E58432431CE9242000FB1E50 /* TOCroppedImageAttributes.m in Sources */,
 				E58432441CE9242000FB1E50 /* LikersViewController.swift in Sources */,
 				E58432451CE9242000FB1E50 /* DialogBuilder.swift in Sources */,
 				E58432461CE9242000FB1E50 /* NotificationMentionCell.swift in Sources */,
@@ -2438,7 +2431,6 @@
 				E5F40CF31D4AE41E00832D92 /* AvatarPromptViewController.swift in Sources */,
 				E584324A1CE9242000FB1E50 /* ExploreViewController.swift in Sources */,
 				E584324B1CE9242000FB1E50 /* CustomInfiniteIndicator.swift in Sources */,
-				E584324C1CE9242000FB1E50 /* TOCropToolbar.m in Sources */,
 				E536A2F01D51827B00D82E34 /* GTPermissionsManager.swift in Sources */,
 				E584324D1CE9242000FB1E50 /* GenericUsersViewController.swift in Sources */,
 				E584324E1CE9242000FB1E50 /* ActivityGroupCommentCell.swift in Sources */,
@@ -2447,6 +2439,7 @@
 				E584324F1CE9242000FB1E50 /* LoginViewController.swift in Sources */,
 				E5A3A84E1D900D860001138A /* GTUser+Utils.swift in Sources */,
 				E58432501CE9242000FB1E50 /* InputValidator.swift in Sources */,
+				85EBF3BB1DD5171400754360 /* TOCroppedImageAttributes.m in Sources */,
 				E58432511CE9242000FB1E50 /* StreamableGridCell.swift in Sources */,
 				E5FFCE5D1DA7BF89002D2E1B /* ToolType+Utils.swift in Sources */,
 				E58432521CE9242000FB1E50 /* ColorSprayCanCell.swift in Sources */,
@@ -2455,7 +2448,6 @@
 				E58432551CE9242000FB1E50 /* NotificationLikeCell.swift in Sources */,
 				E58432561CE9242000FB1E50 /* UserListCell.swift in Sources */,
 				E58432571CE9242000FB1E50 /* ActivityGroupLikeCell.swift in Sources */,
-				E58432581CE9242000FB1E50 /* TOCropOverlayView.m in Sources */,
 				E5D694C71D595766002F2AEC /* InputUsernameViewController.swift in Sources */,
 				E58432591CE9242000FB1E50 /* CCViewController.m in Sources */,
 				E584325A1CE9242000FB1E50 /* TintImageView.swift in Sources */,
@@ -2465,7 +2457,6 @@
 				E584325C1CE9242000FB1E50 /* AutocompleteHashCell.swift in Sources */,
 				E584325D1CE9242000FB1E50 /* ActivitySingleLikeCell.swift in Sources */,
 				E536A2E71D5170C700D82E34 /* AskPermissionViewController.swift in Sources */,
-				E584325E1CE9242000FB1E50 /* TOCropViewController.m in Sources */,
 				E584325F1CE9242000FB1E50 /* TrendingViewController.swift in Sources */,
 				E5A1D66D1D2316880027E438 /* GTDeviceMotionManager.swift in Sources */,
 				E58432601CE9242000FB1E50 /* UserLikedStreamablesViewController.swift in Sources */,
@@ -2477,6 +2468,7 @@
 				E58432651CE9242000FB1E50 /* BackButtonSlackViewController.swift in Sources */,
 				E55452D61CF3154C0076CEC9 /* LocationsViewController.swift in Sources */,
 				E58432661CE9242000FB1E50 /* NotificationFollowCell.swift in Sources */,
+				85EBF3C31DD5171400754360 /* TOCropOverlayView.m in Sources */,
 				E5C3694A1D216727005FA4A0 /* AnalyticsUtils.swift in Sources */,
 				E58432671CE9242000FB1E50 /* CreateViewController.swift in Sources */,
 				E58432681CE9242000FB1E50 /* StreamableListFullCell.swift in Sources */,
@@ -2485,6 +2477,7 @@
 				E584326A1CE9242000FB1E50 /* AboutViewController.swift in Sources */,
 				E5A3A8561D900F1C0001138A /* UIToolBar+Utils.swift in Sources */,
 				E584326B1CE9242000FB1E50 /* AppDelegate.swift in Sources */,
+				85EBF3BD1DD5171400754360 /* TOCropViewControllerTransitioning.m in Sources */,
 				E584326C1CE9242000FB1E50 /* MenuContainerViewController.swift in Sources */,
 				E55452F41CF3586F0076CEC9 /* GoogleStaticApiUtils.swift in Sources */,
 				E584326D1CE9242000FB1E50 /* GridStreamablesViewController.swift in Sources */,
@@ -2497,22 +2490,25 @@
 				E58432731CE9242000FB1E50 /* UserStreamablesViewController.swift in Sources */,
 				E58432741CE9242000FB1E50 /* StreamableDetailViewController.swift in Sources */,
 				E58432751CE9242000FB1E50 /* SignUpViewController.swift in Sources */,
+				85EBF3C51DD5171400754360 /* TOCropScrollView.m in Sources */,
 				E5571B591D66465A00BDA004 /* GTLightTheme.swift in Sources */,
 				E58432761CE9242000FB1E50 /* StreamableAnnotation.swift in Sources */,
 				E58432771CE9242000FB1E50 /* ActivityGroupCell.swift in Sources */,
-				E58432791CE9242000FB1E50 /* TOCropScrollView.m in Sources */,
 				E55452EE1CF340C20076CEC9 /* CreateLocationViewController.swift in Sources */,
 				E584327A1CE9242000FB1E50 /* MenuCell.swift in Sources */,
 				E59BC2FC1D12B423009781BA /* UserTrendingCell.swift in Sources */,
 				E5A3A8411D900C6A0001138A /* ViewController+ImagePicker.swift in Sources */,
 				E5A3A8481D900D860001138A /* GTComment+Utils.swift in Sources */,
+				85EBF3C91DD5171400754360 /* TOCropView.m in Sources */,
 				E584327B1CE9242000FB1E50 /* UserCell.swift in Sources */,
 				E584327D1CE9242000FB1E50 /* IntroScene.m in Sources */,
 				E5F46CAF1D5B831D00F52256 /* LanguageViewController.swift in Sources */,
 				E584327E1CE9242000FB1E50 /* ColorSprayCan.swift in Sources */,
 				E584327F1CE9242000FB1E50 /* ActivityGroupFollowCell.swift in Sources */,
+				85EBF3BF1DD5171400754360 /* UIImage+CropRotate.m in Sources */,
 				E59A58731DB00A53005EE0A9 /* ClusterAnnotationView.swift in Sources */,
 				E58432801CE9242000FB1E50 /* SearchStreamablesViewController.swift in Sources */,
+				85EBF3C71DD5171400754360 /* TOCropToolbar.m in Sources */,
 				E58432811CE9242000FB1E50 /* ToggleStreamablesViewController.swift in Sources */,
 				E58432831CE9242000FB1E50 /* LineDrawer.m in Sources */,
 				E58432841CE9242000FB1E50 /* StreamableTrendingCell.swift in Sources */,
@@ -2523,7 +2519,6 @@
 				E58432891CE9242000FB1E50 /* EditTextFieldViewController.swift in Sources */,
 				E5A1D66C1D2310300027E438 /* GTNetworkManager.swift in Sources */,
 				E584328A1CE9242000FB1E50 /* ZoomableImageView.m in Sources */,
-				E584328B1CE9242000FB1E50 /* UIImage+CropRotate.m in Sources */,
 				E5F40D041D500FF300832D92 /* OnboardingScreenView.swift in Sources */,
 				E5A3A8351D900BFD0001138A /* UINavigationController+Utils.swift in Sources */,
 				E584328C1CE9242000FB1E50 /* TrendingStreamablesViewController.swift in Sources */,
@@ -2531,7 +2526,6 @@
 				E5E490ED1D907CA600486AD6 /* UserMentionsViewController.swift in Sources */,
 				E584328E1CE9242000FB1E50 /* ListUsersViewController.swift in Sources */,
 				E584328F1CE9242000FB1E50 /* MyNotificationsViewController.swift in Sources */,
-				E58432911CE9242000FB1E50 /* TOCropView.m in Sources */,
 				E5C61C891D65A51B00BBFA87 /* GTDarkTheme.swift in Sources */,
 				E58432921CE9242000FB1E50 /* RecentViewController.swift in Sources */,
 				E5A3A82E1D900B5F0001138A /* UINavigationBar+Utils.swift in Sources */,
@@ -2578,7 +2572,6 @@
 				E5F40D161D502DD100832D92 /* OnboardingScreen.swift in Sources */,
 				E5A3A84B1D900D860001138A /* GTLocation+Utils.swift in Sources */,
 				E51006D41CBC205000AC66A5 /* ActivityGroupCreateCell.swift in Sources */,
-				E5D085A81CD8D30000226589 /* TOActivityCroppedImageProvider.m in Sources */,
 				E5DAA89D1CE37A5F000CB2F4 /* AutocompleteUserCell.swift in Sources */,
 				E51006C21CBC118B00AC66A5 /* ActivitySingleCreateCell.swift in Sources */,
 				E59BC3001D12B4EF009781BA /* TrendingUsersViewController.swift in Sources */,
@@ -2594,9 +2587,10 @@
 				E50564D41CEC882B00A42E56 /* MaterializeRoundButton.swift in Sources */,
 				E52DC77D1CE5E0BD00375828 /* WebViewController.swift in Sources */,
 				E5B6B5A51CC56F5800DC8EFC /* HomeViewController.swift in Sources */,
-				E5D085AA1CD8D30000226589 /* TOCropViewControllerTransitioning.m in Sources */,
 				E51006671CB7CE2300AC66A5 /* DateUtils.swift in Sources */,
+				85EBF3C01DD5171400754360 /* TOCropViewController.m in Sources */,
 				E5FE1DA21D0060F9009CFB72 /* ClusterViewController.swift in Sources */,
+				85EBF3B81DD5171400754360 /* TOActivityCroppedImageProvider.m in Sources */,
 				E59BC3141D17DDF8009781BA /* SocialFriendsViewController.swift in Sources */,
 				E57FAB261CD4106E00C0D125 /* DrawToolCell.swift in Sources */,
 				E59BC2F31D11B43F009781BA /* SwimLaneStreamablesViewController.swift in Sources */,
@@ -2605,7 +2599,6 @@
 				E5FE1DA51D006154009CFB72 /* StaticStreamablesViewController.swift in Sources */,
 				E5D3748D1D07417800A60343 /* DeployGateLogger.swift in Sources */,
 				E59BC30E1D175466009781BA /* LinkedAccountsViewController.swift in Sources */,
-				E5D085A91CD8D30000226589 /* TOCroppedImageAttributes.m in Sources */,
 				E52DC7761CE5E09900375828 /* LikersViewController.swift in Sources */,
 				E5DFDC021CB2C31B00BB3D27 /* DialogBuilder.swift in Sources */,
 				E51006A91CBBDE8700AC66A5 /* NotificationMentionCell.swift in Sources */,
@@ -2614,7 +2607,6 @@
 				E5F40CF21D4AE41E00832D92 /* AvatarPromptViewController.swift in Sources */,
 				E5B6B5CF1CC56F5800DC8EFC /* ExploreViewController.swift in Sources */,
 				E52DC7381CE5085900375828 /* CustomInfiniteIndicator.swift in Sources */,
-				E5D085AF1CD8D30000226589 /* TOCropToolbar.m in Sources */,
 				E536A2EF1D51827B00D82E34 /* GTPermissionsManager.swift in Sources */,
 				E51006F11CBD193E00AC66A5 /* GenericUsersViewController.swift in Sources */,
 				E51006D71CBC210F00AC66A5 /* ActivityGroupCommentCell.swift in Sources */,
@@ -2622,6 +2614,7 @@
 				E592625E1D0197E400368212 /* ProfileFollowButton.swift in Sources */,
 				E5A3A84D1D900D860001138A /* GTUser+Utils.swift in Sources */,
 				E505676B1D0F0B4F00D2F245 /* StaticUsersViewController.swift in Sources */,
+				85EBF3BA1DD5171400754360 /* TOCroppedImageAttributes.m in Sources */,
 				E5B6B5DB1CC56F5800DC8EFC /* LoginViewController.swift in Sources */,
 				E5FFCE5C1DA7BF89002D2E1B /* ToolType+Utils.swift in Sources */,
 				E5DFDC031CB2C31B00BB3D27 /* InputValidator.swift in Sources */,
@@ -2635,7 +2628,6 @@
 				E51006FA1CBD1C3B00AC66A5 /* UserListCell.swift in Sources */,
 				E51006D11CBC1F9700AC66A5 /* ActivityGroupLikeCell.swift in Sources */,
 				E5D694C61D595766002F2AEC /* InputUsernameViewController.swift in Sources */,
-				E5D085AD1CD8D30000226589 /* TOCropOverlayView.m in Sources */,
 				E5B6B6271CC630B000DC8EFC /* CCViewController.m in Sources */,
 				E5DFDC061CB2C31B00BB3D27 /* TintImageView.swift in Sources */,
 				E5F46CB71D5B86F200F52256 /* AppConfig.swift in Sources */,
@@ -2644,7 +2636,6 @@
 				E5DAA8971CE37A26000CB2F4 /* AutocompleteHashCell.swift in Sources */,
 				E536A2E61D5170C700D82E34 /* AskPermissionViewController.swift in Sources */,
 				E51006BF1CBC0FA100AC66A5 /* ActivitySingleLikeCell.swift in Sources */,
-				E5D085AC1CD8D30000226589 /* TOCropViewController.m in Sources */,
 				E52DC77A1CE5E09900375828 /* TrendingViewController.swift in Sources */,
 				E52DC7621CE5DA2A00375828 /* UserLikedStreamablesViewController.swift in Sources */,
 				E5A3A8491D900D860001138A /* GTError+Utils.swift in Sources */,
@@ -2652,6 +2643,7 @@
 				E592625B1D018C7300368212 /* AppImageCache.swift in Sources */,
 				E5A4F12E1CE225AA005CF12C /* CommentCell.swift in Sources */,
 				E5A4F1291CE21F5A005CF12C /* BackButtonSlackViewController.swift in Sources */,
+				85EBF3C21DD5171400754360 /* TOCropOverlayView.m in Sources */,
 				E55452D51CF3154C0076CEC9 /* LocationsViewController.swift in Sources */,
 				E51006A01CBBC0FD00AC66A5 /* NotificationFollowCell.swift in Sources */,
 				E5C369491D216727005FA4A0 /* AnalyticsUtils.swift in Sources */,
@@ -2660,6 +2652,7 @@
 				E5FE1D8A1CFF7DFE009CFB72 /* AssetImageView.swift in Sources */,
 				E5A3A8551D900F1C0001138A /* UIToolBar+Utils.swift in Sources */,
 				E51006301CB71C5900AC66A5 /* GenericStreamablesViewController.swift in Sources */,
+				85EBF3BC1DD5171400754360 /* TOCropViewControllerTransitioning.m in Sources */,
 				E52DC76E1CE5E05600375828 /* AboutViewController.swift in Sources */,
 				E5DFDBD61CB2BF9E00BB3D27 /* AppDelegate.swift in Sources */,
 				E5B6B5B91CC56F5800DC8EFC /* MenuContainerViewController.swift in Sources */,
@@ -2672,22 +2665,25 @@
 				E52DC7561CE55F1300375828 /* UserProfileViewController.swift in Sources */,
 				E52DC75F1CE56B7D00375828 /* UserStreamablesViewController.swift in Sources */,
 				E52DC7801CE5E37A00375828 /* StreamableDetailViewController.swift in Sources */,
+				85EBF3C41DD5171400754360 /* TOCropScrollView.m in Sources */,
 				E5B6B5DF1CC56F5800DC8EFC /* SignUpViewController.swift in Sources */,
 				E5571B581D66465A00BDA004 /* GTLightTheme.swift in Sources */,
 				E51006DF1CBCF6B000AC66A5 /* StreamableAnnotation.swift in Sources */,
 				E51006CE1CBC1B9C00AC66A5 /* ActivityGroupCell.swift in Sources */,
-				E5D085AE1CD8D30000226589 /* TOCropScrollView.m in Sources */,
 				E5B357801D8FE90A00DA6809 /* UIApplication+Utils.swift in Sources */,
 				E55452ED1CF340C20076CEC9 /* CreateLocationViewController.swift in Sources */,
 				E5A3A8401D900C6A0001138A /* ViewController+ImagePicker.swift in Sources */,
 				E5A3A8471D900D860001138A /* GTComment+Utils.swift in Sources */,
+				85EBF3C81DD5171400754360 /* TOCropView.m in Sources */,
 				E51005F41CB69BDE00AC66A5 /* MenuCell.swift in Sources */,
 				E59BC2FB1D12B423009781BA /* UserTrendingCell.swift in Sources */,
 				E51006F51CBD1B0000AC66A5 /* UserCell.swift in Sources */,
 				E5B6B63D1CC6C40C00DC8EFC /* IntroScene.m in Sources */,
 				E5F46CAE1D5B831D00F52256 /* LanguageViewController.swift in Sources */,
+				85EBF3BE1DD5171400754360 /* UIImage+CropRotate.m in Sources */,
 				E59A58721DB00A53005EE0A9 /* ClusterAnnotationView.swift in Sources */,
 				E5B6B62E1CC64D4400DC8EFC /* ColorSprayCan.swift in Sources */,
+				85EBF3C61DD5171400754360 /* TOCropToolbar.m in Sources */,
 				E51006C81CBC199B00AC66A5 /* ActivityGroupFollowCell.swift in Sources */,
 				E5B6B5BD1CC56F5800DC8EFC /* SearchStreamablesViewController.swift in Sources */,
 				E52DC7651CE5DD2E00375828 /* ToggleStreamablesViewController.swift in Sources */,
@@ -2699,7 +2695,6 @@
 				E5B6B5BF1CC56F5800DC8EFC /* SearchUsersViewController.swift in Sources */,
 				E5B6B5AD1CC56F5800DC8EFC /* EditTextFieldViewController.swift in Sources */,
 				E57716881CE6008600006572 /* ZoomableImageView.m in Sources */,
-				E5D085AB1CD8D30000226589 /* UIImage+CropRotate.m in Sources */,
 				E5A3A8341D900BFD0001138A /* UINavigationController+Utils.swift in Sources */,
 				E51006361CB71EE400AC66A5 /* TrendingStreamablesViewController.swift in Sources */,
 				E5F40D031D500FF300832D92 /* OnboardingScreenView.swift in Sources */,
@@ -2707,7 +2702,6 @@
 				E52DC7741CE5E09900375828 /* CommentsViewController.swift in Sources */,
 				E51006FF1CBD1EBF00AC66A5 /* ListUsersViewController.swift in Sources */,
 				E5B6B5B71CC56F5800DC8EFC /* MyNotificationsViewController.swift in Sources */,
-				E5D085B01CD8D30000226589 /* TOCropView.m in Sources */,
 				E52DC7781CE5E09900375828 /* RecentViewController.swift in Sources */,
 				E5A3A82D1D900B5F0001138A /* UINavigationBar+Utils.swift in Sources */,
 				E5C61C881D65A51B00BBFA87 /* GTDarkTheme.swift in Sources */,
@@ -2725,28 +2719,28 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E5D0857F1CD8D30000226589 /* TOCropViewControllerLocalizable.strings */ = {
+		85EBF38A1DD5171400754360 /* TOCropViewControllerLocalizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E5D085801CD8D30000226589 /* ar */,
-				E5D085811CD8D30000226589 /* Base */,
-				E5D085821CD8D30000226589 /* da */,
-				E5D085831CD8D30000226589 /* de */,
-				E5D085841CD8D30000226589 /* en */,
-				E5D085851CD8D30000226589 /* es */,
-				E5D085861CD8D30000226589 /* fr */,
-				E5D085871CD8D30000226589 /* id */,
-				E5D085881CD8D30000226589 /* it */,
-				E5D085891CD8D30000226589 /* ja */,
-				E5D0858A1CD8D30000226589 /* ko */,
-				E5D085941CD8D30000226589 /* nl */,
-				E5D085951CD8D30000226589 /* pl */,
-				E5D085961CD8D30000226589 /* pt */,
-				E5D085971CD8D30000226589 /* ru */,
-				E5D0859A1CD8D30000226589 /* tr */,
-				E5D0859B1CD8D30000226589 /* vi */,
-				E5D085A51CD8D30000226589 /* zh-Hans */,
-				E5D085A61CD8D30000226589 /* zh-Hant */,
+				85EBF38B1DD5171400754360 /* ar */,
+				85EBF38C1DD5171400754360 /* Base */,
+				85EBF38D1DD5171400754360 /* da */,
+				85EBF38E1DD5171400754360 /* de */,
+				85EBF38F1DD5171400754360 /* en */,
+				85EBF3901DD5171400754360 /* es */,
+				85EBF3911DD5171400754360 /* fr */,
+				85EBF3921DD5171400754360 /* id */,
+				85EBF3941DD5171400754360 /* it */,
+				85EBF3951DD5171400754360 /* ja */,
+				85EBF3961DD5171400754360 /* ko */,
+				85EBF3A01DD5171400754360 /* nl */,
+				85EBF3A11DD5171400754360 /* pl */,
+				85EBF3A21DD5171400754360 /* pt */,
+				85EBF3A31DD5171400754360 /* ru */,
+				85EBF3A71DD5171400754360 /* tr */,
+				85EBF3A81DD5171400754360 /* vi */,
+				85EBF3B21DD5171400754360 /* zh-Hans */,
+				85EBF3B31DD5171400754360 /* zh-Hant */,
 			);
 			name = TOCropViewControllerLocalizable.strings;
 			sourceTree = "<group>";

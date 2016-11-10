@@ -84,7 +84,7 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
         cropController.delegate = self
         if !resizingEnabled() {
             cropController.cropView.cropBoxResizeEnabled = false
-            cropController.aspectRatioLocked = true
+            cropController.aspectRatioLockEnabled = true
         }
         if !resetEnabled() {
             cropController.cropView.delegate = nil
@@ -97,7 +97,7 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
         presentViewController(cropController, animated: true, completion: {
             UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: .Fade)
             
-            cropController.cropView.setAspectLockEnabledWithAspectRatio(self.cropAspectRatio(), animated: true)
+            cropController.cropView.setAspectRatio(self.cropAspectRatio(), animated: true)
         })
     }
     
